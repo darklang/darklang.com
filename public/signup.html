@@ -1,0 +1,184 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link href="/public/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+</head>
+<body class="bg-background text-white box-border mx-auto w-full">
+  
+  <!-- Navbar -->
+  <nav class="bg-background px-2 sm:px-4 py-2.5 mx-auto container pt-11">
+    <div class="container flex flex-wrap md:flex-nowrap sm:flex-wrap xs:flex-wrap items-center justify-between mx-auto">
+    <a href="" class="flex items-center">
+        <img src="../img/logo.png" class="h-6 mr-3 sm:h-9" alt="Darklang logo">
+    </a>
+    <div class="flex md:order-2">
+      
+        <button type="button" class=" px-5 py-2.5 text-center mr-3 md:mr-0">        
+          <div id="dark-classic-btn" class="group md:inline-block relative hidden ">
+          <div class="text-pink font-semibold inline-flex items-center">
+            <span class="mr-1">Darlang classic</span>
+            <svg
+              class="fill-current h-4 w-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20">
+              <path
+                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+              />
+            </svg>
+          </div>
+          <div class="absolute hidden w-full text-white bg-gradient-to-b from-gray-900 to-gray-800 pt-1 group-hover:block rounded-b-lg">
+          <ul>
+            <li>
+              <a class=" hover:bg-indigo-400 py-2 px-4 block" href="#">Log in</a>
+            </li>
+            <li>
+              <a class=" hover:bg-indigo-400 py-2 px-4 block" href="../dist/signup.html">Sign up</a>
+            </li>
+          </ul>
+        </div> </button>
+        <button id="menu-button" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none  " aria-expanded="false">
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="menu">
+      <ul class="flex flex-col p-4 mt-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+        <li>
+          <a href="https://docs.darklang.com/introduction" target=”_blank” class="text-white">Documentation</a>
+        </li>
+        <li>
+          <a href="https://blog.darklang.com" target=”_blank” class="text-white">Blog</a>
+        </li>
+        <li>
+          <a href="https://discord.com/invite/rrJKSUQJMH" target=”_blank” class="text-white">Discord</a>
+        </li>
+        <li>
+          <a href="https://github.com/darklang/dark" target=”_blank” class="text-white">Github</a>
+        </li>
+        <li>
+          <a href="https://github.com/sponsors/darklang" target=”_blank” class="text-white">Sponsor us</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+
+
+  <!-- Sign up form -->
+
+    <section class=" mt-8 pb-4 bg-gradient-to-b from-background via-background/30 to-white/5">
+      <div class="container flex flex-col justify-center items-center mx-auto text-center">
+        <p class="max-w-md text-5xl font-semibold text-center text-white mt-4">
+            Darklang<span class="text-purple">Classic</span>
+          </p>
+          <p class="text-center font-medium text-2xl text-white mt-11">
+            Thank you for your interest in Dark's beta! We're excited to get you set up and hear what you think
+          </p>
+     </div>
+
+     <!-- before:content-[''] before:bg-gradient-to-b before:from-blue-600 before:to-blue-300 before:w-[300px] before:h-[300px] before:top-[-25%] before:left-[-25%] before:absolute before:animate-borderSpin -->
+    <div class="rounded-lg mx-auto mt-16 border-2 border-pink lg:w-[450px] h-[480px] xs:w-[375px] bg-background/20">
+        <form action="" class=" flex flex-col justify-center items-center py-10 ">
+            <h2 class="text-transparent text-3xl bg-clip-text bg-gradient-to-b from-white to-gray-900">Sign up</h2>
+            <div class="w-80 border-b border-gray-400 mt-8">
+                <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 focus:outline-none text-sm" placeholder="Name" type="text" required>
+            </div>
+            <div class="w-80 border-b border-gray-400 mt-8">
+                <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 focus:outline-none text-sm" placeholder="Password" type="password" required>
+            </div>
+            <div class="w-80 border-b border-gray-400 mt-8">
+                <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 focus:outline-none text-sm" placeholder="Username" type="text" required>
+            </div>
+            <div class="my-8 lg:ml-16 xs:ml-11 mr-11 flex ">
+                <input type="checkbox" name="code-of-conduct" id="code-of-conduct" class="rounded bg-black focus:ring-0 text-pink mr-2">
+                <label for="code-of-conduct" class="text-xs">I promise to abide by the Code of Conduct when using Dark services or participating in the Dark community.</label>
+            </div>
+            <button class="boredr-px bg-gradient-to-r from-pink to-pink/50 text-white px-5 py-2 rounded mb-3">Create account</button>
+            <p class="text-xs text-gray-600">Already have an account? <a href="" target="_blank" class="underline underline-offset-2">log in</a></p>
+        </form>
+    </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class=" text-white lg:flex md:flex sm:inline-block xs:inline-block flex-1 justify-between mt-20 mb-10 mx-20 sm:mx-3 xs:mx-3 ">
+        <div class="lg:w-1/2 xs:w-full xs:flex xs:flex-col xs:justify-center xs:items-center">
+          <div>
+              <a href="index.html"><img src="../img/logo.png" class="w-48" alt="logo"></a>
+          </div>
+  
+          <div class="text-sm text-gray-600 ml-5">
+              <p>Copyright &copy; 2023 Dark Inc.</p>
+          </div>
+  
+          <div class="mt-6 mx-4 text-2xl">
+            <a href="https://github.com/darklang/dark" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/darklang" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://discord.com/invite/rrJKSUQJMH" target="_blank"><i class="fab fa-discord "></i></a>
+            <a href="https://www.youtube.com/channel/UCYUv1H0ENhZa4lNjOL-EiYg" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/darklang/?original_referer=" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://dev.to/darklang" target="_blank"><i class="fab fa-dev"></i></a>
+          </div>
+        </div>
+  
+        <div class="container flex lg:flex-row justify-around sm:flex-row xs:flex-col xs:items-start lg:mt-0 xs:mt-16">
+          <div>
+            <h5 class="font-medium mb-2">Product</h5>
+            <ul class="text-gray-500">
+                <li><a href="#" target="_blank">Sign in</a></li>
+                <li><a href="#" target="_blank">Sign up</a></li>
+                <li><a href="#" target="_blank">Desktop client</a></li>
+                <li><a href="https://darklang.us16.list-manage.com/subscribe?u=80505145cb9174d810cff1e7c&id=c87051269b" target="_blank">Mailing list</a></li>
+                <li><a href="https://docs.darklang.com/changelog" target="_blank">Changelog</a></li>
+            </ul>
+        </div>
+  
+          <div class="">
+            <h5 class="font-medium mb-2">Learning</h5>
+            <ul class="text-gray-500">
+                <li><a href="https://www.youtube.com/watch?v=orRn2kTtRXQ" target="_blank">Demo video</a></li>
+                <li><a href="https://www.youtube.com/c/Darklang/videos" target="_blank">Tutorial video</a></li>
+                <li><a href="https://docs.darklang.com/introduction" target="_blank">Documentation</a></li>
+                <li><a href="https://docs.darklang.com/tutorials/first-dark-application" target="_blank">Tutorial</a></li>
+                <li><a href="https://docs.darklang.com/category/walk-throughs" target="_blank">Walk-throughs</a></li>
+            </ul>
+          </div>
+  
+        <div>
+          <h5 class="font-medium mb-2">Developement</h5>
+          <ul class="text-gray-500">
+              <li><a href="https://blog.darklang.com" target="_blank">Dev blog</a></li>
+              <li><a href="https://github.com/darklang/dark" target="_blank">Dark code + issues</a></li>
+              <li><a href="https://github.com/darklang/docs" target="_blank">Docs code + issue </a></li>
+              <li><a href="https://roadmap.darklang.com" target="_blank">Roadmap</a></li>
+          </ul>
+      </div>
+  
+      <div>
+        <h5 class="font-medium mb-2">Community</h5>
+        <ul class="text-gray-500">
+            <li><a href="https://discord.com/invite/rrJKSUQJMH" target="_blank">Community discord</a></li>
+            <li><a href="https://darklang.com/code-of-conduct" target="_blank">Code of conduct</a></li>
+            <li><a href="https://docs.darklang.com/contributing/getting-started" target="_blank">Contributor docs</a></li>
+        </ul>
+    </div>
+          
+    </footer>
+
+    <script>
+      const button = document.querySelector('#menu-button');
+      const menu = document.querySelector('#menu');
+      const darkClassicBtn = document.querySelector('#dark-classic-btn');
+  
+      button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        darkClassicBtn.classList.toggle('hidden');
+      });
+    </script>
+</body>
+</html>

@@ -1,1 +1,282 @@
-hello world
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darklang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="/public/style.css" rel="stylesheet">
+</head>
+<body class="bg-background box-border">
+
+    <!--Navbar-->
+      <nav class="bg-background px-2 sm:px-4 py-2.5 mx-auto container pt-11">
+        <div class="container flex flex-wrap md:flex-nowrap sm:flex-wrap xs:flex-wrap items-center justify-between mx-auto">
+        <a href="" class="flex items-center">
+            <img src="../img/logo.png" class="h-6 mr-3 sm:h-9" alt="Darklang logo">
+        </a>
+        <div class="flex md:order-2">
+          
+            <button type="button" class=" px-5 py-2.5 text-center mr-3 md:mr-0">        
+              <div id="dark-classic-btn" class="group md:inline-block relative hidden ">
+              <div class="text-pink font-semibold inline-flex items-center">
+                <span class="mr-1">Darlang classic</span>
+                <svg
+                  class="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20">
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </div>
+              <div class="absolute hidden w-full text-white bg-gradient-to-b from-gray-900 to-gray-800 pt-1 group-hover:block rounded-b-lg">
+              <ul>
+                <li>
+                  <a class=" hover:bg-indigo-400 py-2 px-4 block" href="#">Log in</a>
+                </li>
+                <li>
+                  <a class=" hover:bg-indigo-400 py-2 px-4 block" href="../public/signup.html">Sign up</a>
+                </li>
+              </ul>
+            </div> </button>
+            <button id="menu-button" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none  " aria-expanded="false">
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="menu">
+          <ul class="flex flex-col p-4 mt-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+            <li>
+              <a href="https://docs.darklang.com/introduction" target=”_blank” class="text-white">Documentation</a>
+            </li>
+            <li>
+              <a href="https://blog.darklang.com" target=”_blank” class="text-white">Blog</a>
+            </li>
+            <li>
+              <a href="https://discord.com/invite/rrJKSUQJMH" target=”_blank” class="text-white">Discord</a>
+            </li>
+            <li>
+              <a href="https://github.com/darklang/dark" target=”_blank” class="text-white">Github</a>
+            </li>
+            <li>
+              <a href="https://github.com/sponsors/darklang" target=”_blank” class="text-white">Sponsor us</a>
+            </li>
+          </ul>
+        </div>
+        </div>
+     </nav>
+
+
+
+    <!--Hero-->
+      <section class=" mt-20 bg-gradient-to-b from-background via-background/30 to-white/5">
+        <div class="container flex flex-col justify-center items-center mx-auto text-center">
+            <p class="max-w-md lg:text-6xl md:text-6xl xs:text-4xl font-semibold text-center text-white mb-4">
+              Darklang<span class="text-purple">GPT</span>
+            </p>
+            <p class="text-center font-medium text-3xl xs:text-2xl text-white md:text-left mt-8">
+                Build backends 100x easier with <span class="text-purple">AI-first</span> code generation
+            </p>
+         
+            <form action="" class="lg:w-1/3 md:w-1/2 h-14 my-11 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
+                <input type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
+                <button type="submit" class="boredr-px bg-gradient-to-r from-pink to-pink/50 text-white xl:px-5 lg:px-2 sm:px-2 xs:px-2 rounded">Join waitlist</button>
+            </form>
+            <div class="hidden md:inline-block">
+            <div class="container rounded-lg flex flex-row w-auto h-1/4 justify-center items-center mt-6 bg-gradient-to-br from-background/75 to-white/10 py-5 pl-11">
+                <div class=" w-1/2 h-1/2"><img src="../img/traficView.png" alt="Darklang-universe" class="object-contain"/></div>
+                <div class="w-1/2 h-1/2 mt-6 mx-5"><img src="../img/darklangchain.png" alt="DarklangChain" class="object-contain"/></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    
+    <!--Features-->
+      <section class="relative pt-24">
+        <div class="absolute top-0 right-0">
+          <img src="../img/grid.png" alt="grid">
+        </div>
+        <div class="container text-white mx-auto text-center lg:text-3xl xs:text-xl m-10">
+          <p class=""><span class="text-purple">Darklang </span>is a platform and language to easily develop backend cloud applications. You can build tiny applications to connect two services, or large scale applications would tens of thousands of users. Code is written using AI and instantly and safely deployed on our hosted platform.</p>
+        </div>
+
+        <div class="conainer lg:grid lg:grid-rows-2 grid-flow-col gap-4 sm:grid sm:grid-rows-3 text-white lg:mx-[6.5rem] lg:mt-28 lg:mb-40 xs:mx-11">
+          <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+            <h3 class="font-semibold text-center mt-4">No infrastructure</h3>
+              <p class="flex items-start lg:mt-6 xs:my-2">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>           
+                <span class="text-sm text-gray-500">HTTP handlers, DBs, CRONs and queues, without thinking about servers, containers, or deployment</span>
+              </p>
+          </div>
+          
+
+          <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+            <h3 class="font-semibold text-center mt-4">Scale</h3>
+            <ul class=" my-3 space-y-4 text-left text-gray-500">
+              <li class="flex items-start">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>           
+                <span class="text-sm">Use the same tool for one off scripts, prototypes, internal tools, or scale to 100,000s of MAU</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>           
+                <span class="text-sm">Pay for what you use</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+            <h3 class="font-semibold text-center mt-4">Integrations</h3>
+              <p class="flex items-start lg:mt-6 xs:my-2">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>           
+                <span class="text-sm text-gray-500">Connect to thousands of vendors and tools using built-in SDKs</span>
+              </p>
+          </div>
+
+          <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+            <h3 class="font-semibold text-center mt-4">DarklangChains</h3>
+            <ul class=" my-3 space-y-4 text-left text-gray-500">
+              <li class="flex items-start">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>           
+                <span class="text-sm">Build AI-centric applications</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>           
+                <span class="text-sm">Safely generate and execute code from your users’ prompts</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+            <h3 class="font-semibold text-center mt-4">AI-first</h3>
+            <ul class=" my-3 space-y-4 text-left text-gray-500">
+              <li class="flex items-start">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>           
+                <span class="text-sm">UX designed for AI-generated code</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink lg:mb-0 md:mb-0 xs:mb-4"></i>           
+                <span class="text-sm">Build AI-centric applications, or just build applications using AI</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+            <h3 class="font-semibold text-center mt-4">No lock-in</h3>
+              <p class="flex items-start lg:mt-6 xs:my-2">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>           
+                <span class="text-sm text-gray-500">Use AI to translate and export Darklang code to any language</span>
+              </p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Follow dark -->
+      <section class=" mt-20 bg-gradient-to-b from-background via-background/30 to-white/5 pb-28">
+        <div class="lg:mx-24 md:mx-24 xs:mx-0 lg:grid grid-cols-2 gap-1 xs:inline-block text-center md:flex sm:inline-block">
+            <p class="text-center font-medium lg:text-3xl xs:text-2xl text-white md:text-left mt-8 xs:mx-auto xs:mb-14">
+              Darklang is built in the open and supported by our community of users. You can <a href="https://github.com/darklang/dark" target="_blank" class="underline underline-offset-4 text-pink">watch</a> our repo on GitHub, <a href="https://discord.com/invite/rrJKSUQJMH" target="_blank" class="underline underline-offset-4 text-pink">join</a> the Discord, or 
+              <span class="inline-block">
+                <a href="https://github.com/sponsors/darklang" target=”_blank” class="underline-offset-4 text-purple">sponsor</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="8" viewBox="0 0 120 8" fill="none">
+                <g clip-path="url(#clip0_140_750)">
+                <path d="M120 1.13968C119.389 1.08806 118.829 1.08806 118.218 1.08806C117.607 1.08806 117.047 1.03643 116.436 0.984805C115.112 0.881552 113.84 0.726673 112.516 0.623421C110.021 0.416916 107.476 0.210411 104.981 0.158785C102.69 0.0555325 100.348 0.00390625 98.0569 0.00390625C97.4459 0.00390625 96.835 0.00390625 96.2749 0.00390625C93.9839 0.0555325 91.6928 0.0555325 89.4018 0.107159C84.056 0.262037 78.6593 0.416916 73.3135 0.675047C68.0696 0.933178 62.8256 1.19131 57.6326 1.50107C55.087 1.65595 52.4905 1.81082 49.9448 1.9657C47.1447 2.22383 44.3445 2.37871 41.5952 2.58522C35.8422 3.04985 30.14 3.46286 24.3869 3.9275C19.3975 4.34051 14.4591 4.9084 9.52058 5.63117C6.36402 6.14743 3.15655 6.71532 0 7.2832C3.61476 7.54134 7.28044 7.64459 10.9461 7.69621C13.339 7.69621 15.7319 7.64459 18.0738 7.59296C19.6012 7.54134 21.1286 7.43808 22.7068 7.33483C23.6742 7.2832 24.5906 7.17995 25.507 7.0767C28.0017 6.81857 30.5473 6.61206 33.042 6.35393C35.944 6.0958 38.7951 5.78604 41.6971 5.52791C44.65 5.26978 47.6538 5.01165 50.6067 4.75352C53.2541 4.54701 55.9525 4.34051 58.6508 4.134C61.2473 3.9275 63.8948 3.77262 66.4913 3.61774C69.1387 3.46286 71.7353 3.30798 74.3827 3.15311C77.081 2.99823 79.7285 2.9466 82.4268 2.84335C87.3144 2.63684 92.202 2.58522 97.1404 2.53359C99.8897 2.53359 102.588 2.43034 105.337 2.32709C108.036 2.22383 110.734 2.12058 113.381 1.9657C114.451 1.91408 115.571 1.86245 116.64 1.7592C117.149 1.70757 117.709 1.65595 118.218 1.55269C118.676 1.44944 119.134 1.29456 119.593 1.24294C119.745 1.19131 119.847 1.13968 120 1.13968Z" fill="#A4AAFF"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_140_750">
+                <rect width="120" height="7.69231" fill="white" transform="translate(0 0.00390625)"/>
+                </clipPath>
+                </defs>
+                </svg>
+              </span> our work.
+            </p>
+            <div class="text-white xl:pl-48 lg:pl-10 sm:pl-0 xs:pl-0 lg:mx-10 xs:mx-0">
+            <p class="text-transparent text-3xl font-semibold bg-clip-text bg-gradient-to-b from-white to-transparent">Join the DarklangGPT waitlist</p>  
+            <form action="" class=" h-14 my-11 xs:mx-3 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
+                <input type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
+                <button type="submit" class="boredr-px bg-gradient-to-r from-pink to-pink/50 text-white px-5 rounded">Join</button>
+            </form>
+            </div>
+        </div>
+      </section>
+
+
+      <!-- Footer -->
+      <footer class=" text-white lg:flex md:flex sm:inline-block xs:inline-block flex-1 justify-between mt-20 mb-10 mx-20">
+        <div class="lg:w-1/2 xs:w-full xs:flex xs:flex-col xs:justify-center xs:items-center">
+          <div class="">
+              <a href="index.html"><img src="../img/logo.png" class="w-48" alt="logo"></a>
+          </div>
+  
+          <div class="text-sm text-gray-600 ml-5">
+              <p>Copyright &copy; 2023 Dark Inc.</p>
+          </div>
+  
+          <div class="mt-6 mx-4 text-2xl">
+            <a href="https://github.com/darklang/dark" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/darklang" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://discord.com/invite/rrJKSUQJMH" target="_blank"><i class="fab fa-discord "></i></a>
+            <a href="https://www.youtube.com/channel/UCYUv1H0ENhZa4lNjOL-EiYg" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/darklang/?original_referer=" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://dev.to/darklang" target="_blank"><i class="fab fa-dev"></i></a>
+          </div>
+        </div>
+  
+        <div class="container flex lg:flex-row justify-around sm:flex-row xs:flex-col xs:items-start lg:mt-0 xs:mt-16">
+          <div>
+            <h5 class="font-medium mb-2">Product</h5>
+            <ul class="text-gray-500">
+                <li><a href="#" target="_blank">Sign in</a></li>
+                <li><a href="#" target="_blank">Sign up</a></li>
+                <li><a href="#" target="_blank">Desktop client</a></li>
+                <li><a href="https://darklang.us16.list-manage.com/subscribe?u=80505145cb9174d810cff1e7c&id=c87051269b" target="_blank">Mailing list</a></li>
+                <li><a href="https://docs.darklang.com/changelog" target="_blank">Changelog</a></li>
+            </ul>
+        </div>
+  
+          <div class="">
+            <h5 class="font-medium mb-2">Learning</h5>
+            <ul class="text-gray-500">
+                <li><a href="https://www.youtube.com/watch?v=orRn2kTtRXQ" target="_blank">Demo video</a></li>
+                <li><a href="https://www.youtube.com/c/Darklang/videos" target="_blank">Tutorial video</a></li>
+                <li><a href="https://docs.darklang.com/introduction" target="_blank">Documentation</a></li>
+                <li><a href="https://docs.darklang.com/tutorials/first-dark-application" target="_blank">Tutorial</a></li>
+                <li><a href="https://docs.darklang.com/category/walk-throughs" target="_blank">Walk-throughs</a></li>
+            </ul>
+          </div>
+  
+        <div>
+          <h5 class="font-medium mb-2">Developement</h5>
+          <ul class="text-gray-500">
+              <li><a href="https://blog.darklang.com" target="_blank">Dev blog</a></li>
+              <li><a href="https://github.com/darklang/dark" target="_blank">Dark code + issues</a></li>
+              <li><a href="https://github.com/darklang/docs" target="_blank">Docs code + issue </a></li>
+              <li><a href="https://roadmap.darklang.com" target="_blank">Roadmap</a></li>
+          </ul>
+      </div>
+  
+      <div>
+        <h5 class="font-medium mb-2">Community</h5>
+        <ul class="text-gray-500">
+            <li><a href="https://discord.com/invite/rrJKSUQJMH" target="_blank">Community discord</a></li>
+            <li><a href="https://darklang.com/code-of-conduct" target="_blank">Code of conduct</a></li>
+            <li><a href="https://docs.darklang.com/contributing/getting-started" target="_blank">Contributor docs</a></li>
+        </ul>
+    </div>
+          
+    </footer>
+  
+  <script>
+    const button = document.querySelector('#menu-button');
+    const menu = document.querySelector('#menu');
+    const darkClassicBtn = document.querySelector('#dark-classic-btn');
+
+    button.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      darkClassicBtn.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

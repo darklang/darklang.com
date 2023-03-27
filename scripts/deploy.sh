@@ -9,5 +9,5 @@ if [[ ! -f scripts/dark-cli-linux ]]; then
 
 fi
 
-./scripts/dark-cli-linux build/ --canvas "${CANVAS}" --user "${USER}" --password "${PASSWORD}"
+./scripts/dark-cli-linux public/ --canvas "${CANVAS}" --user "${USER}" --password "${PASSWORD}"
 

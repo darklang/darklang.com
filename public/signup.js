@@ -72,19 +72,12 @@ async function submitForm(event) {
         body: JSON.stringify(data),
     });
 
-    console.log('response', response);
-
-    const json = await response.json();
-
-    clearErrors()
-    showSuccess();
-
-    if (json === 200) {
-        form.reset();
-        showSuccess();
+    if (response.status === 200) {
+        form.reset()
+        showSuccess()
     } else {
-        console.log('json', json);
-        showErrors(json);
+        const errorText = await response.text();
+        showErrors([errorText]);
     }
 }
 

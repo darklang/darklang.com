@@ -684,6 +684,14 @@ video {
   margin-bottom: 2.75rem;
 }
 
+.mt-0 {
+  margin-top: 0px;
+}
+
+.mt-0\.5 {
+  margin-top: 0.125rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }

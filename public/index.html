@@ -122,9 +122,9 @@
                 or join the waitlist for early access.
             </p>
 
-            <form id="form1" onsubmit="addEmailToList(1); return false;" class="h-14 mt-14 mb-11 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
+            <form id="form1" onsubmit="addEmailToList(1); return false;" class="h-14 mt-14 mb-11 relative flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
                 <input id="email1" type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
-                <span id="error1" class="hidden text-red-500 text-xs italic"></span> <!-- TODO style and format -->
+                <span id="error1" class="hidden text-red-400 absolute -bottom-7 text-xs italic"></span> <!-- TODO style and format -->
                 <button type="submit" class="font-medium border-px bg-gradient-to-r from-pink via-pink/80 to-pink/60 hover:bg-pink 
                  text-white xl:px-5 lg:px-2 sm:px-2 xs:px-2 rounded">Join waitlist</button>
             </form>

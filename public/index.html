@@ -6,6 +6,41 @@
     <title>Darklang</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="./style.css" rel="stylesheet">
+    <script>
+      let addEmailToList = (index) => {
+        let emailID = "email" + index;
+        let formID = "form" + index;
+        let errorID = "error" + index;
+
+        let email = document.getElementById(emailID).value;
+        let displayError = (error) => {
+          let elem = document.getElementById(errorID);
+          elem.classList.remove("hidden");
+          elem.textContent = error;
+        }
+        fetch("https://ops-corpsite.builtwithdark.com/signup", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email
+          }),
+        }).then((response) => {
+          if (response.status === 200) {
+            let elem = document.createElement("span");
+            elem.textContent = "Added to waitlist!"
+            elem.className = "text-white"; <!-- TODO style -->
+            document.getElementById(formID).replaceWith(elem);
+          } else {
+            displayError("Error adding to waitlist");
+          }
+        }).catch((error) => {
+          displayError(error);
+        });
+      }
+      </script>
 </head>
 <body class="bg-background box-border">
 
@@ -46,9 +81,10 @@
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="menu">
           <ul class="flex flex-col p-4 mt-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
-            <li>
+            <!-- <li>
+              Disabled for now as it points to old docs
               <a href="https://docs.darklang.com" target=”_blank” class="text-white">Documentation</a>
-            </li>
+            </li> -->
             <li>
               <a href="https://blog.darklang.com" target=”_blank” class="text-white">Blog</a>
             </li>
@@ -75,12 +111,18 @@
               Darklang<span class="text-purple">GPT</span>
             </p>
             <p class="text-center font-medium text-3xl xs:text-2xl text-white md:text-left mt-8">
-                Build backends 100x easier with <span class="text-purple">AI-first</span> code generation
+                Deployless cloud backends with <span class="text-purple">AI-generated code</span>
+            </p>
+            <p class="text-center text-gray-500 text-base md:text-left mt-12">
+                Darklang is going AI-first. Read <a class="underline text-white"
+                href="https://blog.darklang.com/gpt">our blog post</a> to learn more,
+                or join the waitlist for early access.
             </p>
 
-            <form action="" class="lg:w-1/3 md:w-1/2 h-14 my-11 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
-                <input type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
-                <button type="submit" class="boredr-px bg-gradient-to-r from-pink to-pink/50 text-white xl:px-5 lg:px-2 sm:px-2 xs:px-2 rounded">Join waitlist</button>
+            <form id="form1" onsubmit="addEmailToList(1); return false;" class="lg:w-1/3 md:w-1/2 h-14 mt-4 mb-11 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
+                <input id="email1" type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
+                <span id="error1" class="hidden text-red-500 text-xs italic"></span> <!-- TODO style and format -->
+                <button type="submit" class="border-px bg-gradient-to-r from-pink to-pink/50 text-white xl:px-5 lg:px-2 sm:px-2 xs:px-2 rounded">Join waitlist</button>
             </form>
             <div class="hidden md:inline-block">
             <div class="container rounded-lg flex flex-row w-auto h-1/4 justify-center items-center mt-6 bg-gradient-to-br from-background/75 to-white/10 py-5 pl-11">
@@ -104,10 +146,10 @@
 
         <div class="conainer lg:grid lg:grid-rows-2 grid-flow-col gap-4 sm:grid sm:grid-rows-3 text-white lg:mx-[6.5rem] lg:mt-28 lg:mb-40 xs:mx-11">
           <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
-            <h3 class="font-semibold text-center mt-4">No infrastructure</h3>
+            <h3 class="font-semibold text-center mt-4">Invisible infrastructure</h3>
               <p class="flex items-start lg:mt-6 xs:my-2">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm text-gray-500">HTTP handlers, DBs, CRONs and queues, without thinking about servers, containers, or deployment</span>
+                <span class="text-sm text-gray-500">Language-native HTTP handlers, DBs, CRONs and queues, without thinking about servers, containers, or deployment</span>
               </p>
           </div>
 
@@ -117,7 +159,7 @@
             <ul class=" my-3 space-y-4 text-left text-gray-500">
               <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm">Use the same tool for one off scripts, prototypes, internal tools, or scale to 100,000s of MAU</span>
+                <span class="text-sm">Catch webhooks, connect vendors, build prototypes and internal tools, or scale to 10,000s of users</span>
               </li>
               <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
@@ -127,10 +169,14 @@
           </div>
 
           <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
-            <h3 class="font-semibold text-center mt-4">Integrations</h3>
+            <h3 class="font-semibold text-center mt-4">Package Manager</h3>
               <p class="flex items-start lg:mt-6 xs:my-2">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
                 <span class="text-sm text-gray-500">Connect to thousands of vendors and tools using built-in SDKs</span>
+              </p>
+              <p class="flex items-start lg:mt-6 xs:my-2">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
+                <span class="text-sm text-gray-500">Build and share your own packages with your team and the community</span>
               </p>
           </div>
 
@@ -139,7 +185,7 @@
             <ul class=" my-3 space-y-4 text-left text-gray-500">
               <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm">Build AI-centric applications</span>
+                <span class="text-sm">Build pipelines of AI-enabled code</span>
               </li>
               <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
@@ -164,6 +210,10 @@
 
           <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
             <h3 class="font-semibold text-center mt-4">No lock-in</h3>
+              <p class="flex items-start lg:mt-6 xs:my-2">
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
+                <span class="text-sm text-gray-500">Export your data at any time</span>
+              </p>
               <p class="flex items-start lg:mt-6 xs:my-2">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
                 <span class="text-sm text-gray-500">Use AI to translate and export Darklang code to any language</span>
@@ -194,9 +244,10 @@
             </p>
             <div class="text-white xl:pl-48 lg:pl-10 sm:pl-0 xs:pl-0 lg:mx-10 xs:mx-0">
             <p class="text-transparent text-3xl font-semibold bg-clip-text bg-gradient-to-b from-white to-transparent">Join the DarklangGPT waitlist</p>
-            <form action="" class=" h-14 my-11 xs:mx-3 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
-                <input type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
-                <button type="submit" class="boredr-px bg-gradient-to-r from-pink to-pink/50 text-white px-5 rounded">Join</button>
+            <form id="form2" onsubmit="addEmailToList(2); return false;" class=" h-14 my-11 xs:mx-3 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
+                <input id="email2" type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
+                <span id="error2" class="hidden text-red-500 text-xs italic"></span> <!-- TODO style and format -->
+                <button type="submit" class="border-px bg-gradient-to-r from-pink to-pink/50 text-white px-5 rounded">Join</button>
             </form>
             </div>
         </div>
@@ -206,7 +257,7 @@
       <!-- Footer -->
       <footer class=" text-white lg:flex md:flex sm:inline-block xs:inline-block flex-1 justify-between mt-20 mb-10 mx-20">
         <div class="lg:w-1/2 xs:w-full xs:flex xs:flex-col xs:justify-center xs:items-center">
-          <div class="">
+          <div>
               <a href="/"><img src="./img/logo.png" class="w-48" alt="logo"></a>
           </div>
 
@@ -224,13 +275,12 @@
 
         <div class="container flex lg:flex-row justify-around sm:flex-row xs:flex-col xs:items-start lg:mt-0 xs:mt-16">
           <div>
-            <h5 class="font-medium mb-2">Product</h5>
+            <h5 class="font-medium mb-2">Darklang Classic</h5>
             <ul class="text-gray-500">
                 <li><a href="https://login.darklang.com" target="_blank">Sign in</a></li>
                 <li><a href="https://darklang.com/signup" target="_blank">Sign up</a></li>
                 <li><a href="https://darklang.com/desktop-client" target="_blank">Desktop client</a></li>
                 <li><a href="https://darklang.com/mailing-list" target="_blank">Mailing list</a></li>
-                <li><a href="https://docs.darklang.com/changelog" target="_blank">Changelog</a></li>
             </ul>
         </div>
 
@@ -248,10 +298,11 @@
         <div>
           <h5 class="font-medium mb-2">Development</h5>
           <ul class="text-gray-500">
-              <li><a href="https://blog.darklang.com" target="_blank">Dev blog</a></li>
-              <li><a href="https://github.com/darklang/dark" target="_blank">Dark code + issues</a></li>
-              <li><a href="https://github.com/darklang/docs" target="_blank">Docs code + issues</a></li>
+              <li><a href="https://blog.darklang.com" target="_blank">Blog</a></li>
+              <li><a href="https://github.com/darklang/dark" target="_blank">Source</a></li>
               <li><a href="https://darklang.com/notion" target="_blank">Roadmap</a></li>
+              <li><a href="https://github.com/darklang/dark/issues" target="_blank">Issues</a></li>
+              <li><a href="https://docs.darklang.com/changelog" target="_blank">Changelog</a></li>
           </ul>
       </div>
 

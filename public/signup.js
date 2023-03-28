@@ -18,6 +18,28 @@ function showErrors(errors) {
     }
 }
 
+function showSuccess() {
+    const form = document.querySelector("#sign-up-form")
+
+    // remove all but first thing (which is the title)
+    const firstElementChild = form.firstElementChild;
+    form.innerHTML = '';
+    form.append(firstElementChild);
+
+
+    let successDiv = document.createElement("div");
+
+    let logInLink = document.createElement("a");
+    logInLink.classList.add("underline", "underline-offset-2");
+    logInLink.href = "https://login.darklang.com";
+    logInLink.appendChild(document.createTextNode("log in"));
+
+    successDiv.appendChild(document.createTextNode("Success! "));
+    successDiv.append(logInLink)
+
+    form.appendChild(successDiv);
+}
+
 async function submitForm(event) {
     event.preventDefault();
 
@@ -50,13 +72,16 @@ async function submitForm(event) {
         body: JSON.stringify(data),
     });
 
+    console.log('response', response);
+
     const json = await response.json();
 
     clearErrors()
+    showSuccess();
 
     if (json === 200) {
         form.reset();
-        alert('success!');
+        showSuccess();
     } else {
         console.log('json', json);
         showErrors(json);

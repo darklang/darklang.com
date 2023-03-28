@@ -30,8 +30,11 @@
         }).then((response) => {
           if (response.status === 200) {
             let elem = document.createElement("span");
-            elem.textContent = "Added to waitlist!"
-            elem.className = "text-white"; <!-- TODO style -->
+            elem.textContent = "Added to waitlist!";
+            elem.className = "text-white mt-11 mb-16 border border-pink rounded pl-11 pr-14 py-3 relative flex items-center"; <!-- TODO style -->
+            let checkIcon = document.createElement("i");
+            checkIcon.classList.add("fa-sharp", "fa-solid", "fa-circle-check", "text-lime-400", "absolute", "right-4", "ml-2"); 
+            elem.appendChild(checkIcon); 
             document.getElementById(formID).replaceWith(elem);
           } else {
             displayError("Error adding to waitlist");

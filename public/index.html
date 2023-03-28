@@ -80,7 +80,7 @@
           </button>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="menu">
-          <ul class="flex flex-col p-4 mt-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+          <ul class="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 lg:text-base md:text-sm md:font-medium md:border-0">
             <!-- <li>
               Disabled for now as it points to old docs
               <a href="https://docs.darklang.com" target=”_blank” class="text-white">Documentation</a>
@@ -110,16 +110,16 @@
             <p class="max-w-md lg:text-6xl md:text-6xl xs:text-4xl font-semibold text-center text-white mb-4">
               Darklang<span class="text-purple">GPT</span>
             </p>
-            <p class="text-center font-medium text-3xl xs:text-2xl text-white md:text-left mt-8">
+            <p class="text-center font-medium lg:text-4xl xs:text-2xl text-white md:text-left mt-6">
                 Deployless cloud backends with <span class="text-purple">AI-generated code</span>
             </p>
-            <p class="text-center text-gray-500 text-base md:text-left mt-12">
-                Darklang is going AI-first. Read <a class="underline text-white"
+            <p class="text-center text-gray-500 text-base md:text-left mt-6">
+                Darklang is going AI-first. Read <a class="underline text-gray-300"
                 href="https://blog.darklang.com/gpt">our blog post</a> to learn more,
                 or join the waitlist for early access.
             </p>
 
-            <form id="form1" onsubmit="addEmailToList(1); return false;" class="lg:w-1/3 md:w-1/2 h-14 mt-4 mb-11 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
+            <form id="form1" onsubmit="addEmailToList(1); return false;" class="h-14 mt-14 mb-11 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
                 <input id="email1" type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
                 <span id="error1" class="hidden text-red-500 text-xs italic"></span> <!-- TODO style and format -->
                 <button type="submit" class="font-medium border-px bg-gradient-to-r from-pink via-pink/80 to-pink/60 hover:bg-pink 
@@ -247,7 +247,7 @@
                 </svg>
               </span> our work.
             </p>
-            <div class="text-white xl:pl-48 lg:pl-10 sm:pl-0 xs:pl-0 lg:mx-10 xs:mx-0">
+            <div class="text-white xl:pl-48 lg:mx-10 xs:mx-0">
             <p class="text-transparent text-3xl font-semibold bg-clip-text bg-gradient-to-b from-white via-white/80 to-white/50">Join the DarklangGPT waitlist</p>
             <form id="form2" onsubmit="addEmailToList(2); return false;" class=" h-14 my-11 xs:mx-3 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
                 <input id="email2" type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">

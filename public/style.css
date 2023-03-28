@@ -1129,6 +1129,14 @@ video {
   padding-top: 6rem;
 }
 
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
+.pb-11 {
+  padding-bottom: 2.75rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1341,6 +1349,11 @@ video {
   --tw-gradient-to: #F56FF0;
 }
 
+.hover\:text-purple:hover {
+  --tw-text-opacity: 1;
+  color: rgb(147 155 255 / var(--tw-text-opacity));
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -1469,6 +1482,11 @@ video {
   .xs\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .xs\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 
@@ -1733,6 +1751,11 @@ video {
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 

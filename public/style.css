@@ -956,6 +956,16 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), rgb(5 4 7 / 0.3), var(--tw-gradient-to);
 }
 
+.via-white {
+  --tw-gradient-to: rgb(255 255 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #fff, var(--tw-gradient-to);
+}
+
+.via-white\/80 {
+  --tw-gradient-to: rgb(255 255 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(255 255 255 / 0.8), var(--tw-gradient-to);
+}
+
 .to-gray-800 {
   --tw-gradient-to: #1f2937;
 }
@@ -978,6 +988,18 @@ video {
 
 .to-white\/5 {
   --tw-gradient-to: rgb(255 255 255 / 0.05);
+}
+
+.to-white\/25 {
+  --tw-gradient-to: rgb(255 255 255 / 0.25);
+}
+
+.to-white\/60 {
+  --tw-gradient-to: rgb(255 255 255 / 0.6);
+}
+
+.to-white\/50 {
+  --tw-gradient-to: rgb(255 255 255 / 0.5);
 }
 
 .bg-clip-text {

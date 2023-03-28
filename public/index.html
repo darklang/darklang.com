@@ -30,8 +30,11 @@
         }).then((response) => {
           if (response.status === 200) {
             let elem = document.createElement("span");
-            elem.textContent = "Added to waitlist!"
-            elem.className = "text-white"; <!-- TODO style -->
+            elem.textContent = "Added to waitlist!";
+            elem.className = "text-white mt-11 mb-16 border border-pink rounded pl-11 pr-14 py-3 relative flex items-center"; <!-- TODO style -->
+            let checkIcon = document.createElement("i");
+            checkIcon.classList.add("fa-sharp", "fa-solid", "fa-circle-check", "text-lime-400", "absolute", "right-4", "ml-2"); 
+            elem.appendChild(checkIcon); 
             document.getElementById(formID).replaceWith(elem);
           } else {
             displayError("Error adding to waitlist");
@@ -48,7 +51,7 @@
       <nav class="bg-background px-2 sm:px-4 py-2.5 mx-auto container pt-11">
         <div class="container flex flex-wrap md:flex-nowrap sm:flex-wrap xs:flex-wrap items-center justify-between mx-auto">
         <a href="" class="flex items-center">
-            <img src="./img/logo.png" class="h-6 mr-3 sm:h-9" alt="Darklang logo">
+            <img src="./img/wordmark-dark-transparent.png" class="h-12 mr-3" alt="Darklang logo">
         </a>
         <div class="flex md:order-2">
 
@@ -80,22 +83,22 @@
           </button>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="menu">
-          <ul class="flex flex-col p-4 mt-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+          <ul class="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 lg:text-base md:text-sm md:font-medium md:border-0">
             <!-- <li>
               Disabled for now as it points to old docs
               <a href="https://docs.darklang.com" target=”_blank” class="text-white">Documentation</a>
             </li> -->
             <li>
-              <a href="https://blog.darklang.com" target=”_blank” class="text-white">Blog</a>
+              <a href="https://blog.darklang.com" target=”_blank” class="text-white hover:text-purple">Blog</a>
             </li>
             <li>
-              <a href="https://darklang.com/discord" target=”_blank” class="text-white">Discord</a>
+              <a href="https://darklang.com/discord" target=”_blank” class="text-white hover:text-purple">Discord</a>
             </li>
             <li>
-              <a href="https://github.com/darklang/dark" target=”_blank” class="text-white">Github</a>
+              <a href="https://github.com/darklang/dark" target=”_blank” class="text-white hover:text-purple">Github</a>
             </li>
             <li>
-              <a href="https://darklang.com/sponsor" target=”_blank” class="text-white">Sponsor us</a>
+              <a href="https://darklang.com/sponsor" target=”_blank” class="text-white hover:text-purple">Sponsor us</a>
             </li>
           </ul>
         </div>
@@ -110,19 +113,20 @@
             <p class="max-w-md lg:text-6xl md:text-6xl xs:text-4xl font-semibold text-center text-white mb-4">
               Darklang<span class="text-purple">GPT</span>
             </p>
-            <p class="text-center font-medium text-3xl xs:text-2xl text-white md:text-left mt-8">
+            <p class="text-center font-medium lg:text-4xl xs:text-2xl text-white md:text-left mt-6">
                 Deployless cloud backends with <span class="text-purple">AI-generated code</span>
             </p>
-            <p class="text-center text-gray-500 text-base md:text-left mt-12">
-                Darklang is going AI-first. Read <a class="underline text-white"
+            <p class="text-center text-gray-500 text-base md:text-left mt-6">
+                Darklang is going AI-first. Read <a class="underline text-gray-300"
                 href="https://blog.darklang.com/gpt">our blog post</a> to learn more,
                 or join the waitlist for early access.
             </p>
 
-            <form id="form1" onsubmit="addEmailToList(1); return false;" class="lg:w-1/3 md:w-1/2 h-14 mt-4 mb-11 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
+            <form id="form1" onsubmit="addEmailToList(1); return false;" class="h-14 mt-14 mb-11 relative flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
                 <input id="email1" type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
-                <span id="error1" class="hidden text-red-500 text-xs italic"></span> <!-- TODO style and format -->
-                <button type="submit" class="border-px bg-gradient-to-r from-pink to-pink/50 text-white xl:px-5 lg:px-2 sm:px-2 xs:px-2 rounded">Join waitlist</button>
+                <span id="error1" class="hidden text-red-400 absolute -bottom-7 text-xs italic"></span> <!-- TODO style and format -->
+                <button type="submit" class="font-medium border-px bg-gradient-to-r from-pink via-pink/80 to-pink/60 hover:bg-pink 
+                 text-white xl:px-5 lg:px-2 sm:px-2 xs:px-2 rounded">Join waitlist</button>
             </form>
             <div class="hidden md:inline-block">
             <div class="container rounded-lg flex flex-row w-auto h-1/4 justify-center items-center mt-6 bg-gradient-to-br from-background/75 to-white/10 py-5 pl-11">
@@ -146,78 +150,82 @@
 
         <div class="conainer lg:grid lg:grid-rows-2 grid-flow-col gap-4 sm:grid sm:grid-rows-3 text-white lg:mx-[6.5rem] lg:mt-28 lg:mb-40 xs:mx-11">
           <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
-            <h3 class="font-semibold text-center mt-4">Invisible infrastructure</h3>
+            <h3 class="font-semibold text-lg text-center mt-5">Invisible infrastructure</h3>
               <p class="flex items-start lg:mt-6 xs:my-2">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm text-gray-500">Language-native HTTP handlers, DBs, CRONs and queues, without thinking about servers, containers, or deployment</span>
+                <span class="text-base text-gray-500">Language-native HTTP handlers, DBs, CRONs and queues, without thinking about servers, containers, or deployment</span>
               </p>
           </div>
 
 
           <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
-            <h3 class="font-semibold text-center mt-4">Scale</h3>
+            <h3 class="font-semibold text-center text-lg mt-4">Scale</h3>
             <ul class=" my-3 space-y-4 text-left text-gray-500">
               <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm">Catch webhooks, connect vendors, build prototypes and internal tools, or scale to 10,000s of users</span>
+                <span class="text-base">Catch webhooks, connect vendors, build prototypes and internal tools, or scale to 10,000s of users</span>
               </li>
               <li class="flex items-start">
-                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm">Pay for what you use</span>
+                <i class="fa-solid fa-check mr-4 text-pink"></i>
+                <span class="text-base">Pay for what you use</span>
               </li>
             </ul>
           </div>
 
           <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
-            <h3 class="font-semibold text-center mt-4">Package Manager</h3>
-              <p class="flex items-start lg:mt-6 xs:my-2">
-                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm text-gray-500">Connect to thousands of vendors and tools using built-in SDKs</span>
-              </p>
-              <p class="flex items-start lg:mt-6 xs:my-2">
-                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm text-gray-500">Build and share your own packages with your team and the community</span>
-              </p>
-          </div>
-
-          <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
-            <h3 class="font-semibold text-center mt-4">DarkLangChains</h3>
+            <h3 class="font-semibold text-center text-lg mt-4">Package Manager</h3>
             <ul class=" my-3 space-y-4 text-left text-gray-500">
               <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm">Build pipelines of AI-enabled code</span>
+                <span class="text-base">Connect to thousands of vendors and tools using built-in SDKs</span>
               </li>
               <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm">Safely generate and execute code from your users’ prompts</span>
+                <span class="text-base">Build and share your own packages with your team and the community</span>
               </li>
             </ul>
           </div>
 
           <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
-            <h3 class="font-semibold text-center mt-4">AI-first</h3>
+            <h3 class="font-semibold text-center text-lg mt-4">DarkLangChains</h3>
             <ul class=" my-3 space-y-4 text-left text-gray-500">
               <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm">UX designed for AI-generated code</span>
+                <span class="text-base">Build pipelines of AI-enabled code</span>
               </li>
               <li class="flex items-start">
-                <i class="fa-solid fa-check mr-4 mt-1 text-pink lg:mb-0 md:mb-0 xs:mb-4"></i>
-                <span class="text-sm">Build AI-centric applications, or just build applications using AI</span>
+                <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
+                <span class="text-base">Safely generate and execute code from your users’ prompts</span>
               </li>
             </ul>
           </div>
 
           <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
-            <h3 class="font-semibold text-center mt-4">No lock-in</h3>
-              <p class="flex items-start lg:mt-6 xs:my-2">
+            <h3 class="font-semibold text-center text-lg mt-4">AI-first</h3>
+            <ul class="mt-6 mb-2 space-y-4 text-left text-gray-500">
+              <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm text-gray-500">Export your data at any time</span>
-              </p>
-              <p class="flex items-start lg:mt-6 xs:my-2">
+                <span class="text-base">UX designed for AI-generated code</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check mr-4 text-pink lg:mb-0 md:mb-0 xs:mb-4"></i>
+                <span class="text-base">Build AI-centric applications, or just build applications using AI</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="w-auto h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+            <h3 class="font-semibold text-center text-lg mt-4">No lock-in</h3>
+            <ul class="mt-5 mb-2 space-y-4 text-left text-gray-500">
+              <li class="flex items-start">
                 <i class="fa-solid fa-check mr-4 mt-1 text-pink"></i>
-                <span class="text-sm text-gray-500">Use AI to translate and export Darklang code to any language</span>
-              </p>
+                <span class="text-base">Export your data at any time</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check mr-4 text-pink lg:mb-0 md:mb-0 xs:mb-4"></i>
+                <span class="text-base">BUse AI to translate and export Darklang code to any language</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -242,12 +250,12 @@
                 </svg>
               </span> our work.
             </p>
-            <div class="text-white xl:pl-48 lg:pl-10 sm:pl-0 xs:pl-0 lg:mx-10 xs:mx-0">
-            <p class="text-transparent text-3xl font-semibold bg-clip-text bg-gradient-to-b from-white to-transparent">Join the DarklangGPT waitlist</p>
+            <div class="text-white xl:pl-48 lg:mx-10 xs:mx-0">
+            <p class="text-transparent text-3xl font-semibold bg-clip-text bg-gradient-to-b from-white via-white/80 to-white/50">Join the DarklangGPT waitlist</p>
             <form id="form2" onsubmit="addEmailToList(2); return false;" class=" h-14 my-11 xs:mx-3 flex flex-row justify-between border border-1 border-pink rounded p-2.5 focus-within:outline-1 focus-within:outline-pink">
                 <input id="email2" type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
                 <span id="error2" class="hidden text-red-500 text-xs italic"></span> <!-- TODO style and format -->
-                <button type="submit" class="border-px bg-gradient-to-r from-pink to-pink/50 text-white px-5 rounded">Join</button>
+                <button type="submit" class="font-medium border-px bg-gradient-to-r from-pink via-pink/80 to-pink/60 hover:bg-pink text-white px-5 rounded">Join</button>
             </form>
             </div>
         </div>
@@ -258,7 +266,7 @@
       <footer class=" text-white lg:flex md:flex sm:inline-block xs:inline-block flex-1 justify-between mt-20 mb-10 mx-20">
         <div class="lg:w-1/2 xs:w-full xs:flex xs:flex-col xs:justify-center xs:items-center">
           <div>
-              <a href="/"><img src="./img/logo.png" class="w-48" alt="logo"></a>
+              <a href="/"><img src="./img/wordmark-dark-transparent.png" class="h-14" alt="logo"></a>
           </div>
 
           <div class="text-sm text-gray-600 ml-5">

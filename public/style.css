@@ -966,6 +966,21 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), rgb(255 255 255 / 0.8), var(--tw-gradient-to);
 }
 
+.via-pink\/75 {
+  --tw-gradient-to: rgb(245 111 240 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(245 111 240 / 0.75), var(--tw-gradient-to);
+}
+
+.via-pink\/80 {
+  --tw-gradient-to: rgb(245 111 240 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(245 111 240 / 0.8), var(--tw-gradient-to);
+}
+
+.via-pink {
+  --tw-gradient-to: rgb(245 111 240 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #F56FF0, var(--tw-gradient-to);
+}
+
 .to-gray-800 {
   --tw-gradient-to: #1f2937;
 }
@@ -1000,6 +1015,14 @@ video {
 
 .to-white\/50 {
   --tw-gradient-to: rgb(255 255 255 / 0.5);
+}
+
+.to-pink\/60 {
+  --tw-gradient-to: rgb(245 111 240 / 0.6);
+}
+
+.to-pink\/70 {
+  --tw-gradient-to: rgb(245 111 240 / 0.7);
 }
 
 .bg-clip-text {
@@ -1272,6 +1295,11 @@ video {
 .hover\:bg-indigo-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(129 140 248 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-pink:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 111 240 / var(--tw-bg-opacity));
 }
 
 .hover\:from-pink\/50:hover {

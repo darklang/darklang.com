@@ -56,7 +56,7 @@ async function submitForm(event) {
 
     if (json === 200) {
         form.reset();
-        alert('success! not sure what to do here');
+        alert('success!');
     } else {
         console.log('json', json);
         showErrors(json);

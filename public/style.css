@@ -847,6 +847,11 @@ video {
   height: 500px;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -1350,6 +1355,14 @@ video {
 
 .pb-3 {
   padding-bottom: 0.75rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .text-left {

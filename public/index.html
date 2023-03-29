@@ -49,16 +49,16 @@
 
     <!--Navbar-->
       <nav class="bg-background px-2 sm:px-4 py-2.5 mx-auto container pt-11">
-        <div class="container flex lg:flex-wrap md:flex-nowrap sm:flex-wrap xs:flex-wrap items-center justify-between mx-auto">
+        <div class="container flex lg:flex-wrap md:flex-nowrap sm:flex-wrap xs:flex-wrap xxs:flex-wrap items-center justify-between mx-auto">
         <a href="" class="flex items-center">
             <img src="./img/wordmark-dark-transparent.png" class="h-12 mr-3" alt="Darklang logo">
         </a>
         <div class="flex md:order-2">
 
-            <button type="button" class=" lg:px-5 lg:py-2.5 xs:px-0 xs:py-0 text-center mr-3 md:mr-0">
+            <button type="button" class=" lg:px-5 lg:py-2.5 xs:px-0 xs:py-0 xxs:px-0 xxs:py-0 text-center mr-3 md:mr-0">
               <div id="dark-classic-btn" class="group md:inline-block relative hidden ">
               <div class="text-pink font-semibold inline-flex items-center">
-                <span class="mr-1">Darklang classic</span>
+                <span class="mr-1 lg:text-base md:text-base sm:text-base xs:text-sm xxs:text-xs">Darklang classic</span>
                 <svg
                   class="fill-current h-4 w-4"
                   xmlns="http://www.w3.org/2000/svg"
@@ -78,12 +78,12 @@
                 </li>
               </ul>
             </div> </button>
-            <button id="menu-button" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none  " aria-expanded="false">
+            <button id="menu-button" type="button" class="inline-flex items-center lg:p-2 md:p-2 sm:p-2 xs:p-1.5 xxs:p-0.5 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none  " aria-expanded="false">
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
           </button>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="menu">
-          <ul class="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 lg:text-base md:text-sm md:font-medium md:border-0">
+          <ul class="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 lg:text-base md:text-sm sm:text-sm xs:text-sm xxs:text-xs md:font-medium md:border-0">
             <!-- <li>
               Disabled for now as it points to old docs
               <a href="https://docs.darklang.com" target=”_blank” class="text-white">Documentation</a>
@@ -110,13 +110,13 @@
     <!--Hero-->
       <section class=" mt-20 bg-gradient-to-b from-background via-background/30 to-white/5">
         <div class="container flex flex-col justify-center items-center mx-auto text-center">
-            <p class="max-w-md lg:text-6xl md:text-6xl xs:text-4xl font-semibold text-center text-white mb-4">
+            <p class="max-w-md lg:text-6xl md:text-6xl xs:text-4xl xxs:text-2xl font-semibold text-center text-white mb-4">
               Darklang<span class="text-purple">GPT</span>
             </p>
             <p class="text-center font-medium lg:text-4xl xs:text-2xl text-white md:text-left mt-6">
                 Deployless cloud backends with <span class="text-purple">AI-generated code</span>
             </p>
-            <p class="text-center text-gray-500 text-base md:text-left mt-6">
+            <p class="text-center text-gray-500 lg:text-base md:text-base xxs:text-sm md:text-left mt-6">
                 Darklang is going AI-first. Read <a class="underline text-gray-300"
                 href="https://blog.darklang.com/gpt">our blog post</a> to learn more,
                 or join the waitlist for early access.
@@ -126,7 +126,7 @@
                 <input id="email1" type="text" placeholder="Enter your email" class="flex-grow bg-transparent border-none focus:outline-none p-5 py-1 text-white">
                 <span id="error1" class="hidden text-red-400 absolute -bottom-7 text-xs italic"></span> <!-- TODO style and format -->
                 <button type="submit" class="font-medium border-px bg-gradient-to-r from-pink via-pink/80 to-pink/60 hover:bg-pink 
-                 text-white xl:px-5 lg:px-2 sm:px-2 xs:px-2 rounded">Join waitlist</button>
+                 text-white xl:px-5 lg:px-2 sm:px-2 xs:px-2 xxs:p-1 rounded lg:text-base sm:text-sm xs:text-xs xxs:text-xs">Join waitlist</button>
             </form>
             <div class="hidden md:inline-block">
             <div class="container rounded-lg flex flex-row w-auto h-1/4 justify-center items-center mt-6 bg-gradient-to-br from-background/75 to-white/10 py-5 pl-11">

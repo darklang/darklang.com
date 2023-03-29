@@ -6,7 +6,7 @@ function clearErrors() {
 function showErrors(errors) {
     clearErrors();
 
-    document.querySelector('#errors').style.display = "block";
+    document.querySelector('#errors').style.display = "flex";
 
     const errorList = document.querySelector('#error-list')
 
@@ -20,7 +20,7 @@ function showErrors(errors) {
 
 function showSuccess() {
     const form = document.getElementById("sign-up-form");
-    const successMsg = document.getElementById("success")
+    const successMsg = document.getElementById("success");
     form.innerHTML = '';
     successMsg.classList.remove("hidden");
     successMsg.classList.add("flex")
@@ -58,9 +58,6 @@ async function submitForm(event) {
         },
         body: JSON.stringify(data),
     });
-    // showSuccess();
-    // showErrors("error test")
-
     if (response.status === 200) {
         form.reset()
         showSuccess()

@@ -87,9 +87,8 @@
       </p>
     </div>
 
-    <!-- before:content-[''] before:bg-gradient-to-b before:from-blue-600 before:to-blue-300 before:w-[300px] before:h-[300px] before:top-[-25%] before:left-[-25%] before:absolute before:animate-borderSpin -->
-    <div class="rounded-lg mx-auto mt-16 border-2 border-pink lg:w-[450px] h-[480px] xs:w-[375px] bg-background/20">
-      <form id="sign-up-form" action="" class=" flex flex-col justify-center items-center py-10 "> 
+    <div class="rounded-lg mx-auto mt-16 border-2 border-pink lg:w-[450px] h-[490px] xs:w-[375px] bg-background/20">
+      <form id="sign-up-form" action="" class=" flex flex-col justify-center items-center py-10 xl:px-14 lg:px-14 md:px-12 sm:px-10 xs:px-10 xxs:px-4 "> 
         
         <div id="success" class="hidden flex-col items-center text-center justify-center px-12">
           <i class="fas fa-check-circle text-pink my-7 text-7xl animate-fill"></i>
@@ -105,33 +104,36 @@
         <div id="errors" style="display: none;">
           <ul id="error-list" class="text-red-500"></ul>
         </div>
-        <div class="w-80 border-b border-gray-400 mt-8">
-          <input id="name"
-            class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 focus:outline-none text-sm focus:outline-0 border-transparent focus:border-transparent focus:ring-0"
-            placeholder="Name" type="text" required>
+
+        <div class="relative w-full mt-8">
+          <input type="text" name="name" id="name" class="appearance-none bg-transparent w-full text-white block pb-3 pl-1 text-sm border-0 border-b border-gray-400  focus:outline-none focus:ring-0 focus:border-white peer" placeholder=" " required />
+          <label for="name" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:left-0 peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
         </div>
-        <div class="w-80 border-b border-gray-400 mt-8">
-          <input id="email"
-            class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 focus:outline-none text-sm focus:outline-0 border-transparent focus:border-transparent focus:ring-0"
-            placeholder="Email" type="text" required>
+
+        <div class="relative w-full mt-8">
+          <input type="email" name="email" id="email" class="appearance-none bg-transparent w-full text-white block pb-3 pl-1 text-sm border-0 border-b border-gray-400  focus:outline-none focus:ring-0 focus:border-white peer" placeholder=" " required />
+          <label for="email" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:left-0 peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
         </div>
-        <div class="w-80 border-b border-gray-400 mt-8">
-          <input id="username"
-            class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 focus:outline-none text-sm focus:outline-0 border-transparent focus:border-transparent focus:ring-0"
-            placeholder="Username" type="text" required>
+
+        <div class="relative w-full mt-8">
+          <input type="text" name="username" id="username" class="appearance-none bg-transparent w-full text-white block pb-3 pl-1 text-sm border-0 border-b border-gray-400  focus:outline-none focus:ring-0 focus:border-white peer" placeholder=" " required />
+          <label for="username" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:left-0 peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Username</label>
         </div>
-        <div class="my-8 lg:ml-16 xs:ml-11 mr-11 flex ">
+
+
+
+        <div class="my-8 flex">
           <input id="code-of-conduct" type="checkbox" name="code-of-conduct"
             class="rounded bg-black focus:ring-0 text-pink mr-2">
           <label for="code-of-conduct" class="text-xs">I promise to abide by the <a
-              href="https://darklang.com/code-of-conduct" class="underline underline-offset-2">Code of Conduct</a> when
+              href="https://darklang.com/code-of-conduct" class="underline underline-offset-2 hover:text-purple">Code of Conduct</a> when
             using Dark services or participating in the Dark community.</label>
         </div>
         <button
-          class="border-px bg-gradient-to-r from-pink to-pink/50 text-white px-5 py-2 rounded mb-3 hover:from-pink/50 hover:to-pink">Create
+          class="border-px bg-gradient-to-r from-pink via-pink/90 to-pink/75 text-white px-5 py-2 rounded mb-3 hover:bg-pink">Create
           account</button>
         <p class="text-xs text-gray-600">Already have an account? <a href="https://login.darklang.com"
-            class="underline underline-offset-2">log in</a></p>
+            class="underline underline-offset-2 hover:text-white">log in</a></p>
       </form>
     </div>
   </section>

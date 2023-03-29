@@ -94,7 +94,17 @@
 
     <!-- before:content-[''] before:bg-gradient-to-b before:from-blue-600 before:to-blue-300 before:w-[300px] before:h-[300px] before:top-[-25%] before:left-[-25%] before:absolute before:animate-borderSpin -->
     <div class="rounded-lg mx-auto mt-16 border-2 border-pink lg:w-[450px] h-[480px] xs:w-[375px] bg-background/20">
-      <form id="sign-up-form" action="" class=" flex flex-col justify-center items-center py-10 ">
+      <form id="sign-up-form" action="" class=" flex flex-col justify-center items-center py-10 "> 
+        
+        <div id="success" class="hidden flex-col items-center text-center justify-center px-12">
+          <i class="fas fa-check-circle text-pink mt-11 text-6xl"></i>
+          <div class="flex flex-col items-center text-center justify-center">
+            <p class="text-pink font-medium text-2xl mt-9">Success! </p>
+            <p class="text-white font-medium text-xl mt-2">Congratulations! Your sign up was successful</p>
+            <a class="px-16 py-2 text-lg rounded bg-pink text-white hover:bg-background hover:border hover:border-pink transition duration-200 ease-in-out mt-12" href="https://login.darklang.com">Log in</a>
+          </div>
+        </div>
+        
         <h2 class="text-transparent text-3xl bg-clip-text bg-gradient-to-b from-white via-white to-gray-500">Sign up</h2>
 
         <div id="errors" style="display: none;">

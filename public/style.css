@@ -622,6 +622,16 @@ video {
   margin-bottom: 2rem;
 }
 
+.my-9 {
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.my-7 {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -766,6 +776,10 @@ video {
   height: 3.5rem;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -782,12 +796,24 @@ video {
   height: auto;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .h-96 {
   height: 24rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .w-1\/2 {
   width: 50%;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .w-4 {
@@ -810,6 +836,14 @@ video {
   width: 100%;
 }
 
+.w-96 {
+  width: 24rem;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
 .max-w-md {
   max-width: 28rem;
 }
@@ -824,6 +858,20 @@ video {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes fill {
+  0% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-fill {
+  animation: fill ease-out 0.4s;
 }
 
 .appearance-none {
@@ -888,6 +936,10 @@ video {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .rounded-lg {
@@ -1055,6 +1107,14 @@ video {
   fill: currentColor;
 }
 
+.stroke-black {
+  stroke: #000;
+}
+
+.stroke-\[4px\] {
+  stroke-width: 4px;
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -1131,6 +1191,11 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .pb-11 {
   padding-bottom: 2.75rem;
 }
@@ -1205,6 +1270,16 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
 }
 
 .font-medium {
@@ -1319,18 +1394,6 @@ video {
 .before\:w-\[300px\]::before {
   content: var(--tw-content);
   width: 300px;
-}
-
-@keyframes borderSpin {
-  100% {
-    content: var(--tw-content);
-    transform: rotate(-360deg);
-  }
-}
-
-.before\:animate-borderSpin::before {
-  content: var(--tw-content);
-  animation: borderSpin 3s linear infinite;
 }
 
 .before\:bg-gradient-to-b::before {

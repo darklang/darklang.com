@@ -3,6 +3,7 @@ module.exports = {
   content: ["./public/*.{html,js}"],
   theme: {
     screens : {
+      'xxs': '320px',
       'xs': '375px',
       'sm': '640px',
       'md': '768px',
@@ -21,12 +22,14 @@ module.exports = {
         'magenta': '#C56AE4',
       },
       keyframes: {
-        borderSpin: {
-          '100%': { transform: 'rotate(-360deg)' },
-        }
+        fill: {
+          '0%':{ transform: 'scale(0.8)'},
+          '100%':{transform: 'scale(1)'},
+      },
       },
       animation: {
-        borderSpin: 'borderSpin 3s linear infinite',
+        fill: 'fill ease-out 0.4s',
+
       }
     },
   },

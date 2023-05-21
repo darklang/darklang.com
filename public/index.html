@@ -6,18 +6,10 @@
     <title>Darklang</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="./style.css" rel="stylesheet">
+    <link href="./app.css" rel="stylesheet">
 
-    <style>
-      input:-webkit-autofill,
-      input:-webkit-autofill:hover,
-      input:-webkit-autofill:focus,
-      input:-webkit-autofill:active {
-        -webkit-text-fill-color: white;
-        -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-        transition: background-color 5000s ease-in-out 0s;
-      }
-    </style>
-    
+    <script defer src="./observer.js"></script>
+
     <script>
       let addEmailToList = (index) => {
         let emailID = "email" + index;
@@ -156,7 +148,7 @@
         <div class="absolute top-0 right-0">
           <img src="./img/grid.png" alt="grid">
         </div>
-        <div class="container text-white mx-auto text-center lg:text-3xl xs:text-xl m-10">
+        <div class="fade-in-on-scroll container text-white mx-auto text-center lg:text-3xl xs:text-xl m-10">
           <p class=""><span class="text-purple">Darklang </span>is a platform and language to easily develop backend cloud applications. You can build tiny applications to connect two services, or large scale applications with tens of thousands of users. Code is written using AI and instantly and safely deployed on our hosted platform.</p>
         </div>
 
@@ -170,7 +162,7 @@
           </div>
 
 
-          <div class=" h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+          <div class="show-on-scroll h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
             <h3 class="font-semibold text-center xxs:text-sm xs:text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl mt-4">Scale</h3>
             <ul class=" my-3 space-y-4 text-left text-gray-500">
               <li class="flex items-start 2xl:text-xl">
@@ -184,7 +176,7 @@
             </ul>
           </div>
 
-          <div class=" h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+          <div class="show-on-scroll h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
             <h3 class="font-semibold text-center xxs:text-sm xs:text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl mt-4">Package Manager</h3>
             <ul class=" my-3 space-y-4 text-left text-gray-500">
               <li class="flex items-start 2xl:text-xl">
@@ -198,7 +190,7 @@
             </ul>
           </div>
 
-          <div class="h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+          <div class="show-on-scroll h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
             <h3 class="font-semibold text-center xxs:text-sm xs:text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl mt-4">DarkLangChains</h3>
             <ul class=" my-3 space-y-4 text-left text-gray-500">
               <li class="flex items-start 2xl:text-xl">
@@ -212,7 +204,7 @@
             </ul>
           </div>
 
-          <div class=" h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+          <div class="show-on-scroll h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
             <h3 class="font-semibold text-center xxs:text-sm xs:text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl mt-4">AI-first</h3>
             <ul class="mt-4 mb-2 space-y-4 text-left text-gray-500">
               <li class="flex items-start 2xl:text-xl">
@@ -226,7 +218,7 @@
             </ul>
           </div>
 
-          <div class=" h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
+          <div class="show-on-scroll h-auto border-2 rounded-xl lg:px-8 xs:px-4 py-3 border-pink lg:mb-0 md:mb-0 xs:mb-4">
             <h3 class="font-semibold text-center xxs:text-sm xs:text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-2xl mt-4">No lock-in</h3>
             <ul class="mt-5 mb-2 space-y-4 text-left text-gray-500">
               <li class="flex items-start 2xl:text-xl">

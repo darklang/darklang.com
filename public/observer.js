@@ -11,5 +11,4 @@ const callback = function (entries) {
 const observer = new IntersectionObserver(callback);
 
 const targets = document.querySelectorAll(".show-on-scroll");
-targets.forEach((target) =>observer.observe(target)
-);
+targets.forEach((target) => observer.observe(target));

@@ -1610,13 +1610,63 @@ video {
 }
 
 @media (min-width: 1536px){
+  .\32xl\:m-9{
+    margin: 2.25rem;
+  }
+
   .\32xl\:mx-56{
     margin-left: 14rem;
     margin-right: 14rem;
   }
 
+  .\32xl\:my-9{
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .\32xl\:my-8{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
   .\32xl\:mt-96{
     margin-top: 24rem;
+  }
+
+  .\32xl\:mt-80{
+    margin-top: 20rem;
+  }
+
+  .\32xl\:mt-9{
+    margin-top: 2.25rem;
+  }
+
+  .\32xl\:mt-72{
+    margin-top: 18rem;
+  }
+
+  .\32xl\:mt-\[19rem\]{
+    margin-top: 19rem;
+  }
+
+  .\32xl\:mt-\[20rem\]{
+    margin-top: 20rem;
+  }
+
+  .\32xl\:mt-4{
+    margin-top: 1rem;
+  }
+
+  .\32xl\:mt-32{
+    margin-top: 8rem;
+  }
+
+  .\32xl\:mt-56{
+    margin-top: 14rem;
+  }
+
+  .\32xl\:mt-60{
+    margin-top: 15rem;
   }
 
   .\32xl\:text-4xl{

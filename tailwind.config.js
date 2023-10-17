@@ -6,7 +6,8 @@ module.exports = {
       body: ['Inter', "sans-serif"],
       'League-Gothic': ['League Gothic', 'sans-serif'],
       'Assistant': ['Assistant', 'sans-serif'],
-      'Quicksand': ['Quicksand', 'sans-serif']
+      'Quicksand': ['Quicksand', 'sans-serif'],
+      'FiraCode': ['Fira Code', 'monospace'],
     },
     listStyleType: {
       none: 'none',

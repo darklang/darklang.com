@@ -728,6 +728,10 @@ video {
   display: block;
 }
 
+.inline{
+  display: inline;
+}
+
 .flex{
   display: flex;
 }
@@ -1587,6 +1591,11 @@ video {
   .md\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-sm{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   .md\:leading-\[3rem\]{

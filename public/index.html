@@ -133,7 +133,8 @@
       </form>
     </div>
 
-    <div
+    <!-- Bottom navbar -->
+    <!-- <div
       class="hidden md:flex fixed bottom-0 right-0 items-center w-full md:w-2/3 bg-[#3F3F3F] cursor-pointer md:rounded-tl-2xl text-white">
       <div data-section="section1" class="section transition-all duration-500 ease-out  flex-1 text-center md:rounded-tl-2xl">
         <div class="flex justify-center items-center p-1 md:p-3 md:my-4 border-r border-r-white/30">
@@ -165,7 +166,7 @@
           <p>Open Source</p>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </section>
 
@@ -267,7 +268,7 @@
 
   <!-- Footer -->
   <footer
-    class="flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between m-20 md:my-32">
+    class="flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between m-20 md:mt-32">
     <div class="w-full md:w-1/2 flex flex-col justify-center items-center">
       <div>
         <a href="/"><img src="./img/wordmark-light-transparent@2x.png" class="h-14" alt="logo"></a>
@@ -344,61 +345,61 @@
 
 
   // Bottom navbar
-  const sections = document.querySelectorAll('[id^="section"]');
-  const navItems = document.querySelectorAll('.section');
+  // const sections = document.querySelectorAll('[id^="section"]');
+  // const navItems = document.querySelectorAll('.section');
 
-  function removeSelectionStyles(navItem) {
-    navItem.classList.remove('bg-purple', 'flex-2', 'font-bold');
-  }
+  // function removeSelectionStyles(navItem) {
+  //   navItem.classList.remove('bg-purple', 'flex-2', 'font-bold');
+  // }
 
-  function addSelectionStyles(navItem) {
-    navItem.classList.add('bg-purple', 'flex-2', 'font-bold');
-  }
-
-
-  function updateNavSelection() {
-      let sectionFound = false;
-
-      for (let section of sections) {
-        const { top, bottom } = section.getBoundingClientRect();
-
-        if (top >= 0 && bottom <= window.innerHeight) {
-          navItems.forEach(removeSelectionStyles); // First, clear all selections.
-
-          const navItem = document.querySelector(`[data-section="${section.id}"]`);
-          if (navItem) {
-            addSelectionStyles(navItem);
-          }
-
-          sectionFound = true; 
-          break;
-        }
-      }
-
-      if (!sectionFound) {
-        navItems.forEach(removeSelectionStyles);
-      }
-    }
+  // function addSelectionStyles(navItem) {
+  //   navItem.classList.add('bg-purple', 'flex-2', 'font-bold');
+  // }
 
 
-  let debounceTimeout;
+  // function updateNavSelection() {
+  //     let sectionFound = false;
 
-  function handleScroll() {
-    clearTimeout(debounceTimeout);
-    debounceTimeout = setTimeout(updateNavSelection, 50);
-  }
+  //     for (let section of sections) {
+  //       const { top, bottom } = section.getBoundingClientRect();
 
-  window.addEventListener('scroll', handleScroll);
+  //       if (top >= 0 && bottom <= window.innerHeight) {
+  //         navItems.forEach(removeSelectionStyles); // First, clear all selections.
 
-  navItems.forEach(item => {
-    item.addEventListener('click', event => {
-      navItems.forEach(removeSelectionStyles);
-      addSelectionStyles(event.currentTarget);
+  //         const navItem = document.querySelector(`[data-section="${section.id}"]`);
+  //         if (navItem) {
+  //           addSelectionStyles(navItem);
+  //         }
 
-      const sectionId = event.currentTarget.getAttribute('data-section');
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-    });
-  });
+  //         sectionFound = true; 
+  //         break;
+  //       }
+  //     }
+
+  //     if (!sectionFound) {
+  //       navItems.forEach(removeSelectionStyles);
+  //     }
+  //   }
+
+
+  // let debounceTimeout;
+
+  // function handleScroll() {
+  //   clearTimeout(debounceTimeout);
+  //   debounceTimeout = setTimeout(updateNavSelection, 50);
+  // }
+
+  // window.addEventListener('scroll', handleScroll);
+
+  // navItems.forEach(item => {
+  //   item.addEventListener('click', event => {
+  //     navItems.forEach(removeSelectionStyles);
+  //     addSelectionStyles(event.currentTarget);
+
+  //     const sectionId = event.currentTarget.getAttribute('data-section');
+  //     document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+  //   });
+  // });
 
   </script>
 </body>

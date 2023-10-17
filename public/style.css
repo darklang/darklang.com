@@ -645,6 +645,11 @@ video {
   margin-bottom: 2rem;
 }
 
+.mx-6{
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
 .mb-10{
   margin-bottom: 2.5rem;
 }
@@ -1316,6 +1321,10 @@ video {
 
   .md\:order-2{
     order: 2;
+  }
+
+  .md\:m-0{
+    margin: 0px;
   }
 
   .md\:mx-40{

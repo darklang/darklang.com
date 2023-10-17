@@ -6,7 +6,44 @@
     <title>Darklang</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="./style.css" rel="stylesheet">
-    <script></script>
+    <script>
+      let addEmailToList = (index) => {
+        let emailID = "email" + index;
+        let formID = "form" + index;
+        let errorID = "error" + index;
+
+        let email = document.getElementById(emailID).value;
+        let displayError = (error) => {
+          let elem = document.getElementById(errorID);
+          elem.classList.remove("hidden");
+          elem.textContent = error;
+        }
+        fetch("https://ops-corpsite.builtwithdark.com/signup", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email
+          }),
+        }).then((response) => {
+          if (response.status === 200) {
+            let elem = document.createElement("span");
+            elem.textContent = "Added to waitlist!";
+            elem.className = "mt-11 mb-16 border border-pink rounded pl-11 pr-14 py-3 relative flex items-center justify-center";
+            let checkIcon = document.createElement("i");
+            checkIcon.classList.add("fa-sharp", "fa-solid", "fa-circle-check", "text-lime-400", "absolute", "right-4", "ml-2");
+            elem.appendChild(checkIcon);
+            document.getElementById(formID).replaceWith(elem);
+          } else {
+            displayError("Error adding to waitlist");
+          }
+        }).catch((error) => {
+          displayError(error);
+        });
+      }
+    </script>
 </head>
 
 <body class="bg-light-background box-border m-0 p-0">
@@ -87,10 +124,11 @@
         Rescript, OCaml, F#, Python, Ruby, Clojure</p>
     </div>
 
-    <div class="mt-10">
-      <form class="flex items-center justify-center mx-auto font-bold">
-        <input required type="email" placeholder="Enter your email"
+    <div class="mt-10 flex items-center justify-center">
+      <form id="form1" onsubmit="addEmailToList(1); return false;" class="flex items-center justify-center mx-auto font-bold">
+        <input id="email1" required type="email" placeholder="Enter your email"
           class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-white mx-2 md:w-96">
+        <span id="error1" class="hidden text-red-400 absolute -bottom-7 text-xs italic"></span>
         <button type="submit" class="bg-blue text-white rounded px-4 py-3">Get started</button>
       </form>
     </div>

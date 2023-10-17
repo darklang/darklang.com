@@ -6,6 +6,7 @@ module.exports = {
       body: ['Inter', "sans-serif"],
       'League-Gothic': ['League Gothic', 'sans-serif'],
       'Assistant': ['Assistant', 'sans-serif'],
+      'Quicksand': ['Quicksand', 'sans-serif']
     },
     listStyleType: {
       none: 'none',
@@ -19,6 +20,7 @@ module.exports = {
         'light-background': '#F1F1F1',
         'purple': '#955B9F',
         'blue': '#747AB9',
+        'dark-charcoal': '#333333',
       },
       flex: {
         '2': '2 2 0%'

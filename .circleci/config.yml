@@ -8,8 +8,7 @@ jobs:
       - checkout
       - run: npx prettier . --check
       # TODO: check that style.css matches compiled tailwind
-        
-  
+
   deploy:
     docker:
       # specify the version you desire here

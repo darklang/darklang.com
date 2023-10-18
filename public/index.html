@@ -78,12 +78,9 @@
         </a>
 
         <div class="flex md:order-2 justify-center items-center">
-          <button type="button" class="text-center mr-3 md:mr-0 pt-4">
-            <div
-              id="dark-classic-btn"
-              class="group md:inline-block relative hidden"
-            >
-              <div class="text-pink font-semibold inline-flex items-center">
+          <button type="button" class="text-center mr-3 md:mr-0 md:pt-4">
+            <div id="dark-classic-btn" class="md:inline-block relative">
+              <div class="font-semibold inline-flex items-center">
                 <span class="mr-1 text-xs md:text-base">Darklang classic</span>
                 <svg
                   class="fill-current h-4 w-4"
@@ -96,19 +93,20 @@
                 </svg>
               </div>
               <div
-                class="absolute hidden w-full text-white bg-gradient-to-b from-gray-900 to-gray-800 pt-1 group-hover:block rounded-b-lg"
+                id="dark-classic-menu"
+                class="absolute hidden w-full bg-[#3F3F3F] text-white pt-1 rounded-b-lg"
               >
                 <ul>
                   <li>
                     <a
-                      class="hover:bg-indigo-400 py-2 px-4 block"
+                      class="hover:bg-blue py-2 px-4 block"
                       href="https://login.darklang.com"
                       >Log in</a
                     >
                   </li>
                   <li>
                     <a
-                      class="hover:bg-indigo-400 py-2 px-4 block"
+                      class="hover:bg-blue py-2 px-4 block rounded-b-lg"
                       href="./signup"
                       >Sign up</a
                     >
@@ -142,14 +140,14 @@
 
         <div
           id="menu"
-          class="md:order-1 hidden md:flex bg-white md:bg-transparent justify-between items-center w-full md:w-auto"
+          class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
         >
-          <ul class="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4">
+          <ul class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4">
             <!-- <li>
                         Disabled for now as it points to old docs
                         <a href="https://docs.darklang.com" target=”_blank” class="text-white">Documentation</a>
                     </li> -->
-            <li>
+            <li class="hover:text-blue border-b md:border-none">
               <a
                 href="https://blog.darklang.com"
                 target="”_blank”"
@@ -157,7 +155,7 @@
                 >Blog</a
               >
             </li>
-            <li>
+            <li class="hover:text-blue border-b md:border-none">
               <a
                 href="https://darklang.com/discord"
                 target="”_blank”"
@@ -165,7 +163,7 @@
                 >Discord</a
               >
             </li>
-            <li>
+            <li class="hover:text-blue border-b md:border-none">
               <a
                 href="https://github.com/darklang/dark"
                 target="”_blank”"
@@ -173,7 +171,7 @@
                 >Github</a
               >
             </li>
-            <li>
+            <li class="hover:text-blue">
               <a
                 href="https://darklang.com/sponsor"
                 target="”_blank”"
@@ -590,6 +588,12 @@
       // Menu button
       const button = document.querySelector("#menu-button");
       const menu = document.querySelector("#menu");
+      const darkClassicBtn = document.querySelector("#dark-classic-btn");
+      const darkClassicMenu = document.querySelector("#dark-classic-menu");
+
+      darkClassicBtn.addEventListener("click", () => {
+        darkClassicMenu.classList.toggle("hidden");
+      });
 
       button.addEventListener("click", () => {
         menu.classList.toggle("hidden");

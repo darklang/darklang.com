@@ -185,45 +185,51 @@
     </nav>
 
     <!--Hero-->
-    <section class="mt-32 md:mt-36 2xl:mt-72 font-Quicksand">
+    <section class="mt-32 md:mt-28 2xl:mt-72 font-Quicksand">
       <div
         class="container flex flex-col justify-center items-center mx-auto text-center"
       >
+        <img
+          src="./img/wordmark-light-transparent@2x.png"
+          class="max-w-xs md:max-w-xl 2xl:max-w-3xl"
+          alt="logo"
+        />
+
         <p
-          class="font-assistant text-6xl font-bold font-Assistant md:text-8xl 2xl:text-9xl text-purple"
-        >
-          Darklang
-        </p>
-        <p
-          class="mt-7 md:mt-10 py-4 text-base md:text-3xl 2xl:text-4xl mx-6 md:mx-40 2xl:mx-56 2xl:my-8 md:leading-[3rem] font-bold"
+          class="mt-7 md:mt-7 2xl:mt-16 py-4 2xl:py-0 text-lg md:text-3xl 2xl:text-[38px] mx-6 md:mx-40 2xl:mx-0 2xl:my-8 md:leading-[3rem] font-bold"
         >
           Darklang is a beautiful functional OSS language, with easy-to-use
           modern tooling, so you can enjoy writing code again
         </p>
-        <p class="py-2 mx-6 text-base md:text-xl text-gray-400 font-light">
+        <p
+          class="py-2 mx-6 text-base md:text-xl 2xl:text-2xl text-gray-400 font-light"
+        >
           Influenced by: Rust, Elm, Typescript, Rescript, OCaml, F#, Python,
           Ruby, Clojure
         </p>
       </div>
 
-      <div class="mt-10 flex items-center justify-center">
+      <div class="mt-10 2xl:mt-20 flex items-center justify-center">
         <form
           id="form1"
           onsubmit="addEmailToList(1); return false;"
-          class="flex items-center justify-center mx-auto font-bold"
+          class="flex flex-col md:flex-row items-center justify-center mx-auto font-bold"
         >
           <input
             id="email1"
             required
             type="email"
             placeholder="Enter your email"
-            class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-white mx-2 md:w-96"
+            class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-white mx-2 w-72 md:w-96"
           />
           <span
             id="error1"
             class="hidden text-red-400 absolute -bottom-7 text-xs italic"
           ></span>
-          <button type="submit" class="bg-blue text-white rounded px-4 py-3">
+          <button
+            type="submit"
+            class="bg-blue text-white rounded px-4 py-3 mt-6 md:mt-0"
+          >
             Send me project updates
           </button>
         </form>
@@ -267,17 +273,32 @@
 
     <!-- At a glance section -->
     <section
-      class="mx-auto my-28 p-4 md:p-0 md:max-w-4xl md:my-52 font-Quicksand 2xl:mt-60"
+      class="mx-auto my-28 p-4 md:p-0 md:max-w-4xl md:my-52 font-Quicksand mt-40 2xl:mt-72"
     >
       <h1 class="text-4xl font-bold mb-10 text-dark-charcoal">At a glance</h1>
 
       <div class="text-base leading-6 mx-8">
-        <ul class="list-disc">
+        <ul>
           <li id="section1" class="font-bold text-xl scroll-mt-24">
-            Modern functional language
+            <div class="flex flex-row justify-start items-center">
+              <svg
+                class="w-5 h-5 mr-2"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#747AB9"
+                  fill-rule="evenodd"
+                  d="M6.884 1.762a.75.75 0 01.604.872L7.058 5h2.975l.479-2.634a.75.75 0 111.476.268L11.558 5h1.192a.75.75 0 010 1.5h-1.465l-.546 3h2.011a.75.75 0 010 1.5h-2.283l-.48 2.634a.75.75 0 11-1.475-.268L8.942 11H5.967l-.48 2.634a.75.75 0 11-1.475-.268L4.442 11H3.25a.75.75 0 010-1.5h1.465l.545-3H3.25a.75.75 0 010-1.5h2.283l.479-2.634a.75.75 0 01.872-.604zM9.214 9.5l.546-3H6.785l-.546 3h2.976z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span>Modern functional language</span>
+            </div>
 
-            <ul class="list-square list-outside text-lg font-normal m-4">
-              <li class="text-purple">
+            <ul class="text-lg font-normal m-4">
+              <li class="text-purple flex flex-row ml-4">
+                <p class="text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-charcoal">
                   Simple and powerful runtime: static type system with simple
                   immutable types, composition via records and enums, Option and
@@ -290,7 +311,8 @@
                 </span>
               </li>
 
-              <li class="text-purple">
+              <li class="text-purple flex flex-row ml-4">
+                <p class="text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-charcoal">
                   Simple setup: single static binary, with no environments or
                   containers to setup. Streaming package manager means no
@@ -299,7 +321,8 @@
                 </span>
               </li>
 
-              <li class="text-purple">
+              <li class="text-purple flex flex-row ml-4">
+                <p class="text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-charcoal">
                   Fast prototyping with instant startup (no compile step), error
                   shortcuts
@@ -311,43 +334,66 @@
                 </span>
               </li>
 
-              <li>
-                <span
-                  class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                  >2024</span
-                >
-                <span class="text-dark-charcoal">
-                  Full type checking: after prototyping, run the static
-                  typechecker to catch errors - and get confidence your program
-                  works
-                </span>
+              <li class="text-purple flex flex-row ml-4">
+                <p class="text-2xl mr-3 leading-6 font-bold">-</p>
+                <p>
+                  <span
+                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                    >2024</span
+                  >
+                  <span class="text-dark-charcoal">
+                    Full type checking: after prototyping, run the static
+                    typechecker to catch errors - and get confidence your
+                    program works
+                  </span>
+                </p>
               </li>
             </ul>
           </li>
 
           <li id="section2" class="font-bold text-xl mt-8 scroll-mt-24">
-            Streaming Package manager
-            <ul class="list-square list-outside text-lg font-normal m-4">
-              <li class="text-purple">
+            <div class="flex flex-row justify-start items-center">
+              <svg
+                class="w-5 h-5 mr-2"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#747AB9"
+                  fill-rule="evenodd"
+                  d="M6.884 1.762a.75.75 0 01.604.872L7.058 5h2.975l.479-2.634a.75.75 0 111.476.268L11.558 5h1.192a.75.75 0 010 1.5h-1.465l-.546 3h2.011a.75.75 0 010 1.5h-2.283l-.48 2.634a.75.75 0 11-1.475-.268L8.942 11H5.967l-.48 2.634a.75.75 0 11-1.475-.268L4.442 11H3.25a.75.75 0 010-1.5h1.465l.545-3H3.25a.75.75 0 010-1.5h2.283l.479-2.634a.75.75 0 01.872-.604zM9.214 9.5l.546-3H6.785l-.546 3h2.976z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span>Streaming Package manager</span>
+            </div>
+            <ul class="text-lg font-normal m-4">
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
                   Our package manager streams functions, types and constants as
                   they're used, so there's no package install step, and no
                   installing packages before you can use them
                 </span>
               </li>
-              <li class="text-purple">
+
+              <li class="text-purple mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
                   Package features (constants/functions/types) are individually
                   versioned and immutable:
                 </span>
-                <ul class="list-square list-outside font-normal m-4">
-                  <li class="text-purple">
+
+                <ul class="font-normal mx-4">
+                  <li class="text-purple flex flex-row mt-1">
+                    <span class="text-lg mx-3 font-bold"> - </span>
                     <span class="text-dark-charcoal">
                       Fewer dependencies: no package versions so no need to
                       upgrade unless the functions you use have newer versions
                     </span>
                   </li>
-                  <li class="text-purple">
+                  <li class="text-purple flex flex-row mt-1">
+                    <span class="text-lg mx-3 font-bold"> - </span>
                     <span class="text-dark-charcoal">
                       Use multiple versions of the same function at once: allows
                       testing of new dependency versions with less risk using
@@ -355,30 +401,39 @@
                     </span>
                   </li>
 
-                  <li class="text-purple">
-                    <span
-                      class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                      >2024</span
-                    >
-                    <span class="text-dark-charcoal">
-                      Pre-release functions trivially, without users needing to
-                      check out your git repo or set up anything
-                    </span>
+                  <li class="text-purple flex flex-row mt-1">
+                    <p class="text-lg mx-3 font-bold">-</p>
+                    <p>
+                      <span
+                        class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                        >2024</span
+                      >
+                      <span class="text-dark-charcoal">
+                        Pre-release functions trivially, without users needing
+                        to check out your git repo or set up anything
+                      </span>
+                    </p>
                   </li>
-                  <li class="text-purple">
-                    <span
-                      class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                      >2024</span
-                    >
-                    <span class="text-dark-charcoal">
-                      We track deprecation status, and know what functions are
-                      pure/safe to update, so we can automate most remaining
-                      dependency management automatically
-                    </span>
+
+                  <li class="text-purple flex flex-row mt-1">
+                    <p class="text-lg mx-3 font-bold">-</p>
+                    <p>
+                      <span
+                        class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                        >2024</span
+                      >
+                      <span class="text-dark-charcoal">
+                        We track deprecation status, and know what functions are
+                        pure/safe to update, so we can automate most remaining
+                        dependency management automatically
+                      </span>
+                    </p>
                   </li>
                 </ul>
               </li>
-              <li class="text-purple">
+
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
                   The package manager is the source repository - no more
                   releases, uploads, and synchronization. No git or github
@@ -390,9 +445,24 @@
           </li>
 
           <li id="section3" class="font-bold text-xl mt-8 scroll-mt-24">
-            Run from anywhere
-            <ul class="list-square list-outside text-lg font-normal m-4">
-              <li class="text-purple">
+            <div class="flex flex-row justify-start items-center">
+              <svg
+                class="w-5 h-5 mr-2"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#747AB9"
+                  fill-rule="evenodd"
+                  d="M6.884 1.762a.75.75 0 01.604.872L7.058 5h2.975l.479-2.634a.75.75 0 111.476.268L11.558 5h1.192a.75.75 0 010 1.5h-1.465l-.546 3h2.011a.75.75 0 010 1.5h-2.283l-.48 2.634a.75.75 0 11-1.475-.268L8.942 11H5.967l-.48 2.634a.75.75 0 11-1.475-.268L4.442 11H3.25a.75.75 0 010-1.5h1.465l.545-3H3.25a.75.75 0 010-1.5h2.283l.479-2.634a.75.75 0 01.872-.604zM9.214 9.5l.546-3H6.785l-.546 3h2.976z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span>Run from anywhere</span>
+            </div>
+            <ul class="text-lg font-normal m-4">
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
                   CLI runs any packages with no install:
                   <code
@@ -405,7 +475,8 @@
                   Code, etc)
                 </span>
               </li>
-              <li class="text-purple">
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
                   <span
                     class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -425,15 +496,31 @@
           </li>
 
           <li id="section4" class="font-bold text-xl mt-8 scroll-mt-24">
-            Redesigned for GenAI
-            <ul class="list-square list-outside text-lg font-normal m-4">
-              <li class="text-purple">
+            <div class="flex flex-row justify-start items-center">
+              <svg
+                class="w-5 h-5 mr-2"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#747AB9"
+                  fill-rule="evenodd"
+                  d="M6.884 1.762a.75.75 0 01.604.872L7.058 5h2.975l.479-2.634a.75.75 0 111.476.268L11.558 5h1.192a.75.75 0 010 1.5h-1.465l-.546 3h2.011a.75.75 0 010 1.5h-2.283l-.48 2.634a.75.75 0 11-1.475-.268L8.942 11H5.967l-.48 2.634a.75.75 0 11-1.475-.268L4.442 11H3.25a.75.75 0 010-1.5h1.465l.545-3H3.25a.75.75 0 010-1.5h2.283l.479-2.634a.75.75 0 01.872-.604zM9.214 9.5l.546-3H6.785l-.546 3h2.976z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span>Redesigned for GenAI </span>
+            </div>
+            <ul class="text-lg font-normal m-4">
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
                   Works with GitHub Copilot
                 </span>
               </li>
 
-              <li class="text-purple">
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
                   We redesigned the dark language and tooling to enable
                   GenAI-generated programs, including exposing language tools to
@@ -442,24 +529,28 @@
                   tools
                 </span>
               </li>
-              <li class="text-purple">
-                <span
-                  class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                  >2024</span
-                >
-                <span class="text-dark-charcoal"
-                  >Build short CLI programs from prompts
-                  <code
-                    class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-[#e0dfd9] text-gray-600 rounded py-1 px-2"
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
+                <p>
+                  <span
+                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                    >2024</span
                   >
-                    <span class="text-blue mr-2">darklang</span>
-                    <span class="text-purple mr-3">prompt</span> "find all js
-                    files which don't have a CSS file of the same name"</code
-                  ></span
-                >
+                  <span class="text-dark-charcoal"
+                    >Build short CLI programs from prompts
+                    <code
+                      class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-[#e0dfd9] text-gray-600 rounded py-1 px-2 mt-1"
+                    >
+                      <span class="text-blue mr-2">darklang</span>
+                      <span class="text-purple mr-3">prompt</span> "find all js
+                      files which don't have a CSS file of the same name"</code
+                    ></span
+                  >
+                </p>
               </li>
 
-              <li class="text-purple">
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
                   <span
                     class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -469,7 +560,8 @@
                 </span>
               </li>
 
-              <li class="text-purple">
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
                   <span
                     class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -482,7 +574,21 @@
           </li>
 
           <li id="section5" class="font-bold text-xl mt-8 scroll-mt-24">
-            Open source
+            <div class="flex flex-row justify-start items-center">
+              <svg
+                class="w-5 h-5 mr-2"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#747AB9"
+                  fill-rule="evenodd"
+                  d="M6.884 1.762a.75.75 0 01.604.872L7.058 5h2.975l.479-2.634a.75.75 0 111.476.268L11.558 5h1.192a.75.75 0 010 1.5h-1.465l-.546 3h2.011a.75.75 0 010 1.5h-2.283l-.48 2.634a.75.75 0 11-1.475-.268L8.942 11H5.967l-.48 2.634a.75.75 0 11-1.475-.268L4.442 11H3.25a.75.75 0 010-1.5h1.465l.545-3H3.25a.75.75 0 010-1.5h2.283l.479-2.634a.75.75 0 01.872-.604zM9.214 9.5l.546-3H6.785l-.546 3h2.976z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span> Open source </span>
+            </div>
             <ul class="list-outside text-lg font-normal m-4">
               <li>
                 In 2023, we expect to fully open source Darklang, which is

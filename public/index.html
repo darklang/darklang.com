@@ -270,6 +270,7 @@
       class="mx-auto my-28 p-4 md:p-0 md:max-w-4xl md:my-52 font-Quicksand 2xl:mt-60"
     >
       <h1 class="text-4xl font-bold mb-10 text-dark-charcoal">At a glance</h1>
+
       <div class="text-base leading-6 mx-8">
         <ul class="list-disc">
           <li id="section1" class="font-bold text-xl scroll-mt-24">
@@ -280,9 +281,12 @@
                 <span class="text-dark-charcoal">
                   Simple and powerful runtime: static type system with simple
                   immutable types, composition via records and enums, Option and
-                  Result types, garbage collection, async runtime, and Unicode
-                  strings/chars. No null, exceptions, async/await, or complex
-                  type rules.
+                  Result types, garbage collection, automatic async
+                  <span
+                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                    >2024</span
+                  >, and Unicode strings/chars. No null, exceptions,
+                  async/await, or complex type rules
                 </span>
               </li>
 
@@ -291,23 +295,31 @@
                   Simple setup: single static binary, with no environments or
                   containers to setup. Streaming package manager means no
                   packages to install. Interpreted execution means no compile
-                  step.
+                  step
                 </span>
               </li>
 
               <li class="text-purple">
                 <span class="text-dark-charcoal">
                   Fast prototyping with instant startup (no compile step), error
-                  shortcuts (`!`), and gradual static typing (just run programs
-                  until they hit an error).
+                  shortcuts
+                  <span
+                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                    >2024</span
+                  >, and gradual static typing (just run programs until they hit
+                  an error)
                 </span>
               </li>
 
               <li>
+                <span
+                  class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                  >2024</span
+                >
                 <span class="text-dark-charcoal">
                   Full type checking: after prototyping, run the static
                   typechecker to catch errors - and get confidence your program
-                  works.
+                  works
                 </span>
               </li>
             </ul>
@@ -320,7 +332,7 @@
                 <span class="text-dark-charcoal">
                   Our package manager streams functions, types and constants as
                   they're used, so there's no package install step, and no
-                  installing packages before you can use them.
+                  installing packages before you can use them
                 </span>
               </li>
               <li class="text-purple">
@@ -332,28 +344,36 @@
                   <li class="text-purple">
                     <span class="text-dark-charcoal">
                       Fewer dependencies: no package versions so no need to
-                      upgrade unless the functions you use have newer versions.
+                      upgrade unless the functions you use have newer versions
                     </span>
                   </li>
                   <li class="text-purple">
                     <span class="text-dark-charcoal">
                       Use multiple versions of the same function at once: allows
                       testing of new dependency versions with less risk using
-                      controlled rollout.
+                      controlled rollout
                     </span>
                   </li>
 
                   <li class="text-purple">
+                    <span
+                      class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                      >2024</span
+                    >
                     <span class="text-dark-charcoal">
                       Pre-release functions trivially, without users needing to
-                      check out your git repo or set up anything.
+                      check out your git repo or set up anything
                     </span>
                   </li>
                   <li class="text-purple">
+                    <span
+                      class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                      >2024</span
+                    >
                     <span class="text-dark-charcoal">
                       We track deprecation status, and know what functions are
                       pure/safe to update, so we can automate most remaining
-                      dependency management automatically.
+                      dependency management automatically
                     </span>
                   </li>
                 </ul>
@@ -363,7 +383,7 @@
                   The package manager is the source repository - no more
                   releases, uploads, and synchronization. No git or github
                   required (but feel free, if you prefer). Less friction for
-                  contributors.
+                  contributors
                 </span>
               </li>
             </ul>
@@ -373,8 +393,8 @@
             Run from anywhere
             <ul class="list-square list-outside text-lg font-normal m-4">
               <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >CLI runs any packages with no install:
+                <span class="text-dark-charcoal">
+                  CLI runs any packages with no install:
                   <code
                     class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-[#e0dfd9] text-dark-charcoal rounded py-1 px-2"
                     ><span class="text-blue pr-2">darklang </span
@@ -388,42 +408,45 @@
               <li class="text-purple">
                 <span class="text-dark-charcoal">
                   <span
-                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 mr-2 rounded text-sm"
+                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
                     >Optional</span
+                  >
+                  <span
+                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                    >2024</span
                   >
                   Instant cloud deployment of code (to our cloud or yours), with
                   instant creation of DBs, API endpoints, and worker queues,
                   with no containers, no cold starts, no orchestration, or other
-                  devops/cloud engineering required.
+                  devops/cloud engineering required
                 </span>
               </li>
             </ul>
           </li>
 
           <li id="section4" class="font-bold text-xl mt-8 scroll-mt-24">
-            Designed for AI
+            Redesigned for GenAI
             <ul class="list-square list-outside text-lg font-normal m-4">
               <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >We’ve adapted our tools and approach to developing dark to
-                  recognize the significance of GenAI in the development
-                  process</span
-                >
+                <span class="text-dark-charcoal">
+                  Works with GitHub Copilot
+                </span>
               </li>
 
               <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >Designed to enable generated programs. Run partial or
-                  incorrect programs</span
-                >
+                <span class="text-dark-charcoal">
+                  We redesigned the dark language and tooling to enable
+                  GenAI-generated programs, including exposing language tools to
+                  GenAI tools, allowing running partial and incomplete programs
+                  safely, and ensuring access to significant context to GenAI
+                  tools
+                </span>
               </li>
               <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >Exposed language internals, parser, error messages.</span
+                <span
+                  class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                  >2024</span
                 >
-              </li>
-
-              <li class="text-purple">
                 <span class="text-dark-charcoal"
                   >Build short CLI programs from prompts
                   <code
@@ -437,21 +460,23 @@
               </li>
 
               <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >Build vendor SDKs from prompts and OpenAPI docs</span
-                >
+                <span class="text-dark-charcoal">
+                  <span
+                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                    >2024</span
+                  >
+                  Build vendor SDKs from prompts and OpenAPI docs
+                </span>
               </li>
 
               <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >Build complex programs with AI agents</span
-                >
-              </li>
-
-              <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >Works well with GitHub Copilot, VS Code, etc.</span
-                >
+                <span class="text-dark-charcoal">
+                  <span
+                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                    >2024</span
+                  >
+                  Build complex programs with darklang AI agents
+                </span>
               </li>
             </ul>
           </li>
@@ -475,12 +500,13 @@
     >
       <div class="w-full md:w-1/2 flex flex-col justify-center items-center">
         <div>
-          <a href="/"
-            ><img
+          <a href="/">
+            <img
               src="./img/wordmark-light-transparent@2x.png"
               class="h-14"
               alt="logo"
-          /></a>
+            />
+          </a>
         </div>
 
         <div class="text-sm text-gray-600 ml-5">
@@ -516,51 +542,54 @@
               <a href="https://darklang.com/signup" target="_blank">Sign up</a>
             </li>
             <li>
-              <a href="https://darklang.com/desktop-client" target="_blank"
-                >Desktop client</a
-              >
+              <a href="https://darklang.com/desktop-client" target="_blank">
+                Desktop client
+              </a>
             </li>
             <li>
-              <a href="https://darklang.com/mailing-list" target="_blank"
-                >Mailing list</a
-              >
+              <a href="https://darklang.com/mailing-list" target="_blank">
+                Mailing list
+              </a>
             </li>
           </ul>
         </div>
 
         <div>
-          <h5 class="font-medium mb-2">Learning</h5>
+          <h5 class="font-medium mb-2">Learning Darklang Classic</h5>
           <ul class="text-gray-500">
             <li>
               <a
                 href="https://www.youtube.com/watch?v=orRn2kTtRXQ"
                 target="_blank"
-                >Demo video</a
               >
+                Demo video
+              </a>
             </li>
             <li>
-              <a href="https://youtube.com/c/Darklang/videos" target="_blank"
-                >Tutorial video</a
-              >
+              <a href="https://youtube.com/c/Darklang/videos" target="_blank">
+                Tutorial video
+              </a>
             </li>
             <li>
-              <a href="https://docs.darklang.com/introduction" target="_blank"
-                >Documentation</a
-              >
+              <a href="https://docs.darklang.com/introduction" target="_blank">
+                Documentation
+              </a>
             </li>
             <li>
               <a
                 href="https://docs.darklang.com/tutorials/first-dark-application"
                 target="_blank"
-                >Tutorial</a
               >
+                Tutorial
+              </a>
             </li>
             <li>
               <a
                 href="https://docs.darklang.com/category/walk-throughs"
                 target="_blank"
-                >Walk-throughs</a
               >
+                Walk-throughs
+              </a>
             </li>
           </ul>
         </div>
@@ -572,22 +601,22 @@
               <a href="https://blog.darklang.com" target="_blank">Blog</a>
             </li>
             <li>
-              <a href="https://github.com/darklang/dark" target="_blank"
-                >Source</a
-              >
+              <a href="https://github.com/darklang/dark" target="_blank">
+                Source
+              </a>
             </li>
             <li>
               <a href="https://darklang.com/notion" target="_blank">Roadmap</a>
             </li>
             <li>
-              <a href="https://github.com/darklang/dark/issues" target="_blank"
-                >Issues</a
-              >
+              <a href="https://github.com/darklang/dark/issues" target="_blank">
+                Issues
+              </a>
             </li>
             <li>
-              <a href="https://docs.darklang.com/changelog" target="_blank"
-                >Changelog</a
-              >
+              <a href="https://docs.darklang.com/changelog" target="_blank">
+                Changelog
+              </a>
             </li>
           </ul>
         </div>
@@ -599,16 +628,17 @@
               <a href="https://darklang.com/discord" target="_blank">Discord</a>
             </li>
             <li>
-              <a href="https://darklang.com/code-of-conduct" target="_blank"
-                >Code of conduct</a
-              >
+              <a href="https://darklang.com/code-of-conduct" target="_blank">
+                Code of conduct
+              </a>
             </li>
             <li>
               <a
                 href="https://docs.darklang.com/contributing/getting-started"
                 target="_blank"
-                >Contributor docs</a
               >
+                Contributor docs
+              </a>
             </li>
           </ul>
         </div>
@@ -649,7 +679,7 @@
       //       const { top, bottom } = section.getBoundingClientRect();
 
       //       if (top >= 0 && bottom <= window.innerHeight) {
-      //         navItems.forEach(removeSelectionStyles); // First, clear all selections.
+      //         navItems.forEach(removeSelectionStyles); // First, clear all selections
 
       //         const navItem = document.querySelector(`[data-section="${section.id}"]`);
       //         if (navItem) {

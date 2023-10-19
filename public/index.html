@@ -273,59 +273,98 @@
       <div class="text-base leading-6 mx-8">
         <ul class="list-disc">
           <li id="section1" class="font-bold text-xl scroll-mt-24">
-            A modern functional language
+            Modern functional language
+
             <ul class="list-square list-outside text-lg font-normal m-4">
               <li class="text-purple">
                 <span class="text-dark-charcoal">
-                  Simple static types based around simple immutable types,
-                  composition via records and enums, Option and Result types,
-                  garbage collection, async runtime, and Unicode strings/chars.
-                </span>
-              </li>
-
-              <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >Gradual static typing, and other language and parser
-                  features, to allow fast prototyping (code does not need to
-                  compile or type check to run, and starts instantly in our
-                  interpreter)
+                  Simple and powerful runtime: static type system with simple
+                  immutable types, composition via records and enums, Option and
+                  Result types, garbage collection, async runtime, and Unicode
+                  strings/chars. No null, exceptions, async/await, or complex
+                  type rules.
                 </span>
               </li>
 
               <li class="text-purple">
                 <span class="text-dark-charcoal">
-                  No compile step, no null, no exceptions, no inconsistent
-                  function names, no weird equality conditions, no async/await
-                  keywords, no inheritence
+                  Simple setup: single static binary, with no environments or
+                  containers to setup. Streaming package manager means no
+                  packages to install. Interpreted execution means no compile
+                  step.
+                </span>
+              </li>
+
+              <li class="text-purple">
+                <span class="text-dark-charcoal">
+                  Fast prototyping with instant startup (no compile step), error
+                  shortcuts (`!`), and gradual static typing (just run programs
+                  until they hit an error).
+                </span>
+              </li>
+
+              <li>
+                <span class="text-dark-charcoal">
+                  Full type checking: after prototyping, run the static
+                  typechecker to catch errors - and get confidence your program
+                  works.
                 </span>
               </li>
             </ul>
           </li>
 
           <li id="section2" class="font-bold text-xl mt-8 scroll-mt-24">
-            Modern Packaging system
+            Streaming Package manager
             <ul class="list-square list-outside text-lg font-normal m-4">
               <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >Always on, syncs code to package namespaces
-                  automatically</span
-                >
-              </li>
-              <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >Replaces Git, Github, Docker, and removes installation step,
-                  environments</span
-                >
-              </li>
-              <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  >Individually versioned functions, constants and types (use
-                  multiple versions of the same function or type in the same
-                  program), allows for safe and easy migrations
+                <span class="text-dark-charcoal">
+                  Our package manager streams functions, types and constants as
+                  they're used, so there's no package install step, and no
+                  installing packages before you can use them.
                 </span>
               </li>
               <li class="text-purple">
-                <span class="text-dark-charcoal">Easily pre-release code</span>
+                <span class="text-dark-charcoal">
+                  Package features (constants/functions/types) are individually
+                  versioned and immutable:
+                </span>
+                <ul class="list-square list-outside font-normal m-4">
+                  <li class="text-purple">
+                    <span class="text-dark-charcoal">
+                      Fewer dependencies: no package versions so no need to
+                      upgrade unless the functions you use have newer versions.
+                    </span>
+                  </li>
+                  <li class="text-purple">
+                    <span class="text-dark-charcoal">
+                      Use multiple versions of the same function at once: allows
+                      testing of new dependency versions with less risk using
+                      controlled rollout.
+                    </span>
+                  </li>
+
+                  <li class="text-purple">
+                    <span class="text-dark-charcoal">
+                      Pre-release functions trivially, without users needing to
+                      check out your git repo or set up anything.
+                    </span>
+                  </li>
+                  <li class="text-purple">
+                    <span class="text-dark-charcoal">
+                      We track deprecation status, and know what functions are
+                      pure/safe to update, so we can automate most remaining
+                      dependency management automatically.
+                    </span>
+                  </li>
+                </ul>
+              </li>
+              <li class="text-purple">
+                <span class="text-dark-charcoal">
+                  The package manager is the source repository - no more
+                  releases, uploads, and synchronization. No git or github
+                  required (but feel free, if you prefer). Less friction for
+                  contributors.
+                </span>
               </li>
             </ul>
           </li>
@@ -342,29 +381,21 @@
                     >@username.functionName <span class="text-blue">arg1</span>
                     <span class="text-purple">arg2</span></code
                   >
-                  from the command line (or the browser, slack, discord, vs
-                  code, etc)</span
-                >
+                  from the command line (or the browser, Slack, Discord, VS
+                  Code, etc)
+                </span>
               </li>
               <li class="text-purple">
                 <span class="text-dark-charcoal">
                   <span
                     class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 mr-2 rounded text-sm"
                     >Optional</span
-                  >Instant cloud deployment of code, with instant creation of
-                  DBs, http endpoints, and worker queues, with no containers, no
-                  cold starts, no orchestration, or other devops/cloud
-                  engineering required.</span
-                >
-              </li>
-              <li class="text-purple">
-                <span class="text-dark-charcoal"
-                  ><span
-                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 mr-2 rounded text-sm"
-                    >Optional
-                  </span>
-                  Or deploy to your own cloud</span
-                >
+                  >
+                  Instant cloud deployment of code (to our cloud or yours), with
+                  instant creation of DBs, API endpoints, and worker queues,
+                  with no containers, no cold starts, no orchestration, or other
+                  devops/cloud engineering required.
+                </span>
               </li>
             </ul>
           </li>

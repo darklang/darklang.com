@@ -294,43 +294,56 @@
             </div>
 
             <ul class="text-lg font-normal m-4">
-              <li class="text-purple flex flex-row ml-4">
-                <p class="text-2xl mr-3 leading-6 font-bold">-</p>
+              <li class="flex flex-row ml-4">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-charcoal">
-                  Simple and powerful runtime: static type system with simple
-                  immutable types, composition via records and enums, Option and
-                  Result types, garbage collection, automatic async
-                  <span
-                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                    >2024</span
-                  >, and Unicode strings/chars. No null, exceptions,
-                  async/await, or complex type rules
+                  Static, immutable, records and enums</span
+                >
+              </li>
+
+              <li class="flex flex-row ml-4">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span class="text-dark-charcoal">
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-[#e0dfd9] text-blue rounded py-1 px-2"
+                    >Option</code
+                  >
+                  and
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-[#e0dfd9] text-blue rounded py-1 px-2"
+                    >Result</code
+                  >
+                  types instead of null and exceptions
                 </span>
               </li>
 
-              <li class="text-purple flex flex-row ml-4">
-                <p class="text-2xl mr-3 leading-6 font-bold">-</p>
+              <li class="flex flex-row ml-4">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span class="text-dark-charcoal">Garbage Collected</span>
+              </li>
+
+              <li class="flex flex-row ml-4">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-charcoal">
-                  Simple setup: single static binary, with no environments or
-                  containers to setup. Streaming package manager means no
-                  packages to install. Interpreted execution means no compile
-                  step
+                  Fully async runtime without
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-[#e0dfd9] text-blue rounded py-1 px-2"
+                    >async</code
+                  >
+                  or
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-[#e0dfd9] text-blue rounded py-1 px-2"
+                    >await</code
+                  >
+                  keywords
                 </span>
               </li>
 
-              <li class="text-purple flex flex-row ml-4">
-                <p class="text-2xl mr-3 leading-6 font-bold">-</p>
-                <span class="text-dark-charcoal">
-                  Fast prototyping with instant startup (no compile step), error
-                  shortcuts
-                  <span
-                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                    >2024</span
-                  >, and gradual static typing (just run programs until they hit
-                  an error)
-                </span>
+              <li class="flex flex-row ml-4">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span class="text-dark-charcoal">Unicode first</span>
               </li>
-
+              <!--
               <li class="text-purple flex flex-row ml-4">
                 <p class="text-2xl mr-3 leading-6 font-bold">-</p>
                 <p>
@@ -345,9 +358,9 @@
                   </span>
                 </p>
               </li>
+ -->
             </ul>
           </li>
-
           <li id="section2" class="font-bold text-xl mt-8 scroll-mt-24">
             <div class="flex flex-row justify-start items-center">
               <svg
@@ -362,85 +375,51 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <span>Streaming Package manager</span>
+              <span>Runs Instantly</span>
             </div>
             <ul class="text-lg font-normal m-4">
-              <li class="text-purple flex flex-row mt-1">
-                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
+              <li class="flex flex-row mt-1">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-charcoal">
-                  Our package manager streams functions, types and constants as
-                  they're used, so there's no package install step, and no
-                  installing packages before you can use them
+                  Instantly run any package from the CLI:
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-[#e0dfd9] text-dark-charcoal rounded py-1 px-2"
+                    ><span class="text-blue pr-2">darklang </span
+                    >@username.functionName <span class="text-blue">arg1</span>
+                    <span class="text-purple">arg2</span></code
+                  >
                 </span>
               </li>
 
-              <li class="text-purple mt-1">
-                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
+              <li class="flex flex-row mt-1">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-charcoal">
-                  Package features (constants/functions/types) are individually
-                  versioned and immutable:
+                  Streaming package manager with no
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-[#e0dfd9] rounded py-1 px-2 text-blue"
+                    >npm install</code
+                  >
+                  step
                 </span>
-
-                <ul class="font-normal mx-4">
-                  <li class="text-purple flex flex-row mt-1">
-                    <span class="text-lg mx-3 font-bold"> - </span>
-                    <span class="text-dark-charcoal">
-                      Fewer dependencies: no package versions so no need to
-                      upgrade unless the functions you use have newer versions
-                    </span>
-                  </li>
-                  <li class="text-purple flex flex-row mt-1">
-                    <span class="text-lg mx-3 font-bold"> - </span>
-                    <span class="text-dark-charcoal">
-                      Use multiple versions of the same function at once: allows
-                      testing of new dependency versions with less risk using
-                      controlled rollout
-                    </span>
-                  </li>
-
-                  <li class="text-purple flex flex-row mt-1">
-                    <p class="text-lg mx-3 font-bold">-</p>
-                    <p>
-                      <span
-                        class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                        >2024</span
-                      >
-                      <span class="text-dark-charcoal">
-                        Pre-release functions trivially, without users needing
-                        to check out your git repo or set up anything
-                      </span>
-                    </p>
-                  </li>
-
-                  <li class="text-purple flex flex-row mt-1">
-                    <p class="text-lg mx-3 font-bold">-</p>
-                    <p>
-                      <span
-                        class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                        >2024</span
-                      >
-                      <span class="text-dark-charcoal">
-                        We track deprecation status, and know what functions are
-                        pure/safe to update, so we can automate most remaining
-                        dependency management automatically
-                      </span>
-                    </p>
-                  </li>
-                </ul>
               </li>
 
               <li class="text-purple flex flex-row mt-1">
                 <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
                 <span class="text-dark-charcoal">
-                  The package manager is the source repository - no more
-                  releases, uploads, and synchronization. No git or github
-                  required (but feel free, if you prefer). Less friction for
-                  contributors
+                  Single binary to install - no environments or containers to
+                  setup
+                </span>
+              </li>
+
+              <li class="text-purple flex flex-row mt-1">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span class="text-dark-charcoal">
+                  <!-- this might be a good spot to say that we intend to add streaming compilation in the future -->
+                  Interpreted with no compile step
                 </span>
               </li>
             </ul>
           </li>
-
           <li id="section3" class="font-bold text-xl mt-8 scroll-mt-24">
             <div class="flex flex-row justify-start items-center">
               <svg
@@ -455,25 +434,45 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <span>Run from anywhere</span>
+              <span>Delightful features</span>
             </div>
+
             <ul class="text-lg font-normal m-4">
-              <li class="text-purple flex flex-row mt-1">
-                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
+              <li class="flex flex-row mt-1">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-charcoal">
-                  CLI runs any packages with no install:
-                  <code
-                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-[#e0dfd9] text-dark-charcoal rounded py-1 px-2"
-                    ><span class="text-blue pr-2">darklang </span
-                    >@username.functionName <span class="text-blue">arg1</span>
-                    <span class="text-purple">arg2</span></code
-                  >
-                  from the command line (or the browser, Slack, Discord, VS
-                  Code, etc)
+                  Works with VS Code (or any LSP-editor) and GitHub Copilot
                 </span>
               </li>
-              <li class="text-purple flex flex-row mt-1">
-                <span class="text-2xl mr-3 leading-6 font-bold"> - </span>
+
+              <li class="flex flex-row mt-1 pt-4">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span class="text-dark-charcoal">Gradual Static Typing</span>
+              </li>
+
+              <ul class="font-normal mx-4">
+                <li class="text-purple flex flex-row mt-1">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  <span class="text-dark-charcoal">
+                    When prototyping, don't let the type checker hold you up -
+                    just run your program until you hit an error
+                  </span>
+                </li>
+                <li class="text-purple flex flex-row mt-1">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  <span class="text-dark-charcoal">
+                    <span
+                      class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                      >2024</span
+                    >
+                    After prototyping, run the full type checker to gain
+                    confidence your whole program works
+                  </span>
+                </li>
+              </ul>
+
+              <li class="flex flex-row mt-1 pt-4">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-charcoal">
                   <span
                     class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -487,6 +486,89 @@
                   instant creation of DBs, API endpoints, and worker queues,
                   with no containers, no cold starts, no orchestration, or other
                   devops/cloud engineering required
+                </span>
+              </li>
+
+              <li class="flex flex-row mt-1 pt-4">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span class="text-dark-charcoal">
+                  Package items (functions, types and constants) are versioned
+                  and immutable, taking the worry out of taking on dependencies
+                </span>
+              </li>
+
+              <ul class="font-normal mx-4">
+                <li class="text-purple flex flex-row mt-1">
+                  <span class="text-lg mx-3 font-bold"> - </span>
+                  <span class="text-dark-charcoal">
+                    Only download the specific package items you use
+                  </span>
+                </li>
+
+                <li class="text-purple flex flex-row mt-1">
+                  <span class="text-lg mx-3 font-bold"> - </span>
+                  <span class="text-dark-charcoal">
+                    Only upgrade the specific package items you use
+                  </span>
+                </li>
+                <li class="text-purple flex flex-row mt-1">
+                  <p class="text-lg mx-3 font-bold">-</p>
+                  <p>
+                    <span
+                      class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                      >2024</span
+                    >
+                    <span class="text-dark-charcoal">
+                      Automated dependency upgrades, as we track deprecation
+                      status, and know what functions are pure and safe to
+                      update.
+                    </span>
+                  </p>
+                </li>
+
+                <li class="text-purple flex flex-row mt-1">
+                  <span class="text-lg mx-3 font-bold"> - </span>
+                  <span class="text-dark-charcoal">
+                    Different packages can rely on different versions of other
+                    packages
+                  </span>
+                </li>
+
+                <li class="text-purple flex flex-row mt-1">
+                  <span class="text-lg mx-3 font-bold"> - </span>
+                  <span class="text-dark-charcoal">
+                    Use multiple versions of the same package item at once:
+                    allows testing new versions without having to change an
+                    entire package version, lowering risk.
+                  </span>
+                </li>
+
+                <li class="text-purple flex flex-row mt-1">
+                  <p class="text-lg mx-3 font-bold">-</p>
+                  <p>
+                    <span
+                      class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                      >2024</span
+                    >
+                    <span class="text-dark-charcoal">
+                      Share pre-release functions trivially, without
+                      contributors needing to check out your git repo or set up
+                      anything
+                    </span>
+                  </p>
+                </li>
+              </ul>
+
+              <li class="flex flex-row mt-1 pt-4">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span class="text-dark-charcoal">
+                  <span
+                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                    >2024</span
+                  >
+                  The package manager functions as a source repository - no need
+                  for uploads, releases or other synchronization. No git or
+                  GitHub required (but you can sync to GitHub if you prefer).
                 </span>
               </li>
             </ul>
@@ -506,7 +588,7 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <span>Redesigned for GenAI </span>
+              <span>Designed for GenAI</span>
             </div>
             <ul class="text-lg font-normal m-4">
               <li class="text-purple flex flex-row mt-1">
@@ -588,8 +670,8 @@
             </div>
             <ul class="list-outside text-lg font-normal m-4">
               <li>
-                In 2023, we expect to fully open source Darklang, which is
-                currently source available
+                We expect to fully open source Darklang, which is currently
+                source available, in 2023 or early 2024
               </li>
             </ul>
           </li>

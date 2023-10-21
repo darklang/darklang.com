@@ -660,10 +660,6 @@ video {
   margin-bottom: 2rem;
 }
 
-.mb-10{
-  margin-bottom: 2.5rem;
-}
-
 .mb-16{
   margin-bottom: 4rem;
 }
@@ -1192,11 +1188,6 @@ video {
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-
-.text-4xl{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 
 .text-7xl{

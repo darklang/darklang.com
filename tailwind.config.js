@@ -18,10 +18,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        "light-background": "#F8F8F8",
+        "light-background": "#FAFAFA",
         purple: "#955B9F",
         blue: "#747AB9",
         "dark-charcoal": "#333333",
+        "code-background": "#F5F4F1",
       },
       flex: {
         2: "2 2 0%",

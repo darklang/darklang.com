@@ -21,7 +21,7 @@ module.exports = {
         "light-background": "#FAFAFA",
         purple: "#955B9F",
         blue: "#747AB9",
-        "dark-charcoal": "#333333",
+        "dark-gray": "#2F2F2F",
         "code-background": "#F5F4F1",
       },
       flex: {

@@ -97,22 +97,18 @@
               </div>
               <div
                 id="dark-classic-menu"
-                class="absolute hidden w-full bg-dark-gray text-white pt-1 rounded-b-lg"
+                class="absolute hidden w-full bg-light-background text-black pt-1 rounded-lg border border-blue"
               >
                 <ul>
-                  <li>
+                  <li class="hover:bg-blue hover:text-white">
                     <a
-                      class="hover:bg-blue py-2 px-4 block"
+                      class="py-2 px-4 block mx-2 border-b border-b-blue/25"
                       href="https://login.darklang.com"
                       >Log in</a
                     >
                   </li>
-                  <li>
-                    <a
-                      class="hover:bg-blue py-2 px-4 block rounded-b-lg"
-                      href="./signup"
-                      >Sign up</a
-                    >
+                  <li class="hover:bg-blue hover:text-white rounded-b-lg">
+                    <a class="py-2 px-4 block" href="./signup">Sign up</a>
                   </li>
                 </ul>
               </div>
@@ -297,12 +293,12 @@
             </div>
 
             <ul class="text-lg font-normal m-4">
-              <li class="flex flex-row ml-4">
+              <li class="flex flex-row mt-1">
                 <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span> Static, immutable, records and enums</span>
               </li>
 
-              <li class="flex flex-row ml-4">
+              <li class="flex flex-row mt-1">
                 <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-gray">
                   <code
@@ -318,12 +314,12 @@
                 </span>
               </li>
 
-              <li class="flex flex-row ml-4">
+              <li class="flex flex-row mt-1">
                 <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-gray">Garbage Collected</span>
               </li>
 
-              <li class="flex flex-row ml-4">
+              <li class="flex flex-row mt-1">
                 <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-gray">
                   Fully async runtime without
@@ -340,7 +336,7 @@
                 </span>
               </li>
 
-              <li class="flex flex-row ml-4">
+              <li class="flex flex-row mt-1">
                 <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
                 <span class="text-dark-gray">Unicode first</span>
               </li>
@@ -490,15 +486,37 @@
                 </span>
               </li>
 
-              <li class="flex flex-row mt-1 pt-4">
-                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+              <li class="flex flex-row mt-1 pt-4 items-start">
+                <p
+                  data-target="subitemsList1"
+                  class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
+                >
+                  <svg
+                    width="32px"
+                    height="32px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g>
+                      <path
+                        d="M11 9L14 12L11 15"
+                        stroke="#955B9F"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </g>
+                  </svg>
+                </p>
+
                 <span class="text-dark-gray">
                   Package items (functions, types and constants) are versioned
                   and immutable, taking the worry out of taking on dependencies
                 </span>
               </li>
 
-              <ul class="font-normal mx-4">
+              <ul id="subitemsList1" class="font-normal mx-4 hidden">
                 <li class="text-purple flex flex-row mt-1">
                   <span class="text-lg mx-3 font-bold"> - </span>
                   <span class="text-dark-gray">
@@ -844,6 +862,24 @@
 
       button.addEventListener("click", () => {
         menu.classList.toggle("hidden");
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const allToggleArrows = document.querySelectorAll(".toggleArrow");
+        allToggleArrows.forEach(function (toggleArrow) {
+          toggleArrow.addEventListener("click", function () {
+            const sublistId = toggleArrow.getAttribute("data-target");
+            const targetList = document.getElementById(sublistId);
+
+            if (targetList.classList.contains("hidden")) {
+              targetList.classList.remove("hidden");
+              toggleArrow.classList.toggle("rotate-90");
+            } else {
+              targetList.classList.add("hidden");
+              toggleArrow.classList.toggle("rotate-90");
+            }
+          });
+        });
       });
 
       // Bottom navbar

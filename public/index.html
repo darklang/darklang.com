@@ -12,6 +12,18 @@
       referrerpolicy="no-referrer"
     />
     <link href="./style.css" rel="stylesheet" />
+
+    <!-- highlightjs -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/fsharp.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <!-- /highlightjs -->
     <script>
       let addEmailToList = index => {
         let emailID = "email" + index;
@@ -292,72 +304,81 @@
               <span>Functional language</span>
             </div>
 
-            <ul class="text-lg font-normal m-4">
-              <li class="flex flex-row mt-1">
-                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                <span> Static, immutable, records and enums</span>
-              </li>
-
-              <li class="flex flex-row mt-1">
-                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                <span class="text-dark-gray">
-                  <code
-                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-code-background text-blue rounded py-1 px-2"
-                    >Option</code
+            <ul class="text-lg font-normal m-4 ml-1">
+              <li class="flex flex-row mt-1 pt-4 items-start">
+                <p
+                  data-target="subitemsList1"
+                  class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
+                >
+                  <svg
+                    width="32px"
+                    height="32px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                  and
-                  <code
-                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-code-background text-blue rounded py-1 px-2"
-                    >Result</code
-                  >
-                  types instead of null and exceptions
-                </span>
-              </li>
-
-              <li class="flex flex-row mt-1">
-                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                <span class="text-dark-gray">Garbage Collected</span>
-              </li>
-
-              <li class="flex flex-row mt-1">
-                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                <span class="text-dark-gray">
-                  Fully async runtime without
-                  <code
-                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-code-background text-blue rounded py-1 px-2"
-                    >async</code
-                  >
-                  or
-                  <code
-                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-code-background text-blue rounded py-1 px-2"
-                    >await</code
-                  >
-                  keywords
-                </span>
-              </li>
-
-              <li class="flex flex-row mt-1">
-                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                <span class="text-dark-gray">Unicode first</span>
-              </li>
-              <!--
-              <li class="text-purple flex flex-row ml-4">
-                <p class="text-2xl mr-3 leading-6 font-bold">-</p>
-                <p>
-                  <span
-                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                    >2024</span
-                  >
-                  <span class="text-dark-gray">
-                    Full type checking: after prototyping, run the static
-                    typechecker to catch errors - and get confidence your
-                    program works
-                  </span>
+                    <g>
+                      <path
+                        d="M11 9L14 12L11 15"
+                        stroke="#955B9F"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </g>
+                  </svg>
                 </p>
+
+                <span class="text-dark-gray">
+                  Simple types using
+                  <span class="font-bold">Records and Enums</span>
+                </span>
               </li>
- -->
+            </ul>
+            <ul id="subitemsList1" class="text-lg font-normal mx-4 hidden">
+              <li class="text-purple flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold">-</span>
+                <span class="text-dark-gray"
+                  ><span class="italic">Abstract Data Types</span> made of
+                  Record and Enums can model nearly anything, like in Rust, Elm,
+                  OCaml and F#
+                </span>
+                <br />
+                <pre class="ml-4">
+                  <code
+                    class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
+                   >// Record
+type Url = {
+  scheme : HttpScheme
+  domain : String
+  port : UInt16
+  path : String
+  query : Option&lt;String&gt;
+}
+
+// Enum (aka Variant, Sum Type, or Abstract Data Types)
+type UrlError = 
+  | InvalidScheme(String)
+  | EmptyDomain
+  | InvalidPort(Int64)
+  | Unparseable(msg:String, context:String)
+
+// Aliases are just shorthands
+type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
+              </li>
+
+              <li class="text-purple flex flex-row mt-1">
+                <span class="text-2xl mr-3 leading-6 font-bold">-</span>
+                <span class="text-dark-gray">
+                  We believe Object Oriented programming is a terrible way to
+                  model programs, and inheritence is a terrible misfeature.
+                  Languages like OCaml, Elm, and F# have shown that nearly all
+                  problems can be modeled using ADTs.
+                </span>
+              </li>
             </ul>
           </li>
+
           <li id="section2" class="font-bold text-xl mt-8 scroll-mt-24">
             <div class="flex flex-row justify-start items-center">
               <svg

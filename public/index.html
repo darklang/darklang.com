@@ -75,12 +75,42 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", event => {
-        // Function to replace the component with the template content
         function replaceComponentWithTemplate(componentElement) {
           const templateId = componentElement.getAttribute("data-component");
-          const templateContent = document.getElementById(templateId).content;
-          const clone = document.importNode(templateContent, true);
-          componentElement.parentNode.replaceChild(clone, componentElement);
+          const template = document.getElementById(templateId);
+
+          if (template) {
+            const templateContent = template.content.cloneNode(true);
+
+            // Replace content placeholders
+            const contentPlaceholder =
+              templateContent.querySelector("[data-content]");
+            if (contentPlaceholder) {
+              contentPlaceholder.innerHTML = componentElement.innerHTML;
+            }
+
+            // Replace attribute placeholders
+            Object.keys(componentElement.dataset).forEach(dataAttr => {
+              if (dataAttr.endsWith("placeholder")) return; // Skip placeholder definitions
+
+              const attrName = dataAttr;
+              const attrValue = componentElement.dataset[dataAttr];
+              const attrPlaceholder = templateContent.querySelector(
+                `[data-${dataAttr}-placeholder]`,
+              );
+
+              if (attrPlaceholder) {
+                attrPlaceholder.setAttribute(attrName, attrValue);
+                attrPlaceholder.removeAttribute(`data-${dataAttr}-placeholder`);
+              }
+            });
+
+            // Replace the component element with the template content
+            componentElement.parentNode.replaceChild(
+              templateContent,
+              componentElement,
+            );
+          }
         }
 
         // Find all component elements
@@ -190,18 +220,28 @@
           id="menu"
           class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
         >
+          <template id="topbarItem">
+            <!-- header top links -->
+            <li class="hover:text-blue border-b md:border-none">
+              <a
+                data-href-placeholder
+                target="_blank"
+                class="block py-2 pl-3 pr-4"
+                ><span data-content>REPLACEME</span></a
+              >
+            </li>
+          </template>
+
           <ul class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4">
             <!-- <li>
               Disabled for now as it points to old docs
               <a href="https://docs.darklang.com" target=”_blank” class="text-white">Documentation</a>
           </li> -->
-            <li class="hover:text-blue border-b md:border-none">
-              <a
-                href="https://blog.darklang.com"
-                target="”_blank”"
-                class="block py-2 pl-3 pr-4"
-                >Blog</a
-              >
+            <li
+              data-component="topbarItem"
+              data-href="https://blog.darklang.com"
+            >
+              Blog
             </li>
             <li class="hover:text-blue border-b md:border-none">
               <a

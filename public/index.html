@@ -74,55 +74,53 @@
       };
     </script>
     <script>
-      document.addEventListener("DOMContentLoaded", event => {
-        function replaceComponentWithTemplate(componentElement) {
-          const templateId = componentElement.getAttribute("data-component");
-          const template = document.getElementById(templateId);
+      document.addEventListener("DOMContentLoaded", () => {
+        // Function to initialize and define custom elements based on templates
+        const defineCustomElementsFromTemplates = () => {
+          const templates = document.querySelectorAll("template");
 
-          if (template) {
-            const templateContent = template.content.cloneNode(true);
+          templates.forEach(template => {
+            const templateId = template.id;
 
-            // Replace content placeholders
-            const contentPlaceholder =
-              templateContent.querySelector("[data-content]");
-            if (contentPlaceholder) {
-              contentPlaceholder.innerHTML = componentElement.innerHTML;
+            // Define a class for our custom element
+            class CustomElement extends HTMLElement {
+              constructor() {
+                super(); // Always call super first in the constructor
+                const content = template.content.cloneNode(true);
+                this.appendChild(content);
+              }
+
+              // Lifecycle callback when the element is added to the DOM
+              connectedCallback() {
+                const placeholderLink =
+                  this.querySelector("[placeholder-href]");
+                const contentSpan = this.querySelector("[data-content]");
+
+                // Replace the placeholders with the actual values
+                if (placeholderLink) {
+                  placeholderLink.setAttribute(
+                    "href",
+                    this.getAttribute("href"),
+                  );
+                }
+                if (contentSpan) {
+                  contentSpan.textContent = this.textContent;
+                }
+              }
             }
 
-            // Replace attribute placeholders
-            Object.keys(componentElement.dataset).forEach(dataAttr => {
-              if (dataAttr.endsWith("placeholder")) return; // Skip placeholder definitions
+            // Define the custom element
+            customElements.define(templateId, CustomElement);
+          });
+        };
 
-              const attrName = dataAttr;
-              const attrValue = componentElement.dataset[dataAttr];
-              const attrPlaceholder = templateContent.querySelector(
-                `[data-${dataAttr}-placeholder]`,
-              );
-
-              if (attrPlaceholder) {
-                attrPlaceholder.setAttribute(attrName, attrValue);
-                attrPlaceholder.removeAttribute(`data-${dataAttr}-placeholder`);
-              }
-            });
-
-            // Replace the component element with the template content
-            componentElement.parentNode.replaceChild(
-              templateContent,
-              componentElement,
-            );
-          }
-        }
-
-        // Find all component elements
-        const components = document.querySelectorAll("[data-component]");
-
-        // Replace each component with the template content
-        components.forEach(replaceComponentWithTemplate);
+        // Call the function to initialize custom elements
+        defineCustomElementsFromTemplates();
       });
     </script>
   </head>
   <!-- SVG for the '#' bullet icon -->
-  <template id="hashTagSvg">
+  <template id="hashtag-svg">
     <svg
       class="w-5 h-5 mr-2"
       viewBox="0 0 16 16"
@@ -138,7 +136,7 @@
   </template>
 
   <!-- SVG for the '-' bullet icon -->
-  <template id="bullet">
+  <template id="list-bullet">
     <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
   </template>
 
@@ -220,15 +218,12 @@
           id="menu"
           class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
         >
-          <template id="topbarItem">
+          <template id="topbar-item">
             <!-- header top links -->
             <li class="hover:text-blue border-b md:border-none">
-              <a
-                data-href-placeholder
-                target="_blank"
-                class="block py-2 pl-3 pr-4"
-                ><span data-content>REPLACEME</span></a
-              >
+              <a placeholder-href target="_blank" class="block py-2 pl-3 pr-4">
+                <span data-content>REPLACEME</span>
+              </a>
             </li>
           </template>
 
@@ -237,12 +232,7 @@
               Disabled for now as it points to old docs
               <a href="https://docs.darklang.com" target=”_blank” class="text-white">Documentation</a>
           </li> -->
-            <li
-              data-component="topbarItem"
-              data-href="https://blog.darklang.com"
-            >
-              Blog
-            </li>
+            <topbar-item href="https://blog.darklang.com">Blog</topbar-item>
             <li class="hover:text-blue border-b md:border-none">
               <a
                 href="https://darklang.com/discord"
@@ -366,7 +356,7 @@
         <ul>
           <li id="section1" class="font-bold text-xl scroll-mt-24">
             <div class="flex flex-row justify-start items-center">
-              <div data-component="hashTagSvg"></div>
+              <hashtag-svg></hashtag-svg>
               <span>Functional language</span>
             </div>
 
@@ -447,12 +437,12 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
 
           <li id="section2" class="font-bold text-xl mt-8 scroll-mt-24">
             <div class="flex flex-row justify-start items-center">
-              <div data-component="hashTagSvg"></div>
+              <hashtag-svg></hashtag-svg>
               <span>Runs Instantly</span>
             </div>
             <ul class="text-lg font-normal m-4">
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">
                   Instantly run any package from the CLI:
                   <code
@@ -465,7 +455,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
               </li>
 
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">
                   Streaming package manager with no
                   <code
@@ -477,7 +467,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
               </li>
 
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">
                   Single binary to install - no environments or containers to
                   setup
@@ -485,7 +475,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
               </li>
 
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">
                   <!-- this might be a good spot to say that we intend to add streaming compilation in the future -->
                   Interpreted with no compile step
@@ -495,33 +485,33 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
           </li>
           <li id="section3" class="font-bold text-xl mt-8 scroll-mt-24">
             <div class="flex flex-row justify-start items-center">
-              <div data-component="hashTagSvg"></div>
+              <hashtag-svg></hashtag-svg>
               <span>Delightful features</span>
             </div>
 
             <ul class="text-lg font-normal m-4">
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">
                   Works with VS Code (or any LSP-editor) and GitHub Copilot
                 </span>
               </li>
 
               <li class="flex flex-row mt-1 pt-4">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">Gradual Static Typing</span>
               </li>
 
               <ul class="font-normal mx-4">
                 <li class="flex flex-row mt-1">
-                  <p data-component="bullet"></p>
+                  <list-bullet></list-bullet>
                   <span class="text-dark-gray">
                     When prototyping, don't let the type checker hold you up -
                     just run your program until you hit an error
                   </span>
                 </li>
                 <li class="flex flex-row mt-1">
-                  <p data-component="bullet"></p>
+                  <list-bullet></list-bullet>
                   <span class="text-dark-gray">
                     <span
                       class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -534,7 +524,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
               </ul>
 
               <li class="flex flex-row mt-1 pt-4">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">
                   <span
                     class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -583,20 +573,20 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
 
               <ul id="subitemsList1" class="font-normal mx-4 hidden">
                 <li class="flex flex-row mt-1">
-                  <p data-component="bullet"></p>
+                  <list-bullet></list-bullet>
                   <span class="text-dark-gray">
                     Only download the specific package items you use
                   </span>
                 </li>
 
                 <li class="flex flex-row mt-1">
-                  <p data-component="bullet"></p>
+                  <list-bullet></list-bullet>
                   <span class="text-dark-gray">
                     Only upgrade the specific package items you use
                   </span>
                 </li>
                 <li class="flex flex-row mt-1">
-                  <p data-component="bullet"></p>
+                  <list-bullet></list-bullet>
                   <p>
                     <span
                       class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -611,7 +601,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 </li>
 
                 <li class="flex flex-row mt-1">
-                  <p data-component="bullet"></p>
+                  <list-bullet></list-bullet>
                   <span class="text-dark-gray">
                     Different packages can rely on different versions of other
                     packages
@@ -619,7 +609,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 </li>
 
                 <li class="flex flex-row mt-1">
-                  <p data-component="bullet"></p>
+                  <list-bullet></list-bullet>
                   <span class="text-dark-gray">
                     Use multiple versions of the same package item at once:
                     allows testing new versions without having to change an
@@ -628,7 +618,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 </li>
 
                 <li class="flex flex-row mt-1">
-                  <p data-component="bullet"></p>
+                  <list-bullet></list-bullet>
                   <p>
                     <span
                       class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -660,17 +650,17 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
 
           <li id="section4" class="font-bold text-xl mt-8 scroll-mt-24">
             <div class="flex flex-row justify-start items-center">
-              <div data-component="hashTagSvg"></div>
+              <hashtag-svg></hashtag-svg>
               <span>Designed for GenAI</span>
             </div>
             <ul class="text-lg font-normal m-4">
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray"> Works with GitHub Copilot </span>
               </li>
 
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">
                   We redesigned the dark language and tooling to enable
                   GenAI-generated programs, including exposing language tools to
@@ -680,7 +670,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 </span>
               </li>
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <p>
                   <span
                     class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -700,7 +690,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
               </li>
 
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">
                   <span
                     class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -711,7 +701,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
               </li>
 
               <li class="flex flex-row mt-1">
-                <p data-component="bullet"></p>
+                <list-bullet></list-bullet>
                 <span class="text-dark-gray">
                   <span
                     class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
@@ -725,7 +715,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
 
           <li id="section5" class="font-bold text-xl mt-8 scroll-mt-24">
             <div class="flex flex-row justify-start items-center">
-              <div data-component="hashTagSvg"></div>
+              <hashtag-svg></hashtag-svg>
               <span>Open source</span>
             </div>
             <ul class="list-outside text-lg font-normal m-4">

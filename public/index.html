@@ -84,13 +84,19 @@
             class CustomElement extends HTMLElement {
               constructor() {
                 super();
+
+                // Instantiate the body from the template here. It's suggested
+                // to do it in connectedCallback instead, but when nodes are
+                // moved around things get duplicated, so that's not really
+                // suitable.
+                this.copyFromTemplate();
               }
 
               // Take the template content and create a body for this
               // instantiation of the customelement from it.
               // 1. Replace the data-content node in the template with the children of the customelement
               // 2. Use the customElement's attributes and replace placeholder-* attributes in the template
-              connectedCallback() {
+              copyFromTemplate() {
                 let body = template.content.cloneNode(true);
 
                 // Replace attributes
@@ -104,15 +110,17 @@
                     });
                 });
 
-                // Replace the data-content node with the actual children of the
+                // Replace the content node with the actual children of the
                 // instantiated CustomElement
-                const dataContent = body.querySelector("[data-content]");
-                if (dataContent) {
+                const contentNode = body.querySelector(
+                  `[content-${template.id}]`,
+                );
+                if (contentNode) {
                   Array.from(this.childNodes).forEach(child => {
-                    dataContent.parentNode.insertBefore(child, dataContent);
+                    contentNode.parentNode.insertBefore(child, contentNode);
                   });
-                  // Remove the data-content node
-                  dataContent.parentNode.removeChild(dataContent);
+                  // Remove the content node
+                  contentNode.parentNode.removeChild(contentNode);
                 }
 
                 // Now attach the new content
@@ -154,16 +162,22 @@
     <li class="flex flex-row mt-1">
       <list-bullet></list-bullet>
       <span class="text-dark-gray">
-        <span data-content>REPLACE ME</span>
+        <span content-bullet-point>REPLACE ME</span>
       </span>
     </li>
+  </template>
+
+  <template id="bullet-points">
+    <ul class="text-lg font-normal m-4">
+      <span content-bullet-points>REPLACE ME</span>
+    </ul>
   </template>
 
   <!-- Section headings in at-a-glance -->
   <template id="section-heading">
     <div class="flex flex-row justify-start items-center">
       <hashtag-svg></hashtag-svg>
-      <span><span data-content>REPLACE ME</span></span>
+      <span><span content-section-heading>REPLACE ME</span></span>
     </div>
   </template>
 
@@ -171,14 +185,14 @@
   <template id="inline-code">
     <code
       class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
-      ><span data-content>REPLACE ME</span></code
+      ><span content-inline-code>REPLACE ME</span></code
     >
   </template>
 
   <!-- arbitrary label -->
   <template id="tag-label">
     <span class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-      ><span data-content>REPLACE ME</span></span
+      ><span content-tag-label>REPLACE ME</span></span
     >
   </template>
   <!-- 2024 label -->
@@ -275,7 +289,7 @@
             <!-- header top links -->
             <li class="hover:text-blue border-b md:border-none">
               <a placeholder-href target="_blank" class="block py-2 pl-3 pr-4">
-                <span data-content>REPLACEME</span>
+                <span content-top-item>REPLACEME</span>
               </a>
             </li>
           </template>
@@ -458,8 +472,8 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
 
           <li id="section2" class="font-bold text-xl mt-8 scroll-mt-24">
             <section-heading>Runs Instantly</section-heading>
-            <ul class="text-lg font-normal m-4">
-              <bullet-point>
+            <bullet-points>
+              <bullet-point id="test">
                 Instantly run any package from the CLI:
                 <inline-code>
                   <span class="text-blue pr-2">darklang</span>
@@ -486,7 +500,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 <!-- this might be a good spot to say that we intend to add streaming compilation in the future -->
                 Interpreted with no compile step
               </bullet-point>
-            </ul>
+            </bullet-points>
           </li>
           <li id="section3" class="font-bold text-xl mt-8 scroll-mt-24">
             <section-heading>Delightful features</section-heading>

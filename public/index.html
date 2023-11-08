@@ -149,6 +149,50 @@
     <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
   </template>
 
+  <!-- Bullet points that we use throughout -->
+  <template id="bullet-point">
+    <li class="flex flex-row mt-1">
+      <list-bullet></list-bullet>
+      <span class="text-dark-gray">
+        <span data-content>REPLACE ME</span>
+      </span>
+    </li>
+  </template>
+
+  <!-- Section headings in at-a-glance -->
+  <template id="section-heading">
+    <div class="flex flex-row justify-start items-center">
+      <hashtag-svg></hashtag-svg>
+      <span><span data-content>REPLACE ME</span></span>
+    </div>
+  </template>
+
+  <!-- inline code -->
+  <template id="inline-code">
+    <code
+      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+      ><span data-content>REPLACE ME</span></code
+    >
+  </template>
+
+  <!-- arbitrary label -->
+  <template id="tag-label">
+    <span class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+      ><span data-content>REPLACE ME</span></span
+    >
+  </template>
+  <!-- 2024 label -->
+  <template id="t-2024">
+    <span class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+      >2024</span
+    >
+  </template>
+
+  <!-- 2025 label -->
+  <template id="t-2025">
+    <tag-label>2025</tag-label>
+  </template>
+
   <body class="bg-light-background box-border m-0 p-0">
     <!--Navbar-->
     <nav class="sticky bg-light-background w-full top-0 left-0 z-50">
@@ -227,7 +271,7 @@
           id="menu"
           class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
         >
-          <template id="topbar">
+          <template id="top-item">
             <!-- header top links -->
             <li class="hover:text-blue border-b md:border-none">
               <a placeholder-href target="_blank" class="block py-2 pl-3 pr-4">
@@ -239,12 +283,12 @@
           <ul class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4">
             <!--
               Disabled for now as it points to old docs
-              <topbar href="https://docs.darklang.com">Documentation</topbar>
+              <top-item href="https://docs.darklang.com">Documentation</top-item>
               -->
-            <topbar href="https://blog.darklang.com">Blog</topbar>
-            <topbar href="https://darklang.com/discord">Discord</topbar>
-            <topbar href="https://github.com/darklang/dark">GitHub</topbar>
-            <topbar href="https://darklang.com/sponsor">Sponsor us</topbar>
+            <top-item href="https://blog.darklang.com">Blog</top-item>
+            <top-item href="https://darklang.com/discord">Discord</top-item>
+            <top-item href="https://github.com/darklang/dark">GitHub</top-item>
+            <top-item href="https://darklang.com/sponsor">Sponsor us</top-item>
           </ul>
         </div>
       </div>
@@ -343,10 +387,7 @@
       <div class="text-base leading-6 mx-8">
         <ul>
           <li id="section1" class="font-bold text-xl scroll-mt-24">
-            <div class="flex flex-row justify-start items-center">
-              <hashtag-svg></hashtag-svg>
-              <span>Functional language</span>
-            </div>
+            <section-heading>Functional language</section-heading>
 
             <ul class="text-lg font-normal m-4 ml-1">
               <li class="flex flex-row mt-1 pt-4 items-start">
@@ -424,59 +465,37 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
           </li>
 
           <li id="section2" class="font-bold text-xl mt-8 scroll-mt-24">
-            <div class="flex flex-row justify-start items-center">
-              <hashtag-svg></hashtag-svg>
-              <span>Runs Instantly</span>
-            </div>
+            <section-heading>Runs Instantly</section-heading>
             <ul class="text-lg font-normal m-4">
-              <li class="flex flex-row mt-1">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray">
-                  Instantly run any package from the CLI:
-                  <code
-                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-code-background text-dark-gray rounded py-1 px-2"
-                    ><span class="text-blue pr-2">darklang </span
-                    >@username.functionName <span class="text-blue">arg1</span>
-                    <span class="text-purple">arg2</span></code
-                  >
-                </span>
-              </li>
+              <bullet-point>
+                Instantly run any package from the CLI:
+                <code
+                  class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-code-background text-dark-gray rounded py-1 px-2"
+                  ><span class="text-blue pr-2">darklang </span
+                  >@username.functionName <span class="text-blue">arg1</span>
+                  <span class="text-purple">arg2</span></code
+                >
+              </bullet-point>
 
-              <li class="flex flex-row mt-1">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray">
-                  Streaming package manager with no
-                  <code
-                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
-                    >npm install</code
-                  >
-                  step
-                </span>
-              </li>
+              <bullet-point>
+                Streaming package manager with no
+                <inline-code>npm install</inline-code>
+                step
+              </bullet-point>
 
-              <li class="flex flex-row mt-1">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray">
-                  Single binary to install - no environments or containers to
-                  setup
-                </span>
-              </li>
+              <bullet-point>
+                Single binary to install - no environments or containers to
+                setup
+              </bullet-point>
 
-              <li class="flex flex-row mt-1">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray">
-                  <!-- this might be a good spot to say that we intend to add streaming compilation in the future -->
-                  Interpreted with no compile step
-                </span>
-              </li>
+              <bullet-point>
+                <!-- this might be a good spot to say that we intend to add streaming compilation in the future -->
+                Interpreted with no compile step
+              </bullet-point>
             </ul>
           </li>
           <li id="section3" class="font-bold text-xl mt-8 scroll-mt-24">
-            <div class="flex flex-row justify-start items-center">
-              <hashtag-svg></hashtag-svg>
-              <span>Delightful features</span>
-            </div>
-
+            <section-heading>Delightful features</section-heading>
             <ul class="text-lg font-normal m-4">
               <li class="flex flex-row mt-1">
                 <list-bullet></list-bullet>
@@ -501,10 +520,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 <li class="flex flex-row mt-1">
                   <list-bullet></list-bullet>
                   <span class="text-dark-gray">
-                    <span
-                      class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                      >2024</span
-                    >
+                    <t-2024></t-2024>
                     After prototyping, run the full type checker to gain
                     confidence your whole program works
                   </span>
@@ -514,14 +530,8 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
               <li class="flex flex-row mt-1 pt-4">
                 <list-bullet></list-bullet>
                 <span class="text-dark-gray">
-                  <span
-                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                    >Optional</span
-                  >
-                  <span
-                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                    >2024</span
-                  >
+                  <tag-label>Optional</tag-label>
+                  <t-2024></t-2024>
                   Instant cloud deployment of code (to our cloud or yours), with
                   instant creation of DBs, API endpoints, and worker queues,
                   with no containers, no cold starts, no orchestration, or other
@@ -637,33 +647,20 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
           </li>
 
           <li id="section4" class="font-bold text-xl mt-8 scroll-mt-24">
-            <div class="flex flex-row justify-start items-center">
-              <hashtag-svg></hashtag-svg>
-              <span>Designed for GenAI</span>
-            </div>
+            <section-heading> Designed for GenAI </section-heading>
             <ul class="text-lg font-normal m-4">
-              <li class="flex flex-row mt-1">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray"> Works with GitHub Copilot </span>
-              </li>
-
-              <li class="flex flex-row mt-1">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray">
-                  We redesigned the dark language and tooling to enable
-                  GenAI-generated programs, including exposing language tools to
-                  GenAI tools, allowing running partial and incomplete programs
-                  safely, and ensuring access to significant context to GenAI
-                  tools
-                </span>
-              </li>
+              <bullet-point> Works with GitHub Copilot </bullet-point>
+              <bullet-point>
+                We redesigned the dark language and tooling to enable
+                GenAI-generated programs, including exposing language tools to
+                GenAI tools, allowing running partial and incomplete programs
+                safely, and ensuring access to significant context to GenAI
+                tools
+              </bullet-point>
               <li class="flex flex-row mt-1">
                 <list-bullet></list-bullet>
                 <p>
-                  <span
-                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                    >2024</span
-                  >
+                  <t-2024></t-2024>
                   <span class="text-dark-gray"
                     >Build short CLI programs from prompts
                     <code
@@ -677,16 +674,13 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 </p>
               </li>
 
-              <li class="flex flex-row mt-1">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray">
-                  <span
-                    class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-                    >2024</span
-                  >
-                  Build vendor SDKs from prompts and OpenAPI docs
-                </span>
-              </li>
+              <bullet-point>
+                <span
+                  class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+                  >2024</span
+                >
+                Build vendor SDKs from prompts and OpenAPI docs
+              </bullet-point>
 
               <li class="flex flex-row mt-1">
                 <list-bullet></list-bullet>

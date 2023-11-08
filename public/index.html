@@ -157,6 +157,26 @@
     <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
   </template>
 
+  <template id="caret-svg">
+    <svg
+      width="32px"
+      height="32px"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g>
+        <path
+          d="M11 9L14 12L11 15"
+          stroke="#955B9F"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </g>
+    </svg>
+  </template>
+
   <!-- Bullet points that we use throughout -->
   <template id="bullet-point">
     <li class="flex flex-row mt-1">
@@ -409,23 +429,7 @@
                   data-target="subitemsList1"
                   class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
                 >
-                  <svg
-                    width="32px"
-                    height="32px"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g>
-                      <path
-                        d="M11 9L14 12L11 15"
-                        stroke="#955B9F"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </g>
-                  </svg>
+                  <caret-svg></caret-svg>
                 </p>
 
                 <span class="text-dark-gray">
@@ -504,7 +508,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
           </li>
           <li id="section3" class="font-bold text-xl mt-8 scroll-mt-24">
             <section-heading>Delightful features</section-heading>
-            <ul class="text-lg font-normal m-4">
+            <bullet-points>
               <li class="flex flex-row mt-1">
                 <list-bullet></list-bullet>
                 <span class="text-dark-gray">
@@ -549,26 +553,10 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
 
               <li class="flex flex-row mt-1 pt-4 items-start">
                 <p
-                  data-target="subitemsList1"
+                  data-target="subitemsList2"
                   class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
                 >
-                  <svg
-                    width="32px"
-                    height="32px"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g>
-                      <path
-                        d="M11 9L14 12L11 15"
-                        stroke="#955B9F"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </g>
-                  </svg>
+                  <caret-svg></caret-svg>
                 </p>
 
                 <span class="text-dark-gray">
@@ -577,7 +565,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 </span>
               </li>
 
-              <ul id="subitemsList1" class="font-normal mx-4 hidden">
+              <ul id="subitemsList2" class="font-normal mx-4 hidden">
                 <li class="flex flex-row mt-1">
                   <list-bullet></list-bullet>
                   <span class="text-dark-gray">
@@ -642,12 +630,12 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                   GitHub required (but you can sync to GitHub if you prefer).
                 </span>
               </li>
-            </ul>
+            </bullet-points>
           </li>
 
           <li id="section4" class="font-bold text-xl mt-8 scroll-mt-24">
-            <section-heading> Designed for GenAI </section-heading>
-            <ul class="text-lg font-normal m-4">
+            <section-heading>Designed for GenAI</section-heading>
+            <bullet-points>
               <bullet-point> Works with GitHub Copilot </bullet-point>
               <bullet-point>
                 We redesigned the dark language and tooling to enable
@@ -677,7 +665,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 <t-2024></t-2024>
                 Build complex programs with darklang AI agents
               </bullet-point>
-            </ul>
+            </bullet-points>
           </li>
 
           <li id="section5" class="font-bold text-xl mt-8 scroll-mt-24">

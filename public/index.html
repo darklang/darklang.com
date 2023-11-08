@@ -563,22 +563,11 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                   devops/cloud engineering required
                 </span>
               </li>
-
-              <li class="flex flex-row mt-1 pt-4 items-start">
-                <p
-                  data-target="subitemsList2"
-                  class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
-                >
-                  <caret-svg></caret-svg>
-                </p>
-
-                <span class="text-dark-gray">
-                  Package items (functions, types and constants) are versioned
-                  and immutable, taking the worry out of taking on dependencies
-                </span>
-              </li>
-
-              <ul id="subitemsList2" class="font-normal mx-4 hidden">
+              <toggle-heading data-target="subitemsList2">
+                Package items (functions, types and constants) are versioned and
+                immutable, taking the worry out of taking on dependencies
+              </toggle-heading>
+              <toggle-body id="subitemsList2">
                 <li class="flex flex-row mt-1">
                   <list-bullet></list-bullet>
                   <span class="text-dark-gray">
@@ -632,7 +621,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                     </span>
                   </p>
                 </li>
-              </ul>
+              </toggle-body>
 
               <li class="flex flex-row mt-1 pt-4">
                 <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>

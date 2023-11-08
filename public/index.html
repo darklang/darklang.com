@@ -102,13 +102,17 @@
                 // Replace attributes
                 Array.from(this.attributes).forEach(attr => {
                   const placeholderAttribute = `placeholder-${attr.name}`;
+                  let count = 0;
                   body
                     .querySelectorAll(`[${placeholderAttribute}]`)
                     .forEach(element => {
+                      count = count + 1;
                       element.setAttribute(attr.name, attr.value);
                       element.removeAttribute(placeholderAttribute);
                     });
-                  this.removeAttribute(attr.name);
+                  if (count > 0) {
+                    this.removeAttribute(attr.name);
+                  }
                 });
 
                 // Replace the content node with the actual children of the
@@ -229,29 +233,25 @@
   </template>
 
   <!-- inline code -->
-  <template id="inline-code">
-    <code
+  <template id="inline-code"
+    ><code
       class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
       ><span content-inline-code>REPLACE ME</span></code
-    >
-  </template>
+    ></template
+  >
 
   <!-- arbitrary label -->
-  <template id="tag-label">
-    <span class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+  <template id="tag-label"
+    ><span class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
       ><span content-tag-label>REPLACE ME</span></span
-    >
-  </template>
+    ></template
+  >
 
   <!-- 2024 label -->
-  <template id="t-2024">
-    <tag-label>2024</tag-label>
-  </template>
+  <template id="t-2024"><tag-label>2024</tag-label></template>
 
   <!-- 2025 label -->
-  <template id="t-2025">
-    <tag-label>2025</tag-label>
-  </template>
+  <template id="t-2025"><tag-label>2025+</tag-label></template>
 
   <template id="darklang-code"
     ><code
@@ -557,7 +557,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
                     allocations individually, but it can also be fun to just get
                     working programs immediately. We believe that run-time
                     garbage collection is one of the greatest programming
-                    language features, and we’re all in
+                    language features, and we're all in
                   </bullet-point>
                 </bullet-points>
               </toggle-body>
@@ -620,9 +620,9 @@ Buzz
                   </bullet-point>
 
                   <bullet-point>
-                    We designed this to allow you share scripts with your team,
-                    or the whole world. We support private packages
-                    <t-2024></t-2024>, with individual, team, or role-base
+                    We designed this to allow you to share scripts with your
+                    team, or the whole world. We support private packages
+                    <t-2024></t-2024>, with individual, team, or role-based
                     access controls. You can even have functions that run
                     server-side<t-2025></t-2025>
                     without allowing the user to see credentials, for example
@@ -665,59 +665,70 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
               <toggle-body id="instantly-run">
                 <bullet-points>
                   <bullet-point>
-                    Darklang is designed for a really fast iterative loop
-                  </bullet-point>
-                  <bullet-point>
-                    Interpreted &mdash; no compilation step required, programs
-                    run immediately
+                    Darklang is designed for a really fast iterative loop:
                   </bullet-point>
                   <ul>
                     <li class="ml-4">
-                  <bullet-point>
-                    We plan to add background compilation in the future,
-                    combined with pre-compiled packages in the package manager
-                    <t-2025></t-2025>
-                  </bullet-point>
+                      <bullet-point>
+                        Interpreted &mdash; no compilation step required,
+                        programs run immediately
+                      </bullet-point>
+                      <ul class="ml-8">
+                        <bullet-point>
+                          We plan to add background compilation in the future,
+                          combined with pre-compiled packages in the package
+                          manager
+                          <t-2025></t-2025>
+                        </bullet-point>
+                      </ul>
+                      <bullet-point>
+                        Packages are streamed from the package manager
+                        automatically &ndash; no
+                        <inline-code>npm install</inline-code> step
+                      </bullet-point>
+                      <bullet-point>
+                        Gradual Static Typing allows running incomplete programs
+                        so you don't need to ensure everything type checks when
+                        you're getting one path working
+                      </bullet-point>
+                      <ul class="ml-8">
+                        <bullet-point>
+                          While prototyping, just run code until you hit a type
+                          error
+                        </bullet-point>
+                        <bullet-point>
+                          After prototyping, run the full type checker to gain
+                          confidence your whole program works
+                          <t-2024></t-2024>
+                        </bullet-point>
+                        <bullet-point>
+                          Full type-checking hints in VSCode or in LSP editors
+                          <t-2024></t-2024>
+                        </bullet-point>
+                        <bullet-point>
+                          <inline-code>!</inline-code> and
+                          <inline-code>?</inline-code> operators allow easy
+                          error handling while you prototype
+                        </bullet-point>
+                        <bullet-point>
+                          Automatic refactoring converts
+                          <inline-code>!</inline-code> into proper error
+                          handling
+                          <t-2024></t-2024>
+                        </bullet-point>
+                      </ul>
+                      <bullet-point>
+                        Fully supported using our own GenerativeAI models
+                        <t-2024></t-2024> and in GitHub Copilot
+                      </bullet-point>
+                      <bullet-point>
+                        Single binary to install means no environments or
+                        containers to set up.
+                        <span class="line-through">Install it now!</span
+                        ><tag-label>Coming late 2023, we hope</tag-label>
+                      </bullet-point>
                     </li>
                   </ul>
-                  <bullet-point>
-                    Packages are streamed from the package manager automatically
-                    &ndash; no <inline-code>npm install</inline-code> step
-                  </bullet-point>
-                  <bullet-point>
-                    Gradual Static Typing allows running incomplete programs so
-                    you don't need to ensure everything type checks when you're
-                    getting one path working
-                  </bullet-point>
-                  <bullet-point>
-                    While prototyping, just run code until you hit a type error
-                  </bullet-point>
-                  <bullet-point>
-                    After prototyping, run the full type checker to gain
-                    confidence your whole program works <t-2024></t-2024>
-                  </bullet-point>
-                  <bullet-point>
-                    Full type-checking hints in VSCode or in LSP editors
-                    <t-2024></t-2024>
-                  </bullet-point>
-                  <bullet-point>
-                    <inline-code>!</inline-code> and
-                    <inline-code>?</inline-code> operators allow easy error
-                    handling while you prototype
-                  </bullet-point>
-                  <bullet-point>
-                    Automatic refactoring converts
-                    <inline-code>!</inline-code> into proper error handling
-                    <t-2024></t-2024>
-                  </bullet-point>
-                  <bullet-point>
-                    Fully supported in GitHub Copilot and using our own
-                    GenerativeAI models <t-2024></t-2024>
-                  </bullet-point>
-                  <bullet-point>
-                    Single binary to install means no environments or containers
-                    to set up. <span class="line-through">Install it now!</span><tag-label>Coming late 2023, we hope<tag-label>
-                  </bullet-point>
                 </bullet-points>
               </toggle-body>
             </bullet-points>

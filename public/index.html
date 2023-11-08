@@ -929,14 +929,8 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
           toggleArrow.addEventListener("click", function () {
             const sublistId = toggleArrow.getAttribute("data-target");
             const targetList = document.getElementById(sublistId);
-
-            if (targetList.classList.contains("hidden")) {
-              targetList.classList.remove("hidden");
-              toggleArrow.classList.toggle("rotate-90");
-            } else {
-              targetList.classList.add("hidden");
-              toggleArrow.classList.toggle("rotate-90");
-            }
+            targetList.classList.toggle("hidden");
+            toggleArrow.classList.toggle("rotate-90");
           });
         });
       });

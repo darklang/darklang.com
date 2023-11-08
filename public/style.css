@@ -555,6 +555,10 @@ video {
   }
 }
 
+.static{
+  position: static;
+}
+
 .fixed{
   position: fixed;
 }
@@ -746,6 +750,10 @@ video {
 
 .ml-8{
   margin-left: 2rem;
+}
+
+.ml-4{
+  margin-left: 1rem;
 }
 
 .box-border{
@@ -1338,6 +1346,10 @@ video {
 
 .underline{
   text-decoration-line: underline;
+}
+
+.line-through{
+  text-decoration-line: line-through;
 }
 
 .underline-offset-2{

@@ -196,7 +196,9 @@
 
   <!-- (initially hidden) Body of the toggle. Works with toggle-heading -->
   <template id="toggle-body">
-    <span placeholder-id class="hidden">
+    <!-- <span placeholder-id class="hidden"> -->
+    <!-- not hidden for development -->
+    <span placeholder-id class="">
       <span content-toggle-body>REPLACE ME</span>
     </span>
   </template>
@@ -250,6 +252,19 @@
   <template id="t-2025">
     <tag-label>2025</tag-label>
   </template>
+
+  <template id="darklang-code"
+    ><code
+      class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
+      ><span content-darklang-code>REPLACE ME</span></code
+    ></template
+  >
+  <template id="bash-code"
+    ><code
+      class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded shell"
+      ><span content-bash-code>REPLACE ME</span></code
+    ></template
+  >
 
   <body class="bg-light-background box-border m-0 p-0">
     <!--Navbar-->
@@ -464,9 +479,7 @@
                     <span class="italic">Abstract Data Types</span> made of
                     Record and Enums can model nearly anything, like in Rust,
                     Elm, OCaml and F#
-                    <pre class="m-0 p-0"><code
-                    class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
-                   >// Record
+                    <pre class="m-0 p-0"><darklang-code>// Record
 type Url = {
   scheme : HttpScheme
   domain : String
@@ -483,7 +496,7 @@ type UrlError =
   | Unparseable(msg:String, context:String)
 
 // Aliases are just shorthands
-type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
+type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
                   </bullet-point>
 
                   <bullet-point>
@@ -592,25 +605,121 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                     in the package manager can be called directly from the
                     command line (so long as we can figure out how to coerce the
                     command line arguments correctly):
+                    <pre><bash-code>$ darklang @paul.fizzbuzz 10
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+</bash-code></pre>
+                  </bullet-point>
+
+                  <bullet-point>
+                    We designed this to allow you share scripts with your team,
+                    or the whole world. We support private packages
+                    <t-2024></t-2024>, with individual, team, or role-base
+                    access controls. You can even have functions that run
+                    server-side<t-2025></t-2025>
+                    without allowing the user to see credentials, for example
+                    for providing customer support tools to your team.
+                  </bullet-point>
+
+                  <bullet-point
+                    >Functions can also be run from the web, Slack, Discord, etc
+                    <t-2024></t-2024>
+                  </bullet-point>
+
+                  <bullet-point
+                    >We're building safety features, to ensure that functions
+                    can't just steal all your IDs and wallets and whatever.
+                    Darklang asks for permissions when you call a function, and
+                    a static analysis is run to collect all permissions needed.
+                    <pre><bash-code>$ darklang @hacker.stealThings "Hi there"
+> @hacker.stealThings requires the following permissions
+>   Makes Http requests to unknown domains
+>   Reads any file
+>   Executes any file
+> Continue? [N, y] y
+> These are unusual permissions. Are you sure [N, y] y
+Ha ha, you're own3d
+
+$ darklang @mycompany.internal.createMonthlyReport
+> @mycompany.internal.createMonthlyReport requires the following
+> permissions
+>   Makes Http GET requests to stripe.com/api/ETC
+>   Makes Http POST requests to drive.google.com
+> Continue? [N, y] y
+Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf3.pdf</bash-code></pre>
                   </bullet-point>
                 </bullet-points>
               </toggle-body>
 
-              <bullet-point>
-                Streaming package manager with no
-                <inline-code>npm install</inline-code>
-                step
-              </bullet-point>
-
-              <bullet-point>
-                Single binary to install - no environments or containers to
-                setup
-              </bullet-point>
-
-              <bullet-point>
-                <!-- this might be a good spot to say that we intend to add streaming compilation in the future -->
-                Interpreted with no compile step
-              </bullet-point>
+              <toggle-heading data-target="instantly-run">
+                Instantly run programs as you write them
+              </toggle-heading>
+              <toggle-body id="instantly-run">
+                <bullet-points>
+                  <bullet-point>
+                    Darklang is designed for a really fast iterative loop
+                  </bullet-point>
+                  <bullet-point>
+                    Interpreted &mdash; no compilation step required, programs
+                    run immediately
+                  </bullet-point>
+                  <ul>
+                    <li class="ml-4">
+                  <bullet-point>
+                    We plan to add background compilation in the future,
+                    combined with pre-compiled packages in the package manager
+                    <t-2025></t-2025>
+                  </bullet-point>
+                    </li>
+                  </ul>
+                  <bullet-point>
+                    Packages are streamed from the package manager automatically
+                    &ndash; no <inline-code>npm install</inline-code> step
+                  </bullet-point>
+                  <bullet-point>
+                    Gradual Static Typing allows running incomplete programs so
+                    you don't need to ensure everything type checks when you're
+                    getting one path working
+                  </bullet-point>
+                  <bullet-point>
+                    While prototyping, just run code until you hit a type error
+                  </bullet-point>
+                  <bullet-point>
+                    After prototyping, run the full type checker to gain
+                    confidence your whole program works <t-2024></t-2024>
+                  </bullet-point>
+                  <bullet-point>
+                    Full type-checking hints in VSCode or in LSP editors
+                    <t-2024></t-2024>
+                  </bullet-point>
+                  <bullet-point>
+                    <inline-code>!</inline-code> and
+                    <inline-code>?</inline-code> operators allow easy error
+                    handling while you prototype
+                  </bullet-point>
+                  <bullet-point>
+                    Automatic refactoring converts
+                    <inline-code>!</inline-code> into proper error handling
+                    <t-2024></t-2024>
+                  </bullet-point>
+                  <bullet-point>
+                    Fully supported in GitHub Copilot and using our own
+                    GenerativeAI models <t-2024></t-2024>
+                  </bullet-point>
+                  <bullet-point>
+                    Single binary to install means no environments or containers
+                    to set up. <span class="line-through">Install it now!</span><tag-label>Coming late 2023, we hope<tag-label>
+                  </bullet-point>
+                </bullet-points>
+              </toggle-body>
             </bullet-points>
           </section-wrapper>
 

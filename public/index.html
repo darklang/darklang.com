@@ -454,11 +454,11 @@
             <section-heading>Functional language</section-heading>
 
             <bullet-points>
-              <toggle-heading data-target="subitemsList1">
+              <toggle-heading data-target="simpleTypes">
                 Simple types using
                 <span class="font-bold">Records and Enums</span>
               </toggle-heading>
-              <toggle-body id="subitemsList1">
+              <toggle-body id="simpleTypes">
                 <bullet-points>
                   <bullet-point>
                     <span class="italic">Abstract Data Types</span> made of
@@ -494,13 +494,87 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                   </bullet-point>
                 </bullet-points>
               </toggle-body>
+
+              <toggle-heading data-target="optionResult">
+                <inline-code>Option</inline-code> and
+                <inline-code>Result</inline-code> types instead of null and
+                exceptions
+              </toggle-heading>
+              <toggle-body id="optionResult">
+                <bullet-points>
+                  <bullet-point>
+                    I think it's widely accepted that
+                    <inline-code>null</inline-code>is a mistake, and that an
+                    <inline-code>Option</inline-code>type (aka
+                    <inline-code>Optional</inline-code>,
+                    <inline-code>Maybe</inline-code>, etc) makes it
+                    significantly easier to program.
+                  </bullet-point>
+                  <bullet-point>
+                    We further believe that Exceptions — which can in most
+                    languages be thrown at any point — makes it very frustrating
+                    to know that a function actually works. There are no
+                    exceptions in Darklang, and we use
+                    <inline-code>Result</inline-code> types to manage error
+                    cases
+                  </bullet-point>
+                  <bullet-point>
+                    <inline-code>?</inline-code> and
+                    <inline-code>!</inline-code>operators (similar to Rust,
+                    TypeScript, and Clojure) provide ways to ergonomically
+                    handle errors without being too annoying (see also Gradual
+                    Static Typing)
+                  </bullet-point>
+                  <bullet-point>
+                    We will admit we have some RuntimeErrors which cannot be
+                    caught, but we are working to remove them almost entirely
+                    from the language (see Gradual Static Typing for what we're
+                    keeping)
+                  </bullet-point>
+                </bullet-points>
+              </toggle-body>
+
+              <toggle-heading data-target="garbage-collected"
+                >Garbage Collected
+              </toggle-heading>
+              <toggle-body id="garbage-collected">
+                <bullet-points>
+                  <bullet-point>
+                    It can be fun to satisfy the borrow checker, or manage
+                    allocations individually, but it can also be fun to just get
+                    working programs immediately. We believe that run-time
+                    garbage collection is one of the greatest programming
+                    language features, and we’re all in
+                  </bullet-point>
+                </bullet-points>
+              </toggle-body>
+
+              <toggle-heading data-target="unicode-first"
+                >Unicode First
+              </toggle-heading>
+              <toggle-body id="unicode-first">
+                <bullet-points>
+                  <bullet-point>
+                    Languages created last millenium typically use Strings made
+                    of bytes, or worse, UTF16 characters, or even worse, Unicode
+                    Codepoints! Like Swift, we believe that
+                    <inline-code>Character</inline-code>s should represent
+                    screen readable characters, like 👨‍👩‍👦‍👦. All characters in
+                    Darklang represent
+                    <span class="italic">Extended Grapheme Clusters</span>: one
+                    character that you see on screen. Naturally, working on
+                    Unicode Codepoints <t-2024></t-2024> and normal bytes is
+                    also well supported.
+                  </bullet-point>
+                </bullet-points>
+              </toggle-body>
             </bullet-points>
           </section-wrapper>
 
           <section-wrapper id="section2">
             <section-heading>Runs Instantly</section-heading>
             <bullet-points>
-              <bullet-point id="test">
+              <toggle-heading id="run-any">
                 Instantly run any package from the CLI:
                 <inline-code>
                   <span class="text-blue pr-2">darklang</span>
@@ -510,7 +584,17 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                   <span class="text-blue pr-2">arg1</span>
                   <span class="text-purple">arg2</span>
                 </inline-code>
-              </bullet-point>
+              </toggle-heading>
+              <toggle-body>
+                <bullet-points>
+                  <bullet-point>
+                    Darklang has a new model of sharing programs. Any function
+                    in the package manager can be called directly from the
+                    command line (so long as we can figure out how to coerce the
+                    command line arguments correctly):
+                  </bullet-point>
+                </bullet-points>
+              </toggle-body>
 
               <bullet-point>
                 Streaming package manager with no

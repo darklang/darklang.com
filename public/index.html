@@ -75,46 +75,55 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Function to initialize and define custom elements based on templates
         const defineCustomElementsFromTemplates = () => {
           const templates = document.querySelectorAll("template");
 
           templates.forEach(template => {
             const templateId = template.id;
 
-            // Define a class for our custom element
             class CustomElement extends HTMLElement {
               constructor() {
-                super(); // Always call super first in the constructor
-                const content = template.content.cloneNode(true);
-                this.appendChild(content);
+                super();
               }
 
-              // Lifecycle callback when the element is added to the DOM
+              // Take the template content and create a body for this
+              // instantiation of the customelement from it.
+              // 1. Replace the data-content node in the template with the children of the customelement
+              // 2. Use the customElement's attributes and replace placeholder-* attributes in the template
               connectedCallback() {
-                const placeholderLink =
-                  this.querySelector("[placeholder-href]");
-                const contentSpan = this.querySelector("[data-content]");
+                let body = template.content.cloneNode(true);
 
-                // Replace the placeholders with the actual values
-                if (placeholderLink) {
-                  placeholderLink.setAttribute(
-                    "href",
-                    this.getAttribute("href"),
-                  );
+                // Replace attributes
+                Array.from(this.attributes).forEach(attr => {
+                  const placeholderAttribute = `placeholder-${attr.name}`;
+                  body
+                    .querySelectorAll(`[${placeholderAttribute}]`)
+                    .forEach(element => {
+                      element.setAttribute(attr.name, attr.value);
+                      element.removeAttribute(placeholderAttribute);
+                    });
+                });
+
+                // Replace the data-content node with the actual children of the
+                // instantiated CustomElement
+                const dataContent = body.querySelector("[data-content]");
+                if (dataContent) {
+                  Array.from(this.childNodes).forEach(child => {
+                    dataContent.parentNode.insertBefore(child, dataContent);
+                  });
+                  // Remove the data-content node
+                  dataContent.parentNode.removeChild(dataContent);
                 }
-                if (contentSpan) {
-                  contentSpan.textContent = this.textContent;
-                }
+
+                // Now attach the new content
+                this.appendChild(body);
               }
             }
 
-            // Define the custom element
             customElements.define(templateId, CustomElement);
           });
         };
 
-        // Call the function to initialize custom elements
         defineCustomElementsFromTemplates();
       });
     </script>

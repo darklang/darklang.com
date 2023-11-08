@@ -664,71 +664,76 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
               </toggle-heading>
               <toggle-body id="instantly-run">
                 <bullet-points>
+                  Darklang is designed for a really fast iterative loop:
                   <bullet-point>
-                    Darklang is designed for a really fast iterative loop:
+                    Single binary to install means no environments or containers
+                    to set up.
+                    <span class="line-through">Install it now!</span>
+                    <tag-label>Coming late 2023, we hope</tag-label>
                   </bullet-point>
-                  <ul>
-                    <li class="ml-4">
-                      <bullet-point>
-                        Interpreted &mdash; no compilation step required,
-                        programs run immediately
-                      </bullet-point>
-                      <ul class="ml-8">
-                        <bullet-point>
-                          We plan to add background compilation in the future,
-                          combined with pre-compiled packages in the package
-                          manager
-                          <t-2025></t-2025>
-                        </bullet-point>
-                      </ul>
-                      <bullet-point>
-                        Packages are streamed from the package manager
-                        automatically &ndash; no
-                        <inline-code>npm install</inline-code> step
-                      </bullet-point>
-                      <bullet-point>
-                        Gradual Static Typing allows running incomplete programs
-                        so you don't need to ensure everything type checks when
-                        you're getting one path working
-                      </bullet-point>
-                      <ul class="ml-8">
-                        <bullet-point>
-                          While prototyping, just run code until you hit a type
-                          error
-                        </bullet-point>
-                        <bullet-point>
-                          After prototyping, run the full type checker to gain
-                          confidence your whole program works
-                          <t-2024></t-2024>
-                        </bullet-point>
-                        <bullet-point>
-                          Full type-checking hints in VSCode or in LSP editors
-                          <t-2024></t-2024>
-                        </bullet-point>
-                        <bullet-point>
-                          <inline-code>!</inline-code> and
-                          <inline-code>?</inline-code> operators allow easy
-                          error handling while you prototype
-                        </bullet-point>
-                        <bullet-point>
-                          Automatic refactoring converts
-                          <inline-code>!</inline-code> into proper error
-                          handling
-                          <t-2024></t-2024>
-                        </bullet-point>
-                      </ul>
-                      <bullet-point>
-                        Fully supported using our own GenerativeAI models
-                        <t-2024></t-2024> and in GitHub Copilot
-                      </bullet-point>
-                      <bullet-point>
-                        Single binary to install means no environments or
-                        containers to set up.
-                        <span class="line-through">Install it now!</span
-                        ><tag-label>Coming late 2023, we hope</tag-label>
-                      </bullet-point>
-                    </li>
+                  <bullet-point>
+                    Packages are streamed from the package manager automatically
+                    &ndash; no
+                    <inline-code>npm install</inline-code> step
+                  </bullet-point>
+                  <bullet-point>
+                    darklang is interpreted &mdash; no compilation step
+                    required, programs run immediately
+                  </bullet-point>
+                  <ul class="ml-4">
+                    <bullet-point>
+                      We plan to add background compilation in the future,
+                      combined with pre-compiled packages in the package manager
+                      <t-2025></t-2025>
+                    </bullet-point>
                   </ul>
+
+                  <bullet-point>
+                    Gradual Static Typing allows running programs with incorrect
+                    types so you don't need to fix all the types in your program
+                    while getting one path working
+                  </bullet-point>
+                  <bullet-point>
+                    Generate darklang code automatically using LLMs and GitHub
+                    Copilot
+                  </bullet-point>
+                </bullet-points>
+              </toggle-body>
+            </bullet-points>
+          </section-wrapper>
+
+          <section-wrapper>
+            <section-heading>Gradual Static Typing</section-heading>
+            <bullet-points>
+              <toggle-heading data-target="gst">
+                Gradual Static Typing allows running incomplete programs so you
+                don't need to ensure everything type checks when you're getting
+                one path working
+              </toggle-heading>
+              <toggle-body id="gst">
+                <bullet-points>
+                  <bullet-point>
+                    While prototyping, just run code until you hit a type error
+                  </bullet-point>
+                  <bullet-point>
+                    After prototyping, run the full type checker to gain
+                    confidence your whole program works
+                    <t-2024></t-2024>
+                  </bullet-point>
+                  <bullet-point>
+                    Full type-checking hints in VSCode or in LSP editors
+                    <t-2024></t-2024>
+                  </bullet-point>
+                  <bullet-point>
+                    <inline-code>!</inline-code> and
+                    <inline-code>?</inline-code> operators allow easy error
+                    handling while you prototype
+                  </bullet-point>
+                  <bullet-point>
+                    Automatic refactoring converts
+                    <inline-code>!</inline-code> into proper error handling
+                    <t-2024></t-2024>
+                  </bullet-point>
                 </bullet-points>
               </toggle-body>
             </bullet-points>
@@ -743,29 +748,6 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
                   Works with VS Code (or any LSP-editor) and GitHub Copilot
                 </span>
               </li>
-
-              <li class="flex flex-row mt-1 pt-4">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray">Gradual Static Typing</span>
-              </li>
-
-              <ul class="font-normal mx-4">
-                <li class="flex flex-row mt-1">
-                  <list-bullet></list-bullet>
-                  <span class="text-dark-gray">
-                    When prototyping, don't let the type checker hold you up -
-                    just run your program until you hit an error
-                  </span>
-                </li>
-                <li class="flex flex-row mt-1">
-                  <list-bullet></list-bullet>
-                  <span class="text-dark-gray">
-                    <t-2024></t-2024>
-                    After prototyping, run the full type checker to gain
-                    confidence your whole program works
-                  </span>
-                </li>
-              </ul>
 
               <li class="flex flex-row mt-1 pt-4">
                 <list-bullet></list-bullet>
@@ -848,6 +830,12 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
                   files which don't have a CSS file of the same
                   name"</inline-code
                 >
+              </bullet-point>
+
+              <bullet-point>
+                Use any LLM: darklang's fine-tined models <t-2024></t-2024>,
+                local OSS models, commerical models via API, or using GitHub
+                Copilot
               </bullet-point>
 
               <bullet-point>

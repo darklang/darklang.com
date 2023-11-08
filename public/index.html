@@ -421,16 +421,11 @@
               </li>
             </ul>
             <ul id="subitemsList1" class="text-lg font-normal mx-4 hidden">
-              <li class="flex-row mt-1">
-                <span class="text-2xl mr-3 leading-6 font-bold">-</span>
-                <span class="text-dark-gray"
-                  ><span class="italic">Abstract Data Types</span> made of
-                  Record and Enums can model nearly anything, like in Rust, Elm,
-                  OCaml and F#
-                </span>
-                <br />
-                <pre class="ml-4">
-                  <code
+              <bullet-point>
+                <span class="italic">Abstract Data Types</span> made of Record
+                and Enums can model nearly anything, like in Rust, Elm, OCaml
+                and F#
+                <pre class="m-0 p-0"><code
                     class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
                    >// Record
 type Url = {
@@ -450,17 +445,14 @@ type UrlError =
 
 // Aliases are just shorthands
 type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
-              </li>
+              </bullet-point>
 
-              <li class="flex flex-row mt-1">
-                <span class="text-2xl mr-3 leading-6 font-bold">-</span>
-                <span class="text-dark-gray">
-                  We believe Object Oriented programming is a terrible way to
-                  model programs, and inheritence is a terrible misfeature.
-                  Languages like OCaml, Elm, and F# have shown that nearly all
-                  problems can be modeled using ADTs.
-                </span>
-              </li>
+              <bullet-point>
+                We believe Object Oriented programming is a terrible way to
+                model programs, and inheritence is a terrible misfeature.
+                Languages like OCaml, Elm, and F# have shown that nearly all
+                problems can be modeled using ADTs.
+              </bullet-point>
             </ul>
           </li>
 
@@ -469,12 +461,14 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
             <ul class="text-lg font-normal m-4">
               <bullet-point>
                 Instantly run any package from the CLI:
-                <code
-                  class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center space-x-4 bg-code-background text-dark-gray rounded py-1 px-2"
-                  ><span class="text-blue pr-2">darklang </span
-                  >@username.functionName <span class="text-blue">arg1</span>
-                  <span class="text-purple">arg2</span></code
-                >
+                <inline-code>
+                  <span class="text-blue pr-2">darklang</span>
+                  <span class="text-dark-gray pr-2"
+                    >@username.functionName</span
+                  >
+                  <span class="text-blue pr-2">arg1</span>
+                  <span class="text-purple">arg2</span>
+                </inline-code>
               </bullet-point>
 
               <bullet-point>
@@ -673,10 +667,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
           </li>
 
           <li id="section5" class="font-bold text-xl mt-8 scroll-mt-24">
-            <div class="flex flex-row justify-start items-center">
-              <hashtag-svg></hashtag-svg>
-              <span>Open source</span>
-            </div>
+            <section-heading>Open source</section-heading>
             <ul class="list-outside text-lg font-normal m-4">
               <li>
                 We expect to fully open source Darklang, which is currently

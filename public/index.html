@@ -108,6 +108,7 @@
                       element.setAttribute(attr.name, attr.value);
                       element.removeAttribute(placeholderAttribute);
                     });
+                  this.removeAttribute(attr.name);
                 });
 
                 // Replace the content node with the actual children of the
@@ -175,6 +176,27 @@
         ></path>
       </g>
     </svg>
+  </template>
+
+  <template id="toggle-heading">
+    <li class="flex flex-row mt-1 pt-4 items-start">
+      <p
+        placeholder-data-target
+        class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
+      >
+        <caret-svg></caret-svg>
+      </p>
+
+      <span class="text-dark-gray">
+        <span content-toggle-heading>REPLACE ME</span>
+      </span>
+    </li>
+  </template>
+
+  <template id="toggle-body">
+    <ul placeholder-id class="text-lg font-normal ml-8 m-4 hidden">
+      <span content-toggle-body>REPLACE ME</span>
+    </ul>
   </template>
 
   <!-- Bullet points that we use throughout -->
@@ -424,26 +446,16 @@
             <section-heading>Functional language</section-heading>
 
             <ul class="text-lg font-normal m-4 ml-1">
-              <li class="flex flex-row mt-1 pt-4 items-start">
-                <p
-                  data-target="subitemsList1"
-                  class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
-                >
-                  <caret-svg></caret-svg>
-                </p>
-
-                <span class="text-dark-gray">
-                  Simple types using
-                  <span class="font-bold">Records and Enums</span>
-                </span>
-              </li>
-            </ul>
-            <ul id="subitemsList1" class="text-lg font-normal mx-4 hidden">
-              <bullet-point>
-                <span class="italic">Abstract Data Types</span> made of Record
-                and Enums can model nearly anything, like in Rust, Elm, OCaml
-                and F#
-                <pre class="m-0 p-0"><code
+              <toggle-heading data-target="subitemsList1">
+                Simple types using
+                <span class="font-bold">Records and Enums</span>
+              </toggle-heading>
+              <toggle-body id="subitemsList1">
+                <bullet-point>
+                  <span class="italic">Abstract Data Types</span> made of Record
+                  and Enums can model nearly anything, like in Rust, Elm, OCaml
+                  and F#
+                  <pre class="m-0 p-0"><code
                     class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
                    >// Record
 type Url = {
@@ -463,14 +475,15 @@ type UrlError =
 
 // Aliases are just shorthands
 type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
-              </bullet-point>
+                </bullet-point>
 
-              <bullet-point>
-                We believe Object Oriented programming is a terrible way to
-                model programs, and inheritence is a terrible misfeature.
-                Languages like OCaml, Elm, and F# have shown that nearly all
-                problems can be modeled using ADTs.
-              </bullet-point>
+                <bullet-point>
+                  We believe Object Oriented programming is a terrible way to
+                  model programs, and inheritence is a terrible misfeature.
+                  Languages like OCaml, Elm, and F# have shown that nearly all
+                  problems can be modeled using ADTs.
+                </bullet-point>
+              </toggle-body>
             </ul>
           </li>
 

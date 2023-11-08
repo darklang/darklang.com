@@ -178,6 +178,7 @@
     </svg>
   </template>
 
+  <!-- Heading of the toggle. Works with toggle-body -->
   <template id="toggle-heading">
     <li class="flex flex-row mt-1 pt-4 items-start">
       <p
@@ -193,10 +194,11 @@
     </li>
   </template>
 
+  <!-- (initially hidden) Body of the toggle. Works with toggle-heading -->
   <template id="toggle-body">
-    <ul placeholder-id class="text-lg font-normal ml-8 m-4 hidden">
+    <span placeholder-id class="hidden">
       <span content-toggle-body>REPLACE ME</span>
-    </ul>
+    </span>
   </template>
 
   <!-- Bullet points that we use throughout -->
@@ -209,6 +211,7 @@
     </li>
   </template>
 
+  <!-- container for bullet-point tags -->
   <template id="bullet-points">
     <ul class="text-lg font-normal m-4">
       <span content-bullet-points>REPLACE ME</span>
@@ -237,11 +240,10 @@
       ><span content-tag-label>REPLACE ME</span></span
     >
   </template>
+
   <!-- 2024 label -->
   <template id="t-2024">
-    <span class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-      >2024</span
-    >
+    <tag-label>2024</tag-label>
   </template>
 
   <!-- 2025 label -->
@@ -442,20 +444,27 @@
     >
       <div class="text-base leading-6 mx-8">
         <ul>
-          <li id="section1" class="font-bold text-xl scroll-mt-24">
+          <template id="section-wrapper">
+            <li placeholder-id="" class="font-bold text-xl mt-8 scroll-mt-24">
+              <span content-section-wrapper>REPLACE ME</span>
+            </li>
+          </template>
+
+          <section-wrapper id="section1">
             <section-heading>Functional language</section-heading>
 
-            <ul class="text-lg font-normal m-4 ml-1">
+            <bullet-points>
               <toggle-heading data-target="subitemsList1">
                 Simple types using
                 <span class="font-bold">Records and Enums</span>
               </toggle-heading>
               <toggle-body id="subitemsList1">
-                <bullet-point>
-                  <span class="italic">Abstract Data Types</span> made of Record
-                  and Enums can model nearly anything, like in Rust, Elm, OCaml
-                  and F#
-                  <pre class="m-0 p-0"><code
+                <bullet-points>
+                  <bullet-point>
+                    <span class="italic">Abstract Data Types</span> made of
+                    Record and Enums can model nearly anything, like in Rust,
+                    Elm, OCaml and F#
+                    <pre class="m-0 p-0"><code
                     class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
                    >// Record
 type Url = {
@@ -475,19 +484,20 @@ type UrlError =
 
 // Aliases are just shorthands
 type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
-                </bullet-point>
+                  </bullet-point>
 
-                <bullet-point>
-                  We believe Object Oriented programming is a terrible way to
-                  model programs, and inheritence is a terrible misfeature.
-                  Languages like OCaml, Elm, and F# have shown that nearly all
-                  problems can be modeled using ADTs.
-                </bullet-point>
+                  <bullet-point>
+                    We believe Object Oriented programming is a terrible way to
+                    model programs, and inheritence is a terrible misfeature.
+                    Languages like OCaml, Elm, and F# have shown that nearly all
+                    problems can be modeled using ADTs.
+                  </bullet-point>
+                </bullet-points>
               </toggle-body>
-            </ul>
-          </li>
+            </bullet-points>
+          </section-wrapper>
 
-          <li id="section2" class="font-bold text-xl mt-8 scroll-mt-24">
+          <section-wrapper id="section2">
             <section-heading>Runs Instantly</section-heading>
             <bullet-points>
               <bullet-point id="test">
@@ -518,8 +528,9 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 Interpreted with no compile step
               </bullet-point>
             </bullet-points>
-          </li>
-          <li id="section3" class="font-bold text-xl mt-8 scroll-mt-24">
+          </section-wrapper>
+
+          <section-wrapper id="section2">
             <section-heading>Delightful features</section-heading>
             <bullet-points>
               <li class="flex flex-row mt-1">
@@ -563,79 +574,56 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                   devops/cloud engineering required
                 </span>
               </li>
+
               <toggle-heading data-target="subitemsList2">
                 Package items (functions, types and constants) are versioned and
                 immutable, taking the worry out of taking on dependencies
               </toggle-heading>
               <toggle-body id="subitemsList2">
-                <li class="flex flex-row mt-1">
-                  <list-bullet></list-bullet>
-                  <span class="text-dark-gray">
+                <bullet-points>
+                  <bullet-point>
                     Only download the specific package items you use
-                  </span>
-                </li>
+                  </bullet-point>
 
-                <li class="flex flex-row mt-1">
-                  <list-bullet></list-bullet>
-                  <span class="text-dark-gray">
+                  <bullet-point>
                     Only upgrade the specific package items you use
-                  </span>
-                </li>
-                <li class="flex flex-row mt-1">
-                  <list-bullet></list-bullet>
-                  <p>
-                    <t-2024></t-2024>
-                    <span class="text-dark-gray">
-                      Automated dependency upgrades, as we track deprecation
-                      status, and know what functions are pure and safe to
-                      update.
-                    </span>
-                  </p>
-                </li>
+                  </bullet-point>
 
-                <li class="flex flex-row mt-1">
-                  <list-bullet></list-bullet>
-                  <span class="text-dark-gray">
+                  <bullet-point>
+                    <t-2024></t-2024>
+                    Automated dependency upgrades, as we track deprecation
+                    status, and know what functions are pure and safe to update.
+                  </bullet-point>
+
+                  <bullet-point>
                     Different packages can rely on different versions of other
                     packages
-                  </span>
-                </li>
+                  </bullet-point>
 
-                <li class="flex flex-row mt-1">
-                  <list-bullet></list-bullet>
-                  <span class="text-dark-gray">
+                  <bullet-point>
                     Use multiple versions of the same package item at once:
                     allows testing new versions without having to change an
                     entire package version, lowering risk.
-                  </span>
-                </li>
+                  </bullet-point>
 
-                <li class="flex flex-row mt-1">
-                  <list-bullet></list-bullet>
-                  <p>
+                  <bullet-point>
                     <t-2024></t-2024>
-                    <span class="text-dark-gray">
-                      Share pre-release functions trivially, without
-                      contributors needing to check out your git repo or set up
-                      anything
-                    </span>
-                  </p>
-                </li>
+                    Share pre-release functions trivially, without contributors
+                    needing to check out your git repo or set up anything
+                  </bullet-point>
+                </bullet-points>
               </toggle-body>
 
-              <li class="flex flex-row mt-1 pt-4">
-                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                <span class="text-dark-gray">
-                  <t-2024></t-2024>
-                  The package manager functions as a source repository - no need
-                  for uploads, releases or other synchronization. No git or
-                  GitHub required (but you can sync to GitHub if you prefer).
-                </span>
-              </li>
+              <bullet-point>
+                <t-2024></t-2024>
+                The package manager functions as a source repository - no need
+                for uploads, releases or other synchronization. No git or GitHub
+                required (but you can sync to GitHub if you prefer).
+              </bullet-point>
             </bullet-points>
-          </li>
+          </section-wrapper>
 
-          <li id="section4" class="font-bold text-xl mt-8 scroll-mt-24">
+          <section-wrapper id="section4">
             <section-heading>Designed for GenAI</section-heading>
             <bullet-points>
               <bullet-point> Works with GitHub Copilot </bullet-point>
@@ -668,9 +656,9 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 Build complex programs with darklang AI agents
               </bullet-point>
             </bullet-points>
-          </li>
+          </section-wrapper>
 
-          <li id="section5" class="font-bold text-xl mt-8 scroll-mt-24">
+          <section-wrapper id="section5">
             <section-heading>Open source</section-heading>
             <ul class="list-outside text-lg font-normal m-4">
               <li>
@@ -678,7 +666,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</code></pre>
                 source available, in 2023 or early 2024
               </li>
             </ul>
-          </li>
+          </section-wrapper>
         </ul>
       </div>
     </section>

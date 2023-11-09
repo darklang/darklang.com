@@ -184,7 +184,7 @@
 
   <!-- Heading of the toggle. Works with toggle-body -->
   <template id="toggle-heading">
-    <li class="flex flex-row mt-1 pt-4 items-start">
+    <li class="flex flex-row mt-1 items-start">
       <p
         placeholder-data-target
         class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
@@ -806,37 +806,23 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
           <section-wrapper>
             <section-heading>Works with your Editor</section-heading>
             <bullet-points>
-              <toggle-heading data-target="async">
-                Darklang has a fully asynchronous runtime, so making a Http call
-                or reading a file doesn't block the runtime. We use
-                data-dependencies to handle ordering, and provide powerful
-                escape hatches if you want to take matters into your own hands.
-              </toggle-heading>
-              <toggle-body id="async">
-                <bullet-points>
-                  <bullet-point>
-                    I need to write a blog post about this, because I have
-                    opinions! But I really think adding
-                    <inline-code>async</inline-code> and
-                    <inline-code>await</inline-code> keywords to every language
-                    was a mistake. It makes everything very annoying and
-                    complicated, when it could have been put into the runtime.
-                  </bullet-point>
-                </bullet-points>
-              </toggle-body>
+              <bullet-point> VSCode Extension </bullet-point>
+              <bullet-point> LSP support for other editors </bullet-point>
+              <bullet-point>
+                Works with GitHub Copilot and other GenAI tools
+              </bullet-point>
+              <bullet-point>
+                <span class="italic"
+                  >We mention this because Darklang classic required using our
+                  editor, and that's no longer the case.
+                </span>
+              </bullet-point>
             </bullet-points>
           </section-wrapper>
 
           <section-wrapper id="section2">
             <section-heading>Delightful features</section-heading>
             <bullet-points>
-              <li class="flex flex-row mt-1">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray">
-                  Works with VS Code (or any LSP-editor) and GitHub Copilot
-                </span>
-              </li>
-
               <li class="flex flex-row mt-1 pt-4">
                 <list-bullet></list-bullet>
                 <span class="text-dark-gray">

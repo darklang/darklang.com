@@ -217,11 +217,18 @@
     </li>
   </template>
 
-  <!-- container for bullet-point tags -->
+  <!-- container for bullet-point bodies -->
   <template id="bullet-points">
     <ul class="text-lg font-normal m-4">
       <span content-bullet-points>REPLACE ME</span>
     </ul>
+  </template>
+
+  <!-- container for non-bullet-point bodies -->
+  <template id="indented-body">
+    <p class="text-lg font-normal mx-8 my-4">
+      <span content-indented-body>REPLACE ME</span>
+    </p>
   </template>
 
   <!-- Section headings in at-a-glance -->
@@ -551,35 +558,31 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
                 >Garbage Collected
               </toggle-heading>
               <toggle-body id="garbage-collected">
-                <bullet-points>
-                  <bullet-point>
-                    It can be fun to satisfy the borrow checker, or manage
-                    allocations individually, but it can also be fun to just get
-                    working programs immediately. We believe that run-time
-                    garbage collection is one of the greatest programming
-                    language features, and we're all in
-                  </bullet-point>
-                </bullet-points>
+                <indented-body>
+                  It can be fun to satisfy the borrow checker, or manage
+                  allocations individually, but it can also be fun to just get
+                  working programs immediately. We believe that run-time garbage
+                  collection is one of the greatest programming language
+                  features, and we're all in
+                </indented-body>
               </toggle-body>
 
               <toggle-heading data-target="unicode-first"
                 >Unicode First
               </toggle-heading>
               <toggle-body id="unicode-first">
-                <bullet-points>
-                  <bullet-point>
-                    Languages created last millenium typically use Strings made
-                    of bytes, or worse, UTF16 characters, or even worse, Unicode
-                    Codepoints! Like Swift, we believe that
-                    <inline-code>Character</inline-code>s should represent
-                    screen readable characters, like 👨‍👩‍👦‍👦. All characters in
-                    Darklang represent
-                    <span class="italic">Extended Grapheme Clusters</span>: one
-                    character that you see on screen. Naturally, working on
-                    Unicode Codepoints <t-2024></t-2024> and normal bytes is
-                    also well supported.
-                  </bullet-point>
-                </bullet-points>
+                <indented-body>
+                  Languages created last millenium typically use Strings made of
+                  bytes, or worse, UTF16 characters, or even worse, Unicode
+                  Codepoints! Like Swift, we believe that
+                  <inline-code>Character</inline-code>s should represent screen
+                  readable characters, like 👨‍👩‍👦‍👦. All characters in Darklang
+                  represent
+                  <span class="italic">Extended Grapheme Clusters</span>: one
+                  character that you see on screen. Naturally, working on
+                  Unicode Codepoints <t-2024></t-2024> and normal bytes is also
+                  well supported.
+                </indented-body>
               </toggle-body>
             </bullet-points>
           </section-wrapper>
@@ -663,41 +666,44 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
                 Instantly run programs as you write them
               </toggle-heading>
               <toggle-body id="instantly-run">
-                <bullet-points>
+                <indented-body>
                   Darklang is designed for a really fast iterative loop:
-                  <bullet-point>
-                    Single binary to install means no environments or containers
-                    to set up.
-                    <span class="line-through">Install it now!</span>
-                    <tag-label>Coming late 2023, we hope</tag-label>
-                  </bullet-point>
-                  <bullet-point>
-                    Packages are streamed from the package manager automatically
-                    &ndash; no
-                    <inline-code>npm install</inline-code> step
-                  </bullet-point>
-                  <bullet-point>
-                    darklang is interpreted &mdash; no compilation step
-                    required, programs run immediately
-                  </bullet-point>
-                  <ul class="ml-4">
+                  <bullet-points>
                     <bullet-point>
-                      We plan to add background compilation in the future,
-                      combined with pre-compiled packages in the package manager
-                      <t-2025></t-2025>
+                      Single binary to install means no environments or
+                      containers to set up.
+                      <span class="line-through">Install it now!</span>
+                      <tag-label>Coming late 2023, we hope</tag-label>
                     </bullet-point>
-                  </ul>
+                    <bullet-point>
+                      Packages are streamed from the package manager
+                      automatically &ndash; no
+                      <inline-code>npm install</inline-code> step
+                    </bullet-point>
+                    <bullet-point>
+                      darklang is interpreted &mdash; no compilation step
+                      required, programs run immediately
+                    </bullet-point>
+                    <ul class="ml-4">
+                      <bullet-point>
+                        We plan to add background compilation in the future,
+                        combined with pre-compiled packages in the package
+                        manager
+                        <t-2025></t-2025>
+                      </bullet-point>
+                    </ul>
 
-                  <bullet-point>
-                    Gradual Static Typing allows running programs with incorrect
-                    types so you don't need to fix all the types in your program
-                    while getting one path working
-                  </bullet-point>
-                  <bullet-point>
-                    Generate darklang code automatically using LLMs and GitHub
-                    Copilot
-                  </bullet-point>
-                </bullet-points>
+                    <bullet-point>
+                      Gradual Static Typing allows running programs with
+                      incorrect types so you don't need to fix all the types in
+                      your program while getting one path working
+                    </bullet-point>
+                    <bullet-point>
+                      Generate darklang code automatically using LLMs and GitHub
+                      Copilot
+                    </bullet-point>
+                  </bullet-points>
+                </indented-body>
               </toggle-body>
             </bullet-points>
           </section-wrapper>
@@ -733,6 +739,88 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
                     Automatic refactoring converts
                     <inline-code>!</inline-code> into proper error handling
                     <t-2024></t-2024>
+                  </bullet-point>
+                </bullet-points>
+              </toggle-body>
+            </bullet-points>
+          </section-wrapper>
+
+          <section-wrapper>
+            <section-heading>Async runtime</section-heading>
+            <bullet-points>
+              <toggle-heading data-target="async-runtime">
+                Fully asynchronous runtime
+              </toggle-heading>
+              <toggle-body id="async-runtime">
+                <indented-body>
+                  Darklang has a fully asynchronous runtime, so making a Http
+                  call or reading a file doesn't block the runtime.
+                </indented-body>
+              </toggle-body>
+
+              <toggle-heading data-target="async-no-await">
+                No <inline-code>async</inline-code> /
+                <inline-code>await</inline-code>
+              </toggle-heading>
+              <toggle-body id="async-no-await">
+                <indented-body>
+                  Adding
+                  <inline-code>async</inline-code> and
+                  <inline-code>await</inline-code> keywords to every language
+                  was a mistake. It exposes the complexity of concurrency and
+                  multi-threading to languages which were originally designed
+                  for simplicity.
+                </indented-body>
+              </toggle-body>
+
+              <toggle-heading data-target="async-data-dependencies">
+                Concurrent and parallel execution via data-dependencies
+              </toggle-heading>
+              <toggle-body id="async-data-dependencies">
+                <indented-body>
+                  <p>
+                    When you make an async request, it first waits for any
+                    arguments that are async, and starts when they're done. If
+                    another function call needs to use the result, it will wait
+                    for it before starting.
+                  </p>
+                  <p class="mt-4">
+                    Since darklang values are immutable, there won't be any race
+                    conditions from this.
+                  </p>
+                </indented-body>
+              </toggle-body>
+
+              <toggle-heading data-target="async-escape-hatches">
+                Powerful escape hatches
+              </toggle-heading>
+              <toggle-body id="async-escape-hatches">
+                <indented-body>
+                  We provide powerful escape hatches if you need async ordering
+                  that doesn't match the data dependencies of your program.
+                </indented-body>
+              </toggle-body>
+            </bullet-points>
+          </section-wrapper>
+
+          <section-wrapper>
+            <section-heading>Works with your Editor</section-heading>
+            <bullet-points>
+              <toggle-heading data-target="async">
+                Darklang has a fully asynchronous runtime, so making a Http call
+                or reading a file doesn't block the runtime. We use
+                data-dependencies to handle ordering, and provide powerful
+                escape hatches if you want to take matters into your own hands.
+              </toggle-heading>
+              <toggle-body id="async">
+                <bullet-points>
+                  <bullet-point>
+                    I need to write a blog post about this, because I have
+                    opinions! But I really think adding
+                    <inline-code>async</inline-code> and
+                    <inline-code>await</inline-code> keywords to every language
+                    was a mistake. It makes everything very annoying and
+                    complicated, when it could have been put into the runtime.
                   </bullet-point>
                 </bullet-points>
               </toggle-body>

@@ -3,7 +3,6 @@
     "prettier": "3.0.3",
     "tailwindcss": "^3.2.7"
   },
-
   "scripts": {
     "dev": "npx tailwindcss -i ./src/input.css -o ./public/style.css --watch"
   }

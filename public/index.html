@@ -709,6 +709,58 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
           </section-wrapper>
 
           <section-wrapper>
+            <section-heading>Next-gen package management</section-heading>
+            <indented-body>
+              Darklang has a rather unique package manager, where functions and
+              types are individually versioned and immutable, taking a lot of
+              the hassle out of package management.
+            </indented-body>
+            <bullet-points>
+              <toggle-heading data-target="streaming-package-manager">
+                Read more
+              </toggle-heading>
+              <toggle-body id="streaming-package-manager">
+                <bullet-points>
+                  <bullet-point>
+                    Only download the specific package items you use
+                  </bullet-point>
+                  <bullet-point>
+                    Only upgrade the specific package items you use
+                  </bullet-point>
+                  <bullet-point>
+                    <t2024></t2024> Automated dependency upgrades, as we track
+                    deprecation status, and know what functions are pure and
+                    safe to update.
+                  </bullet-point>
+                  <bullet-point>
+                    Different packages can rely on different versions of other
+                    packages
+                  </bullet-point>
+                  <bullet-point>
+                    Use multiple versions of the same package item at once:
+                    allows testing new versions without having to change an
+                    entire package version, lowering risk.
+                  </bullet-point>
+                  <bullet-point>
+                    <t2024></t2024> Share pre-release functions trivially,
+                    without contributors needing to check out your git repo or
+                    set up anything
+                  </bullet-point>
+                  <bullet-point>
+                    <t2024></t2024> The package manager functions as a source
+                    repository
+                  </bullet-point>
+                  <bullet-point>
+                    no need for uploads, releases or other synchronization. No
+                    git or GitHub required (but you can sync to GitHub if you
+                    prefer).
+                  </bullet-point>
+                </bullet-points>
+              </toggle-body>
+            </bullet-points>
+          </section-wrapper>
+
+          <section-wrapper>
             <section-heading>Gradual Static Typing</section-heading>
             <bullet-points>
               <toggle-heading data-target="gst">
@@ -821,66 +873,15 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
           </section-wrapper>
 
           <section-wrapper id="section2">
-            <section-heading>Delightful features</section-heading>
-            <bullet-points>
-              <li class="flex flex-row mt-1 pt-4">
-                <list-bullet></list-bullet>
-                <span class="text-dark-gray">
-                  <tag-label>Optional</tag-label>
-                  <t-2024></t-2024>
-                  Instant cloud deployment of code (to our cloud or yours), with
-                  instant creation of DBs, API endpoints, and worker queues,
-                  with no containers, no cold starts, no orchestration, or other
-                  devops/cloud engineering required
-                </span>
-              </li>
-
-              <toggle-heading data-target="subitemsList2">
-                Package items (functions, types and constants) are versioned and
-                immutable, taking the worry out of taking on dependencies
-              </toggle-heading>
-              <toggle-body id="subitemsList2">
-                <bullet-points>
-                  <bullet-point>
-                    Only download the specific package items you use
-                  </bullet-point>
-
-                  <bullet-point>
-                    Only upgrade the specific package items you use
-                  </bullet-point>
-
-                  <bullet-point>
-                    <t-2024></t-2024>
-                    Automated dependency upgrades, as we track deprecation
-                    status, and know what functions are pure and safe to update.
-                  </bullet-point>
-
-                  <bullet-point>
-                    Different packages can rely on different versions of other
-                    packages
-                  </bullet-point>
-
-                  <bullet-point>
-                    Use multiple versions of the same package item at once:
-                    allows testing new versions without having to change an
-                    entire package version, lowering risk.
-                  </bullet-point>
-
-                  <bullet-point>
-                    <t-2024></t-2024>
-                    Share pre-release functions trivially, without contributors
-                    needing to check out your git repo or set up anything
-                  </bullet-point>
-                </bullet-points>
-              </toggle-body>
-
-              <bullet-point>
-                <t-2024></t-2024>
-                The package manager functions as a source repository - no need
-                for uploads, releases or other synchronization. No git or GitHub
-                required (but you can sync to GitHub if you prefer).
-              </bullet-point>
-            </bullet-points>
+            <section-heading>Instant cloud deployment</section-heading>
+            <indented-body>
+              <tag-label>Optional</tag-label>
+              <t-2024></t-2024>
+              Instant cloud deployment of code (to our cloud or yours), with
+              instant creation of DBs, API endpoints, and worker queues, with no
+              containers, no cold starts, no orchestration, or other
+              devops/cloud engineering required
+            </indented-body>
           </section-wrapper>
 
           <section-wrapper id="section4">
@@ -926,12 +927,10 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
 
           <section-wrapper id="section5">
             <section-heading>Open source</section-heading>
-            <ul class="list-outside text-lg font-normal m-4">
-              <li>
-                We expect to fully open source Darklang, which is currently
-                source available, in 2023 or early 2024
-              </li>
-            </ul>
+            <indented-body>
+              We expect to fully open source Darklang, which is currently source
+              available, in 2023 or early 2024
+            </indented-body>
           </section-wrapper>
         </ul>
       </div>

@@ -11,7 +11,6 @@ To check it: `npx prettier --check .`
 
 Formatting in checked in CI
 
-
 ## Start the Tailwind CLI build process
 
 To build and watch the CSS, use the following command:

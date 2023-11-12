@@ -73,72 +73,71 @@
           });
       };
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const defineCustomElementsFromTemplates = () => {
-          const templates = document.querySelectorAll("template");
 
-          templates.forEach(template => {
-            const templateId = template.id;
+    <script defer type="module">
+      const defineCustomElementsFromTemplates = () => {
+        const templates = document.querySelectorAll("template");
 
-            class CustomElement extends HTMLElement {
-              constructor() {
-                super();
+        templates.forEach(template => {
+          const templateId = template.id;
 
-                // Instantiate the body from the template here. It's suggested
-                // to do it in connectedCallback instead, but when nodes are
-                // moved around things get duplicated, so that's not really
-                // suitable.
-                this.copyFromTemplate();
-              }
+          class CustomElement extends HTMLElement {
+            constructor() {
+              super();
 
-              // Take the template content and create a body for this
-              // instantiation of the customelement from it.
-              // 1. Replace the data-content node in the template with the children of the customelement
-              // 2. Use the customElement's attributes and replace placeholder-* attributes in the template
-              copyFromTemplate() {
-                let body = template.content.cloneNode(true);
-
-                // Replace attributes
-                Array.from(this.attributes).forEach(attr => {
-                  const placeholderAttribute = `placeholder-${attr.name}`;
-                  let count = 0;
-                  body
-                    .querySelectorAll(`[${placeholderAttribute}]`)
-                    .forEach(element => {
-                      count = count + 1;
-                      element.setAttribute(attr.name, attr.value);
-                      element.removeAttribute(placeholderAttribute);
-                    });
-                  if (count > 0) {
-                    this.removeAttribute(attr.name);
-                  }
-                });
-
-                // Replace the content node with the actual children of the
-                // instantiated CustomElement
-                const contentNode = body.querySelector(
-                  `[content-${template.id}]`,
-                );
-                if (contentNode) {
-                  Array.from(this.childNodes).forEach(child => {
-                    contentNode.parentNode.insertBefore(child, contentNode);
-                  });
-                  // Remove the content node
-                  contentNode.parentNode.removeChild(contentNode);
-                }
-
-                // Now attach the new content
-                this.appendChild(body);
-              }
+              // Instantiate the body from the template here. It's suggested
+              // to do it in connectedCallback instead, but when nodes are
+              // moved around things get duplicated, so that's not really
+              // suitable.
+              this.copyFromTemplate();
             }
 
-            customElements.define(templateId, CustomElement);
-          });
-        };
+            // Take the template content and create a body for this
+            // instantiation of the customelement from it.
+            // 1. Replace the data-content node in the template with the children of the customelement
+            // 2. Use the customElement's attributes and replace placeholder-* attributes in the template
+            copyFromTemplate() {
+              let body = template.content.cloneNode(true);
 
-        defineCustomElementsFromTemplates();
-      });
+              // Replace attributes
+              Array.from(this.attributes).forEach(attr => {
+                const placeholderAttribute = `placeholder-${attr.name}`;
+                let count = 0;
+                body
+                  .querySelectorAll(`[${placeholderAttribute}]`)
+                  .forEach(element => {
+                    count = count + 1;
+                    element.setAttribute(attr.name, attr.value);
+                    element.removeAttribute(placeholderAttribute);
+                  });
+                if (count > 0) {
+                  this.removeAttribute(attr.name);
+                }
+              });
+
+              // Replace the content node with the actual children of the
+              // instantiated CustomElement
+              const contentNode = body.querySelector(
+                `[content-${template.id}]`,
+              );
+              if (contentNode) {
+                Array.from(this.childNodes).forEach(child => {
+                  contentNode.parentNode.insertBefore(child, contentNode);
+                });
+                // Remove the content node
+                contentNode.parentNode.removeChild(contentNode);
+              }
+
+              // Now attach the new content
+              this.appendChild(body);
+            }
+          }
+
+          customElements.define(templateId, CustomElement);
+        });
+      };
+
+      defineCustomElementsFromTemplates();
     </script>
   </head>
   <!-- SVG for the '#' bullet icon -->
@@ -158,10 +157,11 @@
   </template>
 
   <!-- SVG for the '-' bullet icon -->
-  <template id="list-bullet">
+  <template id="list-bullet-svg">
     <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
   </template>
 
+  <!-- SVG for the '>' bullet icon -->
   <template id="caret-svg">
     <svg
       width="32px"
@@ -184,7 +184,7 @@
 
   <!-- Heading of the toggle. Works with toggle-body -->
   <template id="toggle-heading">
-    <li class="flex flex-row mt-1 items-start">
+    <li class="toggleItem flex flex-row mt-1 items-start cursor-pointer">
       <p
         placeholder-data-target
         class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
@@ -210,8 +210,8 @@
   <!-- Bullet points that we use throughout -->
   <template id="bullet-point">
     <li class="flex flex-row mt-1">
-      <list-bullet></list-bullet>
-      <span class="text-dark-gray">
+      <list-bullet-svg></list-bullet-svg>
+      <span class="text-dark-gray overflow-scroll">
         <span content-bullet-point>REPLACE ME</span>
       </span>
     </li>
@@ -239,6 +239,26 @@
     </div>
   </template>
 
+  <!-- arbitrary label -->
+  <template id="tag-label">
+    <div class="mx-auto inline-block">
+      <div
+        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+      >
+        <span content-tag-label>REPLACE ME</span>
+        <div
+          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+        ></div>
+      </div>
+    </div>
+  </template>
+
+  <!-- 2024 label -->
+  <template id="t-2024"><tag-label>2024</tag-label></template>
+
+  <!-- 2025 label -->
+  <template id="t-2025"><tag-label>2025+</tag-label></template>
+
   <!-- inline code -->
   <template id="inline-code"
     ><code
@@ -247,25 +267,15 @@
     ></template
   >
 
-  <!-- arbitrary label -->
-  <template id="tag-label"
-    ><span class="bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-      ><span content-tag-label>REPLACE ME</span></span
-    ></template
-  >
-
-  <!-- 2024 label -->
-  <template id="t-2024"><tag-label>2024</tag-label></template>
-
-  <!-- 2025 label -->
-  <template id="t-2025"><tag-label>2025+</tag-label></template>
-
+  <!-- darklang code -->
   <template id="darklang-code"
     ><code
       class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
       ><span content-darklang-code>REPLACE ME</span></code
     ></template
   >
+
+  <!--bash code-->
   <template id="bash-code"
     ><code
       class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded shell"
@@ -1095,6 +1105,8 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
       const darkClassicBtn = document.querySelector("#dark-classic-btn");
       const darkClassicMenu = document.querySelector("#dark-classic-menu");
 
+      const toggleHeading = document.querySelector("#toggle-heading-li");
+
       darkClassicBtn.addEventListener("click", () => {
         darkClassicMenu.classList.toggle("hidden");
         arrow.classList.toggle("rotate-180");
@@ -1105,9 +1117,10 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
       });
 
       document.addEventListener("DOMContentLoaded", function () {
-        const allToggleArrows = document.querySelectorAll(".toggleArrow");
-        allToggleArrows.forEach(function (toggleArrow) {
-          toggleArrow.addEventListener("click", function () {
+        const allToggleItems = document.querySelectorAll(".toggleItem");
+        allToggleItems.forEach(function (item) {
+          item.addEventListener("click", function () {
+            const toggleArrow = item.querySelector(".toggleArrow");
             const sublistId = toggleArrow.getAttribute("data-target");
             const targetList = document.getElementById(sublistId);
             targetList.classList.toggle("hidden");

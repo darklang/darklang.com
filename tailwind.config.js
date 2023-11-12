@@ -27,6 +27,15 @@ module.exports = {
       flex: {
         2: "2 2 0%",
       },
+
+      animation: {
+        shine: "shine 1s linear",
+      },
+      keyframes: {
+        shine: {
+          "100%": { left: "125%" },
+        },
+      },
     },
   },
   plugins: [],

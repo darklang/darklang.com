@@ -764,10 +764,6 @@ video {
   margin-top: 2rem;
 }
 
-.mb-14{
-  margin-bottom: 3.5rem;
-}
-
 .box-border{
   box-sizing: border-box;
 }
@@ -1405,11 +1401,6 @@ video {
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
-.backdrop-filter{
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
 .transition{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1607,11 +1598,6 @@ video {
     margin-bottom: 13rem;
   }
 
-  .md\:mx-28{
-    margin-left: 7rem;
-    margin-right: 7rem;
-  }
-
   .md\:mr-0{
     margin-right: 0px;
   }
@@ -1648,10 +1634,6 @@ video {
     display: none;
   }
 
-  .md\:h-8{
-    height: 2rem;
-  }
-
   .md\:w-1\/2{
     width: 50%;
   }
@@ -1666,10 +1648,6 @@ video {
 
   .md\:w-auto{
     width: auto;
-  }
-
-  .md\:w-8{
-    width: 2rem;
   }
 
   .md\:max-w-4xl{
@@ -1757,15 +1735,6 @@ video {
     line-height: 1.75rem;
   }
 
-  .md\:text-4xl{
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  .md\:text-\[33px\]{
-    font-size: 33px;
-  }
-
   .md\:leading-\[3rem\]{
     line-height: 3rem;
   }
@@ -1806,6 +1775,10 @@ video {
 
   .\32xl\:max-w-3xl{
     max-width: 48rem;
+  }
+
+  .\32xl\:overflow-visible{
+    overflow: visible;
   }
 
   .\32xl\:py-0{

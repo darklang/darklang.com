@@ -140,148 +140,6 @@
       defineCustomElementsFromTemplates();
     </script>
   </head>
-  <!-- SVG for the '#' bullet icon -->
-  <template id="hashtag-svg">
-    <svg
-      class="w-5 h-5 mr-2"
-      viewBox="0 0 16 16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fill="#747AB9"
-        fill-rule="evenodd"
-        d="M6.884 1.762a.75.75 0 01.604.872L7.058 5h2.975l.479-2.634a.75.75 0 111.476.268L11.558 5h1.192a.75.75 0 010 1.5h-1.465l-.546 3h2.011a.75.75 0 010 1.5h-2.283l-.48 2.634a.75.75 0 11-1.475-.268L8.942 11H5.967l-.48 2.634a.75.75 0 11-1.475-.268L4.442 11H3.25a.75.75 0 010-1.5h1.465l.545-3H3.25a.75.75 0 010-1.5h2.283l.479-2.634a.75.75 0 01.872-.604zM9.214 9.5l.546-3H6.785l-.546 3h2.976z"
-        clip-rule="evenodd"
-      ></path>
-    </svg>
-  </template>
-
-  <!-- SVG for the '-' bullet icon -->
-  <template id="list-bullet-svg">
-    <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-  </template>
-
-  <!-- SVG for the '>' bullet icon -->
-  <template id="caret-svg">
-    <svg
-      width="32px"
-      height="32px"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g>
-        <path
-          d="M11 9L14 12L11 15"
-          stroke="#955B9F"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        ></path>
-      </g>
-    </svg>
-  </template>
-
-  <!-- Heading of the toggle. Works with toggle-body -->
-  <template id="toggle-heading">
-    <li class="toggleItem flex flex-row mt-1 items-start cursor-pointer">
-      <p
-        placeholder-data-target
-        class="toggleArrow text-purple -ml-3 transform transition duration-200 ease-in-out"
-      >
-        <caret-svg></caret-svg>
-      </p>
-
-      <span class="text-dark-gray">
-        <span content-toggle-heading>REPLACE ME</span>
-      </span>
-    </li>
-  </template>
-
-  <!-- (initially hidden) Body of the toggle. Works with toggle-heading -->
-  <template id="toggle-body">
-    <span placeholder-id class="hidden">
-      <!-- not hidden for development -->
-      <!-- <span placeholder-id class=""> -->
-      <span content-toggle-body>REPLACE ME</span>
-    </span>
-  </template>
-
-  <!-- Bullet points that we use throughout -->
-  <template id="bullet-point">
-    <li class="flex flex-row mt-2">
-      <list-bullet-svg></list-bullet-svg>
-      <span class="text-dark-gray overflow-scroll 2xl:overflow-visible">
-        <span content-bullet-point>REPLACE ME</span>
-      </span>
-    </li>
-  </template>
-
-  <!-- container for bullet-point bodies -->
-  <template id="bullet-points">
-    <ul class="text-lg font-normal m-4">
-      <span content-bullet-points>REPLACE ME</span>
-    </ul>
-  </template>
-
-  <!-- container for non-bullet-point bodies -->
-  <template id="indented-body">
-    <p class="text-lg font-normal mx-8 my-4">
-      <span content-indented-body>REPLACE ME</span>
-    </p>
-  </template>
-
-  <!-- Section headings in at-a-glance -->
-  <template id="section-heading">
-    <div class="flex flex-row justify-start items-center">
-      <hashtag-svg></hashtag-svg>
-      <span><span content-section-heading>REPLACE ME</span></span>
-    </div>
-  </template>
-
-  <!-- arbitrary label -->
-  <template id="tag-label">
-    <div class="mx-auto inline-block">
-      <div
-        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
-      >
-        <span content-tag-label>REPLACE ME</span>
-        <div
-          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-        ></div>
-      </div>
-    </div>
-  </template>
-
-  <!-- 2024 label -->
-  <template id="t-2024"><tag-label>2024</tag-label></template>
-
-  <!-- 2025 label -->
-  <template id="t-2025"><tag-label>2025+</tag-label></template>
-
-  <!-- inline code -->
-  <template id="inline-code"
-    ><code
-      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
-      ><span content-inline-code>REPLACE ME</span></code
-    ></template
-  >
-
-  <!-- darklang code -->
-  <template id="darklang-code"
-    ><code
-      class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
-      ><span content-darklang-code>REPLACE ME</span></code
-    ></template
-  >
-
-  <!--bash code-->
-  <template id="bash-code"
-    ><code
-      class="font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded shell"
-      ><span content-bash-code>REPLACE ME</span></code
-    ></template
-  >
 
   <body class="bg-light-background box-border m-0 p-0">
     <!--Navbar-->
@@ -385,118 +243,110 @@
     </nav>
 
     <!--Hero-->
-    <section class="mt-32 md:mt-28 2xl:mt-72 font-Quicksand">
+    <section class="mx-12 md:mx-32 mt-20 md:mt-28 2xl:mt-40 font-Quicksand">
       <div
-        class="container flex flex-col justify-center items-center mx-auto text-center"
+        class="flex flex-col justify-center items-center mx-auto text-center"
       >
         <img
           src="./img/wordmark-light-transparent@2x.png"
           class="max-w-xs md:max-w-xl 2xl:max-w-3xl"
           alt="logo"
         />
-
-        <p
-          class="mt-7 md:mt-7 2xl:mt-16 py-4 2xl:py-0 text-lg md:text-3xl 2xl:text-[38px] mx-6 md:mx-40 2xl:mx-0 2xl:my-8 md:leading-[3rem] font-bold"
-        >
-          A functional language with delightful features that runs instantly
-        </p>
-        <p
-          class="py-2 mx-6 text-base md:text-xl 2xl:text-2xl text-gray-400 font-light"
-        >
-          Open Source and Inspired by Elm, Rust, Rescript, Typescript, OCaml,
-          F#, Python, Ruby, and Clojure
-        </p>
       </div>
 
-      <div class="mt-10 2xl:mt-20 flex items-center justify-center">
+      <div
+        class="mt-10 2xl:mt-20 mx-auto md:flex max-w-6xl 2xl:max-w-screen-xl"
+      >
+        <div>
+          <h2 class="text-3xl 2xl:text-4xl font-bold mb-4 text-dark-gray">
+            Just <span class="text-purple">code</span>
+          </h2>
+          <p class="text-base 2xl:text-lg text-justify text-gray-500">
+            no yaml, no config files, no docker, no containers, no kubernetes,
+            no ci/cd pipelines, no terraform, no orchestrating, no build
+            systems, no null, no exception handling, no ORMs, no OOP, no
+            inheritence hierarchies, no async/await, no compilation, no dev
+            environments, no dependency hell, no git, no github, no .gitignores,
+            no packaging, no sql, no nosql, no connection poolers, no DB
+            sharding, no building indexes, no servers, no serverless, no load
+            balancers, no reverse proxies, no 200 cloud services, no kafka, no
+            memcached, no postgres, no nginx, no OSes, no unix, no networking
+          </p>
+        </div>
+
         <form
           id="form1"
           onsubmit="addEmailToList(1); return false;"
-          class="flex flex-col md:flex-row items-center justify-center mx-auto font-bold"
+          class="font-bold md:flex md:flex-col justify-center m-10"
         >
-          <input
-            id="email1"
-            required
-            type="email"
-            placeholder="Your email"
-            class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-white mx-2 w-72 md:w-96"
-          />
-          <span
-            id="error1"
-            class="hidden text-red-400 absolute -bottom-7 text-xs italic"
-          ></span>
-          <button
-            type="submit"
-            class="bg-blue hover:bg-purple text-white rounded px-4 py-3 mt-6 md:mt-0"
-          >
-            Send me project updates
-          </button>
+          <div class="md:flex md:flex-col justify-center">
+            <p class="my-2 text-dark-gray/50">Send me project updates</p>
+            <div class="md:flex md:flex-row">
+              <input
+                id="email1"
+                required
+                type="email"
+                placeholder="Your email"
+                class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-white w-full md:w-96"
+              />
+              <span
+                id="error1"
+                class="hidden text-red-400 absolute -bottom-7 text-xs italic"
+              ></span>
+              <button
+                type="submit"
+                class="bg-blue hover:bg-purple text-white rounded px-5 py-3 mx-auto mt-2 w-full md:mt-0 md:w-max md:mx-2"
+              >
+                Send
+              </button>
+            </div>
+          </div>
         </form>
       </div>
+    </section>
 
-      <!-- Bottom navbar -->
-      <!-- <div
-      class="hidden md:flex fixed bottom-0 right-0 items-center w-full md:w-2/3 bg-[#3F3F3F] cursor-pointer md:rounded-tl-2xl text-white">
-      <div data-section="section1" class="section transition-all duration-500 ease-out  flex-1 text-center md:rounded-tl-2xl">
-        <div class="flex justify-center items-center p-1 md:p-3 md:my-4 border-r border-r-white/30">
-          <p class="md:text-5xl font-League-Gothic text-gray-300 mx-3">01</p>
-          <p>Modern language</p>
-        </div>
-      </div>
-      <div data-section="section2" class="section transition-all duration-500 ease-out flex-1 text-center">
-        <div class="flex justify-center items-center p-1 md:p-3 md:my-4 border-r border-r-white/30">
-          <p class="md:text-5xl font-League-Gothic text-gray-300 mx-3">02</p>
-          <p>Modern packaging</p>
-        </div>
-      </div>
-      <div data-section="section3" class="section transition-all duration-500 ease-out-out flex-1 text-center">
-        <div class="flex justify-center items-center p-1 md:p-3 md:my-4 border-r border-r-white/30">
-          <p class="md:text-5xl font-League-Gothic text-gray-300 mx-3">03</p>
-          <p>Run from anywhere</p>
-        </div>
-      </div>
-      <div data-section="section4" class="section transition-all duration-500 ease-out flex-1 text-center">
-        <div class="flex justify-center items-center p-1 md:p-3 md:my-4 border-r border-r-white/30">
-          <p class="md:text-5xl font-League-Gothic text-gray-300 mx-4">04</p>
-          <p>Designed for AI</p>
-        </div>
-      </div>
-      <div data-section="section5" class="section transition-all duration-500 ease-out flex-1 text-center">
-        <div class="flex justify-center items-center p-1 md:p-3 md:my-4">
-          <p class="md:text-5xl font-League-Gothic text-gray-300 mx-3">05</p>
-          <p>Open Source</p>
-        </div>
-      </div>
-    </div> -->
+    <!-- intro paragraph-->
+    <section
+      class="container mx-auto p-8 text-center my-24 md:px-16 2xl:p-0 md:my-44 text-xl md:text-4xl font-Quicksand"
+    >
+      <p>
+        The software industry accrues endless cruft and layers, needing endless
+        configuration and glue code.
+        <span class="text-purple font-semibold">Darklang </span> raises the
+        abstraction to avoid all this, allowing you to build command-line and
+        cloud applications with just code.
+      </p>
     </section>
 
     <!-- At a glance section -->
-    <section
-      class="mx-auto my-28 p-4 md:p-0 md:max-w-4xl md:my-52 font-Quicksand mt-52 2xl:mt-96"
-    >
-      <div class="text-base leading-6 mx-8">
-        <ul>
-          <template id="section-wrapper">
-            <li placeholder-id="" class="font-bold text-xl mt-8 scroll-mt-24">
-              <span content-section-wrapper>REPLACE ME</span>
-            </li>
-          </template>
-
-          <section-wrapper id="section1">
-            <section-heading>Functional language</section-heading>
-
-            <bullet-points>
-              <toggle-heading data-target="simpleTypes">
-                Simple types using
-                <span class="font-bold">Records and Enums</span>
-              </toggle-heading>
-              <toggle-body id="simpleTypes">
-                <bullet-points>
-                  <bullet-point>
-                    <span class="italic">Abstract Data Types</span> made of
-                    Record and Enums can model nearly anything, like in Rust,
-                    Elm, OCaml and F#
-                    <pre class="m-0 p-0"><darklang-code>// Record
+    <section>
+      <!--Functional language section-->
+      <section-wrapper>
+        <section-heading
+          ><gradient-text>Functional</gradient-text> language</section-heading
+        >
+        <items-wrapper>
+          <toggle-item data-target="simpleTypes">
+            <item-heading
+              >Simple types using <span class="text-purple">Records</span> and
+              <span class="text-blue">Enums</span></item-heading
+            >
+            <toggle-body id="simpleTypes">
+              <indented-body>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
+                pariatur aliquid delectus nobis consectetur omnis tenetur,
+                ducimus corporis, modi blanditiis voluptatibus vel quae
+                voluptatem ipsum eveniet error excepturi libero. Maxime!
+                corporis, modi blanditiis voluptatibus vel quae voluptatem ipsum
+                eveniet error excepturi
+              </indented-body>
+              <bullet-points>
+                <bullet-point>
+                  <span class="italic">Abstract Data Types</span> made of Record
+                  and Enums can model nearly anything, like in Rust, Elm, OCaml
+                  and F#
+                  <pre class="m-0 p-0">
+<darklang-code>// Record
 type Url = {
   scheme : HttpScheme
   domain : String
@@ -514,111 +364,137 @@ type UrlError =
 
 // Aliases are just shorthands
 type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
-                  </bullet-point>
+                </bullet-point>
 
-                  <bullet-point>
-                    We believe Object Oriented programming is a terrible way to
-                    model programs, and inheritence is a terrible misfeature.
-                    Languages like OCaml, Elm, and F# have shown that nearly all
-                    problems can be modeled using ADTs.
-                  </bullet-point>
-                </bullet-points>
-              </toggle-body>
+                <bullet-point>
+                  We believe Object Oriented programming is a terrible way to
+                  model programs, and inheritence is a terrible misfeature.
+                  Languages like OCaml, Elm, and F# have shown that nearly all
+                  problems can be modeled using ADTs.
+                </bullet-point>
+              </bullet-points>
+            </toggle-body>
+          </toggle-item>
 
-              <toggle-heading data-target="optionResult">
-                <inline-code>Option</inline-code> and
-                <inline-code>Result</inline-code> types instead of null and
-                exceptions
-              </toggle-heading>
-              <toggle-body id="optionResult">
-                <bullet-points>
-                  <bullet-point>
-                    I think it's widely accepted that
-                    <inline-code>null</inline-code>is a mistake, and that an
-                    <inline-code>Option</inline-code>type (aka
-                    <inline-code>Optional</inline-code>,
-                    <inline-code>Maybe</inline-code>, etc) makes it
-                    significantly easier to program.
-                  </bullet-point>
-                  <bullet-point>
-                    We further believe that Exceptions — which can in most
-                    languages be thrown at any point — makes it very frustrating
-                    to know that a function actually works. There are no
-                    exceptions in Darklang, and we use
-                    <inline-code>Result</inline-code> types to manage error
-                    cases
-                  </bullet-point>
-                  <bullet-point>
-                    <inline-code>?</inline-code> and
-                    <inline-code>!</inline-code>operators (similar to Rust,
-                    TypeScript, and Clojure) provide ways to ergonomically
-                    handle errors without being too annoying (see also Gradual
-                    Static Typing)
-                  </bullet-point>
-                  <bullet-point>
-                    We will admit we have some RuntimeErrors which cannot be
-                    caught, but we are working to remove them almost entirely
-                    from the language (see Gradual Static Typing for what we're
-                    keeping)
-                  </bullet-point>
-                </bullet-points>
-              </toggle-body>
+          <toggle-item data-target="optionResult">
+            <item-heading
+              ><span class="text-purple">Option</span> and
+              <span class="text-blue">Result</span> types instead of null and
+              exceptions</item-heading
+            >
+            <toggle-body id="optionResult">
+              <indented-body>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
+                pariatur aliquid delectus nobis consectetur omnis tenetur,
+                ducimus corporis, modi blanditiis voluptatibus vel quae
+                voluptatem ipsum eveniet error excepturi libero. Maxime!
+                corporis, modi blanditiis voluptatibus vel quae voluptatem ipsum
+                eveniet error excepturi
+              </indented-body>
+              <bullet-points>
+                <bullet-point>
+                  I think it's widely accepted that
+                  <inline-code>null</inline-code>is a mistake, and that an
+                  <inline-code>Option</inline-code>type (aka
+                  <inline-code>Optional</inline-code>,
+                  <inline-code>Maybe</inline-code>, etc) makes it significantly
+                  easier to program.
+                </bullet-point>
+                <bullet-point>
+                  We further believe that Exceptions — which can in most
+                  languages be thrown at any point — makes it very frustrating
+                  to know that a function actually works. There are no
+                  exceptions in Darklang, and we use
+                  <inline-code>Result</inline-code> types to manage error cases
+                </bullet-point>
+                <bullet-point>
+                  <inline-code>?</inline-code> and
+                  <inline-code>!</inline-code>operators (similar to Rust,
+                  TypeScript, and Clojure) provide ways to ergonomically handle
+                  errors without being too annoying (see also Gradual Static
+                  Typing)
+                </bullet-point>
+                <bullet-point>
+                  We will admit we have some RuntimeErrors which cannot be
+                  caught, but we are working to remove them almost entirely from
+                  the language (see Gradual Static Typing for what we're
+                  keeping)
+                </bullet-point>
+              </bullet-points>
+            </toggle-body>
+          </toggle-item>
 
-              <toggle-heading data-target="garbage-collected"
-                >Garbage Collected
-              </toggle-heading>
-              <toggle-body id="garbage-collected">
-                <indented-body>
-                  It can be fun to satisfy the borrow checker, or manage
-                  allocations individually, but it can also be fun to just get
-                  working programs immediately. We believe that run-time garbage
-                  collection is one of the greatest programming language
-                  features, and we're all in
-                </indented-body>
-              </toggle-body>
+          <toggle-item data-target="garbage-collected">
+            <item-heading
+              ><span class="text-purple">Garbage</span> Collected</item-heading
+            >
+            <toggle-body id="garbage-collected">
+              <indented-body>
+                It can be fun to satisfy the borrow checker, or manage
+                allocations individually, but it can also be fun to just get
+                working programs immediately. We believe that run-time garbage
+                collection is one of the greatest programming language features,
+                and we're all in
+              </indented-body>
+            </toggle-body>
+          </toggle-item>
 
-              <toggle-heading data-target="unicode-first"
-                >Unicode First
-              </toggle-heading>
-              <toggle-body id="unicode-first">
-                <indented-body>
-                  Languages created last millennium typically use Strings made
-                  of bytes, or worse, UTF16 characters, or even worse, Unicode
-                  Codepoints! Like Swift, we believe that
-                  <inline-code>Character</inline-code>s should represent screen
-                  readable characters, like 👨‍👩‍👦‍👦. All characters in Darklang
-                  represent
-                  <span class="italic">Extended Grapheme Clusters</span>: one
-                  character that you see on screen. Naturally, working on
-                  Unicode Codepoints <t-2024></t-2024> and normal bytes is also
-                  well supported.
-                </indented-body>
-              </toggle-body>
-            </bullet-points>
-          </section-wrapper>
+          <toggle-item data-target="unicode-first">
+            <item-heading
+              ><span class="text-purple">Unicode</span> First</item-heading
+            >
+            <toggle-body id="unicode-first">
+              <indented-body>
+                Languages created last millennium typically use Strings made of
+                bytes, or worse, UTF16 characters, or even worse, Unicode
+                Codepoints! Like Swift, we believe that
+                <inline-code>Character</inline-code>s should represent screen
+                readable characters, like 👨‍👩‍👦‍👦. All characters in Darklang
+                represent
+                <span class="italic">Extended Grapheme Clusters</span>: one
+                character that you see on screen. Naturally, working on Unicode
+                Codepoints <t-2024></t-2024> and normal bytes is also well
+                supported.
+              </indented-body>
+            </toggle-body>
+          </toggle-item>
+        </items-wrapper>
+      </section-wrapper>
 
-          <section-wrapper id="section2">
-            <section-heading>Runs Instantly</section-heading>
-            <bullet-points>
-              <toggle-heading data-target="run-any">
-                Instantly run any package from the CLI:
-                <inline-code>
-                  <span class="text-blue pr-2">darklang</span>
-                  <span class="text-dark-gray pr-2"
-                    >@username.functionName</span
-                  >
-                  <span class="text-blue pr-2">arg1</span>
-                  <span class="text-purple">arg2</span>
-                </inline-code>
-              </toggle-heading>
-              <toggle-body id="run-any">
-                <bullet-points>
-                  <bullet-point>
-                    Darklang has a new model of sharing programs. Any function
-                    in the package manager can be called directly from the
-                    command line (so long as we can figure out how to coerce the
-                    command line arguments correctly):
-                    <pre><bash-code>$ darklang @paul.fizzbuzz 10
+      <!--Runs instantly-->
+      <section-wrapper>
+        <section-heading
+          >Runs <gradient-text>Instantly</gradient-text></section-heading
+        >
+        <items-wrapper>
+          <toggle-item data-target="run-any">
+            <item-heading>
+              Instantly run any <span class="text-purple">package</span> from
+              the <span class="text-blue">CLI</span>:
+              <inline-code>
+                <span class="text-blue pr-2">darklang</span>
+                <span class="text-dark-gray pr-2">@username.functionName</span>
+                <span class="text-blue pr-2">arg1</span>
+                <span class="text-purple">arg2</span>
+              </inline-code>
+            </item-heading>
+
+            <toggle-body id="run-any">
+              <indented-body>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
+                pariatur aliquid delectus nobis consectetur omnis tenetur,
+                ducimus corporis, modi blanditiis voluptatibus vel quae
+                voluptatem ipsum eveniet error excepturi libero. Maxime!
+                corporis, modi blanditiis voluptatibus vel quae voluptatem ipsum
+                eveniet error excepturi
+              </indented-body>
+              <bullet-points>
+                <bullet-point>
+                  Darklang has a new model of sharing programs. Any function in
+                  the package manager can be called directly from the command
+                  line (so long as we can figure out how to coerce the command
+                  line arguments correctly):
+                  <pre><bash-code>$ darklang @paul.fizzbuzz 10
 1
 2
 Fizz
@@ -629,30 +505,30 @@ Fizz
 8
 Fizz
 Buzz
-</bash-code></pre>
-                  </bullet-point>
+                </bash-code></pre>
+                </bullet-point>
 
-                  <bullet-point>
-                    We designed this to allow you to share scripts with your
-                    team, or the whole world. We support private packages
-                    <t-2024></t-2024>, with individual, team, or role-based
-                    access controls. You can even have functions that run
-                    server-side<t-2025></t-2025>
-                    without allowing the user to see credentials, for example
-                    for providing customer support tools to your team.
-                  </bullet-point>
+                <bullet-point>
+                  We designed this to allow you to share scripts with your team,
+                  or the whole world. We support private packages
+                  <t-2024></t-2024>, with individual, team, or role-based access
+                  controls. You can even have functions that run
+                  server-side<t-2025></t-2025>
+                  without allowing the user to see credentials, for example for
+                  providing customer support tools to your team.
+                </bullet-point>
 
-                  <bullet-point
-                    >Functions can also be run from the web, Slack, Discord, etc
-                    <t-2024></t-2024>
-                  </bullet-point>
+                <bullet-point
+                  >Functions can also be run from the web, Slack, Discord, etc
+                  <t-2024></t-2024>
+                </bullet-point>
 
-                  <bullet-point
-                    >We're building safety features, to ensure that functions
-                    can't just steal all your IDs and wallets and whatever.
-                    Darklang asks for permissions when you call a function, and
-                    a static analysis is run to collect all permissions needed.
-                    <pre><bash-code>$ darklang @hacker.stealThings "Hi there"
+                <bullet-point
+                  >We're building safety features, to ensure that functions
+                  can't just steal all your IDs and wallets and whatever.
+                  Darklang asks for permissions when you call a function, and a
+                  static analysis is run to collect all permissions needed.
+                  <pre><bash-code>$ darklang @hacker.stealThings "Hi there"
 > @hacker.stealThings requires the following permissions
 >   Makes Http requests to unknown domains
 >   Reads any file
@@ -668,289 +544,316 @@ $ darklang @mycompany.internal.createMonthlyReport
 >   Makes Http POST requests to drive.google.com
 > Continue? [N, y] y
 Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf3.pdf</bash-code></pre>
-                  </bullet-point>
-                </bullet-points>
-              </toggle-body>
+                </bullet-point>
+              </bullet-points>
+            </toggle-body>
+          </toggle-item>
 
-              <toggle-heading data-target="instantly-run">
-                Instantly run programs as you write them
-              </toggle-heading>
-              <toggle-body id="instantly-run">
-                <indented-body>
-                  Darklang is designed for a really fast iterative loop:
-                  <bullet-points>
-                    <bullet-point>
-                      Single binary to install means no environments or
-                      containers to set up.
-                      <span class="line-through">Install it now!</span>
-                      <tag-label>Coming late 2023, we hope</tag-label>
-                    </bullet-point>
-                    <bullet-point>
-                      Packages are streamed from the package manager
-                      automatically &ndash; no
-                      <inline-code>npm install</inline-code> step
-                    </bullet-point>
-                    <bullet-point>
-                      darklang is interpreted &mdash; no compilation step
-                      required, programs run immediately
-                    </bullet-point>
-                    <ul class="ml-4">
-                      <bullet-point>
-                        We plan to add background compilation in the future,
-                        combined with pre-compiled packages in the package
-                        manager
-                        <t-2025></t-2025>
-                      </bullet-point>
-                    </ul>
-
-                    <bullet-point>
-                      Gradual Static Typing allows running programs with
-                      incorrect types so you don't need to fix all the types in
-                      your program while getting one path working
-                    </bullet-point>
-                    <bullet-point>
-                      Generate darklang code automatically using LLMs and GitHub
-                      Copilot
-                    </bullet-point>
-                  </bullet-points>
-                </indented-body>
-              </toggle-body>
-            </bullet-points>
-          </section-wrapper>
-
-          <section-wrapper>
-            <section-heading>Next-gen package management</section-heading>
-            <indented-body>
-              Darklang has a rather unique package manager, where functions and
-              types are individually versioned and immutable, taking a lot of
-              the hassle out of package management.
-            </indented-body>
-            <bullet-points>
-              <toggle-heading data-target="streaming-package-manager">
-                Read more
-              </toggle-heading>
-              <toggle-body id="streaming-package-manager">
+          <toggle-item data-target="instantly-run">
+            <item-heading>
+              Instantly <span class="text-purple">run</span> programs as you
+              <span class="text-blue">write</span> them
+            </item-heading>
+            <toggle-body id="instantly-run">
+              <indented-body>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
+                pariatur aliquid delectus nobis consectetur omnis tenetur,
+                ducimus corporis, modi blanditiis voluptatibus vel quae
+                voluptatem ipsum eveniet error excepturi libero. Maxime!
+              </indented-body>
+              <indented-body>
+                Darklang is designed for a really fast iterative loop:
                 <bullet-points>
                   <bullet-point>
-                    Only download the specific package items you use
+                    Single binary to install means no environments or containers
+                    to set up.
+                    <span class="line-through">Install it now!</span>
+                    <tag-label>Coming late 2023, we hope</tag-label>
                   </bullet-point>
                   <bullet-point>
-                    Only upgrade the specific package items you use
+                    Packages are streamed from the package manager automatically
+                    &ndash; no
+                    <inline-code>npm install</inline-code> step
                   </bullet-point>
                   <bullet-point>
-                    <t2024></t2024> Automated dependency upgrades, as we track
-                    deprecation status, and know what functions are pure and
-                    safe to update.
+                    darklang is interpreted &mdash; no compilation step
+                    required, programs run immediately
+                  </bullet-point>
+                  <ul class="ml-4">
+                    <bullet-point>
+                      We plan to add background compilation in the future,
+                      combined with pre-compiled packages in the package manager
+                      <t-2025></t-2025>
+                    </bullet-point>
+                  </ul>
+
+                  <bullet-point>
+                    Gradual Static Typing allows running programs with incorrect
+                    types so you don't need to fix all the types in your program
+                    while getting one path working
                   </bullet-point>
                   <bullet-point>
-                    Different packages can rely on different versions of other
-                    packages
-                  </bullet-point>
-                  <bullet-point>
-                    Use multiple versions of the same package item at once:
-                    allows testing new versions without having to change an
-                    entire package version, lowering risk.
-                  </bullet-point>
-                  <bullet-point>
-                    <t2024></t2024> Share pre-release functions trivially,
-                    without contributors needing to check out your git repo or
-                    set up anything
-                  </bullet-point>
-                  <bullet-point>
-                    <t2024></t2024> The package manager functions as a source
-                    repository
-                  </bullet-point>
-                  <bullet-point>
-                    no need for uploads, releases or other synchronization. No
-                    git or GitHub required (but you can sync to GitHub if you
-                    prefer).
+                    Generate darklang code automatically using LLMs and GitHub
+                    Copilot
                   </bullet-point>
                 </bullet-points>
-              </toggle-body>
-            </bullet-points>
-          </section-wrapper>
+              </indented-body>
+            </toggle-body>
+          </toggle-item>
+        </items-wrapper>
+      </section-wrapper>
 
-          <section-wrapper>
-            <section-heading>Gradual Static Typing</section-heading>
+      <!--Next-gen package management section-->
+      <section-wrapper>
+        <section-heading
+          ><gradient-text>Next-gen</gradient-text> package
+          management</section-heading
+        >
+        <indented-body>
+          Darklang has a rather unique package manager, where functions and
+          types are individually versioned and immutable, taking a lot of the
+          hassle out of package management.
+          <hidden-toggle-body id="streaming-package-manager">
             <bullet-points>
-              <toggle-heading data-target="gst">
-                Gradual Static Typing allows running incomplete programs so you
-                don't need to ensure everything type checks when you're getting
-                one path working
-              </toggle-heading>
-              <toggle-body id="gst">
-                <bullet-points>
-                  <bullet-point>
-                    While prototyping, just run code until you hit a type error
-                  </bullet-point>
-                  <bullet-point>
-                    After prototyping, run the full type checker to gain
-                    confidence your whole program works
-                    <t-2024></t-2024>
-                  </bullet-point>
-                  <bullet-point>
-                    Full type-checking hints in VSCode or in LSP editors
-                    <t-2024></t-2024>
-                  </bullet-point>
-                  <bullet-point>
-                    <inline-code>!</inline-code> and
-                    <inline-code>?</inline-code> operators allow easy error
-                    handling while you prototype
-                  </bullet-point>
-                  <bullet-point>
-                    Automatic refactoring converts
-                    <inline-code>!</inline-code> into proper error handling
-                    <t-2024></t-2024>
-                  </bullet-point>
-                </bullet-points>
-              </toggle-body>
+              <bullet-point>
+                Only download the specific package items you use
+              </bullet-point>
+              <bullet-point>
+                Only upgrade the specific package items you use
+              </bullet-point>
+              <bullet-point>
+                <t2024></t2024> Automated dependency upgrades, as we track
+                deprecation status, and know what functions are pure and safe to
+                update.
+              </bullet-point>
+              <bullet-point>
+                Different packages can rely on different versions of other
+                packages
+              </bullet-point>
+              <bullet-point>
+                Use multiple versions of the same package item at once: allows
+                testing new versions without having to change an entire package
+                version, lowering risk.
+              </bullet-point>
+              <bullet-point>
+                <t2024></t2024> Share pre-release functions trivially, without
+                contributors needing to check out your git repo or set up
+                anything
+              </bullet-point>
+              <bullet-point>
+                <t2024></t2024> The package manager functions as a source
+                repository
+              </bullet-point>
+              <bullet-point>
+                no need for uploads, releases or other synchronization. No git
+                or GitHub required (but you can sync to GitHub if you prefer).
+              </bullet-point>
             </bullet-points>
-          </section-wrapper>
+          </hidden-toggle-body>
+          <read-more-button
+            data-target="streaming-package-manager"
+          ></read-more-button>
+        </indented-body>
+      </section-wrapper>
 
-          <section-wrapper>
-            <section-heading>Async runtime</section-heading>
+      <!-- Gradual static typing section -->
+      <section-wrapper>
+        <section-heading
+          ><gradient-text>Gradual</gradient-text> Static Typing</section-heading
+        >
+        <indented-body>
+          Gradual Static Typing allows running incomplete programs so you don't
+          need to ensure everything type checks when you're getting one path
+          working
+          <hidden-toggle-body id="gst">
             <bullet-points>
-              <toggle-heading data-target="async-runtime">
-                Fully asynchronous runtime
-              </toggle-heading>
-              <toggle-body id="async-runtime">
-                <indented-body>
-                  Darklang has a fully asynchronous runtime, so making a Http
-                  call or reading a file doesn't block the runtime.
-                </indented-body>
-              </toggle-body>
-
-              <toggle-heading data-target="async-no-await">
-                No <inline-code>async</inline-code> /
-                <inline-code>await</inline-code>
-              </toggle-heading>
-              <toggle-body id="async-no-await">
-                <indented-body>
-                  Adding
-                  <inline-code>async</inline-code> and
-                  <inline-code>await</inline-code> keywords to every language
-                  was a mistake. It exposes the complexity of concurrency and
-                  multi-threading to languages which were originally designed
-                  for simplicity.
-                </indented-body>
-              </toggle-body>
-
-              <toggle-heading data-target="async-data-dependencies">
-                Concurrent and parallel execution via data-dependencies
-              </toggle-heading>
-              <toggle-body id="async-data-dependencies">
-                <indented-body>
-                  <p>
-                    When you make an async request, it first waits for any
-                    arguments that are async, and starts when they're done. If
-                    another function call needs to use the result, it will wait
-                    for it before starting.
-                  </p>
-                  <p class="mt-4">
-                    Since darklang values are immutable, there won't be any race
-                    conditions from this.
-                  </p>
-                </indented-body>
-              </toggle-body>
-
-              <toggle-heading data-target="async-escape-hatches">
-                Powerful escape hatches
-              </toggle-heading>
-              <toggle-body id="async-escape-hatches">
-                <indented-body>
-                  We provide powerful escape hatches if you need async ordering
-                  that doesn't match the data dependencies of your program.
-                </indented-body>
-              </toggle-body>
+              <bullet-point>
+                While prototyping, just run code until you hit a type error
+              </bullet-point>
+              <bullet-point>
+                After prototyping, run the full type checker to gain confidence
+                your whole program works
+                <t-2024></t-2024>
+              </bullet-point>
+              <bullet-point>
+                Full type-checking hints in VSCode or in LSP editors
+                <t-2024></t-2024>
+              </bullet-point>
+              <bullet-point>
+                <inline-code>!</inline-code> and
+                <inline-code>?</inline-code> operators allow easy error handling
+                while you prototype
+              </bullet-point>
+              <bullet-point>
+                Automatic refactoring converts
+                <inline-code>!</inline-code> into proper error handling
+                <t-2024></t-2024>
+              </bullet-point>
             </bullet-points>
-          </section-wrapper>
+          </hidden-toggle-body>
+          <read-more-button data-target="gst"></read-more-button>
+        </indented-body>
+      </section-wrapper>
 
-          <section-wrapper id="section2">
-            <section-heading>Instant cloud deployment</section-heading>
+      <!-- Async runtime section -->
+      <section-wrapper>
+        <section-heading
+          ><gradient-text>Async</gradient-text> runtime</section-heading
+        >
+        <items-wrapper>
+          <simple-item data-target="async-runtime">
+            <item-heading>
+              Fully <span class="text-purple">asynchronous</span> runtime
+            </item-heading>
             <indented-body>
-              <tag-label>Optional</tag-label>
-              <t-2024></t-2024>
-              Instant cloud deployment of code (to our cloud or yours), with
-              instant creation of DBs, API endpoints, and worker queues, with no
-              containers, no cold starts, no orchestration, or other
-              devops/cloud engineering required
+              Darklang has a fully asynchronous runtime, so making a Http call
+              or reading a file doesn't block the runtime.
             </indented-body>
-          </section-wrapper>
+          </simple-item>
 
-          <section-wrapper id="section4">
-            <section-heading>Designed for GenAI</section-heading>
-            <bullet-points>
-              <bullet-point> Works with GitHub Copilot </bullet-point>
-              <bullet-point>
-                We redesigned the dark language and tooling to enable
-                GenAI-generated programs, including exposing language tools to
-                GenAI tools, allowing running partial and incomplete programs
-                safely, and ensuring access to significant context to GenAI
-                tools
-              </bullet-point>
-
-              <bullet-point>
-                <t-2024></t-2024>
-                Build short CLI programs from prompts
-                <inline-code>
-                  <span class="text-blue mr-2">darklang</span>
-                  <span class="text-purple mr-2">prompt</span> "find all js
-                  files which don't have a CSS file of the same
-                  name"</inline-code
-                >
-              </bullet-point>
-
-              <bullet-point>
-                Use any LLM: darklang's fine-tuned models <t-2024></t-2024>,
-                local OSS models, commerical models via API, or using GitHub
-                Copilot
-              </bullet-point>
-
-              <bullet-point>
-                <t-2024></t-2024>
-                Build vendor SDKs from prompts and OpenAPI docs
-              </bullet-point>
-
-              <bullet-point>
-                <t-2024></t-2024>
-                Build complex programs with darklang AI agents
-              </bullet-point>
-            </bullet-points>
-          </section-wrapper>
-
-          <section-wrapper>
-            <section-heading>Works with your Editor</section-heading>
-            <bullet-points>
-              <bullet-point> VSCode Extension </bullet-point>
-              <bullet-point> LSP support for other editors </bullet-point>
-              <bullet-point>
-                Works with GitHub Copilot and other GenAI tools
-              </bullet-point>
-              <bullet-point>
-                <span class="italic"
-                  >We mention this because Darklang classic required using our
-                  editor, and that's no longer the case.
-                </span>
-              </bullet-point>
-            </bullet-points>
-          </section-wrapper>
-
-          <section-wrapper id="section5">
-            <section-heading>Open source</section-heading>
+          <simple-item data-target="async-no-await">
+            <item-heading>
+              <span class="text-purple">No</span>
+              <inline-code>async</inline-code> /
+              <inline-code>await</inline-code>
+            </item-heading>
             <indented-body>
-              We expect to fully open source Darklang, which is currently source
-              available, in 2023 or early 2024
+              Adding
+              <inline-code>async</inline-code> and
+              <inline-code>await</inline-code> keywords to every language was a
+              mistake. It exposes the complexity of concurrency and
+              multi-threading to languages which were originally designed for
+              simplicity.
             </indented-body>
-          </section-wrapper>
-        </ul>
-      </div>
+          </simple-item>
+
+          <simple-item data-target="async-data-dependencies">
+            <item-heading>
+              <span class="text-purple">Concurrent</span> and
+              <span class="text-blue">parallel</span> execution via
+              data-dependencies
+            </item-heading>
+            <indented-body>
+              <p>
+                When you make an async request, it first waits for any arguments
+                that are async, and starts when they're done. If another
+                function call needs to use the result, it will wait for it
+                before starting.
+              </p>
+              <p class="mt-2">
+                Since darklang values are immutable, there won't be any race
+                conditions from this.
+              </p>
+            </indented-body>
+          </simple-item>
+
+          <simple-item data-target="async-escape-hatches">
+            <item-heading>
+              <span class="text-purple">Powerful</span> escape hatches
+            </item-heading>
+            <indented-body>
+              We provide powerful escape hatches if you need async ordering that
+              doesn't match the data dependencies of your program.
+            </indented-body>
+          </simple-item>
+        </items-wrapper>
+      </section-wrapper>
+
+      <!-- Instant cloud deployment section -->
+      <section-wrapper>
+        <section-heading
+          ><gradient-text>Instant</gradient-text> cloud
+          deployment</section-heading
+        >
+        <indented-body>
+          <tag-label>Optional</tag-label>
+          <t-2024></t-2024>
+          Instant cloud deployment of code (to our cloud or yours), with instant
+          creation of DBs, API endpoints, and worker queues, with no containers,
+          no cold starts, no orchestration, or other devops/cloud engineering
+          required
+        </indented-body>
+      </section-wrapper>
+
+      <!-- Designed for GenAI section -->
+      <section-wrapper>
+        <section-heading
+          >Designed for <gradient-text>GenAI</gradient-text></section-heading
+        >
+        <bullet-points>
+          <bullet-point> Works with GitHub Copilot </bullet-point>
+          <bullet-point>
+            We redesigned the dark language and tooling to enable
+            GenAI-generated programs, including exposing language tools to GenAI
+            tools, allowing running partial and incomplete programs safely, and
+            ensuring access to significant context to GenAI tools
+          </bullet-point>
+
+          <bullet-point>
+            <t-2024></t-2024>
+            Build short CLI programs from prompts
+            <inline-code>
+              <span class="text-blue mr-2">darklang</span>
+              <span class="text-purple mr-2">prompt</span> "find all js files
+              which don't have a CSS file of the same name"</inline-code
+            >
+          </bullet-point>
+
+          <bullet-point>
+            Use any LLM: darklang's fine-tuned models <t-2024></t-2024>, local
+            OSS models, commerical models via API, or using GitHub Copilot
+          </bullet-point>
+
+          <bullet-point>
+            <t-2024></t-2024>
+            Build vendor SDKs from prompts and OpenAPI docs
+          </bullet-point>
+
+          <bullet-point>
+            <t-2024></t-2024>
+            Build complex programs with darklang AI agents
+          </bullet-point>
+        </bullet-points>
+      </section-wrapper>
+
+      <!-- Works with your editor section -->
+      <section-wrapper>
+        <section-heading
+          >Works with your
+          <gradient-text>Editor</gradient-text></section-heading
+        >
+        <bullet-points>
+          <bullet-point> VSCode Extension </bullet-point>
+          <bullet-point> LSP support for other editors </bullet-point>
+          <bullet-point>
+            Works with GitHub Copilot and other GenAI tools
+          </bullet-point>
+          <bullet-point>
+            <span class="italic"
+              >We mention this because Darklang classic required using our
+              editor, and that's no longer the case.
+            </span>
+          </bullet-point>
+        </bullet-points>
+      </section-wrapper>
+
+      <!-- Open source section -->
+      <section-wrapper>
+        <section-heading
+          ><gradient-text>Open</gradient-text> source</section-heading
+        >
+        <indented-body>
+          We expect to fully open source Darklang, which is currently source
+          available, in 2023 or early 2024
+        </indented-body>
+      </section-wrapper>
     </section>
 
     <!-- Footer -->
     <footer
-      class="flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between m-20 md:mt-32"
+      class="container flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between 2xl:justify-center 2xl:container mx-auto my-20"
     >
-      <div class="w-full md:w-1/2 flex flex-col justify-center items-center">
+      <div class="w-full md:w-1/4 flex flex-col justify-center items-center">
         <div>
           <a href="/">
             <img
@@ -982,7 +885,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
       </div>
 
       <div
-        class="md:container md:flex md:flex-row justify-center md:justify-around mt-6"
+        class="grid grid-cols-2 gap-y-2 md:container md:flex md:flex-row md:justify-around mt-8"
       >
         <div>
           <h5 class="font-medium mb-2">Darklang Classic</h5>
@@ -1098,7 +1001,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
     </footer>
 
     <script>
-      // Menu button
+      // Menu button navigation bar
       const button = document.querySelector("#menu-button");
       const menu = document.querySelector("#menu");
       const arrow = document.getElementById("arrowIcon");
@@ -1117,72 +1020,228 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
       });
 
       document.addEventListener("DOMContentLoaded", function () {
+        // Toggle items ellipsis content (see example)
         const allToggleItems = document.querySelectorAll(".toggleItem");
         allToggleItems.forEach(function (item) {
           item.addEventListener("click", function () {
-            const toggleArrow = item.querySelector(".toggleArrow");
-            const sublistId = toggleArrow.getAttribute("data-target");
-            const targetList = document.getElementById(sublistId);
-            targetList.classList.toggle("hidden");
-            toggleArrow.classList.toggle("rotate-90");
+            const toggleContent = item.querySelector(".toggleContent");
+            const contentId = toggleContent.getAttribute("data-target");
+            const content = document.getElementById(contentId);
+            content.classList.toggle("line-clamp-3");
+            item.classList.toggle("h-64");
+            const seeExampleElement = item.querySelector("see-example");
+            if (seeExampleElement) {
+              seeExampleElement.classList.toggle("hidden");
+            }
+          });
+        });
+
+        // Toggle items hidden content (read more)
+        const allHiddenToggleItems =
+          document.querySelectorAll(".hiddenToggleItem");
+        allHiddenToggleItems.forEach(function (item) {
+          item.addEventListener("click", function () {
+            const readMoreButton = item.querySelector(".readMoreButton");
+            const contentId = readMoreButton.getAttribute("data-target");
+            const content = document.getElementById(contentId);
+            console.log(content);
+            content.classList.toggle("hidden");
+            readMoreButton.textContent = content.classList.contains("hidden")
+              ? "Read More"
+              : "Show Less";
           });
         });
       });
-
-      // Bottom navbar
-      // const sections = document.querySelectorAll('[id^="section"]');
-      // const navItems = document.querySelectorAll('.section');
-
-      // function removeSelectionStyles(navItem) {
-      //   navItem.classList.remove('bg-purple', 'flex-2', 'font-bold');
-      // }
-
-      // function addSelectionStyles(navItem) {
-      //   navItem.classList.add('bg-purple', 'flex-2', 'font-bold');
-      // }
-
-      // function updateNavSelection() {
-      //     let sectionFound = false;
-
-      //     for (let section of sections) {
-      //       const { top, bottom } = section.getBoundingClientRect();
-
-      //       if (top >= 0 && bottom <= window.innerHeight) {
-      //         navItems.forEach(removeSelectionStyles); // First, clear all selections
-
-      //         const navItem = document.querySelector(`[data-section="${section.id}"]`);
-      //         if (navItem) {
-      //           addSelectionStyles(navItem);
-      //         }
-
-      //         sectionFound = true;
-      //         break;
-      //       }
-      //     }
-
-      //     if (!sectionFound) {
-      //       navItems.forEach(removeSelectionStyles);
-      //     }
-      //   }
-
-      // let debounceTimeout;
-
-      // function handleScroll() {
-      //   clearTimeout(debounceTimeout);
-      //   debounceTimeout = setTimeout(updateNavSelection, 50);
-      // }
-
-      // window.addEventListener('scroll', handleScroll);
-
-      // navItems.forEach(item => {
-      //   item.addEventListener('click', event => {
-      //     navItems.forEach(removeSelectionStyles);
-      //     addSelectionStyles(event.currentTarget);
-
-      //     const sectionId = event.currentTarget.getAttribute('data-section');
-      //     document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-      //   });
-      // });
     </script>
   </body>
+
+  <!--
+----------------------------------------
+  Templates
+----------------------------------------
+-->
+
+  <!-- SVG for the '-' bullet icon -->
+  <template id="list-bullet-svg">
+    <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+  </template>
+
+  <!-- SVG for the '->' icon -->
+  <template id="arrow-svg">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 25 25"
+      class="w-5 h-5 ml-2"
+    >
+      <path
+        style="fill: #232326"
+        d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+        data-name="Right"
+      />
+    </svg>
+  </template>
+
+  <template id="section-wrapper">
+    <p
+      placeholder-id=""
+      class="mx-2 md:container md:mx-auto mb-24 font-Quicksand"
+    >
+      <span content-section-wrapper>REPLACE ME</span>
+    </p>
+  </template>
+
+  <template id="section-heading">
+    <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+      <span content-section-heading>REPLACE ME</span>
+    </p>
+  </template>
+
+  <template id="gradient-text">
+    <span
+      class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+    >
+      <span content-gradient-text>REPLACE ME</span>
+    </span>
+  </template>
+
+  <template id="items-wrapper">
+    <div class="font-Quicksand grid md:grid-cols-2 gap-3">
+      <span content-items-wrapper>REPLACE ME</span>
+    </div>
+  </template>
+
+  <template id="toggle-item">
+    <div
+      class="toggleItem h-64 flex flex-col justify-center overflow-scroll mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer"
+    >
+      <span content-toggle-item>REPLACE ME</span>
+      <see-example></see-example>
+      <p placeholder-data-target class="toggleContent text-purple -ml-3"></p>
+    </div>
+  </template>
+
+  <!-- An item that is not a toggle -->
+  <template id="simple-item">
+    <div
+      class="h-full overflow-scroll mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+    >
+      <span content-simple-item>REPLACE ME</span>
+      <p placeholder-data-target class="text-purple -ml-3"></p>
+    </div>
+  </template>
+
+  <template id="item-heading">
+    <div class="my-3">
+      <h3 class="text-base md:text-xl font-bold">
+        <span content-item-heading>REPLACE ME</span>
+      </h3>
+    </div>
+  </template>
+
+  <!-- (initially hidden) Body of the toggle. Works with toggle-heading -->
+  <template id="hidden-toggle-body">
+    <span placeholder-id class="mb-2 hidden">
+      <!-- not hidden for development -->
+      <!-- <span placeholder-id class=""> -->
+      <span content-hidden-toggle-body>REPLACE ME</span>
+    </span>
+  </template>
+
+  <!-- ellipsis after three lines. Works with toggle-heading -->
+  <template id="toggle-body">
+    <span placeholder-id class="line-clamp-3 mb-2">
+      <span content-toggle-body>REPLACE ME</span>
+    </span>
+  </template>
+
+  <!-- container for bullet-point bodies -->
+  <template id="bullet-points">
+    <ul class="text-lg font-normal m-4 line-clamp-1">
+      <span content-bullet-points>REPLACE ME</span>
+    </ul>
+  </template>
+
+  <!-- Bullet points that we use throughout -->
+  <template id="bullet-point">
+    <li class="flex flex-row mt-2">
+      <list-bullet-svg></list-bullet-svg>
+      <span class="text-dark-gray overflow-scroll">
+        <span content-bullet-point>REPLACE ME</span>
+      </span>
+    </li>
+  </template>
+
+  <!-- container for non-bullet-point bodies -->
+  <template id="indented-body">
+    <p class="text-lg font-normal mx-4 my-4 line-clamp-1x">
+      <span content-indented-body>REPLACE ME</span>
+    </p>
+  </template>
+
+  <!-- see example link -->
+  <template id="see-example">
+    <a class="text-blue hover:text-purple cursor-pointer m-3">See example</a>
+  </template>
+
+  <!-- read more button -->
+  <template id="read-more-button">
+    <div class="hiddenToggleItem block w-fit mt-4 cursor-pointer">
+      <div class="rounded-md bg-gradient-to-r from-purple to-blue p-0.5">
+        <div
+          class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"
+        >
+          <span
+            placeholder-data-target
+            class="text-lg text-black readMoreButton"
+            >Read More</span
+          >
+          <arrow-svg></arrow-svg>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- arbitrary label -->
+  <template id="tag-label">
+    <div class="mx-auto inline-block">
+      <div
+        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 rounded text-sm"
+      >
+        <span content-tag-label>REPLACE ME</span>
+        <div
+          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+        ></div>
+      </div>
+    </div>
+  </template>
+
+  <!-- 2024 label -->
+  <template id="t-2024"><tag-label>2024</tag-label></template>
+
+  <!-- 2025 label -->
+  <template id="t-2025"><tag-label>2025+</tag-label></template>
+
+  <!-- inline code -->
+  <template id="inline-code"
+    ><code
+      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+      ><span content-inline-code>REPLACE ME</span></code
+    ></template
+  >
+
+  <!-- darklang code -->
+  <template id="darklang-code"
+    ><code
+      class="max-w-xs md:max-w-none font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
+      ><span content-darklang-code>REPLACE ME</span></code
+    ></template
+  >
+
+  <!--bash code-->
+  <template id="bash-code"
+    ><code
+      class="max-w-xs md:max-w-none font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded shell"
+      ><span content-bash-code>REPLACE ME</span></code
+    ></template
+  >
 </html>

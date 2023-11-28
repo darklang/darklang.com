@@ -333,12 +333,12 @@
             >
             <toggle-body id="simpleTypes">
               <indented-body>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
-                pariatur aliquid delectus nobis consectetur omnis tenetur,
-                ducimus corporis, modi blanditiis voluptatibus vel quae
-                voluptatem ipsum eveniet error excepturi libero. Maxime!
-                corporis, modi blanditiis voluptatibus vel quae voluptatem ipsum
-                eveniet error excepturi
+                Dynamic languages are great, allowing great flexibility. But now
+                that they've matured and projects have gotten larger, static
+                typing has been layered on top of very dynamic languages, and
+                the intersection is not pleasant. Functional static languages
+                like Darklang have simple Record and Enum types that can model
+                nearly everything with much less complexity.
               </indented-body>
               <bullet-points>
                 <bullet-point>
@@ -384,22 +384,14 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
             >
             <toggle-body id="optionResult">
               <indented-body>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
-                pariatur aliquid delectus nobis consectetur omnis tenetur,
-                ducimus corporis, modi blanditiis voluptatibus vel quae
-                voluptatem ipsum eveniet error excepturi libero. Maxime!
-                corporis, modi blanditiis voluptatibus vel quae voluptatem ipsum
-                eveniet error excepturi
+                I think it's widely accepted that
+                <inline-code>null</inline-code>is a mistake, and that an
+                <inline-code>Option</inline-code>type (aka
+                <inline-code>Optional</inline-code>,
+                <inline-code>Maybe</inline-code>, etc) makes it significantly
+                easier to program.
               </indented-body>
               <bullet-points>
-                <bullet-point>
-                  I think it's widely accepted that
-                  <inline-code>null</inline-code>is a mistake, and that an
-                  <inline-code>Option</inline-code>type (aka
-                  <inline-code>Optional</inline-code>,
-                  <inline-code>Maybe</inline-code>, etc) makes it significantly
-                  easier to program.
-                </bullet-point>
                 <bullet-point>
                   We further believe that Exceptions — which can in most
                   languages be thrown at any point — makes it very frustrating
@@ -481,19 +473,13 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
 
             <toggle-body id="run-any">
               <indented-body>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
-                pariatur aliquid delectus nobis consectetur omnis tenetur,
-                ducimus corporis, modi blanditiis voluptatibus vel quae
-                voluptatem ipsum eveniet error excepturi libero. Maxime!
-                corporis, modi blanditiis voluptatibus vel quae voluptatem ipsum
-                eveniet error excepturi
+                Darklang has a new model of sharing programs. Any function in
+                the package manager can be called directly from the command line
+                (so long as we can figure out how to coerce the command line
+                arguments correctly)
               </indented-body>
               <bullet-points>
                 <bullet-point>
-                  Darklang has a new model of sharing programs. Any function in
-                  the package manager can be called directly from the command
-                  line (so long as we can figure out how to coerce the command
-                  line arguments correctly):
                   <pre><bash-code>$ darklang @paul.fizzbuzz 10
 1
 2
@@ -556,13 +542,9 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
             </item-heading>
             <toggle-body id="instantly-run">
               <indented-body>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
-                pariatur aliquid delectus nobis consectetur omnis tenetur,
-                ducimus corporis, modi blanditiis voluptatibus vel quae
-                voluptatem ipsum eveniet error excepturi libero. Maxime!
+                Darklang is designed for a really fast iterative loop
               </indented-body>
               <indented-body>
-                Darklang is designed for a really fast iterative loop:
                 <bullet-points>
                   <bullet-point>
                     Single binary to install means no environments or containers

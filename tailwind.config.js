@@ -30,7 +30,7 @@ module.exports = {
 
       animation: {
         shine: "shine 1s linear",
-              },
+      },
       keyframes: {
         shine: {
           "100%": { left: "125%" },
@@ -38,7 +38,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

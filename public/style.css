@@ -1625,6 +1625,12 @@ video {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
+@media (min-width: 640px){
+  .sm\:h-72{
+    height: 18rem;
+  }
+}
+
 @media (min-width: 768px){
   .md\:order-2{
     order: 2;

@@ -27,3 +27,5 @@ workflows:
           filters:
             branches:
               only: main
+          requires:
+            - build

@@ -331,15 +331,15 @@
               >Simple types using <span class="text-purple">Records</span> and
               <span class="text-blue">Enums</span></item-heading
             >
+            <preview-text>
+              Dynamic languages are great, allowing great flexibility. But now
+              that they've matured and projects have gotten larger, static
+              typing has been layered on top of very dynamic languages, and the
+              intersection is not pleasant. Functional static languages like
+              Darklang have simple Record and Enum types that can model nearly
+              everything with much less complexity.
+            </preview-text>
             <toggle-body id="simpleTypes">
-              <indented-body>
-                Dynamic languages are great, allowing great flexibility. But now
-                that they've matured and projects have gotten larger, static
-                typing has been layered on top of very dynamic languages, and
-                the intersection is not pleasant. Functional static languages
-                like Darklang have simple Record and Enum types that can model
-                nearly everything with much less complexity.
-              </indented-body>
               <bullet-points>
                 <bullet-point>
                   <span class="italic">Abstract Data Types</span> made of Record
@@ -382,15 +382,15 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
               <span class="text-blue">Result</span> types instead of null and
               exceptions</item-heading
             >
+            <preview-text>
+              I think it's widely accepted that
+              <inline-code>null</inline-code>is a mistake, and that an
+              <inline-code>Option</inline-code>type (aka
+              <inline-code>Optional</inline-code>,
+              <inline-code>Maybe</inline-code>, etc) makes it significantly
+              easier to program.
+            </preview-text>
             <toggle-body id="optionResult">
-              <indented-body>
-                I think it's widely accepted that
-                <inline-code>null</inline-code>is a mistake, and that an
-                <inline-code>Option</inline-code>type (aka
-                <inline-code>Optional</inline-code>,
-                <inline-code>Maybe</inline-code>, etc) makes it significantly
-                easier to program.
-              </indented-body>
               <bullet-points>
                 <bullet-point>
                   We further believe that Exceptions — which can in most
@@ -420,35 +420,31 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
             <item-heading
               ><span class="text-purple">Garbage</span> Collected</item-heading
             >
-            <toggle-body id="garbage-collected">
-              <indented-body>
-                It can be fun to satisfy the borrow checker, or manage
-                allocations individually, but it can also be fun to just get
-                working programs immediately. We believe that run-time garbage
-                collection is one of the greatest programming language features,
-                and we're all in
-              </indented-body>
-            </toggle-body>
+            <preview-text>
+              It can be fun to satisfy the borrow checker, or manage allocations
+              individually, but it can also be fun to just get working programs
+              immediately. We believe that run-time garbage collection is one of
+              the greatest programming language features, and we're all in
+            </preview-text>
+            <toggle-body id="garbage-collected"> </toggle-body>
           </toggle-item>
 
           <toggle-item data-target="unicode-first">
             <item-heading
               ><span class="text-purple">Unicode</span> First</item-heading
             >
-            <toggle-body id="unicode-first">
-              <indented-body>
-                Languages created last millennium typically use Strings made of
-                bytes, or worse, UTF16 characters, or even worse, Unicode
-                Codepoints! Like Swift, we believe that
-                <inline-code>Character</inline-code>s should represent screen
-                readable characters, like 👨‍👩‍👦‍👦. All characters in Darklang
-                represent
-                <span class="italic">Extended Grapheme Clusters</span>: one
-                character that you see on screen. Naturally, working on Unicode
-                Codepoints <t-2024></t-2024> and normal bytes is also well
-                supported.
-              </indented-body>
-            </toggle-body>
+            <preview-text>
+              Languages created last millennium typically use Strings made of
+              bytes, or worse, UTF16 characters, or even worse, Unicode
+              Codepoints! Like Swift, we believe that
+              <inline-code>Character</inline-code>s should represent screen
+              readable characters, like 👨‍👩‍👦‍👦. All characters in Darklang represent
+              <span class="italic">Extended Grapheme Clusters</span>: one
+              character that you see on screen. Naturally, working on Unicode
+              Codepoints <t-2024></t-2024> and normal bytes is also well
+              supported.
+            </preview-text>
+            <toggle-body id="unicode-first"> </toggle-body>
           </toggle-item>
         </items-wrapper>
       </section-wrapper>
@@ -471,13 +467,13 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
               </inline-code>
             </item-heading>
 
+            <preview-text>
+              Darklang has a new model of sharing programs. Any function in the
+              package manager can be called directly from the command line (so
+              long as we can figure out how to coerce the command line arguments
+              correctly)
+            </preview-text>
             <toggle-body id="run-any">
-              <indented-body>
-                Darklang has a new model of sharing programs. Any function in
-                the package manager can be called directly from the command line
-                (so long as we can figure out how to coerce the command line
-                arguments correctly)
-              </indented-body>
               <bullet-points>
                 <bullet-point>
                   <pre><bash-code>$ darklang @paul.fizzbuzz 10
@@ -540,46 +536,44 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
               Instantly <span class="text-purple">run</span> programs as you
               <span class="text-blue">write</span> them
             </item-heading>
+            <preview-text>
+              Darklang is designed for a really fast iterative loop
+            </preview-text>
             <toggle-body id="instantly-run">
-              <indented-body>
-                Darklang is designed for a really fast iterative loop
-              </indented-body>
-              <indented-body>
-                <bullet-points>
+              <bullet-points>
+                <bullet-point>
+                  Single binary to install means no environments or containers
+                  to set up.
+                  <span class="line-through">Install it now!</span>
+                  <tag-label>Coming late 2023, we hope</tag-label>
+                </bullet-point>
+                <bullet-point>
+                  Packages are streamed from the package manager automatically
+                  &ndash; no
+                  <inline-code>npm install</inline-code> step
+                </bullet-point>
+                <bullet-point>
+                  darklang is interpreted &mdash; no compilation step required,
+                  programs run immediately
+                </bullet-point>
+                <ul class="ml-4">
                   <bullet-point>
-                    Single binary to install means no environments or containers
-                    to set up.
-                    <span class="line-through">Install it now!</span>
-                    <tag-label>Coming late 2023, we hope</tag-label>
+                    We plan to add background compilation in the future,
+                    combined with pre-compiled packages in the package manager
+                    <t-2025></t-2025>
                   </bullet-point>
-                  <bullet-point>
-                    Packages are streamed from the package manager automatically
-                    &ndash; no
-                    <inline-code>npm install</inline-code> step
-                  </bullet-point>
-                  <bullet-point>
-                    darklang is interpreted &mdash; no compilation step
-                    required, programs run immediately
-                  </bullet-point>
-                  <ul class="ml-4">
-                    <bullet-point>
-                      We plan to add background compilation in the future,
-                      combined with pre-compiled packages in the package manager
-                      <t-2025></t-2025>
-                    </bullet-point>
-                  </ul>
+                </ul>
 
-                  <bullet-point>
-                    Gradual Static Typing allows running programs with incorrect
-                    types so you don't need to fix all the types in your program
-                    while getting one path working
-                  </bullet-point>
-                  <bullet-point>
-                    Generate darklang code automatically using LLMs and GitHub
-                    Copilot
-                  </bullet-point>
-                </bullet-points>
-              </indented-body>
+                <bullet-point>
+                  Gradual Static Typing allows running programs with incorrect
+                  types so you don't need to fix all the types in your program
+                  while getting one path working
+                </bullet-point>
+                <bullet-point>
+                  Generate darklang code automatically using LLMs and GitHub
+                  Copilot
+                </bullet-point>
+              </bullet-points>
             </toggle-body>
           </toggle-item>
         </items-wrapper>
@@ -1009,7 +1003,9 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
             const toggleContent = item.querySelector(".toggleContent");
             const contentId = toggleContent.getAttribute("data-target");
             const content = document.getElementById(contentId);
-            content.classList.toggle("line-clamp-3");
+            content.classList.toggle("hidden");
+            const previewText = item.querySelector(".previewText");
+            previewText.classList.toggle("line-clamp-3");
             item.classList.toggle("h-64");
             const seeExampleElement = item.querySelector("see-example");
             if (seeExampleElement) {
@@ -1026,7 +1022,6 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
             const readMoreButton = item.querySelector(".readMoreButton");
             const contentId = readMoreButton.getAttribute("data-target");
             const content = document.getElementById(contentId);
-            console.log(content);
             content.classList.toggle("hidden");
             readMoreButton.textContent = content.classList.contains("hidden")
               ? "Read More"
@@ -1131,14 +1126,14 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
 
   <!-- ellipsis after three lines. Works with toggle-heading -->
   <template id="toggle-body">
-    <span placeholder-id class="line-clamp-3 mb-2">
+    <span placeholder-id class="hidden mb-2">
       <span content-toggle-body>REPLACE ME</span>
     </span>
   </template>
 
   <!-- container for bullet-point bodies -->
   <template id="bullet-points">
-    <ul class="text-lg font-normal m-4 line-clamp-1">
+    <ul class="text-lg font-normal m-4">
       <span content-bullet-points>REPLACE ME</span>
     </ul>
   </template>
@@ -1155,8 +1150,14 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
 
   <!-- container for non-bullet-point bodies -->
   <template id="indented-body">
-    <p class="text-lg font-normal mx-4 my-4 line-clamp-1x">
+    <p class="text-lg font-normal mx-4 my-4">
       <span content-indented-body>REPLACE ME</span>
+    </p>
+  </template>
+
+  <template id="preview-text">
+    <p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText">
+      <span content-preview-text>REPLACE ME</span>
     </p>
   </template>
 

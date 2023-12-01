@@ -255,7 +255,7 @@
       </div>
 
       <div
-        class="mt-10 2xl:mt-20 mx-auto md:flex max-w-6xl 2xl:max-w-screen-xl"
+        class="mt-10 2xl:mt-20 mx-auto flex flex-col items-center justify-center xl:flex-row max-w-6xl 2xl:max-w-screen-xl"
       >
         <div>
           <h2 class="text-3xl 2xl:text-4xl font-bold mb-4 text-dark-gray">
@@ -510,7 +510,9 @@ Buzz
                   can't just steal all your IDs and wallets and whatever.
                   Darklang asks for permissions when you call a function, and a
                   static analysis is run to collect all permissions needed.
-                  <pre><bash-code>$ darklang @hacker.stealThings "Hi there"
+                  <pre
+                    class="mt-4"
+                  ><bash-code>$ darklang @hacker.stealThings "Hi there"
 > @hacker.stealThings requires the following permissions
 >   Makes Http requests to unknown domains
 >   Reads any file
@@ -1007,6 +1009,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
             const previewText = item.querySelector(".previewText");
             previewText.classList.toggle("line-clamp-3");
             item.classList.toggle("h-64");
+            item.classList.toggle("sm:h-72");
             const seeExampleElement = item.querySelector("see-example");
             if (seeExampleElement) {
               seeExampleElement.classList.toggle("hidden");
@@ -1082,7 +1085,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
   </template>
 
   <template id="items-wrapper">
-    <div class="font-Quicksand grid md:grid-cols-2 gap-3">
+    <div class="font-Quicksand grid lg:grid-cols-2 gap-3">
       <span content-items-wrapper>REPLACE ME</span>
     </div>
   </template>
@@ -1142,7 +1145,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
   <template id="bullet-point">
     <li class="flex flex-row mt-2">
       <list-bullet-svg></list-bullet-svg>
-      <span class="text-dark-gray overflow-scroll">
+      <span class="text-dark-gray">
         <span content-bullet-point>REPLACE ME</span>
       </span>
     </li>
@@ -1215,7 +1218,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
   <!-- darklang code -->
   <template id="darklang-code"
     ><code
-      class="max-w-xs md:max-w-none font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
+      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
       ><span content-darklang-code>REPLACE ME</span></code
     ></template
   >
@@ -1223,7 +1226,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
   <!--bash code-->
   <template id="bash-code"
     ><code
-      class="max-w-xs md:max-w-none font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded shell"
+      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded shell"
       ><span content-bash-code>REPLACE ME</span></code
     ></template
   >

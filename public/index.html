@@ -1063,7 +1063,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 25 25"
-      class="w-5 h-5 ml-2"
+      class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
     >
       <path
         style="fill: #232326"
@@ -1076,7 +1076,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
   <template id="section-wrapper">
     <p
       placeholder-id=""
-      class="mx-2 md:container md:mx-auto mb-24 font-Quicksand"
+      class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"
     >
       <span content-section-wrapper>REPLACE ME</span>
     </p>
@@ -1183,18 +1183,19 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
 
   <!-- read more button -->
   <template id="read-more-button">
-    <div class="hiddenToggleItem block w-fit mt-4 cursor-pointer">
-      <div class="rounded-md bg-gradient-to-r from-purple to-blue p-0.5">
-        <div
-          class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"
+    <div
+      class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group"
+    >
+      <div
+        class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-100 group-hover:inset-2 group-hover:duration-200"
+      ></div>
+      <div
+        class="relative inline-flex bg-light-background rounded-md px-4 py-1 justify-center items-center border border-blue"
+      >
+        <span placeholder-data-target class="text-lg text-black readMoreButton"
+          >Read More</span
         >
-          <span
-            placeholder-data-target
-            class="text-lg text-black readMoreButton"
-            >Read More</span
-          >
-          <arrow-svg></arrow-svg>
-        </div>
+        <arrow-svg></arrow-svg>
       </div>
     </div>
   </template>

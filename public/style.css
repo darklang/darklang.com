@@ -1586,11 +1586,11 @@ video {
   --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity));
 }
 
-.group:hover .group-hover\:inset-2{
-  top: 0.5rem;
-  right: 0.5rem;
-  bottom: 0.5rem;
-  left: 0.5rem;
+.group:hover .group-hover\:inset-1{
+  top: 0.25rem;
+  right: 0.25rem;
+  bottom: 0.25rem;
+  left: 0.25rem;
 }
 
 .group:hover .group-hover\:translate-x-1{
@@ -1608,8 +1608,8 @@ video {
   animation: shine 1s linear;
 }
 
-.group:hover .group-hover\:opacity-100{
-  opacity: 1;
+.group:hover .group-hover\:opacity-75{
+  opacity: 0.75;
 }
 
 .group:hover .group-hover\:duration-200{

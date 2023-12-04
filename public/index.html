@@ -1063,7 +1063,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 25 25"
-      class="w-5 h-5 ml-2"
+      class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
     >
       <path
         style="fill: #232326"
@@ -1076,7 +1076,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
   <template id="section-wrapper">
     <p
       placeholder-id=""
-      class="mx-2 md:container md:mx-auto mb-24 font-Quicksand"
+      class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"
     >
       <span content-section-wrapper>REPLACE ME</span>
     </p>
@@ -1104,7 +1104,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
 
   <template id="toggle-item">
     <div
-      class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer"
+      class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
     >
       <span content-toggle-item>REPLACE ME</span>
       <see-example></see-example>
@@ -1183,8 +1183,15 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
 
   <!-- read more button -->
   <template id="read-more-button">
-    <div class="hiddenToggleItem block w-fit mt-4 cursor-pointer">
-      <div class="rounded-md bg-gradient-to-r from-purple to-blue p-0.5">
+    <div
+      class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group"
+    >
+      <div
+        class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"
+      ></div>
+      <div
+        class="relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"
+      >
         <div
           class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"
         >

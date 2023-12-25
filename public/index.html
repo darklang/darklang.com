@@ -457,17 +457,20 @@ Saved script in <span class="text-gray-400 hover:underline">./find-large-ts-cjs.
     if not (List.oneOf (File.entension path) [".ts", ".mjs", ".cjs"]) then 
       print $"Skipping - wrong file type: {path}" 
     else 
-      let contents = File.readString path let lines = String.splitNewlines contents
+      let contents = File.readString path 
+      let lines = String.splitNewlines contents
       if (List.length lines) <= 600 then 
         print $"Skipping - too short: {path}" 
       else 
         let isCommonjs = 
           lines |> List.any (fun line ->
-            line |> Regex.matches "/const .* = require(.*)/" ) 
+            line |> Regex.matches "/const .* = require(.*)/" 
+          ) 
         if isCommonjs then 
           print $"Found one: {path}" 
     )
-findLargeTypesscriptCommonJSFiles "./"</darklang-code-dark-bg></pre>
+    
+findLargeTypescriptCommonJSFiles "./"</darklang-code-dark-bg></pre>
             </div>
           </div>
         </div>

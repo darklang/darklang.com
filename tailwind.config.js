@@ -23,6 +23,7 @@ module.exports = {
         blue: "#747AB9",
         "dark-gray": "#2F2F2F",
         "code-background": "#F5F4F1",
+        "cli-background": "#262626",
       },
       flex: {
         2: "2 2 0%",

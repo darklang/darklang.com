@@ -16,13 +16,14 @@
     <!-- highlightjs -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/fsharp.min.js"></script>
     <script>
       hljs.highlightAll();
     </script>
+
     <!-- /highlightjs -->
     <script>
       let addEmailToList = index => {
@@ -348,8 +349,129 @@
         <span class="text-blue">just</span>
         <span class="text-purple">code</span>.
       </p>
-      <br />
+
       <p class="text-sm">️️️Also it's a really enjoyable language to use!</p>
+    </section>
+
+    <section>
+      <div class="container mx-auto my-20">
+        <div class="lg:flex justify-center items-center mb-24">
+          <!-- cli commands list -->
+          <div>
+            <cli-code>
+              <pre class="whitespace-pre-line">
+                
+              $ <span class="text-blue">curl</span> https://darklang.com/download<span class="text-purple">| bash </span>
+              
+              Darklang installed in <span class="text-gray-400">~/.darklang/bin/darklang</span>
+              
+              Add to <span class="text-purple">PATH</span> via .bashrc <span class="text-gray-500">[y, n, ?]</span>: y 
+              <span class="text-lime-400 font-body mr-1">&#10004;</span>Added to .bashrc. 
+
+              Next you can: <comment-text># Try the tutorial</comment-text> darklang tutorial <comment-text># Run some code from the package manager</comment-text> darklang @paul.fizzbuzz 3 <comment-text># Generate some code</comment-text> darklang prompt <span class="text-gray-400">"Find ts scripts with more than 600 lines which use the commonjs format"</span><comment-text># See available command line options</comment-text>darklang help
+              
+            </pre>
+            </cli-code>
+          </div>
+
+          <!-- cli commands elements -->
+          <div>
+            <cli-code>
+              <pre class="whitespace-pre-line">
+<span>
+$ <span class="text-purple">darklang</span> @paul.fizzbuzz 3 
+1
+2 
+Fizz
+</span>
+</pre>
+            </cli-code>
+
+            <cli-code>
+              <pre class="whitespace-pre-line">
+<span>
+$ <span class="text-purple">darklang</span> deploy @paul.fizzbuzz /fizzbuzz 
+Deployed to <span class="text-gray-500 hover:underline">https://furry-squirrel-3562.darklang.io/fizzbuzz</span> in <span class="text-[#a1b56c]">0.135s</span>
+</span> 
+</pre>
+            </cli-code>
+
+            <cli-code>
+              <pre class="whitespace-pre-line">
+<span>
+$ <span class="text-blue">curl</span> -sSO https://furry-squirrel-3562.darklang.io/fizzbuzz 
+1 
+2 
+Fizz
+</span>
+</pre>
+            </cli-code>
+          </div>
+        </div>
+
+        <div class="lg:flex justify-center items-center">
+          <!-- darklang prompt -->
+          <cli-code>
+            <pre class="whitespace-pre-line">
+
+$ <span class="text-purple">darklang</span> prompt "Find ts scripts with more than 600 lines which use commonjs format" 
+
+We need your AI credentials, which will be stored locally in <span class="text-gray-400 hover:underline">~/darklang/secrets/</span>
+
+<span class="text-gray-400">[1]</span> Login to use Darklang AI service 
+<span class="text-gray-400">[2]</span> Enter GitHub copilot credentials 
+<span class="text-gray-400">[3]</span> Enter OpenAI (GPT 3.5/4) credentials 
+<span class="text-gray-400">[4] </span>Use local model 
+
+Enter <span class="text-gray-400">[1-4]</span>: 1 
+
+Login or register <span class="text-gray-500">[L, r]</span>? L
+<span class="text-gray-400">Username:</span> paul
+<span class="text-gray-400">Password:</span> **************
+
+<span class="text-lime-400 font-body mr-1">&#10004;</span>Logged in.
+
+Saved script in <span class="text-gray-400 hover:underline">./find-large-ts-cjs.dark</span> in <span class="text-[#a1b56c]">43.8s</span>
+
+</pre>
+          </cli-code>
+
+          <!-- generated code -->
+          <div class="bg-dark-gray rounded-lg mx-3">
+            <div class="flex items-center py-4 px-5 border-b border-b-white/10">
+              <div>
+                <img
+                  src="./img/logo-dark-transparent.png"
+                  alt="dark-file-logo"
+                  class="w-8 h-8"
+                />
+              </div>
+              <div>
+                <p class="text-gray-300">find-large-ts-cjs.dark</p>
+              </div>
+            </div>
+
+            <div class="px-4 pb-4">
+              <pre><darklang-code-dark-bg>let findLargeTypescriptCommonJSFiles (path : String) =
+  Directory.traverse (fun path -> 
+    if not (List.oneOf (File.entension path) [".ts", ".mjs", ".cjs"]) then 
+      print $"Skipping - wrong file type: {path}" 
+    else 
+      let contents = File.readString path let lines = String.splitNewlines contents
+      if (List.length lines) <= 600 then 
+        print $"Skipping - too short: {path}" 
+      else 
+        let isCommonjs = 
+          lines |> List.any (fun line ->
+            line |> Regex.matches "/const .* = require(.*)/" ) 
+        if isCommonjs then 
+          print $"Found one: {path}" 
+    )
+findLargeTypesscriptCommonJSFiles "./"</darklang-code-dark-bg></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- At a glance section -->
@@ -384,7 +506,7 @@
 type Url = {
   scheme : HttpScheme
   domain : String
-  port : UInt16
+                    port : UInt16
   path : String
   query : Option&lt;String&gt;
 }
@@ -509,8 +631,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
             </preview-text>
             <toggle-body id="run-any">
               <bullet-points>
-                <bullet-point>
-                  <pre><bash-code>$ darklang @paul.fizzbuzz 10
+                <pre><bash-code>$ darklang @paul.fizzbuzz 10
 1
 2
 Fizz
@@ -520,9 +641,7 @@ Fizz
 7
 8
 Fizz
-Buzz
-                </bash-code></pre>
-                </bullet-point>
+Buzz </bash-code></pre>
 
                 <bullet-point>
                   We designed this to allow you to share scripts with your team,
@@ -1259,16 +1378,44 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
   <!-- darklang code -->
   <template id="darklang-code"
     ><code
-      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded language-fsharp"
+      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm block md:inline-flex text-left items-center !bg-code-background !text-gray-600 rounded language-fsharp"
       ><span content-darklang-code>REPLACE ME</span></code
-    ></template
-  >
+    >
+  </template>
+
+  <template id="darklang-code-dark-bg">
+    <pre><code class="!bg-dark-gray !text-white fsharp"><span content-darklang-code-dark-bg>REPLACE ME</span></code></pre>
+  </template>
 
   <!--bash code-->
   <template id="bash-code"
     ><code
-      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm block md:inline-flex text-left items-center bg-code-background text-gray-600 rounded shell"
+      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm block md:inline-flex text-left items-center !bg-code-background !text-gray-600 rounded shell"
       ><span content-bash-code>REPLACE ME</span></code
-    ></template
-  >
+    >
+  </template>
+
+  <!-- cli code -->
+  <template id="cli-code">
+    <div
+      class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"
+    >
+      <div class="inline-block mt-2">
+        <button class="rounded-full h-3 w-3 bg-[#DD333F]"></button>
+        <button class="rounded-full h-3 w-3 bg-[#F5D76E]"></button>
+        <button class="rounded-full h-3 w-3 bg-[#5FDD68]"></button>
+      </div>
+
+      <div>
+        <span content-cli-code>REPLACE ME</span>
+      </div>
+    </div>
+  </template>
+
+  <!-- comment -->
+  <template id="comment-text">
+    <span class="text-[#02A5F1] m-0 p-0">
+      <span content-comment-text>REPLACE ME</span>
+    </span>
+  </template>
 </html>

@@ -5,3 +5,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hljs-title.hljs-title {
+  @apply text-red-800;
+}

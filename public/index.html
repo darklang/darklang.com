@@ -349,7 +349,7 @@
         <span class="text-blue">just</span>
         <span class="text-purple">code</span>.
       </p>
-
+      <br />
       <p class="text-sm">️️️Also it's a really enjoyable language to use!</p>
     </section>
 
@@ -378,33 +378,33 @@
           <div>
             <cli-code>
               <pre class="whitespace-pre-line">
-<span>
-$ <span class="text-purple">darklang</span> @paul.fizzbuzz 3 
-1
-2 
-Fizz
-</span>
-</pre>
+                <span>
+                $ <span class="text-purple">darklang</span> @paul.fizzbuzz 3 
+                1
+                2 
+                Fizz
+                </span>
+              </pre>
             </cli-code>
 
             <cli-code>
               <pre class="whitespace-pre-line">
-<span>
-$ <span class="text-purple">darklang</span> deploy @paul.fizzbuzz /fizzbuzz 
-Deployed to <span class="text-gray-500 hover:underline">https://furry-squirrel-3562.darklang.io/fizzbuzz</span> in <span class="text-[#a1b56c]">0.135s</span>
-</span> 
-</pre>
+                <span>
+                $ <span class="text-purple">darklang</span> deploy @paul.fizzbuzz /fizzbuzz 
+                Deployed to <span class="text-gray-500 hover:underline">https://furry-squirrel-3562.darklang.io/fizzbuzz</span> in <span class="text-[#a1b56c]">0.135s</span>
+                </span> 
+              </pre>
             </cli-code>
 
             <cli-code>
               <pre class="whitespace-pre-line">
-<span>
-$ <span class="text-blue">curl</span> -sSO https://furry-squirrel-3562.darklang.io/fizzbuzz 
-1 
-2 
-Fizz
-</span>
-</pre>
+                <span>
+                $ <span class="text-blue">curl</span> -sSO https://furry-squirrel-3562.darklang.io/fizzbuzz 
+                1 
+                2 
+                Fizz
+                </span>
+              </pre>
             </cli-code>
           </div>
         </div>
@@ -413,27 +413,26 @@ Fizz
           <!-- darklang prompt -->
           <cli-code>
             <pre class="whitespace-pre-line">
+                $ <span class="text-purple">darklang</span> prompt "Find ts scripts with more than 600 lines which use commonjs format" 
 
-$ <span class="text-purple">darklang</span> prompt "Find ts scripts with more than 600 lines which use commonjs format" 
+                We need your AI credentials, which will be stored locally in <span class="text-gray-400 hover:underline">~/darklang/secrets/</span>
 
-We need your AI credentials, which will be stored locally in <span class="text-gray-400 hover:underline">~/darklang/secrets/</span>
+                <span class="text-gray-400">[1]</span> Login to use Darklang AI service 
+                <span class="text-gray-400">[2]</span> Enter GitHub copilot credentials 
+                <span class="text-gray-400">[3]</span> Enter OpenAI (GPT 3.5/4) credentials 
+                <span class="text-gray-400">[4] </span>Use local model 
 
-<span class="text-gray-400">[1]</span> Login to use Darklang AI service 
-<span class="text-gray-400">[2]</span> Enter GitHub copilot credentials 
-<span class="text-gray-400">[3]</span> Enter OpenAI (GPT 3.5/4) credentials 
-<span class="text-gray-400">[4] </span>Use local model 
+                Enter <span class="text-gray-400">[1-4]</span>: 1 
 
-Enter <span class="text-gray-400">[1-4]</span>: 1 
+                Login or register <span class="text-gray-500">[L, r]</span>? L
+                <span class="text-gray-400">Username:</span> paul
+                <span class="text-gray-400">Password:</span> **************
 
-Login or register <span class="text-gray-500">[L, r]</span>? L
-<span class="text-gray-400">Username:</span> paul
-<span class="text-gray-400">Password:</span> **************
+                <span class="text-lime-400 font-body mr-1">&#10004;</span>Logged in.
 
-<span class="text-lime-400 font-body mr-1">&#10004;</span>Logged in.
+                Saved script in <span class="text-gray-400 hover:underline">./find-large-ts-cjs.dark</span> in <span class="text-[#a1b56c]">43.8s</span>
 
-Saved script in <span class="text-gray-400 hover:underline">./find-large-ts-cjs.dark</span> in <span class="text-[#a1b56c]">43.8s</span>
-
-</pre>
+                </pre>
           </cli-code>
 
           <!-- generated code -->
@@ -504,12 +503,12 @@ findLargeTypescriptCommonJSFiles "./"</darklang-code-dark-bg></pre>
                   <span class="italic">Abstract Data Types</span> made of Record
                   and Enums can model nearly anything, like in Rust, Elm, OCaml
                   and F#
-                  <pre class="m-0 p-0">
+                  <pre class="mt-4 p-0">
 <darklang-code>// Record
 type Url = {
   scheme : HttpScheme
   domain : String
-                    port : UInt16
+  port : UInt16
   path : String
   query : Option&lt;String&gt;
 }
@@ -522,7 +521,9 @@ type UrlError =
   | Unparseable(msg:String, context:String)
 
 // Aliases are just shorthands
-type UrlParseResult = Result&lt;Url, UrlError&gt;</darklang-code></pre>
+type UrlParseResult = Result&lt;Url, UrlError&gt;
+</darklang-code>
+</pre>
                 </bullet-point>
 
                 <bullet-point>
@@ -1381,19 +1382,20 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
   <!-- darklang code -->
   <template id="darklang-code"
     ><code
-      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm block md:inline-flex text-left items-center !bg-code-background !text-gray-600 rounded language-fsharp"
+      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded language-fsharp"
       ><span content-darklang-code>REPLACE ME</span></code
     >
   </template>
 
   <template id="darklang-code-dark-bg">
-    <pre><code class="!bg-dark-gray !text-white fsharp"><span content-darklang-code-dark-bg>REPLACE ME</span></code></pre>
+    <code class="!bg-dark-gray !text-white fsharp"><span content-darklang-code-dark-bg>REPLACE ME</span></code
+    >
   </template>
 
   <!--bash code-->
   <template id="bash-code"
     ><code
-      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm block md:inline-flex text-left items-center !bg-code-background !text-gray-600 rounded shell"
+      class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"
       ><span content-bash-code>REPLACE ME</span></code
     >
   </template>

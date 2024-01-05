@@ -2053,4 +2053,9 @@ video {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+
+  .\32xl\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }

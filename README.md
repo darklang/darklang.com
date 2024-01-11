@@ -2,6 +2,8 @@
 
 [Darklang homepage](https://darklang.com)
 
+[![Ceasefire Now](https://badge.techforpalestine.org/ceasefire-now)](https://techforpalestine.org/learn-more)
+
 ## Formatting
 
 To format, use VSCode Prettier extension, or run:

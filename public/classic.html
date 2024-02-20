@@ -5,16 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Darklang Classic</title>
     <link href="./style.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", event => {
-        VanillaTilt.init(document.querySelector("#classic-image"), {
-          max: 4,
-          speed: 400,
-          transition: true,
-        });
-      });
-    </script>
 
     <script defer type="module">
       const defineCustomElementsFromTemplates = () => {
@@ -150,7 +140,7 @@
                     <li class="hover:bg-blue hover:text-white">
                       <a
                         class="py-2 px-4 block mx-2 border-b border-b-blue/25"
-                        href="./classic.html"
+                        href="./classic"
                         >About</a
                       >
                     </li>
@@ -220,7 +210,12 @@
               <top-item href="https://darklang.com/sponsor"
                 >Sponsor us</top-item
               >
-              <top-item href="/">Darklang Next</top-item>
+
+              <li class="hover:text-blue border-b md:border-none">
+                <a href="/" class="block py-2 pl-3 pr-4">
+                  <span>Darklang Next</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -253,7 +248,6 @@
           class="hidden md:flex flex-col justify-center items-center mx-auto lg:m-20"
         >
           <img
-            id="classic-image"
             src="./img/dark-classic.png"
             alt="dark-classic"
             class="rounded-md lg:rounded-lg shadow-2xl"
@@ -335,7 +329,7 @@
           </simple-item>
           <simple-item>
             <item-heading>
-              <span class="text-purple">Scheduled</span> <br />Jobs
+              <span class="text-purple">Scheduled</span> Jobs
             </item-heading>
           </simple-item>
         </items-wrapper-classic>

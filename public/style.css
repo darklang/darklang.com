@@ -1828,8 +1828,14 @@ video {
 }
 
 @media (min-width: 1024px){
-  .lg\:m-20{
-    margin: 5rem;
+  .lg\:mx-20{
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+
+  .lg\:my-10{
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .lg\:flex{
@@ -1859,6 +1865,11 @@ video {
   .lg\:text-3xl{
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .lg\:text-lg{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -1926,6 +1937,11 @@ video {
 
   .\32xl\:p-0{
     padding: 0px;
+  }
+
+  .\32xl\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .\32xl\:text-4xl{

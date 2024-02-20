@@ -1,0 +1,594 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Darklang Classic</title>
+    <link href="./style.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", event => {
+        VanillaTilt.init(document.querySelector("#classic-image"), {
+          max: 4,
+          speed: 400,
+          transition: true,
+        });
+      });
+    </script>
+
+    <script defer type="module">
+      const defineCustomElementsFromTemplates = () => {
+        const templates = document.querySelectorAll("template");
+
+        templates.forEach(template => {
+          const templateId = template.id;
+
+          class CustomElement extends HTMLElement {
+            constructor() {
+              super();
+
+              // Instantiate the body from the template here. It's suggested
+              // to do it in connectedCallback instead, but when nodes are
+              // moved around things get duplicated, so that's not really
+              // suitable.
+              this.copyFromTemplate();
+            }
+
+            // Take the template content and create a body for this
+            // instantiation of the customelement from it.
+            // 1. Replace the data-content node in the template with the children of the customelement
+            // 2. Use the customElement's attributes and replace placeholder-* attributes in the template
+            copyFromTemplate() {
+              let body = template.content.cloneNode(true);
+
+              // Replace attributes
+              Array.from(this.attributes).forEach(attr => {
+                const placeholderAttribute = `placeholder-${attr.name}`;
+                let count = 0;
+                body
+                  .querySelectorAll(`[${placeholderAttribute}]`)
+                  .forEach(element => {
+                    count = count + 1;
+                    element.setAttribute(attr.name, attr.value);
+                    element.removeAttribute(placeholderAttribute);
+                  });
+                if (count > 0) {
+                  this.removeAttribute(attr.name);
+                }
+              });
+
+              // Replace the content node with the actual children of the
+              // instantiated CustomElement
+              const contentNode = body.querySelector(
+                `[content-${template.id}]`,
+              );
+              if (contentNode) {
+                Array.from(this.childNodes).forEach(child => {
+                  contentNode.parentNode.insertBefore(child, contentNode);
+                });
+                // Remove the content node
+                contentNode.parentNode.removeChild(contentNode);
+              }
+
+              // Now attach the new content
+              this.appendChild(body);
+            }
+          }
+
+          customElements.define(templateId, CustomElement);
+        });
+      };
+
+      defineCustomElementsFromTemplates();
+    </script>
+  </head>
+
+  <body class="bg-light-background box-border m-0 p-0">
+    <div class="sticky bg-light-background w-full top-0 left-0 z-50">
+      <div
+        class="text-center bg-dark-gray text-white flex items-center justify-center"
+      >
+        <span>
+          <svg
+            class="h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 6 3"
+          >
+            <path fill="#007A3D" d="M0 0h6v3H0z" />
+            <path fill="#FFF" d="M0 0h6v2H0z" />
+            <path d="M0 0h6v1H0z" />
+            <path fill="#CE1126" d="M0 0l2 1.5L0 3z" />
+          </svg>
+        </span>
+        <p class="p-2">
+          #FreePalestine.
+          <a target="_blank" href="https://blog.paulbiggar.com/i-cant-sleep/"
+            >Read our founder's
+            <span class="underline hover:text-blue">statement</span></a
+          >
+        </p>
+      </div>
+
+      <!--Navbar-->
+      <nav>
+        <div
+          class="container flex flex-wrap items-center justify-between mx-auto p-4"
+        >
+          <a href="/" class="flex items-center">
+            <img
+              src="./img/wordmark-light-transparent@2x.png"
+              class="h-12 mr-3"
+              alt="Darklang logo"
+            />
+          </a>
+
+          <div class="flex md:order-2 justify-center items-center">
+            <button type="button" class="text-center mr-3 md:mr-0 md:pt-4">
+              <div id="dark-classic-btn" class="md:inline-block relative">
+                <div
+                  class="font-semibold inline-flex items-center px-3 py-2 hover:text-purple"
+                >
+                  <span class="mr-1 text-xs md:text-base"
+                    >Darklang classic</span
+                  >
+                  <svg
+                    id="arrowIcon"
+                    class="fill-current h-4 w-4 transform transition duration-200 ease-in-out"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  id="dark-classic-menu"
+                  class="absolute hidden w-full bg-light-background text-black rounded-lg border border-blue"
+                >
+                  <ul>
+                    <li class="hover:bg-blue hover:text-white">
+                      <a
+                        class="py-2 px-4 block mx-2 border-b border-b-blue/25"
+                        href="./classic.html"
+                        >About</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue hover:text-white">
+                      <a
+                        class="py-2 px-4 block mx-2 border-b border-b-blue/25"
+                        href="https://login.darklang.com"
+                        >Log in</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue hover:text-white rounded-b-lg">
+                      <a class="py-2 px-4 block" href="./classic/signup"
+                        >Sign up</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </button>
+
+            <button
+              id="menu-button"
+              type="button"
+              class="inline-flex items-center md:hidden"
+              aria-expanded="false"
+            >
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <div
+            id="menu"
+            class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
+          >
+            <template id="top-item">
+              <!-- header top links -->
+              <li class="hover:text-blue border-b md:border-none">
+                <a
+                  placeholder-href
+                  target="_blank"
+                  class="block py-2 pl-3 pr-4"
+                >
+                  <span content-top-item>REPLACEME</span>
+                </a>
+              </li>
+            </template>
+
+            <ul class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4">
+              <!-- <top-item href="https://docs.darklang.com">Documentation</top-item> -->
+              <top-item href="https://blog.darklang.com">Blog</top-item>
+              <top-item href="https://darklang.com/discord">Discord</top-item>
+              <top-item href="https://github.com/darklang/dark"
+                >GitHub</top-item
+              >
+              <top-item href="https://darklang.com/sponsor"
+                >Sponsor us</top-item
+              >
+              <top-item href="/">Darklang Next</top-item>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section class="mx-12 md:my-20 mt-16 2xl:mt-40 font-Quicksand">
+        <div
+          class="flex flex-col justify-center items-center mx-auto text-center md:mb-16 2xl:mb-20"
+        >
+          <h1
+            class="text-4xl md:text-5xl xl:text-7xl 2xl:text-8xl font-bold text-blue font-Quicksand"
+          >
+            Darklang <span class="text-purple">Classic</span>
+          </h1>
+        </div>
+
+        <!-- Deployless cloud backends -->
+        <div class="my-10 md:mx-32 2xl:mx-44 text-center">
+          <p
+            class="text-lg md:text-2xl xl:text-[28px] 2xl:text-4xl text-gray-500 font-Quicksand"
+          >
+            <span class="text-blue">Dark </span> is a new way of building
+            serverless backends. Just code your backend, with no infra,
+            framework or deployment nightmares. Build APIs, CRUD apps, internal
+            tools and bots - whatever your backend needs.
+          </p>
+        </div>
+
+        <div
+          class="hidden md:flex flex-col justify-center items-center mx-auto lg:m-20"
+        >
+          <img
+            id="classic-image"
+            src="./img/dark-classic.png"
+            alt="dark-classic"
+            class="rounded-md lg:rounded-lg shadow-2xl"
+          />
+        </div>
+      </section>
+
+      <section-wrapper>
+        <items-wrapper>
+          <simple-item data-target="">
+            <item-heading>
+              <span class="text-purple">Internal</span> Tools & Bots
+            </item-heading>
+            <indented-body>
+              Dark is ideal for quickly building slackbots and automating
+              internal tools. Receive webhooks live, call out to 3rd party APIs,
+              store data, and schedule jobs - while building no infrastructure.
+
+              <p class="text-blue hover:text-purple mt-1">
+                <a
+                  href="https://blog.darklang.com/spin-up-a-slack-app-in-seconds-with-dark/"
+                  target="_blank"
+                  >Read more about using dark with Slack</a
+                >
+              </p>
+            </indented-body>
+          </simple-item>
+
+          <simple-item data-target="">
+            <item-heading>
+              REST APIs <span class="text-purple">&</span> Webhooks
+            </item-heading>
+            <indented-body>
+              Set up an API endpoint quickly enough to use it as a proof of
+              concept during a call. Immediately see the data from a webhook to
+              your endpoint. Call an external API using the HttpClient library
+              and see responses within the editor, or use workers to do them in
+              the background. Use the built-in package manager to make external
+              API calls really easily, and contribute your own API integrations.
+            </indented-body>
+          </simple-item>
+
+          <simple-item data-target="">
+            <item-heading>
+              <span class="text-purple">CRUD</span> apps
+            </item-heading>
+            <indented-body>
+              Get a working CRUD application in less than ten minutes by setting
+              up a few API endpoints and a datastore. Build out the backend for
+              a web or mobile app, whether a simple HTML form or an entire
+              product.
+            </indented-body>
+          </simple-item>
+        </items-wrapper>
+      </section-wrapper>
+
+      <section-wrapper>
+        <div class="my-10">
+          <section-heading
+            >Any<gradient-text>Backend</gradient-text> That
+            Requires...</section-heading
+          >
+        </div>
+        <items-wrapper-classic>
+          <simple-item>
+            <item-heading>
+              <span class="text-purple">API</span> Endpoints
+            </item-heading>
+          </simple-item>
+          <simple-item>
+            <item-heading>
+              <span class="text-purple">Data</span> Stores
+            </item-heading>
+          </simple-item>
+          <simple-item>
+            <item-heading>
+              <span class="text-purple">Background</span> Workers
+            </item-heading>
+          </simple-item>
+          <simple-item>
+            <item-heading>
+              <span class="text-purple">Scheduled</span> <br />Jobs
+            </item-heading>
+          </simple-item>
+        </items-wrapper-classic>
+
+        <div class="my-10 text-base md:text-xl font-medium">
+          <p>
+            Dark lets you build any backend that needs API endpoints, data
+            stores, background workers, scheduled jobs, and calling HTTP APIs.
+            You just write the code in Dark, and we'll manage the rest.
+          </p>
+        </div>
+      </section-wrapper>
+
+      <!-- Footer -->
+      <footer
+        class="container flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between 2xl:justify-center 2xl:container mx-auto my-20"
+      >
+        <div class="w-full md:w-1/4 flex flex-col justify-center items-center">
+          <div>
+            <a href="/">
+              <img
+                src="./img/wordmark-light-transparent@2x.png"
+                class="h-14"
+                alt="logo"
+              />
+            </a>
+          </div>
+
+          <div class="text-sm text-gray-600 ml-5">
+            <p>Copyright &copy; 2024 Dark Inc.</p>
+          </div>
+
+          <div class="mt-6 mx-4 text-2xl">
+            <a href="https://github.com/darklang/dark" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://twitter.com/darklang" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="https://darklang.com/discord" target="_blank"
+              ><i class="fab fa-discord"></i
+            ></a>
+            <a href="https://youtube.com/c/darklang" target="_blank"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-2 gap-y-2 md:container md:flex md:flex-row md:justify-around mt-8"
+        >
+          <div>
+            <h5 class="font-medium mb-2">Darklang Classic</h5>
+            <ul class="text-gray-500">
+              <li>
+                <a href="https://login.darklang.com" target="_blank">Sign in</a>
+              </li>
+              <li>
+                <a href="https://darklang.com/signup" target="_blank"
+                  >Sign up</a
+                >
+              </li>
+              <li>
+                <a href="https://darklang.com/desktop-client" target="_blank">
+                  Desktop client
+                </a>
+              </li>
+              <li>
+                <a href="https://darklang.com/mailing-list" target="_blank">
+                  Mailing list
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-medium mb-2">Learning Darklang Classic</h5>
+            <ul class="text-gray-500">
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=orRn2kTtRXQ"
+                  target="_blank"
+                >
+                  Demo video
+                </a>
+              </li>
+              <li>
+                <a href="https://youtube.com/c/Darklang/videos" target="_blank">
+                  Tutorial video
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://docs.darklang.com/introduction"
+                  target="_blank"
+                >
+                  Documentation
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://docs.darklang.com/tutorials/first-dark-application"
+                  target="_blank"
+                >
+                  Tutorial
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://docs.darklang.com/category/walk-throughs"
+                  target="_blank"
+                >
+                  Walk-throughs
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-medium mb-2">Development</h5>
+            <ul class="text-gray-500">
+              <li>
+                <a href="https://blog.darklang.com" target="_blank">Blog</a>
+              </li>
+              <li>
+                <a href="https://github.com/darklang/dark" target="_blank">
+                  Source
+                </a>
+              </li>
+              <li>
+                <a href="https://darklang.com/notion" target="_blank"
+                  >Roadmap</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/darklang/dark/issues"
+                  target="_blank"
+                >
+                  Issues
+                </a>
+              </li>
+              <li>
+                <a href="https://docs.darklang.com/changelog" target="_blank">
+                  Changelog
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="font-medium mb-2">Community</h5>
+            <ul class="text-gray-500">
+              <li>
+                <a href="https://darklang.com/discord" target="_blank"
+                  >Discord</a
+                >
+              </li>
+              <li>
+                <a href="https://darklang.com/code-of-conduct" target="_blank">
+                  Code of conduct
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://docs.darklang.com/contributing/getting-started"
+                  target="_blank"
+                >
+                  Contributor docs
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Menu button navigation bar
+      const button = document.querySelector("#menu-button");
+      const menu = document.querySelector("#menu");
+      const arrow = document.getElementById("arrowIcon");
+      const darkClassicBtn = document.querySelector("#dark-classic-btn");
+      const darkClassicMenu = document.querySelector("#dark-classic-menu");
+
+      const toggleHeading = document.querySelector("#toggle-heading-li");
+
+      darkClassicBtn.addEventListener("click", () => {
+        darkClassicMenu.classList.toggle("hidden");
+        arrow.classList.toggle("rotate-180");
+      });
+
+      button.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+
+  <template id="section-wrapper">
+    <p
+      placeholder-id=""
+      class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"
+    >
+      <span content-section-wrapper>REPLACE ME</span>
+    </p>
+  </template>
+
+  <template id="section-heading">
+    <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+      <span content-section-heading>REPLACE ME</span>
+    </p>
+  </template>
+
+  <template id="items-wrapper">
+    <div class="font-Quicksand grid lg:grid-cols-1 gap-3">
+      <span content-items-wrapper>REPLACE ME</span>
+    </div>
+  </template>
+
+  <template id="items-wrapper-classic">
+    <div class="font-Quicksand grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <span content-items-wrapper-classic>REPLACE ME</span>
+    </div>
+  </template>
+
+  <template id="indented-body">
+    <p class="text-lg font-normal mx-4 my-4">
+      <span content-indented-body>REPLACE ME</span>
+    </p>
+  </template>
+
+  <template id="simple-item">
+    <div
+      class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+    >
+      <span content-simple-item>REPLACE ME</span>
+      <p placeholder-data-target class="text-purple -ml-3"></p>
+    </div>
+  </template>
+
+  <template id="item-heading">
+    <div class="my-3">
+      <h3 class="text-base md:text-xl font-bold">
+        <span content-item-heading>REPLACE ME</span>
+      </h3>
+    </div>
+  </template>
+
+  <template id="gradient-text">
+    <span
+      class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+    >
+      <span content-gradient-text>REPLACE ME</span>
+    </span>
+  </template>
+</html>

@@ -112,28 +112,28 @@
             />
           </a>
 
-          <div class="order-3">
-            <ul
-              class="flex justify-center items-center md:space-x-8 p-6 md:p-0 md:mt-4"
-            >
-              <li
-                class="cursor-pointer px-2 py-1 mx-2 md:mx-0 md:px-4 md:py-2 rounded hover:text-blue"
+          <div class="flex md:order-2 justify-center items-center">
+            <div class="md:inline-block relative">
+              <ul
+                class="flex justify-center items-center md:space-x-8 p-6 md:p-0 md:mt-4 text-sm md:text-base"
               >
-                <a href="https://login.darklang.com">Log in</a>
-              </li>
-              <li
-                class="bg-blue hover:bg-purple text-white cursor-pointer px-2 py-1 md:px-4 md:py-2 rounded"
-              >
-                <a href="./classic/signup">Sign up</a>
-              </li>
-            </ul>
-          </div>
+                <li
+                  class="cursor-pointer px-2 py-1 mx-2 md:mx-0 md:px-4 md:py-2 rounded hover:text-blue"
+                >
+                  <a href="https://login.darklang.com">Log in</a>
+                </li>
+                <li
+                  class="bg-blue hover:bg-purple text-white cursor-pointer px-2 py-1 md:px-4 md:py-2 rounded"
+                >
+                  <a href="./classic/signup">Sign up</a>
+                </li>
+              </ul>
+            </div>
 
-          <div class="justify-center items-center md:hidden order-last">
             <button
               id="menu-button"
               type="button"
-              class="inline-flex items-center"
+              class="inline-flex items-center md:hidden"
               aria-expanded="false"
             >
               <svg
@@ -154,11 +154,9 @@
 
           <div
             id="menu"
-            class="rounded-b-lg absolute hidden md:relative md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto top-full left-0"
+            class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
           >
-            <ul
-              class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4 bg-white md:bg-transparent shadow-md md:shadow-none"
-            >
+            <ul class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4">
               <top-item href="https://blog.darklang.com">Blog</top-item>
               <top-item href="https://darklang.com/discord">Discord</top-item>
               <top-item href="https://github.com/darklang/dark"
@@ -167,11 +165,6 @@
               <top-item href="https://darklang.com/sponsor"
                 >Sponsor us</top-item
               >
-              <li class="hover:text-blue border-b md:border-none">
-                <a href="/" class="block py-2 pl-3 pr-4">
-                  <span>Darklang Next</span>
-                </a>
-              </li>
             </ul>
           </div>
         </div>

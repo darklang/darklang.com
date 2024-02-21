@@ -112,59 +112,28 @@
             />
           </a>
 
-          <div class="flex md:order-2 justify-center items-center">
-            <button type="button" class="text-center mr-3 md:mr-0 md:pt-4">
-              <div id="dark-classic-btn" class="md:inline-block relative">
-                <div
-                  class="font-semibold inline-flex items-center px-3 py-2 hover:text-purple"
-                >
-                  <span class="mr-1 text-xs md:text-base"
-                    >Darklang classic</span
-                  >
-                  <svg
-                    id="arrowIcon"
-                    class="fill-current h-4 w-4 transform transition duration-200 ease-in-out"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                    />
-                  </svg>
-                </div>
-                <div
-                  id="dark-classic-menu"
-                  class="absolute hidden w-full bg-light-background text-black rounded-lg border border-blue"
-                >
-                  <ul>
-                    <li class="hover:bg-blue hover:text-white">
-                      <a
-                        class="py-2 px-4 block mx-2 border-b border-b-blue/25"
-                        href="./classic"
-                        >About</a
-                      >
-                    </li>
-                    <li class="hover:bg-blue hover:text-white">
-                      <a
-                        class="py-2 px-4 block mx-2 border-b border-b-blue/25"
-                        href="https://login.darklang.com"
-                        >Log in</a
-                      >
-                    </li>
-                    <li class="hover:bg-blue hover:text-white rounded-b-lg">
-                      <a class="py-2 px-4 block" href="./classic/signup"
-                        >Sign up</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </button>
+          <div class="order-3">
+            <ul
+              class="flex justify-center items-center md:space-x-8 p-6 md:p-0 md:mt-4"
+            >
+              <li
+                class="cursor-pointer px-2 py-1 mx-2 md:mx-0 md:px-4 md:py-2 rounded hover:text-blue"
+              >
+                <a href="https://login.darklang.com">Log in</a>
+              </li>
+              <li
+                class="bg-blue hover:bg-purple text-white cursor-pointer px-2 py-1 md:px-4 md:py-2 rounded"
+              >
+                <a href="./classic/signup">Sign up</a>
+              </li>
+            </ul>
+          </div>
 
+          <div class="justify-center items-center md:hidden order-last">
             <button
               id="menu-button"
               type="button"
-              class="inline-flex items-center md:hidden"
+              class="inline-flex items-center"
               aria-expanded="false"
             >
               <svg
@@ -185,23 +154,11 @@
 
           <div
             id="menu"
-            class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
+            class="rounded-b-lg absolute hidden md:relative md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto top-full left-0"
           >
-            <template id="top-item">
-              <!-- header top links -->
-              <li class="hover:text-blue border-b md:border-none">
-                <a
-                  placeholder-href
-                  target="_blank"
-                  class="block py-2 pl-3 pr-4"
-                >
-                  <span content-top-item>REPLACEME</span>
-                </a>
-              </li>
-            </template>
-
-            <ul class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4">
-              <!-- <top-item href="https://docs.darklang.com">Documentation</top-item> -->
+            <ul
+              class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4 bg-white md:bg-transparent shadow-md md:shadow-none"
+            >
               <top-item href="https://blog.darklang.com">Blog</top-item>
               <top-item href="https://darklang.com/discord">Discord</top-item>
               <top-item href="https://github.com/darklang/dark"
@@ -210,7 +167,6 @@
               <top-item href="https://darklang.com/sponsor"
                 >Sponsor us</top-item
               >
-
               <li class="hover:text-blue border-b md:border-none">
                 <a href="/" class="block py-2 pl-3 pr-4">
                   <span>Darklang Next</span>
@@ -220,318 +176,329 @@
           </div>
         </div>
       </nav>
-
-      <section class="mx-12 md:my-20 mt-16 2xl:mt-40 font-Quicksand">
-        <div
-          class="flex flex-col justify-center items-center mx-auto text-center md:mb-16 2xl:mb-20"
-        >
-          <h1
-            class="text-4xl md:text-5xl xl:text-7xl 2xl:text-8xl font-bold text-blue font-Quicksand"
-          >
-            Darklang <span class="text-purple">Classic</span>
-          </h1>
-        </div>
-
-        <!-- Deployless cloud backends -->
-        <div class="my-10 md:mx-32 2xl:mx-44 text-center">
-          <p
-            class="text-lg md:text-2xl xl:text-[28px] 2xl:text-4xl text-gray-500 font-Quicksand"
-          >
-            <span class="text-blue">Dark </span> is a new way of building
-            serverless backends. Just code your backend, with no infra,
-            framework or deployment nightmares. Build APIs, CRUD apps, internal
-            tools and bots - whatever your backend needs.
-          </p>
-
-          <p class="text-gray-500 text-base lg:text-lg 2xl:text-2xl mt-16">
-            The classic version of darklang is still accessible but is currently
-            in maintenance mode, with no ongoing development.
-          </p>
-        </div>
-
-        <div
-          class="hidden md:flex flex-col justify-center items-center mx-auto lg:my-10 lg:mx-20"
-        >
-          <img
-            src="./img/dark-classic.png"
-            alt="dark-classic"
-            class="rounded-md lg:rounded-lg shadow-2xl"
-          />
-        </div>
-      </section>
-
-      <section-wrapper>
-        <items-wrapper>
-          <simple-item data-target="">
-            <item-heading>
-              <span class="text-purple">Internal</span> Tools & Bots
-            </item-heading>
-            <indented-body>
-              Dark is ideal for quickly building slackbots and automating
-              internal tools. Receive webhooks live, call out to 3rd party APIs,
-              store data, and schedule jobs - while building no infrastructure.
-
-              <p class="text-blue hover:text-purple mt-1">
-                <a
-                  href="https://blog.darklang.com/spin-up-a-slack-app-in-seconds-with-dark/"
-                  target="_blank"
-                  >Read more about using dark with Slack</a
-                >
-              </p>
-            </indented-body>
-          </simple-item>
-
-          <simple-item data-target="">
-            <item-heading>
-              REST APIs <span class="text-purple">&</span> Webhooks
-            </item-heading>
-            <indented-body>
-              Set up an API endpoint quickly enough to use it as a proof of
-              concept during a call. Immediately see the data from a webhook to
-              your endpoint. Call an external API using the HttpClient library
-              and see responses within the editor, or use workers to do them in
-              the background. Use the built-in package manager to make external
-              API calls really easily, and contribute your own API integrations.
-            </indented-body>
-          </simple-item>
-
-          <simple-item data-target="">
-            <item-heading>
-              <span class="text-purple">CRUD</span> apps
-            </item-heading>
-            <indented-body>
-              Get a working CRUD application in less than ten minutes by setting
-              up a few API endpoints and a datastore. Build out the backend for
-              a web or mobile app, whether a simple HTML form or an entire
-              product.
-            </indented-body>
-          </simple-item>
-        </items-wrapper>
-      </section-wrapper>
-
-      <section-wrapper>
-        <div class="my-10">
-          <section-heading
-            >Any<gradient-text>Backend</gradient-text> That
-            Requires...</section-heading
-          >
-        </div>
-        <items-wrapper-classic>
-          <simple-item>
-            <item-heading>
-              <span class="text-purple">API</span> Endpoints
-            </item-heading>
-          </simple-item>
-          <simple-item>
-            <item-heading>
-              <span class="text-purple">Data</span> Stores
-            </item-heading>
-          </simple-item>
-          <simple-item>
-            <item-heading>
-              <span class="text-purple">Background</span> Workers
-            </item-heading>
-          </simple-item>
-          <simple-item>
-            <item-heading>
-              <span class="text-purple">Scheduled</span> Jobs
-            </item-heading>
-          </simple-item>
-        </items-wrapper-classic>
-
-        <div class="my-10 text-base md:text-xl font-medium">
-          <p>
-            Dark lets you build any backend that needs API endpoints, data
-            stores, background workers, scheduled jobs, and calling HTTP APIs.
-            You just write the code in Dark, and we'll manage the rest.
-          </p>
-        </div>
-      </section-wrapper>
-
-      <!-- Footer -->
-      <footer
-        class="container flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between 2xl:justify-center 2xl:container mx-auto my-20"
-      >
-        <div class="w-full md:w-1/4 flex flex-col justify-center items-center">
-          <div>
-            <a href="/">
-              <img
-                src="./img/wordmark-light-transparent@2x.png"
-                class="h-14"
-                alt="logo"
-              />
-            </a>
-          </div>
-
-          <div class="text-sm text-gray-600 ml-5">
-            <p>Copyright &copy; 2024 Dark Inc.</p>
-          </div>
-
-          <div class="mt-6 mx-4 text-2xl">
-            <a href="https://github.com/darklang/dark" target="_blank"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a href="https://twitter.com/darklang" target="_blank"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a href="https://darklang.com/discord" target="_blank"
-              ><i class="fab fa-discord"></i
-            ></a>
-            <a href="https://youtube.com/c/darklang" target="_blank"
-              ><i class="fab fa-youtube"></i
-            ></a>
-          </div>
-        </div>
-
-        <div
-          class="grid grid-cols-2 gap-y-2 md:container md:flex md:flex-row md:justify-around mt-8"
-        >
-          <div>
-            <h5 class="font-medium mb-2">Darklang Classic</h5>
-            <ul class="text-gray-500">
-              <li>
-                <a href="https://login.darklang.com" target="_blank">Sign in</a>
-              </li>
-              <li>
-                <a href="https://darklang.com/signup" target="_blank"
-                  >Sign up</a
-                >
-              </li>
-              <li>
-                <a href="https://darklang.com/desktop-client" target="_blank">
-                  Desktop client
-                </a>
-              </li>
-              <li>
-                <a href="https://darklang.com/mailing-list" target="_blank">
-                  Mailing list
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h5 class="font-medium mb-2">Learning Darklang Classic</h5>
-            <ul class="text-gray-500">
-              <li>
-                <a
-                  href="https://www.youtube.com/watch?v=orRn2kTtRXQ"
-                  target="_blank"
-                >
-                  Demo video
-                </a>
-              </li>
-              <li>
-                <a href="https://youtube.com/c/Darklang/videos" target="_blank">
-                  Tutorial video
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://docs.darklang.com/introduction"
-                  target="_blank"
-                >
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://docs.darklang.com/tutorials/first-dark-application"
-                  target="_blank"
-                >
-                  Tutorial
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://docs.darklang.com/category/walk-throughs"
-                  target="_blank"
-                >
-                  Walk-throughs
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h5 class="font-medium mb-2">Development</h5>
-            <ul class="text-gray-500">
-              <li>
-                <a href="https://blog.darklang.com" target="_blank">Blog</a>
-              </li>
-              <li>
-                <a href="https://github.com/darklang/dark" target="_blank">
-                  Source
-                </a>
-              </li>
-              <li>
-                <a href="https://darklang.com/notion" target="_blank"
-                  >Roadmap</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://github.com/darklang/dark/issues"
-                  target="_blank"
-                >
-                  Issues
-                </a>
-              </li>
-              <li>
-                <a href="https://docs.darklang.com/changelog" target="_blank">
-                  Changelog
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h5 class="font-medium mb-2">Community</h5>
-            <ul class="text-gray-500">
-              <li>
-                <a href="https://darklang.com/discord" target="_blank"
-                  >Discord</a
-                >
-              </li>
-              <li>
-                <a href="https://darklang.com/code-of-conduct" target="_blank">
-                  Code of conduct
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://docs.darklang.com/contributing/getting-started"
-                  target="_blank"
-                >
-                  Contributor docs
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </footer>
     </div>
+
+    <section-wrapper>
+      <div
+        class="flex flex-col justify-center items-center mx-auto text-center mt-8 md:mb-16 xl:mt-20 2xl:mt-28"
+      >
+        <h1
+          class="text-4xl md:text-5xl xl:text-7xl 2xl:text-8xl font-bold text-blue font-Quicksand"
+        >
+          Darklang <span class="text-purple">Classic</span>
+        </h1>
+      </div>
+
+      <!-- Deployless cloud backends -->
+      <div class="my-10 text-center">
+        <p
+          class="text-xl md:text-2xl xl:text-[28px] 2xl:text-4xl text-gray-500 font-Quicksand"
+        >
+          <span class="text-blue">Dark </span> is a new way of building
+          serverless backends. Just code your backend, with no infra, framework
+          or deployment nightmares. Build APIs, CRUD apps, internal tools and
+          bots - whatever your backend needs.
+        </p>
+
+        <p
+          class="text-gray-500 text-base lg:text-lg 2xl:text-2xl mt-12 md:mt-16"
+        >
+          The classic version of darklang is still accessible but is currently
+          in maintenance mode, with no ongoing development.
+        </p>
+      </div>
+
+      <div class="hidden md:flex mx-auto lg:my-10">
+        <img
+          src="./img/dark-classic.png"
+          alt="dark-classic"
+          class="rounded-md lg:rounded-lg shadow-2xl"
+        />
+      </div>
+    </section-wrapper>
+
+    <section-wrapper>
+      <items-wrapper>
+        <simple-item data-target="">
+          <item-heading>
+            <span class="text-purple">Internal</span> Tools & Bots
+          </item-heading>
+          <indented-body>
+            Dark is ideal for quickly building slackbots and automating internal
+            tools. Receive webhooks live, call out to 3rd party APIs, store
+            data, and schedule jobs - while building no infrastructure.
+
+            <p class="text-blue hover:text-purple mt-1">
+              <a
+                href="https://blog.darklang.com/spin-up-a-slack-app-in-seconds-with-dark/"
+                target="_blank"
+                >Read more about using dark with Slack</a
+              >
+            </p>
+          </indented-body>
+        </simple-item>
+
+        <simple-item data-target="">
+          <item-heading>
+            REST APIs <span class="text-purple">&</span> Webhooks
+          </item-heading>
+          <indented-body>
+            Set up an API endpoint quickly enough to use it as a proof of
+            concept during a call. Immediately see the data from a webhook to
+            your endpoint. Call an external API using the HttpClient library and
+            see responses within the editor, or use workers to do them in the
+            background. Use the built-in package manager to make external API
+            calls really easily, and contribute your own API integrations.
+          </indented-body>
+        </simple-item>
+
+        <simple-item data-target="">
+          <item-heading>
+            <span class="text-purple">CRUD</span> apps
+          </item-heading>
+          <indented-body>
+            Get a working CRUD application in less than ten minutes by setting
+            up a few API endpoints and a datastore. Build out the backend for a
+            web or mobile app, whether a simple HTML form or an entire product.
+          </indented-body>
+        </simple-item>
+      </items-wrapper>
+    </section-wrapper>
+
+    <section-wrapper>
+      <div class="my-10">
+        <section-heading
+          >Any<gradient-text>Backend</gradient-text> That
+          Requires...</section-heading
+        >
+      </div>
+      <items-wrapper-classic>
+        <simple-item>
+          <item-heading>
+            <span class="text-purple">API</span> Endpoints
+          </item-heading>
+        </simple-item>
+        <simple-item>
+          <item-heading>
+            <span class="text-purple">Data</span> Stores
+          </item-heading>
+        </simple-item>
+        <simple-item>
+          <item-heading>
+            <span class="text-purple">Background</span> Workers
+          </item-heading>
+        </simple-item>
+        <simple-item>
+          <item-heading>
+            <span class="text-purple">Scheduled</span> Jobs
+          </item-heading>
+        </simple-item>
+      </items-wrapper-classic>
+
+      <div class="my-10 text-base md:text-xl font-medium">
+        <p>
+          Dark lets you build any backend that needs API endpoints, data stores,
+          background workers, scheduled jobs, and calling HTTP APIs. You just
+          write the code in Dark, and we'll manage the rest.
+        </p>
+      </div>
+    </section-wrapper>
+
+    <section-wrapper>
+      <div
+        class="flex flex-col md:flex-row justify-between items-center lg:mx-44 px-8 py-8 bg-dark-gray text-white rounded-xl"
+      >
+        <p class="text-xl font-medium">Access Darklang-classic</p>
+
+        <div class="mt-4 md:m-0">
+          <a
+            class="bg-blue hover:bg-purple text-white cursor-pointer px-6 py-2 rounded mx-2"
+            href="./classic/signup"
+            >Sign up</a
+          >
+          <span class="text-gray-400 mx-2">or</span>
+          <a class="mx-2 hover:underline" href="https://login.darklang.com"
+            >Log in</a
+          >
+        </div>
+      </div>
+    </section-wrapper>
+
+    <!-- Footer -->
+    <footer
+      class="container flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between 2xl:justify-center 2xl:container mx-auto my-20"
+    >
+      <div class="w-full md:w-1/4 flex flex-col justify-center items-center">
+        <div>
+          <a href="/">
+            <img
+              src="./img/wordmark-light-transparent@2x.png"
+              class="h-14"
+              alt="logo"
+            />
+          </a>
+        </div>
+
+        <div class="text-sm text-gray-600 ml-5">
+          <p>Copyright &copy; 2024 Dark Inc.</p>
+        </div>
+
+        <div class="mt-6 mx-4 text-2xl">
+          <a href="https://github.com/darklang/dark" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://twitter.com/darklang" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://darklang.com/discord" target="_blank"
+            ><i class="fab fa-discord"></i
+          ></a>
+          <a href="https://youtube.com/c/darklang" target="_blank"
+            ><i class="fab fa-youtube"></i
+          ></a>
+        </div>
+      </div>
+
+      <div
+        class="grid grid-cols-2 gap-y-2 md:container md:flex md:flex-row md:justify-around mt-8"
+      >
+        <div>
+          <h5 class="font-medium mb-2">Darklang Classic</h5>
+          <ul class="text-gray-500">
+            <li>
+              <a href="https://login.darklang.com" target="_blank">Sign in</a>
+            </li>
+            <li>
+              <a href="https://darklang.com/signup" target="_blank">Sign up</a>
+            </li>
+            <li>
+              <a href="https://darklang.com/desktop-client" target="_blank">
+                Desktop client
+              </a>
+            </li>
+            <li>
+              <a href="https://darklang.com/mailing-list" target="_blank">
+                Mailing list
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-medium mb-2">Learning Darklang Classic</h5>
+          <ul class="text-gray-500">
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=orRn2kTtRXQ"
+                target="_blank"
+              >
+                Demo video
+              </a>
+            </li>
+            <li>
+              <a href="https://youtube.com/c/Darklang/videos" target="_blank">
+                Tutorial video
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.darklang.com/introduction" target="_blank">
+                Documentation
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://docs.darklang.com/tutorials/first-dark-application"
+                target="_blank"
+              >
+                Tutorial
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://docs.darklang.com/category/walk-throughs"
+                target="_blank"
+              >
+                Walk-throughs
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-medium mb-2">Development</h5>
+          <ul class="text-gray-500">
+            <li>
+              <a href="https://blog.darklang.com" target="_blank">Blog</a>
+            </li>
+            <li>
+              <a href="https://github.com/darklang/dark" target="_blank">
+                Source
+              </a>
+            </li>
+            <li>
+              <a href="https://darklang.com/notion" target="_blank">Roadmap</a>
+            </li>
+            <li>
+              <a href="https://github.com/darklang/dark/issues" target="_blank">
+                Issues
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.darklang.com/changelog" target="_blank">
+                Changelog
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-medium mb-2">Community</h5>
+          <ul class="text-gray-500">
+            <li>
+              <a href="https://darklang.com/discord" target="_blank">Discord</a>
+            </li>
+            <li>
+              <a href="https://darklang.com/code-of-conduct" target="_blank">
+                Code of conduct
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://docs.darklang.com/contributing/getting-started"
+                target="_blank"
+              >
+                Contributor docs
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
 
     <script>
       // Menu button navigation bar
       const button = document.querySelector("#menu-button");
       const menu = document.querySelector("#menu");
       const arrow = document.getElementById("arrowIcon");
-      const darkClassicBtn = document.querySelector("#dark-classic-btn");
       const darkClassicMenu = document.querySelector("#dark-classic-menu");
 
       const toggleHeading = document.querySelector("#toggle-heading-li");
-
-      darkClassicBtn.addEventListener("click", () => {
-        darkClassicMenu.classList.toggle("hidden");
-        arrow.classList.toggle("rotate-180");
-      });
 
       button.addEventListener("click", () => {
         menu.classList.toggle("hidden");
       });
     </script>
   </body>
+
+  <!-- Templates -->
+  <template id="top-item">
+    <!-- header top links -->
+    <li class="hover:text-blue border-b md:border-none">
+      <a placeholder-href target="_blank" class="block py-2 pl-3 pr-4">
+        <span content-top-item>REPLACEME</span>
+      </a>
+    </li>
+  </template>
 
   <template id="section-wrapper">
     <p

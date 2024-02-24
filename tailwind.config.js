@@ -24,6 +24,12 @@ module.exports = {
         "dark-gray": "#2F2F2F",
         "code-background": "#F5F4F1",
         "cli-background": "#262626",
+        // classic colors
+        "classic-green": "#A1B56C",
+        "classic-brown": "#A1887F",
+        "classic-yellow": "#E6BD81",
+        "classic-blue": "#86C1B9",
+        "classic-purple": "#9B62BC",
       },
       flex: {
         2: "2 2 0%",

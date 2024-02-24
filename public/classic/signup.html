@@ -34,7 +34,7 @@
           <button type="button" class="text-center mr-3 md:mr-0 md:pt-4">
             <div id="dark-classic-btn" class="md:inline-block relative">
               <div
-                class="font-semibold inline-flex items-center px-3 py-2 hover:text-purple"
+                class="font-semibold inline-flex items-center px-3 py-2 hover:text-classic-purple"
               >
                 <span class="mr-1 text-xs md:text-base">Darklang classic</span>
                 <svg
@@ -50,24 +50,26 @@
               </div>
               <div
                 id="dark-classic-menu"
-                class="absolute hidden w-full bg-light-background text-black pt-1 rounded-lg border border-blue"
+                class="absolute hidden w-full bg-dark-gray text-white pt-1 rounded-lg border border-classic-purple"
               >
                 <ul>
-                  <li class="hover:bg-blue hover:text-white">
+                  <li class="hover:bg-classic-purple hover:text-white">
                     <a
                       class="py-2 px-4 block mx-2 border-b border-b-blue/25"
                       href="/classic"
                       >About</a
                     >
                   </li>
-                  <li class="hover:bg-blue hover:text-white">
+                  <li class="hover:bg-classic-purple hover:text-white">
                     <a
-                      class="py-2 px-4 block mx-2 border-b border-b-blue/25"
+                      class="py-2 px-4 block mx-2 border-b border-b-gray-600"
                       href="https://login.darklang.com"
                       >Log in</a
                     >
                   </li>
-                  <li class="hover:bg-blue hover:text-white rounded-b-lg">
+                  <li
+                    class="hover:bg-classic-purple hover:text-white rounded-b-lg"
+                  >
                     <a class="py-2 px-4 block" href="/signup">Sign up</a>
                   </li>
                 </ul>
@@ -99,14 +101,16 @@
 
         <div
           id="menu"
-          class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
+          class="rounded-b-lg bg-md:order-1 hidden md:flex bg-dark-gray md:bg-transparent justify-between items-center w-full md:w-auto border border-white/20 md:border-none md:border-0"
         >
           <ul class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4">
             <!-- <li>
                 Disabled for now as it points to old docs
                 <a href="https://docs.darklang.com" target=”_blank” class="text-white">Documentation</a>
             </li> -->
-            <li class="hover:text-blue border-b md:border-none">
+            <li
+              class="hover:text-classic-purple border-b border-b-white/20 md:border-none"
+            >
               <a
                 href="https://blog.darklang.com"
                 target="”_blank”"
@@ -114,7 +118,9 @@
                 >Blog</a
               >
             </li>
-            <li class="hover:text-blue border-b md:border-none">
+            <li
+              class="hover:text-classic-purple border-b border-b-white/20 md:border-none"
+            >
               <a
                 href="https://darklang.com/discord"
                 target="”_blank”"
@@ -122,7 +128,9 @@
                 >Discord</a
               >
             </li>
-            <li class="hover:text-blue border-b md:border-none">
+            <li
+              class="hover:text-classic-purple border-b border-b-white/20 md:border-none"
+            >
               <a
                 href="https://github.com/darklang/dark"
                 target="”_blank”"
@@ -130,7 +138,9 @@
                 >Github</a
               >
             </li>
-            <li class="hover:text-blue">
+            <li
+              class="hover:text-classic-purple border-b border-b-white/20 md:border-none"
+            >
               <a
                 href="https://darklang.com/sponsor"
                 target="”_blank”"
@@ -138,7 +148,7 @@
                 >Sponsor us</a
               >
             </li>
-            <li class="hover:text-blue border-b md:border-none">
+            <li class="hover:text-classic-purple">
               <a href="/" class="block py-2 pl-3 pr-4">
                 <span>Darklang Next</span>
               </a>
@@ -150,9 +160,7 @@
 
     <!-- Sign up form -->
 
-    <section
-      class="mt-8 pb-11 bg-gradient-to-b from-light-background via-light-background/30 to-white/5"
-    >
+    <section class="mt-8 pb-11">
       <div
         class="container flex flex-col justify-center items-center mx-auto text-center"
       >
@@ -165,7 +173,7 @@
           We're currently focused on the
           <a
             href="https://darklang.com/discord"
-            class="underline text-classic-yellow"
+            class="underline text-classic-purple"
             >next version</a
           >
           of Darklang, but you can still try Darklang Classic!
@@ -173,12 +181,12 @@
       </div>
 
       <div
-        class="rounded-lg mx-auto mt-16 border border-[#9B62BC] bg-gradient-to-r from-blue to-purple xs:w-[375px] lg:w-[450px] h-fit"
+        class="rounded-lg mx-auto mt-16 border border-classic-pink bg-gradient-to-r from-classic-purple via-classic-purple to-classic-pink xs:w-[375px] lg:w-[450px] h-fit"
       >
         <form
           id="sign-up-form"
           action=""
-          class="flex flex-col justify-center items-center pt-10 pb-5 px-6 md:px-12 bg-dark-gray rounded-lg text-white"
+          class="flex flex-col justify-center items-center pt-10 pb-5 px-6 md:px-12 bg-dark-gray rounded-t-lg text-white"
         >
           <div
             id="success"
@@ -217,7 +225,7 @@
               type="text"
               name="name"
               id="name"
-              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-purple peer"
+              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
               placeholder=" "
               required
             />
@@ -233,7 +241,7 @@
               type="email"
               name="email"
               id="email"
-              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-purple peer"
+              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
               placeholder=" "
               required
             />
@@ -249,7 +257,7 @@
               type="text"
               name="username"
               id="username"
-              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-purple peer"
+              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
               placeholder=" "
               required
             />
@@ -271,7 +279,7 @@
               >I promise to abide by the
               <a
                 href="https://darklang.com/code-of-conduct"
-                class="underline underline-offset-2 hover:text-purple"
+                class="underline underline-offset-2 hover:text-classic-purple"
                 >Code of Conduct</a
               >
               when using Dark services or participating in the Dark
@@ -279,7 +287,7 @@
             >
           </div>
           <button
-            class="bg-classic-purple text-white px-5 py-2 rounded mb-3 mt-4 hover:bg-pink cursor-pointer hover:bg-blue"
+            class="bg-classic-purple hover:bg-classic-purple/40 text-white px-5 py-2 rounded mb-3 mt-4 cursor-pointer"
           >
             Create account
           </button>
@@ -287,7 +295,7 @@
             Already have an account?
             <a
               href="https://login.darklang.com"
-              class="underline underline-offset-2 hover:text-purple"
+              class="underline underline-offset-2 hover:text-classic-purple"
               >log in</a
             >
           </p>

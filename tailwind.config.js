@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./public/*.{html,js}"],
+  content: ["./public/*.{html,js}", "./public/**/*.{html,js}"],
   theme: {
     fontFamily: {
       body: ["Inter", "sans-serif"],
@@ -29,7 +29,8 @@ module.exports = {
         "classic-brown": "#A1887F",
         "classic-yellow": "#E6BD81",
         "classic-blue": "#86C1B9",
-        "classic-purple": "#9B62BC",
+        "classic-purple": "#B278FF",
+        "classic-pink": "#F56FF0",
       },
       flex: {
         2: "2 2 0%",

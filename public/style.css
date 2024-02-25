@@ -1214,12 +1214,21 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), #B278FF, var(--tw-gradient-to);
 }
 
+.via-classic-purple\/80{
+  --tw-gradient-to: rgb(178 120 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(178 120 255 / 0.8), var(--tw-gradient-to);
+}
+
 .to-blue{
   --tw-gradient-to: #747AB9;
 }
 
 .to-classic-pink{
   --tw-gradient-to: #F56FF0;
+}
+
+.to-classic-pink\/80{
+  --tw-gradient-to: rgb(245 111 240 / 0.8);
 }
 
 .to-white{
@@ -2191,6 +2200,11 @@ video {
     padding: 1.5rem;
   }
 
+  .lg\:py-6{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
   .lg\:text-3xl{
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -2224,6 +2238,14 @@ video {
 @media (min-width: 1536px){
   .\32xl\:mb-32{
     margin-bottom: 8rem;
+  }
+
+  .\32xl\:mt-14{
+    margin-top: 3.5rem;
+  }
+
+  .\32xl\:mt-16{
+    margin-top: 4rem;
   }
 
   .\32xl\:mt-20{

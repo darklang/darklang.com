@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./public/*.{html,js}"],
+  content: ["./public/*.{html,js}", "./public/**/*.{html,js}"],
   theme: {
     fontFamily: {
       body: ["Inter", "sans-serif"],
@@ -24,6 +24,13 @@ module.exports = {
         "dark-gray": "#2F2F2F",
         "code-background": "#F5F4F1",
         "cli-background": "#262626",
+        // classic colors
+        "classic-green": "#A1B56C",
+        "classic-brown": "#A1887F",
+        "classic-yellow": "#E6BD81",
+        "classic-blue": "#86C1B9",
+        "classic-purple": "#B278FF",
+        "classic-pink": "#F56FF0",
       },
       flex: {
         2: "2 2 0%",

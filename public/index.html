@@ -507,7 +507,7 @@
             <div class="px-4 pb-4">
               <pre><darklang-code-dark-bg>let findLargeTypescriptCommonJSFiles (path : String) =
   Directory.traverse (fun path -> 
-    if not (List.oneOf (File.entension path) [".ts", ".mjs", ".cjs"]) then 
+    if not (List.oneOf (File.extension path) [".ts", ".mjs", ".cjs"]) then 
       print $"Skipping - wrong file type: {path}" 
     else 
       let contents = File.readString path 

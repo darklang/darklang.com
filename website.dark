@@ -1,12 +1,20 @@
+let sectionWrapper (children: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
+    Stdlib.Html.p
+        [ ("class", Stdlib.Option.Option.Some("mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand")) ]
+        children
+
 let sectionHeading (heading: Stdlib.Html.Node ) : Stdlib.Html.Node =
     Stdlib.Html.p
         [ ("class", Stdlib.Option.Option.Some("text-4xl font-bold mb-5 mx-2 md:mx-0")) ]
         [ (Stdlib.Html.htmlTagNode "span" [] [ heading ]) ]
 
-let sectionWrapper (children: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
-    Stdlib.Html.p
-        [ ("class", Stdlib.Option.Option.Some("mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand")) ]
-        children
+let itemHeading (content: Stdlib.Html.Node) : Stdlib.Html.Node =
+    Stdlib.Html.div
+        [ ("class", Stdlib.Option.Option.Some("my-3")) ]
+        [ Stdlib.Html.h3
+              [ ("class", Stdlib.Option.Option.Some("text-base md:text-xl font-bold")) ]
+              [ content ]
+        ]
 
 let gradientText (text: String) : Stdlib.Html.Node =
     Stdlib.Html.span
@@ -16,14 +24,35 @@ let gradientText (text: String) : Stdlib.Html.Node =
 let itemsWrapper (children: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
     Stdlib.Html.div [ ("class", Stdlib.Option.Option.Some("font-Quicksand grid lg:grid-cols-2 gap-3")) ] children
 
-let indentedBody (content: Stdlib.Html.Node) : Stdlib.Html.Node =
-    Stdlib.Html.span [ ("class", Stdlib.Option.Option.Some("text-lg font-normal mx-4 my-4")) ] [ content ]
+let toggleItem (id: String) (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
+    Stdlib.Html.div
+        [ ("class",
+           Stdlib.Option.Option.Some(
+               "toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
+           ))]
+        [ Stdlib.Html.span [] content
+          seeExample ()
+          Stdlib.Html.p [ ("class", Stdlib.Option.Option.Some("toggleContent text-purple -ml-3"))
+                          ("data-target", Stdlib.Option.Option.Some(id))  ] [] ]
 
 let toggleBody (id: String) (content: Stdlib.Html.Node) : Stdlib.Html.Node =
     Stdlib.Html.span
         [ ("class", Stdlib.Option.Option.Some("hidden mb-2"))
-          ("id", Stdlib.Option.Option.Some(id)) ]
-        [ content ]
+          ("id", Stdlib.Option.Option.Some(id))
+        ]
+        [ content ] 
+
+
+let simpleItem (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
+    Stdlib.Html.div
+        [ ("class",
+           Stdlib.Option.Option.Some(
+               "h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+           )) ]
+        [ Stdlib.Html.span [] content ]
+
+let indentedBody (content: Stdlib.Html.Node) : Stdlib.Html.Node =
+    Stdlib.Html.span [ ("class", Stdlib.Option.Option.Some("text-lg font-normal mx-4 my-4")) ] [ content ]
 
 let seeExample () : Stdlib.Html.Node =
     Stdlib.Html.a
@@ -58,36 +87,6 @@ let readMoreButton (id: String) : Stdlib.Html.Node =
           ]
       ]
       
-
-
-let toggleItem (id: String) (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
-    Stdlib.Html.div
-        [ ("class",
-           Stdlib.Option.Option.Some(
-               "toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
-           ))
-          ("data-target-id", Stdlib.Option.Option.Some(id)) ]
-        [ Stdlib.Html.span [] content
-          seeExample ()
-          Stdlib.Html.p [ ("class", Stdlib.Option.Option.Some("toggleContent text-purple -ml-3")) ] [] ]
-
-
-let simpleItem (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
-    Stdlib.Html.div
-        [ ("class",
-           Stdlib.Option.Option.Some(
-               "h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
-           )) ]
-        [ Stdlib.Html.span [] content ]
-
-let itemHeading (content: Stdlib.Html.Node) : Stdlib.Html.Node =
-    Stdlib.Html.div
-        [ ("class", Stdlib.Option.Option.Some("my-3")) ]
-        [ Stdlib.Html.h3
-              [ ("class", Stdlib.Option.Option.Some("text-base md:text-xl font-bold")) ]
-              [ content ]
-        ]
-
 let previewText (content: Stdlib.Html.Node) : Stdlib.Html.Node =
     Stdlib.Html.p
         [ ("class", Stdlib.Option.Option.Some("text-lg font-normal mx-4 my-4 line-clamp-3 previewText")) ]
@@ -140,7 +139,7 @@ let tagLabel (content: String) : Stdlib.Html.Node =
 
 let t2024 () : Stdlib.Html.Node = tagLabel "2024"
 
-let t2025 () : Stdlib.Html.Node = tagLabel "2025"
+let t2025 () : Stdlib.Html.Node = tagLabel "2025+"
 
 let inlineCode (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
@@ -207,7 +206,7 @@ let highlightJsScripts () : Stdlib.Html.Node =
 
 let toggleScript () : Stdlib.Html.Node =
     Stdlib.Html.stringNode
-        """
+      """
       <script>
         // Menu button navigation bar
         const button = document.querySelector("#menu-button");
@@ -233,27 +232,23 @@ let toggleScript () : Stdlib.Html.Node =
 
           toggleItems.forEach(item => {
             item.addEventListener('click', function() {
-              const targetId = this.getAttribute('data-target-id');
-              const targetElement = document.getElementById(targetId);
-              const seeExampleElement = this.querySelector('.see-example'); 
-              
-              if (targetElement) {
-                targetElement.classList.toggle('hidden');
-              }
+              const toggleContent = item.querySelector(".toggleContent");
+              const contentId = toggleContent.getAttribute("data-target");
+              const content = document.getElementById(contentId);
+              content.classList.toggle("hidden");
+              const previewText = item.querySelector(".previewText");
+              previewText.classList.toggle("line-clamp-3");
+              item.classList.toggle('h-64');
+              item.classList.toggle('sm:h-72'); 
+              item.classList.toggle('justify-center');
+              const seeExampleElement = item.querySelector('.see-example'); 
 
               if (seeExampleElement) {
                 seeExampleElement.classList.toggle('hidden'); 
               }
-              item.classList.toggle('justify-center');
-              item.classList.toggle('h-64');
-              item.classList.toggle('sm:h-72'); 
             });
           });
-        });
 
-
-        // Toggle items hidden content (read more)
-        document.addEventListener('DOMContentLoaded', () => {
         const allHiddenToggleItems = document.querySelectorAll(".hiddenToggleItem");
 
         allHiddenToggleItems.forEach(item => {
@@ -272,21 +267,14 @@ let toggleScript () : Stdlib.Html.Node =
           });
         });
       });
-
-
-
-      </script>
-    """
+    </script>
+  """
 
 let head () : Stdlib.Html.Node =
     Stdlib.Html.head
         []
         [ Stdlib.Html.title [] [ Stdlib.Html.stringNode "Darklang" ]
-          Stdlib.Html.htmlTagNode
-              "link"
-              [ ("href", Stdlib.Option.Option.Some("./style.css"))
-                ("rel", Stdlib.Option.Option.Some("stylesheet")) ]
-              []
+          Stdlib.Html.stringNode """ <link href = "./style.css" rel = "stylesheet"> """
           highlightJsScripts () ]
 
 let navbar () : Stdlib.Html.Node =
@@ -482,7 +470,7 @@ let heroSection () : Stdlib.Html.Node =
                                       [ ("class", Stdlib.Option.Option.Some("font-bold")) ]
                                       [ Stdlib.Html.stringNode "no devops:" ]
                                   Stdlib.Html.stringNode
-                                      " no yaml, no config files, no docker, no containers, no kubernetes, no ci/cd pipelines, no terraform, no orchestrating " ]
+                                      " no yaml, no config files, no docker, no containers, no kubernetes, no ci/cd pipelines, no terraform, no orchestrating, " ]
 
                             Stdlib.Html.span
                                 [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
@@ -551,7 +539,9 @@ let introSection () : Stdlib.Html.Node =
                     [ Stdlib.Html.stringNode "just " ]
                 Stdlib.Html.span
                     [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
-                    [ Stdlib.Html.stringNode "code" ] ]
+                    [ Stdlib.Html.stringNode "code" ] 
+                Stdlib.Html.stringNode "." 
+              ]
 
           Stdlib.Html.htmlTagNode "br" [] []
 
@@ -636,7 +626,7 @@ let codeSection () : Stdlib.Html.Node =
                                             Stdlib.Html.stringNode "Add to "
                                             Stdlib.Html.span
                                                 [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
-                                                [ Stdlib.Html.stringNode "PATH" ]
+                                                [ Stdlib.Html.stringNode "PATH " ]
                                             Stdlib.Html.stringNode "via .bashrc"
                                             Stdlib.Html.span
                                                 [ ("class", Stdlib.Option.Option.None) ]
@@ -679,7 +669,7 @@ let codeSection () : Stdlib.Html.Node =
                                                       [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
                                                       [ Stdlib.Html.stringNode "darklang " ]
                                                   Stdlib.Html.stringNode "@paul.fizzbuzz 3\n"
-                                                  Stdlib.Html.stringNode "1\n2\n3\nFizz\n\n"
+                                                  Stdlib.Html.stringNode "1\n2\nFizz\n\n"
                                                   ] ] ]
                             )
 
@@ -722,7 +712,7 @@ let codeSection () : Stdlib.Html.Node =
                                                       [ Stdlib.Html.stringNode "curl " ]
                                                   Stdlib.Html.stringNode
                                                       "-sSO https://furry-squirrel-3562.darklang.io/fizzbuzz/3 "
-                                                  Stdlib.Html.stringNode "1\n2\n3\nFizz\n\n" ] ] ]
+                                                  Stdlib.Html.stringNode "\n1\n2\nFizz\n\n" ] ] ]
                             ) ] ] ] 
                             
           Stdlib.Html.div
@@ -887,7 +877,7 @@ let codeSection () : Stdlib.Html.Node =
 let functionalLanguageSection () : Stdlib.Html.Node =
     sectionWrapper
         [ sectionHeading (
-            Stdlib.Html.span [] [ gradientText "Functional "; Stdlib.Html.stringNode "Language" ])
+            Stdlib.Html.span [] [ gradientText "Functional "; Stdlib.Html.stringNode "language" ])
 
           itemsWrapper
               [ 
@@ -930,33 +920,32 @@ let functionalLanguageSection () : Stdlib.Html.Node =
                                             "pre"
                                             [ ("class", Stdlib.Option.Option.Some("mt-4 p-0")) ]
                                             [ darklangCode
-                                                  """
-  // Record
-  type Url = {
-    scheme : HttpScheme
-    domain : String
-    port : UInt16
-    path : String
-    query : Option&lt;String&gt;
-  }
+                                                  """// Record
+type Url = {
+  scheme : HttpScheme
+  domain : String
+  port : UInt16
+  path : String
+  query : Option&lt;String&gt;
+}
 
-  // Enum (aka Variant, Sum Type, or Abstract Data Types)
-  type UrlError = 
-    | InvalidScheme(String)
-    | EmptyDomain
-    | InvalidPort(Int64)
-    | Unparseable(msg:String, context:String)
+// Enum (aka Variant, Sum Type, or Abstract Data Types)
+type UrlError = 
+  | InvalidScheme(String)
+  | EmptyDomain
+  | InvalidPort(Int64)
+  | Unparseable(msg:String, context:String)
 
-  // Aliases are just shorthands
-  type UrlParseResult = Result&lt;Url, UrlError&gt;
-  """ ]]);
+// Aliases are just shorthands
+type UrlParseResult = Result&lt;Url, UrlError&gt;
+""" ]]);
                                 bulletPoint(Stdlib.Html.stringNode "We believe Object Oriented programming is a terrible way to model programs, and inheritence is a terrible misfeature. Languages like OCaml, Elm, and F# have shown that nearly all problems can be modeled using ADTs.") 
                                 
                                 ])]
 
 
                 toggleItem
-                    "optionResult"
+                    "option-result"
                     [ itemHeading (
                         Stdlib.Html.span 
                             []
@@ -972,19 +961,19 @@ let functionalLanguageSection () : Stdlib.Html.Node =
                       previewText (
                           Stdlib.Html.span
                               []
-                              [ Stdlib.Html.stringNode "I think it's widely accepted that"
+                              [ Stdlib.Html.stringNode "I think it's widely accepted that "
                                 inlineCode [ Stdlib.Html.stringNode "null" ]
-                                Stdlib.Html.stringNode "is a mistake, and that an"
+                                Stdlib.Html.stringNode " is a mistake, and that an"
                                 inlineCode [ Stdlib.Html.stringNode "Option" ]
-                                Stdlib.Html.stringNode "type (aka)"
+                                Stdlib.Html.stringNode " type (aka) "
                                 inlineCode [ Stdlib.Html.stringNode "Optional" ]
-                                Stdlib.Html.stringNode ","
+                                Stdlib.Html.stringNode ", "
                                 inlineCode [ Stdlib.Html.stringNode "Maybe" ]
                                 Stdlib.Html.stringNode ", etc) makes it significantly easier to program." ]
                       )
 
                       toggleBody
-                          "optionResult"
+                          "option-result"
                           bulletPoints(
                               [ bulletPoint(
                                     Stdlib.Html.span
@@ -993,20 +982,20 @@ let functionalLanguageSection () : Stdlib.Html.Node =
                                               "We further believe that Exceptions — which can in most
                                               languages be thrown at any point — makes it very frustrating
                                               to know that a function actually works. There are no
-                                              exceptions in Darklang, and we use"
+                                              exceptions in Darklang, and we use "
 
                                           inlineCode [ Stdlib.Html.stringNode "Result" ]
 
-                                          Stdlib.Html.stringNode "types to manage error cases" ]
+                                          Stdlib.Html.stringNode " types to manage error cases" ]
                                 )
 
                                 bulletPoint(
                                     Stdlib.Html.span
                                         []
                                         [ inlineCode [ Stdlib.Html.stringNode "?" ]
-                                          Stdlib.Html.stringNode "and"
+                                          Stdlib.Html.stringNode " and "
                                           inlineCode [ Stdlib.Html.stringNode "!" ]
-                                          Stdlib.Html.stringNode "operators (similar to Rust,
+                                          Stdlib.Html.stringNode " operators (similar to Rust,
                                             TypeScript, and Clojure) provide ways to ergonomically handle
                                             errors without being too annoying (see also Gradual Static
                                             Typing)"
@@ -1021,7 +1010,8 @@ let functionalLanguageSection () : Stdlib.Html.Node =
                               ])
                       ] 
 
-                simpleItem
+                toggleItem
+                  "garbage-collected"
                   [ itemHeading ( 
                       Stdlib.Html.span 
                           []
@@ -1030,16 +1020,22 @@ let functionalLanguageSection () : Stdlib.Html.Node =
                               [ Stdlib.Html.stringNode "Garbage " ]
                             Stdlib.Html.stringNode "Collected"]
                     )
-                    indentedBody (
+                    previewText (
                         Stdlib.Html.stringNode
                             "It can be fun to satisfy the borrow checker, or manage allocations
                             individually, but it can also be fun to just get working programs
                             immediately. We believe that run-time garbage collection is one of
                             the greatest programming language features, and we're all in"
-                    )                  
+                    )  
+
+                    toggleBody
+                        "garbage-collected"
+                        (Stdlib.Html.stringNode "")
+                                    
                   ] 
 
-                simpleItem
+                toggleItem
+                  "unicode-first"
                   [ itemHeading ( 
                         Stdlib.Html.span 
                             []
@@ -1047,22 +1043,27 @@ let functionalLanguageSection () : Stdlib.Html.Node =
                                 [("class", Stdlib.Option.Option.Some("text-purple"))]
                                 [ Stdlib.Html.stringNode "Unicode " ]
                               Stdlib.Html.stringNode "First"])
-                    indentedBody(
+                    previewText(
                       Stdlib.Html.span
                         []
                         [ Stdlib.Html.stringNode
                             "Languages created last millennium typically use Strings made of
                               bytes, or worse, UTF16 characters, or even worse, Unicode
-                              Codepoints! Like Swift, we believe that"
+                              Codepoints! Like Swift, we believe that "
                           
                           inlineCode [ Stdlib.Html.stringNode "Character" ]
                           Stdlib.Html.stringNode "s should represent screen readable characters, like 👨‍👩‍👦‍👦. All characters in Darklang represent"
                           Stdlib.Html.span [ ("class", Stdlib.Option.Option.Some("italic")) ] [ Stdlib.Html.stringNode "Extended Grapheme Clusters" ]
                           Stdlib.Html.stringNode ": one character that you see on screen. Naturally, working on Unicode Codepoints"
-                          t2024 ()
-                          Stdlib.Html.stringNode "and normal bytes is also well supported."
                         ])
-                ] ]]
+                    
+                    toggleBody 
+                        "unicode-first" 
+                        ( Stdlib.Html.span
+                            [] 
+                            [ t2024 ()
+                              Stdlib.Html.stringNode "and normal bytes is also well supported."])
+              ] ]]
 
 let runsInstantlySection () : Stdlib.Html.Node =
     sectionWrapper
@@ -1081,12 +1082,12 @@ let runsInstantlySection () : Stdlib.Html.Node =
                             []
                             [ Stdlib.Html.stringNode "Instantly run any " 
                               Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
                                 [ Stdlib.Html.stringNode "package " ]
                               Stdlib.Html.stringNode "from the "
                               Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
-                                [ Stdlib.Html.stringNode "CLI" ]
+                                [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                [ Stdlib.Html.stringNode "CLI:" ]
                             ]
                           inlineCode [ 
                             Stdlib.Html.span
@@ -1194,7 +1195,6 @@ let runsInstantlySection () : Stdlib.Html.Node =
                     )
                 ]
 
-
               toggleItem
                 "instantly-run"
                 [ itemHeading ( 
@@ -1224,7 +1224,7 @@ let runsInstantlySection () : Stdlib.Html.Node =
                           Stdlib.Html.span 
                             []
                             [
-                              Stdlib.Html.stringNode "Single binary to install means no environments or containers to set up."
+                              Stdlib.Html.stringNode "Single binary to install means no environments or containers to set up. "
                               Stdlib.Html.span
                                 [ ("class", Stdlib.Option.Option.Some("line-through")) ]
                                 [ Stdlib.Html.stringNode "Install it now!" ]
@@ -1237,9 +1237,9 @@ let runsInstantlySection () : Stdlib.Html.Node =
                           Stdlib.Html.span 
                             []
                             [
-                              Stdlib.Html.stringNode "Packages are streamed from the package manager automatically &ndash; no"
+                              Stdlib.Html.stringNode "Packages are streamed from the package manager automatically &ndash; no "
                               inlineCode [ Stdlib.Html.stringNode "npm install" ]
-                              Stdlib.Html.stringNode "step"
+                              Stdlib.Html.stringNode " step"
                             ]
                         )
 
@@ -1396,7 +1396,7 @@ let gradualStaticTypingSection () : Stdlib.Html.Node =
                       []
                       [ 
                         inlineCode [Stdlib.Html.stringNode "!"]
-                        Stdlib.Html.stringNode "and "
+                        Stdlib.Html.stringNode " and "
                         inlineCode [Stdlib.Html.stringNode "?"]
                         Stdlib.Html.stringNode "operators allow easy error handling while you prototype"
                       ]
@@ -1409,7 +1409,7 @@ let gradualStaticTypingSection () : Stdlib.Html.Node =
                       [ 
                         Stdlib.Html.stringNode "Automatic refactoring converts "
                         inlineCode [Stdlib.Html.stringNode "!"]
-                        Stdlib.Html.stringNode "into proper error handling"
+                        Stdlib.Html.stringNode " into proper error handling"
                         t2024 ()
                       ]
                   )                
@@ -1458,11 +1458,14 @@ let asyncRuntimeSection () : Stdlib.Html.Node =
                               inlineCode [ Stdlib.Html.stringNode "await" ]])
                       
                       indentedBody (
-                          Stdlib.Html.stringNode
-                              "Adding async and await keywords to every language was a 
-                  mistake. It exposes the complexity of concurrency and 
-                  multi-threading to languages which were originally designed for
-                  simplicity."
+                          Stdlib.Html.span
+                              []
+                              [ Stdlib.Html.stringNode  "Adding "
+                                inlineCode [ Stdlib.Html.stringNode "async" ]
+                                Stdlib.Html.stringNode " and "
+                                inlineCode [ Stdlib.Html.stringNode "await" ]
+                                Stdlib.Html.stringNode " keywords to every language was a mistake. It exposes the complexity of concurrency and multi-threading to languages which were originally designed for simplicity."
+                              ]
                       ) ]
                 )
 
@@ -1517,11 +1520,10 @@ let instantCloudDeploymentSection () : Stdlib.Html.Node =
                     t2024 ()
 
                     Stdlib.Html.stringNode
-                        "Darklang has a fully integrated cloud deployment system, so you can
-                  deploy your code to the cloud with a single command. This includes
-                  creating databases, API endpoints, and worker queues, with no
-                  containers, no cold starts, no orchestration, or other devops/cloud
-                  engineering required" ]
+                        "Instant cloud deployment of code (to our cloud or yours), with instant
+                        creation of DBs, API endpoints, and worker queues, with no containers,
+                        no cold starts, no orchestration, or other devops/cloud engineering
+                        required" ]
           )
 
           ]
@@ -1767,7 +1769,7 @@ let footer () : Stdlib.Html.Node =
 
 let body () : Stdlib.Html.Node =
     Stdlib.Html.body
-        [ ("class", Stdlib.Option.Option.Some("bg-light-background box-border m-0 p-0")) ]
+        [ ("class", Stdlib.Option.Option.Some("bg-light-background box-border m-0 p-0 font-Quicksand")) ]
         [ 
           navbar ()
           heroSection ()

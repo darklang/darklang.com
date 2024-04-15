@@ -1,11 +1,19 @@
-<!DOCTYPE html><html><head><title>Darklang</title> <link href = "./style.css" rel = "stylesheet"> 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/fsharp.min.js"></script>
-        <script>
-          hljs.highlightAll();
-        </script>
-      </head><body class="bg-light-background box-border m-0 p-0 font-Quicksand">
+<!doctype html>
+<html>
+  <head>
+    <title>Darklang</title>
+    <link href="./style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/fsharp.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </head>
+  <body class="bg-light-background box-border m-0 p-0 font-Quicksand">
     <div class="sticky bg-light-background w-full top-0 left-0 z-50">
       <div
         class="text-center bg-dark-gray text-white flex items-center justify-center"
@@ -150,7 +158,129 @@
         </div>
       </nav>
     </div>
-    <section class="mx-12 md:mx-32 mt-20 md:mt-28 2xl:mt-40 font-Quicksand"><div class="flex flex-col justify-center items-center mx-auto text-center"><img src="./img/wordmark-light-transparent@2x.png" class="max-w-xs md:max-w-xl 2xl:max-w-3xl"> </img></div><div class="mt-10 2xl:mt-20 mx-auto flex flex-col items-center justify-center xl:flex-row max-w-6xl 2xl:max-w-screen-xl"><div><h2 class="text-3xl 2xl:text-4xl font-bold mb-4 text-dark-gray"><span class="text-blue">Just </span><span class="text-purple">code</span></h2><p class="text-base 2xl:text-lg text-justify text-gray-500"><span class="text-grey-500"><span class="font-bold">no cruft:</span> no build systems, no null, no exception handling, no ORMs, no OOP, no inheritence hierarchies, no async/await, no compilation, no dev environments, no dependency hell, no packaging, no git, no github </span><span class="text-blue"><span class="font-bold">no devops:</span> no yaml, no config files, no docker, no containers, no kubernetes, no ci/cd pipelines, no terraform, no orchestrating, </span><span class="text-purple"><span class="font-bold">no infrastructure:</span> no sql, no nosql, no connection poolers, no sharding, no indexes, no servers, no serverless, no networking, no load balancers, no 200 cloud services, no kafka, no memcached, no unix, no OSes</span></p></div><form id="form1" onsubmit="addEmailToList(1); return false;" class="font-bold md:flex md:flex-col justify-center m-10"><div class="md:flex md:flex-col justify-center"><p class="my-2 text-dark-gray/50">Send me project updates</p><div class="md:flex md:flex-row"><input type="email" id="email1" name="email" placeholder="Your email" required class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-white w-full md:w-96"> </input><span class="hidden text-red-400 absolute -bottom-7 text-xs italic" id="error1"> </span><button type="submit" class="bg-blue hover:bg-purple text-white rounded px-5 py-3 mx-auto mt-2 w-full md:mt-0 md:w-max md:mx-2">Send</button></div></div></form></div></section><section class="container mx-auto p-8 text-center my-10 md:px-16 2xl:p-0 md:mt-44 2xl:mb-32 text-xl md:text-4xl font-Quicksand"><p>Darklang puts everything in one box, so you can build CLIs and cloud apps with no bullshit, <span class="text-blue">just </span><span class="text-purple">code</span>.</p><br/><p class="text-sm md:text-lg xl:text-xl">Also it's a really enjoyable language to use!</p></section><section class="container mx-auto mb-12 md:mb-40"><div class="bg-[#19181D] rounded md:rounded-2xl flex flex-col md:flex-row md:items-center md:justify-between p-2 md:pr-7 md:pl-20 m-4"><div class="flex md:flex-col justify-between md:items-start md:justify-start m-2 md:m-0"><p class="text-white text-base md:text-lg lg:text-3xl 2xl:text-4xl">Looking for Darklang-classic?</p><button class="bg-purple text-white text-xs md:text-lg rounded px-3 py-1 md:mt-6"><a href="/classic" class="hover:underline">Learn more</a></button></div><div class="md:w-[700px] md:h-[230px] overflow-hidden"><img src="./img/dark-classic.png" class="w-full"> </img></div></div></section><section class="container mx-auto my-20"><div><div class="mb-8 text-center text-gray-500"><span class="md:text-lg 2xl:text-xl">In development - here’s how things will look shortly</span></div><div class="lg:flex justify-center items-center mb-24"><div><div class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"><div class="inline-block my-2"><button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"> </button></div><div><span><pre class="whitespace-pre-line"><div>$ <span class="text-blue">curl</span> https://darklang.com/download <span class="text-purple">| bash
+    <section class="mx-12 md:mx-32 mt-20 md:mt-28 2xl:mt-40 font-Quicksand">
+      <div
+        class="flex flex-col justify-center items-center mx-auto text-center"
+      >
+        <img
+          src="./img/wordmark-light-transparent@2x.png"
+          class="max-w-xs md:max-w-xl 2xl:max-w-3xl"
+        />
+      </div>
+      <div
+        class="mt-10 2xl:mt-20 mx-auto flex flex-col items-center justify-center xl:flex-row max-w-6xl 2xl:max-w-screen-xl"
+      >
+        <div>
+          <h2 class="text-3xl 2xl:text-4xl font-bold mb-4 text-dark-gray">
+            <span class="text-blue">Just </span
+            ><span class="text-purple">code</span>
+          </h2>
+          <p class="text-base 2xl:text-lg text-justify text-gray-500">
+            <span class="text-grey-500"
+              ><span class="font-bold">no cruft:</span> no build systems, no
+              null, no exception handling, no ORMs, no OOP, no inheritence
+              hierarchies, no async/await, no compilation, no dev environments,
+              no dependency hell, no packaging, no git, no github </span
+            ><span class="text-blue"
+              ><span class="font-bold">no devops:</span> no yaml, no config
+              files, no docker, no containers, no kubernetes, no ci/cd
+              pipelines, no terraform, no orchestrating, </span
+            ><span class="text-purple"
+              ><span class="font-bold">no infrastructure:</span> no sql, no
+              nosql, no connection poolers, no sharding, no indexes, no servers,
+              no serverless, no networking, no load balancers, no 200 cloud
+              services, no kafka, no memcached, no unix, no OSes</span
+            >
+          </p>
+        </div>
+        <form
+          id="form1"
+          onsubmit="addEmailToList(1); return false;"
+          class="font-bold md:flex md:flex-col justify-center m-10"
+        >
+          <div class="md:flex md:flex-col justify-center">
+            <p class="my-2 text-dark-gray/50">Send me project updates</p>
+            <div class="md:flex md:flex-row">
+              <input
+                type="email"
+                id="email1"
+                name="email"
+                placeholder="Your email"
+                required
+                class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-white w-full md:w-96"
+              /><span
+                class="hidden text-red-400 absolute -bottom-7 text-xs italic"
+                id="error1"
+              ></span
+              ><button
+                type="submit"
+                class="bg-blue hover:bg-purple text-white rounded px-5 py-3 mx-auto mt-2 w-full md:mt-0 md:w-max md:mx-2"
+              >
+                Send
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section
+      class="container mx-auto p-8 text-center my-10 md:px-16 2xl:p-0 md:mt-44 2xl:mb-32 text-xl md:text-4xl font-Quicksand"
+    >
+      <p>
+        Darklang puts everything in one box, so you can build CLIs and cloud
+        apps with no bullshit, <span class="text-blue">just </span
+        ><span class="text-purple">code</span>.
+      </p>
+      <br />
+      <p class="text-sm md:text-lg xl:text-xl">
+        Also it's a really enjoyable language to use!
+      </p>
+    </section>
+    <section class="container mx-auto mb-12 md:mb-40">
+      <div
+        class="bg-[#19181D] rounded md:rounded-2xl flex flex-col md:flex-row md:items-center md:justify-between p-2 md:pr-7 md:pl-20 m-4"
+      >
+        <div
+          class="flex md:flex-col justify-between md:items-start md:justify-start m-2 md:m-0"
+        >
+          <p class="text-white text-base md:text-lg lg:text-3xl 2xl:text-4xl">
+            Looking for Darklang-classic?
+          </p>
+          <button
+            class="bg-purple text-white text-xs md:text-lg rounded px-3 py-1 md:mt-6"
+          >
+            <a href="/classic" class="hover:underline">Learn more</a>
+          </button>
+        </div>
+        <div class="md:w-[700px] md:h-[230px] overflow-hidden">
+          <img src="./img/dark-classic.png" class="w-full" />
+        </div>
+      </div>
+    </section>
+    <section class="container mx-auto my-20">
+      <div>
+        <div class="mb-8 text-center text-gray-500">
+          <span class="md:text-lg 2xl:text-xl"
+            >In development - here’s how things will look shortly</span
+          >
+        </div>
+        <div class="lg:flex justify-center items-center mb-24">
+          <div>
+            <div
+              class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"
+            >
+              <div class="inline-block my-2">
+                <button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"></button
+                ><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"></button
+                ><button
+                  class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"
+                ></button>
+              </div>
+              <div>
+                <span>
+                  <pre
+                    class="whitespace-pre-line"
+                  ><div>$ <span class="text-blue">curl</span> https://darklang.com/download <span class="text-purple">| bash
 
 </span></div>Darklang installed in <span class="text-gray-400">~/.darklang/bin/darklang
 
@@ -175,21 +305,96 @@ Next you can:
 
 </span></span>darklang help
 
-</span></pre></span></div></div></div><div><div class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"><div class="inline-block my-2"><button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"> </button></div><div><span><pre class="whitespace-pre-line"><span>$ <span class="text-purple">darklang </span>@paul.fizzbuzz 3
+</span></pre>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"
+            >
+              <div class="inline-block my-2">
+                <button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"></button
+                ><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"></button
+                ><button
+                  class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"
+                ></button>
+              </div>
+              <div>
+                <span>
+                  <pre
+                    class="whitespace-pre-line"
+                  ><span>$ <span class="text-purple">darklang </span>@paul.fizzbuzz 3
 1
 2
 Fizz
 
-</span></pre></span></div></div><div class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"><div class="inline-block my-2"><button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"> </button></div><div><span><pre class="whitespace-pre-line"><span>$ <span class="text-purple">darklang </span>deploy @paul.fizzbuzz /fizzbuzz
+</span></pre>
+                </span>
+              </div>
+            </div>
+            <div
+              class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"
+            >
+              <div class="inline-block my-2">
+                <button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"></button
+                ><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"></button
+                ><button
+                  class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"
+                ></button>
+              </div>
+              <div>
+                <span>
+                  <pre
+                    class="whitespace-pre-line"
+                  ><span>$ <span class="text-purple">darklang </span>deploy @paul.fizzbuzz /fizzbuzz
 Deployed to <span class="text-gray-500 hover:underline">https://furry-squirrel-3562.darklang.io/fizzbuzz
 </span> in <span class="text-[#a1b56c]">0.135s
 
-</span></span></pre></span></div></div><div class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"><div class="inline-block my-2"><button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"> </button></div><div><span><pre class="whitespace-pre-line"><span>$ <span class="text-blue">curl </span>-sSO https://furry-squirrel-3562.darklang.io/fizzbuzz/3 
+</span></span></pre>
+                </span>
+              </div>
+            </div>
+            <div
+              class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"
+            >
+              <div class="inline-block my-2">
+                <button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"></button
+                ><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"></button
+                ><button
+                  class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"
+                ></button>
+              </div>
+              <div>
+                <span>
+                  <pre
+                    class="whitespace-pre-line"
+                  ><span>$ <span class="text-blue">curl </span>-sSO https://furry-squirrel-3562.darklang.io/fizzbuzz/3 
 1
 2
 Fizz
 
-</span></pre></span></div></div></div></div></div><div class="lg:flex justify-center items-center"><div class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"><div class="inline-block my-2"><button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"> </button><button class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"> </button></div><div><pre class="whitespace-pre-line"><span>$ <span class="text-purple">darklang </span>prompt "Find ts scripts with more than 600 lines which use commonjs format"
+</span></pre>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:flex justify-center items-center">
+        <div
+          class="font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"
+        >
+          <div class="inline-block my-2">
+            <button class="rounded-full h-3 w-3 mx-1 bg-[#DD333F]"></button
+            ><button class="rounded-full h-3 w-3 mx-1 bg-[#F5D76E]"></button
+            ><button class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"></button>
+          </div>
+          <div>
+            <pre
+              class="whitespace-pre-line"
+            ><span>$ <span class="text-purple">darklang </span>prompt "Find ts scripts with more than 600 lines which use commonjs format"
 
 We need your AI credentials, which will be stored locally in <span class="text-gray-400 hover:underline">~/darklang/secrets/
 
@@ -209,7 +414,22 @@ We need your AI credentials, which will be stored locally in <span class="text-g
 
 </span><span>Saved script in <span class="text-gray-400 hover:underline">./find-large-ts-cjs.dark </span>in <span class="text-[#a1b56c]">43.8s
 
-</span></span></span></pre></div></div><div class="bg-dark-gray rounded-lg mx-3"><div class="flex items-center py-4 px-5 border-b border-b-white/10"><div><img src="./img/logo-dark-transparent.png" alt="dark-file-logo" class="w-8 h-8"> </img></div><div><p class="text-gray-300">find-large-ts-cjs.dark</p></div></div><div class="px-4 pb-45"><pre><code class="!bg-dark-gray !text-white fsharp"><span>
+</span></span></span></pre>
+          </div>
+        </div>
+        <div class="bg-dark-gray rounded-lg mx-3">
+          <div class="flex items-center py-4 px-5 border-b border-b-white/10">
+            <div>
+              <img
+                src="./img/logo-dark-transparent.png"
+                alt="dark-file-logo"
+                class="w-8 h-8"
+              />
+            </div>
+            <div><p class="text-gray-300">find-large-ts-cjs.dark</p></div>
+          </div>
+          <div class="px-4 pb-45">
+            <pre><code class="!bg-dark-gray !text-white fsharp"><span>
   let findLargeTypescriptCommonJSFiles (path : String) =
     Directory.traverse (fun path -> 
       if not (List.oneOf (File.entension path) [".ts", ".mjs", ".cjs"]) then 
@@ -229,12 +449,57 @@ We need your AI credentials, which will be stored locally in <span class="text-g
       )
       
   findLargeTypescriptCommonJSFiles "./"
-                      </span></code></pre></div></div></div></section><section class="container mx-auto my-20"><p class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"><p class="text-4xl font-bold mb-5 mx-2 md:mx-0"><span><span><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue">Functional </span>language</span></span></p><div class="font-Quicksand grid lg:grid-cols-2 gap-3"><div class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span>Simple types using <span class="text-purple">Record</span> and <span class="text-blue">Enum</span></span></h3></div><p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText"><span>Dynamic languages are great, allowing great flexibility. But now
-                            that they've matured and projects have gotten larger, static
-                            typing has been layered on top of very dynamic languages, and the
-                            intersection is not pleasant. Functional static languages like
-                            Darklang have simple Record and Enum types that can model nearly
-                            everything with much less complexity.</span></p><span class="hidden mb-2" id="simpleTypes"><ul class="text-lg font-normal m-4"><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>Abstract Data Types made of Record and Enums can model nearly anything, like in Rust, Elm, OCaml and F#<pre class="mt-4 p-0"><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded language-fsharp"><span>// Record
+                      </span></code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container mx-auto my-20">
+      <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
+        <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+          <span
+            ><span
+              ><span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+                >Functional </span
+              >language</span
+            ></span
+          >
+        </p>
+        <div class="font-Quicksand grid lg:grid-cols-2 gap-3">
+          <div
+            class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span
+                    >Simple types using
+                    <span class="text-purple">Record</span> and
+                    <span class="text-blue">Enum</span></span
+                  >
+                </h3>
+              </div>
+              <p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText">
+                Dynamic languages are great, allowing great flexibility. But now
+                that they've matured and projects have gotten larger, static
+                typing has been layered on top of very dynamic languages, and
+                the intersection is not pleasant. Functional static languages
+                like Darklang have simple Record and Enum types that can model
+                nearly everything with much less complexity.
+              </p>
+              <span class="hidden mb-2" id="simpleTypes"
+                ><ul class="text-lg font-normal m-4">
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    <span
+                      >Abstract Data Types made of Record and Enums can model
+                      nearly anything, like in Rust, Elm, OCaml and F#
+                      <pre
+                        class="mt-4 p-0"
+                      ><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded language-fsharp"><span>// Record
 type Url = {
   scheme : HttpScheme
   domain : String
@@ -252,24 +517,242 @@ type UrlError =
 
 // Aliases are just shorthands
 type UrlParseResult = Result&lt;Url, UrlError&gt;
-</span></code></pre></span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>We believe Object Oriented programming is a terrible way to model programs, and inheritence is a terrible misfeature. Languages like OCaml, Elm, and F# have shown that nearly all problems can be modeled using ADTs.</li></ul></span></span><a class="see-example text-blue hover:text-purple cursor-pointer m-3">See example</a><p class="toggleContent text-purple -ml-3" data-target="simpleTypes"> </p></div><div class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span><span class="text-purple">Option</span> and <span class="text-blue">Result</span> types instead of null and exceptions</span></h3></div><p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText"><span><span>I think it's widely accepted that <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>null</span></code> is a mistake, and that an<code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>Option</span></code> type (aka) <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>Optional</span></code>, <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>Maybe</span></code>, etc) makes it significantly easier to program.</span></span></p><span class="hidden mb-2" id="option-result"><ul class="text-lg font-normal m-4"><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>We further believe that Exceptions — which can in most
-                                              languages be thrown at any point — makes it very frustrating
-                                              to know that a function actually works. There are no
-                                              exceptions in Darklang, and we use <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>Result</span></code> types to manage error cases</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span><code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>?</span></code> and <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>!</span></code> operators (similar to Rust,
-                                            TypeScript, and Clojure) provide ways to ergonomically handle
-                                            errors without being too annoying (see also Gradual Static
-                                            Typing)</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>We will admit we have some RuntimeErrors which cannot be
-                                    caught, but we are working to remove them almost entirely from
-                                    the language (see Gradual Static Typing for what we're
-                                    keeping)</li></ul></span></span><a class="see-example text-blue hover:text-purple cursor-pointer m-3">See example</a><p class="toggleContent text-purple -ml-3" data-target="option-result"> </p></div><div class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span><span class="text-purple">Garbage </span>Collected</span></h3></div><p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText"><span>It can be fun to satisfy the borrow checker, or manage allocations
-                            individually, but it can also be fun to just get working programs
-                            immediately. We believe that run-time garbage collection is one of
-                            the greatest programming language features, and we're all in</span></p><span class="hidden mb-2" id="garbage-collected"></span></span><a class="see-example text-blue hover:text-purple cursor-pointer m-3">See example</a><p class="toggleContent text-purple -ml-3" data-target="garbage-collected"> </p></div><div class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span><span class="text-purple">Unicode </span>First</span></h3></div><p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText"><span><span>Languages created last millennium typically use Strings made of
-                              bytes, or worse, UTF16 characters, or even worse, Unicode
-                              Codepoints! Like Swift, we believe that <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>Character</span></code>s should represent screen readable characters, like 👨‍👩‍👦‍👦. All characters in Darklang represent<span class="italic">Extended Grapheme Clusters</span>: one character that you see on screen. Naturally, working on Unicode Codepoints</span></span></p><span class="hidden mb-2" id="unicode-first"><span><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>and normal bytes is also well supported.</span></span></span><a class="see-example text-blue hover:text-purple cursor-pointer m-3">See example</a><p class="toggleContent text-purple -ml-3" data-target="unicode-first"> </p></div></div></p><p class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"><p class="text-4xl font-bold mb-5 mx-2 md:mx-0"><span><span>Runs <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue">Instantly</span></span></span></p><div class="font-Quicksand grid lg:grid-cols-2 gap-3"><div class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span><span>Instantly run any <span class="text-purple">package </span>from the <span class="text-blue">CLI:</span></span><code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span><span class="text-blue pr-2">darklang</span><span class="text-dark-gray pr-2">@username.functionName</span><span class="ext-blue pr-2">arg1</span><span class="text-purple">arg2</span></span></code></span></h3></div><p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText"><span>Darklang has a new model of sharing programs. Any function in the
-                            package manager can be called directly from the command line (so
-                            long as we can figure out how to coerce the command line arguments
-                            correctly)</span></p><span class="hidden mb-2" id="run-any"><ul class="text-lg font-normal m-4"><pre><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"><span>  $ darklang @paul.fizzbuzz 10
+</span></code></pre>
+                    </span>
+                  </li>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    We believe Object Oriented programming is a terrible way to
+                    model programs, and inheritence is a terrible misfeature.
+                    Languages like OCaml, Elm, and F# have shown that nearly all
+                    problems can be modeled using ADTs.
+                  </li>
+                </ul></span
+              >
+            </div>
+            <a
+              class="see-example text-blue hover:text-purple cursor-pointer m-3"
+              >See example</a
+            >
+            <p
+              class="toggleContent text-purple -ml-3"
+              data-target="simpleTypes"
+            ></p>
+          </div>
+          <div
+            class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span
+                    ><span class="text-purple">Option</span> and
+                    <span class="text-blue">Result</span> types instead of null
+                    and exceptions</span
+                  >
+                </h3>
+              </div>
+              <p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText">
+                <span
+                  >I think it's widely accepted that
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>null</span></code
+                  >
+                  is a mistake, and that an<code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>Option</span></code
+                  >
+                  type (aka)
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>Optional</span></code
+                  >,
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>Maybe</span></code
+                  >, etc) makes it significantly easier to program.</span
+                >
+              </p>
+              <span class="hidden mb-2" id="option-result"
+                ><ul class="text-lg font-normal m-4">
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    <span
+                      >We further believe that Exceptions — which can in most
+                      languages be thrown at any point — makes it very
+                      frustrating to know that a function actually works. There
+                      are no exceptions in Darklang, and we use
+                      <code
+                        class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                        ><span>Result</span></code
+                      >
+                      types to manage error cases</span
+                    >
+                  </li>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    <span
+                      ><code
+                        class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                        ><span>?</span></code
+                      >
+                      and
+                      <code
+                        class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                        ><span>!</span></code
+                      >
+                      operators (similar to Rust, TypeScript, and Clojure)
+                      provide ways to ergonomically handle errors without being
+                      too annoying (see also Gradual Static Typing)</span
+                    >
+                  </li>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    We will admit we have some RuntimeErrors which cannot be
+                    caught, but we are working to remove them almost entirely
+                    from the language (see Gradual Static Typing for what we're
+                    keeping)
+                  </li>
+                </ul></span
+              >
+            </div>
+            <a
+              class="see-example text-blue hover:text-purple cursor-pointer m-3"
+              >See example</a
+            >
+            <p
+              class="toggleContent text-purple -ml-3"
+              data-target="option-result"
+            ></p>
+          </div>
+          <div
+            class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span
+                    ><span class="text-purple">Garbage </span>Collected</span
+                  >
+                </h3>
+              </div>
+              <p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText">
+                It can be fun to satisfy the borrow checker, or manage
+                allocations individually, but it can also be fun to just get
+                working programs immediately. We believe that run-time garbage
+                collection is one of the greatest programming language features,
+                and we're all in
+              </p>
+              <span class="hidden mb-2" id="garbage-collected"></span>
+            </div>
+            <a
+              class="see-example text-blue hover:text-purple cursor-pointer m-3"
+              >See example</a
+            >
+            <p
+              class="toggleContent text-purple -ml-3"
+              data-target="garbage-collected"
+            ></p>
+          </div>
+          <div
+            class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span><span class="text-purple">Unicode </span>First</span>
+                </h3>
+              </div>
+              <p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText">
+                <span
+                  >Languages created last millennium typically use Strings made
+                  of bytes, or worse, UTF16 characters, or even worse, Unicode
+                  Codepoints! Like Swift, we believe that
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>Character</span></code
+                  >s should represent screen readable characters, like 👨‍👩‍👦‍👦. All
+                  characters in Darklang represent<span class="italic"
+                    >Extended Grapheme Clusters</span
+                  >: one character that you see on screen. Naturally, working on
+                  Unicode Codepoints<span class="mx-auto inline-block"
+                    ><span
+                      class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                      ><span>2024</span
+                      ><span
+                        class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                      ></span></span></span
+                  >and normal bytes is also well supported.</span
+                >
+              </p>
+              <span class="hidden mb-2" id="unicode-first"></span>
+            </div>
+            <a
+              class="see-example text-blue hover:text-purple cursor-pointer m-3"
+              >See example</a
+            >
+            <p
+              class="toggleContent text-purple -ml-3"
+              data-target="unicode-first"
+            ></p>
+          </div>
+        </div>
+      </div>
+      <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
+        <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+          <span
+            ><span
+              >Runs
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+                >Instantly</span
+              ></span
+            ></span
+          >
+        </p>
+        <div class="font-Quicksand grid lg:grid-cols-2 gap-3">
+          <div
+            class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span
+                    ><span
+                      >Instantly run any
+                      <span class="text-purple">package </span>from the
+                      <span class="text-blue">CLI:</span></span
+                    ><code
+                      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                      ><span
+                        ><span class="text-blue pr-2">darklang</span
+                        ><span class="text-dark-gray pr-2"
+                          >@username.functionName</span
+                        ><span class="ext-blue pr-2">arg1</span
+                        ><span class="text-purple">arg2</span></span
+                      ></code
+                    ></span
+                  >
+                </h3>
+              </div>
+              <p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText">
+                Darklang has a new model of sharing programs. Any function in
+                the package manager can be called directly from the command line
+                (so long as we can figure out how to coerce the command line
+                arguments correctly)
+              </p>
+              <span class="hidden mb-2" id="run-any"
+                ><ul class="text-lg font-normal m-4">
+                  <pre><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"><span>  $ darklang @paul.fizzbuzz 10
   1
   2
   Fizz
@@ -280,10 +763,62 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
   8
   Fizz
   Buzz
-                              </span></code></pre><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>We designed this to allow you to share scripts with your team, or the whole world. We support private packages<div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>, with individual, team, or role-based access controls. You can even have functions that run server-side<div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2025+</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>without allowing the user to see credentials, for example for providing customer support tools to your team.</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>Functions can also be run from the web, Slack, Discord, etc<div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div></span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>We're building safety features, to ensure that functions
-                                can't just steal all your IDs and wallets and whatever.
-                                Darklang asks for permissions when you call a function, and a
-                                static analysis is run to collect all permissions needed.<pre class="mt-4"><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"><span>  $ darklang @hacker.stealThings "Hi there"
+                              </span></code></pre>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    <span
+                      >We designed this to allow you to share scripts with your
+                      team, or the whole world. We support private packages<span
+                        class="mx-auto inline-block"
+                        ><span
+                          class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                          ><span>2024</span
+                          ><span
+                            class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                          ></span></span></span
+                      >, with individual, team, or role-based access controls.
+                      You can even have functions that run server-side<span
+                        class="mx-auto inline-block"
+                        ><span
+                          class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                          ><span>2025+</span
+                          ><span
+                            class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                          ></span></span></span
+                      >without allowing the user to see credentials, for example
+                      for providing customer support tools to your team.</span
+                    >
+                  </li>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    <span
+                      >Functions can also be run from the web, Slack, Discord,
+                      etc<span class="mx-auto inline-block"
+                        ><span
+                          class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                          ><span>2024</span
+                          ><span
+                            class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                          ></span></span></span
+                    ></span>
+                  </li>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    <span
+                      >We're building safety features, to ensure that functions
+                      can't just steal all your IDs and wallets and whatever.
+                      Darklang asks for permissions when you call a function,
+                      and a static analysis is run to collect all permissions
+                      needed.
+                      <pre
+                        class="mt-4"
+                      ><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"><span>  $ darklang @hacker.stealThings "Hi there"
   > @hacker.stealThings requires the following permissions
   >   Makes Http requests to unknown domains
   >   Reads any file
@@ -299,48 +834,638 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
   >   Makes Http POST requests to drive.google.com
   > Continue? [N, y] y
   Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf3.pdf
-  </span></code></pre></span></li></ul></span></span><a class="see-example text-blue hover:text-purple cursor-pointer m-3">See example</a><p class="toggleContent text-purple -ml-3" data-target="run-any"> </p></div><div class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span>Instantly <span class="text-purple">run </span>programs as you <span class="text-blue">write </span>them</span></h3></div><p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText"><span>Darklang is designed for a really fast iterative loop</span></p><span class="hidden mb-2" id="instantly-run"><ul class="text-lg font-normal m-4"><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>Single binary to install means no environments or containers to set up. <span class="line-through">Install it now!</span><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>Coming early 2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div></span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>Packages are streamed from the package manager automatically &ndash; no <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>npm install</span></code> step</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>darklang is interpreted &mdash; no compilation step required, programs run immediately</li><ul class="ml-4"><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>We plan to add background compilation in the future, combined with pre-compiled packages in the package manager<div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2025+</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div></span></li></ul><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>Gradual Static Typing allows running programs with incorrect types so you don't need to fix all the types in your program while getting one path working</li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>Generate darklang code automatically using LLMs and GitHub Copilot</li></ul></span></span><a class="see-example text-blue hover:text-purple cursor-pointer m-3">See example</a><p class="toggleContent text-purple -ml-3" data-target="instantly-run"> </p></div></div></p><p class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"><p class="text-4xl font-bold mb-5 mx-2 md:mx-0"><span><span><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue">Next-gen </span>package management</span></span></p><span class="text-lg font-normal mx-4 my-4"><span>Darklang has a rather unique package manager, where functions and
-                      types are individually versioned and immutable, taking a lot of the
-                      hassle out of package management.<span class="hidden mb-2" id="streaming-package-manager"><ul class="text-lg font-normal m-4"><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>Only download the specific package items you use</li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>Only upgrade the specific package items you use</li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>Automated dependency upgrades, as we track deprecation status, and know what functions are pure and safe to update.</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>Different packages can rely on different versions of other packages</li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>Use multiple versions of the same package item at once: allows testing new versions without having to change an entire package version, lowering risk.</li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>Share pre-release functions trivially, without contributors needing to check out your git repo or set up anything</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>The package manager functions as a source repository</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>no need for uploads, releases or other synchronization. No git or GitHub required (but you can sync to GitHub if you prefer).</li></ul></span><div class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group" data-target="streaming-package-manager"><div class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"> </div><div class="relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"><div class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"><span class="text-lg text-black flex items-center "><span class="readMoreButton">Read More</span>
-      <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 25 25"
-      class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
-    >
-      <path
-        style="fill: #232326"
-        d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-        data-name="Right"
-      />
-    </svg>
-    </span></div></div></div></span></span></p><p class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"><p class="text-4xl font-bold mb-5 mx-2 md:mx-0"><span><span><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue">Gradual </span>Static Typing</span></span></p><span class="text-lg font-normal mx-4 my-4"><span>Gradual Static Typing allows running incomplete programs so you don't need to ensure everything type checks when you're getting one path working<span class="hidden mb-2" id="gst"><ul class="text-lg font-normal m-4"><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>While prototyping, just run code until you hit a type error</li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>After prototyping, run the full type checker to gain confidence your whole program works<div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div></span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>Full type-checking hints in VSCode or in LSP editors<div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div></span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span><code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>!</span></code> and <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>?</span></code>operators allow easy error handling while you prototype</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>Automatic refactoring converts <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>!</span></code> into proper error handling<div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div></span></li></ul></span><div class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group" data-target="gst"><div class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"> </div><div class="relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"><div class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"><span class="text-lg text-black flex items-center "><span class="readMoreButton">Read More</span>
-      <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 25 25"
-      class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
-    >
-      <path
-        style="fill: #232326"
-        d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-        data-name="Right"
-      />
-    </svg>
-    </span></div></div></div></span></span></p><p class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"><p class="text-4xl font-bold mb-5 mx-2 md:mx-0"><span><span><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue">Async </span>runtime</span></span></p><div class="font-Quicksand grid lg:grid-cols-2 gap-3"><div class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span>Fully<span class="text-purple"> asynchronous </span>runtime</span></h3></div><span class="text-lg font-normal mx-4 my-4">Darklang has a fully asynchronous runtime, so making a Http call
-                      or reading a file doesn't block the runtime.</span></span></div><div class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span><span class="text-purple">No </span><code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>async</span></code>/<code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>await</span></code></span></h3></div><span class="text-lg font-normal mx-4 my-4"><span>Adding <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>async</span></code> and <code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span>await</span></code> keywords to every language was a mistake. It exposes the complexity of concurrency and multi-threading to languages which were originally designed for simplicity.</span></span></span></div><div class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span><span class="text-purple">Concurrent </span>and <span class="text-blue">parallel </span>execution via data-dependencies</span></h3></div><span class="text-lg font-normal mx-4 my-4">When you make an async request, it first waits for any arguments
-                  that are async, and starts when they're done. If another
-                  function call needs to use the result, it will wait for it
-                  before starting.
-                  Since darklang values are immutable, there won't be any race  
-                  conditions from this.</span></span></div><div class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"><span><div class="my-3"><h3 class="text-base md:text-xl font-bold"><span><span class="text-purple">Powerful </span>escape hatches</span></h3></div><span class="text-lg font-normal mx-4 my-4">We provide powerful escape hatches if you need async ordering that
-                  doesn't match the data dependencies of your program.</span></span></div></div></p><p class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"><p class="text-4xl font-bold mb-5 mx-2 md:mx-0"><span><span><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue">Instant </span>cloud deployment</span></span></p><span class="text-lg font-normal mx-4 my-4"><span><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>Optional</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>Instant cloud deployment of code (to our cloud or yours), with instant
-                        creation of DBs, API endpoints, and worker queues, with no containers,
-                        no cold starts, no orchestration, or other devops/cloud engineering
-                        required</span></span></p><p class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"><p class="text-4xl font-bold mb-5 mx-2 md:mx-0"><span><span>Designed for <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue">GenAI</span></span></span></p><ul class="text-lg font-normal m-4"><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>Works with GitHub Copilot</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>We redesigned the dark language and tooling to enable
-                GenAI-generated programs, including exposing language tools to GenAI
-                tools, allowing running partial and incomplete programs safely, and
-                ensuring access to significant context to GenAI tools</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>Build short CLI programs from prompts<code class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"><span><span class="text-blue mr-2">darklang</span><span class="text-purple mr-2">prompt</span>find all js files which don't have a CSS file of the same name</span></code></span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>Use any LLM: darklang's fine-tuned models<div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>, local OSS models, commerical models via API, or using GitHub Copilot</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>Build vendor SDKs from prompts and OpenAPI docs</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span><div class="mx-auto inline-block"><div class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"><span>2024</span><div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"> </div></div></div>Build complex programs with darklang AI agents</span></li></ul></p><p class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"><p class="text-4xl font-bold mb-5 mx-2 md:mx-0"><span><span>Works with your <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue">Editor</span></span></span></p><ul class="text-lg font-normal m-4"><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p><span>VSCode Extension</span></li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>LSP support for other editors</li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>Works with GitHub Copilot and other GenAI tools</li><li class="flex flex-row mt-2"><p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>We mention this because Darklang classic required using our editor, and that's no longer the case.</li></ul></p><p class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand"><p class="text-4xl font-bold mb-5 mx-2 md:mx-0"><span><span><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue">Open </span>Source</span></span></p><span class="text-lg font-normal mx-4 my-4">We expect to fully open source Darklang, which is currently source
-              available, early 2024</span></p></section>
-          <footer
+  </span></code></pre>
+                    </span>
+                  </li>
+                </ul></span
+              >
+            </div>
+            <a
+              class="see-example text-blue hover:text-purple cursor-pointer m-3"
+              >See example</a
+            >
+            <p
+              class="toggleContent text-purple -ml-3"
+              data-target="run-any"
+            ></p>
+          </div>
+          <div
+            class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span
+                    >Instantly <span class="text-purple">run </span>programs as
+                    you <span class="text-blue">write </span>them</span
+                  >
+                </h3>
+              </div>
+              <p class="text-lg font-normal mx-4 my-4 line-clamp-3 previewText">
+                Darklang is designed for a really fast iterative loop
+              </p>
+              <span class="hidden mb-2" id="instantly-run"
+                ><ul class="text-lg font-normal m-4">
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    <span
+                      >Single binary to install means no environments or
+                      containers to set up.
+                      <span class="line-through">Install it now!</span
+                      ><span class="mx-auto inline-block"
+                        ><span
+                          class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                          ><span>Coming early 2024</span
+                          ><span
+                            class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                          ></span></span></span
+                    ></span>
+                  </li>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    <span
+                      >Packages are streamed from the package manager
+                      automatically &ndash; no
+                      <code
+                        class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                        ><span>npm install</span></code
+                      >
+                      step</span
+                    >
+                  </li>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    darklang is interpreted &mdash; no compilation step
+                    required, programs run immediately
+                  </li>
+                  <ul class="ml-4">
+                    <li class="flex flex-row mt-2">
+                      <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                        -
+                      </p>
+                      <span
+                        >We plan to add background compilation in the future,
+                        combined with pre-compiled packages in the package
+                        manager<span class="mx-auto inline-block"
+                          ><span
+                            class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                            ><span>2025+</span
+                            ><span
+                              class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                            ></span></span></span
+                      ></span>
+                    </li>
+                  </ul>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    Gradual Static Typing allows running programs with incorrect
+                    types so you don't need to fix all the types in your program
+                    while getting one path working
+                  </li>
+                  <li class="flex flex-row mt-2">
+                    <p class="text-purple text-2xl mr-3 leading-6 font-bold">
+                      -
+                    </p>
+                    Generate darklang code automatically using LLMs and GitHub
+                    Copilot
+                  </li>
+                </ul></span
+              >
+            </div>
+            <a
+              class="see-example text-blue hover:text-purple cursor-pointer m-3"
+              >See example</a
+            >
+            <p
+              class="toggleContent text-purple -ml-3"
+              data-target="instantly-run"
+            ></p>
+          </div>
+        </div>
+      </div>
+      <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
+        <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+          <span
+            ><span
+              ><span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+                >Next-gen </span
+              >package management</span
+            ></span
+          >
+        </p>
+        <div class="text-lg font-normal mx-4 my-4">
+          <span
+            >Darklang has a rather unique package manager, where functions and
+            types are individually versioned and immutable, taking a lot of the
+            hassle out of package management.<span
+              class="hidden mb-2"
+              id="streaming-package-manager"
+              ><ul class="text-lg font-normal m-4">
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  Only download the specific package items you use
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  Only upgrade the specific package items you use
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  <span
+                    ><span class="mx-auto inline-block"
+                      ><span
+                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                        ><span>2024</span
+                        ><span
+                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                        ></span></span></span
+                    >Automated dependency upgrades, as we track deprecation
+                    status, and know what functions are pure and safe to
+                    update.</span
+                  >
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  Different packages can rely on different versions of other
+                  packages
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  Use multiple versions of the same package item at once: allows
+                  testing new versions without having to change an entire
+                  package version, lowering risk.
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  <span
+                    ><span class="mx-auto inline-block"
+                      ><span
+                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                        ><span>2024</span
+                        ><span
+                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                        ></span></span></span
+                    >Share pre-release functions trivially, without contributors
+                    needing to check out your git repo or set up anything</span
+                  >
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  <span
+                    ><span class="mx-auto inline-block"
+                      ><span
+                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                        ><span>2024</span
+                        ><span
+                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                        ></span></span></span
+                    >The package manager functions as a source repository</span
+                  >
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  no need for uploads, releases or other synchronization. No git
+                  or GitHub required (but you can sync to GitHub if you prefer).
+                </li>
+              </ul></span
+            >
+            <div
+              class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group"
+              data-target="streaming-package-manager"
+            >
+              <div
+                class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"
+              ></div>
+              <div
+                class="relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"
+              >
+                <div
+                  class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"
+                >
+                  <span class="text-lg text-black flex items-center"
+                    ><span class="readMoreButton">Read More</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 25 25"
+                      class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
+                    >
+                      <path
+                        style="fill: #232326"
+                        d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                        data-name="Right"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div></div
+          ></span>
+        </div>
+      </div>
+      <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
+        <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+          <span
+            ><span
+              ><span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+                >Gradual </span
+              >Static Typing</span
+            ></span
+          >
+        </p>
+        <div class="text-lg font-normal mx-4 my-4">
+          <span
+            >Gradual Static Typing allows running incomplete programs so you
+            don't need to ensure everything type checks when you're getting one
+            path working<span class="hidden mb-2" id="gst"
+              ><ul class="text-lg font-normal m-4">
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  While prototyping, just run code until you hit a type error
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  <span
+                    >After prototyping, run the full type checker to gain
+                    confidence your whole program works<span
+                      class="mx-auto inline-block"
+                      ><span
+                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                        ><span>2024</span
+                        ><span
+                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                        ></span></span></span
+                  ></span>
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  <span
+                    >Full type-checking hints in VSCode or in LSP editors<span
+                      class="mx-auto inline-block"
+                      ><span
+                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                        ><span>2024</span
+                        ><span
+                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                        ></span></span></span
+                  ></span>
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  <span
+                    ><code
+                      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                      ><span>!</span></code
+                    >
+                    and
+                    <code
+                      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                      ><span>?</span></code
+                    >operators allow easy error handling while you
+                    prototype</span
+                  >
+                </li>
+                <li class="flex flex-row mt-2">
+                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                  <span
+                    >Automatic refactoring converts
+                    <code
+                      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                      ><span>!</span></code
+                    >
+                    into proper error handling<span class="mx-auto inline-block"
+                      ><span
+                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                        ><span>2024</span
+                        ><span
+                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                        ></span></span></span
+                  ></span>
+                </li></ul
+            ></span>
+            <div
+              class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group"
+              data-target="gst"
+            >
+              <div
+                class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"
+              ></div>
+              <div
+                class="relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"
+              >
+                <div
+                  class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"
+                >
+                  <span class="text-lg text-black flex items-center"
+                    ><span class="readMoreButton">Read More</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 25 25"
+                      class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
+                    >
+                      <path
+                        style="fill: #232326"
+                        d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                        data-name="Right"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div></div
+          ></span>
+        </div>
+      </div>
+      <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
+        <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+          <span
+            ><span
+              ><span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+                >Async </span
+              >runtime</span
+            ></span
+          >
+        </p>
+        <div class="font-Quicksand grid lg:grid-cols-2 gap-3">
+          <div
+            class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span
+                    >Fully<span class="text-purple"> asynchronous </span
+                    >runtime</span
+                  >
+                </h3>
+              </div>
+              <div class="text-lg font-normal mx-4 my-4">
+                Darklang has a fully asynchronous runtime, so making a Http call
+                or reading a file doesn't block the runtime.
+              </div>
+            </div>
+          </div>
+          <div
+            class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span
+                    ><span class="text-purple">No </span
+                    ><code
+                      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                      ><span>async</span></code
+                    >/<code
+                      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                      ><span>await</span></code
+                    ></span
+                  >
+                </h3>
+              </div>
+              <div class="text-lg font-normal mx-4 my-4">
+                <span
+                  >Adding
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>async</span></code
+                  >
+                  and
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>await</span></code
+                  >
+                  keywords to every language was a mistake. It exposes the
+                  complexity of concurrency and multi-threading to languages
+                  which were originally designed for simplicity.</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span
+                    ><span class="text-purple">Concurrent </span>and
+                    <span class="text-blue">parallel </span>execution via
+                    data-dependencies</span
+                  >
+                </h3>
+              </div>
+              <div class="text-lg font-normal mx-4 my-4">
+                When you make an async request, it first waits for any arguments
+                that are async, and starts when they're done. If another
+                function call needs to use the result, it will wait for it
+                before starting. Since darklang values are immutable, there
+                won't be any race conditions from this.
+              </div>
+            </div>
+          </div>
+          <div
+            class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+          >
+            <div>
+              <div class="my-3">
+                <h3 class="text-base md:text-xl font-bold">
+                  <span
+                    ><span class="text-purple">Powerful </span>escape
+                    hatches</span
+                  >
+                </h3>
+              </div>
+              <div class="text-lg font-normal mx-4 my-4">
+                We provide powerful escape hatches if you need async ordering
+                that doesn't match the data dependencies of your program.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
+        <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+          <span
+            ><span
+              ><span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+                >Instant </span
+              >cloud deployment</span
+            ></span
+          >
+        </p>
+        <div class="text-lg font-normal mx-4 my-4">
+          <span
+            ><span class="mx-auto inline-block"
+              ><span
+                class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                ><span>Optional</span
+                ><span
+                  class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                ></span></span></span
+            ><span class="mx-auto inline-block"
+              ><span
+                class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                ><span>2024</span
+                ><span
+                  class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                ></span></span></span
+            >Instant cloud deployment of code (to our cloud or yours), with
+            instant creation of DBs, API endpoints, and worker queues, with no
+            containers, no cold starts, no orchestration, or other devops/cloud
+            engineering required</span
+          >
+        </div>
+      </div>
+      <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
+        <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+          <span
+            ><span
+              >Designed for
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+                >GenAI</span
+              ></span
+            ></span
+          >
+        </p>
+        <ul class="text-lg font-normal m-4">
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            <span>Works with GitHub Copilot</span>
+          </li>
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            <span
+              >We redesigned the dark language and tooling to enable
+              GenAI-generated programs, including exposing language tools to
+              GenAI tools, allowing running partial and incomplete programs
+              safely, and ensuring access to significant context to GenAI
+              tools</span
+            >
+          </li>
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            <span
+              ><span class="mx-auto inline-block"
+                ><span
+                  class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                  ><span>2024</span
+                  ><span
+                    class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                  ></span></span></span
+              >Build short CLI programs from prompts<code
+                class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                ><span
+                  ><span class="text-blue mr-2">darklang</span
+                  ><span class="text-purple mr-2">prompt</span>find all js files
+                  which don't have a CSS file of the same name</span
+                ></code
+              ></span
+            >
+          </li>
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            <span
+              >Use any LLM: darklang's fine-tuned models<span
+                class="mx-auto inline-block"
+                ><span
+                  class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                  ><span>2024</span
+                  ><span
+                    class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                  ></span></span></span
+              >, local OSS models, commerical models via API, or using GitHub
+              Copilot</span
+            >
+          </li>
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            <span
+              ><span class="mx-auto inline-block"
+                ><span
+                  class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                  ><span>2024</span
+                  ><span
+                    class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                  ></span></span></span
+              >Build vendor SDKs from prompts and OpenAPI docs</span
+            >
+          </li>
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            <span
+              ><span class="mx-auto inline-block"
+                ><span
+                  class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                  ><span>2024</span
+                  ><span
+                    class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                  ></span></span></span
+              >Build complex programs with darklang AI agents</span
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
+        <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+          <span
+            ><span
+              >Works with your
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+                >Editor</span
+              ></span
+            ></span
+          >
+        </p>
+        <ul class="text-lg font-normal m-4">
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            <span>VSCode Extension</span>
+          </li>
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            LSP support for other editors
+          </li>
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            Works with GitHub Copilot and other GenAI tools
+          </li>
+          <li class="flex flex-row mt-2">
+            <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+            We mention this because Darklang classic required using our editor,
+            and that's no longer the case.
+          </li>
+        </ul>
+      </div>
+      <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
+        <p class="text-4xl font-bold mb-5 mx-2 md:mx-0">
+          <span
+            ><span
+              ><span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue"
+                >Open </span
+              >Source</span
+            ></span
+          >
+        </p>
+        <div class="text-lg font-normal mx-4 my-4">
+          We expect to fully open source Darklang, which is currently source
+          available, early 2024
+        </div>
+      </div>
+    </section>
+    <footer
       class="container flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between 2xl:justify-center 2xl:container mx-auto my-20"
     >
       <div class="w-full md:w-1/4 flex flex-col justify-center items-center">
@@ -489,66 +1614,70 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
         </div>
       </div>
     </footer>
-      
-      <script>
-        // Menu button navigation bar
-        const button = document.querySelector("#menu-button");
-        const menu = document.querySelector("#menu");
-        const arrow = document.getElementById("arrowIcon");
-        const darkClassicBtn = document.querySelector("#dark-classic-btn");
-        const darkClassicMenu = document.querySelector("#dark-classic-menu");
 
-        const toggleHeading = document.querySelector("#toggle-heading-li");
+    <script>
+      // Menu button navigation bar
+      const button = document.querySelector("#menu-button");
+      const menu = document.querySelector("#menu");
+      const arrow = document.getElementById("arrowIcon");
+      const darkClassicBtn = document.querySelector("#dark-classic-btn");
+      const darkClassicMenu = document.querySelector("#dark-classic-menu");
 
-        darkClassicBtn.addEventListener("click", () => {
-          darkClassicMenu.classList.toggle("hidden");
-          arrow.classList.toggle("rotate-180");
-        });
+      const toggleHeading = document.querySelector("#toggle-heading-li");
 
-        button.addEventListener("click", () => {
-          menu.classList.toggle("hidden");
-        });
+      darkClassicBtn.addEventListener("click", () => {
+        darkClassicMenu.classList.toggle("hidden");
+        arrow.classList.toggle("rotate-180");
+      });
 
-        // Toggle items ellipsis content (see example)
-        document.addEventListener('DOMContentLoaded', () => {
-          const toggleItems = document.querySelectorAll('.toggleItem');
+      button.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
 
-          toggleItems.forEach(item => {
-            item.addEventListener('click', function() {
-              const toggleContent = item.querySelector(".toggleContent");
-              const contentId = toggleContent.getAttribute("data-target");
-              const content = document.getElementById(contentId);
-              content.classList.toggle("hidden");
-              const previewText = item.querySelector(".previewText");
-              previewText.classList.toggle("line-clamp-3");
-              item.classList.toggle('h-64');
-              item.classList.toggle('sm:h-72'); 
-              item.classList.toggle('justify-center');
-              const seeExampleElement = item.querySelector('.see-example'); 
+      // Toggle items ellipsis content (see example)
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleItems = document.querySelectorAll(".toggleItem");
 
-              if (seeExampleElement) {
-                seeExampleElement.classList.toggle('hidden'); 
-              }
-            });
+        toggleItems.forEach(item => {
+          item.addEventListener("click", function () {
+            const toggleContent = item.querySelector(".toggleContent");
+            const contentId = toggleContent.getAttribute("data-target");
+            const content = document.getElementById(contentId);
+            content.classList.toggle("hidden");
+            const previewText = item.querySelector(".previewText");
+            previewText.classList.toggle("line-clamp-3");
+            item.classList.toggle("h-64");
+            item.classList.toggle("sm:h-72");
+            item.classList.toggle("justify-center");
+            const seeExampleElement = item.querySelector(".see-example");
+
+            if (seeExampleElement) {
+              seeExampleElement.classList.toggle("hidden");
+            }
           });
+        });
 
-        const allHiddenToggleItems = document.querySelectorAll(".hiddenToggleItem");
+        const allHiddenToggleItems =
+          document.querySelectorAll(".hiddenToggleItem");
 
         allHiddenToggleItems.forEach(item => {
-          item.addEventListener("click", function() {
-            const contentId = this.getAttribute('data-target');
+          item.addEventListener("click", function () {
+            const contentId = item.getAttribute("data-target");
             const content = document.getElementById(contentId);
 
             if (content) {
-              content.classList.toggle('hidden');
-              const buttonTextSpan = this.querySelector('.readMoreButton'); 
+              content.classList.toggle("hidden");
+              const buttonTextSpan = item.querySelector(".readMoreButton");
               if (buttonTextSpan) {
-                const isContentHidden = content.classList.contains('hidden');
-                buttonTextSpan.textContent = isContentHidden ? "Read More" : "Show Less";
+                const isContentHidden = content.classList.contains("hidden");
+                buttonTextSpan.textContent = isContentHidden
+                  ? "Read More"
+                  : "Show Less";
               }
             }
           });
         });
       });
     </script>
-  </body></html>
+  </body>
+</html>

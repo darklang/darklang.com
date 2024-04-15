@@ -1,5 +1,5 @@
 let sectionWrapper (children: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
-    Stdlib.Html.p
+    Stdlib.Html.div
         [ ("class", Stdlib.Option.Option.Some("mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand")) ]
         children
 
@@ -30,7 +30,7 @@ let toggleItem (id: String) (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node
            Stdlib.Option.Option.Some(
                "toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
            ))]
-        [ Stdlib.Html.span [] content
+        [ Stdlib.Html.div [] content
           seeExample ()
           Stdlib.Html.p [ ("class", Stdlib.Option.Option.Some("toggleContent text-purple -ml-3"))
                           ("data-target", Stdlib.Option.Option.Some(id))  ] [] ]
@@ -49,10 +49,10 @@ let simpleItem (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
            Stdlib.Option.Option.Some(
                "h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
            )) ]
-        [ Stdlib.Html.span [] content ]
+        [ Stdlib.Html.div [] content ]
 
 let indentedBody (content: Stdlib.Html.Node) : Stdlib.Html.Node =
-    Stdlib.Html.span [ ("class", Stdlib.Option.Option.Some("text-lg font-normal mx-4 my-4")) ] [ content ]
+    Stdlib.Html.div [ ("class", Stdlib.Option.Option.Some("text-lg font-normal mx-4 my-4")) ] [ content ]
 
 let seeExample () : Stdlib.Html.Node =
     Stdlib.Html.a
@@ -90,7 +90,7 @@ let readMoreButton (id: String) : Stdlib.Html.Node =
 let previewText (content: Stdlib.Html.Node) : Stdlib.Html.Node =
     Stdlib.Html.p
         [ ("class", Stdlib.Option.Option.Some("text-lg font-normal mx-4 my-4 line-clamp-3 previewText")) ]
-        [ Stdlib.Html.span [] [ content ] ]
+        [ content ] 
 
 let bulletPoints (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
     Stdlib.Html.ul [ ("class", Stdlib.Option.Option.Some("text-lg font-normal m-4")) ] content
@@ -120,17 +120,17 @@ let arrowSvg () : Stdlib.Html.Node =
     """
 
 let tagLabel (content: String) : Stdlib.Html.Node =
-    Stdlib.Html.div
+    Stdlib.Html.span
         [ ("class", Stdlib.Option.Option.Some("mx-auto inline-block")) ]
 
-        [ Stdlib.Html.div
+        [ Stdlib.Html.span
               [ ("class",
                  Stdlib.Option.Option.Some(
                      "overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
                  )) ]
 
               [ Stdlib.Html.span [] [ Stdlib.Html.stringNode content ]
-                Stdlib.Html.div
+                Stdlib.Html.span
                     [ ("class",
                        Stdlib.Option.Option.Some(
                            "absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
@@ -253,12 +253,12 @@ let toggleScript () : Stdlib.Html.Node =
 
         allHiddenToggleItems.forEach(item => {
           item.addEventListener("click", function() {
-            const contentId = this.getAttribute('data-target');
+            const contentId = item.getAttribute('data-target');
             const content = document.getElementById(contentId);
 
             if (content) {
               content.classList.toggle('hidden');
-              const buttonTextSpan = this.querySelector('.readMoreButton'); 
+              const buttonTextSpan = item.querySelector('.readMoreButton'); 
               if (buttonTextSpan) {
                 const isContentHidden = content.classList.contains('hidden');
                 buttonTextSpan.textContent = isContentHidden ? "Read More" : "Show Less";
@@ -432,11 +432,10 @@ let heroSection () : Stdlib.Html.Node =
         [ ("class", Stdlib.Option.Option.Some("mx-12 md:mx-32 mt-20 md:mt-28 2xl:mt-40 font-Quicksand")) ]
         [ Stdlib.Html.div
               [ ("class", Stdlib.Option.Option.Some("flex flex-col justify-center items-center mx-auto text-center")) ]
-              [ Stdlib.Html.htmlTagNode
-                    "img"
-                    [ ("src", Stdlib.Option.Option.Some("./img/wordmark-light-transparent@2x.png"))
-                      ("class", Stdlib.Option.Option.Some("max-w-xs md:max-w-xl 2xl:max-w-3xl")) ]
-                    [] ]
+              [ Stdlib.Html.img
+                  [ ("src", Stdlib.Option.Option.Some("./img/wordmark-light-transparent@2x.png"))
+                    ("class", Stdlib.Option.Option.Some("max-w-xs md:max-w-xl 2xl:max-w-3xl")) ]
+              ]
 
           Stdlib.Html.div
               [ ("class",
@@ -581,11 +580,10 @@ let darkClassicSection () : Stdlib.Html.Node =
 
                 Stdlib.Html.div
                     [ ("class", Stdlib.Option.Option.Some("md:w-[700px] md:h-[230px] overflow-hidden")) ]
-                    [ Stdlib.Html.htmlTagNode
-                          "img"
-                          [ ("src", Stdlib.Option.Option.Some("./img/dark-classic.png"))
-                            ("class", Stdlib.Option.Option.Some("w-full")) ]
-                          [] ] ] ]
+                    [ Stdlib.Html.img
+                        [ ("src", Stdlib.Option.Option.Some("./img/dark-classic.png"))
+                          ("class", Stdlib.Option.Option.Some("w-full")) ]
+                        ] ] ]
 
 let codeSection () : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
@@ -822,12 +820,10 @@ let codeSection () : Stdlib.Html.Node =
                         Stdlib.Html.div
                           []
                           [
-                            Stdlib.Html.htmlTagNode
-                              "img"
+                            Stdlib.Html.img
                               [ ("src", Stdlib.Option.Option.Some("./img/logo-dark-transparent.png"))
                                 ("alt", Stdlib.Option.Option.Some("dark-file-logo"))
                                 ("class", Stdlib.Option.Option.Some("w-8 h-8")) ]
-                              []
                           ]
                         
                         Stdlib.Html.div
@@ -1055,14 +1051,13 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
                           Stdlib.Html.stringNode "s should represent screen readable characters, like 👨‍👩‍👦‍👦. All characters in Darklang represent"
                           Stdlib.Html.span [ ("class", Stdlib.Option.Option.Some("italic")) ] [ Stdlib.Html.stringNode "Extended Grapheme Clusters" ]
                           Stdlib.Html.stringNode ": one character that you see on screen. Naturally, working on Unicode Codepoints"
+                          t2024 ()
+                          Stdlib.Html.stringNode "and normal bytes is also well supported."
                         ])
                     
                     toggleBody 
                         "unicode-first" 
-                        ( Stdlib.Html.span
-                            [] 
-                            [ t2024 ()
-                              Stdlib.Html.stringNode "and normal bytes is also well supported."])
+                        (Stdlib.Html.stringNode "")
               ] ]]
 
 let runsInstantlySection () : Stdlib.Html.Node =

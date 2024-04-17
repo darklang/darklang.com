@@ -186,7 +186,7 @@
               ><span class="font-bold">no cruft:</span> no build systems, no
               null, no exception handling, no ORMs, no OOP, no inheritence
               hierarchies, no async/await, no compilation, no dev environments,
-              no dependency hell, no packaging, no git, no github </span
+              no dependency hell, no packaging, no git, no github, </span
             ><span class="text-blue"
               ><span class="font-bold">no devops:</span> no yaml, no config
               files, no docker, no containers, no kubernetes, no ci/cd
@@ -398,9 +398,8 @@ Fizz
             ><button class="rounded-full h-3 w-3 mx-1 bg-[#5FDD68]"></button>
           </div>
           <div>
-            <pre
-              class="whitespace-pre-line"
-            ><span>$ <span class="text-purple">darklang </span>prompt "Find ts scripts with more than 600 lines which use commonjs format"
+            <pre class="whitespace-pre-line"><span>
+$ <span class="text-purple">darklang </span>prompt "Find ts scripts with more than 600 lines which use commonjs format"
 
 We need your AI credentials, which will be stored locally in <span class="text-gray-400 hover:underline">~/darklang/secrets/
 
@@ -438,7 +437,7 @@ We need your AI credentials, which will be stored locally in <span class="text-g
             <pre><code class="!bg-dark-gray !text-white fsharp"><span>
   let findLargeTypescriptCommonJSFiles (path : String) =
     Directory.traverse (fun path -> 
-      if not (List.oneOf (File.entension path) [".ts", ".mjs", ".cjs"]) then 
+      if not (List.oneOf (File.extension path) [".ts", ".mjs", ".cjs"]) then 
         print $"Skipping - wrong file type: {path}" 
       else 
         let contents = File.readString path 

@@ -445,7 +445,7 @@ let heroSection () : Stdlib.Html.Node =
                                       [ ("class", Stdlib.Option.Option.Some("font-bold")) ]
                                       [ Stdlib.Html.stringNode "no cruft:" ]
                                   Stdlib.Html.stringNode
-                                      " no build systems, no null, no exception handling, no ORMs, no OOP, no inheritence hierarchies, no async/await, no compilation, no dev environments, no dependency hell, no packaging, no git, no github " ]
+                                      " no build systems, no null, no exception handling, no ORMs, no OOP, no inheritence hierarchies, no async/await, no compilation, no dev environments, no dependency hell, no packaging, no git, no github, " ]
 
                             Stdlib.Html.span
                                 [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
@@ -708,7 +708,7 @@ let codeSection () : Stdlib.Html.Node =
                       [
                         Stdlib.Html.span
                           []
-                          [ Stdlib.Html.stringNode "$ "
+                          [ Stdlib.Html.stringNode "\n$ "
                             Stdlib.Html.span
                               [("class", Stdlib.Option.Option.Some("text-purple"))]
                               [ Stdlib.Html.stringNode "darklang " ]
@@ -830,7 +830,7 @@ let codeSection () : Stdlib.Html.Node =
                               """
   let findLargeTypescriptCommonJSFiles (path : String) =
     Directory.traverse (fun path -> 
-      if not (List.oneOf (File.entension path) [".ts", ".mjs", ".cjs"]) then 
+      if not (List.oneOf (File.extension path) [".ts", ".mjs", ".cjs"]) then 
         print $"Skipping - wrong file type: {path}" 
       else 
         let contents = File.readString path 

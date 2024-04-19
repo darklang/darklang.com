@@ -1,44 +1,44 @@
 let sectionWrapper (children: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
     Stdlib.Html.div
-        [ ("class", Stdlib.Option.Option.Some("mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand")) ]
+        [ ("class", Stdlib.Option.Option.Some "mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand") ]
         children
 
 let sectionHeading (heading: Stdlib.Html.Node ) : Stdlib.Html.Node =
     Stdlib.Html.p
-        [ ("class", Stdlib.Option.Option.Some("text-4xl font-bold mb-5 mx-2 md:mx-0")) ]
+        [ ("class", Stdlib.Option.Option.Some "text-4xl font-bold mb-5 mx-2 md:mx-0") ]
         [ (Stdlib.Html.htmlTagNode "span" [] [ heading ]) ]
 
 let itemHeading (content: Stdlib.Html.Node) : Stdlib.Html.Node =
     Stdlib.Html.div
-        [ ("class", Stdlib.Option.Option.Some("my-3")) ]
+        [ ("class", Stdlib.Option.Option.Some "my-3") ]
         [ Stdlib.Html.h3
-              [ ("class", Stdlib.Option.Option.Some("text-base md:text-xl font-bold")) ]
+              [ ("class", Stdlib.Option.Option.Some "text-base md:text-xl font-bold") ]
               [ content ]
         ]
 
 let gradientText (text: String) : Stdlib.Html.Node =
     Stdlib.Html.span
-        [ ("class", Stdlib.Option.Option.Some("text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue")) ]
+        [ ("class", Stdlib.Option.Option.Some "text-transparent bg-clip-text bg-gradient-to-r from-purple to-blue") ]
         [ Stdlib.Html.stringNode text ]
 
 let itemsWrapper (children: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
-    Stdlib.Html.div [ ("class", Stdlib.Option.Option.Some("font-Quicksand grid lg:grid-cols-2 gap-3 items-start")) ] children
+    Stdlib.Html.div [ ("class", Stdlib.Option.Option.Some "font-Quicksand grid lg:grid-cols-2 gap-3 items-start") ] children
 
 let toggleItem (id: String) (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
     Stdlib.Html.div
         [ ("class",
-           Stdlib.Option.Option.Some(
+           Stdlib.Option.Option.Some 
                "toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
-           ))]
+           )]
         [ Stdlib.Html.div [] content
           seeExample ()
-          Stdlib.Html.p [ ("class", Stdlib.Option.Option.Some("toggleContent text-purple -ml-3"))
-                          ("data-target", Stdlib.Option.Option.Some(id))  ] [] ]
+          Stdlib.Html.p [ ("class", Stdlib.Option.Option.Some "toggleContent text-purple -ml-3")
+                          ("data-target", Stdlib.Option.Option.Some id)  ] [] ]
 
 let toggleBody (id: String) (content: Stdlib.Html.Node) : Stdlib.Html.Node =
     Stdlib.Html.span
-        [ ("class", Stdlib.Option.Option.Some("hidden mb-2"))
-          ("id", Stdlib.Option.Option.Some(id))
+        [ ("class", Stdlib.Option.Option.Some "hidden mb-2")
+          ("id", Stdlib.Option.Option.Some id)
         ]
         [ content ] 
 
@@ -46,39 +46,39 @@ let toggleBody (id: String) (content: Stdlib.Html.Node) : Stdlib.Html.Node =
 let simpleItem (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
     Stdlib.Html.div
         [ ("class",
-           Stdlib.Option.Option.Some(
+           Stdlib.Option.Option.Some 
                "h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
-           )) ]
+           ) ]
         [ Stdlib.Html.div [] content ]
 
 let indentedBody (content: Stdlib.Html.Node) : Stdlib.Html.Node =
-    Stdlib.Html.div [ ("class", Stdlib.Option.Option.Some("text-lg font-normal mx-4 my-4")) ] [ content ]
+    Stdlib.Html.div [ ("class", Stdlib.Option.Option.Some "text-lg font-normal mx-4 my-4") ] [ content ]
 
 let seeExample () : Stdlib.Html.Node =
     Stdlib.Html.a
-        [ ("class", Stdlib.Option.Option.Some("see-example text-blue hover:text-purple cursor-pointer m-3")) ]
+        [ ("class", Stdlib.Option.Option.Some "see-example text-blue hover:text-purple cursor-pointer m-3") ]
         [ Stdlib.Html.stringNode "See example" ]
 
 let readMoreButton (id: String) : Stdlib.Html.Node =
     Stdlib.Html.div 
-      [ ("class", Stdlib.Option.Option.Some("relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group"))
-        ("data-target", Stdlib.Option.Option.Some(id))
+      [ ("class", Stdlib.Option.Option.Some "relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group")
+        ("data-target", Stdlib.Option.Option.Some id)
       ]
       [
         Stdlib.Html.div 
-          [ ("class", Stdlib.Option.Option.Some("absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"))]
+          [ ("class", Stdlib.Option.Option.Some "absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200")]
           []
         Stdlib.Html.div 
-          [("class", Stdlib.Option.Option.Some("relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"))]
+          [("class", Stdlib.Option.Option.Some "relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5")]
           [
             Stdlib.Html.div
-              [("class", Stdlib.Option.Option.Some("bg-light-background rounded back px-3 py-1 flex justify-center items-center"))]
+              [("class", Stdlib.Option.Option.Some "bg-light-background rounded back px-3 py-1 flex justify-center items-center")]
               [
                 Stdlib.Html.span 
-                  [("class", Stdlib.Option.Option.Some("text-lg text-black flex items-center "))]
+                  [("class", Stdlib.Option.Option.Some "text-lg text-black flex items-center ")]
                   [
                     Stdlib.Html.span 
-                      [ ("class", Stdlib.Option.Option.Some("readMoreButton"))]
+                      [ ("class", Stdlib.Option.Option.Some "readMoreButton")]
                       [ Stdlib.Html.stringNode "Read More"]
                     arrowSvg ()
                     
@@ -89,18 +89,18 @@ let readMoreButton (id: String) : Stdlib.Html.Node =
       
 let previewText (content: Stdlib.Html.Node) : Stdlib.Html.Node =
     Stdlib.Html.p
-        [ ("class", Stdlib.Option.Option.Some("text-lg font-normal mx-4 my-4 line-clamp-3 previewText")) ]
+        [ ("class", Stdlib.Option.Option.Some "text-lg font-normal mx-4 my-4 line-clamp-3 previewText") ]
         [ content ] 
 
 let bulletPoints (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
-    Stdlib.Html.ul [ ("class", Stdlib.Option.Option.Some("text-lg font-normal m-4")) ] content
+    Stdlib.Html.ul [ ("class", Stdlib.Option.Option.Some "text-lg font-normal m-4") ] content
 
 let bulletPoint (content: Stdlib.Html.Node) : Stdlib.Html.Node =
-    Stdlib.Html.li [ ("class", Stdlib.Option.Option.Some("flex flex-row mt-2")) ] [ listBulletSvg (); content ]
+    Stdlib.Html.li [ ("class", Stdlib.Option.Option.Some "flex flex-row mt-2") ] [ listBulletSvg (); content ]
 
 let listBulletSvg () : Stdlib.Html.Node =
     Stdlib.Html.p
-        [ ("class", Stdlib.Option.Option.Some("text-purple text-2xl mr-3 leading-6 font-bold")) ]
+        [ ("class", Stdlib.Option.Option.Some "text-purple text-2xl mr-3 leading-6 font-bold") ]
         [ Stdlib.Html.stringNode "-" ]
 
 let arrowSvg () : Stdlib.Html.Node =
@@ -121,20 +121,20 @@ let arrowSvg () : Stdlib.Html.Node =
 
 let tagLabel (content: String) : Stdlib.Html.Node =
     Stdlib.Html.span
-        [ ("class", Stdlib.Option.Option.Some("mx-auto inline-block")) ]
+        [ ("class", Stdlib.Option.Option.Some "mx-auto inline-block") ]
 
         [ Stdlib.Html.span
               [ ("class",
-                 Stdlib.Option.Option.Some(
+                 Stdlib.Option.Option.Some 
                      "overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
-                 )) ]
+                 ) ]
 
               [ Stdlib.Html.span [] [ Stdlib.Html.stringNode content ]
                 Stdlib.Html.span
                     [ ("class",
-                       Stdlib.Option.Option.Some(
+                       Stdlib.Option.Option.Some 
                            "absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-                       )) ]
+                       ) ]
                     [] ] ]
 
 let t2024 () : Stdlib.Html.Node = tagLabel "2024"
@@ -145,52 +145,52 @@ let inlineCode (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
         "code"
         [ ("class",
-           Stdlib.Option.Option.Some(
+           Stdlib.Option.Option.Some 
                "font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
-           )) ]
+           ) ]
         [ Stdlib.Html.span [] content ]
 
 let darklangCode (content: String) : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
         "code"
         [ ("class",
-           Stdlib.Option.Option.Some(
+           Stdlib.Option.Option.Some 
                "max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded language-fsharp"
-           )) ]
+           ) ]
         [ Stdlib.Html.span [] [ Stdlib.Html.stringNode content ] ]
 
 let darklangCodeDarkBg (content: String) : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
         "code"
-        [ ("class", Stdlib.Option.Option.Some("!bg-dark-gray !text-white fsharp")) ]
+        [ ("class", Stdlib.Option.Option.Some "!bg-dark-gray !text-white fsharp") ]
         [ Stdlib.Html.span [] [ Stdlib.Html.stringNode content ] ]
 
 let bashCode (content: String) : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
         "code"
         [ ("class",
-           Stdlib.Option.Option.Some(
+           Stdlib.Option.Option.Some 
                "max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"
-           )) ]
+           ) ]
         [ Stdlib.Html.span [] [ Stdlib.Html.stringNode content ] ]
 
 let cliCode (content: Stdlib.Html.Node) : Stdlib.Html.Node =
     Stdlib.Html.div
         [ ("class",
-           Stdlib.Option.Option.Some(
+           Stdlib.Option.Option.Some 
                "font-FiraCode bg-cli-background text-white rounded-xl px-8 py-2 mx-3 my-2 text-sm 2xl:text-base"
-           )) ]
+           ) ]
         [ Stdlib.Html.div
-              [ ("class", Stdlib.Option.Option.Some("inline-block my-2")) ]
-              [ Stdlib.Html.button [ ("class", Stdlib.Option.Option.Some("rounded-full h-3 w-3 mx-1 bg-[#DD333F]")) ] []
-                Stdlib.Html.button [ ("class", Stdlib.Option.Option.Some("rounded-full h-3 w-3 mx-1 bg-[#F5D76E]")) ] []
-                Stdlib.Html.button [ ("class", Stdlib.Option.Option.Some("rounded-full h-3 w-3 mx-1 bg-[#5FDD68]")) ] [] ]
+              [ ("class", Stdlib.Option.Option.Some "inline-block my-2") ]
+              [ Stdlib.Html.button [ ("class", Stdlib.Option.Option.Some "rounded-full h-3 w-3 mx-1 bg-[#DD333F]") ] []
+                Stdlib.Html.button [ ("class", Stdlib.Option.Option.Some "rounded-full h-3 w-3 mx-1 bg-[#F5D76E]") ] []
+                Stdlib.Html.button [ ("class", Stdlib.Option.Option.Some "rounded-full h-3 w-3 mx-1 bg-[#5FDD68]") ] [] ]
 
           Stdlib.Html.div [] [ content ] ]
 
 let commentText (content: String) : Stdlib.Html.Node =
     Stdlib.Html.span
-        [ ("class", Stdlib.Option.Option.Some("text-[#02A5F1] m-0 p-0")) ]
+        [ ("class", Stdlib.Option.Option.Some "text-[#02A5F1] m-0 p-0") ]
         [ Stdlib.Html.span [] [ Stdlib.Html.stringNode content ] ]
 
 let highlightJsScripts () : Stdlib.Html.Node =
@@ -203,6 +203,51 @@ let highlightJsScripts () : Stdlib.Html.Node =
           hljs.highlightAll();
         </script>
       """
+
+let navItem (url : String) (content : String) : Stdlib.Html.Node =
+  Stdlib.Html.li 
+    [ ("class", Stdlib.Option.Option.Some "hover:text-blue border-b md:border-none") ]
+    [
+      Stdlib.Html.a 
+        [ ("class", Stdlib.Option.Option.Some "block py-2 pl-3 pr-4")
+          ("href", Stdlib.Option.Option.Some url)
+          ("target", Stdlib.Option.Option.Some "_blank") 
+        ]
+        [ Stdlib.Html.stringNode content ]
+    ]
+
+let footerColumn (heading : String) (content : List<Stdlib.Html.Node>) : Stdlib.Html.Node =
+  Stdlib.Html.div 
+    []
+    [
+      Stdlib.Html.h5
+        [ ("class", Stdlib.Option.Option.Some "font-medium mb-2") ]
+        [ Stdlib.Html.stringNode heading ]
+      Stdlib.Html.ul 
+        [ ("class", Stdlib.Option.Option.Some "text-gray-500") ]
+        content
+    ]
+
+let footerItem (url : String) (content : String) : Stdlib.Html.Node =
+  Stdlib.Html.li 
+    []
+    [ Stdlib.Html.a 
+        [ ("target", Stdlib.Option.Option.Some "_blank")
+          ("href", Stdlib.Option.Option.Some url) ]
+        [ Stdlib.Html.stringNode content ]
+    ]
+
+let footerIcon (url : String) (icon : String) : Stdlib.Html.Node =
+  Stdlib.Html.a 
+    [ ("href", Stdlib.Option.Option.Some url)
+      ("target", Stdlib.Option.Option.Some "_blank")
+      ("class", Stdlib.Option.Option.Some "hover:text-blue mx-1") ]
+
+    [ Stdlib.Html.htmlTagNode
+        "i"
+        [ ("class", Stdlib.Option.Option.Some icon) ]
+        []
+    ]
 
 let toggleScript () : Stdlib.Html.Node =
     Stdlib.Html.stringNode
@@ -274,191 +319,240 @@ let head () : Stdlib.Html.Node =
     Stdlib.Html.head
         []
         [ Stdlib.Html.title [] [ Stdlib.Html.stringNode "Darklang" ]
+          Stdlib.Html.stringNode
+            """
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+                integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"
+              />
+            """
           Stdlib.Html.stringNode """ <link href = "./style.css" rel = "stylesheet"> """
           highlightJsScripts () ]
 
-let navbar () : Stdlib.Html.Node =
-  Stdlib.Html.stringNode
+
+let banner () : Stdlib.Html.Node = 
+    Stdlib.Html.div 
+      [ ("class", Stdlib.Option.Option.Some "text-center bg-dark-gray text-white flex items-center justify-center")]
+      [
+        Stdlib.Html.span
+          []
+          [
+            Stdlib.Html.stringNode
               """
-    <div class="sticky bg-light-background w-full top-0 left-0 z-50">
-      <div
-        class="text-center bg-dark-gray text-white flex items-center justify-center"
-      >
-        <span>
-          <svg
-            class="h-4 w-4"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 6 3"
-          >
-            <path fill="#007A3D" d="M0 0h6v3H0z" />
-            <path fill="#FFF" d="M0 0h6v2H0z" />
-            <path d="M0 0h6v1H0z" />
-            <path fill="#CE1126" d="M0 0l2 1.5L0 3z" />
-          </svg>
-        </span>
-        <p class="p-2">
-          #FreePalestine.
-          <a target="_blank" href="https://blog.paulbiggar.com/i-cant-sleep/"
-            >Read our founder's
-            <span class="underline hover:text-blue">statement</span></a
-          >
-        </p>
-      </div>
-
-      <!--Navbar-->
-      <nav>
-        <div
-          class="container flex flex-wrap items-center justify-between mx-auto p-4"
-        >
-          <a href="/" class="flex items-center">
-            <img
-              src="./img/wordmark-light-transparent@2x.png"
-              class="h-12 mr-3"
-              alt="Darklang logo"
-            />
-          </a>
-
-          <div class="flex md:order-2 justify-center items-center">
-            <button type="button" class="text-center mr-3 md:mr-0 md:pt-4">
-              <div id="dark-classic-btn" class="md:inline-block relative">
-                <div
-                  class="font-semibold inline-flex items-center px-3 py-2 hover:text-purple"
-                >
-                  <span class="mr-1 text-xs md:text-base"
-                    >Darklang classic</span
-                  >
-                  <svg
-                    id="arrowIcon"
-                    class="fill-current h-4 w-4 transform transition duration-200 ease-in-out"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                    />
-                  </svg>
-                </div>
-                <div
-                  id="dark-classic-menu"
-                  class="absolute hidden w-full bg-light-background text-black rounded-lg border border-blue"
-                >
-                  <ul>
-                    <li class="hover:bg-blue hover:text-white">
-                      <a
-                        class="py-2 px-4 block mx-2 border-b border-b-blue/25"
-                        href="/classic"
-                        >About</a
-                      >
-                    </li>
-                    <li class="hover:bg-blue hover:text-white">
-                      <a
-                        class="py-2 px-4 block mx-2 border-b border-b-blue/25"
-                        href="https://login.darklang.com"
-                        >Log in</a
-                      >
-                    </li>
-                    <li class="hover:bg-blue hover:text-white rounded-b-lg">
-                      <a class="py-2 px-4 block" href="./classic/signup"
-                        >Sign up</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </button>
-
-            <button
-              id="menu-button"
-              type="button"
-              class="inline-flex items-center md:hidden"
-              aria-expanded="false"
-            >
-              <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3">
+                <path fill="#007A3D" d="M0 0h6v3H0z" />
+                <path fill="#FFF" d="M0 0h6v2H0z" />
+                <path d="M0 0h6v1H0z" />
+                <path fill="#CE1126" d="M0 0l2 1.5L0 3z" />
               </svg>
-            </button>
-          </div>
+              """
+          ]
+        Stdlib.Html.p
+          [("class", Stdlib.Option.Option.Some "p-2")]
+          [
+            Stdlib.Html.stringNode "#FreePalestine. "
+            Stdlib.Html.a
+              [ ("target", Stdlib.Option.Option.Some "_blank")
+                ("href", Stdlib.Option.Option.Some "https://blog.paulbiggar.com/i-cant-sleep/") ]
+              [ Stdlib.Html.stringNode "Read our founder's " 
+                Stdlib.Html.span
+                  [ ("class", Stdlib.Option.Option.Some "underline hover:text-blue")]
+                  [ Stdlib.Html.stringNode "statement" ]
+              ]
+          ]
+      ]
 
-          <div
-            id="menu"
-            class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
-          >
-            <ul class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4">
-              <!--
-              Disabled for now as it points to old docs
-              <li class="hover:text-blue border-b md:border-none"> <a class="block py-2 pl-3 pr-4" href="https://docs.darklang.com">Documentation</a></li>
-              -->
-              <li class="hover:text-blue border-b md:border-none"> <a class="block py-2 pl-3 pr-4" href="https://blog.darklang.com">Blog</a></li>
-              <li class="hover:text-blue border-b md:border-none"> <a class="block py-2 pl-3 pr-4" href="https://darklang.com/discord">Discord</a></li>
-              <li class="hover:text-blue border-b md:border-none"> <a class="block py-2 pl-3 pr-4" href="https://github.com/darklang/dark">GitHub</a></li>
-              <li class="hover:text-blue border-b md:border-none"> <a class="block py-2 pl-3 pr-4" href="https://darklang.com/sponsor">Sponsor us</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-    """ 
+let navbar () : Stdlib.Html.Node =
+  Stdlib.Html.div 
+    [("class", Stdlib.Option.Option.Some "sticky bg-light-background w-full top-0 left-0 z-50")]
+    [  
+      banner ()
+      Stdlib.Html.htmlTagNode 
+        "nav"
+        [ ("class", Stdlib.Option.Option.Some "container flex flex-wrap items-center justify-between mx-auto p-4") ]
+        [
+          Stdlib.Html.a
+            [ ("href", Stdlib.Option.Option.Some "/")
+              ("class", Stdlib.Option.Option.Some "flex items-center") ]
+            [
+              Stdlib.Html.img
+                [ ("src", Stdlib.Option.Option.Some "./img/wordmark-light-transparent@2x.png")
+                  ("class", Stdlib.Option.Option.Some "h-12 mr-3")
+                  ("alt", Stdlib.Option.Option.Some "Darklang logo") ]
+            ]
+          
+          Stdlib.Html.div 
+            [ ("class", Stdlib.Option.Option.Some "flex md:order-2 justify-center items-center") ]
+            [
+              Stdlib.Html.button 
+                [ ("type", Stdlib.Option.Option.Some "button")
+                  ("class", Stdlib.Option.Option.Some "text-center mr-3 md:mr-0 md:pt-4") ]
+                [
+                  Stdlib.Html.div 
+                    [
+                      ("id", Stdlib.Option.Option.Some "dark-classic-btn")
+                      ("class", Stdlib.Option.Option.Some "md:inline-block relative")
+                    ]
+                    [
+                      Stdlib.Html.div 
+                        [ ("class", Stdlib.Option.Option.Some "font-semibold inline-flex items-center px-3 py-2 hover:text-purple") ]
+                        [
+                          Stdlib.Html.span 
+                            [ ("class", Stdlib.Option.Option.Some "mr-1 text-xs md:text-base") ]
+                            [ Stdlib.Html.stringNode "Darklang classic" ]
+                        
+                          Stdlib.Html.stringNode
+                            """
+                            <svg
+                              id="arrowIcon"
+                              class="fill-current h-4 w-4 transform transition duration-200 ease-in-out"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20">
+                              <path
+                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                              />
+                            </svg>
+                            """
+                            
+                        ]
+                      
+                      Stdlib.Html.div 
+                        [ ("id", Stdlib.Option.Option.Some "dark-classic-menu")
+                          ("class", Stdlib.Option.Option.Some "absolute hidden w-full bg-light-background text-black rounded-lg border border-blue") ]
+                        [
+                          Stdlib.Html.ul 
+                            []
+                            [
+                              Stdlib.Html.li 
+                                [ ("class", Stdlib.Option.Option.Some "hover:bg-blue hover:text-white") ]
+                                [
+                                  Stdlib.Html.a 
+                                    [ ("class", Stdlib.Option.Option.Some "py-2 px-4 block mx-2 border-b border-b-blue/25")
+                                      ("href", Stdlib.Option.Option.Some "/classic") ]
+                                    [ Stdlib.Html.stringNode "About" ]
+                                ]
+                              Stdlib.Html.li 
+                                [ ("class", Stdlib.Option.Option.Some "hover:bg-blue hover:text-white") ]
+                                [
+                                  Stdlib.Html.a 
+                                    [ ("class", Stdlib.Option.Option.Some "py-2 px-4 block mx-2 border-b border-b-blue/25")
+                                      ("href", Stdlib.Option.Option.Some "https://login.darklang.com") ]
+                                    [ Stdlib.Html.stringNode "Log in" ]
+                                ]
+                              Stdlib.Html.li 
+                                [ ("class", Stdlib.Option.Option.Some "hover:bg-blue hover:text-white rounded-b-lg") ]
+                                [
+                                  Stdlib.Html.a 
+                                    [ ("class", Stdlib.Option.Option.Some "py-2 px-4 block")
+                                      ("href", Stdlib.Option.Option.Some "./classic/signup") ]
+                                    [ Stdlib.Html.stringNode "Sign up" ]
+                                ]
+                            ]
+                        ]
+
+                    ]
+                ]
+              
+              Stdlib.Html.button 
+                [ ("id", Stdlib.Option.Option.Some "menu-button")
+                  ("type", Stdlib.Option.Option.Some "button")
+                  ("class", Stdlib.Option.Option.Some "inline-flex items-center md:hidden")
+                  ("aria-expanded", Stdlib.Option.Option.Some "false") ]
+                [
+                  Stdlib.Html.htmlTagNode
+                    "svg"
+                    [ ("class", Stdlib.Option.Option.Some "w-6 h-6")
+                      ("aria-hidden", Stdlib.Option.Option.Some "true")
+                      ("fill", Stdlib.Option.Option.Some "currentColor")
+                      ("viewBox", Stdlib.Option.Option.Some "0 0 20 20")
+                      ("xmlns", Stdlib.Option.Option.Some "http://www.w3.org/2000/svg") ]
+                    [
+                      Stdlib.Html.stringNode
+                        """
+                        <path
+                          fill-rule="evenodd"
+                          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                          clip-rule="evenodd"
+                        ></path>
+                        """
+                    ]
+                ]
+            ]
+      
+          Stdlib.Html.div 
+            [ ("id", Stdlib.Option.Option.Some "menu")
+              ("class", Stdlib.Option.Option.Some "rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto") ]
+            [
+              Stdlib.Html.ul 
+                [ ("class", Stdlib.Option.Option.Some "flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4") ]
+                [ 
+                  //  navItem "https://docs.darklang.com" "Documentation"
+                  navItem "https://blog.darklang.com" "Blog"
+                  navItem "https://darklang.com/discord" "Discord"
+                  navItem "https://github.com/darklang/dark" "GitHub"
+                  navItem "https://darklang.com/sponsor" "Sponsor us"
+              ]
+            ]
+        ]
+    ]
+            
 
 let heroSection () : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
         "section"
-        [ ("class", Stdlib.Option.Option.Some("mx-12 md:mx-32 mt-20 md:mt-28 2xl:mt-40 font-Quicksand")) ]
+        [ ("class", Stdlib.Option.Option.Some "mx-12 md:mx-32 mt-20 md:mt-28 2xl:mt-40 font-Quicksand") ]
         [ Stdlib.Html.div
-              [ ("class", Stdlib.Option.Option.Some("flex flex-col justify-center items-center mx-auto text-center")) ]
+              [ ("class", Stdlib.Option.Option.Some "flex flex-col justify-center items-center mx-auto text-center") ]
               [ Stdlib.Html.img
-                  [ ("src", Stdlib.Option.Option.Some("./img/wordmark-light-transparent@2x.png"))
-                    ("class", Stdlib.Option.Option.Some("max-w-xs md:max-w-xl 2xl:max-w-3xl"))
-                    ("alt",Stdlib.Option.Option.Some("logo")) ]
+                  [ ("src", Stdlib.Option.Option.Some "./img/wordmark-light-transparent@2x.png")
+                    ("class", Stdlib.Option.Option.Some "max-w-xs md:max-w-xl 2xl:max-w-3xl")
+                    ("alt",Stdlib.Option.Option.Some "logo") ]
               ]
 
           Stdlib.Html.div
               [ ("class",
-                 Stdlib.Option.Option.Some(
+                 Stdlib.Option.Option.Some 
                      "mt-10 2xl:mt-20 mx-auto flex flex-col items-center justify-center xl:flex-row max-w-6xl 2xl:max-w-screen-xl"
-                 )) ]
+                 ) ]
               [ Stdlib.Html.div
                     []
                     [ Stdlib.Html.h2
-                          [ ("class", Stdlib.Option.Option.Some("text-3xl 2xl:text-4xl font-bold mb-4 text-dark-gray")) ]
+                          [ ("class", Stdlib.Option.Option.Some "text-3xl 2xl:text-4xl font-bold mb-4 text-dark-gray") ]
                           [ Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                                 [ Stdlib.Html.stringNode "Just " ]
                             Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                 [ Stdlib.Html.stringNode "code" ] ]
 
                       Stdlib.Html.p
-                          [ ("class", Stdlib.Option.Option.Some("text-base 2xl:text-lg text-justify text-gray-500")) ]
+                          [ ("class", Stdlib.Option.Option.Some "text-base 2xl:text-lg text-justify text-gray-500") ]
                           [ Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-grey-500")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-grey-500") ]
                                 [ Stdlib.Html.span
-                                      [ ("class", Stdlib.Option.Option.Some("font-bold")) ]
+                                      [ ("class", Stdlib.Option.Option.Some "font-bold") ]
                                       [ Stdlib.Html.stringNode "no cruft:" ]
                                   Stdlib.Html.stringNode
                                       " no build systems, no null, no exception handling, no ORMs, no OOP, no inheritence hierarchies, no async/await, no compilation, no dev environments, no dependency hell, no packaging, no git, no github, " ]
 
                             Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                                 [ Stdlib.Html.span
-                                      [ ("class", Stdlib.Option.Option.Some("font-bold")) ]
+                                      [ ("class", Stdlib.Option.Option.Some "font-bold") ]
                                       [ Stdlib.Html.stringNode "no devops:" ]
                                   Stdlib.Html.stringNode
                                       " no yaml, no config files, no docker, no containers, no kubernetes, no ci/cd pipelines, no terraform, no orchestrating, " ]
 
                             Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                 [ Stdlib.Html.span
-                                      [ ("class", Stdlib.Option.Option.Some("font-bold")) ]
+                                      [ ("class", Stdlib.Option.Option.Some "font-bold") ]
                                       [ Stdlib.Html.stringNode "no infrastructure:" ]
                                   Stdlib.Html.stringNode
                                       " no sql, no nosql, no connection poolers, no sharding, no indexes, no servers, no serverless, no networking, no load balancers, no 200 cloud services, no kafka, no memcached, no unix, no OSes" ] ] ]
@@ -466,62 +560,62 @@ let heroSection () : Stdlib.Html.Node =
 
                 Stdlib.Html.htmlTagNode
                     "form"
-                    [ ("id", Stdlib.Option.Option.Some("form1"))
-                      ("onsubmit", Stdlib.Option.Option.Some("addEmailToList(1); return false;"))
-                      ("class", Stdlib.Option.Option.Some("font-bold md:flex md:flex-col justify-center m-10")) ]
+                    [ ("id", Stdlib.Option.Option.Some "form1")
+                      ("onsubmit", Stdlib.Option.Option.Some "addEmailToList(1); return false;")
+                      ("class", Stdlib.Option.Option.Some "font-bold md:flex md:flex-col justify-center m-10") ]
 
                     [ Stdlib.Html.div
-                          [ ("class", Stdlib.Option.Option.Some("md:flex md:flex-col justify-center")) ]
+                          [ ("class", Stdlib.Option.Option.Some "md:flex md:flex-col justify-center") ]
                           [ Stdlib.Html.p
-                                [ ("class", Stdlib.Option.Option.Some("my-2 text-dark-gray/50")) ]
+                                [ ("class", Stdlib.Option.Option.Some "my-2 text-dark-gray/50") ]
                                 [ Stdlib.Html.stringNode "Send me project updates" ]
                             Stdlib.Html.div
-                                [ ("class", Stdlib.Option.Option.Some("md:flex md:flex-row")) ]
+                                [ ("class", Stdlib.Option.Option.Some "md:flex md:flex-row") ]
                                 [ Stdlib.Html.htmlTagNode
                                       "input"
-                                      [ ("type", Stdlib.Option.Option.Some("email"))
-                                        ("id", Stdlib.Option.Option.Some("email1"))
-                                        ("name", Stdlib.Option.Option.Some("email"))
-                                        ("placeholder", Stdlib.Option.Option.Some("Your email"))
+                                      [ ("type", Stdlib.Option.Option.Some "email")
+                                        ("id", Stdlib.Option.Option.Some "email1")
+                                        ("name", Stdlib.Option.Option.Some "email")
+                                        ("placeholder", Stdlib.Option.Option.Some "Your email")
                                         ("required", Stdlib.Option.Option.None)
                                         ("class",
-                                         Stdlib.Option.Option.Some(
+                                         Stdlib.Option.Option.Some 
                                              "border border-gray-300 rounded-lg px-4 py-3 focus:ring-white w-full md:w-96"
-                                         )) ]
+                                         ) ]
                                       []
 
                                   Stdlib.Html.span
                                       [ ("class",
-                                         Stdlib.Option.Option.Some(
+                                         Stdlib.Option.Option.Some 
                                              "hidden text-red-400 absolute -bottom-7 text-xs italic"
-                                         ))
-                                        ("id", Stdlib.Option.Option.Some("error1")) ]
+                                         )
+                                        ("id", Stdlib.Option.Option.Some "error1") ]
                                       []
 
                                   Stdlib.Html.button
-                                      [ ("type", Stdlib.Option.Option.Some("submit"))
+                                      [ ("type", Stdlib.Option.Option.Some "submit")
                                         ("class",
-                                         Stdlib.Option.Option.Some(
+                                         Stdlib.Option.Option.Some 
                                              "bg-blue hover:bg-purple text-white rounded px-5 py-3 mx-auto mt-2 w-full md:mt-0 md:w-max md:mx-2"
-                                         )) ]
+                                         ) ]
                                       [ Stdlib.Html.stringNode "Send" ] ] ] ] ] ]
 
 let introSection () : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
         "section"
         [ ("class",
-           Stdlib.Option.Option.Some(
+           Stdlib.Option.Option.Some 
                "container mx-auto p-8 text-center my-10 md:px-16 2xl:p-0 md:mt-44 2xl:mb-32 text-xl md:text-4xl font-Quicksand"
-           )) ]
+           ) ]
         [ Stdlib.Html.p
               []
               [ Stdlib.Html.stringNode
                     "Darklang puts everything in one box, so you can build CLIs and cloud apps with no bullshit, "
                 Stdlib.Html.span
-                    [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                    [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                     [ Stdlib.Html.stringNode "just " ]
                 Stdlib.Html.span
-                    [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                    [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                     [ Stdlib.Html.stringNode "code" ] 
                 Stdlib.Html.stringNode "." 
               ]
@@ -529,61 +623,61 @@ let introSection () : Stdlib.Html.Node =
           Stdlib.Html.htmlTagNode "br" [] []
 
           Stdlib.Html.p
-              [ ("class", Stdlib.Option.Option.Some("text-sm md:text-lg xl:text-xl")) ]
+              [ ("class", Stdlib.Option.Option.Some "text-sm md:text-lg xl:text-xl") ]
               [ Stdlib.Html.stringNode "Also it's a really enjoyable language to use!" ] ]
 
 
 let darkClassicSection () : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
         "section"
-        [ ("class", Stdlib.Option.Option.Some("container mx-auto mb-12 md:mb-40")) ]
+        [ ("class", Stdlib.Option.Option.Some "container mx-auto mb-12 md:mb-40") ]
         [ Stdlib.Html.div
               [ ("class",
-                 Stdlib.Option.Option.Some(
+                 Stdlib.Option.Option.Some 
                      "bg-[#19181D] rounded md:rounded-2xl flex flex-col md:flex-row md:items-center md:justify-between p-2 md:pr-7 md:pl-20 m-4"
-                 )) ]
+                 ) ]
               [ Stdlib.Html.div
                     [ ("class",
-                       Stdlib.Option.Option.Some(
+                       Stdlib.Option.Option.Some 
                            "flex md:flex-col justify-between md:items-start md:justify-start m-2 md:m-0"
-                       )) ]
+                       ) ]
                     [ Stdlib.Html.p
                           [ ("class",
-                             Stdlib.Option.Option.Some("text-white text-base md:text-lg lg:text-3xl 2xl:text-4xl")) ]
+                             Stdlib.Option.Option.Some "text-white text-base md:text-lg lg:text-3xl 2xl:text-4xl") ]
                           [ Stdlib.Html.stringNode "Looking for Darklang-classic?" ]
 
                       Stdlib.Html.button
                           [ ("class",
-                             Stdlib.Option.Option.Some(
+                             Stdlib.Option.Option.Some 
                                  "bg-purple text-white text-xs md:text-lg rounded px-3 py-1 md:mt-6"
-                             )) ]
+                             ) ]
                           [ Stdlib.Html.a
-                                [ ("href", Stdlib.Option.Option.Some("/classic"))
-                                  ("class", Stdlib.Option.Option.Some("hover:underline")) ]
+                                [ ("href", Stdlib.Option.Option.Some "/classic")
+                                  ("class", Stdlib.Option.Option.Some "hover:underline") ]
                                 [ Stdlib.Html.stringNode "Learn more" ] ] ]
 
                 Stdlib.Html.div
-                    [ ("class", Stdlib.Option.Option.Some("md:w-[700px] md:h-[230px] overflow-hidden")) ]
+                    [ ("class", Stdlib.Option.Option.Some "md:w-[700px] md:h-[230px] overflow-hidden") ]
                     [ Stdlib.Html.img
-                        [ ("src", Stdlib.Option.Option.Some("./img/dark-classic.png"))
-                          ("class", Stdlib.Option.Option.Some("w-full"))
-                          ("alt", Stdlib.Option.Option.Some("dark-classic")) ]
+                        [ ("src", Stdlib.Option.Option.Some "./img/dark-classic.png")
+                          ("class", Stdlib.Option.Option.Some "w-full")
+                          ("alt", Stdlib.Option.Option.Some "dark-classic") ]
                         ] ] ]
 
 let codeSection () : Stdlib.Html.Node =
     Stdlib.Html.htmlTagNode
         "section"
-        [("class", Stdlib.Option.Option.Some("container mx-auto my-20")) ]
+        [("class", Stdlib.Option.Option.Some "container mx-auto my-20") ]
         [ Stdlib.Html.div
               []
               [ Stdlib.Html.div
-                    [ ("class", Stdlib.Option.Option.Some("mb-8 text-center text-gray-500")) ]
+                    [ ("class", Stdlib.Option.Option.Some "mb-8 text-center text-gray-500") ]
                     [ Stdlib.Html.span
-                          [ ("class", Stdlib.Option.Option.Some("md:text-lg 2xl:text-xl")) ]
+                          [ ("class", Stdlib.Option.Option.Some "md:text-lg 2xl:text-xl") ]
                           [ Stdlib.Html.stringNode "In development - here’s how things will look shortly" ] ]
 
                 Stdlib.Html.div
-                    [ ("class", Stdlib.Option.Option.Some("lg:flex justify-center items-center mb-24")) ]
+                    [ ("class", Stdlib.Option.Option.Some "lg:flex justify-center items-center mb-24") ]
                     [ Stdlib.Html.div
                           []
                           [ cliCode (
@@ -591,35 +685,35 @@ let codeSection () : Stdlib.Html.Node =
                                     []
                                     [ Stdlib.Html.htmlTagNode
                                           "pre"
-                                          [ ("class", Stdlib.Option.Option.Some("whitespace-pre-line")) ]
+                                          [ ("class", Stdlib.Option.Option.Some "whitespace-pre-line") ]
                                           [ Stdlib.Html.div
                                                 []
                                                 [ Stdlib.Html.stringNode "$ "
                                                   Stdlib.Html.span
-                                                      [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                                      [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                                                       [ Stdlib.Html.stringNode "curl" ]
                                                   Stdlib.Html.stringNode " https://darklang.com/download "
                                                   Stdlib.Html.span
-                                                      [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                                      [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                                       [ Stdlib.Html.stringNode "| bash\n\n" ] ]
                                             Stdlib.Html.stringNode "Darklang installed in "
                                             Stdlib.Html.span
-                                                [ ("class", Stdlib.Option.Option.Some("text-gray-400")) ]
+                                                [ ("class", Stdlib.Option.Option.Some "text-gray-400") ]
                                                 [ Stdlib.Html.stringNode "~/.darklang/bin/darklang\n\n" ]
                                             Stdlib.Html.stringNode "Add to "
                                             Stdlib.Html.span
-                                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                                [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                                 [ Stdlib.Html.stringNode "PATH " ]
                                             Stdlib.Html.stringNode "via .bashrc"
                                             Stdlib.Html.span
                                                 [ ("class", Stdlib.Option.Option.None) ]
                                                 [ Stdlib.Html.span
-                                                      [ ("class", Stdlib.Option.Option.Some("text-gray-500")) ]
+                                                      [ ("class", Stdlib.Option.Option.Some "text-gray-500") ]
                                                       [ Stdlib.Html.stringNode " [y, n]"]
                                                   Stdlib.Html.stringNode "? y\n"
                                                   Stdlib.Html.span
                                                       [ ("class",
-                                                         Stdlib.Option.Option.Some("text-lime-400 font-body mr-1")) ]
+                                                         Stdlib.Option.Option.Some "text-lime-400 font-body mr-1") ]
                                                       [ Stdlib.Html.stringNode "&#10004;" ]
                                                   Stdlib.Html.stringNode "Added to .bashrc.\n\n"
                                                   Stdlib.Html.stringNode "Next you can:\n\n"
@@ -630,7 +724,7 @@ let codeSection () : Stdlib.Html.Node =
                                                   commentText "# Generate some code\n\n"
                                                   Stdlib.Html.stringNode "darklang prompt "
                                                   Stdlib.Html.span
-                                                      [ ("class", Stdlib.Option.Option.Some("text-gray-400")) ]
+                                                      [ ("class", Stdlib.Option.Option.Some "text-gray-400") ]
                                                       [ Stdlib.Html.stringNode
                                                             "\"Find ts scripts with more than 600 lines which use the commonjs format\"\n\n" ]
                                                   commentText "# See available command line options\n\n"
@@ -644,12 +738,12 @@ let codeSection () : Stdlib.Html.Node =
                                     []
                                     [ Stdlib.Html.htmlTagNode
                                           "pre"
-                                          [ ("class", Stdlib.Option.Option.Some("whitespace-pre-line")) ]
+                                          [ ("class", Stdlib.Option.Option.Some "whitespace-pre-line") ]
                                           [ Stdlib.Html.span
                                                 []
                                                 [ Stdlib.Html.stringNode "$ "
                                                   Stdlib.Html.span
-                                                      [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                                      [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                                       [ Stdlib.Html.stringNode "darklang " ]
                                                   Stdlib.Html.stringNode "@paul.fizzbuzz 3\n"
                                                   Stdlib.Html.stringNode "1\n2\nFizz\n\n"
@@ -661,23 +755,23 @@ let codeSection () : Stdlib.Html.Node =
                                     []
                                     [ Stdlib.Html.htmlTagNode
                                           "pre"
-                                          [ ("class", Stdlib.Option.Option.Some("whitespace-pre-line")) ]
+                                          [ ("class", Stdlib.Option.Option.Some "whitespace-pre-line") ]
                                           [ Stdlib.Html.span
                                                 []
                                                 [ Stdlib.Html.stringNode "$ "
                                                   Stdlib.Html.span
-                                                      [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                                      [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                                       [ Stdlib.Html.stringNode "darklang " ]
                                                   Stdlib.Html.stringNode "deploy @paul.fizzbuzz /fizzbuzz\n"
                                                   Stdlib.Html.stringNode "Deployed to "
                                                   Stdlib.Html.span
                                                       [ ("class",
-                                                         Stdlib.Option.Option.Some("text-gray-500 hover:underline")) ]
+                                                         Stdlib.Option.Option.Some "text-gray-500 hover:underline") ]
                                                       [ Stdlib.Html.stringNode
                                                             "https://furry-squirrel-3562.darklang.io/fizzbuzz\n" ]
                                                   Stdlib.Html.stringNode " in "
                                                   Stdlib.Html.span
-                                                      [ ("class", Stdlib.Option.Option.Some("text-[#a1b56c]")) ]
+                                                      [ ("class", Stdlib.Option.Option.Some "text-[#a1b56c]") ]
                                                       [ Stdlib.Html.stringNode "0.135s\n\n" ] ] ] ]
                             )
 
@@ -686,12 +780,12 @@ let codeSection () : Stdlib.Html.Node =
                                     []
                                     [ Stdlib.Html.htmlTagNode
                                           "pre"
-                                          [ ("class", Stdlib.Option.Option.Some("whitespace-pre-line")) ]
+                                          [ ("class", Stdlib.Option.Option.Some "whitespace-pre-line") ]
                                           [ Stdlib.Html.span
                                                 []
                                                 [ Stdlib.Html.stringNode "$ "
                                                   Stdlib.Html.span
-                                                      [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                                      [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                                                       [ Stdlib.Html.stringNode "curl " ]
                                                   Stdlib.Html.stringNode
                                                       "-sSO https://furry-squirrel-3562.darklang.io/fizzbuzz/3 "
@@ -699,45 +793,45 @@ let codeSection () : Stdlib.Html.Node =
                             ) ] ] ] 
                             
           Stdlib.Html.div
-              [("class", Stdlib.Option.Option.Some("lg:flex justify-center items-center"))]
+              [("class", Stdlib.Option.Option.Some "lg:flex justify-center items-center")]
               [
                 cliCode
                   (Stdlib.Html.htmlTagNode
                       "pre"
-                      [("class", Stdlib.Option.Option.Some("whitespace-pre-line"))]
+                      [("class", Stdlib.Option.Option.Some "whitespace-pre-line")]
                       [
                         Stdlib.Html.span
                           []
                           [ Stdlib.Html.stringNode "\n$ "
                             Stdlib.Html.span
-                              [("class", Stdlib.Option.Option.Some("text-purple"))]
+                              [("class", Stdlib.Option.Option.Some "text-purple")]
                               [ Stdlib.Html.stringNode "darklang " ]
                             Stdlib.Html.stringNode "prompt \"Find ts scripts with more than 600 lines which use commonjs format\"\n\n" 
                             Stdlib.Html.stringNode "We need your AI credentials, which will be stored locally in "
                             Stdlib.Html.span
-                              [("class", Stdlib.Option.Option.Some("text-gray-400 hover:underline"))]
+                              [("class", Stdlib.Option.Option.Some "text-gray-400 hover:underline")]
                               [Stdlib.Html.stringNode "~/darklang/secrets/\n\n"]
                             
                             Stdlib.Html.span
-                              [("class", Stdlib.Option.Option.Some("text-gray-400"))]
+                              [("class", Stdlib.Option.Option.Some "text-gray-400")]
                               [Stdlib.Html.stringNode "[1] "]
                             
                             Stdlib.Html.stringNode "Login to use Darklang AI service\n"
 
                             Stdlib.Html.span
-                              [("class", Stdlib.Option.Option.Some("text-gray-400"))]
+                              [("class", Stdlib.Option.Option.Some "text-gray-400")]
                               [Stdlib.Html.stringNode "[2] "]
                             
                             Stdlib.Html.stringNode "Enter GitHub copilot credentials\n"
                           
                             Stdlib.Html.span
-                              [("class", Stdlib.Option.Option.Some("text-gray-400"))]
+                              [("class", Stdlib.Option.Option.Some "text-gray-400")]
                               [Stdlib.Html.stringNode "[3] "]
                             
                             Stdlib.Html.stringNode "Enter OpenAI (GPT 3.5/4) credentials\n"
                           
                             Stdlib.Html.span
-                              [("class", Stdlib.Option.Option.Some("text-gray-400"))]
+                              [("class", Stdlib.Option.Option.Some "text-gray-400")]
                               [Stdlib.Html.stringNode "[4] "]
                             
                             Stdlib.Html.stringNode "Use local model\n\n"
@@ -746,7 +840,7 @@ let codeSection () : Stdlib.Html.Node =
                               []
                               [ Stdlib.Html.stringNode "Enter "
                                 Stdlib.Html.span
-                                  [("class", Stdlib.Option.Option.Some("text-gray-400"))]
+                                  [("class", Stdlib.Option.Option.Some "text-gray-400")]
                                   [Stdlib.Html.stringNode "[1-4]"]
                                 Stdlib.Html.stringNode ": 1\n\n"
                               ]
@@ -755,7 +849,7 @@ let codeSection () : Stdlib.Html.Node =
                               []
                               [ Stdlib.Html.stringNode "Login or register "
                                 Stdlib.Html.span
-                                  [("class", Stdlib.Option.Option.Some("text-gray-500"))]
+                                  [("class", Stdlib.Option.Option.Some "text-gray-500")]
                                   [Stdlib.Html.stringNode "[L, r]"]
                                 Stdlib.Html.stringNode "? L\n\n"
                               ]
@@ -763,7 +857,7 @@ let codeSection () : Stdlib.Html.Node =
                             Stdlib.Html.span
                               []
                               [ Stdlib.Html.span
-                                  [("class", Stdlib.Option.Option.Some("text-gray-400"))]
+                                  [("class", Stdlib.Option.Option.Some "text-gray-400")]
                                   [Stdlib.Html.stringNode "Username: "]
                                 Stdlib.Html.stringNode "paul\n"
                               ]
@@ -771,7 +865,7 @@ let codeSection () : Stdlib.Html.Node =
                             Stdlib.Html.span
                               []
                               [ Stdlib.Html.span
-                                  [("class", Stdlib.Option.Option.Some("text-gray-400"))]
+                                  [("class", Stdlib.Option.Option.Some "text-gray-400")]
                                   [Stdlib.Html.stringNode "Password: "]
                                 Stdlib.Html.stringNode "**************\n\n"
                               ]
@@ -779,7 +873,7 @@ let codeSection () : Stdlib.Html.Node =
                             Stdlib.Html.span
                               []
                               [ Stdlib.Html.span
-                                  [("class", Stdlib.Option.Option.Some("text-lime-400 font-body mr-1"))]
+                                  [("class", Stdlib.Option.Option.Some "text-lime-400 font-body mr-1")]
                                   [Stdlib.Html.stringNode "&#10004;"]
                                 Stdlib.Html.stringNode "Logged in.\n\n"
                               ]
@@ -788,40 +882,40 @@ let codeSection () : Stdlib.Html.Node =
                               []
                               [ Stdlib.Html.stringNode "Saved script in "
                                 Stdlib.Html.span
-                                  [("class", Stdlib.Option.Option.Some("text-gray-400 hover:underline"))]
+                                  [("class", Stdlib.Option.Option.Some "text-gray-400 hover:underline")]
                                   [Stdlib.Html.stringNode "./find-large-ts-cjs.dark "]
                                 Stdlib.Html.stringNode "in "
                                 Stdlib.Html.span
-                                  [("class", Stdlib.Option.Option.Some("text-[#a1b56c]"))]
+                                  [("class", Stdlib.Option.Option.Some "text-[#a1b56c]")]
                                   [Stdlib.Html.stringNode "43.8s\n\n"]
                               ]]])
                 
                 Stdlib.Html.div
-                  [("class", Stdlib.Option.Option.Some("bg-dark-gray rounded-lg mx-3"))]
+                  [("class", Stdlib.Option.Option.Some "bg-dark-gray rounded-lg mx-3")]
                   [
                     Stdlib.Html.div
-                      [ ("class", Stdlib.Option.Option.Some("flex items-center py-4 px-5 border-b border-b-white/10"))]
+                      [ ("class", Stdlib.Option.Option.Some "flex items-center py-4 px-5 border-b border-b-white/10")]
                       [
                         Stdlib.Html.div
                           []
                           [
                             Stdlib.Html.img
-                              [ ("src", Stdlib.Option.Option.Some("./img/logo-dark-transparent.png"))
-                                ("alt", Stdlib.Option.Option.Some("dark-file-logo"))
-                                ("class", Stdlib.Option.Option.Some("w-8 h-8")) ]
+                              [ ("src", Stdlib.Option.Option.Some "./img/logo-dark-transparent.png")
+                                ("alt", Stdlib.Option.Option.Some "dark-file-logo")
+                                ("class", Stdlib.Option.Option.Some "w-8 h-8") ]
                           ]
                         
                         Stdlib.Html.div
                           []
                           [
                             Stdlib.Html.p
-                              [("class", Stdlib.Option.Option.Some("text-gray-300"))]
+                              [("class", Stdlib.Option.Option.Some "text-gray-300")]
                               [Stdlib.Html.stringNode "find-large-ts-cjs.dark"]
                           ]
                       ]
 
                     Stdlib.Html.div
-                      [ ("class", Stdlib.Option.Option.Some("px-4 pb-45"))]
+                      [ ("class", Stdlib.Option.Option.Some "px-4 pb-45")]
                       [
                         Stdlib.Html.htmlTagNode
                           "pre"
@@ -869,11 +963,11 @@ let functionalLanguageSection () : Stdlib.Html.Node =
                             []
                             [ Stdlib.Html.stringNode "Simple types using "
                               Stdlib.Html.span
-                                  [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                  [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                   [ Stdlib.Html.stringNode "Record" ]
                               Stdlib.Html.stringNode " and "
                               Stdlib.Html.span
-                                  [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                  [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                                   [ Stdlib.Html.stringNode "Enum"]
                              ])
                     
@@ -899,7 +993,7 @@ let functionalLanguageSection () : Stdlib.Html.Node =
 
                                         Stdlib.Html.htmlTagNode
                                             "pre"
-                                            [ ("class", Stdlib.Option.Option.Some("mt-4 p-0")) ]
+                                            [ ("class", Stdlib.Option.Option.Some "mt-4 p-0") ]
                                             [ darklangCode
                                                   """// Record
 type Url = {
@@ -931,11 +1025,11 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
                         Stdlib.Html.span 
                             []
                             [ Stdlib.Html.span 
-                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                 [ Stdlib.Html.stringNode "Option" ]
                               Stdlib.Html.stringNode " and "
                               Stdlib.Html.span 
-                                [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                                 [ Stdlib.Html.stringNode "Result" ]
                               Stdlib.Html.stringNode " types instead of null and exceptions" ])
                       
@@ -997,7 +1091,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
                       Stdlib.Html.span 
                           []
                           [ Stdlib.Html.span 
-                              [("class", Stdlib.Option.Option.Some("text-purple"))]
+                              [("class", Stdlib.Option.Option.Some "text-purple")]
                               [ Stdlib.Html.stringNode "Garbage " ]
                             Stdlib.Html.stringNode "Collected"]
                     )
@@ -1021,7 +1115,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
                         Stdlib.Html.span 
                             []
                             [ Stdlib.Html.span 
-                                [("class", Stdlib.Option.Option.Some("text-purple"))]
+                                [("class", Stdlib.Option.Option.Some "text-purple")]
                                 [ Stdlib.Html.stringNode "Unicode " ]
                               Stdlib.Html.stringNode "First"])
                     previewText(
@@ -1034,7 +1128,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
                           
                           inlineCode [ Stdlib.Html.stringNode "Character" ]
                           Stdlib.Html.stringNode "s should represent screen readable characters, like 👨‍👩‍👦‍👦. All characters in Darklang represent"
-                          Stdlib.Html.span [ ("class", Stdlib.Option.Option.Some("italic")) ] [ Stdlib.Html.stringNode "Extended Grapheme Clusters" ]
+                          Stdlib.Html.span [ ("class", Stdlib.Option.Option.Some "italic") ] [ Stdlib.Html.stringNode "Extended Grapheme Clusters" ]
                           Stdlib.Html.stringNode ": one character that you see on screen. Naturally, working on Unicode Codepoints"
                           t2024 ()
                           Stdlib.Html.stringNode "and normal bytes is also well supported."
@@ -1062,25 +1156,25 @@ let runsInstantlySection () : Stdlib.Html.Node =
                             []
                             [ Stdlib.Html.stringNode "Instantly run any " 
                               Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                 [ Stdlib.Html.stringNode "package " ]
                               Stdlib.Html.stringNode "from the "
                               Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                                 [ Stdlib.Html.stringNode "CLI:" ]
                             ]
                           inlineCode [ 
                             Stdlib.Html.span
-                              [ ("class", Stdlib.Option.Option.Some("text-blue pr-2")) ]
+                              [ ("class", Stdlib.Option.Option.Some "text-blue pr-2") ]
                               [ Stdlib.Html.stringNode "darklang" ]
                             Stdlib.Html.span
-                              [ ("class", Stdlib.Option.Option.Some("text-dark-gray pr-2")) ]
+                              [ ("class", Stdlib.Option.Option.Some "text-dark-gray pr-2") ]
                               [ Stdlib.Html.stringNode "@username.functionName" ]
                             Stdlib.Html.span
-                              [ ("class", Stdlib.Option.Option.Some("ext-blue pr-2")) ]
+                              [ ("class", Stdlib.Option.Option.Some "ext-blue pr-2") ]
                               [ Stdlib.Html.stringNode "arg1" ]
                             Stdlib.Html.span
-                              [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                              [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                               [ Stdlib.Html.stringNode "arg2" ]
                           ]
                         ])
@@ -1147,7 +1241,7 @@ let runsInstantlySection () : Stdlib.Html.Node =
                               
                               Stdlib.Html.htmlTagNode
                                 "pre"
-                                [("class", Stdlib.Option.Option.Some("mt-4"))]
+                                [("class", Stdlib.Option.Option.Some "mt-4")]
                                 [
                                   bashCode
                                     """  $ darklang @hacker.stealThings "Hi there"
@@ -1182,11 +1276,11 @@ let runsInstantlySection () : Stdlib.Html.Node =
                       []
                       [ Stdlib.Html.stringNode "Instantly "
                         Stdlib.Html.span
-                          [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                          [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                           [ Stdlib.Html.stringNode "run " ]
                         Stdlib.Html.stringNode "programs as you "
                         Stdlib.Html.span
-                          [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                          [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                           [ Stdlib.Html.stringNode "write " ]
                         Stdlib.Html.stringNode "them"
                       ]
@@ -1206,7 +1300,7 @@ let runsInstantlySection () : Stdlib.Html.Node =
                             [
                               Stdlib.Html.stringNode "Single binary to install means no environments or containers to set up. "
                               Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("line-through")) ]
+                                [ ("class", Stdlib.Option.Option.Some "line-through") ]
                                 [ Stdlib.Html.stringNode "Install it now!" ]
                               
                               tagLabel "Coming early 2024"
@@ -1229,7 +1323,7 @@ let runsInstantlySection () : Stdlib.Html.Node =
                         )
 
                         Stdlib.Html.ul 
-                          [("class", Stdlib.Option.Option.Some("ml-4"))]
+                          [("class", Stdlib.Option.Option.Some "ml-4")]
                           [
                             bulletPoint (
                               Stdlib.Html.span 
@@ -1414,7 +1508,7 @@ let asyncRuntimeSection () : Stdlib.Html.Node =
                             []
                             [ Stdlib.Html.stringNode "Fully" 
                               Stdlib.Html.span
-                                  [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                  [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                   [ Stdlib.Html.stringNode " asynchronous " ]
                               Stdlib.Html.stringNode "runtime"
                             ])
@@ -1431,7 +1525,7 @@ let asyncRuntimeSection () : Stdlib.Html.Node =
                         Stdlib.Html.span
                             []
                             [ Stdlib.Html.span
-                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                 [ Stdlib.Html.stringNode "No " ]
                               inlineCode [ Stdlib.Html.stringNode "async" ]
                               Stdlib.Html.stringNode "/"
@@ -1454,11 +1548,11 @@ let asyncRuntimeSection () : Stdlib.Html.Node =
                         Stdlib.Html.span
                             []
                             [ Stdlib.Html.span 
-                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                 [ Stdlib.Html.stringNode "Concurrent " ]
                               Stdlib.Html.stringNode "and "
                               Stdlib.Html.span 
-                                [ ("class", Stdlib.Option.Option.Some("text-blue")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-blue") ]
                                 [ Stdlib.Html.stringNode "parallel " ]
                               Stdlib.Html.stringNode "execution via data-dependencies" ])
                       
@@ -1478,7 +1572,7 @@ let asyncRuntimeSection () : Stdlib.Html.Node =
                         Stdlib.Html.span
                             []
                             [ Stdlib.Html.span 
-                                [ ("class", Stdlib.Option.Option.Some("text-purple")) ]
+                                [ ("class", Stdlib.Option.Option.Some "text-purple") ]
                                 [ Stdlib.Html.stringNode "Powerful " ]
                               Stdlib.Html.stringNode "escape hatches" ])
                       indentedBody (
@@ -1533,10 +1627,10 @@ let designedForGenAISection () : Stdlib.Html.Node =
                           Stdlib.Html.stringNode "Build short CLI programs from prompts"
                           inlineCode
                               [ Stdlib.Html.span
-                                    [ ("class", Stdlib.Option.Option.Some("text-blue mr-2")) ]
+                                    [ ("class", Stdlib.Option.Option.Some "text-blue mr-2") ]
                                     [ Stdlib.Html.stringNode "darklang" ]
                                 Stdlib.Html.span
-                                    [ ("class", Stdlib.Option.Option.Some("text-purple mr-2")) ]
+                                    [ ("class", Stdlib.Option.Option.Some "text-purple mr-2") ]
                                     [ Stdlib.Html.stringNode "prompt" ]
                                 Stdlib.Html.stringNode "find all js files which don't have a CSS file of the same name" ] ]
                 )
@@ -1585,7 +1679,7 @@ let worksWithYourEditorSection () : Stdlib.Html.Node =
 let openSourceSection () : Stdlib.Html.Node =
     sectionWrapper
         [ sectionHeading (
-            Stdlib.Html.span [] [ gradientText "Open "; Stdlib.Html.stringNode "Source" ])
+            Stdlib.Html.span [] [ gradientText "Open "; Stdlib.Html.stringNode "source" ])
 
           indentedBody (
               Stdlib.Html.stringNode
@@ -1594,162 +1688,81 @@ let openSourceSection () : Stdlib.Html.Node =
           ) ]
 
 let footer () : Stdlib.Html.Node =
-    Stdlib.Html.stringNode 
-      """
-          <footer
-      class="container flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between 2xl:justify-center 2xl:container mx-auto my-20"
-    >
-      <div class="w-full md:w-1/4 flex flex-col justify-center items-center">
-        <div>
-          <a href="/">
-            <img
-              src="./img/wordmark-light-transparent@2x.png"
-              class="h-14"
-              alt="logo"
-            />
-          </a>
-        </div>
+    Stdlib.Html.htmlTagNode
+      "footer"
+      [("class", Stdlib.Option.Option.Some "container flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between 2xl:justify-center 2xl:container mx-auto my-20")]
+      [
+        Stdlib.Html.div 
+          [("class", Stdlib.Option.Option.Some "w-full md:w-1/4 flex flex-col justify-center items-center")]
+          [
+            Stdlib.Html.div [] 
+              [ Stdlib.Html.a 
+                  [("href", Stdlib.Option.Option.Some "/")] 
+                  [ Stdlib.Html.img 
+                      [ ("src", Stdlib.Option.Option.Some "./img/wordmark-light-transparent@2x.png")
+                        ("alt", Stdlib.Option.Option.Some "darklang-logo")
+                        ("class", Stdlib.Option.Option.Some "h-14") ] ] 
+              ]
+            
+            Stdlib.Html.div 
+              [ ("class", Stdlib.Option.Option.Some "text-sm text-gray-600 ml-5") ] 
+              [ Stdlib.Html.p [] [ Stdlib.Html.stringNode "Copyright &copy; 2024 Dark Inc"] ]
 
-        <div class="text-sm text-gray-600 ml-5">
-          <p>Copyright &copy; 2024 Dark Inc.</p>
-        </div>
-
-        <div class="mt-6 mx-4 text-2xl">
-          <a href="https://github.com/darklang/dark" target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a href="https://twitter.com/darklang" target="_blank"
-            ><i class="fab fa-twitter"></i
-          ></a>
-          <a href="https://darklang.com/discord" target="_blank"
-            ><i class="fab fa-discord"></i
-          ></a>
-          <a href="https://youtube.com/c/darklang" target="_blank"
-            ><i class="fab fa-youtube"></i
-          ></a>
-        </div>
-      </div>
-
-      <div
-        class="grid grid-cols-2 gap-y-2 md:container md:flex md:flex-row md:justify-around mt-8"
-      >
-        <div>
-          <h5 class="font-medium mb-2">Darklang Classic</h5>
-          <ul class="text-gray-500">
-            <li>
-              <a href="https://login.darklang.com" target="_blank">Sign in</a>
-            </li>
-            <li>
-              <a href="https://darklang.com/signup" target="_blank">Sign up</a>
-            </li>
-            <li>
-              <a href="https://darklang.com/desktop-client" target="_blank">
-                Desktop client
-              </a>
-            </li>
-            <li>
-              <a href="https://darklang.com/mailing-list" target="_blank">
-                Mailing list
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="font-medium mb-2">Learning Darklang Classic</h5>
-          <ul class="text-gray-500">
-            <li>
-              <a
-                href="https://www.youtube.com/watch?v=orRn2kTtRXQ"
-                target="_blank"
-              >
-                Demo video
-              </a>
-            </li>
-            <li>
-              <a href="https://youtube.com/c/Darklang/videos" target="_blank">
-                Tutorial video
-              </a>
-            </li>
-            <li>
-              <a href="https://docs.darklang.com/introduction" target="_blank">
-                Documentation
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://docs.darklang.com/tutorials/first-dark-application"
-                target="_blank"
-              >
-                Tutorial
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://docs.darklang.com/category/walk-throughs"
-                target="_blank"
-              >
-                Walk-throughs
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="font-medium mb-2">Development</h5>
-          <ul class="text-gray-500">
-            <li>
-              <a href="https://blog.darklang.com" target="_blank">Blog</a>
-            </li>
-            <li>
-              <a href="https://github.com/darklang/dark" target="_blank">
-                Source
-              </a>
-            </li>
-            <li>
-              <a href="https://darklang.com/notion" target="_blank">Roadmap</a>
-            </li>
-            <li>
-              <a href="https://github.com/darklang/dark/issues" target="_blank">
-                Issues
-              </a>
-            </li>
-            <li>
-              <a href="https://docs.darklang.com/changelog" target="_blank">
-                Changelog
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="font-medium mb-2">Community</h5>
-          <ul class="text-gray-500">
-            <li>
-              <a href="https://darklang.com/discord" target="_blank">Discord</a>
-            </li>
-            <li>
-              <a href="https://darklang.com/code-of-conduct" target="_blank">
-                Code of conduct
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://docs.darklang.com/contributing/getting-started"
-                target="_blank"
-              >
-                Contributor docs
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-      """
+            Stdlib.Html.div 
+              [ ("class", Stdlib.Option.Option.Some "mt-6 mx-4 text-2xl") ] 
+              [ 
+                footerIcon "https://github.com/darklang/dark" "fab fa-github"
+                footerIcon "https://twitter.com/darklang" "fab fa-twitter"
+                footerIcon "https://darklang.com/discord" "fab fa-discord"
+                footerIcon "https://youtube.com/darklang" "fab fa-youtube"
+              ]
+          ]
+        
+        Stdlib.Html.div 
+          [ ("class", Stdlib.Option.Option.Some "grid grid-cols-2 gap-y-2 md:container md:flex md:flex-row md:justify-around mt-8")]
+          [
+            footerColumn 
+              "Darklang Classic"
+              [
+                footerItem "https://login.darklang.com" "Sign in"
+                footerItem "https://darklang.com/signup" "Sign up"
+                footerItem "https://darklang.com/desktop-client" "Desktop client"
+                footerItem "https://darklang.com/mailing-list" "Mailing list"
+              ]
+            
+            footerColumn
+              "Learning Darklang Classic"
+              [
+                footerItem "https://www.youtube.com/watch?v=orRn2kTtRXQ" "Demo video"
+                footerItem "https://youtube.com/c/Darklang/videos" "Tutorial video"
+                footerItem "https://docs.darklang.com/introduction" "Documentation"
+                footerItem "https://docs.darklang.com/tutorials/first-dark-application" "Tutorial"
+                footerItem "https://docs.darklang.com/category/walk-throughs" "Walk-throughs"
+              ]
+            
+            footerColumn
+              "Development"
+              [
+                footerItem "https://blog.darklang.com" "Blog"
+                footerItem "https://github.com/darklang/dark" "Source"
+                footerItem "https://darklang.com/notion" "Roadmap"
+                footerItem "https://github.com/darklang/dark/issues" "Issues"
+                footerItem "https://docs.darklang.com/changelog" "Changelog"
+              ]
+            
+            footerColumn
+              "Community"
+              [
+                footerItem "https://darklang.com/discord" "Discord"
+                footerItem "https://darklang.com/code-of-conduct" "Code of conduct"
+                footerItem "https://docs.darklang.com/contributing/getting-started" "Contributor docs"
+              ]
+          ]
+      ]
 
 let body () : Stdlib.Html.Node =
     Stdlib.Html.body
-        [ ("class", Stdlib.Option.Option.Some("bg-light-background box-border m-0 p-0 font-Quicksand")) ]
+        [ ("class", Stdlib.Option.Option.Some "bg-light-background box-border m-0 p-0") ]
         [ 
           navbar ()
           heroSection ()
@@ -1758,7 +1771,7 @@ let body () : Stdlib.Html.Node =
           codeSection ()
           Stdlib.Html.htmlTagNode
               "section"
-              [("class", Stdlib.Option.Option.Some("container mx-auto my-20")) ]
+              [("class", Stdlib.Option.Option.Some "container mx-auto my-20") ]
               [
                 functionalLanguageSection ()
                 runsInstantlySection ()
@@ -1775,7 +1788,7 @@ let body () : Stdlib.Html.Node =
         ]
 
 let doc () : String =
-    ([ Stdlib.Html.html [("lang",Stdlib.Option.Option.Some("en"))] [ head (); body () ] ]) |> Stdlib.Html.document
+    ([ Stdlib.Html.html [("lang",Stdlib.Option.Option.Some "en")] [ head (); body () ] ]) |> Stdlib.Html.document
 
 let main () : Int64 =
     let path = "public/index.html"

@@ -1,10 +1,10 @@
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup</title>
-    <link href="../style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -15,21 +15,39 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   </head>
-
   <body class="bg-dark-gray box-border mx-auto w-full font-Quicksand">
-    <!--Navbar-->
-    <nav class="sticky bg-dark-gray w-full top-0 left-0 z-50 text-white">
+    <div class="sticky w-full top-0 left-0 z-50 bg-dark-gray text-white">
       <div
+        class="text-center bg-dark-gray text-white flex items-center justify-center"
+      >
+        <span
+          ><svg
+            class="h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 6 3"
+          >
+            <path fill="#007A3D" d="M0 0h6v3H0z"></path>
+            <path fill="#FFF" d="M0 0h6v2H0z"></path>
+            <path d="M0 0h6v1H0z"></path>
+            <path fill="#CE1126" d="M0 0l2 1.5L0 3z"></path></svg
+        ></span>
+        <p class="p-2">
+          #FreePalestine.
+          <a target="_blank" href="https://blog.paulbiggar.com/i-cant-sleep/"
+            >Read our founder's
+            <span class="underline hover:text-blue">statement</span></a
+          >
+        </p>
+      </div>
+      <nav
         class="container flex flex-wrap items-center justify-between mx-auto p-4"
       >
-        <a href="/" class="flex items-center">
-          <img
+        <a href="/" class="flex items-center"
+          ><img
             src="../img/wordmark-dark-transparent.png"
             class="h-12 mr-3"
             alt="Darklang logo"
-          />
-        </a>
-
+        /></a>
         <div class="flex md:order-2 justify-center items-center">
           <button type="button" class="text-center mr-3 md:mr-0 md:pt-4">
             <div id="dark-classic-btn" class="md:inline-block relative">
@@ -50,10 +68,12 @@
               </div>
               <div
                 id="dark-classic-menu"
-                class="absolute hidden w-full bg-dark-gray text-white pt-1 rounded-lg border border-classic-purple"
+                class="absolute hidden w-full border rounded-lg bg-dark-gray text-white border-classic-purple"
               >
                 <ul>
-                  <li class="hover:bg-classic-purple hover:text-white">
+                  <li
+                    class="hover:bg-classic-purple hover:text-white rounded-t-lg"
+                  >
                     <a
                       class="py-2 px-4 block mx-2 border-b border-b-blue/25"
                       href="/classic"
@@ -62,7 +82,7 @@
                   </li>
                   <li class="hover:bg-classic-purple hover:text-white">
                     <a
-                      class="py-2 px-4 block mx-2 border-b border-b-gray-600"
+                      class="py-2 px-4 block mx-2 border-b border-b-blue/25"
                       href="https://login.darklang.com"
                       >Log in</a
                     >
@@ -70,14 +90,14 @@
                   <li
                     class="hover:bg-classic-purple hover:text-white rounded-b-lg"
                   >
-                    <a class="py-2 px-4 block" href="/signup">Sign up</a>
+                    <a class="py-2 px-4 block" href="./classic/signup"
+                      >Sign up</a
+                    >
                   </li>
                 </ul>
               </div>
-            </div>
-          </button>
-
-          <button
+            </div></button
+          ><button
             id="menu-button"
             type="button"
             class="inline-flex items-center md:hidden"
@@ -98,75 +118,60 @@
             </svg>
           </button>
         </div>
-
         <div
           id="menu"
-          class="rounded-b-lg bg-md:order-1 hidden md:flex bg-dark-gray md:bg-transparent justify-between items-center w-full md:w-auto border border-white/20 md:border-none md:border-0"
+          class="rounded-b-lg bg-md:order-1 hidden md:flex bg-white/70 md:bg-transparent justify-between items-center w-full md:w-auto"
         >
           <ul class="flex flex-col md:flex-row md:space-x-8 p-6 md:p-0 mt-4">
-            <!-- <li>
-                Disabled for now as it points to old docs
-                <a href="https://docs.darklang.com" target=”_blank” class="text-white">Documentation</a>
-            </li> -->
-            <li
-              class="hover:text-classic-purple border-b border-b-white/20 md:border-none"
-            >
+            <li class="hover:text-classic-purple border-b md:border-none">
               <a
-                href="https://blog.darklang.com"
-                target="”_blank”"
                 class="block py-2 pl-3 pr-4"
+                href="https://blog.darklang.com"
+                target="_blank"
                 >Blog</a
               >
             </li>
-            <li
-              class="hover:text-classic-purple border-b border-b-white/20 md:border-none"
-            >
+            <li class="hover:text-classic-purple border-b md:border-none">
               <a
-                href="https://darklang.com/discord"
-                target="”_blank”"
                 class="block py-2 pl-3 pr-4"
+                href="https://darklang.com/discord"
+                target="_blank"
                 >Discord</a
               >
             </li>
-            <li
-              class="hover:text-classic-purple border-b border-b-white/20 md:border-none"
-            >
+            <li class="hover:text-classic-purple border-b md:border-none">
               <a
-                href="https://github.com/darklang/dark"
-                target="”_blank”"
                 class="block py-2 pl-3 pr-4"
-                >Github</a
+                href="https://github.com/darklang/dark"
+                target="_blank"
+                >GitHub</a
               >
             </li>
-            <li
-              class="hover:text-classic-purple border-b border-b-white/20 md:border-none"
-            >
+            <li class="hover:text-classic-purple border-b md:border-none">
               <a
-                href="https://darklang.com/sponsor"
-                target="”_blank”"
                 class="block py-2 pl-3 pr-4"
+                href="https://darklang.com/sponsor"
+                target="_blank"
                 >Sponsor us</a
               >
             </li>
-            <li class="hover:text-classic-purple">
-              <a href="/" class="block py-2 pl-3 pr-4">
-                <span>Darklang Next</span>
-              </a>
+            <li class="hover:text-classic-purple border-b md:border-none">
+              <a class="block py-2 pl-3 pr-4" href="/" target="_blank"
+                >Darklang Next</a
+              >
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
-
-    <!-- Sign up form -->
+      </nav>
+    </div>
     <section class="mt-8 pb-11">
       <div
         class="container flex flex-col justify-center items-center mx-auto text-center"
       >
         <img
           src="../img/darklang-classic.png"
+          alt="darklang-classic-logo"
           class="max-w-xs md:max-w-xl 2xl:max-w-3xl 2xl:mt-14"
-          alt="logo"
         />
         <p
           class="text-center font-medium text-xl text-white md:text-2xl mt-11 2xl:mt-16"
@@ -174,18 +179,17 @@
           We're currently focused on the
           <a
             href="https://darklang.com/discord"
-            class="underline text-classic-purple font-semibold"
+            class="underline text-classic-purple hover:text-classic-pink font-semibold"
             >next version</a
           >
           of Darklang, but you can still try Darklang Classic!
         </p>
       </div>
-
       <div
-        class="rounded-lg mx-auto mt-16 border border-classic-pink bg-gradient-to-r from-classic-purple via-classic-purple to-classic-pink xs:w-[375px] lg:w-[450px] h-fit"
+        class="rounded-lg mx-auto mt-16 border border-classic-pink bg-gradient-to-r from-classic-purple via-classic-purple to-classic-pink xs:w-[375px] lg:w-[450px] h-fit pb-3"
       >
         <form
-          id="sign-up-form"
+          id="signup-form"
           action=""
           class="flex flex-col justify-center items-center pt-10 pb-5 px-6 md:px-12 bg-dark-gray rounded-t-lg text-white"
         >
@@ -202,17 +206,15 @@
                 Congratulations! Your sign up was successful
               </p>
               <a
-                class="px-20 py-2 text-lg rounded bg-purple hover:bg-pink-500 transition duration-200 ease-in-out mt-14"
                 href="https://login.darklang.com"
+                class="text-pink font-medium text-2xl mt-4"
                 >Log in</a
               >
             </div>
           </div>
-
           <h2 class="text-3xl font-semibold">Sign up</h2>
-
           <div
-            id="errors"
+            id="error"
             class="hidden mt-4 w-full bg-red-300 items-center rounded py-1"
           >
             <i
@@ -220,70 +222,62 @@
             ></i>
             <ul id="error-list" class="text-red-800 text-sm"></ul>
           </div>
-
           <div class="relative w-full mt-8">
             <input
               type="text"
               name="name"
               id="name"
-              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
               placeholder=" "
+              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
               required
-            />
-            <label
+            /><label
               for="name"
               class="absolute text-sm text-gray-300 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:left-0 peer-focus:text-gray-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >Name</label
             >
           </div>
-
           <div class="relative w-full mt-8">
             <input
               type="email"
               name="email"
               id="email"
-              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
               placeholder=" "
+              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
               required
-            />
-            <label
+            /><label
               for="email"
               class="absolute text-sm text-gray-300 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:left-0 peer-focus:text-gray-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >Email</label
             >
           </div>
-
           <div class="relative w-full mt-8">
             <input
               type="text"
               name="username"
               id="username"
-              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
               placeholder=" "
+              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
               required
-            />
-            <label
+            /><label
               for="username"
               class="absolute text-sm text-gray-300 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:left-0 peer-focus:text-gray-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >Username</label
             >
           </div>
-
           <div class="my-8 flex">
             <input
-              id="code-of-conduct"
               type="checkbox"
               name="code-of-conduct"
+              id="code-of-conduct"
               class="rounded focus:ring-0 text-pink mr-2"
-            />
-            <label for="code-of-conduct" class="text-xs"
+              required
+            /><label for="code-of-conduct" class="text-xs"
               >I promise to abide by the
               <a
                 href="https://darklang.com/code-of-conduct"
                 class="underline underline-offset-2 hover:text-classic-purple"
-                >Code of Conduct</a
-              >
-              when using Dark services or participating in the Dark
+                >Code of Conduct </a
+              >when using Dark services or participating in the Dark
               community.</label
             >
           </div>
@@ -303,43 +297,42 @@
         </form>
       </div>
     </section>
-
-    <!-- Footer -->
     <footer
       class="container flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between 2xl:justify-center 2xl:container mx-auto my-20"
     >
       <div class="w-full md:w-1/4 flex flex-col justify-center items-center">
         <div>
-          <a href="/">
-            <img
+          <a href="/"
+            ><img
               src="../img/wordmark-dark-transparent.png"
+              alt="darklang-logo"
               class="h-14"
-              alt="logo"
-            />
-          </a>
+          /></a>
         </div>
-
-        <div class="text-sm text-gray-300 ml-5">
-          <p>Copyright &copy; 2024 Dark Inc.</p>
-        </div>
-
-        <!-- todo fix icons -->
         <div class="mt-6 mx-4 text-2xl text-white">
-          <a href="https://github.com/darklang/dark" target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a href="https://twitter.com/darklang" target="_blank"
-            ><i class="fab fa-twitter"></i
-          ></a>
-          <a href="https://darklang.com/discord" target="_blank"
-            ><i class="fab fa-discord"></i
-          ></a>
-          <a href="https://youtube.com/c/darklang" target="_blank"
+          <a
+            href="https://github.com/darklang/dark"
+            target="_blank"
+            class="hover:text-blue mx-1"
+            ><i class="fab fa-github"></i></a
+          ><a
+            href="https://twitter.com/darklang"
+            target="_blank"
+            class="hover:text-blue mx-1"
+            ><i class="fab fa-twitter"></i></a
+          ><a
+            href="https://darklang.com/discord"
+            target="_blank"
+            class="hover:text-blue mx-1"
+            ><i class="fab fa-discord"></i></a
+          ><a
+            href="https://youtube.com/darklang"
+            target="_blank"
+            class="hover:text-blue mx-1"
             ><i class="fab fa-youtube"></i
           ></a>
         </div>
       </div>
-
       <div
         class="grid grid-cols-2 gap-y-2 md:container md:flex md:flex-row md:justify-around mt-8"
       >
@@ -347,122 +340,116 @@
           <h5 class="font-medium mb-2 text-white">Darklang Classic</h5>
           <ul class="text-gray-400">
             <li>
-              <a href="https://login.darklang.com" target="_blank">Sign in</a>
+              <a target="_blank" href="https://login.darklang.com">Sign in</a>
             </li>
             <li>
-              <a href="https://darklang.com/signup" target="_blank">Sign up</a>
+              <a target="_blank" href="https://darklang.com/signup">Sign up</a>
             </li>
             <li>
-              <a href="https://darklang.com/desktop-client" target="_blank">
-                Desktop client
-              </a>
+              <a target="_blank" href="https://darklang.com/desktop-client"
+                >Desktop client</a
+              >
             </li>
             <li>
-              <a href="https://darklang.com/mailing-list" target="_blank">
-                Mailing list
-              </a>
+              <a target="_blank" href="https://darklang.com/mailing-list"
+                >Mailing list</a
+              >
             </li>
           </ul>
         </div>
-
         <div>
           <h5 class="font-medium mb-2 text-white">Learning Darklang Classic</h5>
           <ul class="text-gray-400">
             <li>
               <a
+                target="_blank"
                 href="https://www.youtube.com/watch?v=orRn2kTtRXQ"
-                target="_blank"
+                >Demo video</a
               >
-                Demo video
-              </a>
             </li>
             <li>
-              <a href="https://youtube.com/c/Darklang/videos" target="_blank">
-                Tutorial video
-              </a>
+              <a target="_blank" href="https://youtube.com/c/Darklang/videos"
+                >Tutorial video</a
+              >
             </li>
             <li>
-              <a href="https://docs.darklang.com/introduction" target="_blank">
-                Documentation
-              </a>
+              <a target="_blank" href="https://docs.darklang.com/introduction"
+                >Documentation</a
+              >
             </li>
             <li>
               <a
+                target="_blank"
                 href="https://docs.darklang.com/tutorials/first-dark-application"
-                target="_blank"
+                >Tutorial</a
               >
-                Tutorial
-              </a>
             </li>
             <li>
               <a
-                href="https://docs.darklang.com/category/walk-throughs"
                 target="_blank"
+                href="https://docs.darklang.com/category/walk-throughs"
+                >Walk-throughs</a
               >
-                Walk-throughs
-              </a>
             </li>
           </ul>
         </div>
-
         <div>
           <h5 class="font-medium mb-2 text-white">Development</h5>
           <ul class="text-gray-400">
             <li>
-              <a href="https://blog.darklang.com" target="_blank">Blog</a>
+              <a target="_blank" href="https://blog.darklang.com">Blog</a>
             </li>
             <li>
-              <a href="https://github.com/darklang/dark" target="_blank">
-                Source
-              </a>
+              <a target="_blank" href="https://github.com/darklang/dark"
+                >Source</a
+              >
             </li>
             <li>
-              <a href="https://darklang.com/notion" target="_blank">Roadmap</a>
+              <a target="_blank" href="https://darklang.com/notion">Roadmap</a>
             </li>
             <li>
-              <a href="https://github.com/darklang/dark/issues" target="_blank">
-                Issues
-              </a>
+              <a target="_blank" href="https://github.com/darklang/dark/issues"
+                >Issues</a
+              >
             </li>
             <li>
-              <a href="https://docs.darklang.com/changelog" target="_blank">
-                Changelog
-              </a>
+              <a target="_blank" href="https://docs.darklang.com/changelog"
+                >Changelog</a
+              >
             </li>
           </ul>
         </div>
-
         <div>
           <h5 class="font-medium mb-2 text-white">Community</h5>
           <ul class="text-gray-400">
             <li>
-              <a href="https://darklang.com/discord" target="_blank">Discord</a>
+              <a target="_blank" href="https://darklang.com/discord">Discord</a>
             </li>
             <li>
-              <a href="https://darklang.com/code-of-conduct" target="_blank">
-                Code of conduct
-              </a>
+              <a target="_blank" href="https://darklang.com/code-of-conduct"
+                >Code of conduct</a
+              >
             </li>
             <li>
               <a
-                href="https://docs.darklang.com/contributing/getting-started"
                 target="_blank"
+                href="https://docs.darklang.com/contributing/getting-started"
+                >Contributor docs</a
               >
-                Contributor docs
-              </a>
             </li>
           </ul>
         </div>
       </div>
     </footer>
-
-    <script src="./signup.js"></script>
     <script>
+      // Menu button navigation bar
       const button = document.querySelector("#menu-button");
       const menu = document.querySelector("#menu");
       const arrow = document.getElementById("arrowIcon");
       const darkClassicBtn = document.querySelector("#dark-classic-btn");
       const darkClassicMenu = document.querySelector("#dark-classic-menu");
+
+      const toggleHeading = document.querySelector("#toggle-heading-li");
 
       darkClassicBtn.addEventListener("click", () => {
         darkClassicMenu.classList.toggle("hidden");
@@ -471,6 +458,51 @@
 
       button.addEventListener("click", () => {
         menu.classList.toggle("hidden");
+      });
+
+      // Toggle items ellipsis content (see example)
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleItems = document.querySelectorAll(".toggleItem");
+
+        toggleItems.forEach(item => {
+          item.addEventListener("click", function () {
+            const toggleContent = item.querySelector(".toggleContent");
+            const contentId = toggleContent.getAttribute("data-target");
+            const content = document.getElementById(contentId);
+            content.classList.toggle("hidden");
+            const previewText = item.querySelector(".previewText");
+            previewText.classList.toggle("line-clamp-3");
+            item.classList.toggle("h-64");
+            item.classList.toggle("sm:h-72");
+            item.classList.toggle("justify-center");
+            const seeExampleElement = item.querySelector(".see-example");
+
+            if (seeExampleElement) {
+              seeExampleElement.classList.toggle("hidden");
+            }
+          });
+        });
+
+        const allHiddenToggleItems =
+          document.querySelectorAll(".hiddenToggleItem");
+
+        allHiddenToggleItems.forEach(item => {
+          item.addEventListener("click", function () {
+            const contentId = item.getAttribute("data-target");
+            const content = document.getElementById(contentId);
+
+            if (content) {
+              content.classList.toggle("hidden");
+              const buttonTextSpan = item.querySelector(".readMoreButton");
+              if (buttonTextSpan) {
+                const isContentHidden = content.classList.contains("hidden");
+                buttonTextSpan.textContent = isContentHidden
+                  ? "Read More"
+                  : "Show Less";
+              }
+            }
+          });
+        });
       });
     </script>
   </body>

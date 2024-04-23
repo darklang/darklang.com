@@ -1103,6 +1103,10 @@ video {
   border-bottom-color: rgb(255 255 255 / 0.2);
 }
 
+.border-b-classic-purple\/25{
+  border-bottom-color: rgb(178 120 255 / 0.25);
+}
+
 .\!bg-code-background{
   --tw-bg-opacity: 1 !important;
   background-color: rgb(245 244 241 / var(--tw-bg-opacity)) !important;
@@ -1412,6 +1416,14 @@ video {
 
 .pt-10{
   padding-top: 2.5rem;
+}
+
+.pb-1{
+  padding-bottom: 0.25rem;
+}
+
+.pb-2{
+  padding-bottom: 0.5rem;
 }
 
 .text-left{
@@ -1837,6 +1849,11 @@ video {
 .hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-classic-pink:hover{
+  --tw-text-opacity: 1;
+  color: rgb(245 111 240 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover{

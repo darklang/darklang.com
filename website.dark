@@ -1716,6 +1716,18 @@ let footer (theme : Theme) : Stdlib.Html.Node =
       match theme with
         | DarkNext -> "./img/wordmark-light-transparent@2x.png"
         | DarkClassic -> "../img/wordmark-dark-transparent.png"
+    
+    let footerCopyrightText =
+      match theme with
+      | DarkNext -> "text-sm text-gray-600 ml-5"
+      | DarkClassic -> "text-sm text-gray-300 ml-5"
+    
+    let footerIcons =
+      match theme with
+      | DarkNext -> "mt-6 mx-4 text-2xl"
+      | DarkClassic -> "mt-6 mx-4 text-2xl text-white"
+
+        
     Stdlib.Html.footer
       [("class", Stdlib.Option.Option.Some "container flex flex-col md:flex-row flex-1 justify-center items-center md:justify-between 2xl:justify-center 2xl:container mx-auto my-20")]
       [
@@ -1731,35 +1743,18 @@ let footer (theme : Theme) : Stdlib.Html.Node =
                         ("class", Stdlib.Option.Option.Some "h-14") ] ] 
               ]
             
-            match theme with
-            | DarkNext ->
-              Stdlib.Html.div 
-                [ ("class", Stdlib.Option.Option.Some "text-sm text-gray-600 ml-5") ] 
-                [ Stdlib.Html.p [] [ Stdlib.Html.stringNode "Copyright &copy; 2024 Dark Inc"] ]
-              
-              Stdlib.Html.div 
-                [ ("class", Stdlib.Option.Option.Some "mt-6 mx-4 text-2xl") ] 
-                [ 
-                  footerIcon "https://github.com/darklang/dark" "fab fa-github"
-                  footerIcon "https://twitter.com/darklang" "fab fa-twitter"
-                  footerIcon "https://darklang.com/discord" "fab fa-discord"
-                  footerIcon "https://youtube.com/darklang" "fab fa-youtube"
-                ]
-
-            | DarkClassic ->
-              Stdlib.Html.div 
-                [ ("class", Stdlib.Option.Option.Some "text-sm text-gray-300 ml-5") ] 
-                [ Stdlib.Html.p [] [ Stdlib.Html.stringNode "Copyright &copy; 2024 Dark Inc"] ]
-
-              Stdlib.Html.div 
-                [ ("class", Stdlib.Option.Option.Some "mt-6 mx-4 text-2xl text-white") ] 
-                [ 
-                  footerIcon "https://github.com/darklang/dark" "fab fa-github"
-                  footerIcon "https://twitter.com/darklang" "fab fa-twitter"
-                  footerIcon "https://darklang.com/discord" "fab fa-discord"
-                  footerIcon "https://youtube.com/darklang" "fab fa-youtube"
-                ]
-
+            Stdlib.Html.div 
+              [ ("class", Stdlib.Option.Option.Some footerCopyrightText ) ]
+              [ Stdlib.Html.p [] [ Stdlib.Html.stringNode "Copyright &copy; 2024 Dark Inc"] ]
+            
+            Stdlib.Html.div 
+              [ ("class", Stdlib.Option.Option.Some footerIcons) ]
+              [ 
+                footerIcon "https://github.com/darklang/dark" "fab fa-github"
+                footerIcon "https://twitter.com/darklang" "fab fa-twitter"
+                footerIcon "https://darklang.com/discord" "fab fa-discord"
+                footerIcon "https://youtube.com/darklang" "fab fa-youtube"
+              ]
           ]
         
         Stdlib.Html.div 

@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link href="./style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"
@@ -26,7 +26,7 @@
   <body class="bg-light-background box-border m-0 p-0">
     <div class="sticky w-full top-0 left-0 z-50 bg-light-background">
       <div
-        class="text-center bg-dark-gray text-white flex items-center justify-center"
+        class="text-center bg-[#1c1c1c] text-white flex items-center justify-center"
       >
         <span
           ><svg
@@ -62,16 +62,16 @@
               <div
                 class="font-semibold inline-flex items-center px-3 py-2 hover:text-purple"
               >
-                <span class="mr-1 text-xs md:text-base">Darklang classic</span>
-                <svg
+                <span class="mr-1 text-xs md:text-base">Darklang classic</span
+                ><svg
                   id="arrowIcon"
                   class="fill-current h-4 w-4 transform transition duration-200 ease-in-out"
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="http://www.w3.org/2000/sv"
                   viewBox="0 0 20 20"
                 >
                   <path
                     d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                  />
+                  ></path>
                 </svg>
               </div>
               <div
@@ -435,26 +435,27 @@ We need your AI credentials, which will be stored locally in <span class="text-g
           </div>
           <div class="px-4 pb-45">
             <pre><code class="!bg-dark-gray !text-white fsharp"><span>
-  let findLargeTypescriptCommonJSFiles (path : String) =
-    Directory.traverse (fun path -> 
-      if not (List.oneOf (File.extension path) [".ts", ".mjs", ".cjs"]) then 
-        print $"Skipping - wrong file type: {path}" 
+let findLargeTypescriptCommonJSFiles (path : String) =
+  Directory.traverse (fun path -> 
+    if not (List.oneOf (File.extension path) [".ts", ".mjs", ".cjs"]) then 
+      print $"Skipping - wrong file type: {path}" 
+    else 
+      let contents = File.readString path 
+      let lines = String.splitNewlines contents
+      if (List.length lines) <= 600 then 
+        print $"Skipping - too short: {path}" 
       else 
-        let contents = File.readString path 
-        let lines = String.splitNewlines contents
-        if (List.length lines) <= 600 then 
-          print $"Skipping - too short: {path}" 
-        else 
-          let isCommonjs = 
-            lines |> List.any (fun line ->
-              line |> Regex.matches "/const .* = require(.*)/" 
-            ) 
-          if isCommonjs then 
-            print $"Found one: {path}" 
-      )
-      
+        let isCommonjs = 
+          lines |> List.any (fun line ->
+            line |> Regex.matches "/const .* = require(.*)/" 
+          ) 
+        if isCommonjs then 
+          print $"Found one: {path}" 
+    )
+    
   findLargeTypescriptCommonJSFiles "./"
-                      </span></code></pre>
+
+</span></code></pre>
           </div>
         </div>
       </div>
@@ -471,7 +472,7 @@ We need your AI credentials, which will be stored locally in <span class="text-g
             ></span
           >
         </p>
-        <div class="font-Quicksand grid lg:grid-cols-2 gap-3 items-start">
+        <div class="font-Quicksand grid gap-3 lg:grid-cols-2 items-start">
           <div
             class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
           >
@@ -724,7 +725,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
             ></span
           >
         </p>
-        <div class="font-Quicksand grid lg:grid-cols-2 gap-3 items-start">
+        <div class="font-Quicksand grid gap-3 lg:grid-cols-2 items-start">
           <div
             class="toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out"
           >
@@ -757,18 +758,18 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
               </p>
               <span class="hidden mb-2" id="run-any"
                 ><ul class="text-lg font-normal m-4">
-                  <pre><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"><span>  $ darklang @paul.fizzbuzz 10
-  1
-  2
-  Fizz
-  4
-  Buzz
-  Fizz
-  7
-  8
-  Fizz
-  Buzz
-                              </span></code></pre>
+                  <pre><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"><span>$ darklang @paul.fizzbuzz 10
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+                          </span></code></pre>
                   <li class="flex flex-row mt-2">
                     <p class="text-purple text-2xl mr-3 leading-6 font-bold">
                       -
@@ -823,23 +824,23 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
                       needed.
                       <pre
                         class="mt-4"
-                      ><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"><span>  $ darklang @hacker.stealThings "Hi there"
-  > @hacker.stealThings requires the following permissions
-  >   Makes Http requests to unknown domains
-  >   Reads any file
-  >   Executes any file
-  > Continue? [N, y] y
-  > These are unusual permissions. Are you sure [N, y] y
-  Ha ha, you're own3d
+                      ><code class="max-w-xs md:max-w-sm xl:max-w-lg 2xl:max-w-xl font-FiraCode text-sm !bg-code-background !text-gray-600 rounded shell"><span>$ darklang @hacker.stealThings "Hi there"
+> @hacker.stealThings requires the following permissions
+>   Makes Http requests to unknown domains
+>   Reads any file
+>   Executes any file
+> Continue? [N, y] y
+> These are unusual permissions. Are you sure [N, y] y
+Ha ha, you're own3d
 
-  $ darklang @mycompany.internal.createMonthlyReport
-  > @mycompany.internal.createMonthlyReport requires the following
-  > permissions
-  >   Makes Http GET requests to stripe.com/api/ETC
-  >   Makes Http POST requests to drive.google.com
-  > Continue? [N, y] y
-  Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf3.pdf
-  </span></code></pre>
+$ darklang @mycompany.internal.createMonthlyReport
+> @mycompany.internal.createMonthlyReport requires the following
+> permissions
+>   Makes Http GET requests to stripe.com/api/ETC
+>   Makes Http POST requests to drive.google.com
+> Continue? [N, y] y
+Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf3.pdf
+</span></code></pre>
                     </span>
                   </li>
                 </ul></span
@@ -968,110 +969,109 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
           >
         </p>
         <div class="text-lg font-normal mx-4 my-4">
-          <span
-            >Darklang has a rather unique package manager, where functions and
-            types are individually versioned and immutable, taking a lot of the
-            hassle out of package management.<span
-              class="hidden mb-2"
-              id="streaming-package-manager"
-              ><ul class="text-lg font-normal m-4">
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  Only download the specific package items you use
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  Only upgrade the specific package items you use
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  <span
-                    ><span class="mx-auto inline-block"
+          Darklang has a rather unique package manager, where functions and
+          types are individually versioned and immutable, taking a lot of the
+          hassle out of package management.<span
+            class="hidden mb-2"
+            id="streaming-package-manager"
+            ><ul class="text-lg font-normal m-4">
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                Only download the specific package items you use
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                Only upgrade the specific package items you use
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span
+                  ><span class="mx-auto inline-block"
+                    ><span
+                      class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                      ><span>2024</span
                       ><span
-                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
-                        ><span>2024</span
-                        ><span
-                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-                        ></span></span></span
-                    >Automated dependency upgrades, as we track deprecation
-                    status, and know what functions are pure and safe to
-                    update.</span
-                  >
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  Different packages can rely on different versions of other
-                  packages
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  Use multiple versions of the same package item at once: allows
-                  testing new versions without having to change an entire
-                  package version, lowering risk.
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  <span
-                    ><span class="mx-auto inline-block"
-                      ><span
-                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
-                        ><span>2024</span
-                        ><span
-                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-                        ></span></span></span
-                    >Share pre-release functions trivially, without contributors
-                    needing to check out your git repo or set up anything</span
-                  >
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  <span
-                    ><span class="mx-auto inline-block"
-                      ><span
-                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
-                        ><span>2024</span
-                        ><span
-                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-                        ></span></span></span
-                    >The package manager functions as a source repository</span
-                  >
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  no need for uploads, releases or other synchronization. No git
-                  or GitHub required (but you can sync to GitHub if you prefer).
-                </li>
-              </ul></span
-            >
-            <div
-              class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group"
-              data-target="streaming-package-manager"
-            >
-              <div
-                class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"
-              ></div>
-              <div
-                class="relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"
-              >
-                <div
-                  class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"
+                        class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                      ></span></span></span
+                  >Automated dependency upgrades, as we track deprecation
+                  status, and know what functions are pure and safe to
+                  update.</span
                 >
-                  <span class="text-lg text-black flex items-center"
-                    ><span class="readMoreButton">Read More</span
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 25 25"
-                      class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
-                    >
-                      <path
-                        style="fill: #232326"
-                        d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-                        data-name="Right"
-                      ></path></svg
-                  ></span>
-                </div>
-              </div></div
-          ></span>
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                Different packages can rely on different versions of other
+                packages
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                Use multiple versions of the same package item at once: allows
+                testing new versions without having to change an entire package
+                version, lowering risk.
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span
+                  ><span class="mx-auto inline-block"
+                    ><span
+                      class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                      ><span>2024</span
+                      ><span
+                        class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                      ></span></span></span
+                  >Share pre-release functions trivially, without contributors
+                  needing to check out your git repo or set up anything</span
+                >
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span
+                  ><span class="mx-auto inline-block"
+                    ><span
+                      class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                      ><span>2024</span
+                      ><span
+                        class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                      ></span></span></span
+                  >The package manager functions as a source repository</span
+                >
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                no need for uploads, releases or other synchronization. No git
+                or GitHub required (but you can sync to GitHub if you prefer).
+              </li>
+            </ul></span
+          >
+          <div
+            class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group"
+            data-target="streaming-package-manager"
+          >
+            <div
+              class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"
+            ></div>
+            <div
+              class="relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"
+            >
+              <div
+                class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"
+              >
+                <span class="text-lg text-black flex items-center"
+                  ><span class="readMoreButton">Read More</span
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 25 25"
+                    class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
+                  >
+                    <path
+                      style="fill: #232326"
+                      d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                      data-name="Right"
+                    ></path></svg
+                ></span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
@@ -1086,104 +1086,102 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
           >
         </p>
         <div class="text-lg font-normal mx-4 my-4">
-          <span
-            >Gradual Static Typing allows running incomplete programs so you
-            don't need to ensure everything type checks when you're getting one
-            path working<span class="hidden mb-2" id="gst"
-              ><ul class="text-lg font-normal m-4">
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  While prototyping, just run code until you hit a type error
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  <span
-                    >After prototyping, run the full type checker to gain
-                    confidence your whole program works<span
-                      class="mx-auto inline-block"
+          Gradual Static Typing allows running incomplete programs so you don't
+          need to ensure everything type checks when you're getting one path
+          working<span class="hidden mb-2" id="gst"
+            ><ul class="text-lg font-normal m-4">
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                While prototyping, just run code until you hit a type error
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span
+                  >After prototyping, run the full type checker to gain
+                  confidence your whole program works<span
+                    class="mx-auto inline-block"
+                    ><span
+                      class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                      ><span>2024</span
                       ><span
-                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
-                        ><span>2024</span
-                        ><span
-                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-                        ></span></span></span
-                  ></span>
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  <span
-                    >Full type-checking hints in VSCode or in LSP editors<span
-                      class="mx-auto inline-block"
+                        class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                      ></span></span></span
+                ></span>
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span
+                  >Full type-checking hints in VSCode or in LSP editors<span
+                    class="mx-auto inline-block"
+                    ><span
+                      class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                      ><span>2024</span
                       ><span
-                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
-                        ><span>2024</span
-                        ><span
-                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-                        ></span></span></span
-                  ></span>
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  <span
-                    ><code
-                      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
-                      ><span>!</span></code
-                    >
-                    and
-                    <code
-                      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
-                      ><span>?</span></code
-                    >operators allow easy error handling while you
-                    prototype</span
+                        class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                      ></span></span></span
+                ></span>
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span
+                  ><code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>!</span></code
                   >
-                </li>
-                <li class="flex flex-row mt-2">
-                  <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
-                  <span
-                    >Automatic refactoring converts
-                    <code
-                      class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
-                      ><span>!</span></code
-                    >
-                    into proper error handling<span class="mx-auto inline-block"
+                  and
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>?</span></code
+                  >operators allow easy error handling while you prototype</span
+                >
+              </li>
+              <li class="flex flex-row mt-2">
+                <p class="text-purple text-2xl mr-3 leading-6 font-bold">-</p>
+                <span
+                  >Automatic refactoring converts
+                  <code
+                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                    ><span>!</span></code
+                  >
+                  into proper error handling<span class="mx-auto inline-block"
+                    ><span
+                      class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+                      ><span>2024</span
                       ><span
-                        class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
-                        ><span>2024</span
-                        ><span
-                          class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-                        ></span></span></span
-                  ></span>
-                </li></ul
-            ></span>
+                        class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+                      ></span></span></span
+                ></span>
+              </li></ul
+          ></span>
+          <div
+            class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group"
+            data-target="gst"
+          >
             <div
-              class="relative hiddenToggleItem group block w-fit mt-4 cursor-pointer group"
-              data-target="gst"
+              class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"
+            ></div>
+            <div
+              class="relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"
             >
               <div
-                class="absolute transition-all rounded-md bg-gradient-to-r from-purple to-blue p-0.5 blur-lg group-hover:opacity-75 group-hover:inset-1 group-hover:duration-200"
-              ></div>
-              <div
-                class="relative inline-flex rounded-md bg-gradient-to-r from-purple to-blue p-0.5"
+                class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"
               >
-                <div
-                  class="bg-light-background rounded back px-3 py-1 flex justify-center items-center"
-                >
-                  <span class="text-lg text-black flex items-center"
-                    ><span class="readMoreButton">Read More</span
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 25 25"
-                      class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
-                    >
-                      <path
-                        style="fill: #232326"
-                        d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-                        data-name="Right"
-                      ></path></svg
-                  ></span>
-                </div>
-              </div></div
-          ></span>
+                <span class="text-lg text-black flex items-center"
+                  ><span class="readMoreButton">Read More</span
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 25 25"
+                    class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
+                  >
+                    <path
+                      style="fill: #232326"
+                      d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                      data-name="Right"
+                    ></path></svg
+                ></span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
@@ -1197,9 +1195,9 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
             ></span
           >
         </p>
-        <div class="font-Quicksand grid lg:grid-cols-2 gap-3 items-start">
+        <div class="font-Quicksand grid gap-3 lg:grid-cols-2 items-start">
           <div
-            class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+            class="h-full mt-4 flex flex-col justify-center md:mt-0 drop-shadow-md p-5 md:p-8 rounded-2xl bg-white"
           >
             <div>
               <div class="my-3">
@@ -1217,7 +1215,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
             </div>
           </div>
           <div
-            class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+            class="h-full mt-4 flex flex-col justify-center md:mt-0 drop-shadow-md p-5 md:p-8 rounded-2xl bg-white"
           >
             <div>
               <div class="my-3">
@@ -1235,26 +1233,24 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
                 </h3>
               </div>
               <div class="text-lg font-normal mx-4 my-4">
-                <span
-                  >Adding
-                  <code
-                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
-                    ><span>async</span></code
-                  >
-                  and
-                  <code
-                    class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
-                    ><span>await</span></code
-                  >
-                  keywords to every language was a mistake. It exposes the
-                  complexity of concurrency and multi-threading to languages
-                  which were originally designed for simplicity.</span
+                Adding
+                <code
+                  class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                  ><span>async</span></code
                 >
+                and
+                <code
+                  class="font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue"
+                  ><span>await</span></code
+                >
+                keywords to every language was a mistake. It exposes the
+                complexity of concurrency and multi-threading to languages which
+                were originally designed for simplicity.
               </div>
             </div>
           </div>
           <div
-            class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+            class="h-full mt-4 flex flex-col justify-center md:mt-0 drop-shadow-md p-5 md:p-8 rounded-2xl bg-white"
           >
             <div>
               <div class="my-3">
@@ -1276,7 +1272,7 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
             </div>
           </div>
           <div
-            class="h-full mt-4 flex flex-col justify-center md:mt-0 bg-white drop-shadow-md p-5 md:p-8 rounded-2xl"
+            class="h-full mt-4 flex flex-col justify-center md:mt-0 drop-shadow-md p-5 md:p-8 rounded-2xl bg-white"
           >
             <div>
               <div class="my-3">
@@ -1307,26 +1303,24 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
           >
         </p>
         <div class="text-lg font-normal mx-4 my-4">
-          <span
-            ><span class="mx-auto inline-block"
+          <span class="mx-auto inline-block"
+            ><span
+              class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+              ><span>Optional</span
               ><span
-                class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
-                ><span>Optional</span
-                ><span
-                  class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-                ></span></span></span
-            ><span class="mx-auto inline-block"
+                class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+              ></span></span></span
+          ><span class="mx-auto inline-block"
+            ><span
+              class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
+              ><span>2024</span
               ><span
-                class="overflow-hidden group relative flex flex-row bg-[#E3D3FF] text-purple px-1.5 py-0.5 mx-1 rounded text-sm"
-                ><span>2024</span
-                ><span
-                  class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
-                ></span></span></span
-            >Instant cloud deployment of code (to our cloud or yours), with
-            instant creation of DBs, API endpoints, and worker queues, with no
-            containers, no cold starts, no orchestration, or other devops/cloud
-            engineering required</span
-          >
+                class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine"
+              ></span></span></span
+          >Instant cloud deployment of code (to our cloud or yours), with
+          instant creation of DBs, API endpoints, and worker queues, with no
+          containers, no cold starts, no orchestration, or other devops/cloud
+          engineering required
         </div>
       </div>
       <div class="mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand">
@@ -1625,13 +1619,13 @@ type UrlParseResult = Result&lt;Url, UrlError&gt;
 
       const toggleHeading = document.querySelector("#toggle-heading-li");
 
+      button.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
       darkClassicBtn.addEventListener("click", () => {
         darkClassicMenu.classList.toggle("hidden");
         arrow.classList.toggle("rotate-180");
-      });
-
-      button.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
       });
 
       // Toggle items ellipsis content (see example)

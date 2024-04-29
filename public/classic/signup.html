@@ -18,7 +18,7 @@
   <body class="bg-dark-gray box-border mx-auto w-full font-Quicksand">
     <div class="sticky w-full top-0 left-0 z-50 bg-dark-gray text-white">
       <div
-        class="text-center bg-dark-gray text-white flex items-center justify-center"
+        class="text-center bg-[#1c1c1c] text-white flex items-center justify-center"
       >
         <span
           ><svg
@@ -54,16 +54,16 @@
               <div
                 class="font-semibold inline-flex items-center px-3 py-2 hover:text-classic-purple"
               >
-                <span class="mr-1 text-xs md:text-base">Darklang classic</span>
-                <svg
+                <span class="mr-1 text-xs md:text-base">Darklang classic</span
+                ><svg
                   id="arrowIcon"
                   class="fill-current h-4 w-4 transform transition duration-200 ease-in-out"
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="http://www.w3.org/2000/sv"
                   viewBox="0 0 20 20"
                 >
                   <path
                     d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                  />
+                  ></path>
                 </svg>
               </div>
               <div
@@ -454,13 +454,13 @@
 
       const toggleHeading = document.querySelector("#toggle-heading-li");
 
+      button.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
       darkClassicBtn.addEventListener("click", () => {
         darkClassicMenu.classList.toggle("hidden");
         arrow.classList.toggle("rotate-180");
-      });
-
-      button.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
       });
 
       // Toggle items ellipsis content (see example)

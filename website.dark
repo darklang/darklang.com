@@ -1,5 +1,10 @@
 type Theme = DarkNext | DarkClassic
 
+/// -----------------
+/// Helper functions for creating components
+/// -----------------
+
+// Sections 
 let sectionWrapper (children: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
   Stdlib.Html.div
     [ ("class", Stdlib.Option.Option.Some "mx-2 md:container md:mx-auto lg:p-6 mb-24 font-Quicksand") ]
@@ -15,13 +20,8 @@ let sectionHeading (theme: Theme) (heading: Stdlib.Html.Node ) : Stdlib.Html.Nod
     [ ("class", Stdlib.Option.Option.Some $"text-4xl font-bold mb-5 mx-2 md:mx-0 {classicStyle}") ]
     [ (Stdlib.Html.span [] [ heading ]) ]
 
-let itemHeading (content: Stdlib.Html.Node) : Stdlib.Html.Node =
-  Stdlib.Html.div
-    [ ("class", Stdlib.Option.Option.Some "my-3") ]
-    [ Stdlib.Html.h3
-        [ ("class", Stdlib.Option.Option.Some "text-base md:text-xl font-bold") ]
-        [ content ]]
 
+// Text
 let gradientText (theme: Theme) (text: String) : Stdlib.Html.Node =
   let gradient = 
     match theme with
@@ -32,6 +32,18 @@ let gradientText (theme: Theme) (text: String) : Stdlib.Html.Node =
     [ ("class", Stdlib.Option.Option.Some $"text-transparent bg-clip-text bg-gradient-to-r {gradient}") ]
     [ Stdlib.Html.stringNode text ]
 
+let previewText (content: Stdlib.Html.Node) : Stdlib.Html.Node =
+  Stdlib.Html.p
+    [ ("class", Stdlib.Option.Option.Some "text-lg font-normal mx-4 my-4 line-clamp-3 previewText") ]
+    [ content ] 
+
+let commentText (content: String) : Stdlib.Html.Node =
+  Stdlib.Html.span
+    [ ("class", Stdlib.Option.Option.Some "text-[#02A5F1] m-0 p-0") ]
+    [ Stdlib.Html.span [] [ Stdlib.Html.stringNode content ] ]
+
+
+// Items
 let itemsWrapper (theme : Theme) (children: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
   let gridStyle = 
     match theme with
@@ -43,21 +55,12 @@ let itemsWrapper (theme : Theme) (children: List<Stdlib.Html.Node>) : Stdlib.Htm
 let itemsWrapperClassic (children: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
   Stdlib.Html.div [ ("class", Stdlib.Option.Option.Some "font-Quicksand grid grid-cols-2 lg:grid-cols-4 gap-3")] children
 
-let toggleItem (id: String) (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
+let itemHeading (content: Stdlib.Html.Node) : Stdlib.Html.Node =
   Stdlib.Html.div
-    [ ("class", Stdlib.Option.Option.Some "toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out")]
-    [ Stdlib.Html.div [] content
-      seeExample ()
-      Stdlib.Html.p 
-        [ ("class", Stdlib.Option.Option.Some "toggleContent text-purple -ml-3")
-          ("data-target", Stdlib.Option.Option.Some id)  ] [] ]
-
-let toggleBody (id: String) (content: Stdlib.Html.Node) : Stdlib.Html.Node =
-  Stdlib.Html.span
-    [ ("class", Stdlib.Option.Option.Some "hidden mb-2")
-      ("id", Stdlib.Option.Option.Some id) ]
-    [ content ] 
-
+    [ ("class", Stdlib.Option.Option.Some "my-3") ]
+    [ Stdlib.Html.h3
+        [ ("class", Stdlib.Option.Option.Some "text-base md:text-xl font-bold") ]
+        [ content ]]
 
 let simpleItem (theme: Theme) (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
   let simpleItemStyle = 
@@ -69,10 +72,29 @@ let simpleItem (theme: Theme) (content: List<Stdlib.Html.Node>) : Stdlib.Html.No
     [ ("class", Stdlib.Option.Option.Some $"h-full mt-4 flex flex-col justify-center md:mt-0 drop-shadow-md p-5 md:p-8 rounded-2xl {simpleItemStyle}") ]
     [ Stdlib.Html.div [] content ]
 
+let toggleItem (id: String) (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
+  Stdlib.Html.div
+    [ ("class", Stdlib.Option.Option.Some "toggleItem sm:h-72 h-64 flex flex-col justify-center mt-4 md:mt-0 bg-white drop-shadow-md p-5 md:px-8 rounded-2xl cursor-pointer hover:-translate-y-1 transition-all duration-300 ease-in-out")]
+    [ Stdlib.Html.div [] content
+      seeExampleButton ()
+      Stdlib.Html.p 
+        [ ("class", Stdlib.Option.Option.Some "toggleContent text-purple -ml-3")
+          ("data-target", Stdlib.Option.Option.Some id)  ] [] ]
+
+
+// Bodies
 let indentedBody (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
   Stdlib.Html.div [ ("class", Stdlib.Option.Option.Some "text-lg font-normal mx-4 my-4") ] content
 
-let seeExample () : Stdlib.Html.Node =
+let toggleBody (id: String) (content: Stdlib.Html.Node) : Stdlib.Html.Node =
+  Stdlib.Html.span
+    [ ("class", Stdlib.Option.Option.Some "hidden mb-2")
+      ("id", Stdlib.Option.Option.Some id) ]
+    [ content ] 
+
+
+// Buttons
+let seeExampleButton () : Stdlib.Html.Node =
   Stdlib.Html.a
     [ ("class", Stdlib.Option.Option.Some "see-example text-blue hover:text-purple cursor-pointer m-3") ]
     [ Stdlib.Html.stringNode "See example" ]
@@ -99,17 +121,16 @@ let readMoreButton (id: String) : Stdlib.Html.Node =
         ]
     ]
     
-let previewText (content: Stdlib.Html.Node) : Stdlib.Html.Node =
-  Stdlib.Html.p
-    [ ("class", Stdlib.Option.Option.Some "text-lg font-normal mx-4 my-4 line-clamp-3 previewText") ]
-    [ content ] 
 
+// Lists
 let bulletPoints (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
   Stdlib.Html.ul [ ("class", Stdlib.Option.Option.Some "text-lg font-normal m-4") ] content
 
 let bulletPoint (content: Stdlib.Html.Node) : Stdlib.Html.Node =
   Stdlib.Html.li [ ("class", Stdlib.Option.Option.Some "flex flex-row mt-2") ] [ listBulletSvg (); content ]
 
+
+// SVGs
 let listBulletSvg () : Stdlib.Html.Node =
   Stdlib.Html.p
     [ ("class", Stdlib.Option.Option.Some "text-purple text-2xl mr-3 leading-6 font-bold") ]
@@ -128,6 +149,7 @@ let arrowSvg () : Stdlib.Html.Node =
     ]
 
 
+// Tags
 let tagLabel (content: String) : Stdlib.Html.Node =
   Stdlib.Html.span
     [ ("class", Stdlib.Option.Option.Some "mx-auto inline-block") ]
@@ -144,6 +166,8 @@ let t2024 () : Stdlib.Html.Node = tagLabel "2024"
 
 let t2025 () : Stdlib.Html.Node = tagLabel "2025+"
 
+
+// Code
 let inlineCode (content: List<Stdlib.Html.Node>) : Stdlib.Html.Node =
   Stdlib.Html.code
     [ ("class", Stdlib.Option.Option.Some "font-FiraCode text-xs flex-wrap md:text-sm inline-flex text-left items-center bg-code-background rounded py-1 px-2 text-blue") ]
@@ -175,39 +199,8 @@ let cliCode (content: Stdlib.Html.Node) : Stdlib.Html.Node =
 
       Stdlib.Html.div [] [ content ] ]
 
-let commentText (content: String) : Stdlib.Html.Node =
-  Stdlib.Html.span
-    [ ("class", Stdlib.Option.Option.Some "text-[#02A5F1] m-0 p-0") ]
-    [ Stdlib.Html.span [] [ Stdlib.Html.stringNode content ] ]
 
-let highlightJsScripts () : Stdlib.Html.Node =
-  // [ Stdlib.Html.link
-  //     [ ("rel", Stdlib.Option.Option.Some "stylesheet")
-  //       ("href", Stdlib.Option.Option.Some "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css") ]
-    
-  //   Stdlib.Html.script
-  //     [ ("src", Stdlib.Option.Option.Some "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js") ]
-  //     []
-    
-  //   Stdlib.Html.script
-  //     [ ("src", Stdlib.Option.Option.Some "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/fsharp.min.js") ]
-  //     []
-    
-  //   Stdlib.Html.script
-  //     []
-  //     [ Stdlib.Html.stringNode "hljs.highlightAll();"]
-  // ]
-    
-  Stdlib.Html.stringNode
-    """
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"/>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/fsharp.min.js"></script>
-      <script>
-        hljs.highlightAll();
-      </script>
-    """
-
+// Nav
 let navItem (theme: Theme) (url : String) (content : String) : Stdlib.Html.Node =
   let navItemClassAttr = 
     match theme with
@@ -222,6 +215,8 @@ let navItem (theme: Theme) (url : String) (content : String) : Stdlib.Html.Node 
           ("target", Stdlib.Option.Option.Some "_blank") ]
         [ Stdlib.Html.stringNode content ] ]
 
+
+// Footer
 let footerColumn (theme: Theme) (heading : String) (content : List<Stdlib.Html.Node>) : Stdlib.Html.Node =
   let h5classAttr = 
     match theme with
@@ -254,6 +249,8 @@ let footerIcon (url : String) (icon : String) : Stdlib.Html.Node =
 
     [ Stdlib.Html.i [ ("class", Stdlib.Option.Option.Some icon) ] []]
 
+
+// Scripts
 let toggleScript () : Stdlib.Html.Node =
   Stdlib.Html.stringNode
     """
@@ -320,6 +317,22 @@ let toggleScript () : Stdlib.Html.Node =
     </script>
   """
 
+let highlightJsScripts () : Stdlib.Html.Node =
+  Stdlib.Html.stringNode
+    """
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/fsharp.min.js"></script>
+      <script>
+        hljs.highlightAll();
+      </script>
+    """
+
+
+/// -----------------
+/// Shared components
+/// -----------------
+
 let head (theme : Theme) : Stdlib.Html.Node =
   let title = 
     match theme with
@@ -385,10 +398,12 @@ let banner () : Stdlib.Html.Node =
         ]
     ]
 
-let darklangNext (theme : Theme) : Stdlib.Html.Node =
+
+let darklangNextNavItem (theme : Theme) : Stdlib.Html.Node =
   match theme with
   | DarkNext -> Stdlib.Html.Node.String ""
   | DarkClassic -> navItem theme "/" "Darklang Next"
+
 
 let navbar (theme : Theme) (isClassicPage: Bool): Stdlib.Html.Node =
   let bg =
@@ -536,12 +551,17 @@ let navbar (theme : Theme) (isClassicPage: Bool): Stdlib.Html.Node =
                   navItem theme "https://darklang.com/discord" "Discord"
                   navItem theme "https://github.com/darklang/dark" "GitHub"
                   navItem theme "https://darklang.com/sponsor" "Sponsor us"                  
-                  darklangNext theme
+                  darklangNextNavItem theme
                 ]
             ]
         ]
     ]
             
+
+
+/// -----------------
+/// Darklang Next 
+/// -----------------
 
 let heroSection () : Stdlib.Html.Node =
   Stdlib.Html.section
@@ -622,6 +642,7 @@ let heroSection () : Stdlib.Html.Node =
                           ("class", Stdlib.Option.Option.Some "bg-blue hover:bg-purple text-white rounded px-5 py-3 mx-auto mt-2 w-full md:mt-0 md:w-max md:mx-2") ]
                         [ Stdlib.Html.stringNode "Send" ] ] ] 
               ] ] ]
+
 
 let introSection () : Stdlib.Html.Node =
   Stdlib.Html.section
@@ -1303,6 +1324,7 @@ Report initiated and stored at https://drive.google.com/u/asj599b3/5288942sdfsdf
         ]
     ]
 
+
 let nextGenPMSection (theme : Theme) : Stdlib.Html.Node =
   sectionWrapper
     [ sectionHeading theme (Stdlib.Html.span [] [ gradientText theme "Next-gen "; Stdlib.Html.stringNode "package management"])
@@ -1551,6 +1573,7 @@ let designedForGenAISection (theme : Theme) : Stdlib.Html.Node =
         ]) 
     ]
 
+
 let worksWithYourEditorSection (theme : Theme) : Stdlib.Html.Node =
   sectionWrapper
     [ sectionHeading theme (Stdlib.Html.span [] [ Stdlib.Html.stringNode "Works with your "; gradientText theme "Editor" ])
@@ -1562,6 +1585,7 @@ let worksWithYourEditorSection (theme : Theme) : Stdlib.Html.Node =
             bulletPoint (Stdlib.Html.stringNode "We mention this because Darklang classic required using our editor, and that's no longer the case.") 
           ] ) 
     ]
+
 
 let openSourceSection (theme : Theme) : Stdlib.Html.Node =
   sectionWrapper
@@ -1676,9 +1700,15 @@ let body () : Stdlib.Html.Node =
       toggleScript ()
     ]
 
+
 let doc () : String =
   ([ Stdlib.Html.html [("lang",Stdlib.Option.Option.Some "en")] [ head (Theme.DarkNext); body () ] ]) |> Stdlib.Html.document
 
+
+
+/// -----------------
+/// Darklang Classic Signup Page
+/// -----------------
 
 let signupHead () : Stdlib.Html.Node =
   Stdlib.Html.head
@@ -1698,6 +1728,7 @@ let signupHead () : Stdlib.Html.Node =
       Stdlib.Html.script [ ("src", Stdlib.Option.Option.Some "https://cdn.tailwindcss.com") ] []
       Stdlib.Html.script [ ("src", Stdlib.Option.Option.Some "https://cdn.tailwindcss.com?plugins=forms") ] []
     ]
+
 
 let signupFormFields (id : String) (typ : String) (label : String) : Stdlib.Html.Node =
   Stdlib.Html.div
@@ -1786,6 +1817,7 @@ let signupForm () : Stdlib.Html.Node =
         ] 
     ]
 
+
 let signupSection () : Stdlib.Html.Node =
   Stdlib.Html.section 
     [ ("class", Stdlib.Option.Option.Some "mt-8 pb-11") ]
@@ -1812,6 +1844,7 @@ let signupSection () : Stdlib.Html.Node =
         [ signupForm () ]
     ]
 
+
 let signupBody () : Stdlib.Html.Node =
   Stdlib.Html.body
     [ ("class", Stdlib.Option.Option.Some "bg-dark-gray box-border mx-auto w-full font-Quicksand") ]
@@ -1829,6 +1862,11 @@ let signupPage () : String =
         signupBody () ] ]) 
   |> Stdlib.Html.document
 
+
+
+/// -----------------
+/// Darklang Classic Home Page
+/// -----------------
 
 let darklangClassicSection (theme :Theme) : Stdlib.Html.Node =
   Stdlib.Html.div
@@ -2098,6 +2136,11 @@ let darklangClassicPage () : String =
   |> Stdlib.Html.document
 
 
+
+/// -----------------
+/// Fill Pages
+/// -----------------
+
 let fillHomePage () : Int64 =
   let path = "public/index.html"
   let content = (doc ()) |> Stdlib.String.toBytes
@@ -2119,6 +2162,7 @@ let fillSignupPage () : Int64 =
       Builtin.printLine err
       1L
 
+
 let fillDarklangClassicPage () : Int64 =
   let path = "public/classic.html"
   let content = (darklangClassicPage ()) |> Stdlib.String.toBytes
@@ -2128,6 +2172,12 @@ let fillDarklangClassicPage () : Int64 =
   | Error err ->
       Builtin.printLine err
       1L
+
+
+
+/// -----------------
+/// Main
+/// -----------------
 
 let main () : Int64 =
   let homePage = fillHomePage ()

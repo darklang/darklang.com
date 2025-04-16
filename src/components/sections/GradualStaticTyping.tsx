@@ -1,5 +1,5 @@
-import React from 'react';
-import SectionTitle from '../ui/SectionTitle';
+import React from "react";
+import SectionTitle from "../ui/SectionTitle";
 
 type FeaturePoint = {
   text: string;
@@ -9,23 +9,31 @@ type FeaturePoint = {
 const GradualStaticTyping: React.FC = () => {
   const featurePoints: FeaturePoint[] = [
     { text: "While prototyping, just run code until you hit a type error" },
-    { text: "After prototyping, run the full type checker to gain confidence your whole program works" },
-    { text: "! and ? operators allow easy error handling while you prototype", year: "2025" },
-    { text: "Automatic refactoring converts ! into proper error handling", year: "2025" },
-    { text: "Full type-checking hints in VSCode or in LSP editors" }
+    {
+      text: "After prototyping, run the full type checker to gain confidence your whole program works",
+    },
+    {
+      text: "! and ? operators allow easy error handling while you prototype",
+      year: "2025",
+    },
+    {
+      text: "Automatic refactoring converts ! into proper error handling",
+      year: "2025",
+    },
+    { text: "Full type-checking hints in VSCode or in LSP editors" },
   ];
 
   return (
     <section className="w-full bg-white py-16 md:py-24">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4">
-
-        <SectionTitle subtitle='Prototype Quickly'>
+        <SectionTitle subtitle="Prototype Quickly">
           Gradual Static Typing
         </SectionTitle>
 
         <p className="md:text-lg md:text-xl text-gray-800 mb-12 max-w-3xl">
-          Gradual Static Typing allows running incomplete programs so you don't need to ensure everything type checks
-          when you're getting one path working
+          Gradual Static Typing allows running incomplete programs so you don't
+          need to ensure everything type checks when you're getting one path
+          working
         </p>
 
         <div className="space-y-8 relative">

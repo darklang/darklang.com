@@ -3,13 +3,13 @@
  * Icons for feature cards and other UI elements
  */
 
-import React from 'react';
+import React from "react";
 
 interface IconProps {
   className?: string;
 }
 
-export const HttpIcon: React.FC<IconProps> = ({ className = '' }) => (
+export const HttpIcon: React.FC<IconProps> = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -24,7 +24,7 @@ export const HttpIcon: React.FC<IconProps> = ({ className = '' }) => (
   </svg>
 );
 
-export const WorkerIcon: React.FC<IconProps> = ({ className = '' }) => (
+export const WorkerIcon: React.FC<IconProps> = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ export const WorkerIcon: React.FC<IconProps> = ({ className = '' }) => (
   </svg>
 );
 
-export const CronIcon: React.FC<IconProps> = ({ className = '' }) => (
+export const CronIcon: React.FC<IconProps> = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -58,7 +58,7 @@ export const CronIcon: React.FC<IconProps> = ({ className = '' }) => (
   </svg>
 );
 
-export const CliIcon: React.FC<IconProps> = ({ className = '' }) => (
+export const CliIcon: React.FC<IconProps> = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ export const CliIcon: React.FC<IconProps> = ({ className = '' }) => (
   </svg>
 );
 
-export const MiscIcon: React.FC<IconProps> = ({ className = '' }) => (
+export const MiscIcon: React.FC<IconProps> = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

@@ -1,2 +1,2 @@
-export { default } from './BlogPostCard';
-export * from './BlogPostCard';
+export { default } from "./BlogPostCard";
+export * from "./BlogPostCard";

@@ -1,5 +1,5 @@
-import React from 'react';
-import { BlogPostCard } from '../ui/BlogPostCard';
+import React from "react";
+import { BlogPostCard } from "../ui/BlogPostCard";
 
 interface BlogPost {
   id: string;
@@ -23,11 +23,13 @@ export const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
           <button className="inline-flex items-center justify-center px-6 py-2 border border-purple-lbg text-sm font-medium rounded-full text-purple-lbg bg-white">
             Latest insights & updates
           </button>
-          <h2 className="mt-6 text-3xl md:text-6xl font-bold text-black-custom">Recent Blog Posts</h2>
+          <h2 className="mt-6 text-3xl md:text-6xl font-bold text-black-custom">
+            Recent Blog Posts
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {posts.map((post) => (
+          {posts.map(post => (
             <BlogPostCard
               key={post.id}
               author={post.author}

@@ -3,14 +3,14 @@
  * Renders a terminal-like UI with customizable content
  */
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 interface TerminalProps {
   children: ReactNode;
   className?: string;
 }
 
-const Terminal: React.FC<TerminalProps> = ({ children, className = '' }) => {
+const Terminal: React.FC<TerminalProps> = ({ children, className = "" }) => {
   return (
     <div className={`bg-dark-black rounded-2xl wrap-break-word ${className}`}>
       <div className="px- py-2">

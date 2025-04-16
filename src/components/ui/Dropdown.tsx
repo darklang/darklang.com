@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 interface DropdownProps {
   label: string;
@@ -22,14 +22,17 @@ const Dropdown: React.FC<DropdownProps> = ({ label, labelColor, items }) => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -50,7 +53,7 @@ const Dropdown: React.FC<DropdownProps> = ({ label, labelColor, items }) => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={`ml-1 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`}
         >
           <path d="m6 9 6 6 6-6" />
         </svg>

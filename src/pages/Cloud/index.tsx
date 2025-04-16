@@ -2,12 +2,12 @@
  * Cloud Page Component
  */
 
-import React from 'react';
-import doubleGridSquare from '../../assets/double-grid-square.png';
-import darklangLogoFramed from '../../assets/darklang-logo-framed.png';
-import Button from '../../components/ui/Button';
-import CodeEditor from '../../components/ui/CodeEditor';
-import BorderedSection from '../../components/ui/BorderedSection';
+import React from "react";
+import doubleGridSquare from "../../assets/double-grid-square.png";
+import darklangLogoFramed from "../../assets/darklang-logo-framed.png";
+import Button from "../../components/ui/Button";
+import CodeEditor from "../../components/ui/CodeEditor";
+import BorderedSection from "../../components/ui/BorderedSection";
 
 const CloudPage: React.FC = () => {
   // Set cloud as the current page for the header
@@ -37,13 +37,11 @@ const CloudPage: React.FC = () => {
             </div>
 
             <div className="md:pl-12">
-              <h1 className="text-3xl font-bold mb-4">
-                Multi-Editor Support
-              </h1>
+              <h1 className="text-3xl font-bold mb-4">Multi-Editor Support</h1>
               <p className="text-lg mb-6 max-w-2xl">
-                Darklang's language server is designed to work across
-                multiple editing environments, providing a consistent
-                experience regardless of your preferred editor.
+                Darklang's language server is designed to work across multiple
+                editing environments, providing a consistent experience
+                regardless of your preferred editor.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -69,10 +67,11 @@ const CloudPage: React.FC = () => {
         <div className="text-blue-dbg text-2xl mb-8">Darklang LSP Server</div>
 
         <p className="text-white text-lg leading-relaxed max-w-6xl">
-          Our language server is fully written in Darklang and follows the Language Server
-          Protocol (LSP), providing features like autocompletion, real-time error checking,
-          and hover documentation. It is currently integrated with a lightweight VS Code
-          extension, and we plan to support more editors like Vim, Rider, and Sublime in the
+          Our language server is fully written in Darklang and follows the
+          Language Server Protocol (LSP), providing features like
+          autocompletion, real-time error checking, and hover documentation. It
+          is currently integrated with a lightweight VS Code extension, and we
+          plan to support more editors like Vim, Rider, and Sublime in the
           future.
         </p>
       </section>
@@ -84,16 +83,17 @@ const CloudPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {/* Code Completion */}
           <div className="flex flex-col">
-            <h3 className="text-white text-xl font-medium mb-4 text-center">Code completion</h3>
-            <CodeEditor
-              code={`Stdlib.List.`}
-              showCompletion={true}
-            />
+            <h3 className="text-white text-xl font-medium mb-4 text-center">
+              Code completion
+            </h3>
+            <CodeEditor code={`Stdlib.List.`} showCompletion={true} />
           </div>
 
           {/* Syntax Highlighting */}
           <div className="flex flex-col">
-            <h3 className="text-white text-xl font-medium mb-4 text-center">Syntax highlighting</h3>
+            <h3 className="text-white text-xl font-medium mb-4 text-center">
+              Syntax highlighting
+            </h3>
             <CodeEditor
               code={`let helloWorld () : Int64 =
   Builtin.printLine ("Hello, World!")
@@ -105,7 +105,9 @@ helloWorld ()
 
           {/* Diagnostics */}
           <div className="flex flex-col">
-            <h3 className="text-white text-xl font-medium mb-4 text-center">Diagnostics</h3>
+            <h3 className="text-white text-xl font-medium mb-4 text-center">
+              Diagnostics
+            </h3>
             <CodeEditor
               code={`let x : List = 
   Stdlib.List.
@@ -118,38 +120,39 @@ helloWorld ()
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Hover */}
           <div className="flex flex-col">
-            <h3 className="text-white text-xl font-medium mb-4 text-center">Hover</h3>
-            <CodeEditor
-              code={`Stdlib.List.push`}
-              showHover={true}
-            />
+            <h3 className="text-white text-xl font-medium mb-4 text-center">
+              Hover
+            </h3>
+            <CodeEditor code={`Stdlib.List.push`} showHover={true} />
           </div>
 
           {/* Go to Definition */}
           <div className="flex flex-col">
-            <h3 className="text-white text-xl font-medium mb-4 text-center">Go to definition</h3>
-            <CodeEditor
-              code={`Stdlib.List.head`}
-              showGoToDef={true}
-            />
+            <h3 className="text-white text-xl font-medium mb-4 text-center">
+              Go to definition
+            </h3>
+            <CodeEditor code={`Stdlib.List.head`} showGoToDef={true} />
           </div>
         </div>
       </section>
 
       {/* Customizing & Creating Language Servers Section */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className=" text-blue-dbg text-2xl mb-8">Customizing & Creating Language Servers</div>
+        <div className=" text-blue-dbg text-2xl mb-8">
+          Customizing & Creating Language Servers
+        </div>
 
         <div className="text-white text-lg space-y-8 max-w-6xl">
           <p className="leading-relaxed">
-            Many of our language tools are fully accessible to users. Just like forking and
-            editing your own code, you can fork the language server to change how features
-            like onHover, autocompletion, or diagnostics work.
+            Many of our language tools are fully accessible to users. Just like
+            forking and editing your own code, you can fork the language server
+            to change how features like onHover, autocompletion, or diagnostics
+            work.
           </p>
 
           <p className="leading-relaxed">
-            It's also easy to create your own language servers, whether for testing new ideas
-            or developing specialized tools
+            It's also easy to create your own language servers, whether for
+            testing new ideas or developing specialized tools
           </p>
         </div>
       </section>
@@ -160,16 +163,17 @@ helloWorld ()
 
         <div className="text-white text-lg space-y-8 max-w-6xl">
           <p className="leading-relaxed">
-            We are currently focused on building a VS Code extension because of its rich API
-            ecosystem and powerful FileSystemProvider (FSP) capabilities. Unlike traditional
-            development where code exists as plain text files on disk, Darklang's code is stored
-            in a package manager, making VS Code's FSP particularly valuable for our
+            We are currently focused on building a VS Code extension because of
+            its rich API ecosystem and powerful FileSystemProvider (FSP)
+            capabilities. Unlike traditional development where code exists as
+            plain text files on disk, Darklang's code is stored in a package
+            manager, making VS Code's FSP particularly valuable for our
             implementation.
           </p>
 
           <p className="leading-relaxed">
-            While VS Code is our starting point, we're actively planning support for additional
-            editors including Vim, Sublime Text, and Rider.
+            While VS Code is our starting point, we're actively planning support
+            for additional editors including Vim, Sublime Text, and Rider.
           </p>
         </div>
       </section>
@@ -179,7 +183,14 @@ helloWorld ()
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6">Getting Started</h2>
           <p className="text-lg mb-6">
-            Try the VS Code extension or use it instantly on <a href="https://editor.darklang.com" className="text-blue-dbg hover:text-purple-400">editor.darklang.com</a>!
+            Try the VS Code extension or use it instantly on{" "}
+            <a
+              href="https://editor.darklang.com"
+              className="text-blue-dbg hover:text-purple-400"
+            >
+              editor.darklang.com
+            </a>
+            !
           </p>
           <div className="flex justify-center mt-8">
             <Button

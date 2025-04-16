@@ -1,1 +1,1 @@
-export * from './FeatureIcons';
+export * from "./FeatureIcons";

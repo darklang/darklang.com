@@ -3,7 +3,7 @@
  * A section with subtle intersecting corner lines and glow effect
  */
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 interface BorderedSectionProps {
   children: ReactNode;
@@ -12,7 +12,7 @@ interface BorderedSectionProps {
 
 const BorderedSection: React.FC<BorderedSectionProps> = ({
   children,
-  className = '',
+  className = "",
 }) => {
   return (
     <section className={`py-54 px-6 max-w-7xl mx-auto ${className}`}>
@@ -33,9 +33,7 @@ const BorderedSection: React.FC<BorderedSectionProps> = ({
         <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-gray-300/20 to-transparent blur-[1px] opacity-50"></div>
 
         {/* Content */}
-        <div className="relative z-10 w-full py-10 px-8">
-          {children}
-        </div>
+        <div className="relative z-10 w-full py-10 px-8">{children}</div>
       </div>
     </section>
   );

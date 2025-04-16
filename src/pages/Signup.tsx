@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import darklangClassic from '../assets/darklang-classic.png';
-import { useState, FormEvent } from 'react';
+import { Link } from "react-router-dom";
+import darklangClassic from "../assets/darklang-classic.png";
+import { useState, FormEvent } from "react";
 
 const Signup = () => {
   const [errors, setErrors] = useState<string[]>([]);
@@ -30,16 +30,18 @@ const Signup = () => {
     event.preventDefault();
 
     const form = event.currentTarget;
-    const codeOfConductInput = form.querySelector('#code-of-conduct') as HTMLInputElement;
+    const codeOfConductInput = form.querySelector(
+      "#code-of-conduct",
+    ) as HTMLInputElement;
 
     if (!codeOfConductInput.checked) {
       displayErrors(["Please agree to our code of conduct"]);
       return;
     }
 
-    const nameInput = form.querySelector('#name') as HTMLInputElement;
-    const emailInput = form.querySelector('#email') as HTMLInputElement;
-    const usernameInput = form.querySelector('#username') as HTMLInputElement;
+    const nameInput = form.querySelector("#name") as HTMLInputElement;
+    const emailInput = form.querySelector("#email") as HTMLInputElement;
+    const usernameInput = form.querySelector("#username") as HTMLInputElement;
 
     const data = {
       name: nameInput.value,
@@ -57,7 +59,7 @@ const Signup = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
-        }
+        },
       );
 
       if (response.status === 200) {
@@ -80,15 +82,21 @@ const Signup = () => {
           <img
             src={darklangClassic}
             alt="Darklang Classic"
-            className='md:max-w-3xl mx-auto'
+            className="md:max-w-3xl mx-auto"
           />
-          <p className="mt-20 text-white md:text-2xl">We're currently focused on the <a>next version of Darklang</a>, but you can still try Darklang Classic!</p>
+          <p className="mt-20 text-white md:text-2xl">
+            We're currently focused on the <a>next version of Darklang</a>, but
+            you can still try Darklang Classic!
+          </p>
         </div>
 
         <div className="max-w-md bg-dark shadow-md rounded-lg p-8 border-2 border-purple-dbg mx-auto">
           {/* Error display */}
           {showError && (
-            <div id="errors" className="flex flex-col items-center justify-center mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+            <div
+              id="errors"
+              className="flex flex-col items-center justify-center mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded"
+            >
               <ul id="error-list">
                 {errors.map((error, index) => (
                   <li key={index}>{error}</li>
@@ -98,15 +106,34 @@ const Signup = () => {
           )}
 
           {/* Success message */}
-          <div id="success" className={showSuccess ? "flex flex-col items-center justify-center" : "hidden"}>
-            <h2 className="text-xl text-green-500 mb-4">Successfully signed up!</h2>
-            <p className="text-gray-200">Thank you for signing up. Check your email for further instructions.</p>
+          <div
+            id="success"
+            className={
+              showSuccess
+                ? "flex flex-col items-center justify-center"
+                : "hidden"
+            }
+          >
+            <h2 className="text-xl text-green-500 mb-4">
+              Successfully signed up!
+            </h2>
+            <p className="text-gray-200">
+              Thank you for signing up. Check your email for further
+              instructions.
+            </p>
           </div>
 
           {!showSuccess && (
-            <form id="sign-up-form" className="space-y-6" onSubmit={handleSubmit}>
+            <form
+              id="sign-up-form"
+              className="space-y-6"
+              onSubmit={handleSubmit}
+            >
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-200 mb-1"
+                >
                   Name
                 </label>
                 <input
@@ -119,7 +146,10 @@ const Signup = () => {
               </div>
 
               <div>
-                <label htmlFor="username" className="block text-sm font-medium text-gray-200 mb-1">
+                <label
+                  htmlFor="username"
+                  className="block text-sm font-medium text-gray-200 mb-1"
+                >
                   Username
                 </label>
                 <input
@@ -132,7 +162,10 @@ const Signup = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-200 mb-1"
+                >
                   Email address
                 </label>
                 <input
@@ -154,8 +187,20 @@ const Signup = () => {
                   required
                   className="h-4 w-4 text-purple-lbg focus:ring-purple-lbg border-gray-500 rounded"
                 />
-                <label htmlFor="code-of-conduct" className="ml-2 block text-sm text-gray-100">
-                  I promise to abide by the <a href="https://darklang.com/code-of-conduct" target='_Blank' className="font-medium text-purple-lbg hover:text-purple-secondary">Code of Conduct </a> when using Dark services or participating in the Dark community.
+                <label
+                  htmlFor="code-of-conduct"
+                  className="ml-2 block text-sm text-gray-100"
+                >
+                  I promise to abide by the{" "}
+                  <a
+                    href="https://darklang.com/code-of-conduct"
+                    target="_Blank"
+                    className="font-medium text-purple-lbg hover:text-purple-secondary"
+                  >
+                    Code of Conduct{" "}
+                  </a>{" "}
+                  when using Dark services or participating in the Dark
+                  community.
                 </label>
               </div>
 
@@ -172,8 +217,12 @@ const Signup = () => {
         </div>
 
         <p className="mt-8 text-center text-sm text-white">
-          Already have an account?{' '}
-          <Link to="https://login.darklang.com" className="font-medium text-purple-lbg hover:text-purple-secondary" target='_blank'>
+          Already have an account?{" "}
+          <Link
+            to="https://login.darklang.com"
+            className="font-medium text-purple-lbg hover:text-purple-secondary"
+            target="_blank"
+          >
             Log in
           </Link>
         </p>

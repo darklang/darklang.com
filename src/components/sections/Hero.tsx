@@ -1,5 +1,5 @@
-import React from 'react';
-import Button from '../ui/Button';
+import React from "react";
+import Button from "../ui/Button";
 
 const Hero: React.FC = () => {
   return (
@@ -10,27 +10,27 @@ const Hero: React.FC = () => {
         </h1>
 
         <p className="text-lg md:text-2xl lg:text-3xl mb-12 max-w-6xl text-dark">
-          Darklang is an integrated language, framework, runtime, and editor for building
-          software— CLI scripts and REPLs, cloud apps, and more
+          Darklang is an integrated language, framework, runtime, and editor for
+          building software— CLI scripts and REPLs, cloud apps, and more
         </p>
 
         <p className="text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl text-gray-dark font-medium">
-          Write <span className="italic">simple</span> code that runs everywhere. No setup. <span className="text-purple-lbg font-semibold">Just code.</span>
+          Write <span className="italic">simple</span> code that runs
+          everywhere. No setup.{" "}
+          <span className="text-purple-lbg font-semibold">Just code.</span>
         </p>
 
         <Button
           variant="primary"
           size="lg"
           className="bg-purple-lbg hover:bg-purple-secondry text-white-custom mb-16"
-          onClick={() => window.location.href = '#'}
+          onClick={() => (window.location.href = "#")}
         >
           Get Started →
         </Button>
 
         {/* GIF placeholder */}
         <div className="w-full max-w-4xl 2xl:max-w-7xl h-96 2xl:h-[45rem] bg-gray-300 rounded-md mb-16"></div>
-
-
       </div>
     </section>
   );

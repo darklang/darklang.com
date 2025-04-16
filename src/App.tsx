@@ -4,15 +4,15 @@
  * Sets up routing with React Router.
  */
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './components/layout/Layout';
-import Home from './pages/Home';
-import About from './pages/About';
-import Signup from './pages/Signup';
-import Roadmap from './pages/Roadmap';
-import CLIPage from './pages/CLI';
-import CloudPage from './pages/Cloud';
-import NotFound from './pages/NotFound';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Signup from "./pages/Signup";
+import Roadmap from "./pages/Roadmap";
+import CLIPage from "./pages/CLI";
+import CloudPage from "./pages/Cloud";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (

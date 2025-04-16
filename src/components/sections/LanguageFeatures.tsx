@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import CodeDisplay from '../ui/CodeDisplay';
-import hljs from 'highlight.js/lib/core';
-import fsharp from 'highlight.js/lib/languages/fsharp';
+import React, { useState } from "react";
+import SectionTitle from "../ui/SectionTitle";
+import CodeDisplay from "../ui/CodeDisplay";
+import hljs from "highlight.js/lib/core";
+import fsharp from "highlight.js/lib/languages/fsharp";
 
 // Register the F# language with highlight.js
-hljs.registerLanguage('fsharp', fsharp);
+hljs.registerLanguage("fsharp", fsharp);
 
 // Component Types
 interface CodeTabProps {
@@ -28,8 +28,9 @@ interface TabData {
 // Sub-Components
 const CodeTab: React.FC<CodeTabProps> = ({ isActive, label, onClick }) => (
   <button
-    className={`px-5 2xl:px-10 py-3 text-sm text-purple-lbg ${isActive ? 'bg-purple-lbg/10' : 'hover:text-black-custom'
-      }`}
+    className={`px-5 2xl:px-10 py-3 text-sm text-purple-lbg ${
+      isActive ? "bg-purple-lbg/10" : "hover:text-black-custom"
+    }`}
     onClick={onClick}
   >
     {label}
@@ -39,7 +40,13 @@ const CodeTab: React.FC<CodeTabProps> = ({ isActive, label, onClick }) => (
 const FeatureItem: React.FC<FeatureItemProps> = ({ children }) => (
   <div className="flex items-start mb-3">
     <div className="text-purple-lbg mr-3">
-      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="27"
+        height="27"
+        viewBox="0 0 27 27"
+        fill="none"
+      >
         <path
           d="M20.25 23.3438H6.75C5.92949 23.3438 5.14258 23.0178 4.56239 22.4376C3.9822 21.8574 3.65625 21.0705 3.65625 20.25V6.75C3.65625 5.92949 3.9822 5.14258 4.56239 4.56239C5.14258 3.9822 5.92949 3.65625 6.75 3.65625H16.7175C16.9413 3.65625 17.1559 3.74514 17.3141 3.90338C17.4724 4.06161 17.5612 4.27622 17.5612 4.5C17.5612 4.72378 17.4724 4.93839 17.3141 5.09662C17.1559 5.25486 16.9413 5.34375 16.7175 5.34375H6.75C6.37704 5.34375 6.01935 5.49191 5.75563 5.75563C5.49191 6.01935 5.34375 6.37704 5.34375 6.75V20.25C5.34375 20.623 5.49191 20.9806 5.75563 21.2444C6.01935 21.5081 6.37704 21.6562 6.75 21.6562H20.25C20.623 21.6562 20.9806 21.5081 21.2444 21.2444C21.5081 20.9806 21.6562 20.623 21.6562 20.25V11.5763C21.6562 11.3525 21.7451 11.1379 21.9034 10.9796C22.0616 10.8214 22.2762 10.7325 22.5 10.7325C22.7238 10.7325 22.9384 10.8214 23.0966 10.9796C23.2549 11.1379 23.3438 11.3525 23.3438 11.5763V20.25C23.3438 21.0705 23.0178 21.8574 22.4376 22.4376C21.8574 23.0178 21.0705 23.3438 20.25 23.3438Z"
           fill="#95589F"
@@ -59,8 +66,8 @@ const LanguageFeatures: React.FC = () => {
   // Tab data
   const tabs: TabData[] = [
     {
-      id: 'functional',
-      label: 'Functional Style',
+      id: "functional",
+      label: "Functional Style",
       code: `// Simple types
 type UserAction = 
 | Click of String
@@ -81,8 +88,8 @@ let logs = actions |> Stdlib.List.map handleAction
 logs |> List.iter printLine`,
     },
     {
-      id: 'records',
-      label: 'Records & Enums',
+      id: "records",
+      label: "Records & Enums",
       code: `// Record
 type Url = {
   scheme : HttpScheme
@@ -104,8 +111,8 @@ type UrlError =
 type UrlParseResult = Result<Url, UrlError>`,
     },
     {
-      id: 'option',
-      label: 'Option & Result types',
+      id: "option",
+      label: "Option & Result types",
       code: `// Option type instead of null
 type Option<'v> =
 | Some of 'v
@@ -129,8 +136,8 @@ let findUser
   | None → Error NotFound`,
     },
     {
-      id: 'unicode',
-      label: 'Unicode-First',
+      id: "unicode",
+      label: "Unicode-First",
       code: `// All characters in Darklang represent Extended Grapheme
 // Clusters.
 
@@ -142,19 +149,19 @@ String.length "👨‍👩‍👧‍👦" // 1`,
 
   // Feature items data
   const features = [
-    'Built-in immutability and strong type system',
-    'Garbage-collected',
-    'Unicode-first',
-    'Records and Enums for straightforward data modeling',
-    'Option and Result types keep errors explicit',
+    "Built-in immutability and strong type system",
+    "Garbage-collected",
+    "Unicode-first",
+    "Records and Enums for straightforward data modeling",
+    "Option and Result types keep errors explicit",
   ];
 
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   // Get current tab code
   const getCurrentTabCode = () => {
-    const tab = tabs.find((tab) => tab.id === activeTab);
-    return tab ? tab.code : '';
+    const tab = tabs.find(tab => tab.id === activeTab);
+    return tab ? tab.code : "";
   };
 
   return (
@@ -187,7 +194,7 @@ String.length "👨‍👩‍👧‍👦" // 1`,
             <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200">
               {/* Tabs navigation */}
               <div className="flex overflow-x-auto justify-between border-b border-gray-200">
-                {tabs.map((tab) => (
+                {tabs.map(tab => (
                   <CodeTab
                     key={tab.id}
                     isActive={activeTab === tab.id}
@@ -200,7 +207,7 @@ String.length "👨‍👩‍👧‍👦" // 1`,
               {/* Code display area */}
               <div
                 className="px-4 md:px-8 py-10 font-mono text-xs md:text-sm overflow-x-auto bg-white"
-                style={{ minHeight: '250px' }}
+                style={{ minHeight: "250px" }}
               >
                 <div className="text-gray-800">
                   <CodeDisplay

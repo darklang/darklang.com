@@ -3,8 +3,8 @@
  * A visual representation of a code editor with syntax highlighting and various features
  */
 
-import React from 'react';
-import CodeDisplay from '../../ui/CodeDisplay';
+import React from "react";
+import CodeDisplay from "../../ui/CodeDisplay";
 
 interface CodeEditorProps {
   code: string;
@@ -17,36 +17,80 @@ interface CodeEditorProps {
 
 // Colors for syntax highlighting
 const colors = {
-  keyword: '#C586C0',   // Keywords like let, const, etc.
-  type: '#4FC1FF',      // Types and library names
-  string: '#CE9178',    // String literals
-  punctuation: '#CCCCCC', // Punctuation like dots and colons
-  bracket: '#D4D4D4',   // Parentheses and brackets
-  comment: '#6A9955',   // Comments
-  default: '#D4D4D4'    // Default text color
+  keyword: "#C586C0", // Keywords like let, const, etc.
+  type: "#4FC1FF", // Types and library names
+  string: "#CE9178", // String literals
+  punctuation: "#CCCCCC", // Punctuation like dots and colons
+  bracket: "#D4D4D4", // Parentheses and brackets
+  comment: "#6A9955", // Comments
+  default: "#D4D4D4", // Default text color
 };
 
 // Token types for syntax highlighting
-type TokenType = 'keyword' | 'type' | 'string' | 'punctuation' | 'bracket' | 'comment' | 'default';
+type TokenType =
+  | "keyword"
+  | "type"
+  | "string"
+  | "punctuation"
+  | "bracket"
+  | "comment"
+  | "default";
 
 interface Token {
   text: string;
   type: TokenType;
 }
 
-const keywords = ['let', 'const', 'function', 'return', 'if', 'else', 'import', 'export', 'from', 'class', 'interface', 'type', 'module', 'for', 'while', 'of', 'in', '=>', 'match', 'with', 'fun'];
-const types = ['Stdlib', 'List', 'Int64', 'Builtin', 'printLine', 'helloWorld', 'Result', 'String', 'Option', 'Some', 'None'];
+const keywords = [
+  "let",
+  "const",
+  "function",
+  "return",
+  "if",
+  "else",
+  "import",
+  "export",
+  "from",
+  "class",
+  "interface",
+  "type",
+  "module",
+  "for",
+  "while",
+  "of",
+  "in",
+  "=>",
+  "match",
+  "with",
+  "fun",
+];
+const types = [
+  "Stdlib",
+  "List",
+  "Int64",
+  "Builtin",
+  "printLine",
+  "helloWorld",
+  "Result",
+  "String",
+  "Option",
+  "Some",
+  "None",
+];
 
 const CodeEditor: React.FC<CodeEditorProps> = ({
   code,
   showCompletion = false,
   showHover = false,
   showDiagnostics = false,
-  showGoToDef = false
+  showGoToDef = false,
 }) => {
   // Create line numbers
-  const lines = code.split('\n');
-  const lineNumbers = Array.from({ length: Math.max(7, lines.length) }, (_, i) => i + 1);
+  const lines = code.split("\n");
+  const lineNumbers = Array.from(
+    { length: Math.max(7, lines.length) },
+    (_, i) => i + 1,
+  );
 
   return (
     <div className="rounded-md overflow-hidden bg-[#1A1A1A] border border-gray-800 relative">
@@ -65,7 +109,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
           {/* Line numbers */}
           <div className="pr-4 text-right text-gray-500 select-none">
             {lineNumbers.map(num => (
-              <div key={num} className="h-6">{num}</div>
+              <div key={num} className="h-6">
+                {num}
+              </div>
             ))}
           </div>
 
@@ -137,7 +183,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
           <div className="absolute left-28 top-9 w-64 bg-[#252525] border border-gray-700 shadow-lg rounded-md p-2 text-xs z-20">
             <div className="text-white">
               <div className="font-bold mb-1">List.empty</div>
-              <div className="text-gray-300">Create an empty list of any type</div>
+              <div className="text-gray-300">
+                Create an empty list of any type
+              </div>
               <div className="mt-1 text-blue-300">a' list</div>
             </div>
           </div>
@@ -149,7 +197,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
             <div className="border-b-2 border-red-500"></div>
             <div className="absolute top-4 left-0 w-64 bg-[#252525] border border-red-500 shadow-lg rounded-md p-2 text-xs z-20">
               <div className="text-red-500 font-bold">Error</div>
-              <div className="text-white">Cannot use List without completing the method call</div>
+              <div className="text-white">
+                Cannot use List without completing the method call
+              </div>
             </div>
           </div>
         )}
@@ -171,7 +221,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
                     <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div>
                     <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></div>
                   </div>
-                  <div className="ml-4 text-xs text-gray-400 truncate">darklang/packages/stdlib/List.dark</div>
+                  <div className="ml-4 text-xs text-gray-400 truncate">
+                    darklang/packages/stdlib/List.dark
+                  </div>
                 </div>
 
                 {/* Code content */}
@@ -200,7 +252,9 @@ let head (list: List<a>) : Option<a> =
 // Render empty lines to fill space
 const renderEmptyLines = (count: number) => {
   return Array.from({ length: count }, (_, i) => (
-    <div key={`empty-${i}`} className="h-6">&nbsp;</div>
+    <div key={`empty-${i}`} className="h-6">
+      &nbsp;
+    </div>
   ));
 };
 
@@ -211,7 +265,7 @@ const tokenizeLine = (line: string): Token[] => {
   // Process comments first
   const commentMatch = line.match(/(\/\/.*?)$/);
   let textToProcess = line;
-  let commentText = '';
+  let commentText = "";
 
   if (commentMatch && commentMatch.index !== undefined) {
     commentText = commentMatch[0];
@@ -228,7 +282,7 @@ const tokenizeLine = (line: string): Token[] => {
 
       tokens.push({
         text: textToProcess.substring(currentPos, endQuotePos + 1),
-        type: 'string'
+        type: "string",
       });
 
       currentPos = endQuotePos + 1;
@@ -236,40 +290,45 @@ const tokenizeLine = (line: string): Token[] => {
     }
 
     // Handle punctuation
-    if (textToProcess[currentPos] === '.' || textToProcess[currentPos] === ':') {
+    if (
+      textToProcess[currentPos] === "." ||
+      textToProcess[currentPos] === ":"
+    ) {
       tokens.push({
         text: textToProcess[currentPos],
-        type: 'punctuation'
+        type: "punctuation",
       });
       currentPos++;
       continue;
     }
 
     // Handle brackets and parentheses
-    if ('()[]{}<>'.includes(textToProcess[currentPos])) {
+    if ("()[]{}<>".includes(textToProcess[currentPos])) {
       tokens.push({
         text: textToProcess[currentPos],
-        type: 'bracket'
+        type: "bracket",
       });
       currentPos++;
       continue;
     }
 
     // Handle words (keywords, types, etc.)
-    const wordMatch = textToProcess.substring(currentPos).match(/^[A-Za-z0-9_']+/);
+    const wordMatch = textToProcess
+      .substring(currentPos)
+      .match(/^[A-Za-z0-9_']+/);
     if (wordMatch) {
       const word = wordMatch[0];
-      let tokenType: TokenType = 'default';
+      let tokenType: TokenType = "default";
 
       if (keywords.includes(word)) {
-        tokenType = 'keyword';
+        tokenType = "keyword";
       } else if (types.includes(word)) {
-        tokenType = 'type';
+        tokenType = "type";
       }
 
       tokens.push({
         text: word,
-        type: tokenType
+        type: tokenType,
       });
 
       currentPos += word.length;
@@ -279,7 +338,7 @@ const tokenizeLine = (line: string): Token[] => {
     // Handle any other character
     tokens.push({
       text: textToProcess[currentPos],
-      type: 'default'
+      type: "default",
     });
     currentPos++;
   }
@@ -288,7 +347,7 @@ const tokenizeLine = (line: string): Token[] => {
   if (commentText) {
     tokens.push({
       text: commentText,
-      type: 'comment'
+      type: "comment",
     });
   }
 

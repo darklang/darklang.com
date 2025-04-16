@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 interface CodeBlockLineProps {
   number: number;
@@ -6,7 +6,11 @@ interface CodeBlockLineProps {
   indent?: number;
 }
 
-export const CodeBlockLine: React.FC<CodeBlockLineProps> = ({ number, children, indent = 0 }) => {
+export const CodeBlockLine: React.FC<CodeBlockLineProps> = ({
+  number,
+  children,
+  indent = 0,
+}) => {
   return (
     <div className="flex">
       <div className="w-6 text-right text-gray-400 select-none pr-4">

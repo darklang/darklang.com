@@ -1,0 +1,78 @@
+/**
+ * Main CSS file for the application
+ * Includes Tailwind CSS directives and custom styles
+ */
+@import "tailwindcss";
+
+/* Custom font styles */
+body {
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Line number styles to add to your global CSS */
+
+.code-with-line-numbers {
+  font-family: monospace;
+}
+
+.code-line {
+  display: flex;
+}
+
+.line-number {
+  display: inline-block;
+  width: 2rem;
+  text-align: right;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  color: #888;
+  /* border-right: 1px solid #ddd; */
+}
+
+.line-content {
+  flex: 1;
+}
+
+@theme {
+  /* Classic editor colors */
+  --color-dark: #2F2F2F;
+  --color-dark-black: #1E1E1E;
+  --color-gray-custom: #484848;
+  --color-gray-dark: #8B8888;
+  --color-gray-light: #A8A8A8;
+  --color-rust: #BF6360;
+  --color-taupe: #A1887F;
+  --color-sand: #F7CA88;
+  --color-mint: #86C1B9;
+  --color-rose: #D5839D;
+  --color-olive: #A1B56C;
+  --color-tan: #DC9656;
+  --color-lavender: #C7ABCD;
+
+  /* Darklang colors */
+  --color-black-custom: #2F2F2F;
+  /* --color-white-custom: #F8F8F8; */
+  --color-white-custom: #FFFFFF;
+
+  /* Define purple and blue with their variations */
+  --color-purple-dbg: #8F5EA1;
+  --color-purple-lbg: #95589F;
+  /*lighter purple*/
+  --color-purple-secondry: #A76BBA;
+
+  --color-blue-dbg: #6D74C5;
+  --color-blue-lbg: #747AB9;
+
+  --color-dark-gray: #2F2F2F;
+  --color-classic-green: #A1B56C;
+  --color-classic-brown: #A1887F;
+  --color-classic-yellow: #E6BD81;
+  --color-classic-blue: #86C1B9;
+  --color-classic-purple: #B278FF;
+  --color-classic-pink: #F56FF0;
+
+  --font-caveat: Caveat, cursive;
+  --font-sans: Quicksand, sans-serif;
+  --font-code: Fira Code, monospace;
+}

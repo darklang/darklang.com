@@ -64,7 +64,7 @@ const Newsletter: React.FC = () => {
                   type="submit"
                   variant="primary"
                   size="md"
-                  className="bg-purple-lbg hover:bg-purple-secondary text-white-custom"
+                  className="bg-purple-lbg hover:bg-blue-lbg text-white-custom"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Subscribing..." : "send me updates"}
@@ -117,7 +117,7 @@ const Newsletter: React.FC = () => {
               </p>
               <button
                 onClick={() => setIsSuccess(false)}
-                className="mt-6 text-purple-lbg hover:text-purple-700 underline"
+                className="mt-6 text-purple-lbg hover:bg-blue-lbg underline"
               >
                 Subscribe another email
               </button>

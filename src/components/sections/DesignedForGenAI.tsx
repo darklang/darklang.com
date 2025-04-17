@@ -27,11 +27,11 @@ const DesignedForGenAI: React.FC = () => {
               for AI-powered code suggestions
             </div>
             <ul>
-              <li className="flex items-center">
+              <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 Get real-time code suggestions while writing Dark applications
               </li>
-              <li className="flex items-center">
+              <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 Accelerate development with context-aware suggestions
               </li>
@@ -62,15 +62,15 @@ const DesignedForGenAI: React.FC = () => {
               Use <span className="text-purple-lbg">any LLM</span>
             </div>
             <ul className="mt-4 space-y-2 text-gray-700">
-              <li className="flex items-center">
+              <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 darklang's fine-tuned models
               </li>
-              <li className="flex items-center">
+              <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 local OSS models
               </li>
-              <li className="flex items-center">
+              <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 commercial models via API
               </li>
@@ -87,15 +87,15 @@ const DesignedForGenAI: React.FC = () => {
               prompts and OpenAPI docs
             </div>
             <ul>
-              <li className="flex items-center">
+              <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 Transform technical API documentation into usable code libraries
               </li>
-              <li className="flex items-center">
+              <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 Turn technical documentation into developer-friendly toolkits
               </li>
-              <li className="flex items-center">
+              <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 Update SDKs automatically when APIs change
               </li>

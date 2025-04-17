@@ -68,8 +68,9 @@ const Editing: React.FC = () => {
 
             <div className="mt-8">
               <a
-                href="#learn-more"
+                href="/cloud"
                 className="md:text-lg text-purple-lbg hover:text-purple-secondary font-medium"
+                target="_blank"
               >
                 Learn more about Darklang's LSP →
               </a>

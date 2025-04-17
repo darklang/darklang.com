@@ -8,12 +8,12 @@ const CLI: React.FC = () => {
 
   // Script options
   const scriptOptions = [
-    { id: "typescript", label: "Hello World script" },
-    { id: "bash", label: "Simple bash script" },
+    { id: "typescript", label: "Simple Script" },
+    { id: "bash", label: "Backup script" },
     { id: "deployment", label: "Deployment Script" },
   ];
 
-  // Bash code for TypeScript CommonJS files search (Hello World script)
+  // Bash code for TypeScript CommonJS files search (Simple Script)
   const bashTypeScriptCode = `find_large_typescript_commonjs_files() {
     local search_path="$1"
     
@@ -39,7 +39,7 @@ const CLI: React.FC = () => {
 
   find_large_typescript_commonjs_files "./"`;
 
-  // Darklang code for TypeScript CommonJS files search (Hello World script)
+  // Darklang code for TypeScript CommonJS files search (Simple Script)
   const darklangTypeScriptCode = `let findLargeTypescriptCommonJSFiles (path : String) =
   Directory.traverse (fun path →
     if not (List.oneOf (File.extension path) [".ts", ".mjs", ".cjs"])
@@ -61,7 +61,7 @@ const CLI: React.FC = () => {
 
 findLargeTypescriptCommonJSFiles "./"`;
 
-  // Simple bash script example
+  // Backup bash script example
   const bashSimpleCode = `#!/bin/bash
 
 # Simple script to backup a directory
@@ -88,7 +88,7 @@ find /backup -type d -mtime +7 -exec rm -rf {} \\; 2>/dev/null
 
 echo "Backup process completed."`;
 
-  // Darklang simple script example
+  // Darklang backup script example
   const darklangSimpleCode = `// Simple script to backup a directory
 let backupDirectory = (sourcePath : String, keepDays : Int) : Result<String, String> =
   // Create timestamp for backup folder
@@ -378,7 +378,8 @@ deployApplication Staging "mywebapp"
 
             {/* Discover link */}
             <a
-              href="#"
+              href="/cli"
+              target="_blank"
               className="inline-flex items-center font-medium text-blue-lbg hover:text-purple-lbg transition-colors"
             >
               Discover Darklang CLI features and how it solves scripting
@@ -426,8 +427,8 @@ deployApplication Staging "mywebapp"
             <div className="lg:w-5/6 grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Left side: Bash */}
               <div>
-                <div className="rounded-lg h-150 overflow-scroll shadow-lg inset-shadow-xs bg-white p-4">
-                  <div className="p-4 flex items-center justify-end space-x-2">
+                <div className="rounded-lg h-150 overflow-scroll shadow-lg inset-shadow-xs bg-white px-4 pb-4">
+                  <div className="p-4 pt-6 flex items-center justify-end space-x-2 sticky top-0 z-1 bg-white inset-shadow-xs">
                     <div className="w-3 h-3 rounded-full bg-red-500"></div>
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
@@ -444,8 +445,8 @@ deployApplication Staging "mywebapp"
 
               {/* Right side: Darklang */}
               <div>
-                <div className="rounded-lg h-150 overflow-scroll shadow-md bg-dark p-4 text-white">
-                  <div className="p-4 flex items-center space-x-2 justify-end border-gray-700">
+                <div className="rounded-lg h-150 overflow-scroll shadow-md bg-dark px-4 pb-4 text-white">
+                  <div className="p-4 pt-6 flex items-center space-x-2 justify-end border-gray-700 sticky top-0 z-1 bg-dark">
                     <div className="w-3 h-3 rounded-full bg-purple-dbg"></div>
                     <div className="w-3 h-3 rounded-full bg-sand"></div>
                     <div className="w-3 h-3 rounded-full bg-olive"></div>

@@ -15,6 +15,7 @@ import TraceDrivenDevelopment from "../components/sections/TraceDrivenDevelopmen
 import Editing from "../components/sections/Editing";
 import CLI from "../components/sections/CLI";
 import DeploylessCloud from "../components/sections/DeploylessCloud";
+import DesignedForGenAI from "../components/sections/DesignedForGenAI";
 import Newsletter from "../components/sections/Newsletter";
 import BlogPostsExample from "../components/sections/BlogPostsExample";
 
@@ -32,6 +33,7 @@ const Home = () => {
       <BackendFeatures />
       <CLI />
       <DeploylessCloud />
+      <DesignedForGenAI />
       <Newsletter />
       <BlogPostsExample />
     </>

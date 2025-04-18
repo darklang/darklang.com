@@ -92,7 +92,7 @@ const Footer = ({ currentPage }: FooterProps) => {
                 </svg>
               </a>
               <a
-                href="https://discord.gg/darklang"
+                href="https://darklang.com/discord"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Discord"
@@ -108,7 +108,7 @@ const Footer = ({ currentPage }: FooterProps) => {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/channel/UCYFfCbYcqGe3ZPZrEoiVR2A"
+                href="https://youtube.com/c/darklang"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"

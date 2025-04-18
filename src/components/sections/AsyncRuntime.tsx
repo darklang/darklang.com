@@ -28,7 +28,9 @@ const AsyncRuntime = () => {
   return (
     <section className="py-20">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4">
-        <SectionTitle subtitle="Something here">Async Runtime</SectionTitle>
+        <SectionTitle subtitle="Simplified concurrency">
+          Async Runtime
+        </SectionTitle>
 
         <div className="grid md:grid-cols-3 gap-4">
           {/* Left side */}

@@ -34,7 +34,7 @@ getUserPaintings(userId)
 ▸ returns:
 [
 { "id": "p-001", "title": "Mountain Sunset", "created": "2024-11-05" },
-{ "id": "p-002", "title": "Ocean Waves", "created": "2025-01-12" }
+{ "id": "p-002", "title": "Ocean Waves", "created": "2025-12-01" }
 ]
 ▸ duration: 47ms`;
 
@@ -145,7 +145,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                 <TraceCard
                   title="CLI application calls"
                   icon={<CliIcon className="w-4 h-4 text-blue-lbg" />}
-                  description="Lorem ipsum dolor sit amet consectetur. Cras a montes vitae id sit duis lectus amet."
+                  description="Track CLI operations with detailed input and output records. Monitor script execution, environment variables, and command results for easy debugging."
                   codeSample={cliCodeSample}
                   color="purple"
                 ></TraceCard>

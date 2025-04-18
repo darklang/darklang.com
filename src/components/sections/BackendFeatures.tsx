@@ -239,7 +239,7 @@ const BackendFeatures: React.FC = () => {
           </p>
 
           <p className="text-xl mt-8 text-black-custom">
-            You can build any backend that need:
+            You can build any backend that needs:
           </p>
         </div>
 

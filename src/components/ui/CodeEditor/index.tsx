@@ -6,6 +6,8 @@
 import React from "react";
 import CodeDisplay from "../../ui/CodeDisplay";
 
+// TODO: try using highlight.js instead of this
+
 interface CodeEditorProps {
   code: string;
   language?: string;

@@ -1,16 +1,15 @@
 /**
- * BorderedSection Component
- * A section with subtle intersecting corner lines and glow effect
+ * CallToAction component
  */
 
 import React, { ReactNode } from "react";
 
-interface BorderedSectionProps {
+interface CTASectionProps {
   children: ReactNode;
   className?: string;
 }
 
-const BorderedSection: React.FC<BorderedSectionProps> = ({
+const CTASection: React.FC<CTASectionProps> = ({
   children,
   className = "",
 }) => {
@@ -39,4 +38,4 @@ const BorderedSection: React.FC<BorderedSectionProps> = ({
   );
 };
 
-export default BorderedSection;
+export default CTASection;

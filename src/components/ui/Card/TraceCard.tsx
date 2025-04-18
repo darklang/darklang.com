@@ -1,6 +1,6 @@
 /**
  * TraceCard Component
- * A specialized card component for displaying trace information
+ * A card component for displaying trace information
  */
 
 import React from "react";
@@ -84,7 +84,7 @@ const TraceCard: React.FC<TraceCardProps> = ({
         <div
           className={`${colorClasses.code} p-2 rounded-t-md text-xs md:text-[8px] font-mono overflow-x-auto h-30 2xl:h-40 overflow-y-scroll`}
         >
-          <pre className="whitespace-pre-wrap overflow-hidden">
+          <pre className="whitespace-pre-wrap overflow-hidden text-gray-700">
             {codeSample}
           </pre>
         </div>

@@ -7,15 +7,12 @@ import doubleGridSquare from "../../assets/double-grid-square.png";
 import darklangLogoFramed from "../../assets/darklang-logo-framed.png";
 import Button from "../../components/ui/Button";
 import CodeEditor from "../../components/ui/CodeEditor";
-import BorderedSection from "../../components/ui/BorderedSection";
+import CTASection from "../../components/ui/CTASection";
 
 const CloudPage: React.FC = () => {
-  // Set cloud as the current page for the header
   return (
     <div className="bg-[#1F1F1F] text-white min-h-screen font-code">
-      {/* Hero Section with Framed Logo */}
       <section className="relative pt-16 pb-20">
-        {/* Grid pattern positioned below the header */}
         <div className="absolute -top-1 right-0 z-0">
           <img
             src={doubleGridSquare}
@@ -179,7 +176,7 @@ helloWorld ()
       </section>
 
       {/* Getting Started Section */}
-      <BorderedSection>
+      <CTASection>
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6">Getting Started</h2>
           <p className="text-lg mb-6">
@@ -201,7 +198,7 @@ helloWorld ()
             </Button>
           </div>
         </div>
-      </BorderedSection>
+      </CTASection>
     </div>
   );
 };

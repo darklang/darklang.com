@@ -6,7 +6,6 @@ import CodeDisplay from "../ui/CodeDisplay";
 const CLI: React.FC = () => {
   const [selectedScript, setSelectedScript] = useState<string>("typescript");
 
-  // Script options
   const scriptOptions = [
     { id: "typescript", label: "Simple Script" },
     { id: "bash", label: "Backup script" },
@@ -15,35 +14,34 @@ const CLI: React.FC = () => {
 
   // Bash code for TypeScript CommonJS files search (Simple Script)
   const bashTypeScriptCode = `find_large_typescript_commonjs_files() {
-    local search_path="$1"
+  local search_path="$1"
+  
+  find "$search_path" -type f | while read -r file_path; do
     
-    find "$search_path" -type f | while read -r file_path; do
-      
-      if [[ "$file_path" != *.ts && "$file_path" != *.mjs && 
-          "$file_path" != *.cjs ]]; then
-        echo "Skipping - wrong file type:$file_path"
-        continue
-      fi
-      
-      line_count=$(wc -l < "$file_path")
-      if [ "$line_count" -le 600 ]; then
-        echo "Skipping - too short: $file_path"
-        continue
-      fi
-      
-      if grep -q -E "const .* = require\\(.*\\)" "$file_path"; then
-        echo "Found one: $file_path"
-      fi
-    done
-  }
+    if [[ "$file_path" != *.ts && "$file_path" != *.mjs && 
+        "$file_path" != *.cjs ]]; then
+      echo "Skipping - wrong file type:$file_path"
+      continue
+    fi
+    
+    line_count=$(wc -l < "$file_path")
+    if [ "$line_count" -le 600 ]; then
+      echo "Skipping - too short: $file_path"
+      continue
+    fi
+    
+    if grep -q -E "const .* = require\\(.*\\)" "$file_path"; then
+      echo "Found one: $file_path"
+    fi
+  done
+}
 
-  find_large_typescript_commonjs_files "./"`;
+find_large_typescript_commonjs_files "./"`;
 
   // Darklang code for TypeScript CommonJS files search (Simple Script)
   const darklangTypeScriptCode = `let findLargeTypescriptCommonJSFiles (path : String) =
   Directory.traverse (fun path →
-    if not (List.oneOf (File.extension path) [".ts", ".mjs", ".cjs"])
-    then
+    if not (List.oneOf (File.extension path) [".ts", ".mjs", ".cjs"]) then
       print $"Skipping - wrong file type: {path}"
     else
       let contents = File.readString path
@@ -260,9 +258,8 @@ deployApplication Staging "mywebapp"
         </SectionTitle>
 
         <div className="flex flex-col lg:flex-row items-start justify-start">
-          {/* Left side - Text content - 2/3 width */}
+          {/* Left side - Text content */}
           <div className="lg:w-2/3 max-w-3xl space-y-10 mt-8 order-2 md:order-1">
-            {/* Main text with the correct arrow icon */}
             <div className="flex space-x-4">
               <div className="flex-shrink-0 text-blue-lbg">
                 <svg
@@ -289,7 +286,6 @@ deployApplication Staging "mywebapp"
               </p>
             </div>
 
-            {/* Feature boxes in a row with light background */}
             <div className="bg-blue-lbg/5 p-8 rounded-lg">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Feature 1 */}
@@ -376,7 +372,6 @@ deployApplication Staging "mywebapp"
               </div>
             </div>
 
-            {/* Discover link */}
             <a
               href="/cli"
               target="_blank"
@@ -387,7 +382,7 @@ deployApplication Staging "mywebapp"
             </a>
           </div>
 
-          {/* Right side - Image - 1/3 width but much larger */}
+          {/* Right side */}
           <div className="md:w-1/3 relative order-1 md:order-2">
             <div className="md:absolute md:-right-88 2xl:block">
               <img

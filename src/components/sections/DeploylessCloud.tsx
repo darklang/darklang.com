@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SectionTitle from "../ui/SectionTitle";
 
 type FeatureCardProps = {
   icon: React.ReactNode;
@@ -47,20 +48,15 @@ const DeploylessCloud: React.FC = () => {
   return (
     <section className="w-full bg-white py-24">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <button className="inline-flex items-center justify-center px-6 py-2 border border-purple-lbg font-medium rounded-full text-purple-lbg bg-white">
-            No Setup
-          </button>
-          <h2 className="text-3xl md:text-4xl md:text-5xl font-bold mt-6 mb-8">
-            Deployless, Infraless Cloud Apps
-          </h2>
-          <p className="text-lg md:text-2xl max-w-6xl mx-auto text-gray-700 leading-relaxed">
-            Instant cloud deployment of code (to our cloud or yours), with
-            instant creation of DBs, API endpoints, and worker queues, with no
-            containers, no cold starts, no orchestration, or other devops/cloud
-            engineering required
-          </p>
-        </div>
+        <SectionTitle
+          subtitle="No Setup"
+          align="center"
+          className="mb-20"
+          description="Instant cloud deployment of code (to our cloud or yours), with instant creation of DBs, API endpoints, and worker queues, with no containers, no cold starts, no orchestration, or other devops/cloud engineering required"
+          subtitleStyle="button"
+        >
+          Deployless, Infraless Cloud Apps
+        </SectionTitle>
 
         <div className="flex justify-center max-w-5xl 2xl:max-w-6xl mx-auto text-center mb-4">
           <div

@@ -10,7 +10,7 @@ import logoAscii from "../../assets/logo-ascii.png";
 import cliAscii from "../../assets/darklang-cli-ascii.png";
 import Terminal from "../../components/ui/Terminal";
 import Button from "../../components/ui/Button.tsx";
-import BorderedSection from "../../components/ui/BorderedSection";
+import CTASection from "../../components/ui/CTASection";
 
 const CLIPage: React.FC = () => {
   return (
@@ -53,7 +53,7 @@ const CLIPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Bash Complexities Section */}
+      {/* Get Started Section */}
       <section className="py-32 px-6 max-w-7xl 2xl:max-w-[100rem] mx-auto">
         <div className="text-purple-dbg mb-6 text-lg md:text-2xl font-medium">
           $ darklang get started |
@@ -130,56 +130,56 @@ const CLIPage: React.FC = () => {
 
             <ul className="space-y-6 mt-6 ml-4">
               <li className="flex items-start">
-                <span className="text-blue-dbg mr-3">›</span>
+                <span className="text-blue-dbg mr-3">-</span>
                 <span className="text-white text-xl leading-6">
                   Static types help ensure correctness
                 </span>
               </li>
 
               <li className="flex items-start">
-                <span className="text-blue-dbg mr-3">›</span>
+                <span className="text-blue-dbg mr-3">- </span>
                 <span className="text-white text-xl leading-6">
                   Immutable values make code easier to understand and verify
                 </span>
               </li>
 
               <li className="flex items-start">
-                <span className="text-blue-dbg mr-3">›</span>
+                <span className="text-blue-dbg mr-3">- </span>
                 <span className="text-white text-xl leading-6">
                   Built-in package manager
                 </span>
               </li>
 
               <li className="flex items-start ml-8">
-                <span className="text-mint mr-3">✓</span>
+                <span className="text-blue-dbg mr-3">✓</span>
                 <span className="text-white text-xl leading-6">
                   without an npm install step
                 </span>
               </li>
 
               <li className="flex items-start ml-8">
-                <span className="text-mint mr-3">✓</span>
+                <span className="text-blue-dbg mr-3">✓</span>
                 <span className="text-white text-base leading-6">
                   versioned immutable functions and packages
                 </span>
               </li>
 
               <li className="flex items-start">
-                <span className="text-blue-dbg mr-3">›</span>
+                <span className="text-blue-dbg mr-3">- </span>
                 <span className="text-white text-xl leading-6">
                   Easy to take a script and move it to the cloud
                 </span>
               </li>
 
               <li className="flex items-start">
-                <span className="text-blue-dbg mr-3">›</span>
+                <span className="text-blue-dbg mr-3">- </span>
                 <span className="text-white text-xl leading-6">
                   Easy to use traces
                 </span>
               </li>
 
               <li className="flex items-start">
-                <span className="text-blue-dbg mr-3">›</span>
+                <span className="text-blue-dbg mr-3">- </span>
                 <span className="text-white text-xl leading-6">
                   Easy to test, and be sure it's working
                 </span>
@@ -195,7 +195,7 @@ const CLIPage: React.FC = () => {
           $ darklang examples |
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 z-20">
-          {/* Left Terminal - Installation */}
+          {/* Left Terminal */}
           <Terminal className="z-2">
             <div className="md:flex">
               <span className="text-white mr-2">$</span>
@@ -244,9 +244,8 @@ const CLIPage: React.FC = () => {
             <p className="text-white mr-2 my-3">darklang help</p>
           </Terminal>
 
-          {/* Right Column - Multiple Terminal Examples */}
+          {/* Right Column */}
           <div className="space-y-8">
-            {/* Top Terminal - Fizzbuzz Example */}
             <Terminal>
               <div className="flex">
                 <span className="text-white mr-2">$</span>
@@ -258,7 +257,6 @@ const CLIPage: React.FC = () => {
               <div className="text-white">Fizz</div>
             </Terminal>
 
-            {/* Middle Terminal - Deploy Example */}
             <Terminal>
               <div className="md:flex">
                 <span className="text-white mr-2">$</span>
@@ -279,7 +277,6 @@ const CLIPage: React.FC = () => {
               </div>
             </Terminal>
 
-            {/* Bottom Terminal - Curl Example */}
             <Terminal>
               <div className="md:flex">
                 <span className="text-white mr-2">$ curl -sSO</span>
@@ -376,8 +373,7 @@ const CLIPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Getting Started Section */}
-      <BorderedSection>
+      <CTASection>
         <div className="text-center">
           <h1 className="text-lg md:text-2xl 2xl:text-4xl font-bold my-8">
             Getting Started with Darklang CLI
@@ -395,7 +391,7 @@ const CLIPage: React.FC = () => {
             &gt;_ Try It Now!
           </Button>
         </div>
-      </BorderedSection>
+      </CTASection>
     </div>
   );
 };

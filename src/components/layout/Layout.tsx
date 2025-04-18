@@ -1,12 +1,13 @@
 /**
  * Layout Component
  * This component provides a consistent layout structure for all pages.
- * It includes the Header and Footer components and renders children in between.
+ * It includes the Banner, Header and Footer components and renders children in between.
  */
 
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import Banner from "../common/Banner";
 
 const Layout = () => {
   // Get current location to determine the active page
@@ -15,7 +16,10 @@ const Layout = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-transparent">
-      <Header currentPage={currentPage} />
+      <div className="sticky top-0 z-50">
+        <Banner text="Features described on this site represent our direction and vision, with implementations rolling out progressively" />
+        <Header currentPage={currentPage} />
+      </div>
       <main className="flex-grow">
         <Outlet />
       </main>

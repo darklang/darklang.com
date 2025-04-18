@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import SectionTitle from "../ui/SectionTitle";
-import hljs from "highlight.js/lib/core";
-import fsharp from "highlight.js/lib/languages/fsharp";
 import CodeDisplay from "../ui/CodeDisplay";
 
-// Register the F# language with highlight.js
-hljs.registerLanguage("fsharp", fsharp);
-
-// Define the Feature Button component
 interface FeatureButtonProps {
   icon: any; // CLEANUP: Define a more specific type for the icon
   isMonoFont?: boolean;
@@ -15,6 +9,8 @@ interface FeatureButtonProps {
   isActive: boolean;
   hasDropdown?: boolean;
   onClick: () => void;
+  subOptions?: { label: string; value: string }[];
+  onSubOptionClick?: (value: string) => void;
 }
 
 const FeatureButton: React.FC<FeatureButtonProps> = ({
@@ -24,86 +20,203 @@ const FeatureButton: React.FC<FeatureButtonProps> = ({
   isActive,
   hasDropdown = false,
   onClick,
+  subOptions = [],
+  onSubOptionClick,
 }) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleClick = () => {
+    if (hasDropdown) {
+      setShowDropdown(!showDropdown);
+    } else {
+      onClick();
+    }
+  };
+
   return (
-    <div
-      className={`flex items-center p-3 rounded-lg border cursor-pointer
+    <div className="relative">
+      <div
+        className={`flex items-center p-3 rounded-lg border cursor-pointer
                  ${
                    isActive
                      ? "bg-purple-50 border-purple-200 shadow-sm"
                      : "bg-white border-gray-200 shadow-sm"
                  }`}
-      onClick={onClick}
-    >
-      <span className={`text-purple-lbg mr-2 ${isMonoFont ? "font-mono" : ""}`}>
-        {icon}
-      </span>
-      <span className="font-medium">{label}</span>
-      {hasDropdown && <span className="ml-1 text-gray-500">▾</span>}
+        onClick={handleClick}
+      >
+        <span
+          className={`text-purple-lbg mr-2 ${isMonoFont ? "font-mono" : ""}`}
+        >
+          {icon}
+        </span>
+        <span className="font-medium">{label}</span>
+        {hasDropdown && <span className="ml-1 text-gray-500">▾</span>}
+      </div>
+
+      {showDropdown && hasDropdown && (
+        <div className="absolute z-10 mt-1 bg-white border border-gray-200 rounded-md shadow-lg w-full">
+          {subOptions.map(option => (
+            <div
+              key={option.value}
+              className="px-3 py-2 hover:bg-purple-50 cursor-pointer text-sm"
+              onClick={() => {
+                if (onSubOptionClick) {
+                  onSubOptionClick(option.value);
+                  setShowDropdown(false);
+                }
+              }}
+            >
+              {option.label}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
-// Define the code examples for each feature
+// Code examples for each feature
 const codeExamples = {
-  httpHandler: `[<HttpHandler("GET", "/hello")>]
+  httpHandlerGET: `[<HttpHandler("GET", "/products")>]
 let _handler _req =
-  let message = "Hello, World!"
-  let body =
-    message
-  |> Stdlib.String.toBytes
- 
-  Stdlib.Http.response body 200L`,
+  let products = Stdlib.DB.getAll ProductsDB
+  
+  let body = 
+    products
+    |> Builtin.jsonSerialize
+    |> Stdlib.String.toBytes
+  
+  Stdlib.Http.responseWithHeaders 
+    body 
+    200L 
+    [("Content-Type", "application/json")]`,
 
-  dataStores: `[<Model>]
-type User = {
-  id: UUID
-  username: String
-  email: String
+  httpHandlerPOST: `[<HttpHandler("POST", "/products")>]
+let _handler req =
+  // Parse the request body
+  let body = 
+    req.body
+    |> Stdlib.String.fromBytes
+    |> Builtin.jsonDeserialize<{
+        name: String
+        price: Float
+        description: String
+        category: String
+      }>
+  
+  // Create a new product
+  let newProduct = {
+    id = Stdlib.Uuid.generate()
+    name = body.name
+    price = body.price
+    description = body.description
+    category = body.category
+    createdAt = Stdlib.Date.now()
+    indexed = false
+  }
+  
+  // Save to database using the UUID as key
+  Stdlib.DB.set newProduct newProduct.id ProductsDB
+  
+  // Emit product to background worker
+  emit { productId = newProduct.id } "product-indexer"
+  
+  // Return the created product
+  let responseBody = 
+    newProduct
+    |> Builtin.jsonSerialize
+    |> Stdlib.String.toBytes
+  
+  Stdlib.Http.responseWithHeaders 
+    responseBody 
+    201L 
+    [("Content-Type", "application/json")]`,
+
+  httpHandlerDELETE: `[<HttpHandler("DELETE", "/products/:id")>]
+let _handler req =
+  let productId = req.pathParams["id"] |> Stdlib.Uuid.parse |> Builtin.unwrap
+  
+  match Stdlib.DB.get productId ProductsDB with
+  | Some product -> 
+    Stdlib.DB.delete productId ProductsDB
+    
+    Builtin.printline $"Product {productId} deleted"
+    
+    Stdlib.Http.response 
+      (Stdlib.String.toBytes "")
+      204L
+        
+  | None -> 
+    // Product not found    
+    Stdlib.Http.responseWithHeaders 
+      Stdlib.String.toBytes "Product not found"
+      404L 
+      [("Content-Type", "application/json")]`,
+
+  dataStores: `// Define our product type
+type Product = {
+  id: Stdlib.Uuid.UUID
+  name: String
+  price: Float
+  description: String
+  category: String
   createdAt: Date
+  indexed: Bool
 }
 
-let getUser (id: UUID) : Option<User> =
-  DB.findOne<User>("users", { id })
-  
-let createUser (username: String) (email: String) : User =
-  let user = {
-    id = UUID.generate()
-    username = username
-    email = email
-    createdAt = Date.now()
-  }
-  DB.insert "users" user
-  user`,
+// Create the database
+[<DB>]
+type ProductsDB = Product`,
 
-  scheduledJobs: `[<ScheduledJob(interval = "1 day")>]
-let dailyReport () =
-  let users = DB.query "SELECT COUNT(*) FROM users"
-  let active = DB.query "SELECT COUNT(*) FROM sessions WHERE active = true"
+  scheduledJobs: `[<Cron("daily-report", "Every Day")>]
+let _handler () =
+  // Count total products
+  let products = Stdlib.DB.getAll ProductsDB
+  let totalProducts = Stdlib.List.length products
   
-  Email.send {
+  // Send email report
+  Stdlib.Email.send {
     to = "admin@example.com"
-    subject = "Daily Report"
-    body = $"Users: {users}\nActive: {active}"
-  }`,
-
-  backgroundWorkers: `[<QueueWorker("image-processing")>]
-let processImage (data: { imageId: UUID }) =
-  let image = Storage.get data.imageId
-  
-  let resized = Image.resize image {
-    width = 800
-    height = 600
+    subject = "Daily Product Report"
+    body = $"Total Products: {totalProducts}"
   }
   
-  Storage.put ($"{data.imageId}_thumbnail") resized
-  DB.update "images" { id = data.imageId } { status = "processed" }`,
+  Builtin.log "Daily report sent successfully"`,
+
+  backgroundWorkers: `// Define a worker to process products asynchronously
+[<Worker("product-indexer")>]
+let _handler =
+  // Access the event data (comes from emit)
+  let productId = event.productId
+  
+  // Get the product from database
+  match Stdlib.DB.get productId ProductsDB with
+  | Some product ->
+      // Log start of processing
+      Builtin.log $"Processing product {product.id}: {product.name}"
+      
+      // Update the product status
+      let updatedProduct = { product with indexed = true }
+      Stdlib.DB.set updatedProduct product.id ProductsDB
+      
+      // Log completion
+      Builtin.log $"Product {product.id} marked as indexed"
+      
+  | None ->
+      Builtin.log $"Product {productId} not found"
+`,
 };
 
 const BackendFeatures: React.FC = () => {
-  // State to track the currently selected feature
   const [selectedFeature, setSelectedFeature] =
-    useState<keyof typeof codeExamples>("httpHandler");
+    useState<keyof typeof codeExamples>("httpHandlerGET");
+
+  // HTTP handler dropdown options
+  const httpHandlerOptions = [
+    { label: "GET /products", value: "httpHandlerGET" },
+    { label: "POST /products", value: "httpHandlerPOST" },
+    { label: "DELETE /products/:id", value: "httpHandlerDELETE" },
+  ];
 
   // Get the code for the currently selected feature
   const currentCode = codeExamples[selectedFeature];
@@ -136,9 +249,17 @@ const BackendFeatures: React.FC = () => {
               icon="://"
               isMonoFont={true}
               label="Http Handler"
-              isActive={selectedFeature === "httpHandler"}
-              hasDropdown={false}
-              onClick={() => setSelectedFeature("httpHandler")}
+              isActive={
+                selectedFeature === "httpHandlerGET" ||
+                selectedFeature === "httpHandlerPOST" ||
+                selectedFeature === "httpHandlerDELETE"
+              }
+              hasDropdown={true}
+              onClick={() => setSelectedFeature("httpHandlerGET")}
+              subOptions={httpHandlerOptions}
+              onSubOptionClick={value =>
+                setSelectedFeature(value as keyof typeof codeExamples)
+              }
             />
 
             <FeatureButton
@@ -153,17 +274,17 @@ const BackendFeatures: React.FC = () => {
                   <path
                     d="M5.83301 14V21C5.83301 21 5.83301 24.5 13.9997 24.5C22.1663 24.5 22.1663 21 22.1663 21V14"
                     stroke="#755580"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                   />
                   <path
                     d="M5.83301 7V14C5.83301 14 5.83301 17.5 13.9997 17.5C22.1663 17.5 22.1663 14 22.1663 14V7"
                     stroke="#755580"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                   />
                   <path
                     d="M13.9997 3.5C22.1663 3.5 22.1663 7 22.1663 7C22.1663 7 22.1663 10.5 13.9997 10.5C5.83301 10.5 5.83301 7 5.83301 7C5.83301 7 5.83301 3.5 13.9997 3.5Z"
                     stroke="#755580"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                   />
                 </svg>
               }

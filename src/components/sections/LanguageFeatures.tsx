@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import SectionTitle from "../ui/SectionTitle";
 import CodeDisplay from "../ui/CodeDisplay";
-import hljs from "highlight.js/lib/core";
-import fsharp from "highlight.js/lib/languages/fsharp";
 
-// Register the F# language with highlight.js
-hljs.registerLanguage("fsharp", fsharp);
-
-// Component Types
 interface CodeTabProps {
   isActive: boolean;
   label: string;
@@ -18,14 +12,12 @@ interface FeatureItemProps {
   children: React.ReactNode;
 }
 
-// Tab data structure
 interface TabData {
   id: string;
   label: string;
   code: string;
 }
 
-// Sub-Components
 const CodeTab: React.FC<CodeTabProps> = ({ isActive, label, onClick }) => (
   <button
     className={`px-5 2xl:px-10 py-3 text-sm text-purple-lbg ${
@@ -82,8 +74,10 @@ let handleAction (action:UserAction) : String =
   | Submit -> "Form submitted!"
 
 let actions = [Click "Login"; Type "Hello"; Submit]
+
 // First-class functions
 let logs = actions |> Stdlib.List.map handleAction
+
 // Immutable and composable
 logs |> List.iter printLine`,
     },
@@ -107,7 +101,6 @@ type UrlError =
 | Unparseable(msg:String, context:String)
 
 // Aliases are just shorthands
-
 type UrlParseResult = Result<Url, UrlError>`,
     },
     {
@@ -147,7 +140,6 @@ String.length "👨‍👩‍👧‍👦" // 1`,
     },
   ];
 
-  // Feature items data
   const features = [
     "Built-in immutability and strong type system",
     "Garbage-collected",
@@ -168,7 +160,7 @@ String.length "👨‍👩‍👧‍👦" // 1`,
     <section className="py-20">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left side - static content */}
+          {/* Left side */}
           <div>
             <SectionTitle subtitle="Language">
               Functional, Composable, and Fun to use
@@ -189,7 +181,7 @@ String.length "👨‍👩‍👧‍👦" // 1`,
             </div>
           </div>
 
-          {/* Right side - tabbed content */}
+          {/* Right side */}
           <div className="pt-30">
             <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200">
               {/* Tabs navigation */}

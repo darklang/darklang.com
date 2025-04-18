@@ -1,37 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Button from "../ui/Button";
 
-const Newsletter: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+interface NewsletterProps {
+  className?: string;
+}
+
+const Newsletter: React.FC<NewsletterProps> = () => {
   const [error, setError] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!email) {
+    // Reset error state
+    setError("");
+
+    const emailInput = document.getElementById(
+      "newsletterEmail",
+    ) as HTMLInputElement;
+    if (!emailInput?.value) {
       setError("Please enter your email address");
       return;
     }
 
     try {
-      setIsSubmitting(true);
-      setError("");
+      const response = await fetch(
+        "https://ops-corpsite.builtwithdark.com/signup",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: emailInput.value,
+          }),
+        },
+      );
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Here you would actually submit the email to your backend
-      console.log("Subscribed email:", email);
-
-      setIsSuccess(true);
-      setEmail("");
+      if (response.status === 200) {
+        setIsSubmitted(true);
+      } else {
+        setError("Error adding to waitlist");
+      }
     } catch (err) {
       setError("Failed to subscribe. Please try again.");
       console.error("Subscription error:", err);
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -49,29 +64,40 @@ const Newsletter: React.FC = () => {
             </p>
           </div>
 
-          {!isSuccess ? (
-            <form onSubmit={handleSubmit} className="space-y-4">
+          {!isSubmitted ? (
+            <form
+              id="newsletterForm"
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="space-y-4"
+            >
               <div className="flex flex-col md:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="Your email"
-                  className="flex-grow py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-lbg focus:border-transparent"
-                  disabled={isSubmitting}
-                />
+                <div className="relative flex-grow">
+                  <input
+                    id="newsletterEmail"
+                    type="email"
+                    placeholder="Your email"
+                    className="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-lbg focus:border-transparent"
+                    required
+                  />
+                  {error && (
+                    <span
+                      id="newsletterError"
+                      className="text-red-400 absolute -bottom-7 text-xs italic"
+                    >
+                      {error}
+                    </span>
+                  )}
+                </div>
                 <Button
                   type="submit"
                   variant="primary"
                   size="md"
                   className="bg-purple-lbg hover:bg-blue-lbg text-white-custom"
-                  disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Subscribing..." : "send me updates"}
+                  Send
                 </Button>
               </div>
-
-              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
               <div className="flex items-center justify-start mt-4 text-sm text-gray-500">
                 <svg
@@ -92,35 +118,22 @@ const Newsletter: React.FC = () => {
               </div>
             </form>
           ) : (
-            <div className="text-center py-8">
-              <div className="mb-4 flex justify-center">
-                <svg
-                  className="w-16 h-16 text-green-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-black-custom">
-                Thanks for subscribing!
-              </h3>
-              <p className="text-gray-600">
-                We'll send you updates about Darklang project milestones.
-              </p>
-              <button
-                onClick={() => setIsSuccess(false)}
-                className="mt-6 text-purple-lbg hover:bg-blue-lbg underline"
+            <div className="mt-11 mb-16 border border-mint bg-mint/10 rounded pl-11 pr-14 py-3 relative flex items-center justify-center">
+              <span>Added to waitlist!</span>
+              <svg
+                className="w-5 h-5 text-green-500 absolute right-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                Subscribe another email
-              </button>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
             </div>
           )}
         </div>

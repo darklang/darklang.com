@@ -1,23 +1,19 @@
 import React from "react";
+import SectionTitle from "../ui/SectionTitle";
 
 const DesignedForGenAI: React.FC = () => {
   return (
     <section className="py-16 bg-white">
       <div className="maw-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <button className="inline-flex items-center justify-center px-6 py-2 border border-purple-lbg font-medium rounded-full text-purple-lbg bg-white">
-            Built for Tomorrow
-          </button>
-          <h2 className="text-3xl md:text-4xl md:text-5xl font-bold mt-6 mb-8">
-            Designed for GenAI
-          </h2>
-          <p className="text-lg md:text-2xl max-w-6xl mx-auto text-gray-700 leading-relaxed">
-            We redesigned the dark language and tooling to enable
-            GenAI-generated programs, including exposing language tools to GenAI
-            tools, allowing running partial and incomplete programs safely, and
-            ensuring access to significant context to GenAI tools
-          </p>
-        </div>
+        <SectionTitle
+          subtitle="Built for Tomorrow"
+          align="center"
+          className="mb-12"
+          description="We redesigned the dark language and tooling to enable GenAI-generated programs, including exposing language tools to GenAI tools, allowing running partial and incomplete programs safely, and ensuring access to significant context to GenAI tools"
+          subtitleStyle="button"
+        >
+          Designed for GenAI
+        </SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
           {/* First Card */}

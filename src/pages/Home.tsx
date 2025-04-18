@@ -1,7 +1,5 @@
 /**
  * Home Page
- * The landing page of the application.
- * Includes hero section and other content.
  */
 
 import Hero from "../components/sections/Hero";

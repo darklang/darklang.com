@@ -31,7 +31,7 @@ const AsyncRuntime = () => {
         <SectionTitle subtitle="Something here">Async Runtime</SectionTitle>
 
         <div className="grid md:grid-cols-3 gap-4">
-          {/* Left side - takes 2/3 width */}
+          {/* Left side */}
           <div className="md:col-span-2">
             <FeatureCard
               title={

@@ -1,7 +1,5 @@
 /**
  * Footer Component
- * This component renders the application footer with navigation links,
- * social media icons, and copyright information based on the Darklang website design.
  */
 
 import { Link } from "react-router-dom";

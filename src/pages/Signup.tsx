@@ -7,13 +7,11 @@ const Signup = () => {
   const [showError, setShowError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  // Clear errors function
   const clearErrors = () => {
     setErrors([]);
     setShowError(false);
   };
 
-  // Show errors function
   const displayErrors = (errorMessages: string[]) => {
     clearErrors();
     setErrors(errorMessages);
@@ -22,12 +20,17 @@ const Signup = () => {
 
   // Display success message
   const displaySuccess = () => {
+    clearErrors();
     setShowSuccess(true);
   };
 
   // Handle form submission
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    // Reset both error and success states
+    clearErrors();
+    setShowSuccess(false);
 
     const form = event.currentTarget;
     const codeOfConductInput = form.querySelector(
@@ -92,7 +95,7 @@ const Signup = () => {
 
         <div className="max-w-md bg-dark shadow-md rounded-lg p-8 border-2 border-purple-dbg mx-auto">
           {/* Error display */}
-          {showError && (
+          {showError && !showSuccess && (
             <div
               id="errors"
               className="flex flex-col items-center justify-center mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded"

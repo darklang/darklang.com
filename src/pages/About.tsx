@@ -1,3 +1,6 @@
+/**
+ * Dark Classic page
+ */
 import darklangClassic from "../assets/darklang-classic.png";
 import darkClassicToplevel from "../assets/dark-classic-toplevel.png";
 

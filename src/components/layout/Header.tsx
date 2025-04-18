@@ -1,7 +1,5 @@
 /**
  * Header Component
- * This component renders the application header with navigation links.
- * It uses React Router for navigation and changes logo based on background color.
  */
 
 import { Link } from "react-router-dom";
@@ -34,16 +32,13 @@ const Header = ({ currentPage }: HeaderProps) => {
   // Get the color for the current page, or use default if not defined
   const bgColor = bgColors[currentPage] || bgColors.default;
 
-  // Determine if we're using a dark background
   const isDarkBg = bgColor.includes("bg-dark");
 
   const logoSrc = isDarkBg ? darkLangLogoDark : darkLangLogo;
   const githubLogoSrc = isDarkBg ? githubLogoWhite : githubLogo;
 
-  // State to control the mobile menu visibility
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Toggle mobile menu
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -54,7 +49,6 @@ const Header = ({ currentPage }: HeaderProps) => {
         <Link to="/" className="flex items-center">
           <img src={logoSrc} alt="Darklang Logo" className="h-11" />
         </Link>
-        {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
             <li>

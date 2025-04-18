@@ -3,10 +3,13 @@
  * A visual representation of a code editor with syntax highlighting and various features
  */
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CodeDisplay from "../../ui/CodeDisplay";
+import hljs from "highlight.js/lib/core";
+import "highlight.js/styles/vs2015.min.css";
+import fsharp from "highlight.js/lib/languages/fsharp";
 
-// TODO: try using highlight.js instead of this
+hljs.registerLanguage("fsharp", fsharp);
 
 interface CodeEditorProps {
   code: string;
@@ -17,82 +20,34 @@ interface CodeEditorProps {
   showGoToDef?: boolean;
 }
 
-// Colors for syntax highlighting
-const colors = {
-  keyword: "#C586C0", // Keywords like let, const, etc.
-  type: "#4FC1FF", // Types and library names
-  string: "#CE9178", // String literals
-  punctuation: "#CCCCCC", // Punctuation like dots and colons
-  bracket: "#D4D4D4", // Parentheses and brackets
-  comment: "#6A9955", // Comments
-  default: "#D4D4D4", // Default text color
-};
-
-// Token types for syntax highlighting
-type TokenType =
-  | "keyword"
-  | "type"
-  | "string"
-  | "punctuation"
-  | "bracket"
-  | "comment"
-  | "default";
-
-interface Token {
-  text: string;
-  type: TokenType;
-}
-
-const keywords = [
-  "let",
-  "const",
-  "function",
-  "return",
-  "if",
-  "else",
-  "import",
-  "export",
-  "from",
-  "class",
-  "interface",
-  "type",
-  "module",
-  "for",
-  "while",
-  "of",
-  "in",
-  "=>",
-  "match",
-  "with",
-  "fun",
-];
-const types = [
-  "Stdlib",
-  "List",
-  "Int64",
-  "Builtin",
-  "printLine",
-  "helloWorld",
-  "Result",
-  "String",
-  "Option",
-  "Some",
-  "None",
-];
-
 const CodeEditor: React.FC<CodeEditorProps> = ({
   code,
+  language = "fsharp",
   showCompletion = false,
   showHover = false,
   showDiagnostics = false,
   showGoToDef = false,
 }) => {
+  const [highlightedCode, setHighlightedCode] = useState<
+    Array<{ html: string }>
+  >([]);
+
   // Create line numbers
   const lines = code.split("\n");
   const lineNumbers = Array.from(
     { length: Math.max(7, lines.length) },
     (_, i) => i + 1,
   );
+
+  useEffect(() => {
+    const processedLines = lines.map(line => {
+      if (line.trim() === "") return { html: "&nbsp;" };
+      const highlighted = hljs.highlight(line, { language }).value;
+      return { html: highlighted };
+    });
+
+    setHighlightedCode(processedLines);
+  }, [code, language]);
 
   return (
     <div className="rounded-md overflow-hidden bg-[#1A1A1A] border border-gray-800 relative">
@@ -119,13 +74,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 
           {/* Actual code with syntax highlighting */}
           <div className="text-white flex-grow">
-            {lines.map((line, index) => (
+            {highlightedCode.map((line, index) => (
               <div key={index} className="h-6 overflow-hidden">
-                {tokenizeLine(line).map((token, i) => (
-                  <span key={i} style={{ color: colors[token.type] }}>
-                    {token.text}
-                  </span>
-                ))}
+                <span dangerouslySetInnerHTML={{ __html: line.html }}></span>
               </div>
             ))}
             {renderEmptyLines(Math.max(0, 7 - lines.length))}
@@ -258,102 +209,6 @@ const renderEmptyLines = (count: number) => {
       &nbsp;
     </div>
   ));
-};
-
-// Tokenize a line into individual parts
-const tokenizeLine = (line: string): Token[] => {
-  const tokens: Token[] = [];
-
-  // Process comments first
-  const commentMatch = line.match(/(\/\/.*?)$/);
-  let textToProcess = line;
-  let commentText = "";
-
-  if (commentMatch && commentMatch.index !== undefined) {
-    commentText = commentMatch[0];
-    textToProcess = line.substring(0, commentMatch.index);
-  }
-
-  // Split the line into words and other characters
-  let currentPos = 0;
-  while (currentPos < textToProcess.length) {
-    // Handle string literals
-    if (textToProcess[currentPos] === '"') {
-      let endQuotePos = textToProcess.indexOf('"', currentPos + 1);
-      if (endQuotePos === -1) endQuotePos = textToProcess.length;
-
-      tokens.push({
-        text: textToProcess.substring(currentPos, endQuotePos + 1),
-        type: "string",
-      });
-
-      currentPos = endQuotePos + 1;
-      continue;
-    }
-
-    // Handle punctuation
-    if (
-      textToProcess[currentPos] === "." ||
-      textToProcess[currentPos] === ":"
-    ) {
-      tokens.push({
-        text: textToProcess[currentPos],
-        type: "punctuation",
-      });
-      currentPos++;
-      continue;
-    }
-
-    // Handle brackets and parentheses
-    if ("()[]{}<>".includes(textToProcess[currentPos])) {
-      tokens.push({
-        text: textToProcess[currentPos],
-        type: "bracket",
-      });
-      currentPos++;
-      continue;
-    }
-
-    // Handle words (keywords, types, etc.)
-    const wordMatch = textToProcess
-      .substring(currentPos)
-      .match(/^[A-Za-z0-9_']+/);
-    if (wordMatch) {
-      const word = wordMatch[0];
-      let tokenType: TokenType = "default";
-
-      if (keywords.includes(word)) {
-        tokenType = "keyword";
-      } else if (types.includes(word)) {
-        tokenType = "type";
-      }
-
-      tokens.push({
-        text: word,
-        type: tokenType,
-      });
-
-      currentPos += word.length;
-      continue;
-    }
-
-    // Handle any other character
-    tokens.push({
-      text: textToProcess[currentPos],
-      type: "default",
-    });
-    currentPos++;
-  }
-
-  // Add comment if it exists
-  if (commentText) {
-    tokens.push({
-      text: commentText,
-      type: "comment",
-    });
-  }
-
-  return tokens;
 };
 
 export default CodeEditor;

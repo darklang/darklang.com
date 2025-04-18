@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import SectionTitle from "../ui/SectionTitle";
 import CodeDisplay from "../ui/CodeDisplay";
 
 interface FeatureButtonProps {
-  icon: any; // CLEANUP: Define a more specific type for the icon
+  icon: React.ReactNode;
   isMonoFont?: boolean;
   label: string;
   isActive: boolean;
@@ -24,6 +24,7 @@ const FeatureButton: React.FC<FeatureButtonProps> = ({
   onSubOptionClick,
 }) => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
     if (hasDropdown) {
@@ -33,8 +34,28 @@ const FeatureButton: React.FC<FeatureButtonProps> = ({
     }
   };
 
+  // Handle clicking outside of dropdown
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+
+    if (showDropdown) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [showDropdown]);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <div
         className={`flex items-center p-3 rounded-lg border cursor-pointer
                  ${

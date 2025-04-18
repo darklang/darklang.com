@@ -4,7 +4,7 @@ import SectionTitle from "../ui/SectionTitle";
 const DesignedForGenAI: React.FC = () => {
   return (
     <section className="py-16 bg-white">
-      <div className="maw-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <SectionTitle
           subtitle="Built for Tomorrow"
           align="center"
@@ -109,11 +109,11 @@ const DesignedForGenAI: React.FC = () => {
             </div>
             <div>
               <span>
-                We redesigned the dark language and tooling to enable
-                GenAI-generated programs, including exposing language tools to
-                GenAI tools, allowing running partial and incomplete programs
-                safely, and ensuring access to significant context to GenAI
-                tools
+                Create next-level applications by leveraging darklang's AI
+                agents to handle complex workflows. These agents can analyze
+                requirements, suggest implementation strategies, generate code,
+                and help troubleshoot issues—all while maintaining code quality
+                and adhering to best practices.
               </span>
             </div>
           </div>

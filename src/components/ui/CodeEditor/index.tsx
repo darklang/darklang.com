@@ -1,6 +1,5 @@
 /**
  * CodeEditor Component
- * A visual representation of a code editor with syntax highlighting and various features
  */
 
 import React, { useState, useEffect } from "react";

@@ -88,8 +88,15 @@ const Signup = () => {
             className="md:max-w-3xl mx-auto"
           />
           <p className="mt-20 text-white md:text-2xl">
-            We're currently focused on the <a>next version of Darklang</a>, but
-            you can still try Darklang Classic!
+            We're currently focused on the{" "}
+            <a
+              href="https://github.com/darklang/dark"
+              target="_blank"
+              className="text-purple-dbg"
+            >
+              next{" "}
+            </a>
+            version of Darklang, but you can still try Darklang Classic!
           </p>
         </div>
 

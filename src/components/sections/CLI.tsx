@@ -88,41 +88,33 @@ echo "Backup process completed."`;
 
   // Darklang backup script example
   const darklangSimpleCode = `// Simple script to backup a directory
-let backupDirectory = (sourcePath : String, keepDays : Int) : Result<String, String> =
+let backupDirectory (sourcePath : String, keepDays : Int) =
   // Create timestamp for backup folder
   let timestamp = Date.now() |> Date.format "yyyy-MM-dd"
   let targetDir = $"/backup/{timestamp}"
   
-  // Ensure target directory exists
+  // Create directory and attempt backup
   FileSystem.createDirectory targetDir
-  |> Result.map (fun _ -> 
-    // Copy files with built-in progress tracking
-    let result = FileSystem.copyDirectory sourcePath targetDir
-    
-    match result with
-    | Ok _ -> 
-      // Cleanup old backups
-      let oldBackups = 
-        FileSystem.listDirectories "/backup"
-        |> List.filter (fun dir -> 
+  |> Result.andThen (fun _ ->
+    FileSystem.copyDirectory sourcePath targetDir
+    |> Result.map (fun _ ->
+      Builtin.printline $"Backup completed successfully to {targetDir}"
+      
+      // Find and remove old backups
+      FileSystem.listDirectories "/backup"
+      |> List.filter (fun dir -> 
           let dirDate = Path.basename dir |> Date.parse
-          let daysOld = Date.diffDays dirDate (Date.now())
-          daysOld > keepDays
-        )
-      
-      // Delete old backups
-      List.forEach oldBackups FileSystem.deleteDirectory
-      
-      Ok $"Backup completed successfully to {targetDir}"
-    | Error e -> 
-      Error $"Backup failed: {e}"
+          Date.diffDays dirDate (Date.now()) > keepDays)
+      |> List.forEach FileSystem.deleteDirectory
+    )
   )
+  |> Result.mapError (fun e -> 
+    Builtin.printline $"Backup failed: {e}"
+  )
+  |> ignore
 
 // Execute backup with 7 day retention
-backupDirectory "/home/user/documents" 7
-|> Result.match
-   (\\success -> Console.log success)
-   (\\error -> Console.error error)`;
+backupDirectory "/home/user/documents" 7`;
 
   // Deployment script example
   const bashDeploymentCode = `#!/bin/bash
@@ -177,61 +169,48 @@ echo "Deployment to $DEPLOY_ENV completed successfully!"`;
 
   // Darklang deployment script example
   const darklangDeploymentCode = `// Deployment script for web application
+type Env = Production | Staging
 
-type Environment = Production | Staging
-
-let deployApplication = (env : Environment, appName : String) : Result<String, String> =
+let deployApplication (env : Env, appName : String) =
   // Set server and paths based on environment
   let (server, targetDir) = 
     match env with
-    | Production -> 
-      ("production.example.com", $"/var/www/production/{appName}")
-    | Staging -> 
-      ("staging.example.com", $"/var/www/staging/{appName}")
+    | Production -> ("production.example.com", $"/var/www/production/{appName}")
+    | Staging -> ("staging.example.com", $"/var/www/staging/{appName}")
   
-  Console.log $"Deploying {appName} to {env} environment..."
+  Builtin.printline $"Deploying {appName} to {env} environment..."
   
   // Build the application
-  Console.log "Building application..."
-  let buildResult = Process.run "npm" ["run", "build"]
-  
-  // Check if build was successful
-  match buildResult with
-  | Error e -> Error $"Build failed: {e}"
-  | Ok _ ->
-    // Create backup of current deployment
-    Server.execute server $"
+  Builtin.printline "Building application..."
+  Process.run "npm" ["run", "build"]
+  |> Result.andThen (fun _ -> 
+    // Backup existing deployment
+    let backupCmd = $"
       if [ -d {targetDir} ]; then 
         cp -r {targetDir} {targetDir}_backup_$(date +%Y%m%d%H%M%S)
       fi"
-    |> ignore
     
-    // Deploy files to server
-    Console.log $"Uploading to {server}..."
-    let deployResult = 
-      RemoteFS.sync 
-        { sourcePath = "./dist"
-          targetServer = server
-          targetPath = targetDir
-          deleteExtraFiles = true }
-    
-    match deployResult with
-    | Error e -> Error $"Deployment failed: {e}"
-    | Ok _ ->
-      // Run post-deployment tasks
-      Console.log "Running post-deployment tasks..."
-      let postDeployResult = 
+    Server.execute server backupCmd
+    |> Result.andThen (fun _ ->
+      // Deploy files to server
+      Builtin.printline $"Uploading to {server}..."
+      RemoteFS.sync {
+        sourcePath = "./dist"
+        targetServer = server
+        targetPath = targetDir
+        deleteExtraFiles = true
+      }
+      |> Result.andThen (fun _ ->
+        // Run post-deployment tasks
+        Builtin.printline "Running post-deployment tasks..."
         Server.execute server $"cd {targetDir} && ./post-deploy.sh {env}"
-      
-      match postDeployResult with
-      | Error e -> Error $"Post-deployment tasks failed: {e}"
-      | Ok _ -> Ok $"Deployment to {env} completed successfully!"
+        |> Result.map (fun _ ->
+          Builtin.printline $"Deployment to {env} completed successfully!" ))))
+  |> Result.mapError (fun e ->
+    Builtin.printline $"Deployment failed: {e}")
 
 // Execute deployment
-deployApplication Staging "mywebapp"
-|> Result.match
-   (\\success -> Console.log success)
-   (\\error -> Console.error error)`;
+deployApplication Staging "mywebapp"`;
 
   // Get the appropriate code based on selected script
   const getCode = (scriptId: string) => {

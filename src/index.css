@@ -1,15 +1,9 @@
-/**
- * Main CSS file for the application
- */
 @import "tailwindcss";
 
-/* Custom font styles */
 body {
   font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
 }
-
-/* Line number styles to add to your global CSS */
 
 .code-with-line-numbers {
   font-family: monospace;

@@ -1,16 +1,14 @@
-/**
- * CLI Page Component
- */
-
 import React from "react";
-import cliImage from "../../assets/cli.png";
-import doubleGridImage from "../../assets/double-grid.png";
-import gridImage from "../../assets/grid.png";
-import logoAscii from "../../assets/logo-ascii.png";
-import cliAscii from "../../assets/darklang-cli-ascii.png";
-import Terminal from "../../components/ui/Terminal";
-import Button from "../../components/ui/Button.tsx";
-import CTASection from "../../components/ui/CTASection";
+
+import cliImage from "~/assets/cli.png";
+import doubleGridImage from "~/assets/double-grid.png";
+import gridImage from "~/assets/grid.png";
+import logoAscii from "~/assets/logo-ascii.png";
+import cliAscii from "~/assets/darklang-cli-ascii.png";
+
+import Terminal from "../../common/ui/Terminal.tsx";
+import Button from "../../common/ui/Button.tsx";
+import CTASection from "../../common/ui/CTASection/index.tsx";
 
 const CLIPage: React.FC = () => {
   return (

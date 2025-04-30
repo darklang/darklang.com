@@ -1,19 +1,30 @@
-/**
- * App Component
- * The root component of the application.
- * Sets up routing with React Router.
- */
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ScrollToTop from "./components/utils/ScrollToTop";
-import Layout from "./components/layout/Layout";
+
+import ScrollToTop from "./common/utils/ScrollToTop";
+import Layout from "./common/layout/Layout";
+
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Signup from "./pages/Signup";
+
+import Classic from "./pages/Classic";
+import ClassicSignup from "./pages/Classic/Signup";
+
+import Language from "./pages/Language"
+import CLI from "./pages/CLI";
+import Backends from "./pages/Backends";
+import AI from "./pages/AI"
+import Distribution from "./pages/Distribution"
+import Execution from "./pages/Execution"
+import TraceDriven from "./pages/TraceDriven"
+import TypeChecking from "./pages/TypeChecking"
+
 import Roadmap from "./pages/Roadmap";
-import CLIPage from "./pages/CLI";
-import CloudPage from "./pages/Cloud";
+import Company from "./pages/Company";
+import GettingStarted from "./pages/GettingStarted";
+import ForX from "./pages/For"
+import Cloud from "./pages/Cloud";
+
 import NotFound from "./pages/NotFound";
+import Editing from "./pages/Home/Editing";
 
 function App() {
   return (
@@ -22,11 +33,26 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="signup" element={<Signup />} />
+
+          <Route path="/classic" element={<Classic />} />
+          <Route path="/classic/signup" element={<ClassicSignup />} />
+
+          <Route path="language" element={<Language />} />
+          <Route path="typeChecking" element ={<TypeChecking />} />
+          <Route path="execution" element ={<Execution />} />
+          <Route path="distribution" element ={<Distribution />} />
+          <Route path="traceDriven" element ={<TraceDriven />} />
+          <Route path="editing" element ={<Editing />} />
+          <Route path="cli" element={<CLI />} />
+          <Route path="backends" element={<Backends />} />
+          <Route path="ai" element ={<AI />} />
+          
+          <Route path="gettingStarted" element ={<GettingStarted />} />
+          <Route path="company" element ={<Company />} />
           <Route path="roadmap" element={<Roadmap />} />
-          <Route path="cli" element={<CLIPage />} />
-          <Route path="cloud" element={<CloudPage />} />
+          <Route path="our-cloud" element={<Cloud />} />
+          <Route path="for" element={<ForX />} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

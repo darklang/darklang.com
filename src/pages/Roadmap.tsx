@@ -15,7 +15,7 @@ const Roadmap = () => {
         <div className="space-y-12 mt-8">
           <div className="border-l-4 border-purple-lbg pl-6 relative">
             <div className="absolute w-4 h-4 rounded-full bg-purple-lbg -left-[10px] top-0"></div>
-            <h2 className="text-2xl font-semibold mb-4">Q2 2025</h2>
+            
             <ul className="list-disc pl-6 space-y-2 mb-6">
               <li>Enhanced debugging tools with time-travel capabilities</li>
               <li>Extended package management system</li>
@@ -26,7 +26,7 @@ const Roadmap = () => {
 
           <div className="border-l-4 border-blue-primary pl-6 relative">
             <div className="absolute w-4 h-4 rounded-full bg-blue-primary -left-[10px] top-0"></div>
-            <h2 className="text-2xl font-semibold mb-4">Q3 2025</h2>
+            
             <ul className="list-disc pl-6 space-y-2 mb-6">
               <li>Advanced deployment strategies (canary, blue-green)</li>
               <li>AI-assisted coding features</li>
@@ -37,7 +37,7 @@ const Roadmap = () => {
 
           <div className="border-l-4 border-purple-secondary pl-6 relative">
             <div className="absolute w-4 h-4 rounded-full bg-purple-secondary -left-[10px] top-0"></div>
-            <h2 className="text-2xl font-semibold mb-4">Q4 2025</h2>
+            
             <ul className="list-disc pl-6 space-y-2 mb-6">
               <li>Multi-region deployment support</li>
               <li>Advanced monitoring and observability tools</li>

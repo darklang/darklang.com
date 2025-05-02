@@ -3,8 +3,8 @@ import React from "react";
 const TraceDriven: React.FC = () => {
   return (
     <p>
-      Tracesare a core feature of Darklang that enable developers to work with live request data to build and debug applications efficiently.
-      Acting as an _"omniscient debugger,"_ traces provide complete visibility into the state of an application at any point in time, allowing developers
+      Traces are a core feature of Darklang that enable developers to work with live request data to build and debug applications efficiently.
+      Acting as an "omniscient debugger" traces provide complete visibility into the state of an application at any point in time, allowing developers
       to see exactly what data flows through their code and how it behaves without needing traditional debugging tools like print statements or external loggers.
 
       Traces power Trace-Driven Development, a workflow where you start by sending requests to non-existent endpoints.

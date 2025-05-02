@@ -9,8 +9,11 @@ const Layout = () => {
   const location = useLocation();
   const currentPage = location.pathname.substring(1) || "home";
 
+  // Use bg-dark for CLI page, otherwise transparent
+  const bgClass = currentPage === "cli" ? "bg-dark" : "bg-transparent";
+
   return (
-    <div className="flex flex-col min-h-screen bg-transparent">
+    <div className={`flex flex-col min-h-screen ${bgClass}`}>
       <div className="sticky top-0 z-50">
         {
           currentPage.startsWith('classic')  

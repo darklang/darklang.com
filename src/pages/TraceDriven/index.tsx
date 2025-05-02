@@ -2,27 +2,32 @@ import React from "react";
 
 const TraceDriven: React.FC = () => {
   return (
-    <pre>
-The best way to debug and refactor code is with the help of real user data. As your code is executed, locally or in the cloud, traces are stored that you can use and inspect in the development flow.
+    <p>
+      Tracesare a core feature of Darklang that enable developers to work with live request data to build and debug applications efficiently.
+      Acting as an _"omniscient debugger,"_ traces provide complete visibility into the state of an application at any point in time, allowing developers
+      to see exactly what data flows through their code and how it behaves without needing traditional debugging tools like print statements or external loggers.
 
-Traces are captured:
-- for http handlers
-- for worker `emit`s
-- for function calls
-- for CRON responses
-- for CLI application calls
-- whatever else you wish
+      Traces power Trace-Driven Development, a workflow where you start by sending requests to non-existent endpoints.
+      Darklang records those traces, which you then use to write code that handles real inputs.
+      This approach ensures code is developed with actual data, reducing guesswork and errors.
 
-, and they can be helpful when adjusting code
-- or debugging things.
+      Traces are records of HTTP requests (or other events) made to a Darklang app. Whether your code runs locally or in the cloud,
+      traces automatically capture inputs and intermediate values during execution for:
+      - HTTP handlers
+      - Worker `emit`s
+      - Function calls
+      - CRON responses
+      - CLI application calls
 
-Traces are captured centrally, in the package manager, and are available securely in your editing environment.
+      A trace includes:
+      - Request Inputs: The full HTTP request, including headers, query parameters, body and metadata.
+      - Intermediate Values: Values computed during the execution of a handler, such as the results of expressions or function calls.
+      - Live Values: The evaluated results of expressions for a selected traceThese update in real-time as you write code.
+      - Return Values: The final output of a handler
 
-(gif in action - ok to be from -classic)
-
-for inspo: https://docs.darklang.com/discussion/trace-driven-development
-
-</pre>
+      All traces are securely and centrally captured in the package manager, and made available in your editing environment.
+      This approach streamlines debugging, improves accuracy, and makes refactoring safer—all by letting real data guide the development process.
+    </p>
   );
 };
 

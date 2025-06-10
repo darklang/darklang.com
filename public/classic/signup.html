@@ -67,11 +67,6 @@
                       >Log in</a
                     >
                   </li>
-                  <li
-                    class="hover:bg-classic-purple hover:text-white rounded-b-lg"
-                  >
-                    <a class="py-2 px-4 block" href="/signup">Sign up</a>
-                  </li>
                 </ul>
               </div>
             </div>
@@ -158,7 +153,6 @@
       </div>
     </nav>
 
-    <!-- Sign up form -->
     <section class="mt-8 pb-11">
       <div
         class="container flex flex-col justify-center items-center mx-auto text-center"
@@ -171,137 +165,21 @@
         <p
           class="text-center font-medium text-xl text-white md:text-2xl mt-11 2xl:mt-16"
         >
-          We're currently focused on the
+          Signups to Dark-Classic have been disabled, as we're
           <a
-            href="https://darklang.com/discord"
+            href="https://blog.darklang.com/TODO-link"
             class="underline text-classic-purple font-semibold"
-            >next version</a
+            >winding down</a
           >
-          of Darklang, but you can still try Darklang Classic!
+          this service. <br> If you already have an account,
+          <a
+            class="underline text-classic-purple font-semibold"
+            href="https://login.darklang.com"
+            >log in</a
+          >.
         </p>
       </div>
 
-      <div
-        class="rounded-lg mx-auto mt-16 border border-classic-pink bg-gradient-to-r from-classic-purple via-classic-purple to-classic-pink xs:w-[375px] lg:w-[450px] h-fit"
-      >
-        <form
-          id="sign-up-form"
-          action=""
-          class="flex flex-col justify-center items-center pt-10 pb-5 px-6 md:px-12 bg-dark-gray rounded-t-lg text-white"
-        >
-          <div
-            id="success"
-            class="hidden flex-col items-center text-center justify-center px-12"
-          >
-            <i
-              class="fas fa-check-circle text-pink my-7 text-7xl text-green-300 animate-fill"
-            ></i>
-            <div class="flex flex-col items-center text-center justify-center">
-              <p class="text-pink font-medium text-3xl mt-4">Success!</p>
-              <p class="font-medium text-2xl mt-4">
-                Congratulations! Your sign up was successful
-              </p>
-              <a
-                class="px-20 py-2 text-lg rounded bg-purple hover:bg-pink-500 transition duration-200 ease-in-out mt-14"
-                href="https://login.darklang.com"
-                >Log in</a
-              >
-            </div>
-          </div>
-
-          <h2 class="text-3xl font-semibold">Sign up</h2>
-
-          <div
-            id="errors"
-            class="hidden mt-4 w-full bg-red-300 items-center rounded py-1"
-          >
-            <i
-              class="fa-solid fa-circle-exclamation text text-red-600 mx-4"
-            ></i>
-            <ul id="error-list" class="text-red-800 text-sm"></ul>
-          </div>
-
-          <div class="relative w-full mt-8">
-            <input
-              type="text"
-              name="name"
-              id="name"
-              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
-              placeholder=" "
-              required
-            />
-            <label
-              for="name"
-              class="absolute text-sm text-gray-300 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:left-0 peer-focus:text-gray-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >Name</label
-            >
-          </div>
-
-          <div class="relative w-full mt-8">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
-              placeholder=" "
-              required
-            />
-            <label
-              for="email"
-              class="absolute text-sm text-gray-300 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:left-0 peer-focus:text-gray-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >Email</label
-            >
-          </div>
-
-          <div class="relative w-full mt-8">
-            <input
-              type="text"
-              name="username"
-              id="username"
-              class="appearance-none bg-transparent w-full block pb-3 pl-1 text-sm border-0 border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-classic-purple peer"
-              placeholder=" "
-              required
-            />
-            <label
-              for="username"
-              class="absolute text-sm text-gray-300 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:left-0 peer-focus:text-gray-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >Username</label
-            >
-          </div>
-
-          <div class="my-8 flex">
-            <input
-              id="code-of-conduct"
-              type="checkbox"
-              name="code-of-conduct"
-              class="rounded focus:ring-0 text-pink mr-2"
-            />
-            <label for="code-of-conduct" class="text-xs"
-              >I promise to abide by the
-              <a
-                href="https://darklang.com/code-of-conduct"
-                class="underline underline-offset-2 hover:text-classic-purple"
-                >Code of Conduct</a
-              >
-              when using Dark services or participating in the Dark
-              community.</label
-            >
-          </div>
-          <button
-            class="bg-classic-purple hover:bg-classic-purple/40 text-white px-5 py-2 rounded mb-3 mt-4 cursor-pointer"
-          >
-            Create account
-          </button>
-          <p class="text-xs text-gray-300">
-            Already have an account?
-            <a
-              href="https://login.darklang.com"
-              class="underline underline-offset-2 hover:text-classic-purple"
-              >log in</a
-            >
-          </p>
-        </form>
-      </div>
     </section>
 
     <!-- Footer -->
@@ -348,10 +226,7 @@
           <ul class="text-gray-400">
             <li>
               <a href="https://login.darklang.com" target="_blank">Sign in</a>
-            </li>
-            <li>
-              <a href="https://darklang.com/signup" target="_blank">Sign up</a>
-            </li>
+            </li>`
             <li>
               <a href="https://darklang.com/desktop-client" target="_blank">
                 Desktop client

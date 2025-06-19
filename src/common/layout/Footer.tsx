@@ -26,12 +26,16 @@ const Footer = ({ currentPage }: FooterProps) => {
     roadmap: "bg-white",
     cli: "bg-dark text-white",
     editing: "bg-dark text-white",
+    packages: "bg-dark text-white",
     // Default for any other page (like NotFound)
     default: "bg-white",
   };
 
   // Get the color for the current page, or use default if not defined
-  const bgColor = bgColors[currentPage] || bgColors.default;
+  // any page starting with "packages" should use dark background
+  const bgColor = currentPage.startsWith('packages')
+    ? bgColors.packages
+    : (bgColors[currentPage] || bgColors.default);
   // Determine if we're using a dark background
   const isDarkBg = bgColor.includes("bg-dark");
 

@@ -5,7 +5,7 @@ import darkClassicToplevel from "~/assets/dark-classic-toplevel.png";
 
 const About = () => {
   return (
-    <div className="min-h-screen py-16 bg-dark-gray">
+    <div className="min-h-screen py-16 bg-dark">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Logo section */}
         <div className="w-full flex justify-center my-12 2xl:my-18">

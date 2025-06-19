@@ -25,12 +25,16 @@ const Header = ({ currentPage }: HeaderProps) => {
     roadmap: "bg-white",
     cli: "bg-dark text-white",
     editing: "bg-dark text-white",
+    packages: "bg-dark text-white",
     // Default for any other page (like NotFound)
     default: "bg-white",
   };
 
   // Get the color for the current page, or use default if not defined
-  const bgColor = bgColors[currentPage] || bgColors.default;
+  // any page starting with "packages" should use dark background
+  const bgColor = currentPage.startsWith('packages')
+    ? bgColors.packages
+    : (bgColors[currentPage] || bgColors.default);
 
   const isDarkBg = bgColor.includes("bg-dark");
 
@@ -51,19 +55,19 @@ const Header = ({ currentPage }: HeaderProps) => {
         </Link>
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
-          <li>
+            <li>
               <Dropdown
                 label="Explore"
                 items={[
-                  { text: "Language", href: "/language", target: "_blank" }, 
-                  { text: "Type-Checking", href: "/typeChecking", target: "_blank" }, 
-                  { text: "Execution", href: "/execution", target: "_blank" }, 
-                  { text: "Distribution", href: "/distribution", target: "_blank" }, 
-                  { text: "Trace-Driven", href: "/traceDriven", target: "_blank" }, 
-                  { text: "Editing", href: "/editing", target: "_blank" }, 
-                  { text: "CLI", href: "/cli", target: "_blank" }, 
-                  { text: "Backends", href: "/backends", target: "_blank" }, 
-                  { text: "AI", href: "/ai", target: "_blank" } 
+                  { text: "Language", href: "/language", target: "_blank" },
+                  { text: "Type-Checking", href: "/typeChecking", target: "_blank" },
+                  { text: "Execution", href: "/execution", target: "_blank" },
+                  { text: "Distribution", href: "/distribution", target: "_blank" },
+                  { text: "Trace-Driven", href: "/traceDriven", target: "_blank" },
+                  { text: "Editing", href: "/editing", target: "_blank" },
+                  { text: "CLI", href: "/cli", target: "_blank" },
+                  { text: "Backends", href: "/backends", target: "_blank" },
+                  { text: "AI", href: "/ai", target: "_blank" }
                 ]}
               />
             </li>

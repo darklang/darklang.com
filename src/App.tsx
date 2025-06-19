@@ -22,6 +22,8 @@ import Company from "./pages/Company";
 import GettingStarted from "./pages/GettingStarted";
 import ForX from "./pages/For"
 import Cloud from "./pages/Cloud";
+import Packages from "./pages/Packages";
+import PackageDetail from "./pages/PackageDetail";
 
 import NotFound from "./pages/NotFound";
 import Editing from "./pages/Home/Editing";
@@ -52,6 +54,8 @@ function App() {
           <Route path="roadmap" element={<Roadmap />} />
           <Route path="our-cloud" element={<Cloud />} />
           <Route path="for" element={<ForX />} />
+          <Route path="packages" element={<Packages />} />
+          <Route path="packages/:packageName" element={<PackageDetail />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

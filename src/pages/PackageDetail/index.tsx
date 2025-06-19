@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import ActionButton from './components/ActionButton';
 import { SubModule, PackageData } from './types';
 import { useDarkPackagesApi, ProcessedSubmodule } from './darkPackagesApi';
 import { PackageDetailSidebar } from './PackageDetailSidebar';
-import { PackageHeader, SidebarPackage, SelectedItem } from './components';
+import { PackageHeader, SidebarPackage, SelectedItem, TabContent } from './components';
 
 const PackageDetail: React.FC = () => {
   const { packageName } = useParams<{ packageName: string }>();
@@ -70,19 +69,7 @@ const PackageDetail: React.FC = () => {
     setSearchQuery(value);
   }, []);
 
-  // Filter main content items based on search
-  const getFilteredMainContentItems = useCallback((items: any[], searchTerm: string) => {
-    if (selectedItem || !searchTerm.trim() || !items) return items;
 
-    const query = searchTerm.toLowerCase();
-    return items.filter(item => {
-      const name = item.name?.toLowerCase() || '';
-      const description = item.description?.toLowerCase() || '';
-      const signature = item.signature?.toLowerCase() || '';
-
-      return name.includes(query) || description.includes(query) || signature.includes(query);
-    });
-  }, [selectedItem]);
 
   const fetchSiblingModules = useCallback(async (parentModule: string) => {
     try {
@@ -497,7 +484,9 @@ const PackageDetail: React.FC = () => {
                   } else {
                     const currentPackageData = sidebarItemsData[selectedPackage];
                     const submodules = currentPackageData?.submodules || [];
-                    const filteredSubmodules = getFilteredMainContentItems(submodules.map((sub: ProcessedSubmodule) => ({ ...sub, name: sub.name, description: `${sub.name} submodule utilities and operations` })), searchQuery);
+                    const filteredSubmodules = searchQuery.trim() 
+                      ? submodules.filter((sub: ProcessedSubmodule) => sub.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                      : submodules;
 
                     const currentSidebarPackage = sidebarPackages.find(pkg => pkg.path === selectedPackage);
                     const hasSubmodulesFromStats = currentSidebarPackage && currentSidebarPackage.stats.submodules > 0;
@@ -581,280 +570,42 @@ const PackageDetail: React.FC = () => {
             )}
 
             {activeTab === "Functions" && (
-              <div className="space-y-6">
-                {(() => {
-                  const currentSidebarData = sidebarItemsData[selectedPackage];
-                  const fullFunctionData = currentSidebarData?.fullFunctionData || [];
-                  const isLoading = sidebarLoadingStates[selectedPackage] || false;
-
-                  if (isLoading) {
-                    return (
-                      <div className="text-center py-12">
-                        <div className="text-gray-400 mb-2">Loading functions...</div>
-                        <div className="text-gray-500 text-sm">Fetching function information</div>
-                      </div>
-                    );
-                  }
-
-                  if (!currentSidebarData && selectedPackage) {
-                    fetchSidebarItemData(selectedPackage);
-                    return (
-                      <div className="text-center py-12">
-                        <div className="text-gray-400 mb-2">Loading functions...</div>
-                        <div className="text-gray-500 text-sm">Fetching function information</div>
-                      </div>
-                    );
-                  }
-
-                  const filteredFunctions = fullFunctionData.filter((func: any) => {
-                    if (!searchQuery.trim()) return true;
-                    const query = searchQuery.toLowerCase();
-                    return func.name.toLowerCase().includes(query) ||
-                      func.signature.toLowerCase().includes(query) ||
-                      func.description.toLowerCase().includes(query);
-                  });
-
-                  return filteredFunctions.length > 0 ? (
-                    <>
-                      {searchQuery && (
-                        <div className="text-sm text-gray-400 mb-4">
-                          Showing {filteredFunctions.length} of {fullFunctionData.length} functions
-                        </div>
-                      )}
-                      {filteredFunctions.map((func: any, index: number) => (
-                        <div
-                          key={index}
-                          id={`function-${func.name}`}
-                          className={`px-3 py-3 transition-colors border-b border-b-[#3E3E3E] rounded ${selectedItem?.type === 'function' && selectedItem?.name === func.name
-                            ? 'bg-[#242323]'
-                            : ''
-                            }`}
-                        >
-                          <div className="mb-4">
-                            <h3 className={`font-code mb-2 text-sm ${selectedItem?.type === 'function' && selectedItem?.name === func.name
-                              ? 'text-purple-dbg'
-                              : 'text-blue-dbg'
-                              }`}>
-                              {func.signature}
-                            </h3>
-                            <p className="text-gray-light text-sm">
-                              {func.description}
-                            </p>
-                          </div>
-
-                          <div className="flex space-x-2">
-                            <ActionButton text="Docs" variant="primary" />
-                            <ActionButton text="Usages" />
-                            <ActionButton text="Tests" />
-                          </div>
-                        </div>
-                      ))}
-                    </>
-                  ) : (
-                    <div className="text-center py-12">
-                      {searchQuery ? (
-                        <>
-                          <p className="text-gray-400 mb-2">No functions found matching "{searchQuery}"</p>
-                          <button
-                            onClick={() => setSearchQuery('')}
-                            className="text-purple-400 hover:text-purple-300 text-sm"
-                          >
-                            Clear search to show all functions
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <p className="text-gray-400 mb-4">No functions found for this module.</p>
-                        </>
-                      )}
-                    </div>
-                  );
-                })()}
-              </div>
+              <TabContent
+                type="functions"
+                selectedPackage={selectedPackage}
+                sidebarItemsData={sidebarItemsData}
+                sidebarLoadingStates={sidebarLoadingStates}
+                searchQuery={searchQuery}
+                selectedItem={selectedItem}
+                onFetchItemData={fetchSidebarItemData}
+                onSearchClear={() => setSearchQuery('')}
+              />
             )}
 
             {activeTab === "Types" && (
-              <div className="space-y-6">
-                {(() => {
-                  const currentSidebarData = sidebarItemsData[selectedPackage];
-                  const fullTypeData = currentSidebarData?.fullTypeData || [];
-                  const isLoading = sidebarLoadingStates[selectedPackage] || false;
-
-                  if (isLoading) {
-                    return (
-                      <div className="text-center py-12">
-                        <div className="text-gray-400 mb-2">Loading types...</div>
-                        <div className="text-gray-500 text-sm">Fetching type information</div>
-                      </div>
-                    );
-                  }
-
-                  if (!currentSidebarData && selectedPackage) {
-                    fetchSidebarItemData(selectedPackage);
-                    return (
-                      <div className="text-center py-12">
-                        <div className="text-gray-400 mb-2">Loading types...</div>
-                        <div className="text-gray-500 text-sm">Fetching type information</div>
-                      </div>
-                    );
-                  }
-
-                  const filteredTypes = fullTypeData.filter((type: any) => {
-                    if (!searchQuery.trim()) return true;
-                    const query = searchQuery.toLowerCase();
-                    return type.name.toLowerCase().includes(query) ||
-                      type.description.toLowerCase().includes(query);
-                  });
-
-                  return filteredTypes.length > 0 ? (
-                    <>
-                      {searchQuery && (
-                        <div className="text-sm text-gray-400 mb-4">
-                          Showing {filteredTypes.length} of {fullTypeData.length} types
-                        </div>
-                      )}
-                      {filteredTypes.map((type: any, index: number) => (
-                        <div
-                          key={index}
-                          id={`type-${type.name}`}
-                          className={`px-3 py-3 transition-colors border-b border-b-[#3E3E3E] rounded ${selectedItem?.type === 'type' && selectedItem?.name === type.name
-                            ? 'bg-[#242323]'
-                            : ''
-                            }`}
-                        >
-                          <div className="mb-4">
-                            <h3 className={`font-code mb-2 ${selectedItem?.type === 'type' && selectedItem?.name === type.name
-                              ? 'text-purple-dbg'
-                              : 'text-blue-dbg'
-                              }`}>
-                              {type.name}
-                            </h3>
-                            <p className="text-gray-300 text-sm">
-                              {type.description}
-                            </p>
-                          </div>
-
-                          <div className="flex space-x-2">
-                            <ActionButton text="Docs" variant="primary" />
-                            <ActionButton text="Usages" />
-                            <ActionButton text="Tests" />
-                          </div>
-                        </div>
-                      ))}
-                    </>
-                  ) : (
-                    <div className="text-center py-12">
-                      {searchQuery ? (
-                        <>
-                          <p className="text-gray-400 mb-2">No types found matching "{searchQuery}"</p>
-                          <button
-                            onClick={() => setSearchQuery('')}
-                            className="text-purple-400 hover:text-purple-300 text-sm"
-                          >
-                            Clear search to show all types
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <p className="text-gray-400 mb-4">No types found for this module.</p>
-                        </>
-                      )}
-                    </div>
-                  );
-                })()}
-              </div>
+              <TabContent
+                type="types"
+                selectedPackage={selectedPackage}
+                sidebarItemsData={sidebarItemsData}
+                sidebarLoadingStates={sidebarLoadingStates}
+                searchQuery={searchQuery}
+                selectedItem={selectedItem}
+                onFetchItemData={fetchSidebarItemData}
+                onSearchClear={() => setSearchQuery('')}
+              />
             )}
 
             {activeTab === "Constants" && (
-              <div className="space-y-6">
-                {(() => {
-                  const currentSidebarData = sidebarItemsData[selectedPackage];
-                  const fullConstantData = currentSidebarData?.fullConstantData || [];
-                  const isLoading = sidebarLoadingStates[selectedPackage] || false;
-
-                  if (isLoading) {
-                    return (
-                      <div className="text-center py-12">
-                        <div className="text-gray-400 mb-2">Loading constants...</div>
-                        <div className="text-gray-500 text-sm">Fetching constant information</div>
-                      </div>
-                    );
-                  }
-
-                  if (!currentSidebarData && selectedPackage) {
-                    fetchSidebarItemData(selectedPackage);
-                    return (
-                      <div className="text-center py-12">
-                        <div className="text-gray-400 mb-2">Loading constants...</div>
-                        <div className="text-gray-500 text-sm">Fetching constant information</div>
-                      </div>
-                    );
-                  }
-
-                  const filteredConstants = fullConstantData.filter((constant: any) => {
-                    if (!searchQuery.trim()) return true;
-                    const query = searchQuery.toLowerCase();
-                    return constant.name.toLowerCase().includes(query) ||
-                      constant.description.toLowerCase().includes(query);
-                  });
-
-                  return filteredConstants.length > 0 ? (
-                    <>
-                      {searchQuery && (
-                        <div className="text-sm text-gray-400 mb-4">
-                          Showing {filteredConstants.length} of {fullConstantData.length} constants
-                        </div>
-                      )}
-                      {filteredConstants.map((constant: any, index: number) => (
-                        <div
-                          key={index}
-                          id={`constant-${constant.name}`}
-                          className={`px-3 py-3 transition-colors border-b border-b-[#3E3E3E] rounded ${selectedItem?.type === 'constant' && selectedItem?.name === constant.name
-                            ? 'bg-[#242323]'
-                            : ''
-                            }`}
-                        >
-                          <div className="mb-4">
-                            <h3 className={`font-code mb-2 ${selectedItem?.type === 'constant' && selectedItem?.name === constant.name
-                              ? 'text-sand'
-                              : 'text-sand'
-                              }`}>
-                              {constant.name}
-                            </h3>
-                            <p className="text-gray-300 text-sm">
-                              {constant.description}
-                            </p>
-                          </div>
-
-                          <div className="flex space-x-2">
-                            <ActionButton text="Docs" variant="primary" />
-                            <ActionButton text="Usages" />
-                            <ActionButton text="Tests" />
-                          </div>
-                        </div>
-                      ))}
-                    </>
-                  ) : (
-                    <div className="text-center py-12">
-                      {searchQuery ? (
-                        <>
-                          <p className="text-gray-400 mb-2">No constants found matching "{searchQuery}"</p>
-                          <button
-                            onClick={() => setSearchQuery('')}
-                            className="text-purple-400 hover:text-purple-300 text-sm"
-                          >
-                            Clear search to show all constants
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <p className="text-gray-400 mb-4">No constants found for this module.</p>
-                        </>
-                      )}
-                    </div>
-                  );
-                })()}
-              </div>
+              <TabContent
+                type="constants"
+                selectedPackage={selectedPackage}
+                sidebarItemsData={sidebarItemsData}
+                sidebarLoadingStates={sidebarLoadingStates}
+                searchQuery={searchQuery}
+                selectedItem={selectedItem}
+                onFetchItemData={fetchSidebarItemData}
+                onSearchClear={() => setSearchQuery('')}
+              />
             )}
           </div>
         </div>

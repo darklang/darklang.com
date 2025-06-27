@@ -7,32 +7,32 @@ const mockPosts = [
   {
     id: "1",
     author: "Stachu Korick",
-    date: "12 Mar 2024",
-    title: "An overdue status update on Darklang",
+    date: "16 Jun 2025",
+    title: "First Steps of Darklang Inc.",
     excerpt:
-      "An overdue status update on Darklang. We've been working hard at Darklang for the past year, but haven't been very vocal about what we've been up to...",
-    imageUrl: "src/assets/The_Sower-1.jpg",
-    slug: "https://blog.darklang.com/an-overdue-status-update/",
+      "Darklang Inc is the new steward of the Darklang language, whose team has been working on Darklang for several years. In this post, we'll cover three big changes...",
+    imageUrl: "src/assets/Cole_Thomas_The_Oxbow_-The_Connecticut_River_near_Northampton_1836-.jpeg",
+    slug: "https://blog.darklang.com/first-steps-of-darklang-inc/",
   },
   {
     id: "2",
     author: "Paul Biggar",
-    date: "28 Mar 2023",
-    title: "Darklang is going all-in on AI",
+    date: "16 Jun 2025",
+    title: "Goodbye Dark Inc. - Hello Darklang Inc.",
     excerpt:
-      "Like an aging rock star making a final stab at glory, I'm delighted to announce that Darklang is going all in on AI/GPT. As everyone knows, the folks over at...",
-    imageUrl: "src/assets/murmuration.webp",
-    slug: "https://blog.darklang.com/gpt/",
+      "Dark Inc has officially run out of money. Dark Inc is the company we founded in 2017 to build Darklang...",
+    imageUrl: "src/assets/Velazquez-The_Surrender_of_Breda.jpeg",
+    slug: "https://blog.darklang.com/goodbye-dark-inc-welcome-darklang-inc/",
   },
   {
     id: "3",
-    author: "Paul Biggar",
-    date: "24 Feb 2023",
-    title: "Sponsoring Darklang",
+    author: "Stachu Korick",
+    date: "16 Jun 2025",
+    title: "Darklang Goes Open Source",
     excerpt:
-      "We'd love you to sponsor Darklang's development! Long term, we'd like Darklang to be sustainable from the community. In the future, we expect paid accounts will support our development...",
-    imageUrl: "src/assets/John_Constable_-_The_Hay_Wain_-1821-.jpg",
-    slug: "https://blog.darklang.com/sponsor-darklang/",
+      "As part of shutting down Dark Inc. and forming Darklang Inc., we've finally open-sourced all of our repositories. Our source code is now under the Apache License 2.0....",
+    imageUrl: "src/assets/The_School_of_Athens__by_Raffaello_Sanzio_da_Urbino.jpeg",
+    slug: "https://blog.darklang.com/darklang-goes-open-source/",
   },
 ];
 

@@ -52,7 +52,7 @@ const Footer = ({ currentPage }: FooterProps) => {
               <img src={logoSrc} alt="Darklang" className="h-8 mr-2" />
             </div>
             <p className="text-sm">
-              Copyright © {new Date().getFullYear()} Dark Inc.
+              Copyright © {new Date().getFullYear()} Darklang Inc.
             </p>
             {/* Social Media Icons */}
             <div className="flex space-x-4 mt-4">

@@ -25,6 +25,7 @@ const Header = ({ currentPage }: HeaderProps) => {
     roadmap: "bg-white",
     cli: "bg-dark text-white",
     editing: "bg-dark text-white",
+    languageServer: "bg-dark text-white",
     packages: "bg-dark text-white",
     // Default for any other page (like NotFound)
     default: "bg-white",
@@ -60,6 +61,7 @@ const Header = ({ currentPage }: HeaderProps) => {
                 label="Explore"
                 items={[
                   { text: "Language", href: "/language", target: "_blank" },
+                  { text: "Language-Server", href: "/languageServer", target: "_blank" },
                   { text: "Type-Checking", href: "/typeChecking", target: "_blank" },
                   { text: "Execution", href: "/execution", target: "_blank" },
                   { text: "Distribution", href: "/distribution", target: "_blank" },

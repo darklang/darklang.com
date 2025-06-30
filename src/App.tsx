@@ -9,6 +9,7 @@ import Classic from "./pages/Classic";
 import ClassicSignup from "./pages/Classic/Signup";
 
 import Language from "./pages/Language"
+import LanguageServer from "./pages/LanguageServer";
 import CLI from "./pages/CLI";
 import Backends from "./pages/Backends";
 import AI from "./pages/AI"
@@ -40,17 +41,18 @@ function App() {
           <Route path="/classic/signup" element={<ClassicSignup />} />
 
           <Route path="language" element={<Language />} />
-          <Route path="typeChecking" element ={<TypeChecking />} />
-          <Route path="execution" element ={<Execution />} />
-          <Route path="distribution" element ={<Distribution />} />
-          <Route path="traceDriven" element ={<TraceDriven />} />
-          <Route path="editing" element ={<Editing />} />
+          <Route path="languageServer" element={<LanguageServer />} />
+          <Route path="typeChecking" element={<TypeChecking />} />
+          <Route path="execution" element={<Execution />} />
+          <Route path="distribution" element={<Distribution />} />
+          <Route path="traceDriven" element={<TraceDriven />} />
+          <Route path="editing" element={<Editing />} />
           <Route path="cli" element={<CLI />} />
           <Route path="backends" element={<Backends />} />
-          <Route path="ai" element ={<AI />} />
-          
-          <Route path="gettingStarted" element ={<GettingStarted />} />
-          <Route path="company" element ={<Company />} />
+          <Route path="ai" element={<AI />} />
+
+          <Route path="gettingStarted" element={<GettingStarted />} />
+          <Route path="company" element={<Company />} />
           <Route path="roadmap" element={<Roadmap />} />
           <Route path="our-cloud" element={<Cloud />} />
           <Route path="for" element={<ForX />} />

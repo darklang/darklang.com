@@ -111,7 +111,7 @@ const TraceDrivenDevelopment: React.FC = () => {
 
             <a
               href="#"
-              className="inline-block mt-6 text-blue-lbg hover:underline text-lg xl:text-xl font-semibold"
+              className="inline-block mt-6 text-blue-lbg hover:text-purple-lbg text-lg xl:text-xl"
             >
               See how traces work with real examples →
             </a>

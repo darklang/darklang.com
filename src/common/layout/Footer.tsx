@@ -7,7 +7,6 @@ import darkLangLogoDark from "~/assets/darklang-logo-dbg.png";
 type PageName =
   | "home"
   | "classic"
-  | "classic/signup"
   | "roadmap"
   | "cli"
   | "editing"
@@ -22,7 +21,6 @@ const Footer = ({ currentPage }: FooterProps) => {
   const bgColors: Record<string, string> = {
     home: "bg-white",
     "classic": "bg-dark text-white",
-    "classic/signup": "bg-dark text-white",
     roadmap: "bg-white",
     cli: "bg-dark text-white",
     editing: "bg-dark text-white",
@@ -141,15 +139,6 @@ const Footer = ({ currentPage }: FooterProps) => {
                     target="_blank"
                   >
                     Sign in
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/signup"
-                    className="hover:text-purple-lbg transition-colors"
-                    target="_blank"
-                  >
-                    Sign up
                   </Link>
                 </li>
                 <li>

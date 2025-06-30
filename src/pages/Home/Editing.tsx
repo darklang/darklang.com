@@ -70,8 +70,8 @@ const Editing: React.FC = () => {
 
             <div className="mt-8">
               <a
-                href="/editing"
-                className="md:text-lg text-purple-lbg hover:text-purple-secondary font-medium"
+                href="/languageServer"
+                className="md:text-lg text-blue-lbg hover:text-purple-lbg font-medium"
                 target="_blank"
               >
                 Learn more about Darklang's LSP →

@@ -187,18 +187,10 @@ const About = () => {
             <h3 className="text-xl font-semibold text-white mb-4 md:mb-0">
               Access Darklang-classic
             </h3>
-            <div className="flex items-center gap-4">
-              <a
-                href="/signup"
-                className="py-2 px-6 rounded-md text-white text-sm"
-                style={{ backgroundColor: "#9380ff" }}
-              >
-                Sign up
-              </a>
-              <span className="text-gray-400 text-sm">or</span>
+            <div>
               <a
                 href="https://login.darklang.com"
-                className="py-2 px-6 rounded-md text-white text-sm"
+                className="py-2 px-6 rounded-md text-white text-sm bg-[#9380ff]"
                 target="_blank"
               >
                 Log in

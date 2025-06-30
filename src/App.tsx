@@ -6,7 +6,6 @@ import Layout from "./common/layout/Layout";
 import Home from "./pages/Home";
 
 import Classic from "./pages/Classic";
-import ClassicSignup from "./pages/Classic/Signup";
 
 import Language from "./pages/Language"
 import LanguageServer from "./pages/LanguageServer";
@@ -38,7 +37,6 @@ function App() {
           <Route index element={<Home />} />
 
           <Route path="/classic" element={<Classic />} />
-          <Route path="/classic/signup" element={<ClassicSignup />} />
 
           <Route path="language" element={<Language />} />
           <Route path="languageServer" element={<LanguageServer />} />

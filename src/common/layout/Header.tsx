@@ -10,7 +10,7 @@ import githubLogo from "~/assets/github-logo.png";
 import githubLogoWhite from "~/assets/github-logo-white.png";
 import Dropdown from "../ui/Dropdown";
 
-type PageName = "home" | "classic" | "classic-signup" | "roadmap" | "cli" | string;
+type PageName = "home" | "classic" | "roadmap" | "cli" | string;
 
 interface HeaderProps {
   currentPage: PageName;
@@ -21,7 +21,6 @@ const Header = ({ currentPage }: HeaderProps) => {
   const bgColors: Record<string, string> = {
     home: "bg-white",
     "classic": "bg-dark text-white",
-    "classic/signup": "bg-dark text-white",
     roadmap: "bg-white",
     cli: "bg-dark text-white",
     editing: "bg-dark text-white",
@@ -169,7 +168,6 @@ const Header = ({ currentPage }: HeaderProps) => {
                 href: "https://login.darklang.com",
                 target: "_blank",
               },
-              { text: "Sign up", href: "/classic/signup" },
             ]}
           />
         </div>
@@ -330,15 +328,6 @@ const Header = ({ currentPage }: HeaderProps) => {
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Log in
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/signup"
-                      className="block hover:text-blue-dbg text-sm"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Sign up
                     </Link>
                   </li>
                 </ul>

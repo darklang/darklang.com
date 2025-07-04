@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import SectionTitle from "../../common/ui/SectionTitle";
 
@@ -42,9 +42,6 @@ const LightningIcon = ({ color = "text-purple-lbg" }: { color?: string }) => (
 );
 
 const DeploylessCloud: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"deployless" | "nosetup">(
-    "deployless",
-  );
 
   return (
     <section className="w-full bg-white py-24">
@@ -59,86 +56,50 @@ const DeploylessCloud: React.FC = () => {
           Deployless, Infraless Cloud Apps
         </SectionTitle>
 
-        <div className="flex justify-center max-w-5xl 2xl:max-w-6xl mx-auto text-center mb-4">
-          <div
-            className={`flex-1 pb-2 ${
-              activeTab === "deployless"
-                ? "border-b-2 border-purple-lbg"
-                : "border-b border-gray-200"
-            }`}
-          >
-            <button
-              onClick={() => setActiveTab("deployless")}
-              className={`md:text-2xl font-semibold py-2 ${
-                activeTab === "deployless" ? "text-purple-lbg" : "text-gray-700"
-              }`}
-            >
-              Deployless
-            </button>
+
+
+        <div className="mt-10 grid md:grid-cols-2 gap-16 max-w-6xl 2xl:max-w-7xl mx-auto">
+          <div className="space-y-12">
+            <h2 className="text-2xl md:text-2xl 2xl:text-3xl font-semibold text-purple-lbg mb-8 text-center underline">Deployless</h2>
+            <FeatureCard
+              icon={<LightningIcon />}
+              title="Write code and it's immediately available"
+              description="No build step, no wait time, no deployment pipeline your code is live as soon as you type."
+            />
+
+            <FeatureCard
+              icon={<LightningIcon />}
+              title="Feature flags for controlled rollouts"
+              description="Control exactly when and for whom new features go live. Test in production safely with instant rollback capability"
+            />
+
+            <FeatureCard
+              icon={<LightningIcon />}
+              title="Development/Production Parity"
+              description="Your development environment matches the production environment, so you can test with confidence."
+            />
+
+            <FeatureCard
+              icon={<LightningIcon />}
+              title="Integrated code review and testing"
+              description="Review code, run tests, and collaborate seamlessly in one place"
+            />
           </div>
 
-          <div
-            className={`flex-1 pb-2 ${
-              activeTab === "nosetup"
-                ? "border-b-2 border-purple-lbg"
-                : "border-b border-gray-200"
-            }`}
-          >
-            <button
-              onClick={() => setActiveTab("nosetup")}
-              className={`md:text-2xl font-semibold py-2 ${
-                activeTab === "nosetup" ? "text-purple-lbg" : "text-gray-700"
-              }`}
-            >
-              No setup required
-            </button>
+          <div className="space-y-12">
+            <h2 className="text-xl md:text-2xl 2xl:text-3xl font-semibold text-purple-lbg mb-8 text-center underline">Zero setup infrastructure</h2>
+            <FeatureCard
+              icon={<LightningIcon />}
+              title="Instant infrastructure creation"
+              description="Language-native HTTP handlers, Databases, CRONs and queues, without thinking about servers, containers, or deployment"
+            />
+
+            <FeatureCard
+              icon={<LightningIcon />}
+              title="Simplified Architecture"
+              description="No need to worry about connection poolers, sharding, indexes, load balancers, cloud services, or system administration—everything runs seamlessly in the background"
+            />
           </div>
-        </div>
-
-        <div className="mt-10 flex justify-start max-w-4xl 2xl:max-w-6xl mx-auto">
-          {activeTab === "deployless" && (
-            <div className="space-y-12">
-              <FeatureCard
-                icon={<LightningIcon />}
-                title="Write code and it's immediately available"
-                description="No build step, no wait time, no deployment pipeline your code is live as soon as you type."
-              />
-
-              <FeatureCard
-                icon={<LightningIcon />}
-                title="Feature flags for controlled rollouts"
-                description="Control exactly when and for whom new features go live. Test in production safely with instant rollback capability"
-              />
-
-              <FeatureCard
-                icon={<LightningIcon />}
-                title="Development/Production Parity"
-                description="Your development environment matches the production environment, so you can test with confidence."
-              />
-
-              <FeatureCard
-                icon={<LightningIcon />}
-                title="Integrated code review and testing"
-                description="Review code, run tests, and collaborate seamlessly in one place"
-              />
-            </div>
-          )}
-
-          {activeTab === "nosetup" && (
-            <div className="space-y-12">
-              <FeatureCard
-                icon={<LightningIcon />}
-                title="Instant infrastructure creation"
-                description="Language-native HTTP handlers, Databases, CRONs and queues, without thinking about servers, containers, or deployment"
-              />
-
-              <FeatureCard
-                icon={<LightningIcon />}
-                title="Simplified Architecture"
-                description="No need to worry about connection poolers, sharding, indexes, load balancers, cloud services, or system administration—everything runs seamlessly in the background"
-              />
-            </div>
-          )}
         </div>
       </div>
     </section>

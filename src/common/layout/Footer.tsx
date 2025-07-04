@@ -24,7 +24,6 @@ const Footer = ({ currentPage }: FooterProps) => {
     roadmap: "bg-white",
     cli: "bg-dark text-white",
     editing: "bg-dark text-white",
-    languageServer: "bg-dark text-white",
     packages: "bg-dark text-white",
     // Default for any other page (like NotFound)
     default: "bg-white",

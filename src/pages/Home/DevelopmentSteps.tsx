@@ -9,10 +9,10 @@ const DevelopmentSteps = () => {
     setup: 1, // Start with 2 substeps completed in Setup
   });
   const [completedNodeSteps, setCompletedNodeSteps] = useState<number[]>([]);
+  const [expandedSteps, setExpandedSteps] = useState<number[]>([]);
 
   // Animation state for the dark side
   const [darkCompletedSteps, setDarkCompletedSteps] = useState(0); // Start with none completed
-  const [activeTab, setActiveTab] = useState("script"); // Start with cloud tab active
 
   // The complete list of node.js steps with their substeps
   const nodeSteps = [
@@ -102,18 +102,14 @@ const DevelopmentSteps = () => {
   const darkScriptSteps = [
     {
       id: "get-cli",
-      title: "Get CLI",
-      description: "from https://github.com/darklang/dark/releases",
-    },
-    {
-      id: "open-cli",
-      title: "Open CLI",
-      optional: true,
-      description: "Install is optional",
+      title: "Open your favourite editor",
+      description: "e.g. On VSCode download our extension or Go to editor.darklang.com or get the CLI from https://github.com/darklang/dark/releases",
     },
     {
       id: "write-code",
       title: "Write code",
+      notice: "Ready to go—no setup needed",
+      description: "write CLI scripts or create functions, types, DBs, HTTP handlers, Crons, Workers, etc.",
     },
     {
       id: "debug-code",
@@ -132,7 +128,7 @@ const DevelopmentSteps = () => {
       title: "Share code",
       optional: true,
       description:
-        "Run $ darklang share @user/myModule.myFnName to instantly generate a shareable link for your code",
+        "Run $ darklang share @user/myModule.myFnName or click on the Share button to instantly generate a shareable link for your code",
     },
     {
       id: "deploy-code",
@@ -143,49 +139,8 @@ const DevelopmentSteps = () => {
     },
   ];
 
-  // Dark app Cloud steps (based on your screenshot)
-  const darkCloudSteps = [
-    {
-      id: "go-to-editor",
-      title: "Go to editor.darklang.com",
-      description:
-        "or download our extension from https://marketplace.visualstudio.com/items?itemName=Darklang.darklang-vs-code-extension",
-    },
-    {
-      id: "write-code",
-      title: "Write code",
-      notice: "Ready to go—no setup needed",
-      description:
-        "create functions, types, DBs, HTTP handlers, Crons, Workers, etc.",
-    },
-    {
-      id: "debug-code",
-      title: "Debug code",
-      notice: "no setup needed",
-      description: "using traces",
-    },
-    {
-      id: "run-code",
-      title: "Run code",
-      description:
-        "As soon as functions/types/constants are created they are accessible publicly (or privately) in the package manager.",
-    },
-    {
-      id: "share-code",
-      title: "Share code",
-      optional: true,
-      description:
-        "Click the share button to instantly generate a shareable link for your code.",
-    },
-    {
-      id: "instant-deploy",
-      title: "Instant Deploy",
-      optional: true,
-    },
-  ];
-
-  // Get the active dark steps based on the selected tab
-  const darkSteps = activeTab === "script" ? darkScriptSteps : darkCloudSteps;
+  // Use CLI script steps only
+  const darkSteps = darkScriptSteps;
 
   // Stats
   const nodeStats = {
@@ -301,6 +256,22 @@ const DevelopmentSteps = () => {
     return index < darkCompletedSteps;
   };
 
+  // Handle step click for expansion
+  const handleStepClick = (stepIndex: number) => {
+    setExpandedSteps(prev => {
+      if (prev.includes(stepIndex)) {
+        return prev.filter(i => i !== stepIndex);
+      } else {
+        return [...prev, stepIndex];
+      }
+    });
+  };
+
+  // Helper to determine if substeps should be shown
+  const shouldShowSubsteps = (stepIndex: number) => {
+    return isNodeStepActive(stepIndex) || expandedSteps.includes(stepIndex);
+  };
+
   return (
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4">
@@ -407,38 +378,40 @@ const DevelopmentSteps = () => {
                 {nodeSteps.map((step, stepIndex) => (
                   <div key={step.id} className="relative">
                     {/* Main step with circle */}
-                    <div className="flex mb-2">
+                    <div
+                      className="flex mb-2 cursor-pointer hover:bg-gray-50 p-2 rounded-md transition-colors"
+                      onClick={() => handleStepClick(stepIndex)}
+                    >
                       <div
-                        className={`absolute left-0 w-5 h-5 -ml-2.5 rounded-full flex items-center justify-center ${
-                          isNodeStepComplete(stepIndex)
+                        className={`absolute left-0 w-5 h-5 -ml-2.5 rounded-full flex items-center justify-center ${isNodeStepComplete(stepIndex)
+                          ? "bg-purple-lbg"
+                          : isNodeStepActive(stepIndex)
                             ? "bg-purple-lbg"
-                            : isNodeStepActive(stepIndex)
-                              ? "bg-purple-lbg"
-                              : "bg-white border-2 border-gray-300"
-                        }`}
+                            : "bg-white border-2 border-gray-300"
+                          }`}
                       >
                         {(isNodeStepComplete(stepIndex) ||
                           isNodeStepActive(stepIndex)) && (
-                          <svg
-                            className="h-3 w-3 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        )}
+                            <svg
+                              className="h-3 w-3 text-white"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          )}
                       </div>
                       <div className="ml-8 text-sm 2xl:text-base font-medium">
-                        {step.title}
+                        <span>{step.title}</span>
                       </div>
                     </div>
 
-                    {/* Show substeps only for the active step */}
-                    {isNodeStepActive(stepIndex) && (
+                    {/* Show substeps based on animation or user interaction */}
+                    {shouldShowSubsteps(stepIndex) && (
                       <div className="ml-10 mt-2 space-y-6">
                         {step.substeps.map((substep, subIndex) => {
                           const isCompleted = isSubStepComplete(
@@ -457,13 +430,12 @@ const DevelopmentSteps = () => {
                               {/* Substep with circle */}
                               <div className="flex items-center">
                                 <div
-                                  className={`absolute left-0 w-4 h-4 -ml-2 rounded-full ${
-                                    isCompleted
-                                      ? "bg-white border-2 border-purple-lbg"
-                                      : isInProgress
-                                        ? "bg-white border-2 border-gray-400 animate-pulse"
-                                        : "bg-white border-2 border-gray-200"
-                                  }`}
+                                  className={`absolute left-0 w-4 h-4 -ml-2 rounded-full ${isCompleted
+                                    ? "bg-white border-2 border-purple-lbg"
+                                    : isInProgress
+                                      ? "bg-white border-2 border-gray-400 animate-pulse"
+                                      : "bg-white border-2 border-gray-200"
+                                    }`}
                                 >
                                   {/* This creates the partial fill effect */}
                                   {isCompleted && (
@@ -573,38 +545,6 @@ const DevelopmentSteps = () => {
               </div>
             </div>
 
-            {/* Tabs */}
-            <div className="mb-6 mx-10 border-b text-gray-200">
-              <div className="flex justify-evenly">
-                <button
-                  onClick={() => {
-                    setActiveTab("script");
-                    setDarkCompletedSteps(0); // Reset steps when switching tabs
-                  }}
-                  className={`px-4 py-2 text-sm md:text-base font-medium ${
-                    activeTab === "script"
-                      ? "text-purple-lbg border-b-2 border-purple-lbg"
-                      : "text-gray-400"
-                  }`}
-                >
-                  CLI script
-                </button>
-                <button
-                  onClick={() => {
-                    setActiveTab("cloud");
-                    setDarkCompletedSteps(0); // Reset steps when switching tabs
-                  }}
-                  className={`px-4 py-2 text-sm md:text-base font-medium ${
-                    activeTab === "cloud"
-                      ? "text-purple-lbg border-b-2 border-purple-lbg"
-                      : "text-gray-400"
-                  }`}
-                >
-                  Cloud app
-                </button>
-              </div>
-            </div>
-
             {/* Steps */}
             <div className="relative ml-7">
               {/* Vertical line */}
@@ -617,11 +557,10 @@ const DevelopmentSteps = () => {
                     {/* Main step with circle */}
                     <div className="flex">
                       <div
-                        className={`absolute left-0 w-5 h-5 -ml-2.5 rounded-full flex items-center justify-center ${
-                          isDarkStepComplete(index)
-                            ? "bg-purple-lbg"
-                            : "bg-white border-2 border-gray-300"
-                        }`}
+                        className={`absolute left-0 w-5 h-5 -ml-2.5 rounded-full flex items-center justify-center ${isDarkStepComplete(index)
+                          ? "bg-purple-lbg"
+                          : "bg-white border-2 border-gray-300"
+                          }`}
                       >
                         {isDarkStepComplete(index) && (
                           <svg

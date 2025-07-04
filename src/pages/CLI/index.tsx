@@ -7,8 +7,8 @@ import logoAscii from "~/assets/logo-ascii.png";
 import cliAscii from "~/assets/darklang-cli-ascii.png";
 
 import Terminal from "../../common/ui/Terminal.tsx";
-import Button from "../../common/ui/Button.tsx";
-import CTASection from "../../common/ui/CTASection/index.tsx";
+// import Button from "../../common/ui/Button.tsx";
+// import CTASection from "../../common/ui/CTASection/index.tsx";
 
 const CLIPage: React.FC = () => {
   return (
@@ -32,14 +32,14 @@ const CLIPage: React.FC = () => {
               macOS, Linux, and Windows for a consistent development experience
               everywhere
             </h2>
-            <Button
+            {/* <Button
               variant="primary"
               size="lg"
               className="bg-blue-dbg hover:bg-purple-dbg font-semibold transition duration-200 tracking-widest px-8"
               onClick={() => (window.location.href = "#")}
             >
               &gt;_ Try It Now!
-            </Button>
+            </Button> */}
           </div>
           <div className="w-full md:w-[700px] md:absolute md:-right-30 2xl:right-30">
             <img
@@ -52,16 +52,16 @@ const CLIPage: React.FC = () => {
       </section>
 
       {/* Get Started Section */}
-      <section className="py-32 px-6 max-w-7xl 2xl:max-w-[100rem] mx-auto">
+      {/* <section className="py-32 px-6 max-w-7xl 2xl:max-w-[100rem] mx-auto">
         <div className="text-purple-dbg mb-6 text-lg md:text-2xl font-medium">
           $ darklang get started |
         </div>
-      </section>
+      </section> */}
 
       {/* Bash Complexities Section */}
       <section className="py-16 px-6 max-w-7xl 2xl:max-w-[100rem] mx-auto">
         <div className="text-purple-dbg mb-6 text-lg md:text-2xl font-medium">
-          $ darklang solving bash complexities |
+          $ darklang as an alternative to bash, python, etc. |
         </div>
 
         <div className="space-y-8 flex flex-row">
@@ -103,6 +103,8 @@ const CLIPage: React.FC = () => {
                 </span>
               </li>
             </ul>
+
+            <p className="leading-relaxed mt-8">Python scripts can be just as messy, often requiring you to spin up virtual environments for every project just to avoid dependency conflicts</p>
           </div>
           <div className="hidden md:block md:w-1/4 md:absolute md:-right-20 2xl:-right-80">
             <img src={doubleGridImage} alt="grid" className="w-2xs 2xl:w-xs" />
@@ -359,7 +361,7 @@ const CLIPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex justify-end mt-8">
+        {/* <div className="flex justify-end mt-8">
           <Button
             variant="outline"
             size="lg"
@@ -368,10 +370,10 @@ const CLIPage: React.FC = () => {
           >
             &gt;_ See Full List
           </Button>
-        </div>
+        </div> */}
       </section>
 
-      <CTASection>
+      {/* <CTASection>
         <div className="text-center">
           <h1 className="text-lg md:text-2xl 2xl:text-4xl font-bold my-8">
             Getting Started with Darklang CLI
@@ -389,7 +391,7 @@ const CLIPage: React.FC = () => {
             &gt;_ Try It Now!
           </Button>
         </div>
-      </CTASection>
+      </CTASection> */}
     </div>
   );
 };

@@ -11,7 +11,7 @@ import {
 import SectionTitle from "../../common/ui/SectionTitle";
 import { TraceCard } from "../../common/ui/Card";
 
-const httpCodeSample = `Made less than a minute ago
+const httpTraceData = `Made less than a minute ago
 request: {
   body: {
     info: "testinfo",
@@ -24,7 +24,7 @@ request: {
   }
 }`;
 
-const fnCallCodeSample = `Made 4 minutes ago
+const fnCallTraceData = `Made 4 minutes ago
 getUserPaintings(userId)
 ▸ args:
 "u-573829"
@@ -35,7 +35,7 @@ getUserPaintings(userId)
 ]
 ▸ duration: 47ms`;
 
-const cliCodeSample = `Made 3 minutes ago
+const cliTraceData = `Made 3 minutes ago
 $ npm run deploy --env=staging
 stdout:
 Deploying to staging environment...
@@ -45,7 +45,7 @@ Deploying to staging environment...
 ✓ Deployment complete (8.7s)
 exit: 0`;
 
-const workerCodeSample = `Made 2 minutes ago
+const workerTraceData = `Made 2 minutes ago
 WORKER: media-processor
 TASK_ID: wrk_8a72c9d3
 STATUS: completed
@@ -55,7 +55,7 @@ RESULT: {
 "compressionRatio": 2.24
 }`;
 
-const cronCodeSample = `Made 25 minutes ago
+const cronTraceData = `Made 25 minutes ago
 JOB_ID: cron_93f721a5
 NAME: data-sync-production
 SCHEDULE: */15 * * * *
@@ -63,7 +63,7 @@ STATUS: success
 DURATION: 42.3s
 RESULT: { "records_processed": 8427 }`;
 
-const miscCodeSample = `Create custom trace collectors
+const miscTraceData = `Create custom trace collectors
 Made 17 minutes ago
 EVENT: user.onboarding.completed
 context: {
@@ -88,17 +88,17 @@ const TraceDrivenDevelopment: React.FC = () => {
 
             <p className="text-base md:text-lg lg:text-xl text-gray-700 mr-8 mb-6">
               The best way to debug and refactor code is with the help of{" "}
-              <a href="#" className="text-blue-lbg hover:underline">
+              <span className="text-blue-lbg">
                 real user data
-              </a>
+              </span>
               . As your code executes, whether{" "}
-              <a href="#" className="text-purple-lbg hover:underline">
+              <span className="text-purple-lbg">
                 locally
-              </a>{" "}
+              </span>{" "}
               or in the{" "}
-              <a href="#" className="text-purple-lbg hover:underline">
+              <span className="text-purple-lbg">
                 cloud
-              </a>
+              </span>
               , traces are captured and made available in your development
               workflow, making it easier to refactor code and debug issues.
             </p>
@@ -110,7 +110,7 @@ const TraceDrivenDevelopment: React.FC = () => {
             </p>
 
             <a
-              href="#"
+              href="/traceDriven"
               className="inline-block mt-6 text-blue-lbg hover:text-purple-lbg text-lg xl:text-xl"
             >
               See how traces work with real examples →
@@ -127,7 +127,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                   title="HTTP Handlers"
                   icon={<HttpIcon className="w-4 h-4" />}
                   description="Capture and analyze HTTP requests and responses in real-time. Debug API integrations with complete request data."
-                  codeSample={httpCodeSample}
+                  traceData={httpTraceData}
                   color="blue"
                 ></TraceCard>
 
@@ -135,7 +135,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                   title="Function calls"
                   icon={<FnIcon className="w-4 h-4 text-purple-lbg" />}
                   description="Inspect function inputs, outputs, and performance metrics. Debug complex operations with detailed traces."
-                  codeSample={fnCallCodeSample}
+                  traceData={fnCallTraceData}
                   color="magenta"
                 ></TraceCard>
 
@@ -143,7 +143,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                   title="CLI application calls"
                   icon={<CliIcon className="w-4 h-4 text-blue-lbg" />}
                   description="Track CLI operations with detailed input and output records. Monitor script execution, environment variables, and command results for easy debugging."
-                  codeSample={cliCodeSample}
+                  traceData={cliTraceData}
                   color="purple"
                 ></TraceCard>
               </div>
@@ -154,7 +154,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                   title="Worker emits"
                   icon={<WorkerIcon className="w-4 h-4 text-taupe" />}
                   description="Track and monitor background workers and their execution. Observe task processing in real-time."
-                  codeSample={workerCodeSample}
+                  traceData={workerTraceData}
                   color="taupe"
                 ></TraceCard>
 
@@ -162,7 +162,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                   title="CRON responses"
                   icon={<CronIcon className="w-4 h-4 text-tan" />}
                   description="Monitor scheduled tasks and their execution results. Ensure automation runs correctly with real data."
-                  codeSample={cronCodeSample}
+                  traceData={cronTraceData}
                   color="orange"
                 ></TraceCard>
 
@@ -170,7 +170,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                   title="Whatever else you wish"
                   icon={<MiscIcon className="w-4 h-4 text-gray-500" />}
                   description="Customize your own trace types and visualizations. Monitor any aspect of your application with flexible data collection."
-                  codeSample={miscCodeSample}
+                  traceData={miscTraceData}
                   color="gray"
                 ></TraceCard>
               </div>

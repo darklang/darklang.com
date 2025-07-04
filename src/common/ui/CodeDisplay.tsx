@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import hljs from "highlight.js/lib/core";
-import "highlight.js/styles/vs2015.min.css";
+import "highlight.js/styles/xcode.min.css";
 import fsharp from "highlight.js/lib/languages/fsharp";
 
 hljs.registerLanguage("fsharp", fsharp);
@@ -26,11 +26,10 @@ const CodeDisplay: React.FC<CodeDisplayProps> = ({
     const codeWithLineNumbers = codeLines
       .map((line, index) => {
         const lineNumber = index + 1;
-        return `<div class="code-line">${
-          showLineNumbers
+        return `<div class="code-line">${showLineNumbers
             ? `<span class="line-number">${lineNumber}</span>`
             : ""
-        }<span class="line-content">${line || " "}</span></div>`;
+          }<span class="line-content">${line || " "}</span></div>`;
       })
       .join("");
 

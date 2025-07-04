@@ -120,7 +120,7 @@ const Header: React.FC = () => {
           return (
             <div
               key={action.name}
-              className={`pl-12 hidden md:block absolute transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer transition-all duration-500 ease-out ${isVisible
+              className={`pl-12 hidden md:block absolute transform -translate-x-1/2 -translate-y-1/2 group transition-all duration-500 ease-out ${isVisible
                 ? 'opacity-100 scale-100 translate-y-0'
                 : 'opacity-0 scale-75 translate-y-4'
                 }`}

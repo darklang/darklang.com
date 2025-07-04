@@ -93,7 +93,12 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
               </li>
               <li className="px-2 py-1 text-xs hover:bg-gray-700 cursor-pointer">
                 <div className="flex items-start">
-                  <span className="text-white font-bold block">toArray</span>
+                  <span className="text-white font-bold block">head</span>
+                </div>
+              </li>
+              <li className="px-2 py-1 text-xs hover:bg-gray-700 cursor-pointer">
+                <div className="flex items-start">
+                  <span className="text-white font-bold block">tail</span>
                 </div>
               </li>
               <li className="px-2 py-1 text-xs hover:bg-gray-700 cursor-pointer">
@@ -113,17 +118,17 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
               </li>
               <li className="px-2 py-1 text-xs hover:bg-gray-700 cursor-pointer">
                 <div className="flex items-start">
-                  <span className="text-white font-bold block">forEach</span>
+                  <span className="text-white font-bold block">sort</span>
                 </div>
               </li>
               <li className="px-2 py-1 text-xs hover:bg-gray-700 cursor-pointer">
                 <div className="flex items-start">
-                  <span className="text-white font-bold block">foldr</span>
+                  <span className="text-white font-bold block">fold</span>
                 </div>
               </li>
               <li className="px-2 py-1 text-xs hover:bg-gray-700 cursor-pointer">
                 <div className="flex items-start">
-                  <span className="text-white font-bold block">foldl</span>
+                  <span className="text-white font-bold block">merge</span>
                 </div>
               </li>
             </ul>

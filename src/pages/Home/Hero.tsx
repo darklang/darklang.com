@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "../../common/ui/Button";
+// import Button from "../../common/ui/Button";
 
 const Hero: React.FC = () => {
   return (
@@ -21,14 +21,14 @@ const Hero: React.FC = () => {
           <span className="text-purple-lbg font-semibold">Just code.</span>
         </p>
 
-        <Button
+        {/* <Button
           variant="primary"
           size="lg"
           className="bg-purple-lbg hover:bg-purple-secondry text-white-custom mb-16"
           onClick={() => (window.location.href = "#")}
         >
           Get Started →
-        </Button>
+        </Button> */}
 
         {/* GIF placeholder */}
         {/* <div className="w-full max-w-4xl 2xl:max-w-7xl h-96 2xl:h-[45rem] bg-gray-300 rounded-md mb-16"></div> */}

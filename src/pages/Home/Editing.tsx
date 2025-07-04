@@ -1,9 +1,6 @@
 import React from "react";
-
 import editingImg from "~/assets/editing3.png";
-
 import SectionTitle from "../../common/ui/SectionTitle";
-
 const Editing: React.FC = () => {
   const features = [
     {
@@ -22,7 +19,6 @@ const Editing: React.FC = () => {
         "The Language Server is designed to be flexible, so users can configure it to fit their needs",
     },
   ];
-
   return (
     <section className="w-full bg-white py-20 md:py-32">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4">
@@ -38,7 +34,6 @@ const Editing: React.FC = () => {
                 made possible by Darklang's Language Server:
               </p>
             </div>
-
             {features.map(feature => (
               <div key={feature.id} className="flex items-start space-x-2">
                 <div className="flex-shrink-0">
@@ -70,15 +65,14 @@ const Editing: React.FC = () => {
 
             <div className="mt-8">
               <a
-                href="/languageServer"
-                className="md:text-lg text-blue-lbg hover:text-purple-lbg font-medium"
+                href="/editing"
+                className="md:text-lg text-purple-lbg hover:text-purple-secondary font-medium"
                 target="_blank"
               >
-                Learn more about Darklang's LSP →
+                Learn more about Darklang's Multi-Editor support →
               </a>
             </div>
           </div>
-
           <div className="md:w-1/2 mt-8 md:mt-0 hidden md:flex items-center justify-center">
             <img
               src={editingImg}
@@ -91,5 +85,4 @@ const Editing: React.FC = () => {
     </section>
   );
 };
-
 export default Editing;

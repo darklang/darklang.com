@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Classic from "./pages/Classic";
 
 import Language from "./pages/Language"
-import LanguageServer from "./pages/LanguageServer";
+import EditingPAge from "./pages/Editing";
 import CLI from "./pages/CLI";
 import Backends from "./pages/Backends";
 import AI from "./pages/AI"
@@ -22,8 +22,8 @@ import Company from "./pages/Company";
 import GettingStarted from "./pages/GettingStarted";
 import ForX from "./pages/For"
 import Cloud from "./pages/Cloud";
-import Packages from "./pages/Packages";
-import PackageDetail from "./pages/PackageDetail";
+// import Packages from "./pages/Packages";
+// import PackageDetail from "./pages/PackageDetail";
 
 import NotFound from "./pages/NotFound";
 import Editing from "./pages/Home/Editing";
@@ -39,7 +39,7 @@ function App() {
           <Route path="/classic" element={<Classic />} />
 
           <Route path="language" element={<Language />} />
-          <Route path="languageServer" element={<LanguageServer />} />
+          <Route path="editing" element={<EditingPAge />} />
           <Route path="typeChecking" element={<TypeChecking />} />
           <Route path="execution" element={<Execution />} />
           <Route path="distribution" element={<Distribution />} />
@@ -54,8 +54,8 @@ function App() {
           <Route path="roadmap" element={<Roadmap />} />
           <Route path="our-cloud" element={<Cloud />} />
           <Route path="for" element={<ForX />} />
-          <Route path="packages" element={<Packages />} />
-          <Route path="packages/:packageName" element={<PackageDetail />} />
+          {/* <Route path="packages" element={<Packages />} /> */}
+          {/* <Route path="packages/:packageName" element={<PackageDetail />} /> */}
 
           <Route path="*" element={<NotFound />} />
         </Route>

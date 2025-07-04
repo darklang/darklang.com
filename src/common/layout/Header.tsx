@@ -24,7 +24,6 @@ const Header = ({ currentPage }: HeaderProps) => {
     roadmap: "bg-white",
     cli: "bg-dark text-white",
     editing: "bg-dark text-white",
-    languageServer: "bg-dark text-white",
     packages: "bg-dark text-white",
     // Default for any other page (like NotFound)
     default: "bg-white",
@@ -60,7 +59,6 @@ const Header = ({ currentPage }: HeaderProps) => {
                 label="Explore"
                 items={[
                   { text: "Language", href: "/language", target: "_blank" },
-                  { text: "Language-Server", href: "/languageServer", target: "_blank" },
                   { text: "Type-Checking", href: "/typeChecking", target: "_blank" },
                   { text: "Execution", href: "/execution", target: "_blank" },
                   { text: "Distribution", href: "/distribution", target: "_blank" },
@@ -72,14 +70,14 @@ const Header = ({ currentPage }: HeaderProps) => {
                 ]}
               />
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/packages"
                 className=" hover:text-blue-dbg text-sm font-medium"
               >
                 Packages
               </Link>
-            </li>
+            </li> */}
             {/* Bring this back when we have an in-browser editor */}
             {/* <li>
               <Link
@@ -90,15 +88,20 @@ const Header = ({ currentPage }: HeaderProps) => {
               </Link>
             </li> */}
             <li>
-              <Dropdown
+              {/* <Dropdown
                 label="Docs"
                 items={[
                   { text: "Docs", href: "https://docs.darklang.com", target: "_blank" },
                   { text: "Get Started", href: "https://docs.darklang.com/get-started", target: "_blank", },
                   { text: "Examples", href: "https://docs.darklang.com/get-started", target: "_blank", },
-                  // 
                 ]}
-              />
+              /> */}
+              <Link
+                to="https://docs.darklang.com"
+                className=" hover:text-blue-dbg text-sm font-medium"
+              >
+                Docs
+              </Link>
             </li>
             <li>
               <Link
@@ -157,19 +160,33 @@ const Header = ({ currentPage }: HeaderProps) => {
           >
             <img src={githubLogoSrc} alt="GitHub" className="h-5" />
           </a>
-          <div className="border-l border-gray-200 h-6 mx-3"></div>
-          <Dropdown
-            label="Darklang Classic"
-            labelColor=""
-            items={[
-              { text: "About", href: "/classic" },
-              {
-                text: "Log in",
-                href: "https://login.darklang.com",
-                target: "_blank",
-              },
-            ]}
-          />
+
+          {currentPage === "classic" ? (
+            <a
+              href="https://login.darklang.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-1.5 bg-blue-dbg border border-blue-dbg hover:bg-transparent text-white rounded-md text-sm font-medium ml-3"
+            >
+              Log in
+            </a>
+          ) : (
+            <>
+              <div className="border-l border-gray-200 h-6 mx-3"></div>
+              <Dropdown
+                label="Darklang Classic"
+                labelColor=""
+                items={[
+                  { text: "About", href: "/classic" },
+                  {
+                    text: "Log in",
+                    href: "https://login.darklang.com",
+                    target: "_blank",
+                  },
+                ]}
+              />
+            </>
+          )}
         </div>
         {/* Burger Menu Button (mobile only) */}
         <button
@@ -247,7 +264,7 @@ const Header = ({ currentPage }: HeaderProps) => {
                   Backends
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to="/packages"
                   className="block hover:text-blue-dbg text-sm font-medium"
@@ -255,8 +272,8 @@ const Header = ({ currentPage }: HeaderProps) => {
                 >
                   Packages
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link
                   to="/examples"
                   className="block hover:text-blue-dbg text-sm font-medium"
@@ -273,7 +290,7 @@ const Header = ({ currentPage }: HeaderProps) => {
                 >
                   Try
                 </Link>
-              </li>
+              </li> */}
               <li className="py-2">
                 <div className="font-medium text-sm">Company</div>
                 <ul className="pl-4 mt-2 space-y-2">
@@ -308,30 +325,44 @@ const Header = ({ currentPage }: HeaderProps) => {
                   </li>
                 </ul>
               </li>
-              <li className="pt-2">
-                <div className="font-medium text-sm">Darklang Classic</div>
-                <ul className="pl-4 mt-2 space-y-2">
-                  <li>
-                    <Link
-                      to="/about"
-                      className="block hover:text-blue-dbg text-sm"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="https://login.darklang.com"
-                      className="block hover:text-blue-dbg text-sm"
-                      target="_blank"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Log in
-                    </Link>
-                  </li>
-                </ul>
-              </li>
+              {currentPage === "classic" ? (
+                <li className="pt-2">
+                  <a
+                    href="https://login.darklang.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 bg-blue-dbg text-white rounded-md hover:bg-purple-dbg text-sm font-medium transition-colors text-center"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Log in
+                  </a>
+                </li>
+              ) : (
+                <li className="pt-2">
+                  <div className="font-medium text-sm">Darklang Classic</div>
+                  <ul className="pl-4 mt-2 space-y-2">
+                    <li>
+                      <Link
+                        to="/classic"
+                        className="block hover:text-blue-dbg text-sm"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="https://login.darklang.com"
+                        className="block hover:text-blue-dbg text-sm"
+                        target="_blank"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Log in
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+              )}
               <li className="pt-4">
                 <div className="flex justify-end space-x-4 items-center">
                   <a

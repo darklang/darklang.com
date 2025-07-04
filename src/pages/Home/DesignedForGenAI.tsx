@@ -10,27 +10,38 @@ const DesignedForGenAI: React.FC = () => {
           // subtitle="Built for Tomorrow"
           align="center"
           className="mb-12"
-          description="We redesigned the dark language and tooling to enable GenAI-generated programs, including exposing language tools to GenAI tools, allowing running partial and incomplete programs safely, and ensuring access to significant context to GenAI tools"
+          description="The Darklang language and tooling are designed with AI integration in mind to enable an AI-powered development flow."
           subtitleStyle="button"
         >
-          Designed for GenAI
+          Designed for Generative AI
         </SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
           {/* First Card */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
             <div className="text-xl font-semibold mb-4">
-              Works with <span className="text-purple-lbg">GitHub Copilot</span>{" "}
-              for AI-powered code suggestions
+              Works with your existing <span className="text-purple-lbg">AI dev tools</span>{" "}
             </div>
             <ul>
               <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
-                Get real-time code suggestions while writing Dark applications
+                Real-time, context-aware code suggestions for Dark apps
               </li>
               <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
-                Accelerate development with context-aware suggestions
+                Super-tight feedback loop to speed up AI-powered development and testing
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-500">-</span>
+                Safely run partial or incomplete code
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-500">-</span>
+                Seamlessly integrates with Claude Code, GitHub Copilot, and type-ahead agents
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-500">-</span>
+                Share custom context with GenAI tools using LLM.txt
               </li>
             </ul>
           </div>
@@ -49,9 +60,9 @@ const DesignedForGenAI: React.FC = () => {
 
           {/* Third Card */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-            
+
             <div className="text-xl font-semibold mb-4">
-              Use <span className="text-purple-lbg">any LLM</span>
+              Use <span className="text-purple-lbg">any Language Model</span>
             </div>
             <ul className="mt-4 space-y-2 text-gray-700">
               <li className="flex items-start">
@@ -71,7 +82,7 @@ const DesignedForGenAI: React.FC = () => {
 
           {/* Fourth Card */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-            
+
             <div className="text-xl font-semibold mb-4">
               Build <span className="text-purple-lbg">vendor SDKs</span> from
               prompts and OpenAPI docs
@@ -94,7 +105,7 @@ const DesignedForGenAI: React.FC = () => {
 
           {/* Fifth Card */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-            
+
             <div className="text-xl font-semibold mb-4">
               Build <span className="text-purple-lbg">complex programs</span>{" "}
               with darklang <span className="text-purple-lbg">AI agents</span>
@@ -112,10 +123,10 @@ const DesignedForGenAI: React.FC = () => {
 
           {/* MCP Card */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-            
+
             <div className="text-xl font-semibold mb-4">
               <span>
-                Create <span className="text-purple-lbg">MCP servers</span>
+                Create, Run, and Share <span className="text-purple-lbg">MCP servers</span>
               </span>
             </div>
 
@@ -129,7 +140,15 @@ const DesignedForGenAI: React.FC = () => {
               </li>
               <li className="flex items-start">
                 <span className="mr-2 text-purple-lbg">-</span>
-                <span>Create custom MCP servers for your systems</span>
+                <span>Create custom MCP servers for your systems within a minute</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-lbg">-</span>
+                <span>Quickly run MCP servers from the command line, and easily share them with coworkers</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-lbg">-</span>
+                <span>Ready-to-use MCP servers for Darklang internal development and your own projects</span>
               </li>
             </ul>
           </div>

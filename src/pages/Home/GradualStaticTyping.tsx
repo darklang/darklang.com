@@ -3,7 +3,7 @@ import React from "react";
 import SectionTitle from "../../common/ui/SectionTitle";
 
 type FeaturePoint = {
-  text: string;
+  text: string | React.ReactNode;
 };
 
 const GradualStaticTyping: React.FC = () => {
@@ -13,10 +13,18 @@ const GradualStaticTyping: React.FC = () => {
       text: "After prototyping, run the full type checker to gain confidence your whole program works",
     },
     {
-      text: "! and ? operators allow easy error handling while you prototype",
+      text: (
+        <>
+          <code className="bg-gray-200 rounded">!</code> and <code className="bg-gray-200 rounded">?</code> operators allow easy error handling while you prototype
+        </>
+      ),
     },
     {
-      text: "Automatic refactoring converts ! into proper error handling",
+      text: (
+        <>
+          Automatic refactoring converts <code className="bg-gray-200 rounded">!</code> into proper error handling
+        </>
+      )
     },
     { text: "Full type-checking hints in VSCode or in LSP editors" },
   ];

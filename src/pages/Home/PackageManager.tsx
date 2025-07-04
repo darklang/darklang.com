@@ -20,7 +20,7 @@ const PackageManager: React.FC = () => {
     },
     {
       id: 3,
-      title: "Precise Package Item Control",
+      title: "No More Downloading the Internet",
       description:
         "Only download and upgrade the specific package items you use.",
     },

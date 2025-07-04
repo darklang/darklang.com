@@ -3,9 +3,9 @@ import React from "react";
 import doubleGridSquare from "~/assets/double-grid-square.png";
 import darklangLogoFramed from "~/assets/darklang-logo-framed.png";
 
-import Button from "../../common/ui/Button";
+// import Button from "../../common/ui/Button";
 import CodeEditor from "../../common/ui/CodeEditor";
-import CTASection from "../../common/ui/CTASection";
+// import CTASection from "../../common/ui/CTASection";
 
 const Editing: React.FC = () => {
   return (
@@ -38,7 +38,7 @@ const Editing: React.FC = () => {
                 editing environments, providing a consistent experience
                 regardless of your preferred editor.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   variant="primary"
                   className="bg-blue-dbg hover:bg-purple-dbg text-white text-sm tracking-widest"
@@ -51,7 +51,7 @@ const Editing: React.FC = () => {
                 >
                   Try it on editor.darklang.com →
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -147,14 +147,14 @@ helloWorld ()
 
           <p className="leading-relaxed">
             It's also easy to create your own language servers, whether for
-            testing new ideas or developing specialized tools
+            testing new ideas or developing specialized tools, building internal Darklang features, or your own independent projects.
           </p>
         </div>
       </section>
 
       {/* Extension Section */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className=" text-blue-dbg text-2xl mb-8">Extension</div>
+        <div className=" text-blue-dbg text-2xl mb-8">VSCode Extension</div>
 
         <div className="text-white text-lg space-y-8 max-w-6xl">
           <p className="leading-relaxed">
@@ -165,16 +165,22 @@ helloWorld ()
             manager, making VS Code's FSP particularly valuable for our
             implementation.
           </p>
+        </div>
+      </section>
 
+      <section className="py-16 px-6 max-w-7xl mx-auto">
+        <div className=" text-blue-dbg text-2xl mb-8">Future Editor Support</div>
+
+        <div className="text-white text-lg space-y-8 max-w-6xl">
           <p className="leading-relaxed">
             While VS Code is our starting point, we're actively planning support
-            for additional editors including Vim, Sublime Text, and Rider.
+            for additional editors including Vim, Sublime Text, and Rider, as well as enabling a fully integrated AI-powered terminal-based editing experience.
           </p>
         </div>
       </section>
 
       {/* Getting Started Section */}
-      <CTASection>
+      {/* <CTASection>
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6">Getting Started</h2>
           <p className="text-lg mb-6">
@@ -196,7 +202,7 @@ helloWorld ()
             </Button>
           </div>
         </div>
-      </CTASection>
+      </CTASection> */}
     </div>
   );
 };

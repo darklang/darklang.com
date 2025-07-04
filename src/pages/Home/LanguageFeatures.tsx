@@ -21,9 +21,8 @@ interface TabData {
 
 const CodeTab: React.FC<CodeTabProps> = ({ isActive, label, onClick }) => (
   <button
-    className={`px-5 2xl:px-10 py-3 text-sm text-purple-lbg ${
-      isActive ? "bg-purple-lbg/10" : "hover:text-black-custom"
-    }`}
+    className={`px-5 2xl:px-10 py-3 text-sm text-purple-lbg ${isActive ? "bg-purple-lbg/10" : "hover:text-black-custom"
+      }`}
     onClick={onClick}
   >
     {label}
@@ -144,9 +143,9 @@ String.length "👨‍👩‍👧‍👦" // 1`,
   const features = [
     "Built-in immutability and strong type system",
     "Garbage-collected",
-    "Unicode-first",
     "Records and Enums for straightforward data modeling",
     "Option and Result types keep errors explicit",
+    "Unicode-first",
   ];
 
   const [activeTab, setActiveTab] = useState(tabs[0].id);

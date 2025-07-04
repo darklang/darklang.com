@@ -9,7 +9,7 @@ interface TraceCardProps {
   title: string;
   icon?: React.ReactNode;
   description: string;
-  codeSample?: string;
+  traceData?: string;
   className?: string;
   color?: "blue" | "purple" | "magenta" | "orange" | "gray" | "taupe";
 }
@@ -18,7 +18,7 @@ const TraceCard: React.FC<TraceCardProps> = ({
   title,
   icon,
   description,
-  codeSample,
+  traceData,
   className = "",
   color = "blue",
 }) => {
@@ -62,7 +62,7 @@ const TraceCard: React.FC<TraceCardProps> = ({
     <div
       className={`bg-white rounded-xl px-5 pt-6 shadow-sm border border-gray-100 ${className}`}
     >
-      <div className="flex items-start mb-3">
+      <div className="flex items-center mb-3">
         {icon && (
           <div
             className={`mr-3 ${colorClasses.icon} rounded-md p-2 flex items-center justify-center w-8 h-8`}
@@ -70,22 +70,23 @@ const TraceCard: React.FC<TraceCardProps> = ({
             {icon}
           </div>
         )}
+        <h3
+          className={`text-sm lg:text-base font-semibold py-2 ${colorClasses.title}`}
+        >
+          {title}
+        </h3>
       </div>
 
-      <h3
-        className={`text-sm lg:text-base font-semibold mb-2 ${colorClasses.title}`}
-      >
-        {title}
-      </h3>
+
 
       <div className="text-[10px] text-gray-600 mb-5">{description}</div>
 
-      {codeSample && (
+      {traceData && (
         <div
           className={`${colorClasses.code} p-2 rounded-t-md text-xs md:text-[8px] font-mono overflow-x-auto h-30 2xl:h-40 overflow-y-scroll`}
         >
-          <pre className="whitespace-pre-wrap overflow-hidden text-gray-700">
-            {codeSample}
+          <pre className="whitespace-pre-wrap text-gray-700">
+            {traceData}
           </pre>
         </div>
       )}

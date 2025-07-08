@@ -22,7 +22,6 @@ export const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
     <section className="py-16 mb-64 bg-white">
       <div className="container mx-auto px-4">
         <SectionTitle
-          subtitle="Latest insights & updates"
           align="center"
           className="mb-12"
           subtitleStyle="button"
@@ -42,6 +41,15 @@ export const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
               slug={post.slug}
             />
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <a
+            href="https://blog.darklang.com/"
+            className="inline-flex items-center justify-center px-6 py-2 border border-purple-lbg text-sm font-medium rounded-full text-purple-lbg bg-white hover:bg-purple-lbg hover:text-white transition-colors duration-200"
+          >
+            See All Blog Posts
+          </a>
         </div>
       </div>
     </section>

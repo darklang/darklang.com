@@ -47,7 +47,6 @@ const DeploylessCloud: React.FC = () => {
     <section className="w-full bg-white py-24">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          subtitle="No Setup"
           align="center"
           className="mb-20"
           description="Instant cloud deployment of code (to our cloud or yours), with instant creation of DBs, API endpoints, and worker queues, with no containers, no cold starts, no orchestration, or other devops/cloud engineering required"
@@ -60,7 +59,7 @@ const DeploylessCloud: React.FC = () => {
 
         <div className="mt-10 grid md:grid-cols-2 gap-16 max-w-6xl 2xl:max-w-7xl mx-auto">
           <div className="space-y-12">
-            <h2 className="text-2xl md:text-2xl 2xl:text-3xl font-semibold text-purple-lbg mb-8 text-center underline">Deployless</h2>
+            <h2 className="text-2xl md:text-2xl 2xl:text-3xl font-semibold text-purple-lbg mb-8 text-center">Deployless</h2>
             <FeatureCard
               icon={<LightningIcon />}
               title="Write code and it's immediately available"
@@ -87,7 +86,7 @@ const DeploylessCloud: React.FC = () => {
           </div>
 
           <div className="space-y-12">
-            <h2 className="text-xl md:text-2xl 2xl:text-3xl font-semibold text-purple-lbg mb-8 text-center underline">Zero setup infrastructure</h2>
+            <h2 className="text-xl md:text-2xl 2xl:text-3xl font-semibold text-purple-lbg mb-8 text-center">Zero setup infrastructure</h2>
             <FeatureCard
               icon={<LightningIcon />}
               title="Instant infrastructure creation"

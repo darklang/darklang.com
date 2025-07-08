@@ -112,14 +112,6 @@ const Header = ({ currentPage }: HeaderProps) => {
               </Link>
             </li>
             <li>
-              <Link
-                to="/roadmap"
-                className=" hover:text-blue-dbg text-sm font-medium"
-              >
-                Roadmap
-              </Link>
-            </li>
-            <li>
               <Dropdown
                 label="Company"
                 items={[
@@ -294,15 +286,6 @@ const Header = ({ currentPage }: HeaderProps) => {
               <li className="py-2">
                 <div className="font-medium text-sm">Company</div>
                 <ul className="pl-4 mt-2 space-y-2">
-                  <li>
-                    <Link
-                      to="/roadmap"
-                      className="block hover:text-blue-dbg text-sm"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Roadmap
-                    </Link>
-                  </li>
                   <li>
                     <Link
                       to="https://blog.darklang.com/"

@@ -104,7 +104,7 @@ const CLIPage: React.FC = () => {
               </li>
             </ul>
 
-            <p className="leading-relaxed mt-8">Python scripts can be just as messy, often requiring you to spin up virtual environments for every project just to avoid dependency conflicts</p>
+            <p className="leading-relaxed mt-8">Python scripts can be just as messy as bash, often requiring you to spin up virtual environments for every project just to avoid dependency conflicts</p>
           </div>
           <div className="hidden md:block md:w-1/4 md:absolute md:-right-20 2xl:-right-80">
             <img src={doubleGridImage} alt="grid" className="w-2xs 2xl:w-xs" />
@@ -115,7 +115,7 @@ const CLIPage: React.FC = () => {
       {/* Darklang for Scripts Section */}
       <section className="py-16 px-6  max-w-7xl 2xl:max-w-[100rem] mx-auto">
         <div className="text-purple-dbg mb-6 text-lg md:text-2xl font-semibold">
-          $ darklang for your scripts |
+          $ darklang is a better lanuage for your scripts |
         </div>
         <div className="relative">
           <img
@@ -124,9 +124,6 @@ const CLIPage: React.FC = () => {
             className="hidden md:block w-2xs 2xl:w-sm absolute -right-40 -bottom-45 2xl:-right-120"
           />
           <div className="space-y-8">
-            <p className="text-white text-xl leading-6">
-              Darklang is used as a better language for scripts:
-            </p>
 
             <ul className="space-y-6 mt-6 ml-4">
               <li className="flex items-start">
@@ -159,7 +156,7 @@ const CLIPage: React.FC = () => {
 
               <li className="flex items-start ml-8">
                 <span className="text-blue-dbg mr-3">✓</span>
-                <span className="text-white text-base leading-6">
+                <span className="text-white text-xl leading-6">
                   versioned immutable functions and packages
                 </span>
               </li>
@@ -303,7 +300,7 @@ const CLIPage: React.FC = () => {
           $ darklang commands |
         </div>
 
-        <div className="space-y-6 md:ml-6 md:text-lg 2xl:text-xl">
+        <div className="space-y-6 md:ml-6 md:text-lg 2xl:text-xl md:mb-36">
           <div className="flex flex-col space-y-2 md:grid md:grid-cols-12 md:gap-4 md:space-y-0 md:items-start">
             <div className="md:col-span-3">
               dark <span className="text-blue-dbg">help</span>

@@ -25,10 +25,10 @@ const Banner: React.FC<BannerProps> = ({ text }) => {
       <span className="mr-1">
         {text}.{" "}
         <Link
-          to="/roadmap"
+          to="/"
           className="ml-1 hover:underline whitespace-nowrap flex-shrink-0"
         >
-          See our roadmap →
+          Stay Tuned — Join Our Newsletter  →
         </Link>
       </span>
     </div>

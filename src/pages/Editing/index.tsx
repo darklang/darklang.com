@@ -168,7 +168,7 @@ helloWorld ()
         </div>
       </section>
 
-      <section className="py-16 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto md:pb-32">
         <div className=" text-blue-dbg text-2xl mb-8">Future Editor Support</div>
 
         <div className="text-white text-lg space-y-8 max-w-6xl">

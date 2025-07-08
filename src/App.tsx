@@ -17,7 +17,6 @@ import Execution from "./pages/Execution"
 import TraceDriven from "./pages/TraceDriven"
 import TypeChecking from "./pages/TypeChecking"
 
-import Roadmap from "./pages/Roadmap";
 import Company from "./pages/Company";
 import GettingStarted from "./pages/GettingStarted";
 import ForX from "./pages/For"
@@ -51,7 +50,6 @@ function App() {
 
           <Route path="gettingStarted" element={<GettingStarted />} />
           <Route path="company" element={<Company />} />
-          <Route path="roadmap" element={<Roadmap />} />
           <Route path="our-cloud" element={<Cloud />} />
           <Route path="for" element={<ForX />} />
           {/* <Route path="packages" element={<Packages />} /> */}

@@ -27,15 +27,20 @@ const PackageList: React.FC<PackageListProps> = ({
   loading,
   error,
   onItemClick,
-  onRetry
+  onRetry,
 }) => {
   const getTypeTag = (type: string) => {
     switch (type) {
-      case 'function': return 'ƒ function';
-      case 'type': return '🇹 type';
-      case 'constant': return '𝐂 constant';
-      case 'module': return '📦 module';
-      default: return '🔹 item';
+      case "function":
+        return "ƒ function";
+      case "type":
+        return "🇹 type";
+      case "constant":
+        return "𝐂 constant";
+      case "module":
+        return "📦 module";
+      default:
+        return "🔹 item";
     }
   };
 
@@ -71,24 +76,27 @@ const PackageList: React.FC<PackageListProps> = ({
         </div>
       )}
 
-      {isSearchMode && searchResults.length === 0 && searchQuery && dataLoaded && !dataLoading && (
-        <div className="text-center py-12">
-          <p className="text-gray-light text-lg">
-            No results found for "{searchQuery}"
-          </p>
-        </div>
-      )}
+      {isSearchMode &&
+        searchResults.length === 0 &&
+        searchQuery &&
+        dataLoaded &&
+        !dataLoading && (
+          <div className="text-center py-12">
+            <p className="text-gray-light text-lg">
+              No results found for "{searchQuery}"
+            </p>
+          </div>
+        )}
 
       {!isSearchMode && !loading && !error && modules.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-light text-lg">
-            No modules found
-          </p>
+          <p className="text-gray-light text-lg">No modules found</p>
         </div>
       )}
 
       {/* to display search results*/}
-      {isSearchMode && searchResults.length > 0 && (
+      {isSearchMode &&
+        searchResults.length > 0 &&
         searchResults.map((result, index) => (
           <PackageCard
             key={`search-${index}`}
@@ -102,14 +110,18 @@ const PackageList: React.FC<PackageListProps> = ({
             clickable={true}
             onCardClick={() => onItemClick(result)}
           />
-        ))
-      )}
+        ))}
 
       {/* to display the initial packages*/}
-      {!isSearchMode && !loading && !error && modules.length > 0 && (
+      {!isSearchMode &&
+        !loading &&
+        !error &&
+        modules.length > 0 &&
         modules.map((item, index) => {
-          const displayName = Array.isArray(item) ? item.join('.') : String(item);
-          const [owner, module] = displayName.split('.');
+          const displayName = Array.isArray(item)
+            ? item.join(".")
+            : String(item);
+          const [owner, module] = displayName.split(".");
           const description = `${module} - Core functionality from ${owner} providing essential features and utilities.`;
           const tags = ["module", owner.toLowerCase(), "core"];
 
@@ -127,8 +139,7 @@ const PackageList: React.FC<PackageListProps> = ({
               onCardClick={() => onItemClick(item)}
             />
           );
-        })
-      )}
+        })}
     </div>
   );
 };

@@ -30,7 +30,9 @@ const AI: React.FC = () => {
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-purple-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <p className="text-sm">import/export to other languages using AI</p>
+                  <p className="text-sm">
+                    import/export to other languages using AI
+                  </p>
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-purple-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -55,7 +57,9 @@ const AI: React.FC = () => {
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <p className="text-sm">packages for integrating with OpenAI or other models</p>
+                  <p className="text-sm">
+                    packages for integrating with OpenAI or other models
+                  </p>
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -107,7 +111,9 @@ const AI: React.FC = () => {
             <div className="text-gray-700 leading-relaxed space-y-3">
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-blue-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <p className="text-sm">future: native support for vector DBs?</p>
+                <p className="text-sm">
+                  future: native support for vector DBs?
+                </p>
               </div>
             </div>
           </div>
@@ -136,11 +142,11 @@ const AI: React.FC = () => {
             Designed for GenAI
           </h2>
           <div className="text-gray-700 leading-relaxed">
-            <p className="mb-4">
-              (bullets from "designed for GenAI")
-            </p>
+            <p className="mb-4">(bullets from "designed for GenAI")</p>
             <p>
-              Darklang provides a comprehensive platform for building, deploying, and managing AI-powered applications with built-in support for modern generative AI workflows and tools.
+              Darklang provides a comprehensive platform for building,
+              deploying, and managing AI-powered applications with built-in
+              support for modern generative AI workflows and tools.
             </p>
           </div>
         </div>

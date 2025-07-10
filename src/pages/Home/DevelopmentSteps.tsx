@@ -103,13 +103,15 @@ const DevelopmentSteps = () => {
     {
       id: "get-cli",
       title: "Open your favourite editor",
-      description: "e.g. On VSCode download our extension or Go to editor.darklang.com or get the CLI from https://github.com/darklang/dark/releases",
+      description:
+        "e.g. On VSCode download our extension or Go to editor.darklang.com or get the CLI from https://github.com/darklang/dark/releases",
     },
     {
       id: "write-code",
       title: "Write code",
       notice: "Ready to go—no setup needed",
-      description: "write CLI scripts or create functions, types, DBs, HTTP handlers, Crons, Workers, etc.",
+      description:
+        "write CLI scripts or create functions, types, DBs, HTTP handlers, Crons, Workers, etc.",
     },
     {
       id: "debug-code",
@@ -383,27 +385,28 @@ const DevelopmentSteps = () => {
                       onClick={() => handleStepClick(stepIndex)}
                     >
                       <div
-                        className={`absolute left-0 w-5 h-5 -ml-2.5 rounded-full flex items-center justify-center ${isNodeStepComplete(stepIndex)
-                          ? "bg-purple-lbg"
-                          : isNodeStepActive(stepIndex)
+                        className={`absolute left-0 w-5 h-5 -ml-2.5 rounded-full flex items-center justify-center ${
+                          isNodeStepComplete(stepIndex)
                             ? "bg-purple-lbg"
-                            : "bg-white border-2 border-gray-300"
-                          }`}
+                            : isNodeStepActive(stepIndex)
+                              ? "bg-purple-lbg"
+                              : "bg-white border-2 border-gray-300"
+                        }`}
                       >
                         {(isNodeStepComplete(stepIndex) ||
                           isNodeStepActive(stepIndex)) && (
-                            <svg
-                              className="h-3 w-3 text-white"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          )}
+                          <svg
+                            className="h-3 w-3 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        )}
                       </div>
                       <div className="ml-8 text-sm 2xl:text-base font-medium">
                         <span>{step.title}</span>
@@ -430,12 +433,13 @@ const DevelopmentSteps = () => {
                               {/* Substep with circle */}
                               <div className="flex items-center">
                                 <div
-                                  className={`absolute left-0 w-4 h-4 -ml-2 rounded-full ${isCompleted
-                                    ? "bg-white border-2 border-purple-lbg"
-                                    : isInProgress
-                                      ? "bg-white border-2 border-gray-400 animate-pulse"
-                                      : "bg-white border-2 border-gray-200"
-                                    }`}
+                                  className={`absolute left-0 w-4 h-4 -ml-2 rounded-full ${
+                                    isCompleted
+                                      ? "bg-white border-2 border-purple-lbg"
+                                      : isInProgress
+                                        ? "bg-white border-2 border-gray-400 animate-pulse"
+                                        : "bg-white border-2 border-gray-200"
+                                  }`}
                                 >
                                   {/* This creates the partial fill effect */}
                                   {isCompleted && (
@@ -557,10 +561,11 @@ const DevelopmentSteps = () => {
                     {/* Main step with circle */}
                     <div className="flex">
                       <div
-                        className={`absolute left-0 w-5 h-5 -ml-2.5 rounded-full flex items-center justify-center ${isDarkStepComplete(index)
-                          ? "bg-purple-lbg"
-                          : "bg-white border-2 border-gray-300"
-                          }`}
+                        className={`absolute left-0 w-5 h-5 -ml-2.5 rounded-full flex items-center justify-center ${
+                          isDarkStepComplete(index)
+                            ? "bg-purple-lbg"
+                            : "bg-white border-2 border-gray-300"
+                        }`}
                       >
                         {isDarkStepComplete(index) && (
                           <svg

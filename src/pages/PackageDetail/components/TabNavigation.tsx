@@ -1,6 +1,6 @@
-import React from 'react';
-import { PackageData } from '../types';
-import { SidebarPackage, SelectedItem } from './types';
+import React from "react";
+import { PackageData } from "../types";
+import { SidebarPackage, SelectedItem } from "./types";
 
 interface TabNavigationProps {
   packageData: PackageData;
@@ -21,25 +21,36 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
   activeTab,
   selectedItem,
   onTabChange,
-  onFetchSidebarItemData
+  onFetchSidebarItemData,
 }) => {
   const handleTabClick = (tab: string) => {
     onTabChange(tab);
 
     const tabToTypeMap = {
-      Functions: 'function',
-      Types: 'type',
-      Constants: 'constant'
+      Functions: "function",
+      Types: "type",
+      Constants: "constant",
     };
 
-    if (selectedItem && selectedItem.type !== tabToTypeMap[tab as keyof typeof tabToTypeMap]) {
-      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    if (
+      selectedItem &&
+      selectedItem.type !== tabToTypeMap[tab as keyof typeof tabToTypeMap]
+    ) {
+      window.history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search,
+      );
     }
   };
 
   const handleSubmodulesTabClick = () => {
     onTabChange("Submodules");
-    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    window.history.replaceState(
+      null,
+      "",
+      window.location.pathname + window.location.search,
+    );
 
     const currentPackageData = sidebarItemsData[selectedPackage];
     if (!currentPackageData && selectedPackage) {
@@ -48,12 +59,24 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
   };
 
   const currentSidebarData = sidebarItemsData[selectedPackage];
-  const hasSubmodulesFromSidebar = currentSidebarData && currentSidebarData.submodules && currentSidebarData.submodules.length > 0;
-  const currentSidebarPackage = sidebarPackages.find(pkg => pkg.path === selectedPackage);
-  const hasSubmodulesFromStats = currentSidebarPackage && currentSidebarPackage.stats.submodules > 0;
+  const hasSubmodulesFromSidebar =
+    currentSidebarData &&
+    currentSidebarData.submodules &&
+    currentSidebarData.submodules.length > 0;
+  const currentSidebarPackage = sidebarPackages.find(
+    pkg => pkg.path === selectedPackage,
+  );
+  const hasSubmodulesFromStats =
+    currentSidebarPackage && currentSidebarPackage.stats.submodules > 0;
 
-  const hasRootModuleSubmodules = packageData.isRootModule && packageData.subModules && packageData.subModules.length > 0;
-  const hasSubmodules = hasSubmodulesFromSidebar || hasSubmodulesFromStats || hasRootModuleSubmodules;
+  const hasRootModuleSubmodules =
+    packageData.isRootModule &&
+    packageData.subModules &&
+    packageData.subModules.length > 0;
+  const hasSubmodules =
+    hasSubmodulesFromSidebar ||
+    hasSubmodulesFromStats ||
+    hasRootModuleSubmodules;
 
   return (
     <div className="border-b border-[#383737] bg-[#242323]">
@@ -61,23 +84,25 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
         {hasSubmodules && (
           <button
             onClick={handleSubmodulesTabClick}
-            className={`pb-3 text-sm font-medium transition-colors ${activeTab === "Submodules"
-              ? 'text-purple-dbg border-b-2 border-purple-400'
-              : 'text-gray-400 hover:text-gray-300'
-              }`}
+            className={`pb-3 text-sm font-medium transition-colors ${
+              activeTab === "Submodules"
+                ? "text-purple-dbg border-b-2 border-purple-400"
+                : "text-gray-400 hover:text-gray-300"
+            }`}
           >
             Submodules
           </button>
         )}
 
-        {["Functions", "Types", "Constants"].map((tab) => (
+        {["Functions", "Types", "Constants"].map(tab => (
           <button
             key={tab}
             onClick={() => handleTabClick(tab)}
-            className={`pb-3 text-sm font-medium transition-colors ${activeTab === tab
-              ? 'text-purple-dbg border-b-2 border-purple-400'
-              : 'text-gray-400 hover:text-gray-300'
-              }`}
+            className={`pb-3 text-sm font-medium transition-colors ${
+              activeTab === tab
+                ? "text-purple-dbg border-b-2 border-purple-400"
+                : "text-gray-400 hover:text-gray-300"
+            }`}
           >
             {tab}
           </button>

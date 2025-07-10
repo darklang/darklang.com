@@ -247,19 +247,19 @@ const BackendFeatures: React.FC = () => {
     <section className="w-full bg-white py-20 md:py-32">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4">
         <div className="mb-8">
-          <SectionTitle 
-            // subtitle="Darklang Cloud"
-            >
+          <SectionTitle
+          // subtitle="Darklang Cloud"
+          >
             Build a complete backend with Darklang
           </SectionTitle>
 
           <p className="text-lg md:text-xl max-w-6xl text-dark">
-            Darklang lets you easily develop backend applications, seamlessly deployable to the cloud.
-            You can build tiny applications to connect two services, or large scale applications with tens of thousands of users.
-            Code is written in
-            collaboration with AI and is instantly and safely deployed on our
-            hosted platform or yours, so you can focus on writing code while we
-            handle the rest
+            Darklang lets you easily develop backend applications, seamlessly
+            deployable to the cloud. You can build tiny applications to connect
+            two services, or large scale applications with tens of thousands of
+            users. Code is written in collaboration with AI and is instantly and
+            safely deployed on our hosted platform or yours, so you can focus on
+            writing code while we handle the rest
           </p>
 
           <p className="text-xl mt-8 text-black-custom">

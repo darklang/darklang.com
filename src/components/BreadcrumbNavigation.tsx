@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface BreadcrumbItem {
   name: string;
@@ -19,10 +19,10 @@ const BreadcrumbNavigation: React.FC<BreadcrumbNavigationProps> = ({
   fullName,
   onRouteClick,
   onModuleClick,
-  className = ''
+  className = "",
 }) => {
   const generateBreadcrumbs = (): BreadcrumbItem[] => {
-    const parts = fullName.split('.');
+    const parts = fullName.split(".");
     return [
       { name: "Packages", path: "/packages", isRoute: true },
       ...parts.map((part: string, index: number) => {
@@ -32,10 +32,10 @@ const BreadcrumbNavigation: React.FC<BreadcrumbNavigationProps> = ({
           return { name: part, path: null, isRoute: false };
         } else {
           // Build the module path up to this point
-          const modulePath = parts.slice(0, index + 1).join('.');
+          const modulePath = parts.slice(0, index + 1).join(".");
           return { name: part, path: modulePath, isRoute: false };
         }
-      })
+      }),
     ];
   };
 

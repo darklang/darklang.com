@@ -21,8 +21,9 @@ interface TabData {
 
 const CodeTab: React.FC<CodeTabProps> = ({ isActive, label, onClick }) => (
   <button
-    className={`px-5 2xl:px-10 py-3 text-sm text-purple-lbg ${isActive ? "bg-purple-lbg/10" : "hover:text-black-custom"
-      }`}
+    className={`px-5 2xl:px-10 py-3 text-sm text-purple-lbg ${
+      isActive ? "bg-purple-lbg/10" : "hover:text-black-custom"
+    }`}
     onClick={onClick}
   >
     {label}

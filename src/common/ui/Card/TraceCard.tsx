@@ -77,17 +77,13 @@ const TraceCard: React.FC<TraceCardProps> = ({
         </h3>
       </div>
 
-
-
       <div className="text-[10px] text-gray-600 mb-5">{description}</div>
 
       {traceData && (
         <div
           className={`${colorClasses.code} p-2 rounded-t-md text-xs md:text-[8px] font-mono overflow-x-auto h-30 2xl:h-40 overflow-y-scroll`}
         >
-          <pre className="whitespace-pre-wrap text-gray-700">
-            {traceData}
-          </pre>
+          <pre className="whitespace-pre-wrap text-gray-700">{traceData}</pre>
         </div>
       )}
     </div>

@@ -22,7 +22,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
   // downloads,
   logo,
   clickable = false,
-  onCardClick
+  onCardClick,
 }) => {
   const navigate = useNavigate();
 
@@ -34,24 +34,32 @@ const PackageCard: React.FC<PackageCardProps> = ({
     e.preventDefault();
     e.stopPropagation();
     if (clickable) {
-      onCardClick ? onCardClick() : navigate(`/packages/${encodeURIComponent(name)}`);
+      onCardClick
+        ? onCardClick()
+        : navigate(`/packages/${encodeURIComponent(name)}`);
     }
   };
 
   const cardClasses = `
     bg-[#242628] border border-[#383737] rounded-2xl p-6 
     hover:border-[#4a4a4a] transition-colors
-    ${clickable ? 'cursor-pointer hover:bg-[#2a2c2e]' : ''}
+    ${clickable ? "cursor-pointer hover:bg-[#2a2c2e]" : ""}
   `.trim();
 
   return (
     <div className={cardClasses} onClick={handleClick}>
       <div className="flex items-start mb-4">
         {logo && (
-          <img src={logo} alt={`${name} Logo`} className="w-10 h-10 mr-4 mt-1" />
+          <img
+            src={logo}
+            alt={`${name} Logo`}
+            className="w-10 h-10 mr-4 mt-1"
+          />
         )}
         <div className="flex-1">
-          <h3 className="text-xl font-semibold text-white-custom mb-1">{name}</h3>
+          <h3 className="text-xl font-semibold text-white-custom mb-1">
+            {name}
+          </h3>
           <p className="text-gray-light text-sm">{author}</p>
         </div>
       </div>

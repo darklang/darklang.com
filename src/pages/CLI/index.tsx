@@ -104,7 +104,11 @@ const CLIPage: React.FC = () => {
               </li>
             </ul>
 
-            <p className="leading-relaxed mt-8">Python scripts can be just as messy as bash, often requiring you to spin up virtual environments for every project just to avoid dependency conflicts</p>
+            <p className="leading-relaxed mt-8">
+              Python scripts can be just as messy as bash, often requiring you
+              to spin up virtual environments for every project just to avoid
+              dependency conflicts
+            </p>
           </div>
           <div className="hidden md:block md:w-1/4 md:absolute md:-right-20 2xl:-right-80">
             <img src={doubleGridImage} alt="grid" className="w-2xs 2xl:w-xs" />
@@ -124,7 +128,6 @@ const CLIPage: React.FC = () => {
             className="hidden md:block w-2xs 2xl:w-sm absolute -right-40 -bottom-45 2xl:-right-120"
           />
           <div className="space-y-8">
-
             <ul className="space-y-6 mt-6 ml-4">
               <li className="flex items-start">
                 <span className="text-blue-dbg mr-3">-</span>

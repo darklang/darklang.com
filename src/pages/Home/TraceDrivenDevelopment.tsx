@@ -88,19 +88,12 @@ const TraceDrivenDevelopment: React.FC = () => {
 
             <p className="text-base md:text-lg lg:text-xl text-gray-700 mr-8 mb-6">
               The best way to debug and refactor code is with the help of{" "}
-              <span className="text-blue-lbg">
-                real user data
-              </span>
-              . As your code executes, whether{" "}
-              <span className="text-purple-lbg">
-                locally
-              </span>{" "}
-              or in the{" "}
-              <span className="text-purple-lbg">
-                cloud
-              </span>
-              , traces are captured and made available in your development
-              workflow, making it easier to refactor code and debug issues.
+              <span className="text-blue-lbg">real user data</span>. As your
+              code executes, whether{" "}
+              <span className="text-purple-lbg">locally</span> or in the{" "}
+              <span className="text-purple-lbg">cloud</span>, traces are
+              captured and made available in your development workflow, making
+              it easier to refactor code and debug issues.
             </p>
 
             <p className="text-base md:text-lg lg:text-xl text-gray-700 mr-8 mb-6">

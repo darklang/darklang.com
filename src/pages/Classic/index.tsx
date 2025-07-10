@@ -37,8 +37,17 @@ const About = () => {
           </div>
 
           <p className="text-gray-300 text-base 2xl:text-lg mt-8">
-            Sign ups for Darklang Classic are no longer available. It had been running in production since 2019, and we've decided to <a className="text-blue-dbg underline" href="https://blog.darklang.com/winding-down-darklang-classic/" target="_blank">wind it down</a>. Darklang-next is
-            the next iteration of Dark, applicable to both the cloud runtime and to local scripts and CLIs.
+            Sign ups for Darklang Classic are no longer available. It had been
+            running in production since 2019, and we've decided to{" "}
+            <a
+              className="text-blue-dbg underline"
+              href="https://blog.darklang.com/winding-down-darklang-classic/"
+              target="_blank"
+            >
+              wind it down
+            </a>
+            . Darklang-next is the next iteration of Dark, applicable to both
+            the cloud runtime and to local scripts and CLIs.
           </p>
         </div>
 
@@ -179,7 +188,6 @@ const About = () => {
               </div>
             </a>
           </div>
-
         </div>
       </div>
     </div>

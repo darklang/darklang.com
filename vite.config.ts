@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      '~': resolve(process.cwd(), 'src'),
+      "~": resolve(process.cwd(), "src"),
     },
   },
   build: {

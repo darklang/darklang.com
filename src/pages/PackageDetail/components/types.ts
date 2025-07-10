@@ -10,6 +10,6 @@ export interface SidebarPackage {
 }
 
 export interface SelectedItem {
-  type: 'function' | 'type' | 'constant' | null;
+  type: "function" | "type" | "constant" | null;
   name: string;
 }

@@ -26,10 +26,11 @@ const CodeDisplay: React.FC<CodeDisplayProps> = ({
     const codeWithLineNumbers = codeLines
       .map((line, index) => {
         const lineNumber = index + 1;
-        return `<div class="code-line">${showLineNumbers
+        return `<div class="code-line">${
+          showLineNumbers
             ? `<span class="line-number">${lineNumber}</span>`
             : ""
-          }<span class="line-content">${line || " "}</span></div>`;
+        }<span class="line-content">${line || " "}</span></div>`;
       })
       .join("");
 

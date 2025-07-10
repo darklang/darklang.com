@@ -1,7 +1,7 @@
-import React from 'react';
-import { PackageData } from '../types';
-import TabNavigation from './TabNavigation';
-import { SidebarPackage, SelectedItem } from './types';
+import React from "react";
+import { PackageData } from "../types";
+import TabNavigation from "./TabNavigation";
+import { SidebarPackage, SelectedItem } from "./types";
 
 interface PackageHeaderProps {
   packageData: PackageData;
@@ -22,20 +22,39 @@ const PackageHeader: React.FC<PackageHeaderProps> = ({
   activeTab,
   selectedItem,
   onTabChange,
-  onFetchSidebarItemData
+  onFetchSidebarItemData,
 }) => {
   const currentSidebarData = sidebarItemsData[selectedPackage];
-  const functionsCount = currentSidebarData?.functions?.length || packageData?.functions || packageData?.totalFunctions || 0;
-  const typesCount = currentSidebarData?.types?.length || packageData?.types || packageData?.totalTypes || 0;
-  const constantsCount = currentSidebarData?.constants?.length || packageData?.constants || packageData?.totalConstants || 0;
-  const submodulesCount = currentSidebarData?.submodules?.length || packageData?.subModules?.length || 0;
+  const functionsCount =
+    currentSidebarData?.functions?.length ||
+    packageData?.functions ||
+    packageData?.totalFunctions ||
+    0;
+  const typesCount =
+    currentSidebarData?.types?.length ||
+    packageData?.types ||
+    packageData?.totalTypes ||
+    0;
+  const constantsCount =
+    currentSidebarData?.constants?.length ||
+    packageData?.constants ||
+    packageData?.totalConstants ||
+    0;
+  const submodulesCount =
+    currentSidebarData?.submodules?.length ||
+    packageData?.subModules?.length ||
+    0;
 
   return (
     <div className="flex-shrink-0 bg-[#2D2D2D]">
       {/* Package Header */}
       <div className="py-4">
-        <h1 className="px-6 text-4xl font-bold text-purple-dbg mb-2">{packageData.name}</h1>
-        <p className="px-6 text-gray-300 text-lg mb-2">{packageData.description}</p>
+        <h1 className="px-6 text-4xl font-bold text-purple-dbg mb-2">
+          {packageData.name}
+        </h1>
+        <p className="px-6 text-gray-300 text-lg mb-2">
+          {packageData.description}
+        </p>
 
         {/* Stats */}
         <div className="px-6 flex space-x-4 mb-6">
@@ -51,13 +70,15 @@ const PackageHeader: React.FC<PackageHeaderProps> = ({
           </div>
           <div className="flex items-center">
             <span className="text-gray-400 text-xs font-medium">
-              <span className="text-sand">{constantsCount}</span> Constant{constantsCount !== 1 ? 's' : ''}
+              <span className="text-sand">{constantsCount}</span> Constant
+              {constantsCount !== 1 ? "s" : ""}
             </span>
           </div>
           {(submodulesCount > 0 || packageData?.isRootModule) && (
             <div className="flex items-center">
               <span className="text-gray-400 text-xs font-medium">
-                <span className="text-taupe">{submodulesCount}</span> {packageData?.isRootModule ? 'Modules' : 'Submodules'}
+                <span className="text-taupe">{submodulesCount}</span>{" "}
+                {packageData?.isRootModule ? "Modules" : "Submodules"}
               </span>
             </div>
           )}

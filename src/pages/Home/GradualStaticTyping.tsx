@@ -15,16 +15,20 @@ const GradualStaticTyping: React.FC = () => {
     {
       text: (
         <>
-          <code className="bg-gray-200 rounded">!</code> and <code className="bg-gray-200 rounded">?</code> operators allow easy error handling while you prototype
+          <code className="bg-gray-200 rounded">!</code> and{" "}
+          <code className="bg-gray-200 rounded">?</code> operators allow easy
+          error handling while you prototype
         </>
       ),
     },
     {
       text: (
         <>
-          Automatic refactoring converts <code className="bg-gray-200 rounded">!</code> into proper error handling
+          Automatic refactoring converts{" "}
+          <code className="bg-gray-200 rounded">!</code> into proper error
+          handling
         </>
-      )
+      ),
     },
     { text: "Full type-checking hints in VSCode or in LSP editors" },
   ];
@@ -56,9 +60,7 @@ const GradualStaticTyping: React.FC = () => {
 
               {/* Content */}
               <div className="flex-1 pt-1">
-                <p className="md:text-lg text-gray-800">
-                  {point.text}
-                </p>
+                <p className="md:text-lg text-gray-800">{point.text}</p>
               </div>
             </div>
           ))}

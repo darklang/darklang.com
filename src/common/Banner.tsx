@@ -28,7 +28,7 @@ const Banner: React.FC<BannerProps> = ({ text }) => {
           to="/"
           className="ml-1 hover:underline whitespace-nowrap flex-shrink-0"
         >
-          Stay Tuned — Join Our Newsletter  →
+          Stay Tuned — Join Our Newsletter →
         </Link>
       </span>
     </div>

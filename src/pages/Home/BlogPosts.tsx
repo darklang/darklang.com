@@ -21,11 +21,7 @@ export const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
   return (
     <section className="py-16 mb-64 bg-white">
       <div className="container mx-auto px-4">
-        <SectionTitle
-          align="center"
-          className="mb-12"
-          subtitleStyle="button"
-        >
+        <SectionTitle align="center" className="mb-12" subtitleStyle="button">
           Recent Blog Posts
         </SectionTitle>
 

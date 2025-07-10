@@ -22,14 +22,14 @@ const Packages: React.FC = () => {
     dataLoaded,
     loading,
     error,
-    fetchData
+    fetchData,
   } = useDataFetching();
 
   const { searchResults } = useSearch({
     allSearchableData,
     dataLoading,
     dataLoaded,
-    searchQuery
+    searchQuery,
   });
 
   // Filter modules based on active filter
@@ -39,9 +39,11 @@ const Packages: React.FC = () => {
     }
 
     if (activeFilter === "Darklang") {
-      return modules.filter((module) => {
-        const moduleName = Array.isArray(module) ? module.join('.') : String(module);
-        return moduleName.toLowerCase().startsWith('darklang');
+      return modules.filter(module => {
+        const moduleName = Array.isArray(module)
+          ? module.join(".")
+          : String(module);
+        return moduleName.toLowerCase().startsWith("darklang");
       });
     }
 
@@ -54,20 +56,22 @@ const Packages: React.FC = () => {
     }
 
     if (activeFilter === "Darklang") {
-      return searchResults.filter((result) => {
+      return searchResults.filter(result => {
         if (result.module) {
-          return result.module.toLowerCase().startsWith('darklang');
+          return result.module.toLowerCase().startsWith("darklang");
         }
 
-        if (result.type === 'module') {
+        if (result.type === "module") {
           const moduleName = Array.isArray(result.path)
-            ? result.path.join('.')
+            ? result.path.join(".")
             : result.name;
-          return moduleName.toLowerCase().startsWith('darklang');
+          return moduleName.toLowerCase().startsWith("darklang");
         }
 
         // For other types without explicit module info, default to include if no module specified
-        return !result.module || result.module.toLowerCase().startsWith('darklang');
+        return (
+          !result.module || result.module.toLowerCase().startsWith("darklang")
+        );
       });
     }
 
@@ -75,27 +79,39 @@ const Packages: React.FC = () => {
   }, [searchResults, activeFilter]);
 
   const handleItemClick = (item: string | string[] | SearchableItem) => {
-    if (isSearchMode && typeof item === 'object' && 'type' in item) {
-      if (item.type === 'module') {
-        const modulePath = Array.isArray(item.path) ? item.path : item.name.split('.');
-        navigate(`/packages/${encodeURIComponent(modulePath.join('.'))}`);
+    if (isSearchMode && typeof item === "object" && "type" in item) {
+      if (item.type === "module") {
+        const modulePath = Array.isArray(item.path)
+          ? item.path
+          : item.name.split(".");
+        navigate(`/packages/${encodeURIComponent(modulePath.join("."))}`);
       } else {
         if (item.module) {
-          navigate(`/packages/${encodeURIComponent(item.module)}#${encodeURIComponent(item.name)}`);
+          navigate(
+            `/packages/${encodeURIComponent(item.module)}#${encodeURIComponent(item.name)}`,
+          );
         }
       }
     } else {
-      const modulePath = Array.isArray(item) ? item : typeof item === 'string' ? item.split('.') : [];
-      navigate(`/packages/${modulePath.join('.')}`);
+      const modulePath = Array.isArray(item)
+        ? item
+        : typeof item === "string"
+          ? item.split(".")
+          : [];
+      navigate(`/packages/${modulePath.join(".")}`);
     }
   };
 
-  const resultCount = isSearchMode ? filteredSearchResults.length : filteredModules.length;
+  const resultCount = isSearchMode
+    ? filteredSearchResults.length
+    : filteredModules.length;
   const title = isSearchMode
     ? dataLoading && searchQuery
       ? `Searching for "${searchQuery}"...`
       : `${resultCount} search results`
-    : (loading ? 'Loading...' : `${resultCount} modules`);
+    : loading
+      ? "Loading..."
+      : `${resultCount} modules`;
 
   return (
     <div className="min-h-screen bg-dark relative overflow-hidden">

@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { SubModule, PackageData } from './types';
-import { useDarkPackagesApi, ProcessedSubmodule } from './darkPackagesApi';
-import { PackageDetailSidebar } from './PackageDetailSidebar';
-import { PackageHeader, SidebarPackage, SelectedItem, TabContent } from './components';
+import { SubModule, PackageData } from "./types";
+import { useDarkPackagesApi, ProcessedSubmodule } from "./darkPackagesApi";
+import { PackageDetailSidebar } from "./PackageDetailSidebar";
+import {
+  PackageHeader,
+  SidebarPackage,
+  SelectedItem,
+  TabContent,
+} from "./components";
 
 const PackageDetail: React.FC = () => {
   const { packageName } = useParams<{ packageName: string }>();
@@ -17,15 +22,21 @@ const PackageDetail: React.FC = () => {
   const [initialLoading, setInitialLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sidebarPackages, setSidebarPackages] = useState<SidebarPackage[]>([]);
-  const [expandedSidebarItems, setExpandedSidebarItems] = useState<Set<string>>(new Set());
-  const [sidebarItemsData, setSidebarItemsData] = useState<Record<string, any>>({});
-  const [sidebarLoadingStates, setSidebarLoadingStates] = useState<Record<string, boolean>>({});
+  const [expandedSidebarItems, setExpandedSidebarItems] = useState<Set<string>>(
+    new Set(),
+  );
+  const [sidebarItemsData, setSidebarItemsData] = useState<Record<string, any>>(
+    {},
+  );
+  const [sidebarLoadingStates, setSidebarLoadingStates] = useState<
+    Record<string, boolean>
+  >({});
   const [searchLoading, setSearchLoading] = useState(false);
 
   // State for selected items (functions, types, constants)
   const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
   const [pendingItemSelection, setPendingItemSelection] = useState<{
-    type: 'function' | 'type' | 'constant';
+    type: "function" | "type" | "constant";
     name: string;
     packagePath: string;
   } | null>(null);
@@ -34,185 +45,230 @@ const PackageDetail: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Memoized API functions to prevent unnecessary re-renders
-  const fetchSidebarItemData = useCallback(async (moduleName: string) => {
-    setSidebarLoadingStates(prev => ({ ...prev, [moduleName]: true }));
+  const fetchSidebarItemData = useCallback(
+    async (moduleName: string) => {
+      setSidebarLoadingStates(prev => ({ ...prev, [moduleName]: true }));
 
-    try {
-      const processedData = await api.getProcessedModuleData(moduleName);
+      try {
+        const processedData = await api.getProcessedModuleData(moduleName);
 
-      setSidebarItemsData(prev => ({
-        ...prev,
-        [moduleName]: processedData
-      }));
+        setSidebarItemsData(prev => ({
+          ...prev,
+          [moduleName]: processedData,
+        }));
 
-      setSidebarPackages(prev => prev.map(pkg => {
-        if (pkg.path === moduleName) {
-          return {
-            ...pkg,
-            stats: {
-              ...pkg.stats,
-              submodules: processedData.submodules.length
+        setSidebarPackages(prev =>
+          prev.map(pkg => {
+            if (pkg.path === moduleName) {
+              return {
+                ...pkg,
+                stats: {
+                  ...pkg.stats,
+                  submodules: processedData.submodules.length,
+                },
+              };
             }
-          };
-        }
-        return pkg;
-      }));
-    } catch (err) {
-      console.error(`Error fetching sidebar item data for ${moduleName}:`, err);
-    } finally {
-      setSidebarLoadingStates(prev => ({ ...prev, [moduleName]: false }));
-    }
-  }, [api]);
+            return pkg;
+          }),
+        );
+      } catch (err) {
+        console.error(
+          `Error fetching sidebar item data for ${moduleName}:`,
+          err,
+        );
+      } finally {
+        setSidebarLoadingStates(prev => ({ ...prev, [moduleName]: false }));
+      }
+    },
+    [api],
+  );
 
   // Search handler
   const handleSearchChange = useCallback((value: string) => {
     setSearchQuery(value);
   }, []);
 
-
-
-  const fetchSiblingModules = useCallback(async (parentModule: string) => {
-    try {
-      const processedSiblings = await api.fetchSiblingModules(parentModule);
-      setSidebarPackages(processedSiblings);
-    } catch (err) {
-      console.error('Error fetching sibling modules:', err);
-    }
-  }, [api]);
+  const fetchSiblingModules = useCallback(
+    async (parentModule: string) => {
+      try {
+        const processedSiblings = await api.fetchSiblingModules(parentModule);
+        setSidebarPackages(processedSiblings);
+      } catch (err) {
+        console.error("Error fetching sibling modules:", err);
+      }
+    },
+    [api],
+  );
 
   // Main function to fetch package details
-  const fetchPackageDetails = useCallback(async (moduleName: string, isInitialLoad = false) => {
-    if (isInitialLoad) {
-      setInitialLoading(true);
-    }
-    setError(null);
-
-    try {
-      const processedData = await api.fetchPackageDetails(moduleName);
-
-      setPackageData(processedData);
-
-      if (processedData.isRootModule && processedData.subModules && processedData.subModules.length > 0) {
-        setActiveTab("Submodules");
-      } else {
-        setActiveTab("Functions");
-      }
-
-      if (processedData.isRootModule && processedData.subModules) {
-        const sidebarPackagesWithCounts = await api.processInitialSidebarPackages(processedData.subModules);
-        setSidebarPackages(sidebarPackagesWithCounts);
-      } else if (!processedData.isRootModule) {
-        const parts = moduleName.split('.');
-        const parentModule = parts.slice(0, -1).join('.');
-        fetchSiblingModules(parentModule);
-      }
-
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to fetch package details');
-      console.error('Error fetching package details:', err);
-    } finally {
+  const fetchPackageDetails = useCallback(
+    async (moduleName: string, isInitialLoad = false) => {
       if (isInitialLoad) {
-        setInitialLoading(false);
+        setInitialLoading(true);
       }
-    }
-  }, [fetchSiblingModules, api]);
+      setError(null);
+
+      try {
+        const processedData = await api.fetchPackageDetails(moduleName);
+
+        setPackageData(processedData);
+
+        if (
+          processedData.isRootModule &&
+          processedData.subModules &&
+          processedData.subModules.length > 0
+        ) {
+          setActiveTab("Submodules");
+        } else {
+          setActiveTab("Functions");
+        }
+
+        if (processedData.isRootModule && processedData.subModules) {
+          const sidebarPackagesWithCounts =
+            await api.processInitialSidebarPackages(processedData.subModules);
+          setSidebarPackages(sidebarPackagesWithCounts);
+        } else if (!processedData.isRootModule) {
+          const parts = moduleName.split(".");
+          const parentModule = parts.slice(0, -1).join(".");
+          fetchSiblingModules(parentModule);
+        }
+      } catch (err) {
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Failed to fetch package details",
+        );
+        console.error("Error fetching package details:", err);
+      } finally {
+        if (isInitialLoad) {
+          setInitialLoading(false);
+        }
+      }
+    },
+    [fetchSiblingModules, api],
+  );
 
   // Handler for sidebar clicks - updates both state and URL
-  const handleSidebarPackageClick = useCallback((packagePath: string) => {
-    if (selectedPackage !== packagePath) {
+  const handleSidebarPackageClick = useCallback(
+    (packagePath: string) => {
+      if (selectedPackage !== packagePath) {
+        setSelectedPackage(packagePath);
+
+        const encodedPackagePath = encodeURIComponent(packagePath);
+        navigate(`/packages/${encodedPackagePath}`, { replace: true });
+
+        setSelectedItem(null);
+        window.history.replaceState(
+          null,
+          "",
+          window.location.pathname + window.location.search,
+        );
+
+        setExpandedSidebarItems(new Set([packagePath]));
+        fetchSidebarItemData(packagePath);
+      }
+    },
+    [selectedPackage, navigate, fetchSidebarItemData],
+  );
+
+  // Separate handler for expand/collapse
+  const handleSidebarItemToggle = useCallback(
+    (packagePath: string) => {
+      setExpandedSidebarItems(prev => {
+        const wasExpanded = prev.has(packagePath);
+
+        if (wasExpanded) {
+          const newExpanded = new Set(prev);
+          newExpanded.delete(packagePath);
+          return newExpanded;
+        } else {
+          const newExpanded = new Set([packagePath]);
+          fetchSidebarItemData(packagePath);
+          return newExpanded;
+        }
+      });
+    },
+    [fetchSidebarItemData],
+  );
+
+  // Handler for clicking on functions, types, constants in sidebar
+  const handleItemClick = useCallback(
+    (
+      itemType: "function" | "type" | "constant",
+      itemName: string,
+      packagePath: string,
+      event?: React.MouseEvent,
+    ) => {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      if (packagePath === selectedPackage) {
+        setSelectedItem({ type: itemType, name: itemName });
+
+        const newUrl = `${window.location.pathname}${window.location.search}#${encodeURIComponent(itemName)}`;
+        window.history.replaceState(null, "", newUrl);
+
+        const tabMap = {
+          function: "Functions",
+          type: "Types",
+          constant: "Constants",
+        };
+        setActiveTab(tabMap[itemType]);
+
+        return;
+      }
+
+      setPendingItemSelection({ type: itemType, name: itemName, packagePath });
+
+      const encodedPackageName = encodeURIComponent(packagePath);
+      const newUrl = `/packages/${encodedPackageName}#${encodeURIComponent(itemName)}`;
+      navigate(newUrl, { replace: true });
+
       setSelectedPackage(packagePath);
-
-      const encodedPackagePath = encodeURIComponent(packagePath);
-      navigate(`/packages/${encodedPackagePath}`, { replace: true });
-
-      setSelectedItem(null);
-      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      setSelectedItem({ type: itemType, name: itemName });
 
       setExpandedSidebarItems(new Set([packagePath]));
       fetchSidebarItemData(packagePath);
-    }
-  }, [selectedPackage, navigate, fetchSidebarItemData]);
-
-  // Separate handler for expand/collapse
-  const handleSidebarItemToggle = useCallback((packagePath: string) => {
-    setExpandedSidebarItems(prev => {
-      const wasExpanded = prev.has(packagePath);
-
-      if (wasExpanded) {
-        const newExpanded = new Set(prev);
-        newExpanded.delete(packagePath);
-        return newExpanded;
-      } else {
-        const newExpanded = new Set([packagePath]);
-        fetchSidebarItemData(packagePath);
-        return newExpanded;
-      }
-    });
-  }, [fetchSidebarItemData]);
-
-  // Handler for clicking on functions, types, constants in sidebar
-  const handleItemClick = useCallback((itemType: 'function' | 'type' | 'constant', itemName: string, packagePath: string, event?: React.MouseEvent) => {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    if (packagePath === selectedPackage) {
-      setSelectedItem({ type: itemType, name: itemName });
-
-      const newUrl = `${window.location.pathname}${window.location.search}#${encodeURIComponent(itemName)}`;
-      window.history.replaceState(null, '', newUrl);
 
       const tabMap = {
-        function: 'Functions',
-        type: 'Types',
-        constant: 'Constants'
+        function: "Functions",
+        type: "Types",
+        constant: "Constants",
       };
       setActiveTab(tabMap[itemType]);
-
-      return;
-    }
-
-    setPendingItemSelection({ type: itemType, name: itemName, packagePath });
-
-    const encodedPackageName = encodeURIComponent(packagePath);
-    const newUrl = `/packages/${encodedPackageName}#${encodeURIComponent(itemName)}`;
-    navigate(newUrl, { replace: true });
-
-    setSelectedPackage(packagePath);
-    setSelectedItem({ type: itemType, name: itemName });
-
-    setExpandedSidebarItems(new Set([packagePath]));
-    fetchSidebarItemData(packagePath);
-
-    const tabMap = {
-      function: 'Functions',
-      type: 'Types',
-      constant: 'Constants'
-    };
-    setActiveTab(tabMap[itemType]);
-  }, [navigate, fetchSidebarItemData, selectedPackage]);
+    },
+    [navigate, fetchSidebarItemData, selectedPackage],
+  );
 
   // Handler for clicking on submodules in sidebar
-  const handleSubmoduleClick = useCallback((submoduleFullName: string, event?: React.MouseEvent) => {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  const handleSubmoduleClick = useCallback(
+    (submoduleFullName: string, event?: React.MouseEvent) => {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
 
-    if (selectedPackage !== submoduleFullName) {
-      setSelectedPackage(submoduleFullName);
+      if (selectedPackage !== submoduleFullName) {
+        setSelectedPackage(submoduleFullName);
 
-      const encodedSubmoduleName = encodeURIComponent(submoduleFullName);
-      navigate(`/packages/${encodedSubmoduleName}`, { replace: true });
+        const encodedSubmoduleName = encodeURIComponent(submoduleFullName);
+        navigate(`/packages/${encodedSubmoduleName}`, { replace: true });
 
-      setSelectedItem(null);
-      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        setSelectedItem(null);
+        window.history.replaceState(
+          null,
+          "",
+          window.location.pathname + window.location.search,
+        );
 
-      setExpandedSidebarItems(new Set([submoduleFullName]));
-      fetchSidebarItemData(submoduleFullName);
-    }
-  }, [selectedPackage, navigate, fetchSidebarItemData]);
+        setExpandedSidebarItems(new Set([submoduleFullName]));
+        fetchSidebarItemData(submoduleFullName);
+      }
+    },
+    [selectedPackage, navigate, fetchSidebarItemData],
+  );
 
   // Group sidebar props into organized objects
   const sidebarState = {
@@ -224,7 +280,7 @@ const PackageDetail: React.FC = () => {
     selectedItem,
     searchQuery,
     searchLoading,
-    activeTab
+    activeTab,
   };
 
   const sidebarActions = {
@@ -240,8 +296,8 @@ const PackageDetail: React.FC = () => {
       setExpandedItems: setExpandedSidebarItems,
       setItemsData: setSidebarItemsData,
       setPackages: setSidebarPackages,
-      setActiveTab
-    }
+      setActiveTab,
+    },
   };
 
   // Initial load from URL parameter
@@ -255,16 +311,22 @@ const PackageDetail: React.FC = () => {
 
   // Apply pending item selection after package data loads
   useEffect(() => {
-    if (pendingItemSelection && packageData && packageData.fullName === pendingItemSelection.packagePath) {
+    if (
+      pendingItemSelection &&
+      packageData &&
+      packageData.fullName === pendingItemSelection.packagePath
+    ) {
       setSelectedItem({
         type: pendingItemSelection.type,
-        name: pendingItemSelection.name
+        name: pendingItemSelection.name,
       });
-      setActiveTab({
-        function: 'Functions',
-        type: 'Types',
-        constant: 'Constants'
-      }[pendingItemSelection.type]);
+      setActiveTab(
+        {
+          function: "Functions",
+          type: "Types",
+          constant: "Constants",
+        }[pendingItemSelection.type],
+      );
 
       setExpandedSidebarItems(new Set([pendingItemSelection.packagePath]));
       fetchSidebarItemData(pendingItemSelection.packagePath);
@@ -277,27 +339,33 @@ const PackageDetail: React.FC = () => {
   useEffect(() => {
     const fragment = decodeURIComponent(window.location.hash.substring(1));
     if (fragment && packageData && !packageData.isRootModule) {
-      const functionMatch = packageData.functionList?.find(fn => fn.name === fragment);
-      const typeMatch = packageData.typeList?.find(type => type.name === fragment);
-      const constantMatch = packageData.constantList?.find(constant => constant.name === fragment);
+      const functionMatch = packageData.functionList?.find(
+        fn => fn.name === fragment,
+      );
+      const typeMatch = packageData.typeList?.find(
+        type => type.name === fragment,
+      );
+      const constantMatch = packageData.constantList?.find(
+        constant => constant.name === fragment,
+      );
 
       if (functionMatch) {
-        setSelectedItem({ type: 'function', name: fragment });
-        setActiveTab('Functions');
+        setSelectedItem({ type: "function", name: fragment });
+        setActiveTab("Functions");
         setExpandedSidebarItems(new Set([selectedPackage]));
         if (selectedPackage) {
           fetchSidebarItemData(selectedPackage);
         }
       } else if (typeMatch) {
-        setSelectedItem({ type: 'type', name: fragment });
-        setActiveTab('Types');
+        setSelectedItem({ type: "type", name: fragment });
+        setActiveTab("Types");
         setExpandedSidebarItems(new Set([selectedPackage]));
         if (selectedPackage) {
           fetchSidebarItemData(selectedPackage);
         }
       } else if (constantMatch) {
-        setSelectedItem({ type: 'constant', name: fragment });
-        setActiveTab('Constants');
+        setSelectedItem({ type: "constant", name: fragment });
+        setActiveTab("Constants");
         setExpandedSidebarItems(new Set([selectedPackage]));
         if (selectedPackage) {
           fetchSidebarItemData(selectedPackage);
@@ -324,19 +392,23 @@ const PackageDetail: React.FC = () => {
   useEffect(() => {
     if (selectedItem) {
       const timer = setTimeout(() => {
-        const element = document.getElementById(`${selectedItem.type}-${selectedItem.name}`);
+        const element = document.getElementById(
+          `${selectedItem.type}-${selectedItem.name}`,
+        );
         if (element) {
           element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
+            behavior: "smooth",
+            block: "center",
           });
         } else {
           setTimeout(() => {
-            const retryElement = document.getElementById(`${selectedItem.type}-${selectedItem.name}`);
+            const retryElement = document.getElementById(
+              `${selectedItem.type}-${selectedItem.name}`,
+            );
             if (retryElement) {
               retryElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
+                behavior: "smooth",
+                block: "center",
               });
             }
           }, 500);
@@ -351,11 +423,13 @@ const PackageDetail: React.FC = () => {
   useEffect(() => {
     if (selectedItem && selectedPackage && sidebarItemsData[selectedPackage]) {
       const timer = setTimeout(() => {
-        const sidebarElement = document.getElementById(`sidebar-${selectedItem.type}-${selectedItem.name}`);
+        const sidebarElement = document.getElementById(
+          `sidebar-${selectedItem.type}-${selectedItem.name}`,
+        );
         if (sidebarElement) {
           sidebarElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
+            behavior: "smooth",
+            block: "center",
           });
         }
       }, 300);
@@ -368,8 +442,12 @@ const PackageDetail: React.FC = () => {
     return (
       <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center">
         <div className="text-center">
-          <div className="text-white text-lg mb-2">Loading package details...</div>
-          <div className="text-gray-400 text-sm">Fetching module information and counts</div>
+          <div className="text-white text-lg mb-2">
+            Loading package details...
+          </div>
+          <div className="text-gray-400 text-sm">
+            Fetching module information and counts
+          </div>
         </div>
       </div>
     );
@@ -381,7 +459,7 @@ const PackageDetail: React.FC = () => {
         <div className="text-center">
           <div className="text-red-400 text-lg mb-4">Error: {error}</div>
           <button
-            onClick={() => navigate('/packages')}
+            onClick={() => navigate("/packages")}
             className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-medium transition-colors"
           >
             Back to Packages
@@ -416,20 +494,32 @@ const PackageDetail: React.FC = () => {
             sidebarPackages={sidebarPackages}
             activeTab={activeTab}
             selectedItem={selectedItem}
-            onTabChange={(tab) => {
+            onTabChange={tab => {
               setActiveTab(tab);
               const tabToTypeMap = {
-                Functions: 'function',
-                Types: 'type',
-                Constants: 'constant'
+                Functions: "function",
+                Types: "type",
+                Constants: "constant",
               };
 
-              if (tab === 'Submodules') {
+              if (tab === "Submodules") {
                 setSelectedItem(null);
-                window.history.replaceState(null, '', window.location.pathname + window.location.search);
-              } else if (selectedItem && selectedItem.type !== tabToTypeMap[tab as keyof typeof tabToTypeMap]) {
+                window.history.replaceState(
+                  null,
+                  "",
+                  window.location.pathname + window.location.search,
+                );
+              } else if (
+                selectedItem &&
+                selectedItem.type !==
+                  tabToTypeMap[tab as keyof typeof tabToTypeMap]
+              ) {
                 setSelectedItem(null);
-                window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                window.history.replaceState(
+                  null,
+                  "",
+                  window.location.pathname + window.location.search,
+                );
               }
             }}
             onFetchSidebarItemData={fetchSidebarItemData}
@@ -443,56 +533,109 @@ const PackageDetail: React.FC = () => {
                     return (
                       <>
                         <div className="mb-6">
-                          <h2 className="text-xl font-semibold text-white mb-2">Available Submodules</h2>
-                          <p className="text-gray-400">Click on any submodule to explore its functions, types, and constants.</p>
+                          <h2 className="text-xl font-semibold text-white mb-2">
+                            Available Submodules
+                          </h2>
+                          <p className="text-gray-400">
+                            Click on any submodule to explore its functions,
+                            types, and constants.
+                          </p>
                         </div>
-                        {packageData.subModules.map((subModule: SubModule, index: number) => (
-                          <div
-                            key={index}
-                            className="p-4 bg-[#242323] rounded-lg border border-[#383737] hover:border-purple-400 transition-colors cursor-pointer"
-                            onClick={() => handleSidebarPackageClick(subModule.fullName)}
-                          >
-                            <div className="flex items-start justify-between">
-                              <div className="flex-1">
-                                <div className="flex items-center mb-2">
-                                  <span className="mr-2 text-lg">📦</span>
-                                  <h3 className="font-semibold text-purple-dbg">{subModule.name}</h3>
+                        {packageData.subModules.map(
+                          (subModule: SubModule, index: number) => (
+                            <div
+                              key={index}
+                              className="p-4 bg-[#242323] rounded-lg border border-[#383737] hover:border-purple-400 transition-colors cursor-pointer"
+                              onClick={() =>
+                                handleSidebarPackageClick(subModule.fullName)
+                              }
+                            >
+                              <div className="flex items-start justify-between">
+                                <div className="flex-1">
+                                  <div className="flex items-center mb-2">
+                                    <span className="mr-2 text-lg">📦</span>
+                                    <h3 className="font-semibold text-purple-dbg">
+                                      {subModule.name}
+                                    </h3>
+                                  </div>
+                                  <p className="text-gray-300 text-sm mb-3">
+                                    {subModule.description}
+                                  </p>
+                                  <div className="flex space-x-4 text-xs mb-2">
+                                    <span className="text-blue-dbg">
+                                      {subModule.functions} Functions
+                                    </span>
+                                    <span className="text-purple-dbg">
+                                      {subModule.types} Types
+                                    </span>
+                                    <span className="text-sand">
+                                      {subModule.constants}{" "}
+                                      {subModule.constants === 1
+                                        ? "Constant"
+                                        : "Constants"}
+                                    </span>
+                                    {subModule.submodules &&
+                                    subModule.submodules > 0 ? (
+                                      <span className="text-taupe">
+                                        {subModule.submodules}{" "}
+                                        {subModule.submodules === 1
+                                          ? "Submodule"
+                                          : "Submodules"}
+                                      </span>
+                                    ) : null}
+                                  </div>
+                                  <div className="text-xs text-gray-400">
+                                    <span className="font-medium">
+                                      Full path:
+                                    </span>{" "}
+                                    {subModule.fullName}
+                                  </div>
                                 </div>
-                                <p className="text-gray-300 text-sm mb-3">{subModule.description}</p>
-                                <div className="flex space-x-4 text-xs mb-2">
-                                  <span className="text-blue-dbg">{subModule.functions} Functions</span>
-                                  <span className="text-purple-dbg">{subModule.types} Types</span>
-                                  <span className="text-sand">{subModule.constants} {subModule.constants === 1 ? 'Constant' : 'Constants'}</span>
-                                  {(subModule.submodules && subModule.submodules > 0) ? (
-                                    <span className="text-taupe">{subModule.submodules} {subModule.submodules === 1 ? 'Submodule' : 'Submodules'}</span>
-                                  ) : null}
+                                <div className="ml-4">
+                                  <svg
+                                    className="w-5 h-5 text-gray-400"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                      clipRule="evenodd"
+                                    />
+                                  </svg>
                                 </div>
-                                <div className="text-xs text-gray-400">
-                                  <span className="font-medium">Full path:</span> {subModule.fullName}
-                                </div>
-                              </div>
-                              <div className="ml-4">
-                                <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                                </svg>
                               </div>
                             </div>
-                          </div>
-                        ))}
+                          ),
+                        )}
                       </>
                     );
                   } else {
-                    const currentPackageData = sidebarItemsData[selectedPackage];
+                    const currentPackageData =
+                      sidebarItemsData[selectedPackage];
                     const submodules = currentPackageData?.submodules || [];
-                    const filteredSubmodules = searchQuery.trim() 
-                      ? submodules.filter((sub: ProcessedSubmodule) => sub.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                    const filteredSubmodules = searchQuery.trim()
+                      ? submodules.filter((sub: ProcessedSubmodule) =>
+                          sub.name
+                            .toLowerCase()
+                            .includes(searchQuery.toLowerCase()),
+                        )
                       : submodules;
 
-                    const currentSidebarPackage = sidebarPackages.find(pkg => pkg.path === selectedPackage);
-                    const hasSubmodulesFromStats = currentSidebarPackage && currentSidebarPackage.stats.submodules > 0;
-                    const isLoading = sidebarLoadingStates[selectedPackage] || false;
+                    const currentSidebarPackage = sidebarPackages.find(
+                      pkg => pkg.path === selectedPackage,
+                    );
+                    const hasSubmodulesFromStats =
+                      currentSidebarPackage &&
+                      currentSidebarPackage.stats.submodules > 0;
+                    const isLoading =
+                      sidebarLoadingStates[selectedPackage] || false;
 
-                    if (hasSubmodulesFromStats && !currentPackageData && !isLoading) {
+                    if (
+                      hasSubmodulesFromStats &&
+                      !currentPackageData &&
+                      !isLoading
+                    ) {
                       if (selectedPackage) {
                         fetchSidebarItemData(selectedPackage);
                       }
@@ -501,8 +644,12 @@ const PackageDetail: React.FC = () => {
                     if (isLoading) {
                       return (
                         <div className="text-center py-12">
-                          <div className="text-gray-400 mb-2">Loading submodules...</div>
-                          <div className="text-gray-500 text-sm">Fetching submodule information</div>
+                          <div className="text-gray-400 mb-2">
+                            Loading submodules...
+                          </div>
+                          <div className="text-gray-500 text-sm">
+                            Fetching submodule information
+                          </div>
                         </div>
                       );
                     }
@@ -510,47 +657,74 @@ const PackageDetail: React.FC = () => {
                     return filteredSubmodules.length > 0 ? (
                       <>
                         <div className="mb-6">
-                          <h2 className="text-xl font-semibold text-white mb-2">Available Submodules</h2>
-                          <p className="text-gray-400">Click on any submodule to explore its functions, types, and constants.</p>
+                          <h2 className="text-xl font-semibold text-white mb-2">
+                            Available Submodules
+                          </h2>
+                          <p className="text-gray-400">
+                            Click on any submodule to explore its functions,
+                            types, and constants.
+                          </p>
                           {searchQuery && (
                             <div className="text-sm text-gray-400 mt-2">
-                              Showing {filteredSubmodules.length} of {submodules.length} submodules
+                              Showing {filteredSubmodules.length} of{" "}
+                              {submodules.length} submodules
                             </div>
                           )}
                         </div>
-                        {filteredSubmodules.map((submodule: any, index: number) => (
-                          <div
-                            key={index}
-                            className="p-4 bg-[#242323] rounded-lg border border-[#383737] hover:border-purple-400 transition-colors cursor-pointer"
-                            onClick={() => handleSubmoduleClick(submodule.fullName)}
-                          >
-                            <div className="flex items-start justify-between">
-                              <div className="flex-1">
-                                <div className="flex items-center mb-2">
-                                  <span className="mr-2 text-lg">📦</span>
-                                  <h3 className="font-semibold text-taupe">{submodule.name}</h3>
+                        {filteredSubmodules.map(
+                          (submodule: any, index: number) => (
+                            <div
+                              key={index}
+                              className="p-4 bg-[#242323] rounded-lg border border-[#383737] hover:border-purple-400 transition-colors cursor-pointer"
+                              onClick={() =>
+                                handleSubmoduleClick(submodule.fullName)
+                              }
+                            >
+                              <div className="flex items-start justify-between">
+                                <div className="flex-1">
+                                  <div className="flex items-center mb-2">
+                                    <span className="mr-2 text-lg">📦</span>
+                                    <h3 className="font-semibold text-taupe">
+                                      {submodule.name}
+                                    </h3>
+                                  </div>
+                                  <p className="text-gray-300 text-sm mb-3">
+                                    {submodule.description}
+                                  </p>
+                                  <div className="text-xs text-gray-400">
+                                    <span className="font-medium">
+                                      Full path:
+                                    </span>{" "}
+                                    {submodule.fullName}
+                                  </div>
                                 </div>
-                                <p className="text-gray-300 text-sm mb-3">{submodule.description}</p>
-                                <div className="text-xs text-gray-400">
-                                  <span className="font-medium">Full path:</span> {submodule.fullName}
+                                <div className="ml-4">
+                                  <svg
+                                    className="w-5 h-5 text-gray-400"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                      clipRule="evenodd"
+                                    />
+                                  </svg>
                                 </div>
-                              </div>
-                              <div className="ml-4">
-                                <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                                </svg>
                               </div>
                             </div>
-                          </div>
-                        ))}
+                          ),
+                        )}
                       </>
                     ) : (
                       <div className="text-center py-12">
                         {searchQuery ? (
                           <>
-                            <p className="text-gray-400 mb-2">No submodules found matching "{searchQuery}"</p>
+                            <p className="text-gray-400 mb-2">
+                              No submodules found matching "{searchQuery}"
+                            </p>
                             <button
-                              onClick={() => setSearchQuery('')}
+                              onClick={() => setSearchQuery("")}
                               className="text-purple-400 hover:text-purple-300 text-sm"
                             >
                               Clear search to show all submodules
@@ -558,8 +732,12 @@ const PackageDetail: React.FC = () => {
                           </>
                         ) : (
                           <>
-                            <p className="text-gray-400 mb-2">No submodules available.</p>
-                            <p className="text-gray-500 text-sm">This module doesn't have any submodules.</p>
+                            <p className="text-gray-400 mb-2">
+                              No submodules available.
+                            </p>
+                            <p className="text-gray-500 text-sm">
+                              This module doesn't have any submodules.
+                            </p>
                           </>
                         )}
                       </div>
@@ -578,7 +756,7 @@ const PackageDetail: React.FC = () => {
                 searchQuery={searchQuery}
                 selectedItem={selectedItem}
                 onFetchItemData={fetchSidebarItemData}
-                onSearchClear={() => setSearchQuery('')}
+                onSearchClear={() => setSearchQuery("")}
               />
             )}
 
@@ -591,7 +769,7 @@ const PackageDetail: React.FC = () => {
                 searchQuery={searchQuery}
                 selectedItem={selectedItem}
                 onFetchItemData={fetchSidebarItemData}
-                onSearchClear={() => setSearchQuery('')}
+                onSearchClear={() => setSearchQuery("")}
               />
             )}
 
@@ -604,7 +782,7 @@ const PackageDetail: React.FC = () => {
                 searchQuery={searchQuery}
                 selectedItem={selectedItem}
                 onFetchItemData={fetchSidebarItemData}
-                onSearchClear={() => setSearchQuery('')}
+                onSearchClear={() => setSearchQuery("")}
               />
             )}
           </div>

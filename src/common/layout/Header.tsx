@@ -20,7 +20,7 @@ const Header = ({ currentPage }: HeaderProps) => {
   // Define background colors for different pages
   const bgColors: Record<string, string> = {
     home: "bg-white",
-    "classic": "bg-dark text-white",
+    classic: "bg-dark text-white",
     roadmap: "bg-white",
     cli: "bg-dark text-white",
     editing: "bg-dark text-white",
@@ -31,9 +31,9 @@ const Header = ({ currentPage }: HeaderProps) => {
 
   // Get the color for the current page, or use default if not defined
   // any page starting with "packages" should use dark background
-  const bgColor = currentPage.startsWith('packages')
+  const bgColor = currentPage.startsWith("packages")
     ? bgColors.packages
-    : (bgColors[currentPage] || bgColors.default);
+    : bgColors[currentPage] || bgColors.default;
 
   const isDarkBg = bgColor.includes("bg-dark");
 
@@ -59,14 +59,26 @@ const Header = ({ currentPage }: HeaderProps) => {
                 label="Explore"
                 items={[
                   { text: "Language", href: "/language", target: "_blank" },
-                  { text: "Type-Checking", href: "/typeChecking", target: "_blank" },
+                  {
+                    text: "Type-Checking",
+                    href: "/typeChecking",
+                    target: "_blank",
+                  },
                   { text: "Execution", href: "/execution", target: "_blank" },
-                  { text: "Distribution", href: "/distribution", target: "_blank" },
-                  { text: "Trace-Driven", href: "/traceDriven", target: "_blank" },
+                  {
+                    text: "Distribution",
+                    href: "/distribution",
+                    target: "_blank",
+                  },
+                  {
+                    text: "Trace-Driven",
+                    href: "/traceDriven",
+                    target: "_blank",
+                  },
                   { text: "Editing", href: "/editing", target: "_blank" },
                   { text: "CLI", href: "/cli", target: "_blank" },
                   { text: "Backends", href: "/backends", target: "_blank" },
-                  { text: "AI", href: "/ai", target: "_blank" }
+                  { text: "AI", href: "/ai", target: "_blank" },
                 ]}
               />
             </li>
@@ -115,10 +127,14 @@ const Header = ({ currentPage }: HeaderProps) => {
               <Dropdown
                 label="Company"
                 items={[
-                  { text: "About", href: "/company", },
+                  { text: "About", href: "/company" },
                   { text: "Sustainability", href: "/company/sustainability" },
-                  { text: "Blog", href: "https://blog.darklang.com/", target: "_blank", },
-                  // 
+                  {
+                    text: "Blog",
+                    href: "https://blog.darklang.com/",
+                    target: "_blank",
+                  },
+                  //
                 ]}
               />
             </li>

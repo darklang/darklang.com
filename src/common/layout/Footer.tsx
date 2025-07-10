@@ -4,13 +4,7 @@ import darkLangLogo from "~/assets/darklang-logo.png";
 import darkLangLogoDark from "~/assets/darklang-logo-dbg.png";
 
 // Define valid page types
-type PageName =
-  | "home"
-  | "classic"
-  | "roadmap"
-  | "cli"
-  | "editing"
-  | string;
+type PageName = "home" | "classic" | "roadmap" | "cli" | "editing" | string;
 
 interface FooterProps {
   currentPage: PageName;
@@ -20,7 +14,7 @@ const Footer = ({ currentPage }: FooterProps) => {
   // Define background colors for different pages
   const bgColors: Record<string, string> = {
     home: "bg-white",
-    "classic": "bg-dark text-white",
+    classic: "bg-dark text-white",
     roadmap: "bg-white",
     cli: "bg-dark text-white",
     editing: "bg-dark text-white",
@@ -31,9 +25,9 @@ const Footer = ({ currentPage }: FooterProps) => {
 
   // Get the color for the current page, or use default if not defined
   // any page starting with "packages" should use dark background
-  const bgColor = currentPage.startsWith('packages')
+  const bgColor = currentPage.startsWith("packages")
     ? bgColors.packages
-    : (bgColors[currentPage] || bgColors.default);
+    : bgColors[currentPage] || bgColors.default;
   // Determine if we're using a dark background
   const isDarkBg = bgColor.includes("bg-dark");
 

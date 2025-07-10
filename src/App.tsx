@@ -7,19 +7,19 @@ import Home from "./pages/Home";
 
 import Classic from "./pages/Classic";
 
-import Language from "./pages/Language"
+import Language from "./pages/Language";
 import EditingPAge from "./pages/Editing";
 import CLI from "./pages/CLI";
 import Backends from "./pages/Backends";
-import AI from "./pages/AI"
-import Distribution from "./pages/Distribution"
-import Execution from "./pages/Execution"
-import TraceDriven from "./pages/TraceDriven"
-import TypeChecking from "./pages/TypeChecking"
+import AI from "./pages/AI";
+import Distribution from "./pages/Distribution";
+import Execution from "./pages/Execution";
+import TraceDriven from "./pages/TraceDriven";
+import TypeChecking from "./pages/TypeChecking";
 
 import Company from "./pages/Company";
 import GettingStarted from "./pages/GettingStarted";
-import ForX from "./pages/For"
+import ForX from "./pages/For";
 import Cloud from "./pages/Cloud";
 // import Packages from "./pages/Packages";
 // import PackageDetail from "./pages/PackageDetail";

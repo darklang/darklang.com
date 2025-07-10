@@ -2,16 +2,19 @@ import React from "react";
 
 const Execution: React.FC = () => {
   return (
-    <pre>
-    interpeted
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
 
-    TODO: compiler stuff
-    runtime typechecking [link to TC page]
+      <p>
+        interpeted
 
-    rough metrics of perf.
+        TODO: compiler stuff
+        runtime typechecking [link to TC page]
 
-    link to github issues
-</pre>
+        rough metrics of perf.
+
+        link to github issues
+      </p>
+    </div>
   );
 };
 

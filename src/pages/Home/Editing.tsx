@@ -6,7 +6,7 @@ const Editing: React.FC = () => {
     {
       id: 1,
       description:
-        "Darklang has a Language Server that provides real-time feedback, AI-powered completions, instant diagnostics, and easy access to language features. It wraps a lightweight VS Code extension for seamless integration and an intuitive coding experience.",
+        "Darklang has a Language Server that provides real-time feedback, AI-powered completions, instant diagnostics, and easy access to language features. The server communicates through a lightweight VS Code extension enabling seamless integration and an intuitive experience.",
     },
     {
       id: 2,
@@ -16,7 +16,7 @@ const Editing: React.FC = () => {
     {
       id: 3,
       description:
-        "The Language Server is designed to be flexible, so users can configure it to fit their needs",
+        "The Language Server is designed to be adjustable and expandable, allowing users to configure it to fit their needs.",
     },
   ];
   return (

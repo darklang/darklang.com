@@ -50,24 +50,24 @@ const DevelopmentSteps = () => {
         { id: "setup-orm", title: "Set up ORM" },
       ],
     },
-    {
-      id: "version-control",
-      title: "Version Control",
-      substeps: [
-        { id: "init-git", title: "Initialize Git repository" },
-        { id: "commit-push", title: "Create branch, commit, and push code" },
-      ],
-    },
-    {
-      id: "testing",
-      title: "Testing",
-      substeps: [
-        { id: "unit-tests", title: "Write unit tests" },
-        { id: "integration-tests", title: "Write integration tests" },
-        { id: "test-env", title: "Set up test environment" },
-        { id: "run-tests", title: "Run tests locally" },
-      ],
-    },
+    // {
+    //   id: "version-control",
+    //   title: "Version Control",
+    //   substeps: [
+    //     { id: "init-git", title: "Initialize Git repository" },
+    //     { id: "commit-push", title: "Create branch, commit, and push code" },
+    //   ],
+    // },
+    // {
+    //   id: "testing",
+    //   title: "Testing",
+    //   substeps: [
+    //     { id: "unit-tests", title: "Write unit tests" },
+    //     { id: "integration-tests", title: "Write integration tests" },
+    //     { id: "test-env", title: "Set up test environment" },
+    //     { id: "run-tests", title: "Run tests locally" },
+    //   ],
+    // },
     {
       id: "infrastructure",
       title: "Infrastructure",

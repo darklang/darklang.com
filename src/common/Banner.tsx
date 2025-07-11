@@ -25,7 +25,7 @@ const Banner: React.FC<BannerProps> = ({ text }) => {
       <span className="mr-1">
         {text}.{" "}
         <Link
-          to="/"
+          to="/newsletter"
           className="ml-1 hover:underline whitespace-nowrap flex-shrink-0"
         >
           Stay Tuned — Join Our Newsletter →

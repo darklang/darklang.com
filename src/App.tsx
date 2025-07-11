@@ -26,6 +26,7 @@ import Cloud from "./pages/Cloud";
 
 import NotFound from "./pages/NotFound";
 import Editing from "./pages/Home/Editing";
+import NewsletterPage from "./pages/Newsletter";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route path="company" element={<Company />} />
           <Route path="our-cloud" element={<Cloud />} />
           <Route path="for" element={<ForX />} />
+          <Route path="newsletter" element={<NewsletterPage />} />
           {/* <Route path="packages" element={<Packages />} /> */}
           {/* <Route path="packages/:packageName" element={<PackageDetail />} /> */}
 

@@ -8,6 +8,7 @@ const Language: React.FC = () => {
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           The Darklang Programming Language
         </h1>
+        <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
         {/* TODO */}
         {/* <p className="text-xl text-gray-600 italic">
           It's an ML-style language yay

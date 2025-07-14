@@ -7,15 +7,28 @@ jobs:
     steps:
       - checkout
       - run: npx prettier . --check
+      # Install dependencies
+      - run: npm ci
+      # TODO : do we need caching for dependencies?
+      # Build the application
+      - run: npm run build
       # TODO: check that style.css matches compiled tailwind
+      # Store the build artifacts to be used in the deploy job
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
 
   deploy:
     docker:
-      # specify the version you desire here
       - image: cimg/node:20.8.1
     working_directory: ~/repo
     steps:
       - checkout
+      # Attach the workspace with the build artifacts
+      - attach_workspace:
+          at: .
+      # Deploy using the script
       - run: ./scripts/deploy.sh
 
 workflows:
@@ -26,6 +39,8 @@ workflows:
       - deploy:
           filters:
             branches:
-              only: main
+              only:
+                - main
+                - wip
           requires:
             - build

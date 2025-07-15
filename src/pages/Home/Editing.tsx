@@ -1,5 +1,5 @@
 import React from "react";
-import editingImg from "~/assets/editing3.png";
+import editingImg from "~/assets/editing.png";
 import SectionTitle from "../../common/ui/SectionTitle";
 const Editing: React.FC = () => {
   const features = [

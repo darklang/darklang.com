@@ -5,9 +5,9 @@ const NewsletterPage: React.FC = () => {
   return (
     <div className="min-h-screen">
       <div className="pt-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <div className="max-w-5xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Stay Connected with <span className="text-blue-lbg">Dark</span>
+            Stay Connected with <span className="text-blue-lbg">Darklang</span>
           </h1>
           <div className="w-44 h-1.5 bg-blue-lbg mx-auto rounded-full mb-10"></div>
 

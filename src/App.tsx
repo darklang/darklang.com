@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Classic from "./pages/Classic";
 
 import Language from "./pages/Language";
-import EditingPAge from "./pages/Editing";
+import Editing from "./pages/Editing";
 import CLI from "./pages/CLI";
 import Backends from "./pages/Backends";
 import AI from "./pages/AI";
@@ -25,7 +25,6 @@ import Cloud from "./pages/Cloud";
 // import PackageDetail from "./pages/PackageDetail";
 
 import NotFound from "./pages/NotFound";
-import Editing from "./pages/Home/Editing";
 import NewsletterPage from "./pages/Newsletter";
 
 function App() {
@@ -39,12 +38,11 @@ function App() {
           <Route path="/classic" element={<Classic />} />
 
           <Route path="language" element={<Language />} />
-          <Route path="editing" element={<EditingPAge />} />
+          <Route path="editing" element={<Editing />} />
           <Route path="typeChecking" element={<TypeChecking />} />
           <Route path="execution" element={<Execution />} />
           <Route path="distribution" element={<Distribution />} />
           <Route path="traceDriven" element={<TraceDriven />} />
-          <Route path="editing" element={<Editing />} />
           <Route path="cli" element={<CLI />} />
           <Route path="backends" element={<Backends />} />
           <Route path="ai" element={<AI />} />

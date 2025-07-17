@@ -19,14 +19,12 @@ const About = () => {
         {/* Main content - First Section */}
         <div className="text-center mb-18 text-xl md:text-3xl xl:text-[28px]">
           <div className="mb-12">
-            <span className="font-semibold text-purple-dbg">Dark</span>
+            <span className="font-semibold text-purple-dbg">Dark </span>
             <span className="text-white">
-              {" "}
               is a new way of building serverless backends. Just code your
-              backend, with no infra, framework or deployment nightmares.
-              Build{" "}
+              backend, with no infra, framework or deployment nightmares. Build
             </span>
-            <span className="text-classic-green">APIs</span>
+            <span className="text-classic-green"> APIs</span>
             <span className="text-white">, </span>
             <span className="text-classic-brown">CRUD</span>
             <span className="text-white"> apps, </span>
@@ -36,7 +34,7 @@ const About = () => {
             <span className="text-white"> - whatever your backend needs.</span>
           </div>
 
-          <p className="text-gray-300 text-base 2xl:text-lg mt-8">
+          <p className="text-gray-300 text-base 2xl:text-lg mt-8 border rounded-lg border-classic-yellow p-4">
             Sign ups for Darklang Classic are no longer available. It had been
             running in production since 2019, and we've decided to{" "}
             <a

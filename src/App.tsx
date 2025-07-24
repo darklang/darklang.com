@@ -49,6 +49,7 @@ function App() {
           <Route path="cli" element={<CLI />} />
           <Route path="backends" element={<Backends />} />
           <Route path="ai" element={<AI />} />
+          <Route path="AI" element={<AI />} />
 
           <Route path="getting-started" element={<GettingStarted />} />
           <Route path="company" element={<Company />} />

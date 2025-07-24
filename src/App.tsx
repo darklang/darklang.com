@@ -22,8 +22,8 @@ import Sustainability from "./pages/Company/Sustainability";
 import GettingStarted from "./pages/GettingStarted";
 import ForX from "./pages/For";
 import Cloud from "./pages/Cloud";
-// import Packages from "./pages/Packages";
-// import PackageDetail from "./pages/PackageDetail";
+import Packages from "./pages/Packages";
+import PackageDetail from "./pages/PackageDetail";
 
 import NotFound from "./pages/NotFound";
 import NewsletterPage from "./pages/Newsletter";
@@ -65,6 +65,8 @@ function App() {
           <Route path="sharing" element={<Sharing />} />
           <Route path="no" element={<No />} />
           <Route path="stats" element={<Stats />} />
+          <Route path="packages" element={<Packages />} />
+          <Route path="packages/:packageName" element={<PackageDetail />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -4,10 +4,6 @@
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import darkLangLogo from "~/assets/darklang-logo.png";
-import darkLangLogoDark from "~/assets/darklang-logo-dbg.png";
-import githubLogo from "~/assets/github-logo.png";
-import githubLogoWhite from "~/assets/github-logo-white.png";
 import Dropdown from "../ui/Dropdown";
 import {
   navigationConfig,
@@ -46,8 +42,8 @@ const Header = ({ currentPage }: HeaderProps) => {
 
   const isDarkBg = bgColor.includes("bg-dark");
 
-  const logoSrc = isDarkBg ? darkLangLogoDark : darkLangLogo;
-  const githubLogoSrc = isDarkBg ? githubLogoWhite : githubLogo;
+  const logoSrc = isDarkBg ? "/assets/darklang-logo-dbg.png" : "/assets/darklang-logo.png";
+  const githubLogoSrc = isDarkBg ? "/assets/github-logo-white.png" : "/assets/github-logo.png";
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

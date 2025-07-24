@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 
-import darkLangLogo from "~/assets/darklang-logo.png";
-import darkLangLogoDark from "~/assets/darklang-logo-dbg.png";
 
 // Define valid page types
 type PageName = "home" | "classic" | "roadmap" | "cli" | "editing" | string;
@@ -31,7 +29,7 @@ const Footer = ({ currentPage }: FooterProps) => {
   // Determine if we're using a dark background
   const isDarkBg = bgColor.includes("bg-dark");
 
-  const logoSrc = isDarkBg ? darkLangLogoDark : darkLangLogo;
+  const logoSrc = isDarkBg ? "/assets/darklang-logo-dbg.png" : "/assets/darklang-logo.png";
 
   return (
     <footer className={`${bgColor} p-8 mt-auto`}>

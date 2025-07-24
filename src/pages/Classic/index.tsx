@@ -1,5 +1,3 @@
-import darklangClassic from "~/assets/darklang-classic.png";
-import darkClassicToplevel from "~/assets/dark-classic-toplevel.png";
 
 // TODO talk about how things will eventually be migrated to "-next"
 
@@ -10,7 +8,7 @@ const About = () => {
         {/* Logo section */}
         <div className="w-full flex justify-center my-12 2xl:my-18">
           <img
-            src={darklangClassic}
+            src="/assets/darklang-classic.png"
             alt="Darklang Classic"
             className="max-w-full sm:max-w-2xl"
           />
@@ -52,7 +50,7 @@ const About = () => {
         {/* Code Editor Image Section */}
         <div className="mx-auto mb-16">
           <img
-            src={darkClassicToplevel}
+            src="/assets/dark-classic-toplevel.png"
             alt="Darklang Editor Interface"
             className="w-full rounded-lg shadow-2xl border border-gray-800"
           />

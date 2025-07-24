@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logoTransparent from "../../../assets/logo-dark-transparent.png";
 
 const BookIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 48 48" fill="none">
@@ -196,7 +195,7 @@ const Header: React.FC = () => {
 
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
           <img
-            src={logoTransparent}
+            src="/assets/logo-dark-transparent.png"
             alt="Darklang Logo"
             className="w-30 h-30 mb-4"
           />

@@ -1,6 +1,5 @@
 import React from "react";
 
-import cliImage from "~/assets/cli.png";
 
 import SectionTitle from "../../common/ui/SectionTitle";
 
@@ -130,7 +129,6 @@ const CLI: React.FC = () => {
 
             <a
               href="/cli"
-              target="_blank"
               className="inline-flex items-center font-medium text-blue-lbg hover:text-purple-lbg transition-colors"
             >
               Discover Darklang CLI features and how it solves scripting
@@ -142,7 +140,7 @@ const CLI: React.FC = () => {
           <div className="md:w-1/3 relative order-1 md:order-2">
             <div className="md:absolute md:-right-88 2xl:block">
               <img
-                src={cliImage}
+                src="/assets/cli.png"
                 alt="Darklang CLI interface"
                 className="h-auto"
               />

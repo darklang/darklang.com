@@ -26,6 +26,7 @@ import Cloud from "./pages/Cloud";
 
 import NotFound from "./pages/NotFound";
 import NewsletterPage from "./pages/Newsletter";
+import Sharing from "./pages/Sharing";
 
 function App() {
   return (
@@ -52,8 +53,7 @@ function App() {
           <Route path="our-cloud" element={<Cloud />} />
           <Route path="for" element={<ForX />} />
           <Route path="newsletter" element={<NewsletterPage />} />
-          {/* <Route path="packages" element={<Packages />} /> */}
-          {/* <Route path="packages/:packageName" element={<PackageDetail />} /> */}
+          <Route path="sharing" element={<Sharing />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -1,6 +1,5 @@
 import React from "react";
 import PackageCard from "../PackageCard";
-import logoTransparent from "../../../assets/logo-dark-transparent.png";
 
 interface PackageListProps {
   isSearchMode: boolean;
@@ -106,7 +105,7 @@ const PackageList: React.FC<PackageListProps> = ({
             tags={[getTypeTag(result.type), result.module || "darklang"]}
             // stars={Math.floor(Math.random() * 1000) + 100}
             // downloads={Math.floor(Math.random() * 5000) + 500}
-            logo={logoTransparent}
+            logo="/assets/logo-dark-transparent.png"
             clickable={true}
             onCardClick={() => onItemClick(result)}
           />
@@ -134,7 +133,7 @@ const PackageList: React.FC<PackageListProps> = ({
               tags={tags}
               // stars={Math.floor(Math.random() * 20000) + 5000}
               // downloads={Math.floor(Math.random() * 30000) + 10000}
-              logo={logoTransparent}
+              logo="/assets/logo-dark-transparent.png"
               clickable={true}
               onCardClick={() => onItemClick(item)}
             />

@@ -16,7 +16,7 @@ export const navigationConfig: NavigationSection[] = [
   {
     label: "Get Started",
     type: "link",
-    href: "/gettingStarted",
+    href: "/getting-started",
     items: [],
   },
   {
@@ -53,6 +53,7 @@ export const navigationConfig: NavigationSection[] = [
     items: [
       { text: "About", href: "/company" },
       { text: "Sustainability", href: "/company/sustainability" },
+      { text: "Sharing Darklang", href: "/sharing" },
       { text: "Blog", href: "https://blog.darklang.com/", target: "_blank" },
     ],
   },

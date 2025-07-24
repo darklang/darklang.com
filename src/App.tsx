@@ -41,7 +41,7 @@ function App() {
 
           <Route path="language" element={<Language />} />
           <Route path="editing" element={<Editing />} />
-          <Route path="typeChecking" element={<TypeChecking />} />
+          <Route path="type-checking" element={<TypeChecking />} />
           <Route path="execution" element={<Execution />} />
           <Route path="distribution" element={<Distribution />} />
           <Route path="traceDriven" element={<TraceDriven />} />

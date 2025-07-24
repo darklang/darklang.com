@@ -24,7 +24,7 @@ export const navigationConfig: NavigationSection[] = [
     type: "dropdown",
     items: [
       { text: "Language", href: "/language" },
-      { text: "Type-Checking", href: "/typeChecking" },
+      { text: "Type-Checking", href: "/type-checking" },
       { text: "Execution", href: "/execution" },
       { text: "Distribution", href: "/distribution" },
       { text: "Source Control", href: "/source-control" },

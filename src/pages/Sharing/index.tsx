@@ -56,7 +56,7 @@ const Sharing: React.FC = () => {
                 <ul className="space-y-2 text-sm">
                   <li>• <strong>"Just Code"</strong> — for engineers writing code</li>
                   <li>• <strong>"Serverless"</strong> — fits the serverless category</li>
-                  <li>• <strong>"Deployless"</strong> — our term for instant deployment</li>
+                  <li>• <strong>"Deployless"</strong> — our term for <a href="https://blog.darklang.com/how-dark-deploys-code-in-50ms/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">instant deployment</a></li>
                   <li>• A programming language and platform</li>
                 </ul>
               </div>

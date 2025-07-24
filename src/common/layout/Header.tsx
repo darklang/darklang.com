@@ -1,7 +1,3 @@
-/**
- * Header Component
- */
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Dropdown from "../ui/Dropdown";
@@ -14,6 +10,7 @@ import {
   MobileNavigation,
   SocialLinks,
 } from "../navigation/Navigation";
+import { getPageTheme, getLogoSrc, getGithubLogoSrc } from "../config/theme";
 
 type PageName = "home" | "classic" | "roadmap" | "cli" | string;
 
@@ -22,28 +19,11 @@ interface HeaderProps {
 }
 
 const Header = ({ currentPage }: HeaderProps) => {
-  // Define background colors for different pages
-  const bgColors: Record<string, string> = {
-    home: "bg-white",
-    classic: "bg-dark text-white",
-    roadmap: "bg-white",
-    cli: "bg-dark text-white",
-    editing: "bg-dark text-white",
-    packages: "bg-dark text-white",
-    // Default for any other page (like NotFound)
-    default: "bg-white",
-  };
-
-  // Get the color for the current page, or use default if not defined
-  // any page starting with "packages" should use dark background
-  const bgColor = currentPage.startsWith("packages")
-    ? bgColors.packages
-    : bgColors[currentPage] || bgColors.default;
-
-  const isDarkBg = bgColor.includes("bg-dark");
-
-  const logoSrc = isDarkBg ? "/assets/darklang-logo-dbg.png" : "/assets/darklang-logo.png";
-  const githubLogoSrc = isDarkBg ? "/assets/github-logo-white.png" : "/assets/github-logo.png";
+  // Get theme configuration for the current page
+  const theme = getPageTheme(currentPage);
+  const bgClass = `${theme.backgroundColor} ${theme.textColor}`;
+  const logoSrc = getLogoSrc(theme.isDark);
+  const githubLogoSrc = getGithubLogoSrc(theme.isDark);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -52,7 +32,7 @@ const Header = ({ currentPage }: HeaderProps) => {
   };
 
   return (
-    <header className={`${bgColor} py-4`}>
+    <header className={`${bgClass} py-4`}>
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img src={logoSrc} alt="Darklang Logo" className="h-11" />
@@ -125,7 +105,7 @@ const Header = ({ currentPage }: HeaderProps) => {
         sections={navigationConfig}
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
-        bgColor={bgColor}
+        bgColor={bgClass}
         githubLogoSrc={githubLogoSrc}
         currentPage={currentPage}
         classicItems={classicNavigationConfig.items}

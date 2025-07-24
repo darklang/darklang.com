@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { getPageTheme, getLogoSrc } from "../config/theme";
 
 
 // Define valid page types
@@ -9,30 +10,13 @@ interface FooterProps {
 }
 
 const Footer = ({ currentPage }: FooterProps) => {
-  // Define background colors for different pages
-  const bgColors: Record<string, string> = {
-    home: "bg-white",
-    classic: "bg-dark text-white",
-    roadmap: "bg-white",
-    cli: "bg-dark text-white",
-    editing: "bg-dark text-white",
-    packages: "bg-dark text-white",
-    // Default for any other page (like NotFound)
-    default: "bg-white",
-  };
-
-  // Get the color for the current page, or use default if not defined
-  // any page starting with "packages" should use dark background
-  const bgColor = currentPage.startsWith("packages")
-    ? bgColors.packages
-    : bgColors[currentPage] || bgColors.default;
-  // Determine if we're using a dark background
-  const isDarkBg = bgColor.includes("bg-dark");
-
-  const logoSrc = isDarkBg ? "/assets/darklang-logo-dbg.png" : "/assets/darklang-logo.png";
+  // Get theme configuration for the current page
+  const theme = getPageTheme(currentPage);
+  const bgClass = `${theme.backgroundColor} ${theme.textColor}`;
+  const logoSrc = getLogoSrc(theme.isDark);
 
   return (
-    <footer className={`${bgColor} p-8 mt-auto`}>
+    <footer className={`${bgClass} p-8 mt-auto`}>
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
         <div className="flex flex-col md:flex-row justify-between mb-8">

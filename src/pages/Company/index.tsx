@@ -133,9 +133,19 @@ const Company: React.FC = () => {
               innovation needs to meet people where they are.
             </p>
             <p>
-              Today's Darklang keeps all the integration benefits while working with 
-              standard text editors and workflows. We're building for the AI era, 
-              where the platform should amplify human creativity, not constrain it.
+              In early 2025, we transitioned from Dark Inc. to Darklang Inc. to continue 
+              building the platform with renewed focus. Original founder Paul Biggar remains 
+              active as an advisor and investor. We're now fully open source and 
+              building for the AI era, where the platform should amplify human creativity.
+            </p>
+            <p className="text-sm text-gray-600">
+              Read more in our blog posts: 
+              <a href="https://blog.darklang.com/goodbye-dark-inc-welcome-darklang-inc/" target="_blank" rel="noopener noreferrer" className="text-blue-lbg hover:underline">
+                Company Transition
+              </a> and 
+              <a href="https://blog.darklang.com/first-steps-of-darklang-inc/" target="_blank" rel="noopener noreferrer" className="text-blue-lbg hover:underline">
+                First Steps
+              </a>.
             </p>
           </div>
         </div>

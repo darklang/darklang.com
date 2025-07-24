@@ -18,6 +18,7 @@ import TraceDriven from "./pages/TraceDriven";
 import TypeChecking from "./pages/TypeChecking";
 
 import Company from "./pages/Company";
+import Sustainability from "./pages/Company/Sustainability";
 import GettingStarted from "./pages/GettingStarted";
 import ForX from "./pages/For";
 import Cloud from "./pages/Cloud";
@@ -53,6 +54,7 @@ function App() {
 
           <Route path="getting-started" element={<GettingStarted />} />
           <Route path="company" element={<Company />} />
+          <Route path="company/sustainability" element={<Sustainability />} />
           <Route path="our-cloud" element={<Cloud />} />
           <Route path="for" element={<ForX />} />
           <Route path="newsletter" element={<NewsletterPage />} />

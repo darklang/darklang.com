@@ -54,8 +54,10 @@ export const navigationConfig: NavigationSection[] = [
     items: [
       { text: "About", href: "/company" },
       { text: "Sustainability", href: "/company/sustainability" },
+      { text: "What We Say No To", href: "/no" },
       { text: "Stats & Usage", href: "/stats" },
       { text: "Sharing Darklang", href: "/sharing" },
+      { text: "Newsletter", href: "/newsletter" },
       { text: "Blog", href: "https://blog.darklang.com/", target: "_blank" },
     ],
   },

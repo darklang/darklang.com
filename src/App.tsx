@@ -29,6 +29,7 @@ import NotFound from "./pages/NotFound";
 import NewsletterPage from "./pages/Newsletter";
 import SourceControl from "./pages/SourceControl";
 import Sharing from "./pages/Sharing";
+import No from "./pages/No";
 import Stats from "./pages/Stats";
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
           <Route path="for" element={<ForX />} />
           <Route path="newsletter" element={<NewsletterPage />} />
           <Route path="sharing" element={<Sharing />} />
+          <Route path="no" element={<No />} />
           <Route path="stats" element={<Stats />} />
 
           <Route path="*" element={<NotFound />} />

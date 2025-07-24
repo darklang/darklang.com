@@ -14,6 +14,12 @@ export interface NavigationSection {
 
 export const navigationConfig: NavigationSection[] = [
   {
+    label: "Get Started",
+    type: "link",
+    href: "/gettingStarted",
+    items: [],
+  },
+  {
     label: "Explore",
     type: "dropdown",
     items: [

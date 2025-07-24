@@ -47,7 +47,7 @@ function App() {
           <Route path="backends" element={<Backends />} />
           <Route path="ai" element={<AI />} />
 
-          <Route path="gettingStarted" element={<GettingStarted />} />
+          <Route path="getting-started" element={<GettingStarted />} />
           <Route path="company" element={<Company />} />
           <Route path="our-cloud" element={<Cloud />} />
           <Route path="for" element={<ForX />} />

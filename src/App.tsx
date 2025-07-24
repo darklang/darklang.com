@@ -26,6 +26,7 @@ import Cloud from "./pages/Cloud";
 
 import NotFound from "./pages/NotFound";
 import NewsletterPage from "./pages/Newsletter";
+import SourceControl from "./pages/SourceControl";
 import Sharing from "./pages/Sharing";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="execution" element={<Execution />} />
           <Route path="distribution" element={<Distribution />} />
           <Route path="traceDriven" element={<TraceDriven />} />
+          <Route path="source-control" element={<SourceControl />} />
           <Route path="cli" element={<CLI />} />
           <Route path="backends" element={<Backends />} />
           <Route path="ai" element={<AI />} />

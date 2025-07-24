@@ -27,6 +27,7 @@ export const navigationConfig: NavigationSection[] = [
       { text: "Type-Checking", href: "/typeChecking" },
       { text: "Execution", href: "/execution" },
       { text: "Distribution", href: "/distribution" },
+      { text: "Source Control", href: "/source-control" },
       { text: "Trace-Driven", href: "/traceDriven" },
       { text: "Editing", href: "/editing" },
       { text: "CLI", href: "/cli" },

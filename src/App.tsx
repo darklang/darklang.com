@@ -21,6 +21,15 @@ import Company from "./pages/Company";
 import Sustainability from "./pages/Company/Sustainability";
 import GettingStarted from "./pages/GettingStarted";
 import ForX from "./pages/For";
+import WebDevelopers from "./pages/For/WebDevelopers";
+import PythonDevelopers from "./pages/For/PythonDevelopers";
+import AIDevelopers from "./pages/For/AIDevelopers";
+import SecurityNerds from "./pages/For/SecurityNerds";
+import FSharpDevelopers from "./pages/For/FSharpDevelopers";
+import SmallBusinesses from "./pages/For/SmallBusinesses";
+import LocalFirst from "./pages/For/LocalFirst";
+import WebScrapers from "./pages/For/WebScrapers";
+import LazyPeople from "./pages/For/LazyPeople";
 import Cloud from "./pages/Cloud";
 import Packages from "./pages/Packages";
 import PackageDetail from "./pages/PackageDetail";
@@ -60,6 +69,15 @@ function App() {
           <Route path="company/sustainability" element={<Sustainability />} />
           <Route path="our-cloud" element={<Cloud />} />
           <Route path="for" element={<ForX />} />
+          <Route path="for/web-developers" element={<WebDevelopers />} />
+          <Route path="for/python-developers" element={<PythonDevelopers />} />
+          <Route path="for/ai-developers" element={<AIDevelopers />} />
+          <Route path="for/security-nerds" element={<SecurityNerds />} />
+          <Route path="for/fsharp-developers" element={<FSharpDevelopers />} />
+          <Route path="for/small-businesses" element={<SmallBusinesses />} />
+          <Route path="for/local-first" element={<LocalFirst />} />
+          <Route path="for/web-scrapers" element={<WebScrapers />} />
+          <Route path="for/lazy-people" element={<LazyPeople />} />
           <Route path="newsletter" element={<NewsletterPage />} />
           <Route path="support" element={<Support />} />
           <Route path="sharing" element={<Sharing />} />

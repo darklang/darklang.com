@@ -36,10 +36,15 @@ export const navigationConfig: NavigationSection[] = [
     ],
   },
   {
-    label: "Docs",
+    label: "For",
     type: "link",
-    href: "https://docs.darklang.com",
-    target: "_blank",
+    href: "/for",
+    items: [],
+  },
+  {
+    label: "Packages",
+    type: "link",
+    href: "/packages",
     items: [],
   },
   {

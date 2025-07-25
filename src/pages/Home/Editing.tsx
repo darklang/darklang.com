@@ -1,5 +1,4 @@
 import React from "react";
-import editingImg from "~/assets/editing.png";
 import SectionTitle from "../../common/ui/SectionTitle";
 const Editing: React.FC = () => {
   const features = [
@@ -67,7 +66,6 @@ const Editing: React.FC = () => {
               <a
                 href="/editing"
                 className="md:text-lg text-purple-lbg hover:text-purple-secondary font-medium"
-                target="_blank"
               >
                 Learn more about Darklang's Multi-Editor support →
               </a>
@@ -75,7 +73,7 @@ const Editing: React.FC = () => {
           </div>
           <div className="md:w-1/2 mt-8 md:mt-0 hidden md:flex items-center justify-center">
             <img
-              src={editingImg}
+              src="/assets/editing.png"
               alt="Darklang Editor Environment"
               className="md:max-w-4xl 2xl:max-w-7xl max-h-fit md:absolute md:-right-40 2xl:-right-38"
             />

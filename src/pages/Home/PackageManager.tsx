@@ -1,7 +1,5 @@
 import React from "react";
 
-import packageManagerImg from "~/assets/packageManager.png";
-
 import SectionTitle from "../../common/ui/SectionTitle";
 
 const PackageManager: React.FC = () => {
@@ -113,7 +111,7 @@ const PackageManager: React.FC = () => {
 
           <div className="order-1 md:order-2 md:w-1/2 mt-8 md:mt-0 flex items-center justify-center">
             <img
-              src={packageManagerImg}
+              src="/assets/packageManager.png"
               alt="Package Manager Architecture"
               className="max-w-full h-auto"
             />

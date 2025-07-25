@@ -1,8 +1,5 @@
 import React from "react";
 
-import doubleGridSquare from "~/assets/double-grid-square.png";
-import darklangLogoFramed from "~/assets/darklang-logo-framed.png";
-
 // import Button from "../../common/ui/Button";
 import CodeEditor from "../../common/ui/CodeEditor";
 // import CTASection from "../../common/ui/CTASection";
@@ -13,7 +10,7 @@ const Editing: React.FC = () => {
       <section className="relative pt-16 pb-20">
         <div className="absolute -top-1 right-0 z-0">
           <img
-            src={doubleGridSquare}
+            src="/assets/double-grid-square.png"
             alt="Grid Pattern"
             className="w-full max-w-sm"
           />
@@ -24,7 +21,7 @@ const Editing: React.FC = () => {
             <div className="mb-10 md:mb-0">
               <div className="w-54 h-54 relative mx-auto md:mx-0">
                 <img
-                  src={darklangLogoFramed}
+                  src="/assets/darklang-logo-framed.png"
                   alt="Darklang Logo"
                   className="w-full"
                 />

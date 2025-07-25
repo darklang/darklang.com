@@ -48,7 +48,7 @@ const DeploylessCloud: React.FC = () => {
         <SectionTitle
           align="center"
           className="mb-20"
-          description="Instant cloud deployment of code (to our cloud or yours), with instant creation of DBs, API endpoints, and worker queues, with no containers, no cold starts, no orchestration, or other devops/cloud engineering required"
+          description="Complete cloud platform built to support the rest of the Darklang stack. No containers, no YAML, no devops—just write functions and they're running in production instantly."
           subtitleStyle="button"
         >
           Deployless, Infraless Cloud Apps
@@ -62,7 +62,7 @@ const DeploylessCloud: React.FC = () => {
             <FeatureCard
               icon={<LightningIcon />}
               title="Write code and it's immediately available"
-              description="No build step, no wait time, no deployment pipeline your code is live as soon as you type."
+              description="No build step, no wait time, no deployment pipeline—your code is live as soon as you save. The language runtime IS the infrastructure."
             />
 
             <FeatureCard

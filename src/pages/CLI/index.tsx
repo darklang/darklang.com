@@ -1,11 +1,5 @@
 import React from "react";
 
-import cliImage from "~/assets/cli.png";
-import doubleGridImage from "~/assets/double-grid.png";
-import gridImage from "~/assets/grid.png";
-import logoAscii from "~/assets/logo-ascii.png";
-import cliAscii from "~/assets/darklang-cli-ascii.png";
-
 import Terminal from "../../common/ui/Terminal.tsx";
 // import Button from "../../common/ui/Button.tsx";
 // import CTASection from "../../common/ui/CTASection/index.tsx";
@@ -16,7 +10,11 @@ const CLIPage: React.FC = () => {
       {/* ASCII Art Header Section - Hidden on Mobile */}
       <section className="py-18 px-6 max-w-7xl mx-auto text-center">
         <div className="md:my-20">
-          <img src={cliAscii} alt="Darklang CLI ASCII" className="mx-auto" />
+          <img
+            src="/assets/darklang-cli-ascii.png"
+            alt="Darklang CLI ASCII"
+            className="mx-auto"
+          />
         </div>
       </section>
 
@@ -43,7 +41,7 @@ const CLIPage: React.FC = () => {
           </div>
           <div className="w-full md:w-[700px] md:absolute md:-right-30 2xl:right-30">
             <img
-              src={cliImage}
+              src="/assets/cli.png"
               alt="Darklang CLI Terminal"
               className="rounded-lg shadow-lg 2xl:w-7xl"
             />
@@ -111,7 +109,11 @@ const CLIPage: React.FC = () => {
             </p>
           </div>
           <div className="hidden md:block md:w-1/4 md:absolute md:-right-20 2xl:-right-80">
-            <img src={doubleGridImage} alt="grid" className="w-2xs 2xl:w-xs" />
+            <img
+              src="/assets/double-grid.png"
+              alt="grid"
+              className="w-2xs 2xl:w-xs"
+            />
           </div>
         </div>
       </section>
@@ -123,7 +125,7 @@ const CLIPage: React.FC = () => {
         </div>
         <div className="relative">
           <img
-            src={gridImage}
+            src="/assets/grid.png"
             alt="grid"
             className="hidden md:block w-2xs 2xl:w-sm absolute -right-40 -bottom-45 2xl:-right-120"
           />
@@ -291,7 +293,7 @@ const CLIPage: React.FC = () => {
           </div>
         </div>
         <img
-          src={logoAscii}
+          src="/assets/logo-ascii.png"
           alt="logo-ascii"
           className="hidden md:block absolute -left-40 w-xs z-1 -bottom-10"
         />

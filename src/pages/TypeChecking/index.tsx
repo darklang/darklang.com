@@ -7,232 +7,227 @@ const TypeChecking: React.FC = () => {
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Type Checking in Darklang
+            Gradual Static Typing and Checks
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+            Beyond type checking: Darklang continuously analyzes your code at
+            parse-time, at-rest, and runtime for types, security, performance,
+            and code quality.
+          </p>
         </div>
 
-        {/* Status Section */}
-
-        <div className="bg-gray-50 rounded-md p-4 mb-4">
-          <pre className="text-sm font-mono text-gray-700 leading-relaxed">
-            Runtime is done-ish Parse-time is barely there
-          </pre>
-        </div>
-
-        {/* Main Content Section */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-            Type Checking Features
+        {/* Three Kinds of Checking */}
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Three Layers of Analysis
           </h2>
-
-          <div className="text-gray-700 leading-relaxed">
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                <p>
-                  Darklang is fully statically typed with Gradual Flexibility,
-                  ensuring that types are checked at compile time to catch
-                  errors early. This helps developers ensure that changes across
-                  large programs are safe, particularly for refactoring or
-                  scaling systems
-                </p>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            Darklang analyzes your code continuously at three different stages,
+            catching different types of issues and providing insights that
+            traditional tools miss.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <div className="font-semibold text-yellow-800 mb-2">
+                🔧 Parse-Time
               </div>
-
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                <p>
-                  Unlike traditional functional languages where the entire
-                  program must compile, Darklang employs gradual static typing.
-                  This allows incomplete or partially typed code to run,
-                  enabling developers to prototype quickly without ensuring
-                  every part of the program type-checks immediately
-                </p>
+              <div className="text-sm text-yellow-700 mb-2">
+                Syntax, names, basic types
               </div>
-
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                <p>
-                  Darklang uses small compilation units, meaning that type
-                  checking is localized to specific parts of the program, such
-                  as a single HTTP route. This reduces the scope of type changes
-                  needed when prototyping or making small modifications
-                </p>
+              <div className="text-xs text-yellow-600">
+                Status: Parse/name resolution ready, types coming
               </div>
-
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                <p>
-                  Instead of modifying existing types, developers create a copy
-                  of a type, make changes, and test them. Once validated,
-                  semi-automated tooling helps propagate these changes across
-                  the program, minimizing the effort required for large-scale
-                  type updates.
-                </p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-400">
+              <div className="font-semibold text-gray-700 mb-2">📊 At-Rest</div>
+              <div className="text-sm text-gray-600 mb-2">
+                Tests, security, code quality
               </div>
-
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                <p>
-                  The language supports Option and Result types for error
-                  handling, replacing nulls and exceptions to avoid common
-                  pitfalls like null pointer errors
-                </p>
+              <div className="text-xs text-gray-500">
+                Status: Planned for future
               </div>
-
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                <p>
-                  Types and functions in Darklang are versioned and immutable,
-                  ensuring that changes don't break existing code. This is
-                  particularly useful in the package manager, where types and
-                  functions are individually versioned
-                </p>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+              <div className="font-semibold text-green-800 mb-2">
+                ⚡ Runtime
               </div>
-
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                <p>
-                  When updating types, developers can test new versions without
-                  affecting the entire program, and tooling assists in migrating
-                  to the new type once it's finalized.
-                </p>
+              <div className="text-sm text-green-700 mb-2">
+                Complete type validation
               </div>
-
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                <p>
-                  Future plans include implementing an at-rest/static checker to
-                  perform comprehensive type checking, including preventing
-                  invalid operations (e.g., adding a String and an Int). This
-                  will leverage Darklang's access to trace data for advanced
-                  diagnostics
-                </p>
+              <div className="text-xs text-green-600">
+                Status: Production ready
               </div>
             </div>
           </div>
         </div>
 
-        {/* Benefits Section */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-            <span className="w-8 h-8 bg-purple-lbg rounded-lg flex items-center justify-center mr-3">
-              <svg
-                className="w-5 h-5 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
-            </span>
-            Benefits of Darklang's Type Checking
+        {/* Analysis Details */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">
+            Three Stages of Analysis
           </h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500">
-              <h3 className="font-semibold text-gray-800 mb-2">Safety</h3>
-              <p className="text-gray-700">
-                Static typing ensures type mismatches are caught early, reducing
-                runtime errors and making large-scale changes safer
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-6 border-l-4 border-green-500">
-              <h3 className="font-semibold text-gray-800 mb-2">Productivity</h3>
-              <p className="text-gray-700">
-                Small compilation units and gradual typing allow rapid
-                prototyping, akin to dynamic languages, while retaining static
-                typing benefits
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-6 border-l-4 border-purple-lbg">
-              <h3 className="font-semibold text-gray-800 mb-2">
-                Error Handling
+          <div className="space-y-8">
+            {/* Parse-Time */}
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Parse-Time Checking
               </h3>
-              <p className="text-gray-700">
-                The Option/Result types simplify error management, eliminating
-                the need for exceptions and reducing null-related bugs
+              <p className="text-gray-700 mb-4">
+                As you type, Darklang immediately validates syntax and resolves
+                function names. This catches basic errors before you even run
+                your code, providing instant feedback in the editor.
               </p>
+              <div className="grid md:grid-cols-3 gap-4 text-sm">
+                <div>
+                  <strong>Syntax errors:</strong> Invalid syntax caught
+                  immediately ✅
+                </div>
+                <div>
+                  <strong>Name resolution:</strong> Unknown functions and
+                  variables ✅
+                </div>
+                <div>
+                  <strong>Type checking:</strong> Full static analysis (coming
+                  soon)
+                </div>
+              </div>
+              <div className="mt-4 p-3 bg-gray-50 rounded text-sm text-gray-600">
+                <strong>Example:</strong> Calling <code>unknownFunction()</code>{" "}
+                shows an error instantly— but you can often fix it by creating
+                that function. <code>String.length</code> gets proper
+                autocomplete and validation.
+              </div>
             </div>
 
-            <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg p-6 border-l-4 border-taupe">
-              <h3 className="font-semibold text-gray-800 mb-2">
-                Maintainability
+            {/* At-Rest */}
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                At-Rest Analysis
               </h3>
-              <p className="text-gray-700">
-                Versioned types and editor integration make refactoring and
-                maintaining code easier, especially in evolving projects
+              <p className="text-gray-700 mb-4">
+                Planned continuous background analysis of your entire codebase
+                while you're not actively coding. This will identify security
+                vulnerabilities, suggest performance optimizations, find
+                duplicate code, and ensure comprehensive test coverage—like
+                having a tireless code review assistant working 24/7.
               </p>
+              <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-600">
+                <div>
+                  <strong>Test coverage:</strong> Which code paths lack tests
+                </div>
+                <div>
+                  <strong>Security analysis:</strong> Potential vulnerabilities
+                </div>
+                <div>
+                  <strong>Code quality:</strong> Duplicates, unused code,
+                  guidelines
+                </div>
+              </div>
+              <div className="mt-4 p-3 bg-gray-50 rounded text-sm text-gray-600">
+                <strong>Vision:</strong> Wake up to notifications like "Found 3
+                duplicate functions that could be merged" or "New security best
+                practice affects 5 of your endpoints."
+              </div>
             </div>
 
-            <div className="bg-gradient-to-r from-teal-50 to-teal-100 rounded-lg p-6 border-l-4 border-mint">
-              <h3 className="font-semibold text-gray-800 mb-2">Diagnostics</h3>
-              <p className="text-gray-700">
-                Integration with trace data provides unique insights into
-                type-related issues, improving debugging and development
-                efficiency
+            {/* Runtime */}
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Runtime Type Checking
+              </h3>
+              <p className="text-gray-700 mb-4">
+                When your code executes, every value is validated against its
+                expected type with comprehensive checking. This catches type
+                mismatches that static analysis might miss, especially with
+                dynamic data from APIs or user input. Darklang uses Option and
+                Result types to eliminate null pointer exceptions entirely.
               </p>
-            </div>
-
-            <div className="bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-lg p-6 border-l-4 border-blue-lbg">
-              <h3 className="font-semibold text-gray-800 mb-2">Scalability</h3>
-              <p className="text-gray-700">
-                Versioned types and small compilation units make it easier to
-                scale and refactor backends as projects grow
-              </p>
+              <div className="grid md:grid-cols-3 gap-4 text-sm">
+                <div>
+                  <strong>Function parameters:</strong> Type-checked on every
+                  call
+                </div>
+                <div>
+                  <strong>Collection types:</strong> Element type enforcement
+                </div>
+                <div>
+                  <strong>Option/Result:</strong> Safe handling of
+                  missing/failed values
+                </div>
+              </div>
+              <div className="mt-4 p-3 bg-gray-50 rounded text-sm text-gray-600">
+                <strong>Example:</strong> API returns unexpected{" "}
+                <code>Int64</code> where you expected <code>String</code>? Get a
+                clear error with the exact value received: "Expected String, got
+                Int64 (value: 42)."
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Resources Section */}
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-            <span className="w-6 h-6 bg-gray-600 rounded-lg flex items-center justify-center mr-3">
-              <svg
-                className="w-4 h-4 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.102m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.102 1.102m-.758 4.899L7.343 7.343"
-                />
-              </svg>
-            </span>
-            Additional Resources
+        {/* Benefits of Gradual Approach */}
+        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Benefits of Gradual Typing
           </h2>
-          <div className="text-gray-700">
-            <p className="mb-3">For more content inspiration:</p>
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mr-3"></span>
-                <a
-                  href="https://blog.darklang.com/real-problems-with-functional-languages/amp/"
-                  className="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
-                >
-                  Real Problems with Functional Languages
-                </a>
-              </div>
-              <div className="flex items-center">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mr-3"></span>
-                <a
-                  href="https://blog.darklang.com/an-overdue-status-update/"
-                  className="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
-                >
-                  An Overdue Status Update
-                </a>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                Evolving Types Safely
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Traditional languages make changing types painful. Darklang's
+                versioned types let you evolve data structures without breaking
+                existing code.
+              </p>
+              <div className="space-y-2 text-sm text-gray-600">
+                <div>• Copy and modify types instead of changing originals</div>
+                <div>• Test new types in isolation</div>
+                <div>• Migrate gradually with tooling assistance</div>
               </div>
             </div>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                Production-Informed Types
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Through trace data, see what types your functions actually
+                receive in production, enabling data-driven type refinement.
+              </p>
+              <div className="bg-gray-50 p-4 rounded text-sm space-y-2">
+                <div>
+                  <strong>Your API expects:</strong>{" "}
+                  <code>{`{name: String, age: Int64}`}</code>
+                </div>
+                <div>
+                  <strong>But 15% of requests send:</strong>{" "}
+                  <code>{`{name: String, age: String}`}</code>
+                </div>
+                <div className="text-xs text-blue-600">
+                  💡 Consider making age more flexible or adding validation
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Why It Matters */}
+        <div className="border-l-4 border-blue-lbg pl-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            The Best of Both Worlds
+          </h2>
+          <div className="text-gray-700 leading-relaxed space-y-4">
+            <p>
+              Most developers have experienced both extremes: fighting with
+              rigid type systems that block experimentation, and debugging
+              runtime errors from untyped code in production.
+            </p>
+            <p className="text-lg font-medium text-blue-lbg">
+              Darklang's gradual approach lets you prototype fast and scale
+              safely— start messy, refine as you learn, with safety nets that
+              grow stronger over time.
+            </p>
           </div>
         </div>
       </div>

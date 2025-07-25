@@ -14,25 +14,37 @@ export interface NavigationSection {
 
 export const navigationConfig: NavigationSection[] = [
   {
+    label: "Get Started",
+    type: "link",
+    href: "/getting-started",
+    items: [],
+  },
+  {
     label: "Explore",
     type: "dropdown",
     items: [
-      { text: "Language", href: "/language", target: "_blank" },
-      { text: "Type-Checking", href: "/typeChecking", target: "_blank" },
-      { text: "Execution", href: "/execution", target: "_blank" },
-      { text: "Distribution", href: "/distribution", target: "_blank" },
-      { text: "Trace-Driven", href: "/traceDriven", target: "_blank" },
-      { text: "Editing", href: "/editing", target: "_blank" },
-      { text: "CLI", href: "/cli", target: "_blank" },
-      { text: "Backends", href: "/backends", target: "_blank" },
-      { text: "AI", href: "/ai", target: "_blank" },
+      { text: "Language", href: "/language" },
+      { text: "Type-Checking", href: "/type-checking" },
+      { text: "Execution", href: "/execution" },
+      { text: "Distribution", href: "/distribution" },
+      { text: "Source Control", href: "/source-control" },
+      { text: "Trace-Driven", href: "/traceDriven" },
+      { text: "Editing", href: "/editing" },
+      { text: "CLI", href: "/cli" },
+      { text: "Backends", href: "/backends" },
+      { text: "AI", href: "/ai" },
     ],
   },
   {
-    label: "Docs",
+    label: "For",
     type: "link",
-    href: "https://docs.darklang.com",
-    target: "_blank",
+    href: "/for",
+    items: [],
+  },
+  {
+    label: "Packages",
+    type: "link",
+    href: "/packages",
     items: [],
   },
   {
@@ -42,11 +54,27 @@ export const navigationConfig: NavigationSection[] = [
     items: [],
   },
   {
+    label: "Help",
+    type: "dropdown",
+    items: [
+      { text: "Support", href: "/support" },
+      {
+        text: "Documentation",
+        href: "https://docs.darklang.com",
+        target: "_blank",
+      },
+    ],
+  },
+  {
     label: "Company",
     type: "dropdown",
     items: [
       { text: "About", href: "/company" },
       { text: "Sustainability", href: "/company/sustainability" },
+      { text: "What We Say No To", href: "/no" },
+      { text: "Stats & Usage", href: "/stats" },
+      { text: "Sharing Darklang", href: "/sharing" },
+      { text: "Newsletter", href: "/newsletter" },
       { text: "Blog", href: "https://blog.darklang.com/", target: "_blank" },
     ],
   },

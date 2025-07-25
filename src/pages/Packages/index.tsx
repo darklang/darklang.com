@@ -116,7 +116,7 @@ const Packages: React.FC = () => {
   return (
     <div className="min-h-screen bg-dark relative overflow-hidden">
       <Header />
-      
+
       {/* Package Manager Description */}
       {/* <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 py-8">
         <div className="bg-[#242628] border border-[#383737] rounded-3xl p-8 mb-8">

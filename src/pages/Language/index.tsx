@@ -11,23 +11,25 @@ const Language: React.FC = () => {
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
           <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
-            A functional-imperative language influenced by OCaml, Rust, Elm, and F#. 
-            Simple, straightforward, and complete—with no nulls, no exceptions, and 
-            immutable values by default.
+            A functional-imperative language influenced by OCaml, Rust, Elm, and
+            F#. Simple, straightforward, and complete—with no nulls, no
+            exceptions, and immutable values by default.
           </p>
         </div>
 
         {/* Language Overview */}
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Language Design</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Language Design
+          </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Darklang is designed for clarity and correctness. We take the best ideas 
-            from functional programming—immutability, algebraic data types, pattern 
-            matching—without the academic complexity.
+            Darklang is designed for clarity and correctness. We take the best
+            ideas from functional programming—immutability, algebraic data
+            types, pattern matching—without the academic complexity.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <strong>The goal is simple:</strong> make it easy to write correct programs 
-            that handle errors gracefully and scale without surprises.
+            <strong>The goal is simple:</strong> make it easy to write correct
+            programs that handle errors gracefully and scale without surprises.
           </p>
         </div>
 
@@ -39,19 +41,66 @@ const Language: React.FC = () => {
           <div className="bg-gray-900 rounded-lg p-6 text-white font-mono text-sm overflow-x-auto">
             <div className="space-y-3">
               <div className="text-gray-400">// Custom types</div>
-              <div><span className="text-purple-400">type</span> <span className="text-yellow-300">Person</span> = &#123; <span className="text-blue-300">age</span>: <span className="text-green-300">Int</span>, <span className="text-blue-300">name</span>: <span className="text-green-300">String</span> &#125;</div>
+              <div>
+                <span className="text-purple-400">type</span>{" "}
+                <span className="text-yellow-300">Person</span> = &#123;{" "}
+                <span className="text-blue-300">age</span>:{" "}
+                <span className="text-green-300">Int</span>,{" "}
+                <span className="text-blue-300">name</span>:{" "}
+                <span className="text-green-300">String</span> &#125;
+              </div>
               <div></div>
-              <div><span className="text-purple-400">type</span> <span className="text-yellow-300">Phone</span> =</div>
-              <div>  | <span className="text-yellow-300">IPhone</span>(<span className="text-green-300">Color</span>, <span className="text-green-300">Size</span>, <span className="text-blue-300">model</span>: <span className="text-green-300">String</span>)</div>
-              <div>  | <span className="text-yellow-300">Android</span>(<span className="text-blue-300">manufacturer</span>: <span className="text-green-300">String</span>, <span className="text-blue-300">model</span>: <span className="text-green-300">String</span>)</div>
-              <div>  | <span className="text-yellow-300">Landline</span></div>
+              <div>
+                <span className="text-purple-400">type</span>{" "}
+                <span className="text-yellow-300">Phone</span> =
+              </div>
+              <div>
+                {" "}
+                | <span className="text-yellow-300">IPhone</span>(
+                <span className="text-green-300">Color</span>,{" "}
+                <span className="text-green-300">Size</span>,{" "}
+                <span className="text-blue-300">model</span>:{" "}
+                <span className="text-green-300">String</span>)
+              </div>
+              <div>
+                {" "}
+                | <span className="text-yellow-300">Android</span>(
+                <span className="text-blue-300">manufacturer</span>:{" "}
+                <span className="text-green-300">String</span>,{" "}
+                <span className="text-blue-300">model</span>:{" "}
+                <span className="text-green-300">String</span>)
+              </div>
+              <div>
+                {" "}
+                | <span className="text-yellow-300">Landline</span>
+              </div>
               <div></div>
-              <div className="text-gray-400">// Functions with pipeline operators</div>
-              <div><span className="text-purple-400">fn</span> <span className="text-yellow-300">sumOfEvenSquares</span> (<span className="text-blue-300">nums</span>: <span className="text-green-300">List&lt;Int&gt;</span>): <span className="text-green-300">Int</span> =</div>
-              <div>  nums</div>
-              <div>  |&gt; <span className="text-yellow-300">List.filter</span> (\<span className="text-blue-300">x</span> -&gt; <span className="text-yellow-300">Int.isEven</span> x)</div>
-              <div>  |&gt; <span className="text-yellow-300">List.map</span> (\<span className="text-blue-300">x</span> -&gt; x * x)</div>
-              <div>  |&gt; <span className="text-yellow-300">Int.sum</span></div>
+              <div className="text-gray-400">
+                // Functions with pipeline operators
+              </div>
+              <div>
+                <span className="text-purple-400">fn</span>{" "}
+                <span className="text-yellow-300">sumOfEvenSquares</span> (
+                <span className="text-blue-300">nums</span>:{" "}
+                <span className="text-green-300">List&lt;Int&gt;</span>):{" "}
+                <span className="text-green-300">Int</span> =
+              </div>
+              <div> nums</div>
+              <div>
+                {" "}
+                |&gt; <span className="text-yellow-300">List.filter</span> (\
+                <span className="text-blue-300">x</span> -&gt;{" "}
+                <span className="text-yellow-300">Int.isEven</span> x)
+              </div>
+              <div>
+                {" "}
+                |&gt; <span className="text-yellow-300">List.map</span> (\
+                <span className="text-blue-300">x</span> -&gt; x * x)
+              </div>
+              <div>
+                {" "}
+                |&gt; <span className="text-yellow-300">Int.sum</span>
+              </div>
             </div>
           </div>
         </div>
@@ -62,7 +111,9 @@ const Language: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Primitive Types */}
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Primitive Types</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Primitive Types
+              </h3>
               <div className="text-sm text-gray-600 space-y-2">
                 <div className="flex justify-between">
                   <span className="font-mono text-blue-600">Int</span>
@@ -90,43 +141,59 @@ const Language: React.FC = () => {
                 </div>
               </div>
               <div className="mt-4 p-3 bg-blue-50 rounded text-sm">
-                <strong>No nulls:</strong> Darklang has no null values. Use Option&lt;T&gt; for optional values.
+                <strong>No nulls:</strong> Darklang has no null values. Use
+                Option&lt;T&gt; for optional values.
               </div>
             </div>
 
             {/* Collection Types */}
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Collection Types</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Collection Types
+              </h3>
               <div className="text-sm text-gray-600 space-y-2">
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">List&lt;T&gt;</span>
+                  <span className="font-mono text-purple-600">
+                    List&lt;T&gt;
+                  </span>
                   <span>Ordered collections</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">Dict&lt;T&gt;</span>
+                  <span className="font-mono text-purple-600">
+                    Dict&lt;T&gt;
+                  </span>
                   <span>Key-value maps</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">Tuple&lt;A,B&gt;</span>
+                  <span className="font-mono text-purple-600">
+                    Tuple&lt;A,B&gt;
+                  </span>
                   <span>Fixed-size pairs</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">Option&lt;T&gt;</span>
+                  <span className="font-mono text-purple-600">
+                    Option&lt;T&gt;
+                  </span>
                   <span>Some(value) | None</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">Result&lt;T,E&gt;</span>
+                  <span className="font-mono text-purple-600">
+                    Result&lt;T,E&gt;
+                  </span>
                   <span>Ok(value) | Error(err)</span>
                 </div>
               </div>
               <div className="mt-4 p-3 bg-purple-50 rounded text-sm">
-                <strong>Immutable by default:</strong> All values are immutable. Create new versions instead of modifying.
+                <strong>Immutable by default:</strong> All values are immutable.
+                Create new versions instead of modifying.
               </div>
             </div>
 
             {/* Custom Types */}
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Custom Types</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Custom Types
+              </h3>
               <div className="text-sm text-gray-600 space-y-3">
                 <div>
                   <div className="font-mono text-green-600 mb-1">Records</div>
@@ -135,13 +202,17 @@ const Language: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="font-mono text-green-600 mb-1">Unions (Enums)</div>
+                  <div className="font-mono text-green-600 mb-1">
+                    Unions (Enums)
+                  </div>
                   <div className="text-xs bg-gray-100 p-2 rounded">
                     type Color = Red | Green | Blue(Int)
                   </div>
                 </div>
                 <div>
-                  <div className="font-mono text-green-600 mb-1">Type Aliases</div>
+                  <div className="font-mono text-green-600 mb-1">
+                    Type Aliases
+                  </div>
                   <div className="text-xs bg-gray-100 p-2 rounded">
                     type UserId = String
                   </div>
@@ -151,32 +222,45 @@ const Language: React.FC = () => {
 
             {/* Error Handling */}
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Error Handling</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Error Handling
+              </h3>
               <div className="text-sm text-gray-600 space-y-3">
                 <div>
                   <div className="font-semibold mb-1">Result Types</div>
-                  <div className="mb-2">Explicit error handling with Result&lt;T,E&gt; instead of exceptions</div>
+                  <div className="mb-2">
+                    Explicit error handling with Result&lt;T,E&gt; instead of
+                    exceptions
+                  </div>
                   <div className="text-xs bg-gray-100 p-2 rounded">
-                    fn parseUser(data: String): Result&lt;User, String&gt; =<br/>
+                    fn parseUser(data: String): Result&lt;User, String&gt; =
+                    <br />
                     &nbsp;&nbsp;// Returns Ok(user) or Error(message)
                   </div>
                 </div>
                 <div>
                   <div className="font-semibold mb-1">? Operator</div>
-                  <div className="mb-2">Automatically unwrap Ok values or propagate Error</div>
+                  <div className="mb-2">
+                    Automatically unwrap Ok values or propagate Error
+                  </div>
                   <div className="text-xs bg-gray-100 p-2 rounded">
-                    let user = parseUser(data)?<br/>
-                    let profile = fetchProfile(user.id)?<br/>
+                    let user = parseUser(data)?
+                    <br />
+                    let profile = fetchProfile(user.id)?
+                    <br />
                     // Short-circuits on first Error
                   </div>
                 </div>
                 <div>
                   <div className="font-semibold mb-1">Pattern Matching</div>
-                  <div className="mb-2">Handle success and error cases explicitly</div>
+                  <div className="mb-2">
+                    Handle success and error cases explicitly
+                  </div>
                   <div className="text-xs bg-gray-100 p-2 rounded">
-                    match parseUser(data) with<br/>
-                    | Ok(user) -&gt; processUser(user)<br/>
-                    | Error(msg) -&gt; logError(msg)
+                    match parseUser(data) with
+                    <br />
+                    | Ok(user) -&gt; processUser(user)
+                    <br />| Error(msg) -&gt; logError(msg)
                   </div>
                 </div>
               </div>
@@ -186,20 +270,28 @@ const Language: React.FC = () => {
 
         {/* Error Types */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Error Handling in Darklang</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">
+            Error Handling in Darklang
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Parse-Time Errors */}
             <div className="bg-yellow-50 rounded-lg shadow-lg p-6 border-l-4 border-yellow-500">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Parse-Time Errors</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Parse-Time Errors
+              </h3>
               <div className="text-sm text-gray-600 space-y-3">
                 <div>
-                  <span className="font-semibold">Syntax errors:</span> Invalid syntax caught during parsing
+                  <span className="font-semibold">Syntax errors:</span> Invalid
+                  syntax caught during parsing
                 </div>
                 <div>
-                  <span className="font-semibold">Name resolution:</span> Undefined variables or functions
+                  <span className="font-semibold">Name resolution:</span>{" "}
+                  Undefined variables or functions
                 </div>
                 <div className="mt-4 p-3 bg-yellow-100 rounded text-xs">
-                  <span className="font-semibold text-yellow-800">Coming Soon:</span>
+                  <span className="font-semibold text-yellow-800">
+                    Coming Soon:
+                  </span>
                   <div className="mt-1 space-y-1">
                     <div>• Type errors</div>
                     <div>• Exhaustiveness checking</div>
@@ -212,38 +304,66 @@ const Language: React.FC = () => {
 
             {/* Runtime Errors */}
             <div className="bg-red-50 rounded-lg shadow-lg p-6 border-l-4 border-red-500">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Runtime Errors</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Runtime Errors
+              </h3>
               <div className="text-sm text-gray-600 space-y-2">
-                <div>• <span className="font-semibold">Type mismatches:</span> Wrong types in operations</div>
-                <div>• <span className="font-semibold">Math errors:</span> Division by zero, overflow</div>
-                <div>• <span className="font-semibold">Pattern failures:</span> Unmatched patterns</div>
-                <div>• <span className="font-semibold">List/Dict errors:</span> Type mismatches in collections</div>
-                <div>• <span className="font-semibold">Function errors:</span> Wrong argument types/counts</div>
-                <div>• <span className="font-semibold">Unwrap failures:</span> None or Error values</div>
+                <div>
+                  • <span className="font-semibold">Type mismatches:</span>{" "}
+                  Wrong types in operations
+                </div>
+                <div>
+                  • <span className="font-semibold">Math errors:</span> Division
+                  by zero, overflow
+                </div>
+                <div>
+                  • <span className="font-semibold">Pattern failures:</span>{" "}
+                  Unmatched patterns
+                </div>
+                <div>
+                  • <span className="font-semibold">List/Dict errors:</span>{" "}
+                  Type mismatches in collections
+                </div>
+                <div>
+                  • <span className="font-semibold">Function errors:</span>{" "}
+                  Wrong argument types/counts
+                </div>
+                <div>
+                  • <span className="font-semibold">Unwrap failures:</span> None
+                  or Error values
+                </div>
               </div>
               <div className="mt-4 p-3 bg-red-100 rounded text-xs">
-                <span className="font-semibold text-red-800">Note:</span> Runtime errors are being eliminated through better static analysis
+                <span className="font-semibold text-red-800">Note:</span>{" "}
+                Runtime errors are being eliminated through better static
+                analysis
               </div>
             </div>
 
             {/* Expected Errors */}
             <div className="bg-green-50 rounded-lg shadow-lg p-6 border-l-4 border-green-500">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Expected Errors</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Expected Errors
+              </h3>
               <div className="text-sm text-gray-600 space-y-3">
                 <div>
-                  <span className="font-semibold">Result types:</span> Explicit error handling
+                  <span className="font-semibold">Result types:</span> Explicit
+                  error handling
                 </div>
                 <div className="text-xs bg-gray-100 p-2 rounded font-mono">
                   Result&lt;Success, Error&gt;
                 </div>
                 <div>
-                  <span className="font-semibold">Option types:</span> Handling missing values
+                  <span className="font-semibold">Option types:</span> Handling
+                  missing values
                 </div>
                 <div className="text-xs bg-gray-100 p-2 rounded font-mono">
                   Option&lt;Value&gt; // Some | None
                 </div>
                 <div className="mt-3 text-xs text-green-700">
-                  <span className="font-semibold">✓ Best practice:</span> Use Result/Option types for expected failures instead of runtime errors
+                  <span className="font-semibold">✓ Best practice:</span> Use
+                  Result/Option types for expected failures instead of runtime
+                  errors
                 </div>
               </div>
             </div>
@@ -257,60 +377,78 @@ const Language: React.FC = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="font-semibold text-gray-800 mb-4">Functional Programming</h3>
+              <h3 className="font-semibold text-gray-800 mb-4">
+                Functional Programming
+              </h3>
               <div className="space-y-3 text-sm text-gray-600">
                 <div>
-                  <span className="font-semibold">Immutable by default:</span> Values don't change after creation
+                  <span className="font-semibold">Immutable by default:</span>{" "}
+                  Values don't change after creation
                 </div>
                 <div>
-                  <span className="font-semibold">First-class functions:</span> Pass functions as arguments
+                  <span className="font-semibold">First-class functions:</span>{" "}
+                  Pass functions as arguments
                 </div>
                 <div>
-                  <span className="font-semibold">Pipeline operators:</span> Chain operations with |&gt;
+                  <span className="font-semibold">Pipeline operators:</span>{" "}
+                  Chain operations with |&gt;
                 </div>
                 <div>
-                  <span className="font-semibold">Pattern matching:</span> Destructure data with match expressions
+                  <span className="font-semibold">Pattern matching:</span>{" "}
+                  Destructure data with match expressions
                 </div>
                 <div>
-                  <span className="font-semibold">Algebraic data types:</span> Model domain with unions and records
+                  <span className="font-semibold">Algebraic data types:</span>{" "}
+                  Model domain with unions and records
                 </div>
               </div>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold text-gray-800 mb-4">Practical Design</h3>
+              <h3 className="font-semibold text-gray-800 mb-4">
+                Practical Design
+              </h3>
               <div className="space-y-3 text-sm text-gray-600">
                 <div>
-                  <span className="font-semibold">Gradual typing:</span> Start untyped, add types as needed
+                  <span className="font-semibold">Gradual typing:</span> Start
+                  untyped, add types as needed
                 </div>
                 <div>
-                  <span className="font-semibold">Unicode strings:</span> Characters are what you see on screen
+                  <span className="font-semibold">Unicode strings:</span>{" "}
+                  Characters are what you see on screen
                 </div>
                 <div>
-                  <span className="font-semibold">Error operators:</span> ? for unwrapping, ! for panicking
+                  <span className="font-semibold">Error operators:</span> ? for
+                  unwrapping, ! for panicking
                 </div>
                 <div>
-                  <span className="font-semibold">Imperative style:</span> Use let bindings and loops when clear
+                  <span className="font-semibold">Imperative style:</span> Use
+                  let bindings and loops when clear
                 </div>
                 <div>
-                  <span className="font-semibold">Async by default:</span> All I/O operations are async
+                  <span className="font-semibold">Async by default:</span> All
+                  I/O operations are async
                 </div>
                 <div>
-                  <span className="font-semibold">Unicode-first strings:</span> Characters are what you see on screen
+                  <span className="font-semibold">Unicode-first strings:</span>{" "}
+                  Characters are what you see on screen
                 </div>
               </div>
             </div>
           </div>
-          
+
           <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-            <h4 className="font-semibold text-gray-800 mb-2">Unicode-First Strings</h4>
+            <h4 className="font-semibold text-gray-800 mb-2">
+              Unicode-First Strings
+            </h4>
             <p className="text-sm text-gray-600 mb-3">
-              Unlike languages from last millennium that use bytes or UTF-16 characters, 
-              Darklang strings are built around "extended grapheme clusters"—what you 
-              actually see on screen.
+              Unlike languages from last millennium that use bytes or UTF-16
+              characters, Darklang strings are built around "extended grapheme
+              clusters"—what you actually see on screen.
             </p>
             <div className="text-xs bg-white p-2 rounded font-mono">
-              String.length "👨‍👩‍👧‍👦" // 1 (family emoji)<br/>
+              String.length "👨‍👩‍👧‍👦" // 1 (family emoji)
+              <br />
               String.length "café" // 4 (including accented é)
             </div>
             <p className="text-xs text-gray-500 mt-2">
@@ -326,44 +464,148 @@ const Language: React.FC = () => {
           </h2>
           <div className="space-y-6">
             <div className="bg-gray-900 rounded-lg p-6 text-white font-mono text-sm overflow-x-auto">
-              <div className="text-gray-400 mb-3">// Pattern matching on union types</div>
+              <div className="text-gray-400 mb-3">
+                // Pattern matching on union types
+              </div>
               <div className="space-y-1">
-                <div><span className="text-purple-400">fn</span> <span className="text-yellow-300">describePhone</span> (<span className="text-blue-300">phone</span>: <span className="text-green-300">Phone</span>): <span className="text-green-300">String</span> =</div>
-                <div>  <span className="text-purple-400">match</span> phone <span className="text-purple-400">with</span></div>
-                <div>  | <span className="text-yellow-300">IPhone</span>(color, size, model) -&gt;</div>
-                <div>      <span className="text-red-300">"&#123;color&#125; &#123;size&#125; iPhone &#123;model&#125;"</span></div>
-                <div>  | <span className="text-yellow-300">Android</span>(manufacturer, model) -&gt;</div>
-                <div>      <span className="text-red-300">"&#123;manufacturer&#125; &#123;model&#125;"</span></div>
-                <div>  | <span className="text-yellow-300">Landline</span> -&gt;</div>
-                <div>      <span className="text-red-300">"Old school phone"</span></div>
+                <div>
+                  <span className="text-purple-400">fn</span>{" "}
+                  <span className="text-yellow-300">describePhone</span> (
+                  <span className="text-blue-300">phone</span>:{" "}
+                  <span className="text-green-300">Phone</span>):{" "}
+                  <span className="text-green-300">String</span> =
+                </div>
+                <div>
+                  {" "}
+                  <span className="text-purple-400">match</span> phone{" "}
+                  <span className="text-purple-400">with</span>
+                </div>
+                <div>
+                  {" "}
+                  | <span className="text-yellow-300">IPhone</span>(color, size,
+                  model) -&gt;
+                </div>
+                <div>
+                  {" "}
+                  <span className="text-red-300">
+                    "&#123;color&#125; &#123;size&#125; iPhone
+                    &#123;model&#125;"
+                  </span>
+                </div>
+                <div>
+                  {" "}
+                  | <span className="text-yellow-300">Android</span>
+                  (manufacturer, model) -&gt;
+                </div>
+                <div>
+                  {" "}
+                  <span className="text-red-300">
+                    "&#123;manufacturer&#125; &#123;model&#125;"
+                  </span>
+                </div>
+                <div>
+                  {" "}
+                  | <span className="text-yellow-300">Landline</span> -&gt;
+                </div>
+                <div>
+                  {" "}
+                  <span className="text-red-300">"Old school phone"</span>
+                </div>
               </div>
             </div>
-            
+
             <div className="bg-gray-900 rounded-lg p-6 text-white font-mono text-sm overflow-x-auto">
-              <div className="text-gray-400 mb-3">// Error handling with Result types</div>
+              <div className="text-gray-400 mb-3">
+                // Error handling with Result types
+              </div>
               <div className="space-y-1">
-                <div><span className="text-purple-400">fn</span> <span className="text-yellow-300">parseAndDouble</span> (<span className="text-blue-300">input</span>: <span className="text-green-300">String</span>): <span className="text-green-300">Result&lt;Int, String&gt;</span> =</div>
-                <div>  <span className="text-purple-400">let</span> number = <span className="text-yellow-300">Int.parse</span> input<span className="text-red-300">?</span></div>
-                <div>  <span className="text-purple-400">let</span> doubled = number * <span className="text-orange-300">2</span></div>
-                <div>  <span className="text-yellow-300">Ok</span>(doubled)</div>
+                <div>
+                  <span className="text-purple-400">fn</span>{" "}
+                  <span className="text-yellow-300">parseAndDouble</span> (
+                  <span className="text-blue-300">input</span>:{" "}
+                  <span className="text-green-300">String</span>):{" "}
+                  <span className="text-green-300">
+                    Result&lt;Int, String&gt;
+                  </span>{" "}
+                  =
+                </div>
+                <div>
+                  {" "}
+                  <span className="text-purple-400">let</span> number ={" "}
+                  <span className="text-yellow-300">Int.parse</span> input
+                  <span className="text-red-300">?</span>
+                </div>
+                <div>
+                  {" "}
+                  <span className="text-purple-400">let</span> doubled = number
+                  * <span className="text-orange-300">2</span>
+                </div>
+                <div>
+                  {" "}
+                  <span className="text-yellow-300">Ok</span>(doubled)
+                </div>
                 <div></div>
-                <div className="text-gray-400">// Usage with pattern matching</div>
-                <div><span className="text-purple-400">match</span> <span className="text-yellow-300">parseAndDouble</span>(<span className="text-red-300">"42"</span>) <span className="text-purple-400">with</span></div>
-                <div>| <span className="text-yellow-300">Ok</span>(result) -&gt; <span className="text-yellow-300">print</span> <span className="text-red-300">"Success: &#123;result&#125;"</span></div>
-                <div>| <span className="text-yellow-300">Error</span>(msg) -&gt; <span className="text-yellow-300">print</span> <span className="text-red-300">"Failed: &#123;msg&#125;"</span></div>
+                <div className="text-gray-400">
+                  // Usage with pattern matching
+                </div>
+                <div>
+                  <span className="text-purple-400">match</span>{" "}
+                  <span className="text-yellow-300">parseAndDouble</span>(
+                  <span className="text-red-300">"42"</span>){" "}
+                  <span className="text-purple-400">with</span>
+                </div>
+                <div>
+                  | <span className="text-yellow-300">Ok</span>(result) -&gt;{" "}
+                  <span className="text-yellow-300">print</span>{" "}
+                  <span className="text-red-300">
+                    "Success: &#123;result&#125;"
+                  </span>
+                </div>
+                <div>
+                  | <span className="text-yellow-300">Error</span>(msg) -&gt;{" "}
+                  <span className="text-yellow-300">print</span>{" "}
+                  <span className="text-red-300">
+                    "Failed: &#123;msg&#125;"
+                  </span>
+                </div>
               </div>
             </div>
-            
+
             <div className="bg-gray-900 rounded-lg p-6 text-white font-mono text-sm overflow-x-auto">
-              <div className="text-gray-400 mb-3">// Working with collections</div>
+              <div className="text-gray-400 mb-3">
+                // Working with collections
+              </div>
               <div className="space-y-1">
-                <div><span className="text-purple-400">let</span> numbers = [<span className="text-orange-300">1</span>, <span className="text-orange-300">2</span>, <span className="text-orange-300">3</span>, <span className="text-orange-300">4</span>, <span className="text-orange-300">5</span>]</div>
-                <div><span className="text-purple-400">let</span> result =</div>
-                <div>  numbers</div>
-                <div>  |&gt; <span className="text-yellow-300">List.filter</span> (\<span className="text-blue-300">x</span> -&gt; x &gt; <span className="text-orange-300">2</span>)</div>
-                <div>  |&gt; <span className="text-yellow-300">List.map</span> (\<span className="text-blue-300">x</span> -&gt; x * x)</div>
-                <div>  |&gt; <span className="text-yellow-300">List.sum</span></div>
-                <div className="text-gray-400">// result is 50 (3² + 4² + 5²)</div>
+                <div>
+                  <span className="text-purple-400">let</span> numbers = [
+                  <span className="text-orange-300">1</span>,{" "}
+                  <span className="text-orange-300">2</span>,{" "}
+                  <span className="text-orange-300">3</span>,{" "}
+                  <span className="text-orange-300">4</span>,{" "}
+                  <span className="text-orange-300">5</span>]
+                </div>
+                <div>
+                  <span className="text-purple-400">let</span> result =
+                </div>
+                <div> numbers</div>
+                <div>
+                  {" "}
+                  |&gt; <span className="text-yellow-300">List.filter</span> (\
+                  <span className="text-blue-300">x</span> -&gt; x &gt;{" "}
+                  <span className="text-orange-300">2</span>)
+                </div>
+                <div>
+                  {" "}
+                  |&gt; <span className="text-yellow-300">List.map</span> (\
+                  <span className="text-blue-300">x</span> -&gt; x * x)
+                </div>
+                <div>
+                  {" "}
+                  |&gt; <span className="text-yellow-300">List.sum</span>
+                </div>
+                <div className="text-gray-400">
+                  // result is 50 (3² + 4² + 5²)
+                </div>
               </div>
             </div>
           </div>
@@ -376,49 +618,58 @@ const Language: React.FC = () => {
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
             <p className="text-lg">
-              "Why not just build Darklang on top of JavaScript or some other existing language?"
+              "Why not just build Darklang on top of JavaScript or some other
+              existing language?"
             </p>
             <p>
-              <strong>The real answer:</strong> Because the language is part of the whole integrated package. 
-              When we control the language, we can build capabilities that are impossible with existing languages.
+              <strong>The real answer:</strong> Because the language is part of
+              the whole integrated package. When we control the language, we can
+              build capabilities that are impossible with existing languages.
             </p>
-            
+
             <div className="bg-blue-50 rounded-lg p-6 my-6">
-              <h3 className="font-semibold text-gray-800 mb-4">What Integration Enables</h3>
+              <h3 className="font-semibold text-gray-800 mb-4">
+                What Integration Enables
+              </h3>
               <div className="space-y-3 text-sm text-gray-700">
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <div>
-                    <strong>Expression-level debugging:</strong> Each expression has a unique ID. 
-                    We can show you exactly what value flowed through any part of your code in production.
+                    <strong>Expression-level debugging:</strong> Each expression
+                    has a unique ID. We can show you exactly what value flowed
+                    through any part of your code in production.
                   </div>
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <div>
-                    <strong>Self-hosting tools:</strong> Our parser is written in Darklang. Our static analysis runs in Darklang. 
-                    The language understands itself completely.
+                    <strong>Self-hosting tools:</strong> Our parser is written
+                    in Darklang. Our static analysis runs in Darklang. The
+                    language understands itself completely.
                   </div>
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <div>
-                    <strong>AI code assistance:</strong> Since we control the AST, we can expose structured information 
-                    to AI models for better code generation and error correction.
+                    <strong>AI code assistance:</strong> Since we control the
+                    AST, we can expose structured information to AI models for
+                    better code generation and error correction.
                   </div>
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <div>
-                    <strong>Live code migration:</strong> We can automatically refactor your code when functions change, 
-                    because we understand the semantic structure, not just text.
+                    <strong>Live code migration:</strong> We can automatically
+                    refactor your code when functions change, because we
+                    understand the semantic structure, not just text.
                   </div>
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <div>
-                    <strong>Built-in performance profiling:</strong> Every function call is instrumented by default. 
-                    We know where your code spends time without external profilers.
+                    <strong>Built-in performance profiling:</strong> Every
+                    function call is instrumented by default. We know where your
+                    code spends time without external profilers.
                   </div>
                 </div>
               </div>
@@ -426,7 +677,9 @@ const Language: React.FC = () => {
 
             <div className="grid md:grid-cols-2 gap-6 mt-6">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-3">Using Existing Languages</h3>
+                <h3 className="font-semibold text-gray-800 mb-3">
+                  Using Existing Languages
+                </h3>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>• Limited to external tooling and plugins</li>
                   <li>• Text-based analysis and transformations</li>
@@ -437,7 +690,9 @@ const Language: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-3">Darklang's Integration</h3>
+                <h3 className="font-semibold text-gray-800 mb-3">
+                  Darklang's Integration
+                </h3>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>• Deep AST-level understanding</li>
                   <li>• Semantic analysis and transformations</li>
@@ -449,31 +704,44 @@ const Language: React.FC = () => {
               </div>
             </div>
             <p className="text-lg font-medium text-blue-lbg">
-              When the language is designed as part of the platform, we can build developer experiences 
-              that are impossible with bolt-on tools.
+              When the language is designed as part of the platform, we can
+              build developer experiences that are impossible with bolt-on
+              tools.
             </p>
           </div>
         </div>
 
         {/* Learn More */}
         <div className="border-l-4 border-mint pl-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Learn More
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Learn More</h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
             <p>
-              This page covers the basics of Darklang's language design and syntax. 
-              For complete language documentation, examples, and tutorials, visit 
-              our documentation site.
+              This page covers the basics of Darklang's language design and
+              syntax. For complete language documentation, examples, and
+              tutorials, visit our documentation site.
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-6">
-              <a href="/getting-started" className="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-                <h3 className="font-semibold text-blue-800 mb-2">Getting Started</h3>
-                <p className="text-sm text-blue-600">Install Darklang and write your first function</p>
+              <a
+                href="/getting-started"
+                className="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+              >
+                <h3 className="font-semibold text-blue-800 mb-2">
+                  Getting Started
+                </h3>
+                <p className="text-sm text-blue-600">
+                  Install Darklang and write your first function
+                </p>
               </a>
-              <a href="https://docs.darklang.com" className="block p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
-                <h3 className="font-semibold text-green-800 mb-2">Language Reference</h3>
-                <p className="text-sm text-green-600">Complete documentation and API reference</p>
+              <a
+                href="https://docs.darklang.com"
+                className="block p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
+              >
+                <h3 className="font-semibold text-green-800 mb-2">
+                  Language Reference
+                </h3>
+                <p className="text-sm text-green-600">
+                  Complete documentation and API reference
+                </p>
               </a>
             </div>
           </div>

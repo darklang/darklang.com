@@ -1,4 +1,3 @@
-
 // TODO talk about how things will eventually be migrated to "-next"
 
 const About = () => {

@@ -58,7 +58,11 @@ export const navigationConfig: NavigationSection[] = [
     type: "dropdown",
     items: [
       { text: "Support", href: "/support" },
-      { text: "Documentation", href: "https://docs.darklang.com", target: "_blank" },
+      {
+        text: "Documentation",
+        href: "https://docs.darklang.com",
+        target: "_blank",
+      },
     ],
   },
   {

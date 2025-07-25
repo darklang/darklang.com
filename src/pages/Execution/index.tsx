@@ -11,23 +11,26 @@ const Execution: React.FC = () => {
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
           <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
-            No compilation, no build steps, no waiting. Write code and it runs 
+            No compilation, no build steps, no waiting. Write code and it runs
             immediately with Darklang's streamlined execution model.
           </p>
         </div>
 
         {/* Interpreted Runtime */}
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Interpreted by Design</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Interpreted by Design
+          </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Darklang runs your code directly through an interpreter—no compilation 
-            step required. This means your programs start instantly, making the 
-            development cycle incredibly fast and responsive.
+            Darklang runs your code directly through an interpreter—no
+            compilation step required. This means your programs start instantly,
+            making the development cycle incredibly fast and responsive.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            While compilation can provide performance benefits, interpretation gives 
-            you immediate feedback and eliminates the wait times that slow down 
-            development. Perfect for rapid prototyping and iterative development.
+            While compilation can provide performance benefits, interpretation
+            gives you immediate feedback and eliminates the wait times that slow
+            down development. Perfect for rapid prototyping and iterative
+            development.
           </p>
         </div>
 
@@ -37,21 +40,34 @@ const Execution: React.FC = () => {
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-purple-lbg rounded-lg flex items-center justify-center mr-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Async Without Keywords</h3>
+              <h3 className="text-xl font-bold text-gray-900">
+                Async Without Keywords
+              </h3>
             </div>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Darklang's runtime is fully asynchronous by default, but you don't 
-              need to think about it. No async/await keywords, no "colored functions"—
-              just write straightforward code.
+              Darklang's runtime is fully asynchronous by default, but you don't
+              need to think about it. No async/await keywords, no "colored
+              functions"— just write straightforward code.
             </p>
             <div className="bg-gray-50 p-4 rounded-md">
               <p className="text-sm text-gray-600">
-                HTTP calls, database queries, and file operations are automatically 
-                non-blocking, handled through data dependencies rather than explicit async syntax.
+                HTTP calls, database queries, and file operations are
+                automatically non-blocking, handled through data dependencies
+                rather than explicit async syntax.
               </p>
             </div>
           </div>
@@ -60,21 +76,33 @@ const Execution: React.FC = () => {
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-mint rounded-lg flex items-center justify-center mr-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Garbage Collected</h3>
+              <h3 className="text-xl font-bold text-gray-900">
+                Garbage Collected
+              </h3>
             </div>
             <p className="text-gray-700 leading-relaxed mb-4">
-              No manual memory management, no segfaults, no memory leaks. 
-              Darklang's garbage collector handles memory automatically so 
-              you can focus on business logic.
+              No manual memory management, no segfaults, no memory leaks.
+              Darklang's garbage collector handles memory automatically so you
+              can focus on business logic.
             </p>
             <div className="bg-gray-50 p-4 rounded-md">
               <p className="text-sm text-gray-600">
-                Memory safety without the complexity—one of the greatest programming 
-                language features for developer productivity.
+                Memory safety without the complexity—one of the greatest
+                programming language features for developer productivity.
               </p>
             </div>
           </div>
@@ -87,21 +115,26 @@ const Execution: React.FC = () => {
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
             <p>
-              Traditional languages require you to download and install packages 
-              before running code. Darklang streams dependencies automatically 
+              Traditional languages require you to download and install packages
+              before running code. Darklang streams dependencies automatically
               from the package manager as your code runs.
             </p>
-            
+
             <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-lbg">
               <h3 className="font-semibold text-gray-800 mb-3">How It Works</h3>
               <div className="space-y-3">
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-blue-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <div>Your code references a function from another package</div>
+                  <div>
+                    Your code references a function from another package
+                  </div>
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-purple-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <div>Runtime automatically fetches and caches that specific function</div>
+                  <div>
+                    Runtime automatically fetches and caches that specific
+                    function
+                  </div>
                 </div>
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -109,19 +142,23 @@ const Execution: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-mint-50 p-4 rounded-lg mt-4">
-              <h4 className="font-semibold text-gray-800 mb-2">Minimal Downloads</h4>
+              <h4 className="font-semibold text-gray-800 mb-2">
+                Minimal Downloads
+              </h4>
               <p className="text-sm text-gray-600">
-                Unlike traditional package managers that download entire libraries, Darklang streams 
-                only the specific functions and types you actually use. This dramatically reduces 
-                bandwidth and storage requirements.
+                Unlike traditional package managers that download entire
+                libraries, Darklang streams only the specific functions and
+                types you actually use. This dramatically reduces bandwidth and
+                storage requirements.
               </p>
             </div>
-            
+
             <p className="text-sm text-gray-600 mt-4">
-              No "npm install" steps, no waiting to download the entire internet. 
-              Local caching is configurable based on your storage and performance preferences.
+              No "npm install" steps, no waiting to download the entire
+              internet. Local caching is configurable based on your storage and
+              performance preferences.
             </p>
           </div>
         </div>
@@ -133,15 +170,28 @@ const Execution: React.FC = () => {
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
             <p>
-              The combination of interpretation and <a href="/typechecking" className="text-blue-lbg hover:underline">gradual static typing</a> creates 
-              an incredibly fast development experience:
+              The combination of interpretation and{" "}
+              <a href="/typechecking" className="text-blue-lbg hover:underline">
+                gradual static typing
+              </a>{" "}
+              creates an incredibly fast development experience:
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-6 mt-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-lbg rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                    />
                   </svg>
                 </div>
                 <h3 className="font-semibold text-gray-800 mb-2">Write</h3>
@@ -149,11 +199,21 @@ const Execution: React.FC = () => {
                   Type your function and save. No compilation step needed.
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-lbg rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
                   </svg>
                 </div>
                 <h3 className="font-semibold text-gray-800 mb-2">Run</h3>
@@ -161,11 +221,21 @@ const Execution: React.FC = () => {
                   Code executes immediately, even with partial type information.
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-mint rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                    />
                   </svg>
                 </div>
                 <h3 className="font-semibold text-gray-800 mb-2">Iterate</h3>
@@ -184,19 +254,23 @@ const Execution: React.FC = () => {
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
             <p>
-              Any Darklang function can be executed directly from the command line, 
-              web interfaces, Slack, Discord, or any other platform. This universal 
-              execution model opens up entirely new ways to interact with code.
+              Any Darklang function can be executed directly from the command
+              line, web interfaces, Slack, Discord, or any other platform. This
+              universal execution model opens up entirely new ways to interact
+              with code.
             </p>
-            
+
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">Example: Run Any Function</h3>
+              <h3 className="font-semibold text-gray-800 mb-3">
+                Example: Run Any Function
+              </h3>
               <div className="font-mono text-sm bg-gray-800 text-green-400 p-4 rounded mb-3">
                 $ darklang @username.parseCSV myfile.csv
               </div>
               <p className="text-sm text-gray-600">
-                Execute functions directly without writing wrapper scripts or setting up servers. 
-                Functions can run server-side without exposing credentials.
+                Execute functions directly without writing wrapper scripts or
+                setting up servers. Functions can run server-side without
+                exposing credentials.
               </p>
             </div>
           </div>
@@ -209,13 +283,15 @@ const Execution: React.FC = () => {
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
             <p>
-              Darklang prioritizes developer productivity over raw performance. 
-              The current runtime is "fast enough for most things" but not optimized 
-              for high-performance computing scenarios.
+              Darklang prioritizes developer productivity over raw performance.
+              The current runtime is "fast enough for most things" but not
+              optimized for high-performance computing scenarios.
             </p>
-            
+
             <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-400">
-              <h3 className="font-semibold text-gray-800 mb-3">Current Trade-offs</h3>
+              <h3 className="font-semibold text-gray-800 mb-3">
+                Current Trade-offs
+              </h3>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center">
                   <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
@@ -227,7 +303,9 @@ const Execution: React.FC = () => {
                 </div>
                 <div className="flex items-center">
                   <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
-                  <span>Interpreted execution is slower than compiled code</span>
+                  <span>
+                    Interpreted execution is slower than compiled code
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
@@ -235,13 +313,14 @@ const Execution: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             <p>
-              For performance-critical tasks, you can call out to external services, 
-              local CLI tools, or specialized high-performance libraries. Darklang makes 
-              it easy to integrate with existing tools when you need raw speed. We will 
-              eventually build a full compiler for maximum performance, but it's not a 
-              priority yet—developer productivity comes first.
+              For performance-critical tasks, you can call out to external
+              services, local CLI tools, or specialized high-performance
+              libraries. Darklang makes it easy to integrate with existing tools
+              when you need raw speed. We will eventually build a full compiler
+              for maximum performance, but it's not a priority yet—developer
+              productivity comes first.
             </p>
           </div>
         </div>
@@ -253,13 +332,13 @@ const Execution: React.FC = () => {
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
             <p className="text-lg">
-              Darklang's execution model eliminates the friction between writing 
+              Darklang's execution model eliminates the friction between writing
               code and running code.
             </p>
             <p>
-              No build steps, no compilation delays, no dependency installation—just 
-              instant execution that lets you focus on solving problems rather than 
-              managing toolchains.
+              No build steps, no compilation delays, no dependency
+              installation—just instant execution that lets you focus on solving
+              problems rather than managing toolchains.
             </p>
             <p className="text-lg font-medium text-blue-lbg">
               Write code, save, it's running.

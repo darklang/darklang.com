@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import Terminal from "../../common/ui/Terminal.tsx";
 // import Button from "../../common/ui/Button.tsx";
 // import CTASection from "../../common/ui/CTASection/index.tsx";
@@ -11,7 +10,11 @@ const CLIPage: React.FC = () => {
       {/* ASCII Art Header Section - Hidden on Mobile */}
       <section className="py-18 px-6 max-w-7xl mx-auto text-center">
         <div className="md:my-20">
-          <img src="/assets/darklang-cli-ascii.png" alt="Darklang CLI ASCII" className="mx-auto" />
+          <img
+            src="/assets/darklang-cli-ascii.png"
+            alt="Darklang CLI ASCII"
+            className="mx-auto"
+          />
         </div>
       </section>
 
@@ -106,7 +109,11 @@ const CLIPage: React.FC = () => {
             </p>
           </div>
           <div className="hidden md:block md:w-1/4 md:absolute md:-right-20 2xl:-right-80">
-            <img src="/assets/double-grid.png" alt="grid" className="w-2xs 2xl:w-xs" />
+            <img
+              src="/assets/double-grid.png"
+              alt="grid"
+              className="w-2xs 2xl:w-xs"
+            />
           </div>
         </div>
       </section>

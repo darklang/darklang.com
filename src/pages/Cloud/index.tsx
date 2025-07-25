@@ -72,7 +72,7 @@ const Cloud: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center relative z-10">
         {/* Header Section */}
         <div className="text-center mb-16">
@@ -82,8 +82,9 @@ const Cloud: React.FC = () => {
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full mb-8"></div>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl">
-            The most convenient way to run Darklang. Deploy instantly, scale automatically, 
-            and let us handle the infrastructure so you can focus on building.
+            The most convenient way to run Darklang. Deploy instantly, scale
+            automatically, and let us handle the infrastructure so you can focus
+            on building.
           </p>
         </div>
 
@@ -91,11 +92,14 @@ const Cloud: React.FC = () => {
         <div className="text-center mb-18 text-xl md:text-2xl xl:text-[28px]">
           <div className="mb-12">
             <span className="text-white">
-              While you can run Darklang anywhere, 
+              While you can run Darklang anywhere,
             </span>
-            <span className="font-semibold text-blue-lbg"> Darklang Cloud </span>
+            <span className="font-semibold text-blue-lbg">
+              {" "}
+              Darklang Cloud{" "}
+            </span>
             <span className="text-white">
-              is the easiest way to deploy your 
+              is the easiest way to deploy your
             </span>
             <span className="text-purple-lbg"> backends</span>
             <span className="text-white">, </span>
@@ -104,14 +108,19 @@ const Cloud: React.FC = () => {
             <span className="text-taupe">crons</span>
             <span className="text-white"> and </span>
             <span className="text-yellow-400">scripts</span>
-            <span className="text-white">. No servers to manage, no containers to configure.</span>
+            <span className="text-white">
+              . No servers to manage, no containers to configure.
+            </span>
           </div>
 
           <div className="bg-blue-900/20 border border-blue-lbg rounded-lg p-6 text-base md:text-lg">
             <p className="text-gray-300">
-              <span className="text-blue-lbg font-semibold">Darklang Cloud</span> is our hosted platform—
-              like Darklang Classic, but for the modern Darklang ecosystem. 
-              It's how we stay sustainable while providing the best developer experience.
+              <span className="text-blue-lbg font-semibold">
+                Darklang Cloud
+              </span>{" "}
+              is our hosted platform— like Darklang Classic, but for the modern
+              Darklang ecosystem. It's how we stay sustainable while providing
+              the best developer experience.
             </p>
           </div>
         </div>
@@ -121,7 +130,7 @@ const Cloud: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
             Everything You Need, Hosted
           </h2>
-          
+
           <div className="space-y-6">
             {/* Instant Deployment */}
             <div className="bg-dark-black rounded-lg p-8 text-white">
@@ -129,12 +138,14 @@ const Cloud: React.FC = () => {
                 <span className="text-blue-lbg">Instant Deployment</span>
               </h3>
               <p className="text-gray-300 text-xl mb-4">
-                Write your function, save it, and it's running instantly on our infrastructure. 
-                No build steps, no deployment pipelines, no container registries. 
-                Your code goes from editor to production in seconds.
+                Write your function, save it, and it's running instantly on our
+                infrastructure. No build steps, no deployment pipelines, no
+                container registries. Your code goes from editor to production
+                in seconds.
               </p>
               <div className="text-sm text-gray-400">
-                Perfect for: HTTP endpoints, background workers, scheduled jobs, CLI tools
+                Perfect for: HTTP endpoints, background workers, scheduled jobs,
+                CLI tools
               </div>
             </div>
 
@@ -144,12 +155,21 @@ const Cloud: React.FC = () => {
                 <span className="text-yellow-400">Package Registry</span>
               </h3>
               <p className="text-gray-300 text-xl mb-4">
-                We host <a href="https://packages.darklang.com" target="_blank" rel="noopener noreferrer" className="text-blue-lbg hover:text-purple-lbg underline">packages.darklang.com</a> and the entire package ecosystem. 
-                Publish your own packages, use community packages, or contribute to the standard library. 
+                We host{" "}
+                <a
+                  href="https://packages.darklang.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-lbg hover:text-purple-lbg underline"
+                >
+                  packages.darklang.com
+                </a>{" "}
+                and the entire package ecosystem. Publish your own packages, use
+                community packages, or contribute to the standard library.
                 Everything is versioned, secure, and instantly available.
               </p>
-              <a 
-                href="/packages" 
+              <a
+                href="/packages"
                 className="inline-block text-blue-lbg hover:text-purple-lbg text-lg underline"
               >
                 Browse the package registry →
@@ -162,14 +182,17 @@ const Cloud: React.FC = () => {
                 <span className="text-mint">Remote CLI Access</span>
               </h3>
               <p className="text-gray-300 text-xl mb-4">
-                SSH directly into your Darklang environment on our cloud servers. 
-                Run your CLI tools, debug issues, or work on your code from anywhere. 
-                It's like having a powerful development machine in the cloud.
+                SSH directly into your Darklang environment on our cloud
+                servers. Run your CLI tools, debug issues, or work on your code
+                from anywhere. It's like having a powerful development machine
+                in the cloud.
               </p>
               <div className="bg-gray-800 p-4 rounded font-mono text-sm">
-                <span className="text-green-400">$</span> ssh myapp.darklang.cloud
+                <span className="text-green-400">$</span> ssh
+                myapp.darklang.cloud
                 <br />
-                <span className="text-green-400">$</span> darklang run my-script.dark
+                <span className="text-green-400">$</span> darklang run
+                my-script.dark
               </div>
             </div>
           </div>
@@ -189,8 +212,8 @@ const Cloud: React.FC = () => {
                 <span className="text-purple-lbg">In-browser Editing</span>
               </h3>
               <p className="text-gray-300">
-                Code directly in your browser with our powerful editor. 
-                No local setup required—just open a tab and start building.
+                Code directly in your browser with our powerful editor. No local
+                setup required—just open a tab and start building.
               </p>
             </div>
 
@@ -200,7 +223,7 @@ const Cloud: React.FC = () => {
                 <span className="text-mint">Source Hosting</span>
               </h3>
               <p className="text-gray-300">
-                Your code is automatically versioned and backed up with 
+                Your code is automatically versioned and backed up with
                 Darklang's built-in source control system.
               </p>
             </div>
@@ -213,8 +236,8 @@ const Cloud: React.FC = () => {
                 <span className="text-taupe">LSP Servers</span>
               </h3>
               <p className="text-gray-300">
-                Hosted language servers and MCP servers for the best 
-                development experience in any editor.
+                Hosted language servers and MCP servers for the best development
+                experience in any editor.
               </p>
             </div>
 
@@ -225,8 +248,8 @@ const Cloud: React.FC = () => {
                 <span className="text-white"> CDN</span>
               </h3>
               <p className="text-gray-300">
-                Your applications are automatically distributed globally 
-                for the best performance anywhere in the world.
+                Your applications are automatically distributed globally for the
+                best performance anywhere in the world.
               </p>
             </div>
 
@@ -237,7 +260,7 @@ const Cloud: React.FC = () => {
                 <span className="text-white"> Monitoring</span>
               </h3>
               <p className="text-gray-300">
-                Comprehensive logging, error tracking, and performance 
+                Comprehensive logging, error tracking, and performance
                 monitoring built into the platform.
               </p>
             </div>
@@ -249,7 +272,7 @@ const Cloud: React.FC = () => {
                 <span className="text-white"> Scaling</span>
               </h3>
               <p className="text-gray-300">
-                Your applications scale automatically from zero to whatever 
+                Your applications scale automatically from zero to whatever
                 traffic you get. No capacity planning required.
               </p>
             </div>
@@ -262,10 +285,12 @@ const Cloud: React.FC = () => {
             <span className="text-white">Cloud vs </span>
             <span className="text-gray-400">Self-Hosted</span>
           </h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-blue-900/20 border border-blue-lbg rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-blue-lbg mb-6">Darklang Cloud</h3>
+              <h3 className="text-2xl font-bold text-blue-lbg mb-6">
+                Darklang Cloud
+              </h3>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-3">✓</span>
@@ -295,7 +320,9 @@ const Cloud: React.FC = () => {
             </div>
 
             <div className="bg-gray-800/20 border border-gray-600 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-400 mb-6">Self-Hosted</h3>
+              <h3 className="text-2xl font-bold text-gray-400 mb-6">
+                Self-Hosted
+              </h3>
               <ul className="space-y-3 text-gray-400">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-3">✓</span>
@@ -324,15 +351,14 @@ const Cloud: React.FC = () => {
               </ul>
             </div>
           </div>
-          
+
           <div className="text-center mt-8">
             <p className="text-gray-300 text-lg">
-              Both approaches work great—Cloud is optimized for convenience, 
+              Both approaches work great—Cloud is optimized for convenience,
               self-hosted is optimized for control.
             </p>
           </div>
         </div>
-
 
         {/* Call to Action */}
         <div className="text-center">
@@ -340,7 +366,7 @@ const Cloud: React.FC = () => {
             Coming Soon
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-            Darklang Cloud is in development. We're working hard to make this 
+            Darklang Cloud is in development. We're working hard to make this
             vision a reality—stay tuned for updates on availability.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

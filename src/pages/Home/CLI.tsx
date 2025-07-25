@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import SectionTitle from "../../common/ui/SectionTitle";
 
 const CLI: React.FC = () => {

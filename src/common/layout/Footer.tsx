@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { getPageTheme, getLogoSrc } from "../config/theme";
 
-
 // Define valid page types
 type PageName = "home" | "classic" | "roadmap" | "cli" | "editing" | string;
 

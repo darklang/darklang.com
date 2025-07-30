@@ -3,14 +3,14 @@ import React from "react";
 const AI: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Built for the AI Era
           </h1>
-          <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Darklang is designed from the ground up for AI-powered development.
             From AI-friendly syntax to built-in model integration, we're
             building the platform for the future of software development.
@@ -18,31 +18,67 @@ const AI: React.FC = () => {
         </div>
 
         {/* Introduction */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Why AI-First Matters
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            The age of AI code generation is here, but most programming
-            languages weren't designed for it. Darklang is different. We've
-            built our language, tooling, and platform specifically to work
-            seamlessly with AI models, whether you're using GitHub Copilot,
-            ChatGPT, or building your own AI agents.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            This isn't just about better autocomplete—it's about fundamentally
-            reimagining how humans and AI collaborate to build software.
-          </p>
-        </div>
+        <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50 p-8 mb-20 shadow-sm border border-purple-100">
+          {/* Decorative elements */}
+          <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-purple-100/40 blur-2xl"></div>
+          <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-indigo-100/40 blur-2xl"></div>
+
+          <div className="relative">
+            {/* Icon + Title header */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center rounded-full bg-purple-100 p-2 text-purple-lbg">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="4" y1="9" x2="0" y2="9"></line>
+                  <line x1="4" y1="15" x2="0" y2="15"></line>
+                  <line x1="20" y1="9" x2="24" y2="9"></line>
+                  <line x1="20" y1="15" x2="24" y2="15"></line>
+                  <line x1="9" y1="4" x2="9" y2="0"></line>
+                  <line x1="15" y1="4" x2="15" y2="0"></line>
+                  <line x1="9" y1="20" x2="9" y2="24"></line>
+                  <line x1="15" y1="20" x2="15" y2="24"></line>
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-purple-dbg">
+                Why AI-First Matters
+              </h2>
+            </div>
+
+            {/* Content */}
+            <div className="space-y-4">
+              <p className="text-gray-700 leading-relaxed">
+                The age of AI code generation is here, but most programming
+                languages weren't designed for it. Darklang is different. We've
+                built our language, tooling, and platform specifically to work
+                seamlessly with AI models, whether you're using GitHub Copilot,
+                ChatGPT, or building your own AI agents.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                This isn't just about better autocomplete—it's about
+                fundamentally reimagining how humans and AI collaborate to build
+                software.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* AI for Development */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             AI-Enhanced Development Experience
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Forgiving Parser */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="bg-white rounded-lg shadow-md p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-purple-lbg rounded-lg flex items-center justify-center mr-4">
                   <svg
@@ -78,7 +114,7 @@ const AI: React.FC = () => {
             </div>
 
             {/* Copilot Integration */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="bg-white rounded-lg shadow-md p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-mint rounded-lg flex items-center justify-center mr-4">
                   <svg
@@ -116,7 +152,7 @@ const AI: React.FC = () => {
         </div>
 
         {/* Model Integration */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Flexible Model Integration
           </h2>
@@ -199,7 +235,7 @@ const AI: React.FC = () => {
         </div>
 
         {/* Building AI Applications */}
-        <div className="border-l-4 border-taupe pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Building AI-Powered Applications
           </h2>
@@ -259,7 +295,7 @@ const AI: React.FC = () => {
         </div>
 
         {/* Native AI Integration */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Native AI Integration
           </h2>
@@ -280,7 +316,7 @@ const AI: React.FC = () => {
                 No external libraries, no complex configuration—just clean,
                 readable code that does what you expect.
               </p>
-              <div className="text-sm text-gray-600 font-mono bg-white p-3 rounded border">
+              <div className="text-sm text-gray-600 font-mono bg-white p-3 rounded">
                 user_input |&gt; sanitize |&gt; generate_response |&gt;
                 format_output
               </div>
@@ -320,7 +356,7 @@ const AI: React.FC = () => {
         </div>
 
         {/* MCP Server Integration */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             MCP Server for Tool Integration
           </h2>
@@ -348,7 +384,7 @@ const AI: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+              <div className="bg-mint/8 p-6 rounded-lg border-l-4 border-mint">
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Function Execution
                 </h3>
@@ -384,7 +420,7 @@ const AI: React.FC = () => {
         </div>
 
         {/* Future Capabilities */}
-        <div className="border-l-4 border-mint pl-8">
+        <div className="">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             The Future of AI Development
           </h2>

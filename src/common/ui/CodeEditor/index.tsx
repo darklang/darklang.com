@@ -7,12 +7,14 @@ import CodeDisplay from "../CodeDisplay";
 import hljs from "highlight.js/lib/core";
 import "highlight.js/styles/vs2015.min.css";
 import fsharp from "highlight.js/lib/languages/fsharp";
+import python from "highlight.js/lib/languages/python";
 
 hljs.registerLanguage("fsharp", fsharp);
+hljs.registerLanguage("python", python);
 
 interface CodeEditorProps {
   code: string;
-  language?: string;
+  language?: "fsharp" | "python";
   showCompletion?: boolean;
   showHover?: boolean;
   showDiagnostics?: boolean;

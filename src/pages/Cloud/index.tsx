@@ -2,7 +2,7 @@ import React from "react";
 
 const Cloud: React.FC = () => {
   return (
-    <div className="min-h-screen py-16 bg-dark relative overflow-hidden">
+    <div className="min-h-screen py-16 bg-dark-black relative overflow-hidden">
       {/* CSS Cloud background elements */}
       <style>
         {`
@@ -24,46 +24,50 @@ const Cloud: React.FC = () => {
             25% { transform: translateX(20px) translateY(10px); }
             75% { transform: translateX(-30px) translateY(-5px); }
           }
-          .cloud1 { animation: cloudFloat1 20s ease-in-out infinite; }
-          .cloud2 { animation: cloudFloat2 25s ease-in-out infinite; }
-          .cloud3 { animation: cloudFloat3 30s ease-in-out infinite; }
-          .cloud4 { animation: cloudFloat4 22s ease-in-out infinite; }
+          @keyframes glowPulse {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.1)); }
+            50% { filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.3)); }
+          }
+          .cloud1 { animation: cloudFloat1 20s ease-in-out infinite, glowPulse 8s ease-in-out infinite; }
+          .cloud2 { animation: cloudFloat2 25s ease-in-out infinite, glowPulse 10s ease-in-out infinite; }
+          .cloud3 { animation: cloudFloat3 30s ease-in-out infinite, glowPulse 12s ease-in-out infinite; }
+          .cloud4 { animation: cloudFloat4 22s ease-in-out infinite, glowPulse 9s ease-in-out infinite; }
         `}
       </style>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Cloud 1 - large fluffy cloud */}
-        <div className="absolute top-20 -left-20 opacity-5 cloud1">
+        <div className="absolute top-20 -left-20 opacity-10 cloud1">
           <div className="relative">
-            <div className="absolute w-32 h-32 bg-blue-400 rounded-full"></div>
-            <div className="absolute w-40 h-40 bg-blue-400 rounded-full left-20 -top-4"></div>
-            <div className="absolute w-36 h-36 bg-blue-400 rounded-full left-44 top-0"></div>
-            <div className="absolute w-28 h-28 bg-blue-400 rounded-full left-64 top-4"></div>
-            <div className="absolute w-48 h-24 bg-blue-400 rounded-full left-8 top-16"></div>
+            <div className="absolute w-32 h-32 bg-purple-400 rounded-full"></div>
+            <div className="absolute w-40 h-40 bg-purple-400 rounded-full left-20 -top-4"></div>
+            <div className="absolute w-36 h-36 bg-purple-400 rounded-full left-44 top-0"></div>
+            <div className="absolute w-28 h-28 bg-purple-400 rounded-full left-64 top-4"></div>
+            <div className="absolute w-48 h-24 bg-purple-400 rounded-full left-8 top-16"></div>
           </div>
         </div>
 
         {/* Cloud 2 - medium cloud */}
-        <div className="absolute top-40 right-10 opacity-5 cloud2">
+        <div className="absolute top-40 right-10 opacity-10 cloud2">
           <div className="relative">
-            <div className="absolute w-24 h-24 bg-purple-400 rounded-full"></div>
-            <div className="absolute w-32 h-32 bg-purple-400 rounded-full left-16 -top-2"></div>
-            <div className="absolute w-28 h-28 bg-purple-400 rounded-full left-36 top-0"></div>
-            <div className="absolute w-36 h-20 bg-purple-400 rounded-full left-4 top-12"></div>
+            <div className="absolute w-24 h-24 bg-blue-400 rounded-full"></div>
+            <div className="absolute w-32 h-32 bg-blue-400 rounded-full left-16 -top-2"></div>
+            <div className="absolute w-28 h-28 bg-blue-400 rounded-full left-36 top-0"></div>
+            <div className="absolute w-36 h-20 bg-blue-400 rounded-full left-4 top-12"></div>
           </div>
         </div>
 
         {/* Cloud 3 - small distant cloud */}
-        <div className="absolute bottom-60 left-1/2 opacity-10 cloud3">
+        <div className="absolute bottom-40 right-1/2 opacity-10 cloud3">
           <div className="relative">
-            <div className="absolute w-20 h-20 bg-blue-300 rounded-full"></div>
-            <div className="absolute w-24 h-24 bg-blue-300 rounded-full left-12 -top-2"></div>
-            <div className="absolute w-20 h-20 bg-blue-300 rounded-full left-28 top-0"></div>
-            <div className="absolute w-28 h-16 bg-blue-300 rounded-full left-4 top-10"></div>
+            <div className="absolute w-20 h-20 bg-blue-200 rounded-full"></div>
+            <div className="absolute w-24 h-24 bg-blue-200 rounded-full left-12 -top-2"></div>
+            <div className="absolute w-20 h-20 bg-blue-200 rounded-full left-28 top-0"></div>
+            <div className="absolute w-28 h-16 bg-blue-200 rounded-full left-4 top-10"></div>
           </div>
         </div>
 
         {/* Cloud 4 - wispy cloud */}
-        <div className="absolute top-2/3 right-1/3 opacity-5 cloud4">
+        <div className="absolute top-2/3 right-1/3 opacity-10 cloud4">
           <div className="relative">
             <div className="absolute w-16 h-16 bg-purple-300 rounded-full"></div>
             <div className="absolute w-20 h-20 bg-purple-300 rounded-full left-10 -top-1"></div>
@@ -73,47 +77,48 @@ const Cloud: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            <span className="text-blue-lbg">Darklang</span>
+      <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto flex flex-col items-center relative z-10">
+        {/* Header Section - More streamlined */}
+        <div className="text-center my-8 relative">
+          <h1 className="text-5xl md:text-7xl font-semibold text-white mb-6">
+            <span className="text-purple-dbg">Darklang</span>
             <span className="text-white"> Cloud</span>
           </h1>
-          <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full mb-8"></div>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl">
+          <div className="w-42 h-1 bg-purple-lbg mx-auto rounded-full mb-12"></div>
+          <p className="text-md md:text-lg text-gray-200 max-w-5xl mx-auto">
             The most convenient way to run Darklang. Deploy instantly, scale
             automatically, and let us handle the infrastructure so you can focus
             on building.
           </p>
         </div>
 
-        {/* Main value proposition */}
-        <div className="text-center mb-18 text-xl md:text-2xl xl:text-[28px]">
-          <div className="mb-12">
+        {/* Main value proposition - Streamlined */}
+        <div className="text-center mb-16 text-xl md:text-2xl xl:text-[28px] max-w-6xl">
+          <p className="mb-8">
             <span className="text-white">
               While you can run Darklang anywhere,
             </span>
-            <span className="font-semibold text-blue-lbg">
+            <span className="font-semibold text-blue-dbg">
               {" "}
               Darklang Cloud{" "}
             </span>
             <span className="text-white">
               is the easiest way to deploy your
             </span>
-            <span className="text-purple-lbg"> backends</span>
+            <span className="text-purple-dbg font-semibold"> backends</span>
             <span className="text-white">, </span>
-            <span className="text-mint"> CLIs</span>
+            <span className="text-purple-dbg font-semibold"> CLIs</span>
             <span className="text-white">, </span>
-            <span className="text-taupe">crons</span>
+            <span className="text-taupe font-semibold">crons</span>
+            <span className="text-white">, </span>
             <span className="text-white"> and </span>
-            <span className="text-yellow-400">scripts</span>
+            <span className="text-taupe font-semibold">scripts</span>
             <span className="text-white">
               . No servers to manage, no containers to configure.
             </span>
-          </div>
+          </p>
 
-          <div className="bg-blue-900/20 border border-blue-lbg rounded-lg p-6 text-base md:text-lg">
+          <div className="backdrop-blur-sm border border-blue-lbg/30 p-6 text-base md:text-lg rounded">
             <p className="text-gray-300">
               <span className="text-blue-lbg font-semibold">
                 Darklang Cloud
@@ -133,7 +138,7 @@ const Cloud: React.FC = () => {
 
           <div className="space-y-6">
             {/* Instant Deployment */}
-            <div className="bg-dark-black rounded-lg p-8 text-white">
+            <div className="bg-dark-black/60 backdrop-blur-sm rounded-2xl px-8 py-2 text-white">
               <h3 className="text-2xl font-semibold mb-4">
                 <span className="text-blue-lbg">Instant Deployment</span>
               </h3>
@@ -150,9 +155,9 @@ const Cloud: React.FC = () => {
             </div>
 
             {/* Package Hosting */}
-            <div className="bg-dark-black rounded-lg p-8 text-white">
+            <div className="bg-dark-black/60 backdrop-blur-sm rounded-2xl px-8 py-2 text-white border-l-taupe">
               <h3 className="text-2xl font-semibold mb-4">
-                <span className="text-yellow-400">Package Registry</span>
+                <span className="text-taupe">Package Registry</span>
               </h3>
               <p className="text-gray-300 text-xl mb-4">
                 We host{" "}
@@ -160,7 +165,7 @@ const Cloud: React.FC = () => {
                   href="https://packages.darklang.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-lbg hover:text-purple-lbg underline"
+                  className="text-blue-lbg hover:text-taupe underline"
                 >
                   packages.darklang.com
                 </a>{" "}
@@ -170,16 +175,16 @@ const Cloud: React.FC = () => {
               </p>
               <a
                 href="/packages"
-                className="inline-block text-blue-lbg hover:text-purple-lbg text-lg underline"
+                className="inline-block text-taupe hover:text-purple-lbg text-lg underline"
               >
                 Browse the package registry →
               </a>
             </div>
 
             {/* CLI Access */}
-            <div className="bg-dark-black rounded-lg p-8 text-white">
+            <div className="bg-dark-black/60 backdrop-blur-sm rounded-2xl px-8 py-2 text-white">
               <h3 className="text-2xl font-semibold mb-4">
-                <span className="text-mint">Remote CLI Access</span>
+                <span className="text-purple-dbg">Remote CLI Access</span>
               </h3>
               <p className="text-gray-300 text-xl mb-4">
                 SSH directly into your Darklang environment on our cloud
@@ -187,11 +192,11 @@ const Cloud: React.FC = () => {
                 from anywhere. It's like having a powerful development machine
                 in the cloud.
               </p>
-              <div className="bg-gray-800 p-4 rounded font-mono text-sm">
-                <span className="text-green-400">$</span> ssh
+              <div className="bg-[#252525] p-4 rounded font-mono text-sm">
+                <span className="text-purple-dbg">$</span> ssh
                 myapp.darklang.cloud
                 <br />
-                <span className="text-green-400">$</span> darklang run
+                <span className="text-purple-dbg">$</span> darklang run
                 my-script.dark
               </div>
             </div>
@@ -201,15 +206,14 @@ const Cloud: React.FC = () => {
         {/* Cloud Features Grid */}
         <div className="mb-20 w-full">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
-            <span className="text-white">Everything </span>
-            <span className="text-blue-lbg">Included</span>
+            Everything <span className="text-blue-dbg">Included</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {/* In-Browser Editor */}
-            <div className="bg-dark-black p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">
-                <span className="text-purple-lbg">In-browser Editing</span>
+            <div className="bg-dark-black/60 backdrop-blur-sm p-6 rounded-xl shadow-md transform transition-transform hover:scale-105 hover:shadow-lg border-t border-l border-white/5">
+              <h3 className="text-xl font-semibold mb-3 text-white">
+                <span className="text-purple-lbg">In-browser</span> Editing
               </h3>
               <p className="text-gray-300">
                 Code directly in your browser with our powerful editor. No local
@@ -218,9 +222,9 @@ const Cloud: React.FC = () => {
             </div>
 
             {/* Source Hosting */}
-            <div className="bg-dark-black p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">
-                <span className="text-mint">Source Hosting</span>
+            <div className="bg-dark-black/60 backdrop-blur-sm p-6 rounded-xl shadow-md transform transition-transform hover:scale-105 hover:shadow-lg border-t border-l border-white/5">
+              <h3 className="text-xl font-semibold mb-3 text-white">
+                <span className="text-lavender">Source</span> Hosting
               </h3>
               <p className="text-gray-300">
                 Your code is automatically versioned and backed up with
@@ -229,7 +233,7 @@ const Cloud: React.FC = () => {
             </div>
 
             {/* MCP & LSP Servers */}
-            <div className="bg-dark-black p-6 rounded-lg">
+            <div className="bg-dark-black/60 backdrop-blur-sm p-6 rounded-xl shadow-md transform transition-transform hover:scale-105 hover:shadow-lg border-t border-l border-white/5">
               <h3 className="text-xl font-semibold mb-3">
                 <span className="text-taupe">MCP</span>
                 <span className="text-white"> and </span>
@@ -242,9 +246,9 @@ const Cloud: React.FC = () => {
             </div>
 
             {/* CDN & Performance */}
-            <div className="bg-dark-black p-6 rounded-lg">
+            <div className="bg-dark-black/60 backdrop-blur-sm p-6 rounded-xl shadow-md transform transition-transform hover:scale-105 hover:shadow-lg border-t border-l border-white/5">
               <h3 className="text-xl font-semibold mb-3">
-                <span className="text-yellow-400">Global</span>
+                <span className="text-taupe">Global</span>
                 <span className="text-white"> CDN</span>
               </h3>
               <p className="text-gray-300">
@@ -254,7 +258,7 @@ const Cloud: React.FC = () => {
             </div>
 
             {/* Monitoring & Logs */}
-            <div className="bg-dark-black p-6 rounded-lg">
+            <div className="bg-dark-black/60 backdrop-blur-sm p-6 rounded-xl shadow-md transform transition-transform hover:scale-105 hover:shadow-lg border-t border-l border-white/5">
               <h3 className="text-xl font-semibold mb-3">
                 <span className="text-blue-lbg">Built-in</span>
                 <span className="text-white"> Monitoring</span>
@@ -266,7 +270,7 @@ const Cloud: React.FC = () => {
             </div>
 
             {/* Automatic Scaling */}
-            <div className="bg-dark-black p-6 rounded-lg">
+            <div className="bg-dark-black/60 backdrop-blur-sm p-6 rounded-xl shadow-md transform transition-transform hover:scale-105 hover:shadow-lg border-t border-l border-white/5">
               <h3 className="text-xl font-semibold mb-3">
                 <span className="text-purple-lbg">Auto</span>
                 <span className="text-white"> Scaling</span>
@@ -287,53 +291,53 @@ const Cloud: React.FC = () => {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-blue-900/20 border border-blue-lbg rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-blue-lbg mb-6">
+            <div className="bg-blue-dbg/5 backdrop-blur-sm border border-white/5 rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-blue-dbg mb-6">
                 Darklang Cloud
               </h3>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <span className="text-blue-lbg mr-3">✓</span>
                   Deploy in seconds, no infrastructure setup
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <span className="text-blue-lbg mr-3">✓</span>
                   SSH access to your cloud environment
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <span className="text-blue-lbg mr-3">✓</span>
                   Built-in monitoring and error tracking
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <span className="text-blue-lbg mr-3">✓</span>
                   Global CDN and automatic scaling
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <span className="text-blue-lbg mr-3">✓</span>
                   Package registry and community libraries
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <span className="text-blue-lbg mr-3">✓</span>
                   Supports our mission to keep Darklang sustainable
                 </li>
               </ul>
             </div>
 
-            <div className="bg-gray-800/20 border border-gray-600 rounded-lg p-8">
+            <div className="bg-dark-black/60 backdrop-blur-sm border border-white/5 rounded-2xl p-8 shadow-lg">
               <h3 className="text-2xl font-bold text-gray-400 mb-6">
                 Self-Hosted
               </h3>
               <ul className="space-y-3 text-gray-400">
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <span className="text-taupe mr-3">✓</span>
                   Full control over your infrastructure
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <span className="text-taupe mr-3">✓</span>
                   Run on your own servers or cloud provider
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <span className="text-taupe mr-3">✓</span>
                   No vendor lock-in, run anywhere
                 </li>
                 <li className="flex items-start">
@@ -361,24 +365,24 @@ const Cloud: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center">
+        <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
             Coming Soon
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl">
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl">
             Darklang Cloud is in development. We're working hard to make this
             vision a reality—stay tuned for updates on availability.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/getting-started"
-              className="bg-blue-lbg hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+              className="bg-purple-lbg hover:bg-blue-dbg text-white font-bold py-3 px-8 rounded-xl text-lg transition-all shadow-lg"
             >
               Get Started with Darklang
             </a>
             <a
               href="/company"
-              className="border border-gray-400 hover:border-white text-gray-300 hover:text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+              className="border border-gray-400 backdrop-blur-sm bg-dark/80 hover:border-white text-gray-300 hover:text-white font-bold py-3 px-8 rounded-xl text-lg transition-all shadow-md hover:shadow-white/10"
             >
               Learn More
             </a>

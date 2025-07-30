@@ -3,14 +3,14 @@ import React from "react";
 const TypeChecking: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Gradual Static Typing and Checks
           </h1>
-          <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Beyond type checking: Darklang continuously analyzes your code at
             parse-time, at-rest, and runtime for types, security, performance,
             and code quality.
@@ -18,7 +18,7 @@ const TypeChecking: React.FC = () => {
         </div>
 
         {/* Three Kinds of Checking */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12">
+        <div className=" rounded-lg p-8 mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Three Layers of Analysis
           </h2>

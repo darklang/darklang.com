@@ -1,16 +1,17 @@
 import React from "react";
+import CodeDisplay from "../../common/ui/CodeDisplay";
 
 const Language: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             The Darklang Programming Language
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             A functional-imperative language influenced by OCaml, Rust, Elm, and
             F#. Simple, straightforward, and complete—with no nulls, no
             exceptions, and immutable values by default.
@@ -18,95 +19,73 @@ const Language: React.FC = () => {
         </div>
 
         {/* Language Overview */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Language Design
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Darklang is designed for clarity and correctness. We take the best
-            ideas from functional programming—immutability, algebraic data
-            types, pattern matching—without the academic complexity.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            <strong>The goal is simple:</strong> make it easy to write correct
-            programs that handle errors gracefully and scale without surprises.
-          </p>
-        </div>
+        <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50 p-8 mb-20 shadow-sm border border-purple-100">
+          {/* Decorative elements */}
+          <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-purple-100/40 blur-2xl"></div>
+          <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-indigo-100/40 blur-2xl"></div>
+
+          <div className="relative">
+            {/* Icon + Title header */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center rounded-full bg-purple-100 p-2 text-purple-lbg">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-purple-dbg">
+                Language Design
+              </h2>
+            </div>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Darklang is designed for clarity and correctness. We take the best
+              ideas from functional programming—immutability, algebraic data
+              types, pattern matching—without the academic complexity.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              <strong>The goal is simple:</strong> make it easy to write correct
+              programs that handle errors gracefully and scale without
+              surprises.
+            </p>
+          </div>
+        </section>
 
         {/* Code Example */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
             What Darklang Code Looks Like
           </h2>
-          <div className="bg-gray-900 rounded-lg p-6 text-white font-mono text-sm overflow-x-auto">
-            <div className="space-y-3">
-              <div className="text-gray-400">// Custom types</div>
-              <div>
-                <span className="text-purple-400">type</span>{" "}
-                <span className="text-yellow-300">Person</span> = &#123;{" "}
-                <span className="text-blue-300">age</span>:{" "}
-                <span className="text-green-300">Int</span>,{" "}
-                <span className="text-blue-300">name</span>:{" "}
-                <span className="text-green-300">String</span> &#125;
-              </div>
-              <div></div>
-              <div>
-                <span className="text-purple-400">type</span>{" "}
-                <span className="text-yellow-300">Phone</span> =
-              </div>
-              <div>
-                {" "}
-                | <span className="text-yellow-300">IPhone</span>(
-                <span className="text-green-300">Color</span>,{" "}
-                <span className="text-green-300">Size</span>,{" "}
-                <span className="text-blue-300">model</span>:{" "}
-                <span className="text-green-300">String</span>)
-              </div>
-              <div>
-                {" "}
-                | <span className="text-yellow-300">Android</span>(
-                <span className="text-blue-300">manufacturer</span>:{" "}
-                <span className="text-green-300">String</span>,{" "}
-                <span className="text-blue-300">model</span>:{" "}
-                <span className="text-green-300">String</span>)
-              </div>
-              <div>
-                {" "}
-                | <span className="text-yellow-300">Landline</span>
-              </div>
-              <div></div>
-              <div className="text-gray-400">
-                // Functions with pipeline operators
-              </div>
-              <div>
-                <span className="text-purple-400">fn</span>{" "}
-                <span className="text-yellow-300">sumOfEvenSquares</span> (
-                <span className="text-blue-300">nums</span>:{" "}
-                <span className="text-green-300">List&lt;Int&gt;</span>):{" "}
-                <span className="text-green-300">Int</span> =
-              </div>
-              <div> nums</div>
-              <div>
-                {" "}
-                |&gt; <span className="text-yellow-300">List.filter</span> (\
-                <span className="text-blue-300">x</span> -&gt;{" "}
-                <span className="text-yellow-300">Int.isEven</span> x)
-              </div>
-              <div>
-                {" "}
-                |&gt; <span className="text-yellow-300">List.map</span> (\
-                <span className="text-blue-300">x</span> -&gt; x * x)
-              </div>
-              <div>
-                {" "}
-                |&gt; <span className="text-yellow-300">Int.sum</span>
-              </div>
-            </div>
+          <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200 p-4 md:p-8">
+            <CodeDisplay
+              language="fsharp"
+              showLineNumbers={false}
+              code={`// Custom types
+type Person = { age: Int, name: String }
+
+type Phone =
+ | IPhone(Color, Size, model: String)
+ | Android(manufacturer: String, model: String)
+ | Landline
+
+// Functions with pipeline operators
+fn sumOfEvenSquares (nums: List<Int>): Int =
+ nums
+ |> List.filter (\\x -> Int.isEven x)
+ |> List.map (\\x -> x * x)
+ |> Int.sum`}
+            />
           </div>
         </div>
 
         {/* Type System */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Type System</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Primitive Types */}
@@ -116,27 +95,27 @@ const Language: React.FC = () => {
               </h3>
               <div className="text-sm text-gray-600 space-y-2">
                 <div className="flex justify-between">
-                  <span className="font-mono text-blue-600">Int</span>
+                  <span className="font-mono text-blue-lbg">Int</span>
                   <span>64-bit integers</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-blue-600">Float</span>
+                  <span className="font-mono text-blue-lbg">Float</span>
                   <span>64-bit floats</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-blue-600">Bool</span>
+                  <span className="font-mono text-blue-lbg">Bool</span>
                   <span>true/false</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-blue-600">String</span>
+                  <span className="font-mono text-blue-lbg">String</span>
                   <span>Unicode strings</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-blue-600">Char</span>
+                  <span className="font-mono text-blue-lbg">Char</span>
                   <span>Single characters</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-blue-600">Unit</span>
+                  <span className="font-mono text-blue-lbg">Unit</span>
                   <span>No value ()</span>
                 </div>
               </div>
@@ -153,37 +132,37 @@ const Language: React.FC = () => {
               </h3>
               <div className="text-sm text-gray-600 space-y-2">
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">
+                  <span className="font-mono text-purple-lbg">
                     List&lt;T&gt;
                   </span>
                   <span>Ordered collections</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">
+                  <span className="font-mono text-purple-lbg">
                     Dict&lt;T&gt;
                   </span>
                   <span>Key-value maps</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">
+                  <span className="font-mono text-purple-lbg">
                     Tuple&lt;A,B&gt;
                   </span>
                   <span>Fixed-size pairs</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">
+                  <span className="font-mono text-purple-lbg">
                     Option&lt;T&gt;
                   </span>
                   <span>Some(value) | None</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-mono text-purple-600">
+                  <span className="font-mono text-purple-lbg">
                     Result&lt;T,E&gt;
                   </span>
                   <span>Ok(value) | Error(err)</span>
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-purple-50 rounded text-sm">
+              <div className="mt-12 p-3 bg-purple-50 rounded text-sm">
                 <strong>Immutable by default:</strong> All values are immutable.
                 Create new versions instead of modifying.
               </div>
@@ -196,13 +175,13 @@ const Language: React.FC = () => {
               </h3>
               <div className="text-sm text-gray-600 space-y-3">
                 <div>
-                  <div className="font-mono text-green-600 mb-1">Records</div>
+                  <div className="font-mono text-taupe mb-1">Records</div>
                   <div className="text-xs bg-gray-100 p-2 rounded">
                     type Person = &#123; name: String, age: Int &#125;
                   </div>
                 </div>
                 <div>
-                  <div className="font-mono text-green-600 mb-1">
+                  <div className="font-mono text-taupe mb-1">
                     Unions (Enums)
                   </div>
                   <div className="text-xs bg-gray-100 p-2 rounded">
@@ -210,9 +189,7 @@ const Language: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="font-mono text-green-600 mb-1">
-                    Type Aliases
-                  </div>
+                  <div className="font-mono text-taupe mb-1">Type Aliases</div>
                   <div className="text-xs bg-gray-100 p-2 rounded">
                     type UserId = String
                   </div>
@@ -269,7 +246,7 @@ const Language: React.FC = () => {
         </div>
 
         {/* Error Types */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             Error Handling in Darklang
           </h2>
@@ -350,14 +327,14 @@ const Language: React.FC = () => {
                   <span className="font-semibold">Result types:</span> Explicit
                   error handling
                 </div>
-                <div className="text-xs bg-gray-100 p-2 rounded font-mono">
+                <div className="text-xs bg-white p-2 rounded font-mono">
                   Result&lt;Success, Error&gt;
                 </div>
                 <div>
                   <span className="font-semibold">Option types:</span> Handling
                   missing values
                 </div>
-                <div className="text-xs bg-gray-100 p-2 rounded font-mono">
+                <div className="text-xs bg-white p-2 rounded font-mono">
                   Option&lt;Value&gt; // Some | None
                 </div>
                 <div className="mt-3 text-xs text-green-700">
@@ -371,7 +348,7 @@ const Language: React.FC = () => {
         </div>
 
         {/* Language Features */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="bg-white rounded-lg shadow-lg p-8 mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Language Features
           </h2>
@@ -458,161 +435,63 @@ const Language: React.FC = () => {
         </div>
 
         {/* More Code Examples */}
-        <div className="border-l-4 border-blue-lbg pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             More Language Examples
           </h2>
           <div className="space-y-6">
-            <div className="bg-gray-900 rounded-lg p-6 text-white font-mono text-sm overflow-x-auto">
-              <div className="text-gray-400 mb-3">
-                // Pattern matching on union types
-              </div>
-              <div className="space-y-1">
-                <div>
-                  <span className="text-purple-400">fn</span>{" "}
-                  <span className="text-yellow-300">describePhone</span> (
-                  <span className="text-blue-300">phone</span>:{" "}
-                  <span className="text-green-300">Phone</span>):{" "}
-                  <span className="text-green-300">String</span> =
-                </div>
-                <div>
-                  {" "}
-                  <span className="text-purple-400">match</span> phone{" "}
-                  <span className="text-purple-400">with</span>
-                </div>
-                <div>
-                  {" "}
-                  | <span className="text-yellow-300">IPhone</span>(color, size,
-                  model) -&gt;
-                </div>
-                <div>
-                  {" "}
-                  <span className="text-red-300">
-                    "&#123;color&#125; &#123;size&#125; iPhone
-                    &#123;model&#125;"
-                  </span>
-                </div>
-                <div>
-                  {" "}
-                  | <span className="text-yellow-300">Android</span>
-                  (manufacturer, model) -&gt;
-                </div>
-                <div>
-                  {" "}
-                  <span className="text-red-300">
-                    "&#123;manufacturer&#125; &#123;model&#125;"
-                  </span>
-                </div>
-                <div>
-                  {" "}
-                  | <span className="text-yellow-300">Landline</span> -&gt;
-                </div>
-                <div>
-                  {" "}
-                  <span className="text-red-300">"Old school phone"</span>
-                </div>
-              </div>
+            <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200 p-4 md:p-8">
+              <CodeDisplay
+                language="fsharp"
+                showLineNumbers={false}
+                code={`// Pattern matching on union types
+fn describePhone (phone: Phone): String =
+ match phone with
+ | IPhone(color, size, model) ->
+  "{color} {size} iPhone {model}"
+ | Android(manufacturer, model) ->
+  "{manufacturer} {model}"
+ | Landline ->
+  "Old school phone"`}
+              />
             </div>
 
-            <div className="bg-gray-900 rounded-lg p-6 text-white font-mono text-sm overflow-x-auto">
-              <div className="text-gray-400 mb-3">
-                // Error handling with Result types
-              </div>
-              <div className="space-y-1">
-                <div>
-                  <span className="text-purple-400">fn</span>{" "}
-                  <span className="text-yellow-300">parseAndDouble</span> (
-                  <span className="text-blue-300">input</span>:{" "}
-                  <span className="text-green-300">String</span>):{" "}
-                  <span className="text-green-300">
-                    Result&lt;Int, String&gt;
-                  </span>{" "}
-                  =
-                </div>
-                <div>
-                  {" "}
-                  <span className="text-purple-400">let</span> number ={" "}
-                  <span className="text-yellow-300">Int.parse</span> input
-                  <span className="text-red-300">?</span>
-                </div>
-                <div>
-                  {" "}
-                  <span className="text-purple-400">let</span> doubled = number
-                  * <span className="text-orange-300">2</span>
-                </div>
-                <div>
-                  {" "}
-                  <span className="text-yellow-300">Ok</span>(doubled)
-                </div>
-                <div></div>
-                <div className="text-gray-400">
-                  // Usage with pattern matching
-                </div>
-                <div>
-                  <span className="text-purple-400">match</span>{" "}
-                  <span className="text-yellow-300">parseAndDouble</span>(
-                  <span className="text-red-300">"42"</span>){" "}
-                  <span className="text-purple-400">with</span>
-                </div>
-                <div>
-                  | <span className="text-yellow-300">Ok</span>(result) -&gt;{" "}
-                  <span className="text-yellow-300">print</span>{" "}
-                  <span className="text-red-300">
-                    "Success: &#123;result&#125;"
-                  </span>
-                </div>
-                <div>
-                  | <span className="text-yellow-300">Error</span>(msg) -&gt;{" "}
-                  <span className="text-yellow-300">print</span>{" "}
-                  <span className="text-red-300">
-                    "Failed: &#123;msg&#125;"
-                  </span>
-                </div>
-              </div>
+            <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200 p-4 md:p-8">
+              <CodeDisplay
+                language="fsharp"
+                showLineNumbers={false}
+                code={`// Error handling with Result types
+fn parseAndDouble (input: String): Result<Int, String> =
+ let number = Int.parse input?
+ let doubled = number * 2
+ Ok(doubled)
+
+// Usage with pattern matching
+match parseAndDouble("42") with
+| Ok(result) -> print "Success: {result}"
+| Error(msg) -> print "Failed: {msg}"`}
+              />
             </div>
 
-            <div className="bg-gray-900 rounded-lg p-6 text-white font-mono text-sm overflow-x-auto">
-              <div className="text-gray-400 mb-3">
-                // Working with collections
-              </div>
-              <div className="space-y-1">
-                <div>
-                  <span className="text-purple-400">let</span> numbers = [
-                  <span className="text-orange-300">1</span>,{" "}
-                  <span className="text-orange-300">2</span>,{" "}
-                  <span className="text-orange-300">3</span>,{" "}
-                  <span className="text-orange-300">4</span>,{" "}
-                  <span className="text-orange-300">5</span>]
-                </div>
-                <div>
-                  <span className="text-purple-400">let</span> result =
-                </div>
-                <div> numbers</div>
-                <div>
-                  {" "}
-                  |&gt; <span className="text-yellow-300">List.filter</span> (\
-                  <span className="text-blue-300">x</span> -&gt; x &gt;{" "}
-                  <span className="text-orange-300">2</span>)
-                </div>
-                <div>
-                  {" "}
-                  |&gt; <span className="text-yellow-300">List.map</span> (\
-                  <span className="text-blue-300">x</span> -&gt; x * x)
-                </div>
-                <div>
-                  {" "}
-                  |&gt; <span className="text-yellow-300">List.sum</span>
-                </div>
-                <div className="text-gray-400">
-                  // result is 50 (3² + 4² + 5²)
-                </div>
-              </div>
+            <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200 p-4 md:p-8">
+              <CodeDisplay
+                language="fsharp"
+                showLineNumbers={false}
+                code={`// Working with collections
+let numbers = [1, 2, 3, 4, 5]
+let result =
+ numbers
+ |> List.filter (\\x -> x > 2)
+ |> List.map (\\x -> x * x)
+ |> List.sum
+// result is 50 (3² + 4² + 5²)`}
+              />
             </div>
           </div>
         </div>
 
         {/* Why a New Language */}
-        <div className="bg-gray-50 rounded-lg p-8 mb-12">
+        <div className="bg-gray-50 rounded-lg p-8 mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Why a New Language?
           </h2>
@@ -712,7 +591,7 @@ const Language: React.FC = () => {
         </div>
 
         {/* Learn More */}
-        <div className="border-l-4 border-mint pl-8">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Learn More</h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
             <p>
@@ -725,21 +604,21 @@ const Language: React.FC = () => {
                 href="/getting-started"
                 className="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
               >
-                <h3 className="font-semibold text-blue-800 mb-2">
+                <h3 className="font-semibold text-blue-dbg mb-2">
                   Getting Started
                 </h3>
-                <p className="text-sm text-blue-600">
+                <p className="text-sm text-blue-lbg">
                   Install Darklang and write your first function
                 </p>
               </a>
               <a
                 href="https://docs.darklang.com"
-                className="block p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
+                className="block p-4 bg-mint/10 rounded-lg hover:bg-mint/20 transition-colors"
               >
-                <h3 className="font-semibold text-green-800 mb-2">
+                <h3 className="font-semibold text-mint mb-2">
                   Language Reference
                 </h3>
-                <p className="text-sm text-green-600">
+                <p className="text-sm text-mint">
                   Complete documentation and API reference
                 </p>
               </a>

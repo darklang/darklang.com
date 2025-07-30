@@ -3,14 +3,14 @@ import React from "react";
 const No: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             What Darklang Says No To
           </h1>
-          <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Darklang eliminates entire categories of complexity that have become
             accepted as "just how programming works." Here's what we leave
             behind and why you don't need them.
@@ -443,9 +443,8 @@ const No: React.FC = () => {
         </div>
 
         {/* What You Get Instead */}
-        <div className="bg-green-50 rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-            <span className="text-green-500 mr-3">✅</span>
+        <div className="rounded-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
             What You Get Instead
           </h2>
           <div className="grid md:grid-cols-3 gap-6">

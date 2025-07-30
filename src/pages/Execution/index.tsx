@@ -3,39 +3,65 @@ import React from "react";
 const Execution: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Instant Execution
           </h1>
-          <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             No compilation, no build steps, no waiting. Write code and it runs
             immediately with Darklang's streamlined execution model.
           </p>
         </div>
 
         {/* Interpreted Runtime */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Interpreted by Design
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Darklang runs your code directly through an interpreter—no
-            compilation step required. This means your programs start instantly,
-            making the development cycle incredibly fast and responsive.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            While compilation can provide performance benefits, interpretation
-            gives you immediate feedback and eliminates the wait times that slow
-            down development. Perfect for rapid prototyping and iterative
-            development.
-          </p>
-        </div>
+        <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50 p-8 mb-20 shadow-sm border border-purple-100">
+          {/* Decorative elements */}
+          <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-purple-100/40 blur-2xl"></div>
+          <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-indigo-100/40 blur-2xl"></div>
+
+          <div className="relative">
+            {/* Icon + Title header */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center rounded-full bg-purple-100 p-2 text-purple-lbg">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M8 3L4 7l4 4"></path>
+                  <path d="M4 7h16"></path>
+                  <path d="M16 21l4-4-4-4"></path>
+                  <path d="M20 17H4"></path>
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-purple-dbg">
+                Interpreted by Design
+              </h2>
+            </div>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Darklang runs your code directly through an interpreter—no
+              compilation step required. This means your programs start
+              instantly, making the development cycle incredibly fast and
+              responsive.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              While compilation can provide performance benefits, interpretation
+              gives you immediate feedback and eliminates the wait times that
+              slow down development. Perfect for rapid prototyping and iterative
+              development.
+            </p>
+          </div>
+        </section>
 
         {/* Core Execution Features */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
           {/* Async Runtime */}
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="flex items-center mb-6">
@@ -109,11 +135,11 @@ const Execution: React.FC = () => {
         </div>
 
         {/* Streaming Package Integration */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Zero-Wait Dependencies
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               Traditional languages require you to download and install packages
               before running code. Darklang streams dependencies automatically
@@ -164,11 +190,11 @@ const Execution: React.FC = () => {
         </div>
 
         {/* Development Loop */}
-        <div className="border-l-4 border-purple-lbg pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Lightning-Fast Development Loop
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               The combination of interpretation and{" "}
               <a href="/typechecking" className="text-blue-lbg hover:underline">
@@ -248,11 +274,11 @@ const Execution: React.FC = () => {
         </div>
 
         {/* CLI Execution Model */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Universal Function Execution
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               Any Darklang function can be executed directly from the command
               line, web interfaces, Slack, Discord, or any other platform. This
@@ -264,8 +290,10 @@ const Execution: React.FC = () => {
               <h3 className="font-semibold text-gray-800 mb-3">
                 Example: Run Any Function
               </h3>
-              <div className="font-mono text-sm bg-gray-800 text-green-400 p-4 rounded mb-3">
-                $ darklang @username.parseCSV myfile.csv
+              <div className="font-code text-sm bg-dark p-4 rounded mb-3">
+                <span className="text-purple-dbg">$ darklang</span>{" "}
+                <span className="text-white">@username.parseCSV</span>{" "}
+                <span className="text-gray-light">myfile.csv</span>
               </div>
               <p className="text-sm text-gray-600">
                 Execute functions directly without writing wrapper scripts or
@@ -277,11 +305,11 @@ const Execution: React.FC = () => {
         </div>
 
         {/* Performance Philosophy */}
-        <div className="border-l-4 border-taupe pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Performance Philosophy
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               Darklang prioritizes developer productivity over raw performance.
               The current runtime is "fast enough for most things" but not
@@ -326,11 +354,11 @@ const Execution: React.FC = () => {
         </div>
 
         {/* Bottom Line */}
-        <div className="border-l-4 border-mint pl-8">
+        <div className="">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             The Bottom Line
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p className="text-lg">
               Darklang's execution model eliminates the friction between writing
               code and running code.

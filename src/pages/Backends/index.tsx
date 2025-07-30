@@ -3,14 +3,14 @@ import React from "react";
 const Backends: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Backend Features
           </h1>
-          <div className="w-24 h-1 bg-purple-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <div className="w-28 h-1 bg-purple-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Everything you need to build complete backend applications—HTTP
             endpoints, databases, scheduled jobs, and background workers—all in
             one integrated platform.
@@ -18,31 +18,60 @@ const Backends: React.FC = () => {
         </div>
 
         {/* Core Philosophy */}
-        <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            The Darklang Backend Story
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Darklang Classic proved that backend development doesn't need to be
-            complex. Since 2019, developers used it to build APIs, internal
-            tools, Slack bots, CRUD apps, and webhooks—all without managing
-            infrastructure, servers, or deployments.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            Now Darklang brings those same powerful backend features to the
-            modern era, with the flexibility to run locally for development or
-            deploy to the cloud (ours or your own instance).
-          </p>
-        </div>
+        <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50 p-8 mb-20 shadow-sm border border-purple-100">
+          {/* Decorative elements */}
+          <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-purple-100/40 blur-2xl"></div>
+          <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-indigo-100/40 blur-2xl"></div>
+
+          <div className="relative">
+            {/* Icon + Title header */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center rounded-full bg-purple-100 p-2 text-purple-lbg">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-purple-dbg">
+                The Darklang Backend Story
+              </h2>
+            </div>
+
+            {/* Content */}
+            <div className="space-y-4">
+              <p className="text-gray-700 leading-relaxed">
+                Darklang Classic proved that backend development doesn't need to
+                be complex. Since 2019, developers used it to build APIs,
+                internal tools, Slack bots, CRUD apps, and webhooks—all without
+                managing infrastructure, servers, or deployments.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Now Darklang brings those same powerful backend features to the
+                modern era, with the flexibility to run locally for development
+                or deploy to the cloud (ours or your own instance).
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Core Backend Features */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             Core Backend Features
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* HTTP Handlers */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="bg-white rounded-lg shadow-md p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-purple-lbg rounded-lg flex items-center justify-center mr-4">
                   <svg
@@ -78,7 +107,7 @@ const Backends: React.FC = () => {
             </div>
 
             {/* Datastores */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="bg-white rounded-lg shadow-md p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-lbg rounded-lg flex items-center justify-center mr-4">
                   <svg
@@ -115,7 +144,7 @@ const Backends: React.FC = () => {
             </div>
 
             {/* Scheduled Jobs (CRONs) */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="bg-white rounded-lg shadow-md p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-mint rounded-lg flex items-center justify-center mr-4">
                   <svg
@@ -188,7 +217,7 @@ const Backends: React.FC = () => {
         </div>
 
         {/* Real-World Applications */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             What You Can Build
           </h2>
@@ -199,7 +228,7 @@ const Backends: React.FC = () => {
               production:
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 px-8">
               <div>
                 <h3 className="font-semibold text-gray-800 mb-3">
                   APIs & Webhooks
@@ -284,7 +313,7 @@ const Backends: React.FC = () => {
         </div>
 
         {/* Deployment Flexibility */}
-        <div className="border-l-4 border-purple-lbg pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Run Anywhere: Local to Cloud
           </h2>
@@ -328,7 +357,7 @@ const Backends: React.FC = () => {
         </div>
 
         {/* HTTP Client Integration */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Third-Party API Integration
           </h2>

@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 
 const AIDevelopers: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    // Trigger animation after component mounts
+    setIsVisible(true);
+  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Darklang for AI Developers
           </h1>
@@ -19,37 +24,67 @@ const AIDevelopers: React.FC = () => {
         </div>
 
         {/* AI Development Pain Points */}
-        <div className="bg-red-50 rounded-lg p-8 mb-12 border-l-4 border-red-500">
-          <h2 className="text-2xl font-bold text-red-800 mb-4">
-            Current AI Development Reality
-          </h2>
-          <div className="text-red-700 space-y-3">
+        <div className="py-8">
+          <div className="relative inline-block mb-6 px-3 py-2">
+            {/* L-shaped corner borders with animation */}
+            <div
+              className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+              style={{ width: isVisible ? "55px" : "0px" }}
+            ></div>
+            <div
+              className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+              style={{ height: isVisible ? "35px" : "0px" }}
+            ></div>
+            <div
+              className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+              style={{ width: isVisible ? "44px" : "0px" }}
+            ></div>
+            <div
+              className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+              style={{ height: isVisible ? "35px" : "0px" }}
+            ></div>
+
+            <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+              Current AI Development Reality
+            </h2>
+          </div>
+          <div className="text-gray-800 space-y-3 pl-5">
             <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                ✕
+              </span>
               <p>
                 Managing API keys, rate limits, and model endpoints across
                 different providers
               </p>
             </div>
             <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                ✕
+              </span>
               <p>
                 Building complex LangChain workflows with unclear error handling
               </p>
             </div>
             <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                ✕
+              </span>
               <p>
                 Vector database setup, embedding management, context window
                 juggling
               </p>
             </div>
             <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                ✕
+              </span>
               <p>Deploying AI agents with proper observability and debugging</p>
             </div>
             <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                ✕
+              </span>
               <p>
                 Scaling from prototype to production with reliable
                 infrastructure
@@ -59,34 +94,63 @@ const AIDevelopers: React.FC = () => {
         </div>
 
         {/* Darklang AI Advantages */}
-        <div className="bg-green-50 rounded-lg p-8 mb-12 border-l-4 border-green-500">
-          <h2 className="text-2xl font-bold text-green-800 mb-4">
-            Darklang: Built for AI from Day One
-          </h2>
-          <div className="text-green-700 space-y-3">
+        <div className="py-8 mb-10">
+          <div className="relative inline-block mb-6 px-3 py-2">
+            {/* L-shaped corner borders with animation */}
+            <div
+              className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+              style={{ width: isVisible ? "55px" : "0px" }}
+            ></div>
+            <div
+              className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+              style={{ height: isVisible ? "35px" : "0px" }}
+            ></div>
+            <div
+              className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+              style={{ width: isVisible ? "55px" : "0px" }}
+            ></div>
+            <div
+              className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+              style={{ height: isVisible ? "35px" : "0px" }}
+            ></div>
+
+            <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+              Darklang: Built for AI from Day One
+            </h2>
+          </div>
+
+          <div className="text-gray-800 space-y-3 pl-5">
             <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                ✔
+              </span>
               <p>
                 <strong>Built-in model access:</strong> OpenAI, Anthropic, local
                 models—all integrated
               </p>
             </div>
             <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                ✔
+              </span>
               <p>
                 <strong>Generous parser:</strong> AI-generated code that
                 actually runs
               </p>
             </div>
             <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                ✔
+              </span>
               <p>
                 <strong>Trace-driven debugging:</strong> See exactly what your
                 AI agents did
               </p>
             </div>
             <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                ✔
+              </span>
               <p>
                 <strong>Instant deployment:</strong> AI applications live in
                 seconds
@@ -96,7 +160,7 @@ const AIDevelopers: React.FC = () => {
         </div>
 
         {/* Perfect For AI Developers */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             Perfect for AI Developers Who:
           </h2>
@@ -161,13 +225,13 @@ const AIDevelopers: React.FC = () => {
         </div>
 
         {/* AI-First Language Features */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             AI-First Language Design
           </h2>
 
           <div className="space-y-8">
-            <div className="border-l-4 border-blue-lbg pl-6">
+            <div className="border-l-3 border-blue-lbg pl-6">
               <h3 className="text-xl font-bold text-gray-800 mb-3">
                 Generous Parser
               </h3>
@@ -185,7 +249,7 @@ const AIDevelopers: React.FC = () => {
               </div>
             </div>
 
-            <div className="border-l-4 border-purple-lbg pl-6">
+            <div className="border-l-3 border-purple-lbg pl-6">
               <h3 className="text-xl font-bold text-gray-800 mb-3">
                 Built-in Model Access
               </h3>
@@ -201,7 +265,7 @@ const AIDevelopers: React.FC = () => {
               </div>
             </div>
 
-            <div className="border-l-4 border-mint pl-6">
+            <div className="border-l-3 border-mint pl-6">
               <h3 className="text-xl font-bold text-gray-800 mb-3">
                 Trace-Driven AI Debugging
               </h3>
@@ -222,13 +286,13 @@ const AIDevelopers: React.FC = () => {
         </div>
 
         {/* AI Application Patterns */}
-        <div className="border-l-4 border-purple-lbg pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Common AI Application Patterns
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-6">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 AI-Powered APIs
               </h3>
               <p className="mb-3">
@@ -244,7 +308,7 @@ const AIDevelopers: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Intelligent Webhooks
               </h3>
               <p className="mb-3">
@@ -259,7 +323,7 @@ const AIDevelopers: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Autonomous Agents
               </h3>
               <p className="mb-3">
@@ -274,7 +338,7 @@ const AIDevelopers: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Document Intelligence
               </h3>
               <p className="mb-3">
@@ -291,17 +355,17 @@ const AIDevelopers: React.FC = () => {
         </div>
 
         {/* Beyond LangChain */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Beyond LangChain Complexity
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-bold text-red-600 mb-4">
+              <h3 className="text-xl font-bold text-rust mb-4">
                 Traditional AI Stack
               </h3>
-              <div className="bg-red-50 p-4 rounded text-sm space-y-2">
+              <div className="bg-rust/5 p-4 rounded text-sm space-y-2">
                 <div>• Install LangChain + dependencies</div>
                 <div>• Configure vector databases</div>
                 <div>• Manage API keys and rate limits</div>
@@ -313,10 +377,10 @@ const AIDevelopers: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-green-600 mb-4">
+              <h3 className="text-xl font-bold text-blue-dbg mb-4">
                 Darklang AI
               </h3>
-              <div className="bg-green-50 p-4 rounded text-sm space-y-2">
+              <div className="bg-mint/8 p-4 rounded text-sm space-y-2">
                 <div>• Built-in model access</div>
                 <div>• Integrated vector storage</div>
                 <div>• Automatic API management</div>
@@ -328,7 +392,7 @@ const AIDevelopers: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 p-4 bg-blue-50 rounded border-l-4 border-blue-lbg">
+          <div className="mt-6 p-4 bg-blue-50 rounded border-l-3 border-blue-lbg">
             <p className="text-gray-700">
               <strong>The difference:</strong> LangChain bolts AI onto existing
               languages. Darklang is designed from the ground up for AI
@@ -338,11 +402,11 @@ const AIDevelopers: React.FC = () => {
         </div>
 
         {/* Production AI */}
-        <div className="border-l-4 border-mint pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Production-Ready AI Applications
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               Moving AI from prototype to production is notoriously difficult.
               Darklang eliminates the infrastructure gap between experimentation
@@ -384,7 +448,7 @@ const AIDevelopers: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="border-l-4 border-taupe pl-8">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             The AI-Native Development Platform
           </h2>

@@ -9,7 +9,7 @@ const WebScrapers: React.FC = () => {
   }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
         <div className="text-center mb-20">
@@ -23,140 +23,144 @@ const WebScrapers: React.FC = () => {
           </p>
         </div>
 
-        {/* Web Scraping Pain Points */}
-        <div className="py-8">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ width: isVisible ? "44px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
+        {/* Web Scraping Pain Points and Darklang Scraping Advantages */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
+          {/* Web Scraping Pain Points */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
 
-            <h2 className="text-2xl font-semibold text-rust px-4 py-2">
-              Traditional Scraping Headaches
-            </h2>
-          </div>
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Managing proxies, user agents, and anti-bot detection systems
-              </p>
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                Traditional Scraping Headaches
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Setting up Selenium, ChromeDriver, and browser automation
-                infrastructure
-              </p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Managing proxies, user agents, and anti-bot detection systems
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Setting up Selenium, ChromeDriver, and browser automation
+                  infrastructure
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Handling dynamic content, JavaScript rendering, and AJAX
+                  requests
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Cron jobs, server maintenance, and monitoring failed scraping
+                  runs
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Rate limiting, retries, and graceful handling of website
+                  changes
+                </p>
+              </div>
             </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Handling dynamic content, JavaScript rendering, and AJAX
-                requests
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Cron jobs, server maintenance, and monitoring failed scraping
-                runs
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Rate limiting, retries, and graceful handling of website changes
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Darklang Scraping Advantages */}
-        <div className="py-8 mb-10">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-
-            <h2 className="text-2xl font-semibold text-mint px-4 py-2">
-              Darklang: Scraping Made Simple
-            </h2>
           </div>
 
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Built-in browser automation:</strong> No ChromeDriver
-                setup or maintenance
-              </p>
+          {/* Darklang Scraping Advantages */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                Darklang: Scraping Made Simple
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Automatic scheduling:</strong> Cron jobs that actually
-                work
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Built-in data storage:</strong> No database setup for
-                scraped data
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Instant APIs:</strong> Turn scraped data into APIs
-                immediately
-              </p>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Built-in browser automation:</strong> No ChromeDriver
+                  setup or maintenance
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Automatic scheduling:</strong> Cron jobs that actually
+                  work
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Built-in data storage:</strong> No database setup for
+                  scraped data
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Instant APIs:</strong> Turn scraped data into APIs
+                  immediately
+                </p>
+              </div>
             </div>
           </div>
         </div>

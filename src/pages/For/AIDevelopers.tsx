@@ -9,7 +9,7 @@ const AIDevelopers: React.FC = () => {
   }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
         <div className="text-center mb-20">
@@ -17,144 +17,150 @@ const AIDevelopers: React.FC = () => {
             Darklang for AI Developers
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             The first language designed for the AI era. Build AI applications
             without the infrastructure complexity.
           </p>
         </div>
 
-        {/* AI Development Pain Points */}
-        <div className="py-8">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ width: isVisible ? "44px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
+        {/* AI Development and Darklang Advantages Sections */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
+          {/* AI Development Pain Points */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
 
-            <h2 className="text-2xl font-semibold text-rust px-4 py-2">
-              Current AI Development Reality
-            </h2>
-          </div>
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Managing API keys, rate limits, and model endpoints across
-                different providers
-              </p>
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                Current AI Development Reality
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Building complex LangChain workflows with unclear error handling
-              </p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Managing API keys, rate limits, and model endpoints across
+                  different providers
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Building complex LangChain workflows with unclear error
+                  handling
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Vector database setup, embedding management, context window
+                  juggling
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Deploying AI agents with proper observability and debugging
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Scaling from prototype to production with reliable
+                  infrastructure
+                </p>
+              </div>
             </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Vector database setup, embedding management, context window
-                juggling
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>Deploying AI agents with proper observability and debugging</p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Scaling from prototype to production with reliable
-                infrastructure
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Darklang AI Advantages */}
-        <div className="py-8 mb-10">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-
-            <h2 className="text-2xl font-semibold text-mint px-4 py-2">
-              Darklang: Built for AI from Day One
-            </h2>
           </div>
 
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Built-in model access:</strong> OpenAI, Anthropic, local
-                models—all integrated
-              </p>
+          {/* Darklang AI Advantages */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                Darklang: Built for AI from Day One
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Generous parser:</strong> AI-generated code that
-                actually runs
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Trace-driven debugging:</strong> See exactly what your
-                AI agents did
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Instant deployment:</strong> AI applications live in
-                seconds
-              </p>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Built-in model access:</strong> OpenAI, Anthropic,
+                  local models—all integrated
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Generous parser:</strong> AI-generated code that
+                  actually runs
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Trace-driven debugging:</strong> See exactly what your
+                  AI agents did
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Instant deployment:</strong> AI applications live in
+                  seconds
+                </p>
+              </div>
             </div>
           </div>
         </div>

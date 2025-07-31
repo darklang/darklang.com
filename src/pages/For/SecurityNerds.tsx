@@ -9,7 +9,7 @@ const SecurityNerds: React.FC = () => {
   }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
         <div className="text-center mb-20">
@@ -17,143 +17,148 @@ const SecurityNerds: React.FC = () => {
             Darklang for Security Professionals
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Secure by design. Build security tools and automation with a
             platform that eliminates entire classes of vulnerabilities.
           </p>
         </div>
 
-        {/* Security Context */}
-        <div className="py-8">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ width: isVisible ? "44px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
+        {/* Security Context and Security by Design */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
+          {/* Security Context */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
 
-            <h2 className="text-2xl font-semibold text-rust px-4 py-2">
-              Traditional Security Challenges
-            </h2>
-          </div>
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Container vulnerabilities, supply chain attacks, dependency hell
-              </p>
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                Traditional Security Challenges
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Configuration drift, infrastructure misconfigurations, YAML hell
-              </p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Container vulnerabilities, supply chain attacks, dependency
+                  hell
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Configuration drift, infrastructure misconfigurations, YAML
+                  hell
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>SQL injection, XSS, CSRF, and injection vulnerabilities</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Secrets management, credential rotation, access control
+                  complexity
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Monitoring and incident response across fragmented
+                  infrastructure
+                </p>
+              </div>
             </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>SQL injection, XSS, CSRF, and injection vulnerabilities</p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Secrets management, credential rotation, access control
-                complexity
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Monitoring and incident response across fragmented
-                infrastructure
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Security by Design */}
-        <div className="py-8 mb-10">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-
-            <h2 className="text-2xl font-semibold text-mint px-4 py-2">
-              Darklang: Security by Design
-            </h2>
           </div>
 
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>No containers:</strong> Eliminate container
-                vulnerabilities and supply chain attacks
-              </p>
+          {/* Security by Design */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                Darklang: Security by Design
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>No SQL injection:</strong> Type-safe database
-                operations, no raw queries
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>No secrets in code:</strong> Built-in secrets management
-                and rotation
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Immutable deployments:</strong> Function-level
-                deployment, no configuration drift
-              </p>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No containers:</strong> Eliminate container
+                  vulnerabilities and supply chain attacks
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No SQL injection:</strong> Type-safe database
+                  operations, no raw queries
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No secrets in code:</strong> Built-in secrets
+                  management and rotation
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Immutable deployments:</strong> Function-level
+                  deployment, no configuration drift
+                </p>
+              </div>
             </div>
           </div>
         </div>

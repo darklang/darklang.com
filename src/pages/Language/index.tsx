@@ -10,8 +10,8 @@ const Language: React.FC = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             The Darklang Programming Language
           </h1>
-          <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <div className="w-32 h-1 bg-blue-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             A functional-imperative language influenced by OCaml, Rust, Elm, and
             F#. Simple, straightforward, and complete—with no nulls, no
             exceptions, and immutable values by default.
@@ -89,7 +89,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Type System</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Primitive Types */}
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="bg-white rounded-lg shadow-md border border-1 border-gray-50 p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Primitive Types
               </h3>
@@ -126,7 +126,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
             </div>
 
             {/* Collection Types */}
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="bg-white rounded-lg shadow-md border border-gray-50 p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Collection Types
               </h3>
@@ -169,7 +169,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
             </div>
 
             {/* Custom Types */}
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="bg-white rounded-lg shadow-md border border-gray-50 p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Custom Types
               </h3>
@@ -198,7 +198,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
             </div>
 
             {/* Error Handling */}
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="bg-white rounded-lg shadow-md border border-gray-50 p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Error Handling
               </h3>
@@ -256,7 +256,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Parse-Time Errors */}
-            <div className="bg-yellow-50/50 rounded-lg p-6 border-l-3 border-sand shadow-md">
+            <div className="bg-yellow-50/50 rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Parse-Time Errors
               </h3>
@@ -282,7 +282,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
             </div>
 
             {/* Runtime Errors */}
-            <div className="bg-red-100/30 rounded-lg p-6 border-l-3 border-rust shadow-md">
+            <div className="bg-purple-50 rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Runtime Errors
               </h3>
@@ -312,14 +312,15 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   or Error values
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-red-100 rounded text-xs">
-                <span className="font-semibold text-rust">Note:</span> Runtime
-                errors are being eliminated through better static analysis
+              <div className="mt-4 p-3 bg-purple-100 rounded text-xs">
+                <span className="font-semibold text-purple-lbg">Note:</span>{" "}
+                Runtime errors are being eliminated through better static
+                analysis
               </div>
             </div>
 
             {/* Expected Errors */}
-            <div className="bg-mint/10 rounded-lg shadow-md p-6 border-l-3 border-mint">
+            <div className="bg-mint/10 rounded-lg shadow-sm p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Expected Errors
               </h3>

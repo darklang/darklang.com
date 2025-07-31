@@ -10,7 +10,7 @@ const WebDevelopers: React.FC = () => {
   }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -24,141 +24,146 @@ const WebDevelopers: React.FC = () => {
           </p>
         </div>
 
-        {/* Problem Statement */}
-        <div className="py-8">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ width: isVisible ? "44px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
+        {/* Problem and Solution Sections */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
+          {/* Problem Statement */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
 
-            <h2 className="text-2xl font-semibold text-rust px-4 py-2">
-              Tired of This?
-            </h2>
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                Tired of This?
+              </h2>
+            </div>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Setting up Express.js, configuring middleware, handling CORS
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Installing and configuring a database (PostgreSQL, MongoDB
+                  setup)
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>Writing Prisma schemas, Mongoose models, or raw SQL</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>Configuring Docker, setting up deployment pipelines</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Debugging authentication middleware and session management
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Setting up Express.js, configuring middleware, handling CORS
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Installing and configuring a database (PostgreSQL, MongoDB
-                setup)
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>Writing Prisma schemas, Mongoose models, or raw SQL</p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>Configuring Docker, setting up deployment pipelines</p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>Debugging authentication middleware and session management</p>
-            </div>
-          </div>
-        </div>
+          {/* Solution */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
 
-        {/* Solution */}
-        <div className="py-8 mb-10">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                With Darklang:
+              </h2>
+            </div>
 
-            <h2 className="text-2xl font-semibold text-mint px-4 py-2">
-              With Darklang:
-            </h2>
-          </div>
-
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Define API endpoint:</strong>{" "}
-                <code className="bg-gray-200 px-1 rounded mx-1">
-                  /api/users
-                </code>{" "}
-                - instantly live
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Store data:</strong>{" "}
-                <code className="bg-gray-200 px-1 rounded mx-1">
-                  DB.set users id userData
-                </code>{" "}
-                - database included
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Call external APIs:</strong>{" "}
-                <code className="bg-gray-200 px-1 rounded mx-1">
-                  Http.get "https://api.github.com/users"
-                </code>
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>Deploy:</strong> Already running. No Docker, no config
-                files.
-              </p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Define API endpoint:</strong>{" "}
+                  <code className="bg-gray-200 px-1 rounded mx-1">
+                    /api/users
+                  </code>{" "}
+                  - instantly live
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Store data:</strong>{" "}
+                  <code className="bg-gray-200 px-1 rounded mx-1">
+                    DB.set users id userData
+                  </code>{" "}
+                  - database included
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Call external APIs:</strong>{" "}
+                  <code className="bg-gray-200 px-1 rounded mx-1">
+                    Http.get "https://api.github.com/users"
+                  </code>
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Deploy:</strong> Already running. No Docker, no config
+                  files.
+                </p>
+              </div>
             </div>
           </div>
         </div>

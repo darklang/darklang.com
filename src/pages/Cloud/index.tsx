@@ -85,7 +85,7 @@ const Cloud: React.FC = () => {
             <span className="text-white"> Cloud</span>
           </h1>
           <div className="w-42 h-1 bg-purple-lbg mx-auto rounded-full mb-12"></div>
-          <p className="text-md md:text-lg text-gray-200 max-w-5xl mx-auto">
+          <p className="text-md md:text-lg 2xl:text-xl text-gray-200 max-w-5xl 2xl:max-w-[92rem] mx-auto">
             The most convenient way to run Darklang. Deploy instantly, scale
             automatically, and let us handle the infrastructure so you can focus
             on building.
@@ -93,7 +93,7 @@ const Cloud: React.FC = () => {
         </div>
 
         {/* Main value proposition - Streamlined */}
-        <div className="text-center mb-16 text-xl md:text-2xl xl:text-[28px] max-w-6xl">
+        <div className="text-center mb-16 text-xl md:text-2xl 2xl:text-3xl max-w-6xl 2xl:max-w-[92rem]">
           <p className="mb-8">
             <span className="text-white">
               While you can run Darklang anywhere,
@@ -165,7 +165,7 @@ const Cloud: React.FC = () => {
                   href="https://packages.darklang.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-lbg hover:text-taupe underline"
+                  className="text-neutral-400 hover:text-taupe underline"
                 >
                   packages.darklang.com
                 </a>{" "}
@@ -175,7 +175,7 @@ const Cloud: React.FC = () => {
               </p>
               <a
                 href="/packages"
-                className="inline-block text-taupe hover:text-purple-lbg text-lg underline"
+                className="inline-block text-classic-brown hover:text-purple-lbg text-lg underline"
               >
                 Browse the package registry →
               </a>

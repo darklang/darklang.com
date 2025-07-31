@@ -10,7 +10,7 @@ const PythonDevelopers: React.FC = () => {
   }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
         <div className="text-center mb-20">
@@ -18,140 +18,143 @@ const PythonDevelopers: React.FC = () => {
             Darklang for Python Developers
           </h1>
           <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Skip the Flask/Django setup. Build APIs and automation scripts that
             run instantly.
           </p>
         </div>
 
-        {/* Python Pain Points */}
-        <div className="py-8">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ width: isVisible ? "44px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
+        {/* Python Pain Points and Darklang Advantage */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-10 mb-10">
+          {/* Python Pain Points */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
 
-            <h2 className="text-2xl font-semibold text-rust px-4 py-2">
-              Python Deployment Reality
-            </h2>
-          </div>
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Virtual environments, requirements.txt, pip install conflicts
-              </p>
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                Python Deployment Reality
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Setting up Flask/Django, configuring WSGI, handling production
-                deployment
-              </p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Virtual environments, requirements.txt, pip install conflicts
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Setting up Flask/Django, configuring WSGI, handling production
+                  deployment
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Database setup (SQLAlchemy, Django ORM), migration headaches
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>Cron jobs, task queues (Celery), background workers setup</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>"It works on my machine" → deployment debugging nightmare</p>
+              </div>
             </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>
-                Database setup (SQLAlchemy, Django ORM), migration headaches
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>Cron jobs, task queues (Celery), background workers setup</p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                ✕
-              </span>
-              <p>"It works on my machine" → deployment debugging nightmare</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Darklang Advantage */}
-        <div className="py-8 mb-10">
-          <div className="relative inline-block mb-6 px-3 py-2">
-            {/* L-shaped corner borders with animation */}
-            <div
-              className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ width: isVisible ? "55px" : "0px" }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-              style={{ height: isVisible ? "35px" : "0px" }}
-            ></div>
-
-            <h2 className="text-2xl font-semibold text-mint px-4 py-2">
-              Darklang: Python's Simplicity, Better Deployment
-            </h2>
           </div>
 
-          <div className="text-gray-800 space-y-3 pl-5">
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>No virtual environments:</strong> Functions are isolated
-                by design
-              </p>
+          {/* Darklang Advantage */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                Darklang: Python's Simplicity, Better Deployment
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>No Flask setup: </strong> HTTP endpoints are first-class
-                language features
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>No ORM complexity:</strong> Built-in key-value database,
-                query directly
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
-                ✔
-              </span>
-              <p>
-                <strong>No deployment setup:</strong> Save your function, it's
-                running
-              </p>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No virtual environments:</strong> Functions are
+                  isolated by design
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No Flask setup: </strong> HTTP endpoints are
+                  first-class language features
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No ORM complexity:</strong> Built-in key-value
+                  database, query directly
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No deployment setup:</strong> Save your function, it's
+                  running
+                </p>
+              </div>
             </div>
           </div>
         </div>

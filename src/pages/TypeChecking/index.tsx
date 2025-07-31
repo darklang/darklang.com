@@ -10,7 +10,7 @@ const TypeChecking: React.FC = () => {
             Gradual Static Typing and Checks
           </h1>
           <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Beyond type checking: Darklang continuously analyzes your code at
             parse-time, at-rest, and runtime for types, security, performance,
             and code quality.
@@ -30,7 +30,7 @@ const TypeChecking: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-taupe/8 p-4 rounded-lg border-l-4 border-taupe">
               <div className="font-semibold text-yellow-800 mb-2">
-                🔧 Parse-Time
+                🚀 Parse-Time
               </div>
               <div className="text-sm text-gray-900 mb-2">
                 Syntax, names, basic types
@@ -40,7 +40,7 @@ const TypeChecking: React.FC = () => {
               </div>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-400">
-              <div className="font-semibold text-gray-700 mb-2">📊 At-Rest</div>
+              <div className="font-semibold text-gray-700 mb-2">🔍 At-Rest</div>
               <div className="text-sm text-gray-600 mb-2">
                 Tests, security, code quality
               </div>
@@ -302,7 +302,7 @@ const TypeChecking: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-lg font-bold text-blue-dbg mb-4 flex items-center">
-                <span className="w-1.5 h-1.5 bg-blue-lbg rounded-full mr-2"></span>
+                <div className="h-6 border-2 border-l border-blue-lbg rounded-md mr-3"></div>
                 Evolving Types Safely
               </h3>
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -312,22 +312,19 @@ const TypeChecking: React.FC = () => {
               </p>
               <div className="space-y-2 text-sm text-gray-600 border-l-2 border-gray-200 pl-4">
                 <div className="flex items-center">
-                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
-                  Copy and modify types instead of changing originals
+                  - Copy and modify types instead of changing originals
                 </div>
                 <div className="flex items-center">
-                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
-                  Test new types in isolation
+                  - Test new types in isolation
                 </div>
                 <div className="flex items-center">
-                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
-                  Migrate gradually with tooling assistance
+                  - Migrate gradually with tooling assistance
                 </div>
               </div>
             </div>
             <div>
               <h3 className="text-lg font-bold text-taupe mb-4 flex items-center">
-                <span className="w-1.5 h-1.5 bg-taupe rounded-full mr-2"></span>
+                <span className="h-6 border-2 border-l border-taupe rounded-md mr-3"></span>
                 Production-Informed Types
               </h3>
               <p className="text-gray-700 leading-relaxed mb-4">

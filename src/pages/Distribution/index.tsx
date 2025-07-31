@@ -1,5 +1,66 @@
 import React from "react";
 
+type ListItemProps = {
+  text: string;
+  iconType: "cog" | "arrow";
+  textSize?: "normal" | "large";
+};
+
+const ListItem: React.FC<ListItemProps> = ({
+  text,
+  iconType,
+  textSize = "normal",
+}) => {
+  const cogIcon = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-4 w-4 text-taupe mr-3 flex-shrink-0"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+      />
+    </svg>
+  );
+
+  const arrowIcon = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-4 w-4 text-blue-lbg mr-3 flex-shrink-0"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 7l5 5m0 0l-5 5m5-5H6"
+      />
+    </svg>
+  );
+
+  const sizeClass = textSize === "large" ? "text-lg" : "";
+
+  return (
+    <li className={`flex items-center text-gray-600 ${sizeClass}`}>
+      {iconType === "cog" ? cogIcon : arrowIcon}
+      {text}
+    </li>
+  );
+};
+
 const Distribution: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
@@ -71,57 +132,54 @@ const Distribution: React.FC = () => {
 
         {/* Traditional vs Darklang */}
         <div className="mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Traditional Distribution vs Darklang
+          <h2 className="font-bold mb-8 flex flex-col items-center justify-center">
+            <div className="flex items-center text-3xl tracking-wide">
+              <span className="text-taupe tracking-widest">Traditional</span>
+              <span className="mx-4 text-gray-600 text-4xl font-light">vs</span>
+              <span className="text-blue-lbg tracking-widest">Darklang</span>
+            </div>
+            <span className="text-gray-500 mt-2 text-2xl tracking-widest">
+              Distribution
+            </span>
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 2xl:gap-24 2xl:gap-28 mx-8">
             {/* Traditional Distribution */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
-              <div className="h-1 bg-rust"></div>
+            <div>
               <div className="p-6">
-                <h3 className="text-xl font-medium text-gray-800 mb-6">
-                  Traditional Distribution
+                <h3 className="text-xl font-semibold tracking-wider text-gray-700 mb-6 flex items-center ">
+                  Traditional{" "}
+                  <span className="text-gray-500 ml-1">Distribution</span>
                 </h3>
 
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rust mr-3 flex-shrink-0"></span>
-                    Write code and commit to Git
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rust mr-3 flex-shrink-0"></span>
-                    Create pull requests and reviews
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rust mr-3 flex-shrink-0"></span>
-                    Configure build systems
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rust mr-3 flex-shrink-0"></span>
-                    Build Docker containers
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rust mr-3 flex-shrink-0"></span>
-                    Push to container registries
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rust mr-3 flex-shrink-0"></span>
-                    Configure Kubernetes/orchestration
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rust mr-3 flex-shrink-0"></span>
-                    Set up CI/CD pipelines
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rust mr-3 flex-shrink-0"></span>
-                    Deploy and pray it works
-                  </li>
+                <ul className="space-y-2 mb-8 pl-4">
+                  <ListItem
+                    iconType="cog"
+                    text="Write code and commit to Git"
+                  />
+                  <ListItem
+                    iconType="cog"
+                    text="Create pull requests and reviews"
+                  />
+                  <ListItem iconType="cog" text="Configure build systems" />
+                  <ListItem iconType="cog" text="Build Docker containers" />
+                  <ListItem
+                    iconType="cog"
+                    text="Push to container registries"
+                  />
+                  <ListItem
+                    iconType="cog"
+                    text="Configure Kubernetes/orchestration"
+                  />
+                  <ListItem iconType="cog" text="Set up CI/CD pipelines" />
+                  <ListItem iconType="cog" text="Deploy and pray it works" />
                 </ul>
 
-                <div className="text-rust font-medium flex items-center">
+                <div className="text-taupe font-medium flex items-center bg-gradient-to-br from-white/70 to-white/40 backdrop-filter backdrop-blur-md px-4 py-2 rounded-md relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-taupe/5 mix-blend-overlay"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-tr from-taupe/20 via-transparent to-transparent opacity-30 group-hover:opacity-40 transition-opacity"></div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
+                    className="h-5 w-5 mr-2 relative z-10"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -133,38 +191,45 @@ const Distribution: React.FC = () => {
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  Hours or days from code to production
+                  <span className="relative z-10">
+                    Hours or days from code to production
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Darklang Distribution */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
-              <div className="h-1 bg-purple-lbg"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-medium text-gray-800 mb-6">
-                  Darklang Distribution
+            <div>
+              <div className="px-10 py-6">
+                <h3 className="text-xl font-semibold tracking-wider text-gray-800 mb-6 flex items-center">
+                  Darklang{" "}
+                  <span className="text-gray-500 ml-1">Distribution</span>
                 </h3>
 
-                <ul className="space-y-6 mb-8">
-                  <li className="flex items-center text-gray-600 text-lg">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-lbg mr-3 flex-shrink-0"></span>
-                    Write your function
-                  </li>
-                  <li className="flex items-center text-gray-600 text-lg">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-lbg mr-3 flex-shrink-0"></span>
-                    Save the file
-                  </li>
-                  <li className="flex items-center text-gray-600 text-lg">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-lbg mr-3 flex-shrink-0"></span>
-                    It's running in production
-                  </li>
+                <ul className="space-y-2 mb-8">
+                  <ListItem
+                    iconType="arrow"
+                    text="Write your function"
+                    textSize="large"
+                  />
+                  <ListItem
+                    iconType="arrow"
+                    text="Save the file"
+                    textSize="large"
+                  />
+                  <ListItem
+                    iconType="arrow"
+                    text="It's running in production"
+                    textSize="large"
+                  />
                 </ul>
 
-                <div className="text-purple-lbg font-medium flex items-center">
+                <div className="text-blue-lbg font-medium flex items-center bg-gradient-to-br from-white/70 to-white/40 backdrop-filter backdrop-blur-md px-4 py-2 rounded-md  relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-blue-lbg/5 mix-blend-overlay"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-tr from-blue-lbg/20 via-transparent to-transparent opacity-30 group-hover:opacity-40 transition-opacity"></div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
+                    className="h-5 w-5 mr-2 relative z-10"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -176,7 +241,9 @@ const Distribution: React.FC = () => {
                       d="M13 10V3L4 14h7v7l9-11h-7z"
                     />
                   </svg>
-                  50 milliseconds from code to production
+                  <span className="relative z-10">
+                    50 milliseconds from code to production
+                  </span>
                 </div>
               </div>
             </div>
@@ -253,13 +320,13 @@ const Distribution: React.FC = () => {
             </p>
             <div className="bg-gray-50 p-4 rounded-md space-y-2">
               <div className="text-sm">
-                <span className="font-semibold text-green-700">Auto-sync:</span>
+                <span className="font-semibold text-mint">Auto-sync:</span>
                 <span className="text-gray-600 ml-2">
                   Public functions sync automatically as you save
                 </span>
               </div>
               <div className="text-sm">
-                <span className="font-semibold text-blue-700">
+                <span className="font-semibold text-blue-lbg">
                   Manual publish:
                 </span>
                 <span className="text-gray-600 ml-2">
@@ -289,7 +356,7 @@ const Distribution: React.FC = () => {
               functions, data, and more.
             </p>
 
-            <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-lbg">
+            <div className="px-8 py-4 rounded-xs border-l-4 border-blue-lbg">
               <h3 className="font-semibold text-gray-800 mb-3">
                 How Matter Works
               </h3>
@@ -355,8 +422,8 @@ const Distribution: React.FC = () => {
                   installation.
                 </p>
                 <div className="font-fira text-xs bg-dark p-2 rounded">
-                  <span className="text-blue-dbg">$ dark</span>{" "}
-                  <span className="text-tan">run</span>{" "}
+                  <span className="text-gray-300">$ dark</span>{" "}
+                  <span className="text-classic-blue">run</span>{" "}
                   <span className="text-gray-light">@user.func</span>
                 </div>
               </div>
@@ -369,8 +436,8 @@ const Distribution: React.FC = () => {
                   Deploy to Darklang cloud instantly with zero configuration.
                 </p>
                 <div className="font-fira text-xs bg-dark p-2 rounded">
-                  <span className="text-blue-dbg">$ dark</span>{" "}
-                  <span className="text-tan">deploy</span>{" "}
+                  <span className="text-gray-300">$ dark</span>{" "}
+                  <span className="text-classic-blue">deploy</span>{" "}
                   <span className="text-gray-light">@user.func</span>
                 </div>
               </div>
@@ -383,7 +450,7 @@ const Distribution: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             What Darklang Distribution Eliminates
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-6 pl-1">
+          <div className="text-gray-700 leading-relaxed space-y-6 pl-3">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-semibold text-gray-800 mb-3">

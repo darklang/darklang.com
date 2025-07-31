@@ -10,7 +10,7 @@ const Execution: React.FC = () => {
             Instant Execution
           </h1>
           <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             No compilation, no build steps, no waiting. Write code and it runs
             immediately with Darklang's streamlined execution model.
           </p>
@@ -146,7 +146,7 @@ const Execution: React.FC = () => {
               from the package manager as your code runs.
             </p>
 
-            <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-lbg">
+            <div className="pl-8 py-1 border-l-3 border-blue-lbg">
               <h3 className="font-semibold text-gray-800 mb-3">How It Works</h3>
               <div className="space-y-3">
                 <div className="flex items-start">
@@ -169,7 +169,7 @@ const Execution: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-mint-50 p-4 rounded-lg mt-4">
+            <div className="bg-mint/8 p-4 rounded-lg mt-4">
               <h4 className="font-semibold text-gray-800 mb-2">
                 Minimal Downloads
               </h4>
@@ -203,11 +203,11 @@ const Execution: React.FC = () => {
               creates an incredibly fast development experience:
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 mt-6">
+            <div className="grid md:grid-cols-3 gap-2 mt-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-lbg rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-lbg rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
-                    className="w-8 h-8 text-white"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -221,15 +221,15 @@ const Execution: React.FC = () => {
                   </svg>
                 </div>
                 <h3 className="font-semibold text-gray-800 mb-2">Write</h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 max-w-xs mx-auto">
                   Type your function and save. No compilation step needed.
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-lbg rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-purple-lbg rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
-                    className="w-8 h-8 text-white"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -243,15 +243,15 @@ const Execution: React.FC = () => {
                   </svg>
                 </div>
                 <h3 className="font-semibold text-gray-800 mb-2">Run</h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 max-w-xs mx-auto">
                   Code executes immediately, even with partial type information.
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-mint rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-mint rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
-                    className="w-8 h-8 text-white"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -265,7 +265,7 @@ const Execution: React.FC = () => {
                   </svg>
                 </div>
                 <h3 className="font-semibold text-gray-800 mb-2">Iterate</h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600  max-w-xs mx-auto">
                   Refine your code instantly based on real execution feedback.
                 </p>
               </div>
@@ -316,7 +316,7 @@ const Execution: React.FC = () => {
               optimized for high-performance computing scenarios.
             </p>
 
-            <div className="bg-sand/10 p-6 rounded-lg border-l-4 border-sand">
+            <div className="px-8 py-4 border-l-3 border-sand">
               <h3 className="font-semibold text-gray-800 mb-3">
                 Current Trade-offs
               </h3>

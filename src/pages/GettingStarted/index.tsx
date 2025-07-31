@@ -4,14 +4,14 @@ import Newsletter from "../Home/Newsletter";
 const GettingStarted: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Getting Started with Darklang
           </h1>
           <div className="w-52 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Here's how you can start exploring Darklang and connect with our
             community.
           </p>
@@ -124,7 +124,7 @@ const GettingStarted: React.FC = () => {
         </div>
 
         {/* What's Coming */}
-        <div className="mb-18">
+        <div className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             What's Coming Next
           </h2>

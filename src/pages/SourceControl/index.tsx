@@ -3,14 +3,14 @@ import React from "react";
 const SourceControl: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Source Control Reimagined
           </h1>
-          <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Darklang's source control is built into the platform. No files, no
             nasty merge conflicts, no external versioning — just immutable,
             content-addressable code that never gets lost.
@@ -18,31 +18,57 @@ const SourceControl: React.FC = () => {
         </div>
 
         {/* Core Concept */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Code as Immutable Data, Not Mutable Text
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Traditional source control treats your codebase as a "bag of mutable
-            text files." Darklang treats code as immutable data structures where
-            every function, type, and module gets a content-based address.
-            Changes create new versions while preserving all previous ones.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            <strong>The result:</strong> Source control that understands your
-            code's meaning, eliminating merge conflicts, enabling perfect
-            caching, and providing deep insight into dependencies and test
-            coverage.
-          </p>
-        </div>
+        <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50 p-8 mb-20 shadow-sm border border-purple-100">
+          {/* Decorative elements */}
+          <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-purple-100/40 blur-2xl"></div>
+          <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-indigo-100/40 blur-2xl"></div>
+
+          <div className="relative">
+            {/* Icon + Title header */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center rounded-full bg-purple-100 p-2 text-purple-lbg">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="18" cy="18" r="3"></circle>
+                  <circle cx="6" cy="6" r="3"></circle>
+                  <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+                  <line x1="6" y1="9" x2="6" y2="21"></line>
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-purple-dbg">
+                Code as Immutable Data, Not Mutable Text
+              </h2>
+            </div>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Traditional source control treats your codebase as a "bag of
+              mutable text files." Darklang treats code as immutable data
+              structures where every function, type, and module gets a
+              content-based address. Changes create new versions while
+              preserving all previous ones.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              <strong>The result:</strong> Source control that understands your
+              code's meaning, eliminating merge conflicts, enabling perfect
+              caching, and providing deep insight into dependencies and test
+              coverage.
+            </p>
+          </div>
+        </section>
 
         {/* How It Works */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             How It Works
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <div className="w-12 h-12 bg-blue-lbg rounded-lg flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-white"
@@ -67,7 +93,7 @@ const SourceControl: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <div className="w-12 h-12 bg-purple-lbg rounded-lg flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-white"
@@ -92,7 +118,7 @@ const SourceControl: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <div className="w-12 h-12 bg-mint rounded-lg flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-white"
@@ -117,7 +143,7 @@ const SourceControl: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <div className="w-12 h-12 bg-taupe rounded-lg flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-white"
@@ -145,7 +171,7 @@ const SourceControl: React.FC = () => {
         </div>
 
         {/* Deep Knowledge Benefits */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Deep Knowledge of Your Codebase
           </h2>
@@ -236,7 +262,7 @@ const SourceControl: React.FC = () => {
         </div>
 
         {/* Key Benefits */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
           <div className="border-l-4 border-blue-lbg pl-6">
             <h3 className="text-xl font-bold text-gray-900 mb-4">
               No Spurious Merge Conflicts
@@ -259,7 +285,7 @@ const SourceControl: React.FC = () => {
         </div>
 
         {/* Why Text-Based Version Control is Broken */}
-        <div className="bg-red-50 rounded-lg p-8 mb-12">
+        <div className="bg-rust/3 rounded-lg p-8 mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Why Traditional Version Control Holds Us Back
           </h2>
@@ -268,28 +294,28 @@ const SourceControl: React.FC = () => {
               <h3 className="font-semibold text-gray-800 mb-3">The Problems</h3>
               <div className="space-y-3 text-sm text-gray-600">
                 <div className="flex items-start">
-                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-rust rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
                     <strong>Semantic blindness:</strong> Can't tell meaningful
                     changes from cosmetic ones
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-rust rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
                     <strong>Constant broken states:</strong> Codebases regularly
                     don't compile during development
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-rust rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
                     <strong>Unnecessary rebuilds:</strong> Whitespace changes
                     trigger full recompilation
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-rust rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
                     <strong>Tooling fragmentation:</strong> Every tool reparses
                     the same code differently
@@ -304,28 +330,28 @@ const SourceControl: React.FC = () => {
               </h3>
               <div className="space-y-3 text-sm text-gray-600">
                 <div className="flex items-start">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
                     <strong>Semantic understanding:</strong> Only real changes
                     trigger downstream effects
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
                     <strong>Always valid state:</strong> Well-typed
                     transformations maintain semantic integrity
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
                     <strong>Perfect caching:</strong> Compilation and test
                     results cached by content hash
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
                     <strong>Unified tooling:</strong> One semantic
                     representation for all tools
@@ -337,7 +363,7 @@ const SourceControl: React.FC = () => {
         </div>
 
         {/* File-Based Option */}
-        <div className="bg-gray-50 rounded-lg p-6 mb-12">
+        <div className="bg-gray-50 rounded-lg p-6 mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Traditional Git Integration Available
           </h2>

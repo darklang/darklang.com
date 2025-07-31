@@ -3,63 +3,34 @@ import React from "react";
 const Sharing: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Sharing Darklang
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Thanks for being part of our community! Here are resources to help
             you share your Darklang experience, including logos, naming
             guidelines, and positioning information.
           </p>
         </div>
 
-        {/* Naming Guidelines */}
-        <div className="bg-blue-50 rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Naming Guidelines
-          </h2>
-          <div className="space-y-4 text-gray-700">
-            <p>
-              <strong>Official name:</strong> "Darklang" — pronounced
-              "dark-lang"
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-3">✅ Correct</h3>
-                <ul className="space-y-2 text-sm">
-                  <li>• "Darklang" (capitalized - proper noun)</li>
-                  <li>• One word, no spaces</li>
-                  <li>• Lowercase "darklang" only in the logo</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  ❌ Incorrect
-                </h3>
-                <ul className="space-y-2 text-sm">
-                  <li>• "Dark Lang" (two words)</li>
-                  <li>• "DarkLang" (capital L)</li>
-                  <li>• "DARKLANG" (all caps)</li>
-                  <li>• "Dark language"</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Positioning */}
-        <div className="bg-purple-50 rounded-lg p-8 mb-12">
+        <div className="bg-purple-50 rounded-lg p-8 mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Positioning & Market
           </h2>
           <div className="space-y-4 text-gray-700">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-3">✅ We Are</h3>
+                <h3 className="font-semibold text-gray-800 mb-3">
+                  <span className="text-green-600 mr-2 font-code text-xl">
+                    ✓
+                  </span>{" "}
+                  We Are
+                </h3>
                 <ul className="space-y-2 text-sm">
                   <li>
                     • <strong>"Just Code"</strong> — for engineers writing code
@@ -74,7 +45,7 @@ const Sharing: React.FC = () => {
                       href="https://blog.darklang.com/how-dark-deploys-code-in-50ms/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       instant deployment
                     </a>
@@ -84,7 +55,8 @@ const Sharing: React.FC = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-800 mb-3">
-                  ❌ We're Not
+                  <span className="text-red-600 mr-2 font-code text-xl">✕</span>{" "}
+                  We're Not
                 </h3>
                 <ul className="space-y-2 text-sm">
                   <li>• "Low Code" or "No Code"</li>
@@ -106,20 +78,20 @@ const Sharing: React.FC = () => {
 
         {/* Logos Section */}
 
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Logo Downloads
           </h2>
 
           {/* Standard Logos */}
-          <div className="mb-8">
+          <div className="mb-8 ml-2">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Standard Logos
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg shadow-lg p-6 border">
                 <div className="text-center mb-4">
-                  <div className="bg-gray-50 rounded p-2 mb-3 h-24 flex items-center justify-center">
+                  <div className="bg-gray-100 rounded p-2 mb-3 h-24 flex items-center justify-center">
                     <img
                       src="/assets/branding/logo-light@2x.png"
                       alt="Darklang Logo Light"
@@ -128,12 +100,12 @@ const Sharing: React.FC = () => {
                   </div>
                   <p className="text-sm text-gray-600">For light backgrounds</p>
                 </div>
-                <div className="text-center text-sm space-y-1">
+                <div className="text-center text-xs 2xl:text-sm font-medium space-y-1">
                   <div>
                     <a
                       href="/assets/branding/logo-light.svg"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       SVG
                     </a>
@@ -141,7 +113,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/logo-light.png"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       PNG
                     </a>
@@ -149,7 +121,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/logo-light@2x.png"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       PNG 2x
                     </a>
@@ -157,17 +129,17 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/logo-light@3x.png"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       PNG 3x
                     </a>
                   </div>
-                  <div className="text-xs">
+                  <div className="text-xs font-semibold">
                     <span className="text-gray-500">Transparent:</span>
                     <a
                       href="/assets/branding/logo-light-transparent.svg"
                       target="_blank"
-                      className="text-blue-600 hover:underline ml-1"
+                      className="text-blue-dbg hover:underline ml-1"
                     >
                       SVG
                     </a>
@@ -175,7 +147,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/logo-light-transparent.png"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       PNG
                     </a>
@@ -183,9 +155,9 @@ const Sharing: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-900 rounded-lg shadow-lg p-6">
+              <div className="bg-dark-black rounded-lg shadow-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="bg-gray-800 rounded p-2 mb-3 h-24 flex items-center justify-center">
+                  <div className="bg-dark/30 rounded p-2 mb-3 h-24 flex items-center justify-center">
                     <img
                       src="/assets/branding/logo-dark@2x.png"
                       alt="Darklang Logo Dark"
@@ -194,12 +166,12 @@ const Sharing: React.FC = () => {
                   </div>
                   <p className="text-sm text-gray-300">For dark backgrounds</p>
                 </div>
-                <div className="text-center text-sm space-y-1">
+                <div className="text-center text-xs 2xl:text-sm font-medium space-y-1">
                   <div>
                     <a
                       href="/assets/branding/logo-dark.svg"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       SVG
                     </a>
@@ -207,7 +179,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/logo-dark.png"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       PNG
                     </a>
@@ -215,7 +187,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/logo-dark@2x.png"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       PNG 2x
                     </a>
@@ -223,17 +195,17 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/logo-dark@3x.png"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       PNG 3x
                     </a>
                   </div>
-                  <div className="text-xs">
+                  <div className="text-xs font-semibold">
                     <span className="text-gray-400">Transparent:</span>
                     <a
                       href="/assets/branding/logo-dark-transparent.svg"
                       target="_blank"
-                      className="text-blue-400 hover:underline ml-1"
+                      className="text-purple-dbg hover:underline ml-1"
                     >
                       SVG
                     </a>
@@ -241,7 +213,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/logo-dark-transparent.png"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       PNG
                     </a>
@@ -252,14 +224,14 @@ const Sharing: React.FC = () => {
           </div>
 
           {/* Wordmarks */}
-          <div className="mb-8">
+          <div className="mb-8 ml-2">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Wordmarks
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg shadow-lg p-6 border">
                 <div className="text-center mb-4">
-                  <div className="bg-gray-50 rounded p-2 mb-3 h-20 flex items-center justify-center">
+                  <div className="bg-gray-100 rounded p-2 mb-3 h-20 flex items-center justify-center">
                     <img
                       src="/assets/branding/wordmark-light@2x.png"
                       alt="Darklang Wordmark Light"
@@ -268,12 +240,12 @@ const Sharing: React.FC = () => {
                   </div>
                   <p className="text-sm text-gray-600">For light backgrounds</p>
                 </div>
-                <div className="text-center text-sm space-y-1">
+                <div className="text-center text-xs 2xl:text-sm font-medium space-y-1">
                   <div>
                     <a
                       href="/assets/branding/wordmark-light.svg"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       SVG
                     </a>
@@ -281,7 +253,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/wordmark-light.png"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       PNG
                     </a>
@@ -289,7 +261,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/wordmark-light@2x.png"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       PNG 2x
                     </a>
@@ -297,17 +269,17 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/wordmark-light@3x.png"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       PNG 3x
                     </a>
                   </div>
-                  <div className="text-xs">
+                  <div className="text-xs font-semibold">
                     <span className="text-gray-500">Transparent:</span>
                     <a
                       href="/assets/branding/wordmark-light-transparent.svg"
                       target="_blank"
-                      className="text-blue-600 hover:underline ml-1"
+                      className="text-blue-dbg hover:underline ml-1"
                     >
                       SVG
                     </a>
@@ -315,7 +287,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/wordmark-light-transparent.png"
                       target="_blank"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-dbg hover:underline"
                     >
                       PNG
                     </a>
@@ -323,9 +295,9 @@ const Sharing: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-900 rounded-lg shadow-lg p-6">
+              <div className="bg-dark-black rounded-lg shadow-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="bg-gray-800 rounded p-2 mb-3 h-20 flex items-center justify-center">
+                  <div className="bg-dark/30 rounded p-2 mb-3 h-20 flex items-center justify-center">
                     <img
                       src="/assets/branding/wordmark-dark@2x.png"
                       alt="Darklang Wordmark Dark"
@@ -334,12 +306,12 @@ const Sharing: React.FC = () => {
                   </div>
                   <p className="text-sm text-gray-300">For dark backgrounds</p>
                 </div>
-                <div className="text-center text-sm space-y-1">
+                <div className="text-center text-xs 2xl:text-sm font-medium space-y-1">
                   <div>
                     <a
                       href="/assets/branding/wordmark-dark.svg"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       SVG
                     </a>
@@ -347,7 +319,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/wordmark-dark.png"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       PNG
                     </a>
@@ -355,7 +327,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/wordmark-dark@2x.png"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       PNG 2x
                     </a>
@@ -363,17 +335,17 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/wordmark-dark@3x.png"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       PNG 3x
                     </a>
                   </div>
-                  <div className="text-xs">
+                  <div className="text-xs font-semibold">
                     <span className="text-gray-400">Transparent:</span>
                     <a
                       href="/assets/branding/wordmark-dark-transparent.svg"
                       target="_blank"
-                      className="text-blue-400 hover:underline ml-1"
+                      className="text-purple-dbg hover:underline ml-1"
                     >
                       SVG
                     </a>
@@ -381,7 +353,7 @@ const Sharing: React.FC = () => {
                     <a
                       href="/assets/branding/wordmark-dark-transparent.png"
                       target="_blank"
-                      className="text-blue-400 hover:underline"
+                      className="text-purple-dbg hover:underline"
                     >
                       PNG
                     </a>
@@ -393,16 +365,16 @@ const Sharing: React.FC = () => {
         </div>
 
         {/* Brand Colors */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Brand Colors
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 ml-2">
             <div className="bg-white rounded-lg shadow-lg p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Light Backgrounds
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-3 px-20">
                 <div className="flex items-center justify-between">
                   <span className="font-medium">Black</span>
                   <div className="flex items-center">
@@ -446,11 +418,11 @@ const Sharing: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-gray-900 rounded-lg shadow-lg p-6">
+            <div className="bg-dark-black rounded-lg shadow-lg p-6">
               <h3 className="text-lg font-semibold text-white mb-4">
                 Dark Backgrounds
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-2 px-20">
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-white">Black</span>
                   <div className="flex items-center">
@@ -504,6 +476,40 @@ const Sharing: React.FC = () => {
           </div>
         </div>
 
+        {/* Naming Guidelines */}
+        {/* <div className="bg-blue-50 rounded-lg p-8 mb-20">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Naming Guidelines
+          </h2>
+          <div className="space-y-4 text-gray-700">
+            <p>
+              <strong>Official name:</strong> "Darklang" — pronounced
+              "dark-lang"
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-3">✅ Correct</h3>
+                <ul className="space-y-2 text-sm">
+                  <li>• "Darklang" (capitalized - proper noun)</li>
+                  <li>• One word, no spaces</li>
+                  <li>• Lowercase "darklang" only in the logo</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-3">
+                  ❌ Incorrect
+                </h3>
+                <ul className="space-y-2 text-sm">
+                  <li>• "Dark Lang" (two words)</li>
+                  <li>• "DarkLang" (capital L)</li>
+                  <li>• "DARKLANG" (all caps)</li>
+                  <li>• "Dark language"</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
         {/* Usage Guidelines */}
         <div className="bg-gray-50 rounded-lg p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
@@ -511,7 +517,10 @@ const Sharing: React.FC = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-6 text-sm">
             <div>
-              <h3 className="font-semibold text-gray-800 mb-3">✅ Please Do</h3>
+              <h3 className="font-semibold text-gray-800 mb-3">
+                <span className="text-green-600 mr-2 font-code text-xl">✓</span>{" "}
+                Please Do
+              </h3>
               <ul className="space-y-2 text-gray-600">
                 <li>• Use official logos and colors</li>
                 <li>• Maintain proper spacing around logos</li>
@@ -522,7 +531,8 @@ const Sharing: React.FC = () => {
             </div>
             <div>
               <h3 className="font-semibold text-gray-800 mb-3">
-                ❌ Please Don't
+                <span className="text-red-600 mr-2 font-code text-xl">✕</span>{" "}
+                Please Don't
               </h3>
               <ul className="space-y-2 text-gray-600">
                 <li>• Modify, stretch, or distort the logos</li>

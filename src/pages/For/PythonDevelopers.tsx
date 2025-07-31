@@ -1,98 +1,166 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
+import CodeDisplay from "../../common/ui/CodeDisplay";
 
 const PythonDevelopers: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    // Trigger animation after component mounts
+    setIsVisible(true);
+  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Darklang for Python Developers
           </h1>
-          <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Skip the Flask/Django setup. Build APIs and automation scripts that
             run instantly.
           </p>
         </div>
 
-        {/* Python Pain Points */}
-        <div className="bg-red-50 rounded-lg p-8 mb-12 border-l-4 border-red-500">
-          <h2 className="text-2xl font-bold text-red-800 mb-4">
-            Python Deployment Reality
-          </h2>
-          <div className="text-red-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Virtual environments, requirements.txt, pip install conflicts
-              </p>
+        {/* Python Pain Points and Darklang Advantage */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-10 mb-10">
+          {/* Python Pain Points */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                Python Deployment Reality
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Setting up Flask/Django, configuring WSGI, handling production
-                deployment
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Database setup (SQLAlchemy, Django ORM), migration headaches
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>Cron jobs, task queues (Celery), background workers setup</p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>"It works on my machine" → deployment debugging nightmare</p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Virtual environments, requirements.txt, pip install conflicts
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Setting up Flask/Django, configuring WSGI, handling production
+                  deployment
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Database setup (SQLAlchemy, Django ORM), migration headaches
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>Cron jobs, task queues (Celery), background workers setup</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>"It works on my machine" → deployment debugging nightmare</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Darklang Advantage */}
-        <div className="bg-green-50 rounded-lg p-8 mb-12 border-l-4 border-green-500">
-          <h2 className="text-2xl font-bold text-green-800 mb-4">
-            Darklang: Python's Simplicity, Better Deployment
-          </h2>
-          <div className="text-green-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>No virtual environments:</strong> Functions are isolated
-                by design
-              </p>
+          {/* Darklang Advantage */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                Darklang: Python's Simplicity, Better Deployment
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>No Flask setup:</strong> HTTP endpoints are first-class
-                language features
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>No ORM complexity:</strong> Built-in key-value database,
-                query directly
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>No deployment setup:</strong> Save your function, it's
-                running
-              </p>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No virtual environments:</strong> Functions are
+                  isolated by design
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No Flask setup: </strong> HTTP endpoints are
+                  first-class language features
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No ORM complexity:</strong> Built-in key-value
+                  database, query directly
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No deployment setup:</strong> Save your function, it's
+                  running
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Perfect For Python Devs */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             Perfect for Python Developers Who:
           </h2>
@@ -156,47 +224,57 @@ const PythonDevelopers: React.FC = () => {
         </div>
 
         {/* Language Comparison */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Familiar Concepts, Better Experience
           </h2>
 
-          <div className="space-y-8">
+          <div className="space-y-8 pl-1">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold text-red-600 mb-4">
+                <h3 className="text-xl font-bold text-rust mb-4">
                   Traditional Python
                 </h3>
-                <div className="bg-red-50 p-4 rounded font-mono text-sm">
-                  <div className="text-gray-600"># Flask API</div>
-                  <div>pip install flask</div>
-                  <div>from flask import Flask</div>
-                  <div>app = Flask(__name__)</div>
-                  <div>@app.route('/api/users')</div>
-                  <div>def get_users():</div>
-                  <div>&nbsp;&nbsp;# DB setup required</div>
-                  <div>&nbsp;&nbsp;return users</div>
-                  <div>app.run()</div>
+                <div className="px-8 py-4 font-mono text-sm overflow-x-auto bg-rust/4 rounded">
+                  <CodeDisplay
+                    showLineNumbers={false}
+                    language="python"
+                    code={`# Flask API
+
+pip install flask
+from flask import Flask, jsonify
+app = Flask(__name__) 
+@app.route('/api/users')
+def get_users():
+    # DB setup required
+    return jsonify(users)
+app.run()`}
+                  />
                 </div>
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-green-600 mb-4">
+                <h3 className="text-xl font-bold text-blue-lbg mb-4">
                   Darklang
                 </h3>
-                <div className="bg-green-50 p-4 rounded font-mono text-sm">
-                  <div className="text-gray-600"># HTTP Handler</div>
-                  <div>GET /api/users</div>
-                  <div>&nbsp;</div>
-                  <div>let users = DB.getAll Users</div>
-                  <div>users</div>
-                  <div>&nbsp;</div>
-                  <div className="text-gray-600"># Already running!</div>
+                <div className="px-8 py-4 font-mono text-sm overflow-x-auto bg-mint/8 rounded">
+                  <CodeDisplay
+                    showLineNumbers={false}
+                    language="fsharp"
+                    code={`// HTTP Handler
+
+GET /api/users
+
+let users = DB.getAll Users
+users
+
+// Already running!`}
+                  />
                 </div>
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-lbg pl-6">
+            <div className="border-l-4 border-blue-lbg pl-6 mt-15">
               <h3 className="text-lg font-bold text-gray-800 mb-3">
                 What You'll Love
               </h3>
@@ -235,13 +313,13 @@ const PythonDevelopers: React.FC = () => {
         </div>
 
         {/* Common Python Use Cases */}
-        <div className="border-l-4 border-purple-lbg pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Common Python Patterns, Simplified
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-6">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Web Scraping & Data Collection
               </h3>
               <p className="mb-3">
@@ -255,7 +333,7 @@ const PythonDevelopers: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Data Processing Pipelines
               </h3>
               <p className="mb-3">
@@ -270,7 +348,7 @@ const PythonDevelopers: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 API Integration & Orchestration
               </h3>
               <p className="mb-3">
@@ -287,7 +365,7 @@ const PythonDevelopers: React.FC = () => {
         </div>
 
         {/* Migration Benefits */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Why Python Developers Switch
           </h2>
@@ -367,11 +445,11 @@ const PythonDevelopers: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="border-l-4 border-mint pl-8">
+        <div className="">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Python Philosophy, Modern Deployment
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p className="text-lg">
               You love Python for its readability and expressiveness. But you're
               tired of deployment complexity and environment management.

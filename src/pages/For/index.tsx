@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ForCard from "../../components/ForCard";
 
 const For: React.FC = () => {
   const audiencePages = [
@@ -76,8 +76,8 @@ const For: React.FC = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Darklang For...
           </h1>
-          <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <div className="w-32 h-1 bg-blue-lbg mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Discover how Darklang solves the specific challenges in your field.
             Whether you're building web apps, automating tasks, or creating AI
             applications— there's a better way.
@@ -87,83 +87,75 @@ const For: React.FC = () => {
         {/* Audience Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {audiencePages.map(audience => (
-            <Link
+            <ForCard
               key={audience.path}
-              to={`/for/${audience.path}`}
-              className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 hover:border-blue-lbg"
-            >
-              <div className="text-center">
-                <div className="text-4xl mb-4">{audience.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-lbg transition-colors">
-                  {audience.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {audience.description}
-                </p>
-              </div>
-            </Link>
+              title={audience.title}
+              description={audience.description}
+              icon={audience.icon}
+              path={audience.path}
+            />
           ))}
         </div>
 
         {/* Coming Soon Section */}
-        <div className="bg-gray-50 rounded-lg p-8 mb-12">
+        <div className="my-28">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             Coming Soon
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-            <div className="p-4">
-              <div className="text-2xl mb-2">🏠</div>
-              <div className="text-sm font-medium text-gray-700">
-                Home Automation
-              </div>
-            </div>
-            <div className="p-4">
-              <div className="text-2xl mb-2">📺</div>
-              <div className="text-sm font-medium text-gray-700">
-                eInk Devices
-              </div>
-            </div>
-            <div className="p-4">
-              <div className="text-2xl mb-2">🖥️</div>
-              <div className="text-sm font-medium text-gray-700">
-                Unix Users
-              </div>
-            </div>
-            <div className="p-4">
-              <div className="text-2xl mb-2">♿</div>
-              <div className="text-sm font-medium text-gray-700">
-                Accessibility
-              </div>
-            </div>
-            <div className="p-4">
-              <div className="text-2xl mb-2">🔒</div>
-              <div className="text-sm font-medium text-gray-700">
-                Privacy Advocates
-              </div>
-            </div>
-            <div className="p-4">
-              <div className="text-2xl mb-2">🌐</div>
-              <div className="text-sm font-medium text-gray-700">
-                Domain Collectors
-              </div>
-            </div>
-            <div className="p-4">
-              <div className="text-2xl mb-2">💰</div>
-              <div className="text-sm font-medium text-gray-700">
-                Entrepreneurs
-              </div>
-            </div>
-            <div className="p-4">
-              <div className="text-2xl mb-2">🎯</div>
-              <div className="text-sm font-medium text-gray-700">
-                Contractors
-              </div>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+            <ForCard
+              title="Home Automation"
+              description="Control your smart home and automate your life with Dark."
+              icon="🔌"
+              disabled={true}
+            />
+            <ForCard
+              title="eInk Devices"
+              description="Create apps for Remarkable, and other eInk tablets."
+              icon="📱"
+              disabled={true}
+            />
+            <ForCard
+              title="Unix Users"
+              description="Powerful CLI tools and system integrations for Unix environments."
+              icon="🐧"
+              disabled={true}
+            />
+            <ForCard
+              title="Accessibility"
+              description="Build inclusive applications that work for everyone."
+              icon="🔍"
+              disabled={true}
+            />
+            <ForCard
+              title="Privacy Advocates"
+              description="Create privacy-respecting software with built-in safeguards."
+              icon="🛡️"
+              disabled={true}
+            />
+            <ForCard
+              title="Domain Collectors"
+              description="Put those unused domains to work with quick deployment."
+              icon="🔗"
+              disabled={true}
+            />
+            <ForCard
+              title="Entrepreneurs"
+              description="Launch your MVP in days, not months. Validate ideas quickly."
+              icon="🚀"
+              disabled={true}
+            />
+            <ForCard
+              title="Contractors"
+              description="Deliver more value to clients with rapid development cycles."
+              icon="⚙️"
+              disabled={true}
+            />
           </div>
         </div>
 
         {/* Why Specialized Pages */}
-        <div className="border-l-4 border-blue-lbg pl-8">
+        <div className="">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Why Different Pages for Different People?
           </h2>

@@ -1,102 +1,171 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 
 const SmallBusinesses: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    // Trigger animation after component mounts
+    setIsVisible(true);
+  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Darklang for Small Businesses
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Custom software solutions without the enterprise price tag. Build
             exactly what your business needs.
           </p>
         </div>
 
-        {/* Small Business Pain Points */}
-        <div className="bg-red-50 rounded-lg p-8 mb-12 border-l-4 border-red-500">
-          <h2 className="text-2xl font-bold text-red-800 mb-4">
-            Software That Doesn't Fit
-          </h2>
-          <div className="text-red-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Generic SaaS tools that almost fit your workflow (but not quite)
-              </p>
+        {/* Small Business Pain Points and Darklang Solution */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
+          {/* Small Business Pain Points */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                Software That Doesn't Fit
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                WordPress sites that break when you need custom functionality
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Custom development quotes that cost more than your annual
-                revenue
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Manual processes that eat hours every week but seem too small to
-                automate
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Data scattered across spreadsheets, email, and various tools
-              </p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Generic SaaS tools that almost fit your workflow (but not
+                  quite)
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  WordPress sites that break when you need custom functionality
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Custom development quotes that cost more than your annual
+                  revenue
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Manual processes that eat hours every week but seem too small
+                  to automate
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Data scattered across spreadsheets, email, and various tools
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Darklang Solution */}
-        <div className="bg-green-50 rounded-lg p-8 mb-12 border-l-4 border-green-500">
-          <h2 className="text-2xl font-bold text-green-800 mb-4">
-            Custom Software, Small Business Budget
-          </h2>
-          <div className="text-green-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>No upfront costs:</strong> Build incrementally, pay only
-                for what you use
-              </p>
+          {/* Darklang Solution */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                Custom Software, Small Business Budget
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Non-technical friendly:</strong> Business logic in plain
-                language
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Instant deployment:</strong> Changes go live immediately
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Grows with you:</strong> Start simple, add features as
-                you need them
-              </p>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No upfront costs:</strong> Build incrementally, pay
+                  only for what you use
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Non-technical friendly:</strong> Business logic in
+                  plain language
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Instant deployment:</strong> Changes go live
+                  immediately
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Grows with you:</strong> Start simple, add features as
+                  you need them
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Perfect For Small Businesses */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             Perfect for Businesses That Need:
           </h2>
@@ -162,12 +231,12 @@ const SmallBusinesses: React.FC = () => {
         </div>
 
         {/* Common Small Business Applications */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Common Small Business Applications
           </h2>
 
-          <div className="space-y-8">
+          <div className="space-y-8 pl-1">
             <div className="border-l-4 border-blue-lbg pl-6">
               <h3 className="text-xl font-bold text-gray-800 mb-3">
                 Customer Management
@@ -235,17 +304,17 @@ const SmallBusinesses: React.FC = () => {
         </div>
 
         {/* Cost Comparison */}
-        <div className="border-l-4 border-purple-lbg pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Cost Comparison: Traditional vs Darklang
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-bold text-red-600 mb-4">
+              <h3 className="text-xl font-bold text-rust mb-4">
                 Traditional Custom Development
               </h3>
-              <div className="bg-red-50 p-4 rounded text-sm space-y-2">
+              <div className="bg-rust/5 p-4 rounded text-sm space-y-2">
                 <div>• $10,000-50,000 upfront development</div>
                 <div>• 3-6 months development time</div>
                 <div>• $2,000-5,000/month hosting & maintenance</div>
@@ -256,10 +325,10 @@ const SmallBusinesses: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-green-600 mb-4">
+              <h3 className="text-xl font-bold text-blue-lbg mb-4">
                 Darklang Approach
               </h3>
-              <div className="bg-green-50 p-4 rounded text-sm space-y-2">
+              <div className="bg-mint/8 p-4 rounded text-sm space-y-2">
                 <div>• Start free, pay only for usage</div>
                 <div>• Deploy working version in days</div>
                 <div>• Scales automatically with your business</div>
@@ -280,12 +349,12 @@ const SmallBusinesses: React.FC = () => {
         </div>
 
         {/* Success Stories Pattern */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             How Small Businesses Use Darklang
           </h2>
 
-          <div className="text-gray-700 leading-relaxed space-y-6">
+          <div className="text-gray-700 leading-relaxed space-y-6 pl-1">
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="font-semibold text-gray-800 mb-3">
                 Local Service Business
@@ -334,11 +403,11 @@ const SmallBusinesses: React.FC = () => {
         </div>
 
         {/* Getting Started */}
-        <div className="border-l-4 border-mint pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Start Small, Grow Smart
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               You don't need to replace all your systems at once. Start with one
               small process that's causing daily frustration. Automate it with
@@ -369,11 +438,11 @@ const SmallBusinesses: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="border-l-4 border-taupe pl-8">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Software That Fits Your Business
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p className="text-lg">
               Your business is unique. Your software should be too.
             </p>

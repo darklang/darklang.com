@@ -1,101 +1,170 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 
 const SecurityNerds: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    // Trigger animation after component mounts
+    setIsVisible(true);
+  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Darklang for Security Professionals
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Secure by design. Build security tools and automation with a
             platform that eliminates entire classes of vulnerabilities.
           </p>
         </div>
 
-        {/* Security Context */}
-        <div className="bg-red-50 rounded-lg p-8 mb-12 border-l-4 border-red-500">
-          <h2 className="text-2xl font-bold text-red-800 mb-4">
-            Traditional Security Challenges
-          </h2>
-          <div className="text-red-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Container vulnerabilities, supply chain attacks, dependency hell
-              </p>
+        {/* Security Context and Security by Design */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
+          {/* Security Context */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                Traditional Security Challenges
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Configuration drift, infrastructure misconfigurations, YAML hell
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>SQL injection, XSS, CSRF, and injection vulnerabilities</p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Secrets management, credential rotation, access control
-                complexity
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Monitoring and incident response across fragmented
-                infrastructure
-              </p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Container vulnerabilities, supply chain attacks, dependency
+                  hell
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Configuration drift, infrastructure misconfigurations, YAML
+                  hell
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>SQL injection, XSS, CSRF, and injection vulnerabilities</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Secrets management, credential rotation, access control
+                  complexity
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Monitoring and incident response across fragmented
+                  infrastructure
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Security by Design */}
-        <div className="bg-green-50 rounded-lg p-8 mb-12 border-l-4 border-green-500">
-          <h2 className="text-2xl font-bold text-green-800 mb-4">
-            Darklang: Security by Design
-          </h2>
-          <div className="text-green-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>No containers:</strong> Eliminate container
-                vulnerabilities and supply chain attacks
-              </p>
+          {/* Security by Design */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                Darklang: Security by Design
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>No SQL injection:</strong> Type-safe database
-                operations, no raw queries
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>No secrets in code:</strong> Built-in secrets management
-                and rotation
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Immutable deployments:</strong> Function-level
-                deployment, no configuration drift
-              </p>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No containers:</strong> Eliminate container
+                  vulnerabilities and supply chain attacks
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No SQL injection:</strong> Type-safe database
+                  operations, no raw queries
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No secrets in code:</strong> Built-in secrets
+                  management and rotation
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Immutable deployments:</strong> Function-level
+                  deployment, no configuration drift
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Perfect For Security Professionals */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             Perfect for Security Professionals Who:
           </h2>
@@ -161,7 +230,7 @@ const SecurityNerds: React.FC = () => {
         </div>
 
         {/* Security Features Deep Dive */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Built-in Security Features
           </h2>
@@ -244,13 +313,13 @@ const SecurityNerds: React.FC = () => {
         </div>
 
         {/* Security Tools & Automation */}
-        <div className="border-l-4 border-purple-lbg pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Security Tools & Automation Patterns
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-6">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Threat Intelligence Aggregation
               </h3>
               <p className="mb-3">
@@ -265,7 +334,7 @@ const SecurityNerds: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Automated Incident Response
               </h3>
               <p className="mb-3">
@@ -281,7 +350,7 @@ const SecurityNerds: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Compliance Monitoring
               </h3>
               <p className="mb-3">
@@ -296,7 +365,7 @@ const SecurityNerds: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Security Data Lake
               </h3>
               <p className="mb-3">
@@ -313,12 +382,12 @@ const SecurityNerds: React.FC = () => {
         </div>
 
         {/* Zero Trust Architecture */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Zero Trust by Default
           </h2>
 
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               Darklang's architecture aligns with zero trust principles. Every
               function is isolated, every request is authenticated, and every
@@ -370,11 +439,11 @@ const SecurityNerds: React.FC = () => {
         </div>
 
         {/* Security Community */}
-        <div className="border-l-4 border-mint pl-8 mb-12">
+        <div className=" mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Security Community & Contributions
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               Security professionals are invited to contribute to Darklang's
               security model. The language design prioritizes security, but
@@ -408,11 +477,11 @@ const SecurityNerds: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="border-l-4 border-taupe pl-8">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Security Without Compromise
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p className="text-lg">
               You shouldn't have to choose between security and productivity.
               Between rapid development and secure deployment.

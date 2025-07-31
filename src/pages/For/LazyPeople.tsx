@@ -1,100 +1,167 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 
 const LazyPeople: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    // Trigger animation after component mounts
+    setIsVisible(true);
+  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Darklang for Lazy People
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Why do things the hard way when you can automate them? Maximum
             results, minimum effort.
           </p>
         </div>
 
-        {/* Lazy Person Problems */}
-        <div className="bg-red-50 rounded-lg p-8 mb-12 border-l-4 border-red-500">
-          <h2 className="text-2xl font-bold text-red-800 mb-4">
-            Things That Are Annoying
-          </h2>
-          <div className="text-red-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Manually checking websites for updates (prices, news, job
-                postings)
-              </p>
+        {/* Lazy Person Problems and Darklang for Lazy People */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-12 mb-10">
+          {/* Lazy Person Problems */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                Things That Are Annoying
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>Copying data between spreadsheets and different tools</p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Setting up servers, databases, and deployment just to automate
-                one simple task
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Remembering to do repetitive tasks that could obviously be
-                automated
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>Learning complex frameworks just to make a simple webhook</p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Manually checking websites for updates (prices, news, job
+                  postings)
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>Copying data between spreadsheets and different tools</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Setting up servers, databases, and deployment just to automate
+                  one simple task
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Remembering to do repetitive tasks that could obviously be
+                  automated
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>Learning complex frameworks just to make a simple webhook</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Darklang for Lazy People */}
-        <div className="bg-green-50 rounded-lg p-8 mb-12 border-l-4 border-green-500">
-          <h2 className="text-2xl font-bold text-green-800 mb-4">
-            Darklang: Maximum Automation, Minimum Effort
-          </h2>
-          <div className="text-green-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Write once, run forever:</strong> Set up automation in
-                minutes, not days
-              </p>
+          {/* Darklang for Lazy People */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                Darklang: Maximum Automation, Minimum Effort
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>No infrastructure:</strong> No servers to maintain, no
-                databases to manage
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Instant deployment:</strong> Your automation is live as
-                soon as you save it
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Set and forget:</strong> Handles errors, retries, and
-                monitoring automatically
-              </p>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Write once, run forever:</strong> Set up automation in
+                  minutes, not days
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>No infrastructure:</strong> No servers to maintain, no
+                  databases to manage
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Instant deployment:</strong> Your automation is live
+                  as soon as you save it
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Set and forget:</strong> Handles errors, retries, and
+                  monitoring automatically
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Perfect For Lazy People */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             Perfect for People Who Want To:
           </h2>
@@ -158,12 +225,12 @@ const LazyPeople: React.FC = () => {
         </div>
 
         {/* Lazy Automation Examples */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Lazy Person's Greatest Hits
           </h2>
 
-          <div className="space-y-8">
+          <div className="space-y-8 pl-1">
             <div className="border-l-4 border-blue-lbg pl-6">
               <h3 className="text-xl font-bold text-gray-800 mb-3">
                 The "I Don't Want to Check This" Automation
@@ -221,17 +288,17 @@ const LazyPeople: React.FC = () => {
         </div>
 
         {/* Effort vs Results */}
-        <div className="border-l-4 border-purple-lbg pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Effort vs Results: Traditional vs Darklang
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-bold text-red-600 mb-4">
+              <h3 className="text-xl font-bold text-rust mb-4">
                 Traditional Automation
               </h3>
-              <div className="bg-red-50 p-4 rounded text-sm space-y-2">
+              <div className="bg-rust/5 p-4 rounded text-sm space-y-2">
                 <div>• Learn Docker, Kubernetes, AWS</div>
                 <div>• Set up CI/CD pipelines</div>
                 <div>• Configure monitoring and alerting</div>
@@ -241,7 +308,7 @@ const LazyPeople: React.FC = () => {
                 <div>• Monthly hosting bills for simple scripts</div>
               </div>
               <div className="mt-4 text-center">
-                <div className="text-lg font-bold text-red-600">
+                <div className="text-lg font-bold text-rust">
                   Effort: HIGH 🔥
                 </div>
                 <div className="text-sm text-gray-600">
@@ -251,10 +318,10 @@ const LazyPeople: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-green-600 mb-4">
+              <h3 className="text-xl font-bold text-blue-lbg mb-4">
                 Darklang Automation
               </h3>
-              <div className="bg-green-50 p-4 rounded text-sm space-y-2">
+              <div className="bg-mint/8 p-4 rounded text-sm space-y-2">
                 <div>• Write your logic in the browser</div>
                 <div>• Save the function</div>
                 <div>• It's running immediately</div>
@@ -264,7 +331,7 @@ const LazyPeople: React.FC = () => {
                 <div>• Pay only for what you use</div>
               </div>
               <div className="mt-4 text-center">
-                <div className="text-lg font-bold text-green-600">
+                <div className="text-lg font-bold text-mint">
                   Effort: MINIMAL 😎
                 </div>
                 <div className="text-sm text-gray-600">Results: Immediate</div>
@@ -274,14 +341,14 @@ const LazyPeople: React.FC = () => {
         </div>
 
         {/* Lazy Programming Patterns */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Lazy Programming Patterns That Actually Work
           </h2>
 
-          <div className="text-gray-700 leading-relaxed space-y-6">
+          <div className="text-gray-700 leading-relaxed space-y-6 pl-1">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 The "Set It and Forget It" Pattern
               </h3>
               <p className="mb-3">
@@ -296,7 +363,7 @@ const LazyPeople: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 The "Do It While I Sleep" Scheduler
               </h3>
               <p className="mb-3">
@@ -311,7 +378,7 @@ const LazyPeople: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 The "Why Do This Twice?" Principle
               </h3>
               <p className="mb-3">
@@ -325,7 +392,7 @@ const LazyPeople: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 The "Make the Computer Remember" System
               </h3>
               <p className="mb-3">
@@ -342,11 +409,11 @@ const LazyPeople: React.FC = () => {
         </div>
 
         {/* ROI of Laziness */}
-        <div className="border-l-4 border-mint pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             The ROI of Strategic Laziness
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               Being lazy isn't about doing less work. It's about being smart
               enough to automate the boring stuff so you can focus on things
@@ -381,34 +448,34 @@ const LazyPeople: React.FC = () => {
         </div>
 
         {/* Getting Started Guide for Lazy People */}
-        <div className="bg-yellow-50 rounded-lg p-8 mb-12 border-l-4 border-yellow-500">
+        <div className="bg-yellow-50 rounded-lg p-8 mb-20 border-l-4 border-yellow-500">
           <h2 className="text-2xl font-bold text-yellow-800 mb-4">
             Lazy Person's Getting Started Guide
           </h2>
           <div className="text-yellow-700 space-y-4">
             <div className="flex items-start">
-              <span className="text-xl mr-3">1️⃣</span>
+              <span className="text-xl mr-3">1️</span>
               <p>
                 <strong>Identify your most annoying repetitive task</strong>{" "}
                 (the one that makes you groan when you have to do it)
               </p>
             </div>
             <div className="flex items-start">
-              <span className="text-xl mr-3">2️⃣</span>
+              <span className="text-xl mr-3">2️</span>
               <p>
                 <strong>Spend 30 minutes automating it with Darklang</strong>{" "}
                 (seriously, that's probably enough)
               </p>
             </div>
             <div className="flex items-start">
-              <span className="text-xl mr-3">3️⃣</span>
+              <span className="text-xl mr-3">3️</span>
               <p>
                 <strong>Enjoy never having to do that task again</strong> (and
                 the smug satisfaction of being cleverly lazy)
               </p>
             </div>
             <div className="flex items-start">
-              <span className="text-xl mr-3">4️⃣</span>
+              <span className="text-xl mr-3">4️</span>
               <p>
                 <strong>Repeat with the next most annoying task</strong> (until
                 you've automated everything boring)
@@ -418,11 +485,11 @@ const LazyPeople: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="border-l-4 border-taupe pl-8">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Work Smarter, Not Harder
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p className="text-lg">
               You're too smart to keep doing things manually. And life's too
               short to spend it on repetitive tasks.

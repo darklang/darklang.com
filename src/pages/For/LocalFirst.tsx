@@ -1,99 +1,167 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 
 const LocalFirst: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    // Trigger animation after component mounts
+    setIsVisible(true);
+  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Darklang for Local-First Developers
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Build resilient applications that work offline and sync seamlessly.
             Your data stays yours.
           </p>
         </div>
 
-        {/* Cloud-First Problems */}
-        <div className="bg-red-50 rounded-lg p-8 mb-12 border-l-4 border-red-500">
-          <h2 className="text-2xl font-bold text-red-800 mb-4">
-            The Cloud-First Problem
-          </h2>
-          <div className="text-red-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>Applications that break without internet connectivity</p>
+        {/* Cloud-First Problems and Local-First with Darklang */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
+          {/* Cloud-First Problems */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ width: isVisible ? "44px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+                The Cloud-First Problem
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Your data hostage to SaaS platforms and their business decisions
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Sync conflicts, data loss, and "sorry, that feature requires
-                Pro"
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>Complex CRDT implementation and conflict resolution logic</p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                Performance degradation as app becomes increasingly
-                network-dependent
-              </p>
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>Applications that break without internet connectivity</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Your data hostage to SaaS platforms and their business
+                  decisions
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Sync conflicts, data loss, and "sorry, that feature requires
+                  Pro"
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>Complex CRDT implementation and conflict resolution logic</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
+                  ✕
+                </span>
+                <p>
+                  Performance degradation as app becomes increasingly
+                  network-dependent
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Local-First with Darklang */}
-        <div className="bg-green-50 rounded-lg p-8 mb-12 border-l-4 border-green-500">
-          <h2 className="text-2xl font-bold text-green-800 mb-4">
-            Darklang: Local-First, Cloud-Enhanced
-          </h2>
-          <div className="text-green-700 space-y-3">
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Local-first architecture:</strong> Apps work offline,
-                sync when connected
-              </p>
+          {/* Local-First with Darklang */}
+          <div className="py-8">
+            <div className="relative inline-block mb-6 px-3 py-2">
+              {/* L-shaped corner borders with animation */}
+              <div
+                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ width: isVisible ? "55px" : "0px" }}
+              ></div>
+              <div
+                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
+                style={{ height: isVisible ? "35px" : "0px" }}
+              ></div>
+
+              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+                Darklang: Local-First, Cloud-Enhanced
+              </h2>
             </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Built-in sync:</strong> Conflict resolution and data
-                merging handled automatically
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Data ownership:</strong> Your data lives locally, cloud
-                is just for sync
-              </p>
-            </div>
-            <div className="flex items-start">
-              <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-              <p>
-                <strong>Instant responsiveness:</strong> No network latency for
-                local operations
-              </p>
+
+            <div className="text-gray-800 space-y-3 pl-5">
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Local-first architecture:</strong> Apps work offline,
+                  sync when connected
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Built-in sync:</strong> Conflict resolution and data
+                  merging handled automatically
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Data ownership:</strong> Your data lives locally,
+                  cloud is just for sync
+                </p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                  ✔
+                </span>
+                <p>
+                  <strong>Instant responsiveness:</strong> No network latency
+                  for local operations
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Perfect For Local-First Developers */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             Perfect for Developers Building:
           </h2>
@@ -158,13 +226,13 @@ const LocalFirst: React.FC = () => {
         </div>
 
         {/* Local-First Architecture */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Local-First Architecture Made Simple
           </h2>
 
           <div className="space-y-8">
-            <div className="border-l-4 border-blue-lbg pl-6">
+            <div className="border-l-3 border-blue-lbg pl-6">
               <h3 className="text-xl font-bold text-gray-800 mb-3">
                 Local Data Store
               </h3>
@@ -180,7 +248,7 @@ const LocalFirst: React.FC = () => {
               </div>
             </div>
 
-            <div className="border-l-4 border-purple-lbg pl-6">
+            <div className="border-l-3 border-purple-lbg pl-6">
               <h3 className="text-xl font-bold text-gray-800 mb-3">
                 Automatic Sync
               </h3>
@@ -196,7 +264,7 @@ const LocalFirst: React.FC = () => {
               </div>
             </div>
 
-            <div className="border-l-4 border-mint pl-6">
+            <div className="border-l-3 border-mint pl-6">
               <h3 className="text-xl font-bold text-gray-800 mb-3">
                 Conflict Resolution
               </h3>
@@ -216,17 +284,17 @@ const LocalFirst: React.FC = () => {
         </div>
 
         {/* Comparison with Traditional CRDT Implementation */}
-        <div className="border-l-4 border-purple-lbg pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Traditional CRDT vs Darklang Local-First
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-bold text-red-600 mb-4">
+              <h3 className="text-xl font-bold text-rust mb-4">
                 Traditional CRDT Implementation
               </h3>
-              <div className="bg-red-50 p-4 rounded text-sm space-y-2">
+              <div className="bg-rust/4 p-4 rounded text-sm space-y-2">
                 <div>• Complex mathematical data structures</div>
                 <div>• Custom conflict resolution algorithms</div>
                 <div>• Network topology and peer discovery</div>
@@ -237,10 +305,10 @@ const LocalFirst: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-green-600 mb-4">
+              <h3 className="text-xl font-bold text-blue-lbg mb-4">
                 Darklang Local-First
               </h3>
-              <div className="bg-green-50 p-4 rounded text-sm space-y-2">
+              <div className="bg-mint/8 p-4 rounded text-sm space-y-2">
                 <div>• Write normal business logic</div>
                 <div>• Automatic conflict resolution</div>
                 <div>• Built-in sync infrastructure</div>
@@ -260,14 +328,14 @@ const LocalFirst: React.FC = () => {
         </div>
 
         {/* Local-First Patterns */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Common Local-First Patterns
           </h2>
 
           <div className="text-gray-700 leading-relaxed space-y-6">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Optimistic UI Updates
               </h3>
               <p className="mb-3">
@@ -282,7 +350,7 @@ const LocalFirst: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">Partial Sync</h3>
+              <h3 className="font-semibold text-blue-lbg mb-3">Partial Sync</h3>
               <p className="mb-3">
                 Sync only what's needed. Keep frequently accessed data local,
                 lazy-load additional data as needed.
@@ -294,7 +362,7 @@ const LocalFirst: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Offline-First Collaboration
               </h3>
               <p className="mb-3">
@@ -308,7 +376,7 @@ const LocalFirst: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
+              <h3 className="font-semibold text-blue-lbg mb-3">
                 Progressive Enhancement
               </h3>
               <p className="mb-3">
@@ -323,11 +391,11 @@ const LocalFirst: React.FC = () => {
         </div>
 
         {/* Privacy and Data Ownership */}
-        <div className="border-l-4 border-mint pl-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Data Ownership and Privacy
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p>
               Local-first means users own their data. It lives on their devices,
               under their control. The cloud is just a convenience, not a
@@ -369,11 +437,11 @@ const LocalFirst: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="border-l-4 border-taupe pl-8">
+        <div className="">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Build Software That Respects Users
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
             <p className="text-lg">
               The future of software is local-first: fast, private, and
               resilient. But building it shouldn't require a PhD in distributed

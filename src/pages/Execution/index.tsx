@@ -316,7 +316,7 @@ const Execution: React.FC = () => {
               optimized for high-performance computing scenarios.
             </p>
 
-            <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-400">
+            <div className="bg-sand/10 p-6 rounded-lg border-l-4 border-sand">
               <h3 className="font-semibold text-gray-800 mb-3">
                 Current Trade-offs
               </h3>
@@ -330,13 +330,13 @@ const Execution: React.FC = () => {
                   <span>No build times or compilation delays</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
+                  <span className="w-2 h-2 bg-sand rounded-full mr-3"></span>
                   <span>
                     Interpreted execution is slower than compiled code
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
+                  <span className="w-2 h-2 bg-sand rounded-full mr-3"></span>
                   <span>Not optimized for CPU-intensive workloads yet</span>
                 </div>
               </div>

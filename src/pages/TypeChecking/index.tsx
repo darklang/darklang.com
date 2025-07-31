@@ -5,7 +5,7 @@ const TypeChecking: React.FC = () => {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Gradual Static Typing and Checks
           </h1>
@@ -18,7 +18,7 @@ const TypeChecking: React.FC = () => {
         </div>
 
         {/* Three Kinds of Checking */}
-        <div className=" rounded-lg p-8 mb-12">
+        <div className=" rounded-lg p-8 mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Three Layers of Analysis
           </h2>
@@ -28,14 +28,14 @@ const TypeChecking: React.FC = () => {
             traditional tools miss.
           </p>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+            <div className="bg-taupe/8 p-4 rounded-lg border-l-4 border-taupe">
               <div className="font-semibold text-yellow-800 mb-2">
                 🔧 Parse-Time
               </div>
-              <div className="text-sm text-yellow-700 mb-2">
+              <div className="text-sm text-gray-900 mb-2">
                 Syntax, names, basic types
               </div>
-              <div className="text-xs text-yellow-600">
+              <div className="text-xs text-gray-800">
                 Status: Parse/name resolution ready, types coming
               </div>
             </div>
@@ -48,132 +48,261 @@ const TypeChecking: React.FC = () => {
                 Status: Planned for future
               </div>
             </div>
-            <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-              <div className="font-semibold text-green-800 mb-2">
+            <div className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-lbg">
+              <div className="font-semibold text-purple-lbg mb-2">
                 ⚡ Runtime
               </div>
-              <div className="text-sm text-green-700 mb-2">
+              <div className="text-sm text-gray-900 mb-2">
                 Complete type validation
               </div>
-              <div className="text-xs text-green-600">
+              <div className="text-xs text-gray-800">
                 Status: Production ready
               </div>
             </div>
           </div>
         </div>
 
-        {/* Analysis Details */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">
+        {/* Analysis Details with Minimalist Style */}
+        <div className="mb-20 space-y-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Three Stages of Analysis
           </h2>
-          <div className="space-y-8">
-            {/* Parse-Time */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+
+          {/* Parse-Time */}
+          <div className="border border-gray-200 rounded-md p-6 hover:border-taupe transition-colors">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold text-gray-900">
                 Parse-Time Checking
               </h3>
-              <p className="text-gray-700 mb-4">
-                As you type, Darklang immediately validates syntax and resolves
-                function names. This catches basic errors before you even run
-                your code, providing instant feedback in the editor.
-              </p>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div>
-                  <strong>Syntax errors:</strong> Invalid syntax caught
-                  immediately ✅
+              <span className="text-xs font-medium py-1 px-3 bg-taupe/10 text-taupe rounded-full">
+                As You Type
+              </span>
+            </div>
+            <p className="text-gray-700 mb-6">
+              As you type, Darklang immediately validates syntax and resolves
+              function names. This catches basic errors before you even run your
+              code, providing instant feedback in the editor.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                <div className="font-medium text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2 text-taupe">✓</span>
+                  Syntax errors
                 </div>
-                <div>
-                  <strong>Name resolution:</strong> Unknown functions and
-                  variables ✅
-                </div>
-                <div>
-                  <strong>Type checking:</strong> Full static analysis (coming
-                  soon)
-                </div>
+                <p className="text-sm text-gray-600">
+                  Invalid syntax caught immediately
+                </p>
               </div>
-              <div className="mt-4 p-3 bg-gray-50 rounded text-sm text-gray-600">
-                <strong>Example:</strong> Calling <code>unknownFunction()</code>{" "}
-                shows an error instantly— but you can often fix it by creating
-                that function. <code>String.length</code> gets proper
-                autocomplete and validation.
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                <div className="font-medium text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2 text-taupe">✓</span>
+                  Name resolution
+                </div>
+                <p className="text-sm text-gray-600">
+                  Unknown functions and variables
+                </p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                <div className="font-medium text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2 text-taupe">✓</span>
+                  Type checking
+                </div>
+                <p className="text-sm text-gray-600">
+                  Full static analysis (coming soon)
+                </p>
               </div>
             </div>
 
-            {/* At-Rest */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+            <div className="border-l-3 border-taupe pl-4 py-2">
+              <div className="text-sm font-medium text-taupe mb-1">
+                Example:
+              </div>
+              <p className="text-sm text-gray-700">
+                Calling{" "}
+                <code className="bg-gray-100 px-1 py-0.5 rounded text-red-500">
+                  unknownFunction()
+                </code>{" "}
+                shows an error instantly— but you can often fix it by creating
+                that function.{" "}
+                <code className="bg-gray-100 px-1 py-0.5 rounded text-green-600">
+                  String.length
+                </code>{" "}
+                gets proper autocomplete and validation.
+              </p>
+            </div>
+
+            <div className="mt-4 font-mono text-sm bg-gray-50 p-4 rounded-md border border-gray-200 overflow-x-auto">
+              <div className="text-gray-500">// Invalid function call</div>
+              <div>
+                let result ={" "}
+                <span className="text-red-500 underline decoration-wavy decoration-red-500">
+                  unknownFunction()
+                </span>
+              </div>
+              <div className="mt-2 text-gray-500">// Valid function call</div>
+              <div>
+                <p>
+                  let length = String.
+                  <span className="text-purple-lbg">length("hello")</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* At-Rest */}
+          <div className="border border-gray-200 rounded-md p-6 hover:border-gray-400 transition-colors">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold text-gray-900">
                 At-Rest Analysis
               </h3>
-              <p className="text-gray-700 mb-4">
-                Planned continuous background analysis of your entire codebase
-                while you're not actively coding. This will identify security
-                vulnerabilities, suggest performance optimizations, find
-                duplicate code, and ensure comprehensive test coverage—like
-                having a tireless code review assistant working 24/7.
-              </p>
-              <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-600">
-                <div>
-                  <strong>Test coverage:</strong> Which code paths lack tests
+              <span className="text-xs font-medium py-1 px-3 bg-gray-100 text-gray-600 rounded-full">
+                Background
+              </span>
+            </div>
+            <p className="text-gray-700 mb-6">
+              Planned continuous background analysis of your entire codebase
+              while you're not actively coding. This will identify security
+              vulnerabilities, suggest performance optimizations, find duplicate
+              code, and ensure comprehensive test coverage—like having a
+              tireless code review assistant working 24/7.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                <div className="font-medium text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2 text-gray-500">✓</span>
+                  Test coverage
                 </div>
-                <div>
-                  <strong>Security analysis:</strong> Potential vulnerabilities
-                </div>
-                <div>
-                  <strong>Code quality:</strong> Duplicates, unused code,
-                  guidelines
-                </div>
+                <p className="text-sm text-gray-600">
+                  Which code paths lack tests
+                </p>
               </div>
-              <div className="mt-4 p-3 bg-gray-50 rounded text-sm text-gray-600">
-                <strong>Vision:</strong> Wake up to notifications like "Found 3
-                duplicate functions that could be merged" or "New security best
-                practice affects 5 of your endpoints."
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                <div className="font-medium text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2 text-gray-500">✓</span>
+                  Security analysis
+                </div>
+                <p className="text-sm text-gray-600">
+                  Potential vulnerabilities
+                </p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                <div className="font-medium text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2 text-gray-500">✓</span>
+                  Code quality
+                </div>
+                <p className="text-sm text-gray-600">
+                  Duplicates, unused code, guidelines
+                </p>
               </div>
             </div>
 
-            {/* Runtime */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+            <div className="border-l-3 border-gray-400 pl-4 py-2">
+              <div className="text-sm font-medium text-gray-600 mb-1">
+                Vision:
+              </div>
+              <p className="text-sm text-gray-700">
+                Wake up to notifications like "Found 3 duplicate functions that
+                could be merged" or "New security best practice affects 5 of
+                your endpoints."
+              </p>
+            </div>
+          </div>
+
+          {/* Runtime */}
+          <div className="border border-gray-200 rounded-md p-6 hover:border-purple-lbg transition-colors">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold text-gray-900">
                 Runtime Type Checking
               </h3>
-              <p className="text-gray-700 mb-4">
-                When your code executes, every value is validated against its
-                expected type with comprehensive checking. This catches type
-                mismatches that static analysis might miss, especially with
-                dynamic data from APIs or user input. Darklang uses Option and
-                Result types to eliminate null pointer exceptions entirely.
-              </p>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div>
-                  <strong>Function parameters:</strong> Type-checked on every
-                  call
+              <span className="text-xs font-medium py-1 px-3 bg-purple-50 text-purple-lbg rounded-full">
+                During Execution
+              </span>
+            </div>
+            <p className="text-gray-700 mb-6">
+              When your code executes, every value is validated against its
+              expected type with comprehensive checking. This catches type
+              mismatches that static analysis might miss, especially with
+              dynamic data from APIs or user input. Darklang uses Option and
+              Result types to eliminate null pointer exceptions entirely.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                <div className="font-medium text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2 text-purple-lbg">✓</span>
+                  Function parameters
                 </div>
-                <div>
-                  <strong>Collection types:</strong> Element type enforcement
-                </div>
-                <div>
-                  <strong>Option/Result:</strong> Safe handling of
-                  missing/failed values
-                </div>
+                <p className="text-sm text-gray-600">
+                  Type-checked on every call
+                </p>
               </div>
-              <div className="mt-4 p-3 bg-gray-50 rounded text-sm text-gray-600">
-                <strong>Example:</strong> API returns unexpected{" "}
-                <code>Int64</code> where you expected <code>String</code>? Get a
-                clear error with the exact value received: "Expected String, got
-                Int64 (value: 42)."
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                <div className="font-medium text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2 text-purple-lbg">✓</span>
+                  Collection types
+                </div>
+                <p className="text-sm text-gray-600">
+                  Element type enforcement
+                </p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                <div className="font-medium text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2 text-purple-lbg">✓</span>
+                  Option/Result
+                </div>
+                <p className="text-sm text-gray-600">
+                  Safe handling of missing/failed values
+                </p>
+              </div>
+            </div>
+
+            <div className="border-l-3 border-purple-lbg pl-4 py-2">
+              <div className="text-sm font-medium text-purple-lbg mb-1">
+                Example:
+              </div>
+              <p className="text-sm text-gray-700">
+                API returns unexpected{" "}
+                <code className="bg-gray-100 px-1 py-0.5 rounded">Int64</code>{" "}
+                where you expected{" "}
+                <code className="bg-gray-100 px-1 py-0.5 rounded">String</code>?
+                Get a clear error with the exact value received: "Expected
+                String, got Int64 (value: 42)."
+              </p>
+            </div>
+
+            <div className="mt-4 font-mono text-sm bg-gray-50 p-4 rounded-md border border-gray-200 overflow-x-auto">
+              <div className="text-gray-500">
+                // Function expecting a string
+              </div>
+              <div>function formatName(name: String) {"{"}</div>
+              <div className="ml-2">return name.toUpperCase();</div>
+              <div>{"}"}</div>
+              <div className="mt-2 text-gray-500">
+                // API returns an Int64 instead of String
+              </div>
+              <div>let userData = fetchUserData();</div>
+              <div>
+                formatName(
+                <span className="text-red-500 underline decoration-wavy decoration-red-500">
+                  userData.id
+                </span>
+                ); // Error at runtime
               </div>
             </div>
           </div>
         </div>
 
         {/* Benefits of Gradual Approach */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Benefits of Gradual Typing
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
+              <h3 className="text-lg font-bold text-blue-dbg mb-4 flex items-center">
+                <span className="w-1.5 h-1.5 bg-blue-lbg rounded-full mr-2"></span>
                 Evolving Types Safely
               </h3>
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -181,31 +310,46 @@ const TypeChecking: React.FC = () => {
                 versioned types let you evolve data structures without breaking
                 existing code.
               </p>
-              <div className="space-y-2 text-sm text-gray-600">
-                <div>• Copy and modify types instead of changing originals</div>
-                <div>• Test new types in isolation</div>
-                <div>• Migrate gradually with tooling assistance</div>
+              <div className="space-y-2 text-sm text-gray-600 border-l-2 border-gray-200 pl-4">
+                <div className="flex items-center">
+                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
+                  Copy and modify types instead of changing originals
+                </div>
+                <div className="flex items-center">
+                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
+                  Test new types in isolation
+                </div>
+                <div className="flex items-center">
+                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
+                  Migrate gradually with tooling assistance
+                </div>
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
+              <h3 className="text-lg font-bold text-taupe mb-4 flex items-center">
+                <span className="w-1.5 h-1.5 bg-taupe rounded-full mr-2"></span>
                 Production-Informed Types
               </h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Through trace data, see what types your functions actually
                 receive in production, enabling data-driven type refinement.
               </p>
-              <div className="bg-gray-50 p-4 rounded text-sm space-y-2">
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-200 text-sm space-y-3">
                 <div>
-                  <strong>Your API expects:</strong>{" "}
-                  <code>{`{name: String, age: Int64}`}</code>
+                  <span className="font-medium text-gray-900">
+                    Your API expects:
+                  </span>{" "}
+                  <code className="bg-white px-2 py-1 rounded border border-gray-200">{`{name: String, age: Int64}`}</code>
                 </div>
                 <div>
-                  <strong>But 15% of requests send:</strong>{" "}
-                  <code>{`{name: String, age: String}`}</code>
+                  <span className="font-medium text-gray-900">
+                    But 15% of requests send:
+                  </span>{" "}
+                  <code className="bg-white px-2 py-1 rounded border border-gray-200">{`{name: String, age: String}`}</code>
                 </div>
-                <div className="text-xs text-blue-600">
-                  💡 Consider making age more flexible or adding validation
+                <div className="text-blue-lbg flex items-center font-medium">
+                  <span className="text-blue-lbg mr-1d">💡</span>
+                  Consider making age more flexible or adding validation
                 </div>
               </div>
             </div>
@@ -213,8 +357,8 @@ const TypeChecking: React.FC = () => {
         </div>
 
         {/* Why It Matters */}
-        <div className="border-l-4 border-blue-lbg pl-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+        <div className="mb-20">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             The Best of Both Worlds
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">

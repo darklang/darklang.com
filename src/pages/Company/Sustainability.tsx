@@ -84,33 +84,6 @@ const Sustainability: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* Abstract floral pattern for sustainability theme */}
-          <div className="absolute bottom-2 right-2 w-40 h-40 opacity-5">
-            <svg
-              viewBox="0 0 100 100"
-              className="w-full h-full fill-purple-900"
-            >
-              <path d="M50,10 C60,30 80,30 90,20 C80,40 90,60 80,70 C90,80 80,90 70,90 C60,100 40,90 30,80 C20,90 10,80 10,70 C0,60 10,40 20,30 C10,20 30,30 50,10 Z"></path>
-              <circle cx="50" cy="50" r="8"></circle>
-              <circle
-                cx="50"
-                cy="50"
-                r="16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              ></circle>
-              <circle
-                cx="50"
-                cy="50"
-                r="24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="0.5"
-              ></circle>
-            </svg>
-          </div>
         </section>
 
         {/* Our Philosophy */}

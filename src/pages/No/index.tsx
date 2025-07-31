@@ -5,7 +5,7 @@ const No: React.FC = () => {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             What Darklang Says No To
           </h1>
@@ -18,25 +18,24 @@ const No: React.FC = () => {
         </div>
 
         {/* No Cruft Section */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-            <span className="text-red-500 mr-3">❌</span>
             No Development Cruft
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+            <div className="bg-rust/3 rounded-lg p-6 border-t-3 border-rust/70">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Language Complexity
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-red-700">No null:</span>
+                  <span className="font-semibold text-rust">No null:</span>
                   <span className="text-gray-600 ml-2">
                     Use Option types for safety
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-red-700">
+                  <span className="font-semibold text-rust">
                     No exceptions:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -44,7 +43,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-red-700">
+                  <span className="font-semibold text-rust">
                     No OOP/inheritance:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -52,7 +51,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-red-700">
+                  <span className="font-semibold text-rust">
                     No async/await:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -62,13 +61,13 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+            <div className="bg-rust/3 rounded-lg p-6 border-t-3 border-rust/70">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Build System Chaos
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-red-700">
+                  <span className="font-semibold text-rust">
                     No build systems:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -76,7 +75,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-red-700">
+                  <span className="font-semibold text-rust">
                     No compilation:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -84,7 +83,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-red-700">
+                  <span className="font-semibold text-rust">
                     No dev environments:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -92,7 +91,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-red-700">
+                  <span className="font-semibold text-rust">
                     No dependency hell:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -102,21 +101,19 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+            <div className="bg-rust/3 rounded-lg p-6 border-t-3 border-rust/70">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Packaging Nightmares
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-red-700">
-                    No packaging:
-                  </span>
+                  <span className="font-semibold text-rust">No packaging:</span>
                   <span className="text-gray-600 ml-2">
                     Function-level distribution
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-red-700">No ORMs:</span>
+                  <span className="font-semibold text-rust">No ORMs:</span>
                   <span className="text-gray-600 ml-2">
                     Built-in type-safe database
                   </span>
@@ -124,19 +121,19 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+            <div className="bg-rust/3 rounded-lg p-6 border-t-3 border-rust/70">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Version Control Complexity
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-red-700">No git:</span>
+                  <span className="font-semibold text-rust">No git:</span>
                   <span className="text-gray-600 ml-2">
                     Content-addressable source control
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-red-700">
+                  <span className="font-semibold text-rust">
                     No GitHub workflows:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -149,25 +146,24 @@ const No: React.FC = () => {
         </div>
 
         {/* No DevOps Section */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-            <span className="text-orange-500 mr-3">🚫</span>
             No DevOps Complexity
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-orange-50 rounded-lg p-6 border-l-4 border-orange-500">
+            <div className="bg-tan/5 rounded-lg p-6 border-t-3 border-tan">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Configuration Hell
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-orange-700">No YAML:</span>
+                  <span className="font-semibold text-taupe">No YAML:</span>
                   <span className="text-gray-600 ml-2">
                     Configuration is code
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-orange-700">
+                  <span className="font-semibold text-taupe">
                     No config files:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -175,7 +171,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-orange-700">
+                  <span className="font-semibold text-taupe">
                     No environment variables:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -185,21 +181,19 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-orange-50 rounded-lg p-6 border-l-4 border-orange-500">
+            <div className="bg-tan/5 rounded-lg p-6 border-t-3 border-tan">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Container Complexity
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-orange-700">
-                    No Docker:
-                  </span>
+                  <span className="font-semibold text-taupe">No Docker:</span>
                   <span className="text-gray-600 ml-2">
                     Runtime is the deployment unit
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-orange-700">
+                  <span className="font-semibold text-taupe">
                     No containers:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -207,7 +201,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-orange-700">
+                  <span className="font-semibold text-taupe">
                     No Kubernetes:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -217,13 +211,13 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-orange-50 rounded-lg p-6 border-l-4 border-orange-500">
+            <div className="bg-tan/5 rounded-lg p-6 border-t-3 border-tan">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Pipeline Overhead
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-orange-700">
+                  <span className="font-semibold text-taupe">
                     No CI/CD pipelines:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -231,7 +225,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-orange-700">
+                  <span className="font-semibold text-taupe">
                     No Terraform:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -239,7 +233,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-orange-700">
+                  <span className="font-semibold text-taupe">
                     No orchestration:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -252,19 +246,18 @@ const No: React.FC = () => {
         </div>
 
         {/* No Infrastructure Section */}
-        <div className="mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-            <span className="text-purple-500 mr-3">⛔</span>
             No Infrastructure Management
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-purple-50 rounded-lg p-6 border-l-4 border-purple-500">
+            <div className="bg-purple-lbg/4 rounded-lg p-6 border-t-3 border-purple-lbg">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Database Complexity
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No SQL/NoSQL:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -272,7 +265,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No connection pooling:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -280,7 +273,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No sharding/indexes:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -288,7 +281,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No migrations:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -298,13 +291,13 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-purple-50 rounded-lg p-6 border-l-4 border-purple-500">
+            <div className="bg-purple-lbg/4 rounded-lg p-6 border-t-3 border-purple-lbg">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Server Management
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No servers:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -312,7 +305,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No serverless config:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -320,7 +313,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No load balancers:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -328,7 +321,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No networking setup:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -338,13 +331,13 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-purple-50 rounded-lg p-6 border-l-4 border-purple-500">
+            <div className="bg-purple-lbg/4 rounded-lg p-6 border-t-3 border-purple-lbg">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Cloud Service Sprawl
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No 200 cloud services:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -352,7 +345,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No Kafka/queues:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -360,7 +353,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No Memcached/Redis:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -370,13 +363,13 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-purple-50 rounded-lg p-6 border-l-4 border-purple-500">
+            <div className="bg-purple-lbg/4 rounded-lg p-6 border-t-3 border-purple-lbg">
               <h3 className="font-semibold text-gray-800 mb-4">
                 System Administration
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No Unix/Linux:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -384,7 +377,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No OS management:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -392,7 +385,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-medium text-purple-700">
+                  <span className="font-semibold text-purple-dbg">
                     No SSH/terminal access:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -405,7 +398,7 @@ const No: React.FC = () => {
         </div>
 
         {/* The Philosophy */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-12">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             The Philosophy Behind "No"
           </h2>
@@ -424,7 +417,7 @@ const No: React.FC = () => {
               <strong>The result:</strong> You write functions. Darklang handles
               everything else.
             </p>
-            <div className="mt-6 p-4 bg-blue-100 rounded-lg">
+            <div className="mt-6 p-4 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg">
               <p className="text-sm text-blue-800">
                 <strong>Read more:</strong> Our founders wrote about
                 <a
@@ -449,7 +442,7 @@ const No: React.FC = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-mint rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-white"
                   fill="none"
@@ -474,7 +467,7 @@ const No: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-blue-lbg rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-white"
                   fill="none"
@@ -497,7 +490,7 @@ const No: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-purple-lbg rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-white"
                   fill="none"

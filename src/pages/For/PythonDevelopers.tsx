@@ -18,7 +18,7 @@ const PythonDevelopers: React.FC = () => {
             Darklang for Python Developers
           </h1>
           <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             Skip the Flask/Django setup. Build APIs and automation scripts that
             run instantly.
           </p>

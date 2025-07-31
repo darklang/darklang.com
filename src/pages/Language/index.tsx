@@ -65,7 +65,7 @@ const Language: React.FC = () => {
           <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200 p-4 md:p-8">
             <CodeDisplay
               language="fsharp"
-              showLineNumbers={false}
+              showLineNumbers={true}
               code={`// Custom types
 type Person = { age: Int, name: String }
 
@@ -89,7 +89,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Type System</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Primitive Types */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Primitive Types
               </h3>
@@ -126,7 +126,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
             </div>
 
             {/* Collection Types */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Collection Types
               </h3>
@@ -169,14 +169,14 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
             </div>
 
             {/* Custom Types */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Custom Types
               </h3>
               <div className="text-sm text-gray-600 space-y-3">
                 <div>
                   <div className="font-mono text-taupe mb-1">Records</div>
-                  <div className="text-xs bg-gray-100 p-2 rounded">
+                  <div className="text-xs bg-gray-50 p-2 rounded">
                     type Person = &#123; name: String, age: Int &#125;
                   </div>
                 </div>
@@ -184,13 +184,13 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   <div className="font-mono text-taupe mb-1">
                     Unions (Enums)
                   </div>
-                  <div className="text-xs bg-gray-100 p-2 rounded">
+                  <div className="text-xs bg-gray-50 p-2 rounded">
                     type Color = Red | Green | Blue(Int)
                   </div>
                 </div>
                 <div>
                   <div className="font-mono text-taupe mb-1">Type Aliases</div>
-                  <div className="text-xs bg-gray-100 p-2 rounded">
+                  <div className="text-xs bg-gray-50 p-2 rounded">
                     type UserId = String
                   </div>
                 </div>
@@ -198,29 +198,31 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
             </div>
 
             {/* Error Handling */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Error Handling
               </h3>
               <div className="text-sm text-gray-600 space-y-3">
                 <div>
-                  <div className="font-semibold mb-1">Result Types</div>
+                  <div className="font-semibold mb-1 text-rose">
+                    Result Types
+                  </div>
                   <div className="mb-2">
                     Explicit error handling with Result&lt;T,E&gt; instead of
                     exceptions
                   </div>
-                  <div className="text-xs bg-gray-100 p-2 rounded">
+                  <div className="text-xs bg-gray-50 p-2 rounded">
                     fn parseUser(data: String): Result&lt;User, String&gt; =
                     <br />
                     &nbsp;&nbsp;// Returns Ok(user) or Error(message)
                   </div>
                 </div>
                 <div>
-                  <div className="font-semibold mb-1">? Operator</div>
+                  <div className="font-semibold mb-1 text-rose">? Operator</div>
                   <div className="mb-2">
                     Automatically unwrap Ok values or propagate Error
                   </div>
-                  <div className="text-xs bg-gray-100 p-2 rounded">
+                  <div className="text-xs bg-gray-50 p-2 rounded">
                     let user = parseUser(data)?
                     <br />
                     let profile = fetchProfile(user.id)?
@@ -229,11 +231,13 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   </div>
                 </div>
                 <div>
-                  <div className="font-semibold mb-1">Pattern Matching</div>
+                  <div className="font-semibold mb-1 text-rose">
+                    Pattern Matching
+                  </div>
                   <div className="mb-2">
                     Handle success and error cases explicitly
                   </div>
-                  <div className="text-xs bg-gray-100 p-2 rounded">
+                  <div className="text-xs bg-gray-50 p-2 rounded">
                     match parseUser(data) with
                     <br />
                     | Ok(user) -&gt; processUser(user)
@@ -252,7 +256,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Parse-Time Errors */}
-            <div className="bg-yellow-50 rounded-lg shadow-lg p-6 border-l-4 border-yellow-500">
+            <div className="bg-yellow-50/50 rounded-lg p-6 border-l-3 border-sand shadow-md">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Parse-Time Errors
               </h3>
@@ -265,10 +269,8 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   <span className="font-semibold">Name resolution:</span>{" "}
                   Undefined variables or functions
                 </div>
-                <div className="mt-4 p-3 bg-yellow-100 rounded text-xs">
-                  <span className="font-semibold text-yellow-800">
-                    Coming Soon:
-                  </span>
+                <div className="mt-4 p-3 bg-sand/20 rounded text-xs">
+                  <span className="font-semibold text-taupe">Coming Soon:</span>
                   <div className="mt-1 space-y-1">
                     <div>• Type errors</div>
                     <div>• Exhaustiveness checking</div>
@@ -280,7 +282,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
             </div>
 
             {/* Runtime Errors */}
-            <div className="bg-red-50 rounded-lg shadow-lg p-6 border-l-4 border-red-500">
+            <div className="bg-red-100/30 rounded-lg p-6 border-l-3 border-rust shadow-md">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Runtime Errors
               </h3>
@@ -311,14 +313,13 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                 </div>
               </div>
               <div className="mt-4 p-3 bg-red-100 rounded text-xs">
-                <span className="font-semibold text-red-800">Note:</span>{" "}
-                Runtime errors are being eliminated through better static
-                analysis
+                <span className="font-semibold text-rust">Note:</span> Runtime
+                errors are being eliminated through better static analysis
               </div>
             </div>
 
             {/* Expected Errors */}
-            <div className="bg-green-50 rounded-lg shadow-lg p-6 border-l-4 border-green-500">
+            <div className="bg-mint/10 rounded-lg shadow-md p-6 border-l-3 border-mint">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Expected Errors
               </h3>
@@ -327,17 +328,17 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   <span className="font-semibold">Result types:</span> Explicit
                   error handling
                 </div>
-                <div className="text-xs bg-white p-2 rounded font-mono">
+                <div className="text-xs bg-mint/20 p-2 rounded font-mono">
                   Result&lt;Success, Error&gt;
                 </div>
                 <div>
                   <span className="font-semibold">Option types:</span> Handling
                   missing values
                 </div>
-                <div className="text-xs bg-white p-2 rounded font-mono">
+                <div className="text-xs bg-mint/20 p-2 rounded font-mono">
                   Option&lt;Value&gt; // Some | None
                 </div>
-                <div className="mt-3 text-xs text-green-700">
+                <div className="mt-3 text-xs text-gray-900">
                   <span className="font-semibold">✓ Best practice:</span> Use
                   Result/Option types for expected failures instead of runtime
                   errors
@@ -348,89 +349,178 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
         </div>
 
         {/* Language Features */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Language Features
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-4">
-                Functional Programming
-              </h3>
-              <div className="space-y-3 text-sm text-gray-600">
-                <div>
-                  <span className="font-semibold">Immutable by default:</span>{" "}
-                  Values don't change after creation
+        <div className="bg-purple-50/30 rounded-2xl border border-purple-100 p-8 mb-20 relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-purple-100/40 blur-3xl"></div>
+          <div className="absolute -left-20 -bottom-20 h-40 w-40 rounded-full bg-purple-100/40 blur-3xl"></div>
+
+          <div className="relative">
+            <h2 className="text-2xl font-bold text-gray-800">
+              Language Features
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
+              <div>
+                <div className="flex items-center gap-3 my-8">
+                  <div className="w-1 h-8 bg-purple-lbg rounded-full"></div>
+                  <h3 className="font-semibold text-xl text-purple-dbg">
+                    Functional Programming
+                  </h3>
                 </div>
-                <div>
-                  <span className="font-semibold">First-class functions:</span>{" "}
-                  Pass functions as arguments
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        Immutable by default:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        Values don't change after creation
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        First-class functions:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        Pass functions as arguments
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        Pipeline operators:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        Chain operations with |&gt;
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        Pattern matching:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        Destructure data with match expressions
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        Algebraic data types:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        Model domain with unions and records
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <span className="font-semibold">Pipeline operators:</span>{" "}
-                  Chain operations with |&gt;
+              </div>
+
+              <div>
+                <div className="flex items-center gap-3 my-8">
+                  <div className="w-1 h-8 bg-purple-lbg rounded-full"></div>
+                  <h3 className="font-semibold text-xl text-purple-dbg">
+                    Practical Design
+                  </h3>
                 </div>
-                <div>
-                  <span className="font-semibold">Pattern matching:</span>{" "}
-                  Destructure data with match expressions
-                </div>
-                <div>
-                  <span className="font-semibold">Algebraic data types:</span>{" "}
-                  Model domain with unions and records
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        Gradual typing:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        Start untyped, add types as needed
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        Unicode strings:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        Characters are what you see on screen
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        Error operators:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        ? for unwrapping, ! for panicking
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        Imperative style:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        Use let bindings and loops when clear
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-lavender rounded-full flex-shrink-0 mt-2"></div>
+                    <div>
+                      <span className="font-semibold text-gray-900">
+                        Async by default:
+                      </span>{" "}
+                      <span className="text-gray-700">
+                        All I/O operations are async
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-4">
-                Practical Design
-              </h3>
-              <div className="space-y-3 text-sm text-gray-600">
-                <div>
-                  <span className="font-semibold">Gradual typing:</span> Start
-                  untyped, add types as needed
+            <div className="mt-10 bg-white/60 rounded-xl p-6 border border-purple-100 backdrop-blur-sm">
+              <h4 className="font-bold text-taupe text-lg mb-3">
+                Unicode-First Strings
+              </h4>
+              <p className="text-gray-700 mb-4">
+                Unlike languages from last millennium that use bytes or UTF-16
+                characters, Darklang strings are built around "extended grapheme
+                clusters"—what you actually see on screen.
+              </p>
+              <div className="bg-white p-3 rounded-lg font-mono text-sm border border-purple-100">
+                <div className="flex items-center gap-3 text-gray-800">
+                  <div className="text-taupe">String.length</div>
+                  <div>"👨‍👩‍👧‍👦"</div>
+                  <div className="text-gray-500">// 1 (family emoji)</div>
                 </div>
-                <div>
-                  <span className="font-semibold">Unicode strings:</span>{" "}
-                  Characters are what you see on screen
-                </div>
-                <div>
-                  <span className="font-semibold">Error operators:</span> ? for
-                  unwrapping, ! for panicking
-                </div>
-                <div>
-                  <span className="font-semibold">Imperative style:</span> Use
-                  let bindings and loops when clear
-                </div>
-                <div>
-                  <span className="font-semibold">Async by default:</span> All
-                  I/O operations are async
-                </div>
-                <div>
-                  <span className="font-semibold">Unicode-first strings:</span>{" "}
-                  Characters are what you see on screen
+                <div className="flex items-center gap-3 text-gray-800 mt-1">
+                  <div className="text-taupe">String.length</div>
+                  <div>"café"</div>
+                  <div className="text-gray-500">
+                    // 4 (including accented é)
+                  </div>
                 </div>
               </div>
+              <p className="text-sm text-gray-600 mt-3">
+                Working with codepoints and bytes is still available when
+                needed.
+              </p>
             </div>
-          </div>
-
-          <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-            <h4 className="font-semibold text-gray-800 mb-2">
-              Unicode-First Strings
-            </h4>
-            <p className="text-sm text-gray-600 mb-3">
-              Unlike languages from last millennium that use bytes or UTF-16
-              characters, Darklang strings are built around "extended grapheme
-              clusters"—what you actually see on screen.
-            </p>
-            <div className="text-xs bg-white p-2 rounded font-mono">
-              String.length "👨‍👩‍👧‍👦" // 1 (family emoji)
-              <br />
-              String.length "café" // 4 (including accented é)
-            </div>
-            <p className="text-xs text-gray-500 mt-2">
-              Working with codepoints and bytes is still available when needed.
-            </p>
           </div>
         </div>
 
@@ -443,7 +533,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
             <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200 p-4 md:p-8">
               <CodeDisplay
                 language="fsharp"
-                showLineNumbers={false}
+                showLineNumbers={true}
                 code={`// Pattern matching on union types
 fn describePhone (phone: Phone): String =
  match phone with
@@ -459,7 +549,7 @@ fn describePhone (phone: Phone): String =
             <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200 p-4 md:p-8">
               <CodeDisplay
                 language="fsharp"
-                showLineNumbers={false}
+                showLineNumbers={true}
                 code={`// Error handling with Result types
 fn parseAndDouble (input: String): Result<Int, String> =
  let number = Int.parse input?
@@ -476,7 +566,7 @@ match parseAndDouble("42") with
             <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200 p-4 md:p-8">
               <CodeDisplay
                 language="fsharp"
-                showLineNumbers={false}
+                showLineNumbers={true}
                 code={`// Working with collections
 let numbers = [1, 2, 3, 4, 5]
 let result =
@@ -491,98 +581,200 @@ let result =
         </div>
 
         {/* Why a New Language */}
-        <div className="bg-gray-50 rounded-lg p-8 mb-20">
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Why a New Language?
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
-            <p className="text-lg">
-              "Why not just build Darklang on top of JavaScript or some other
-              existing language?"
-            </p>
-            <p>
+            <blockquote className="text-lg italic border-l-4 border-gray-300 pl-4 py-2 my-6">
+              Why not just build Darklang on top of JavaScript or some other
+              existing language?
+            </blockquote>
+            <p className="border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm">
               <strong>The real answer:</strong> Because the language is part of
               the whole integrated package. When we control the language, we can
               build capabilities that are impossible with existing languages.
             </p>
 
-            <div className="bg-blue-50 rounded-lg p-6 my-6">
-              <h3 className="font-semibold text-gray-800 mb-4">
+            <div className="my-12">
+              <h2 className="text-xl font-bold text-purple-dbg mb-6 pb-3 border-b border-gray-200">
                 What Integration Enables
-              </h3>
-              <div className="space-y-3 text-sm text-gray-700">
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              </h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-4 h-4 rounded-full bg-purple-100 flex items-center justify-center mt-2">
+                    <div className="w-2 h-2 bg-purple-lbg rounded-full"></div>
+                  </div>
                   <div>
-                    <strong>Expression-level debugging:</strong> Each expression
-                    has a unique ID. We can show you exactly what value flowed
-                    through any part of your code in production.
+                    <h3 className="font-semibold text-gray-900 text-lg mb-1">
+                      Expression-level debugging
+                    </h3>
+                    <p className="text-gray-700">
+                      Each expression has a unique ID. We can show you exactly
+                      what value flowed through any part of your code in
+                      production.
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-4 h-4 rounded-full bg-purple-100 flex items-center justify-center mt-2">
+                    <div className="w-2 h-2 bg-purple-lbg rounded-full"></div>
+                  </div>
                   <div>
-                    <strong>Self-hosting tools:</strong> Our parser is written
-                    in Darklang. Our static analysis runs in Darklang. The
-                    language understands itself completely.
+                    <h3 className="font-semibold text-gray-900 text-lg mb-1">
+                      Self-hosting tools
+                    </h3>
+                    <p className="text-gray-700">
+                      Our parser is written in Darklang. Our static analysis
+                      runs in Darklang. The language understands itself
+                      completely.
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-4 h-4 rounded-full bg-purple-100 flex items-center justify-center mt-2">
+                    <div className="w-2 h-2 bg-purple-lbg rounded-full"></div>
+                  </div>
                   <div>
-                    <strong>AI code assistance:</strong> Since we control the
-                    AST, we can expose structured information to AI models for
-                    better code generation and error correction.
+                    <h3 className="font-semibold text-gray-900 text-lg mb-1">
+                      AI code assistance
+                    </h3>
+                    <p className="text-gray-700">
+                      Since we control the AST, we can expose structured
+                      information to AI models for better code generation and
+                      error correction.
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-4 h-4 rounded-full bg-purple-100 flex items-center justify-center mt-2">
+                    <div className="w-2 h-2 bg-purple-lbg rounded-full"></div>
+                  </div>
                   <div>
-                    <strong>Live code migration:</strong> We can automatically
-                    refactor your code when functions change, because we
-                    understand the semantic structure, not just text.
+                    <h3 className="font-semibold text-gray-900 text-lg mb-1">
+                      Live code migration
+                    </h3>
+                    <p className="text-gray-700">
+                      We can automatically refactor your code when functions
+                      change, because we understand the semantic structure, not
+                      just text.
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-4 h-4 rounded-full bg-purple-100 flex items-center justify-center">
+                    <div className="w-2 h-2 bg-purple-lbg rounded-full"></div>
+                  </div>
                   <div>
-                    <strong>Built-in performance profiling:</strong> Every
-                    function call is instrumented by default. We know where your
-                    code spends time without external profilers.
+                    <h3 className="font-semibold text-gray-900 text-lg mb-1">
+                      Built-in performance profiling
+                    </h3>
+                    <p className="text-gray-700">
+                      Every function call is instrumented by default. We know
+                      where your code spends time without external profilers.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mt-6">
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  Using Existing Languages
-                </h3>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• Limited to external tooling and plugins</li>
-                  <li>• Text-based analysis and transformations</li>
-                  <li>• Separate compilation and runtime phases</li>
-                  <li>• Debugging through external tools</li>
-                  <li>• Legacy assumptions baked into syntax</li>
-                  <li>• No integration with platform features</li>
-                </ul>
+            <div className="grid md:grid-cols-2 gap-8 mt-6">
+              <div className="bg-purple-50/30 rounded-2xl overflow-hidden border border-purple-100">
+                <div className="px-8 py-6">
+                  <h3 className="font-bold text-xl text-blue-dbg mb-6 text-center">
+                    Using Existing Languages
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Limited to external tooling and plugins
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Text-based analysis and transformations
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Separate compilation and runtime phases
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Debugging through external tools
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Legacy assumptions baked into syntax
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        No integration with platform features
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  Darklang's Integration
-                </h3>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• Deep AST-level understanding</li>
-                  <li>• Semantic analysis and transformations</li>
-                  <li>• Language runtime IS the platform</li>
-                  <li>• Expression-level tracing built-in</li>
-                  <li>• Designed for modern constraints</li>
-                  <li>• Platform features integrated into syntax</li>
-                </ul>
+              <div className="bg-purple-50/30 rounded-2xl overflow-hidden border border-purple-100">
+                <div className="px-8 py-6">
+                  <h3 className="font-bold text-xl text-blue-dbg mb-6 text-center">
+                    Darklang's Integration
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Deep AST-level understanding
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Semantic analysis and transformations
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Language runtime IS the platform
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Expression-level tracing built-in
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Designed for modern constraints
+                      </span>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
+                      <span className="text-gray-700">
+                        Platform features integrated into syntax
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <p className="text-lg font-medium text-blue-lbg">
+            <p className="text-lg font-medium text-purple-lbg mt-6">
               When the language is designed as part of the platform, we can
               build developer experiences that are impossible with bolt-on
               tools.
@@ -613,12 +805,12 @@ let result =
               </a>
               <a
                 href="https://docs.darklang.com"
-                className="block p-4 bg-mint/10 rounded-lg hover:bg-mint/20 transition-colors"
+                className="block p-4 bg-lavender/10 rounded-lg hover:bg-lavender/30 transition-colors"
               >
-                <h3 className="font-semibold text-mint mb-2">
+                <h3 className="font-semibold text-purple-lbg mb-2">
                   Language Reference
                 </h3>
-                <p className="text-sm text-mint">
+                <p className="text-sm text-purple-lbg">
                   Complete documentation and API reference
                 </p>
               </a>

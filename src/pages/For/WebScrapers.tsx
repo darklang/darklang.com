@@ -9,7 +9,7 @@ const WebScrapers: React.FC = () => {
   }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
         <EarlyContentDisclaimer />
         {/* Header Section */}
         <div className="text-center mb-20">
@@ -17,7 +17,7 @@ const WebScrapers: React.FC = () => {
             Darklang for Web Scrapers
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
             The web is cluttered with ads, trackers, and noise. Extract the
             signal from the chaos.
           </p>

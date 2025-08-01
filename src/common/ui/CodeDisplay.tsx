@@ -38,7 +38,7 @@ const CodeDisplay: React.FC<CodeDisplayProps> = ({
   }, [code, language, showLineNumbers]);
 
   return (
-    <div className="hljs-pre code-with-line-numbers whitespace-pre">
+    <div className="hljs-pre code-with-line-numbers whitespace-pre text-sm md:text-base">
       <pre>
         <code
           className={`language-${language}`}

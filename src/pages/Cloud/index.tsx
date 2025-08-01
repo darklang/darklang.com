@@ -77,7 +77,7 @@ const Cloud: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto flex flex-col items-center relative z-10">
+      <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto flex flex-col items-center relative z-10 px-2">
         {/* Header Section - More streamlined */}
         <div className="text-center my-8 relative">
           <h1 className="text-5xl md:text-7xl font-semibold text-white mb-6">
@@ -139,10 +139,10 @@ const Cloud: React.FC = () => {
           <div className="space-y-6">
             {/* Instant Deployment */}
             <div className="bg-dark-black/60 backdrop-blur-sm rounded-2xl px-8 py-2 text-white">
-              <h3 className="text-2xl font-semibold mb-4">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4">
                 <span className="text-blue-lbg">Instant Deployment</span>
               </h3>
-              <p className="text-gray-300 text-xl mb-4">
+              <p className="text-gray-300 text-lg md:text-xl mb-4">
                 Write your function, save it, and it's running instantly on our
                 infrastructure. No build steps, no deployment pipelines, no
                 container registries. Your code goes from editor to production
@@ -156,10 +156,10 @@ const Cloud: React.FC = () => {
 
             {/* Package Hosting */}
             <div className="bg-dark-black/60 backdrop-blur-sm rounded-2xl px-8 py-2 text-white border-l-taupe">
-              <h3 className="text-2xl font-semibold mb-4">
+              <h3 className="text-2xl text-xl md:text-2xl font-semibold mb-4">
                 <span className="text-taupe">Package Registry</span>
               </h3>
-              <p className="text-gray-300 text-xl mb-4">
+              <p className="text-gray-300 text-lg md:text-xl mb-4">
                 We host{" "}
                 <a
                   href="https://packages.darklang.com"
@@ -183,10 +183,10 @@ const Cloud: React.FC = () => {
 
             {/* CLI Access */}
             <div className="bg-dark-black/60 backdrop-blur-sm rounded-2xl px-8 py-2 text-white">
-              <h3 className="text-2xl font-semibold mb-4">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4">
                 <span className="text-purple-dbg">Remote CLI Access</span>
               </h3>
-              <p className="text-gray-300 text-xl mb-4">
+              <p className="text-gray-300 text-lg md:text-xl mb-4">
                 SSH directly into your Darklang environment on our cloud
                 servers. Run your CLI tools, debug issues, or work on your code
                 from anywhere. It's like having a powerful development machine

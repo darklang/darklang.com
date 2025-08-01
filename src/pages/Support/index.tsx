@@ -135,11 +135,11 @@ const Support: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Discord Community */}
-            <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-500">
+            <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-[#7B85FF]">
               <div className="flex items-center mb-4">
-                <div className="bg-purple-100 p-3 rounded-full mr-4">
+                <div className="bg-[#7B85FF]/10 p-3 rounded-full mr-4">
                   <svg
-                    className="w-6 h-6 text-purple-500"
+                    className="w-6 h-6 text-[#7B85FF]"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -162,7 +162,7 @@ const Support: React.FC = () => {
               <a
                 href="https://darklang.com/discord"
                 target="_blank"
-                className="inline-block bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded transition-colors"
+                className="inline-block bg-[#7B85FF] hover:bg-blue-dbg text-white font-bold py-2 px-4 rounded transition-colors"
               >
                 Join Discord
               </a>

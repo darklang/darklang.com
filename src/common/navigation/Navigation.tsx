@@ -112,10 +112,10 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
 
   return (
     <div
-      className={`md:hidden ${bgColor} py-4 px-6 absolute w-full z-50 shadow-lg`}
+      className={`md:hidden ${bgColor} py-4 px-6 fixed w-full z-50 shadow-lg top-[4rem] left-0 right-0 bottom-0 overflow-y-auto max-h-[calc(100vh-4rem)]`}
     >
       <nav>
-        <ul className="space-y-4">
+        <ul className="space-y-4 pb-10">
           {sections.map((section, index) => (
             <li
               key={index}

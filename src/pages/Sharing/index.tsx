@@ -10,7 +10,7 @@ const Sharing: React.FC = () => {
             Sharing Darklang
           </h1>
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl 2xl:text-2xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Thanks for being part of our community! Here are resources to help
             you share your Darklang experience, including logos, naming
             guidelines, and positioning information.
@@ -31,7 +31,7 @@ const Sharing: React.FC = () => {
                   </span>{" "}
                   We Are
                 </h3>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-2 text-sm md:text-base">
                   <li>
                     • <strong>"Just Code"</strong> — for engineers writing code
                   </li>
@@ -58,7 +58,7 @@ const Sharing: React.FC = () => {
                   <span className="text-red-600 mr-2 font-code text-xl">✕</span>{" "}
                   We're Not
                 </h3>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-2 text-sm md:text-base">
                   <li>• "Low Code" or "No Code"</li>
                   <li>• A visual programming tool</li>
                   <li>• Currently designed for non-programmers</li>
@@ -515,13 +515,13 @@ const Sharing: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Usage Guidelines
           </h2>
-          <div className="grid md:grid-cols-2 gap-6 text-sm">
+          <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h3 className="font-semibold text-gray-800 mb-3">
                 <span className="text-green-600 mr-2 font-code text-xl">✓</span>{" "}
                 Please Do
               </h3>
-              <ul className="space-y-2 text-gray-600">
+              <ul className="space-y-2 text-gray-600 text-sm md:text-base">
                 <li>• Use official logos and colors</li>
                 <li>• Maintain proper spacing around logos</li>
                 <li>• Choose appropriate contrast (light/dark versions)</li>
@@ -534,7 +534,7 @@ const Sharing: React.FC = () => {
                 <span className="text-red-600 mr-2 font-code text-xl">✕</span>{" "}
                 Please Don't
               </h3>
-              <ul className="space-y-2 text-gray-600">
+              <ul className="space-y-2 text-gray-600 text-sm md:text-base">
                 <li>• Modify, stretch, or distort the logos</li>
                 <li>• Change the colors or add effects</li>
                 <li>• Use low-resolution versions for large displays</li>

@@ -46,7 +46,7 @@ const LazyPeople: React.FC = () => {
                 style={{ height: isVisible ? "35px" : "0px" }}
               ></div>
 
-              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
                 Things That Are Annoying
               </h2>
             </div>
@@ -114,14 +114,14 @@ const LazyPeople: React.FC = () => {
                 style={{ height: isVisible ? "35px" : "0px" }}
               ></div>
 
-              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
                 Darklang: Maximum Automation, Minimum Effort
               </h2>
             </div>
 
             <div className="text-gray-800 space-y-3 pl-5">
               <div className="flex items-start">
-                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
                   ✔
                 </span>
                 <p>
@@ -130,7 +130,7 @@ const LazyPeople: React.FC = () => {
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
                   ✔
                 </span>
                 <p>
@@ -139,7 +139,7 @@ const LazyPeople: React.FC = () => {
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
                   ✔
                 </span>
                 <p>
@@ -148,7 +148,7 @@ const LazyPeople: React.FC = () => {
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
                   ✔
                 </span>
                 <p>
@@ -448,34 +448,34 @@ const LazyPeople: React.FC = () => {
         </div>
 
         {/* Getting Started Guide for Lazy People */}
-        <div className="bg-yellow-50 rounded-lg p-8 mb-20 border-l-4 border-yellow-500">
-          <h2 className="text-2xl font-bold text-yellow-800 mb-4">
+        <div className="bg-taupe/5 rounded-lg p-8 mb-20">
+          <h2 className="text-2xl font-bold text-taupe mb-4">
             Lazy Person's Getting Started Guide
           </h2>
-          <div className="text-yellow-700 space-y-4">
+          <div className="text-gray-600 space-y-4">
             <div className="flex items-start">
-              <span className="text-xl mr-3">1️</span>
+              <span className="mr-3">1️-</span>
               <p>
                 <strong>Identify your most annoying repetitive task</strong>{" "}
                 (the one that makes you groan when you have to do it)
               </p>
             </div>
             <div className="flex items-start">
-              <span className="text-xl mr-3">2️</span>
+              <span className="mr-3">2️-</span>
               <p>
                 <strong>Spend 30 minutes automating it with Darklang</strong>{" "}
                 (seriously, that's probably enough)
               </p>
             </div>
             <div className="flex items-start">
-              <span className="text-xl mr-3">3️</span>
+              <span className="mr-3">3️-</span>
               <p>
                 <strong>Enjoy never having to do that task again</strong> (and
                 the smug satisfaction of being cleverly lazy)
               </p>
             </div>
             <div className="flex items-start">
-              <span className="text-xl mr-3">4️</span>
+              <span className="mr-3">4️-</span>
               <p>
                 <strong>Repeat with the next most annoying task</strong> (until
                 you've automated everything boring)

@@ -20,7 +20,7 @@ const NewsletterPage: React.FC = () => {
 
       <Newsletter />
 
-      <div className="py-16 bg-white">
+      <div className="md:px-16 mb-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="p-6">

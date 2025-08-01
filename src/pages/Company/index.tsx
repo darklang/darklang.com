@@ -58,7 +58,6 @@ const Company: React.FC = () => {
               </div>
             </div>
 
-
             {/* Mission Block - Offset in opposite direction */}
             <div className="relative transform transition-all duration-700 ease-out m-3">
               <div className="absolute inset-0 bg-purple-lbg rounded-xl transform rotate-1 -translate-x-1 translate-y-1 opacity-50"></div>
@@ -89,8 +88,9 @@ const Company: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-base text-dark-black leading-relaxed pl-0 md:pl-2">
-                    We eliminate complexity in software development by integrating
-                    everything you need into one platform that just works.
+                    We eliminate complexity in software development by
+                    integrating everything you need into one platform that just
+                    works.
                   </p>
                 </div>
               </div>
@@ -119,25 +119,25 @@ const Company: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong className="text-gray-700">Simple by default:</strong> Just one system, no
-                  annoying integrations, no annoying payments, no complexity
-                  that blocks creativity.
+                  <strong className="text-gray-700">Simple by default:</strong>{" "}
+                  Just one system, no annoying integrations, no annoying
+                  payments, no complexity that blocks creativity.
                 </div>
               </div>
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-purple-lbg rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong className="text-gray-700">Local-first:</strong> Your code and data live on your
-                  machine first, with cloud sync and collaboration when you want
-                  it.
+                  <strong className="text-gray-700">Local-first:</strong> Your
+                  code and data live on your machine first, with cloud sync and
+                  collaboration when you want it.
                 </div>
               </div>
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-mint rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong className="text-gray-700">Accessible:</strong> Works from any computer, supports
-                  voice and assistive technologies, available in multiple
-                  languages.
+                  <strong className="text-gray-700">Accessible:</strong> Works
+                  from any computer, supports voice and assistive technologies,
+                  available in multiple languages.
                 </div>
               </div>
             </div>
@@ -145,16 +145,17 @@ const Company: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-taupe rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong className="text-gray-700">Composable:</strong> Build with reusable pieces that
-                  fit together naturally, sharing and remixing code across the
-                  community.
+                  <strong className="text-gray-700">Composable:</strong> Build
+                  with reusable pieces that fit together naturally, sharing and
+                  remixing code across the community.
                 </div>
               </div>
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-rose rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong className="text-gray-700">Malleable:</strong> Changeable, forkable, extensible.
-                  The platform adapts to you, not the other way around.
+                  <strong className="text-gray-700">Malleable:</strong>{" "}
+                  Changeable, forkable, extensible. The platform adapts to you,
+                  not the other way around.
                 </div>
               </div>
             </div>
@@ -401,7 +402,9 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium md:text-lgtext-gray-800">Editor Support</div>
+                <div className="font-medium md:text-lgtext-gray-800">
+                  Editor Support
+                </div>
                 <div className="text-sm md:text-base text-gray-600">
                   VSCode extension with LSP
                 </div>
@@ -425,7 +428,9 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium md:text-lgtext-gray-800">Package System</div>
+                <div className="font-medium md:text-lgtext-gray-800">
+                  Package System
+                </div>
                 <div className="text-sm md:text-base text-gray-600">
                   Function-level package management
                 </div>
@@ -449,7 +454,9 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium md:text-lgtext-gray-800">Community</div>
+                <div className="font-medium md:text-lgtext-gray-800">
+                  Community
+                </div>
                 <div className="text-sm md:text-base text-gray-600">
                   Open-sourcing and contributor growth
                 </div>

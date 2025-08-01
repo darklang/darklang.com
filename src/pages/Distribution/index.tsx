@@ -134,9 +134,13 @@ const Distribution: React.FC = () => {
         <div className="mb-20">
           <h2 className="font-bold mb-8 flex flex-col items-center justify-center">
             <div className="flex items-center text-3xl tracking-wide">
-              <span className="text-taupe tracking-wide md:tracking-widest">Traditional</span>
+              <span className="text-taupe tracking-wide md:tracking-widest">
+                Traditional
+              </span>
               <span className="mx-4 text-gray-600 text-4xl font-light">vs</span>
-              <span className="text-blue-lbg tracking-wide md:tracking-widest">Darklang</span>
+              <span className="text-blue-lbg tracking-wide md:tracking-widest">
+                Darklang
+              </span>
             </div>
             <span className="text-gray-500 mt-2 text-2xl tracking-wide md:tracking-widest">
               Distribution

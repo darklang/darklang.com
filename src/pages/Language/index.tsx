@@ -504,8 +504,18 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                 clusters"—what you actually see on screen.
               </p>
               <div className="bg-white p-3 rounded-lg font-mono text-sm border border-purple-100">
-                <div className="text-taupe">String.length "👨‍👩‍👧‍👦" <span className="text-gray-500">// 1 (family emoji)</span> </div>
-                <div className="text-taupe mt-1">String.length <span className="text-gray-800">"café"</span> <span className="text-gray-500">// 4 (including accented é)</span></div>
+                <div className="text-taupe">
+                  String.length "👨‍👩‍👧‍👦"{" "}
+                  <span className="text-gray-500">
+                    // 1 (family emoji)
+                  </span>{" "}
+                </div>
+                <div className="text-taupe mt-1">
+                  String.length <span className="text-gray-800">"café"</span>{" "}
+                  <span className="text-gray-500">
+                    // 4 (including accented é)
+                  </span>
+                </div>
               </div>
               <p className="text-sm text-gray-600 mt-3">
                 Working with codepoints and bytes is still available when

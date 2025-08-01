@@ -47,7 +47,7 @@ const WebDevelopers: React.FC = () => {
                 style={{ height: isVisible ? "35px" : "0px" }}
               ></div>
 
-              <h2 className="text-2xl font-semibold text-rust px-4 py-2">
+              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
                 Tired of This?
               </h2>
             </div>
@@ -114,14 +114,14 @@ const WebDevelopers: React.FC = () => {
                 style={{ height: isVisible ? "35px" : "0px" }}
               ></div>
 
-              <h2 className="text-2xl font-semibold text-mint px-4 py-2">
+              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
                 With Darklang:
               </h2>
             </div>
 
             <div className="text-gray-800 space-y-3 pl-5">
               <div className="flex items-start">
-                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
                   ✔
                 </span>
                 <p>
@@ -133,7 +133,7 @@ const WebDevelopers: React.FC = () => {
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
                   ✔
                 </span>
                 <p>
@@ -145,7 +145,7 @@ const WebDevelopers: React.FC = () => {
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
                   ✔
                 </span>
                 <p>
@@ -156,7 +156,7 @@ const WebDevelopers: React.FC = () => {
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-mint font-bold text-lg mr-3 flex-shrink-0">
+                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
                   ✔
                 </span>
                 <p>

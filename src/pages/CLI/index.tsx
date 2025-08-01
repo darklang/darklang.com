@@ -121,7 +121,7 @@ const CLIPage: React.FC = () => {
       {/* Darklang for Scripts Section */}
       <section className="py-16 px-6  max-w-7xl 2xl:max-w-[100rem] mx-auto">
         <div className="text-purple-dbg mb-6 text-lg md:text-2xl font-semibold">
-          $ darklang is a better lanuage for your scripts |
+          $ darklang is a better language for your scripts |
         </div>
         <div className="relative">
           <img
@@ -133,56 +133,56 @@ const CLIPage: React.FC = () => {
             <ul className="space-y-6 mt-6 ml-4">
               <li className="flex items-start">
                 <span className="text-blue-dbg mr-3">-</span>
-                <span className="text-white text-xl leading-6">
+                <span className="text-white md:text-xl leading-6">
                   Static types help ensure correctness
                 </span>
               </li>
 
               <li className="flex items-start">
                 <span className="text-blue-dbg mr-3">- </span>
-                <span className="text-white text-xl leading-6">
+                <span className="text-white md:text-xl leading-6">
                   Immutable values make code easier to understand and verify
                 </span>
               </li>
 
               <li className="flex items-start">
                 <span className="text-blue-dbg mr-3">- </span>
-                <span className="text-white text-xl leading-6">
+                <span className="text-white md:text-xl leading-6">
                   Built-in package manager
                 </span>
               </li>
 
               <li className="flex items-start ml-8">
                 <span className="text-blue-dbg mr-3">✓</span>
-                <span className="text-white text-xl leading-6">
+                <span className="text-white md:text-xl leading-6">
                   without an npm install step
                 </span>
               </li>
 
               <li className="flex items-start ml-8">
                 <span className="text-blue-dbg mr-3">✓</span>
-                <span className="text-white text-xl leading-6">
+                <span className="text-white md:text-xl leading-6">
                   versioned immutable functions and packages
                 </span>
               </li>
 
               <li className="flex items-start">
                 <span className="text-blue-dbg mr-3">- </span>
-                <span className="text-white text-xl leading-6">
+                <span className="text-white md:text-xl leading-6">
                   Easy to take a script and move it to the cloud
                 </span>
               </li>
 
               <li className="flex items-start">
                 <span className="text-blue-dbg mr-3">- </span>
-                <span className="text-white text-xl leading-6">
+                <span className="text-white md:text-xl leading-6">
                   Easy to use traces
                 </span>
               </li>
 
               <li className="flex items-start">
                 <span className="text-blue-dbg mr-3">- </span>
-                <span className="text-white text-xl leading-6">
+                <span className="text-white md:text-xl leading-6">
                   Easy to test, and be sure it's working
                 </span>
               </li>

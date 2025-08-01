@@ -30,7 +30,7 @@ const Editing: React.FC = () => {
 
             <div className="md:pl-12">
               <h1 className="text-3xl font-bold mb-4">Multi-Editor Support</h1>
-              <p className="text-lg mb-6 max-w-2xl">
+              <p className="text-lg md:mb-6 max-w-2xl">
                 Darklang's language server is designed to work across multiple
                 editing environments, providing a consistent experience
                 regardless of your preferred editor.
@@ -55,7 +55,7 @@ const Editing: React.FC = () => {
       </section>
 
       {/* LSP Server Section */}
-      <section className="py-16 px-6 max-w-7xl mx-auto">
+      <section className="md:py-16 px-6 max-w-7xl mx-auto">
         <div className="text-blue-dbg text-2xl mb-8">Darklang LSP Server</div>
 
         <p className="text-white text-lg leading-relaxed max-w-6xl">
@@ -129,7 +129,7 @@ helloWorld ()
       </section>
 
       {/* Customizing & Creating Language Servers Section */}
-      <section className="py-16 px-6 max-w-7xl mx-auto">
+      <section className="px-6 max-w-7xl mx-auto">
         <div className=" text-blue-dbg text-2xl mb-8">
           Customizing & Creating Language Servers
         </div>
@@ -151,7 +151,7 @@ helloWorld ()
       </section>
 
       {/* Extension Section */}
-      <section className="py-16 px-6 max-w-7xl mx-auto">
+      <section className="pt-16 px-6 max-w-7xl mx-auto">
         <div className=" text-blue-dbg text-2xl mb-8">VSCode Extension</div>
 
         <div className="text-white text-lg space-y-8 max-w-6xl">

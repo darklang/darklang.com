@@ -2,8 +2,8 @@ import React from "react";
 
 const Company: React.FC = () => {
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl 2xl:max-w-7xl mx-auto">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto overflow-visible">
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -12,85 +12,94 @@ const Company: React.FC = () => {
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
         </div>
 
-        {/* Vision & Mission */}
-        <div className="mb-18">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Vision Card */}
-            <div className="bg-white rounded-xl shadow-md p-6 relative overflow-hidden border-t-4 border-t-blue-lbg">
-              <div className="flex items-start mb-4">
-                <div className="w-9 h-9 bg-blue-100 rounded-full flex items-center justify-center mr-5 flex-shrink-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-blue-lbg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </svg>
+        {/* Vision & Mission - Offset Blocks Design */}
+        <div className="mb-18 relative py-6">
+          <div className="grid md:grid-cols-2 gap-8 2xl:gap-12 relative overflow-visible items-stretch">
+            {/* Vision Block - Offset and angled */}
+            <div className="relative transform transition-all duration-700 ease-out m-3">
+              <div className="absolute inset-0 bg-blue-lbg rounded-xl transform rotate-1 -translate-x-1 translate-y-1 opacity-50"></div>
+              <div className="absolute inset-0 bg-indigo-500 rounded-xl transform -rotate-2 -translate-x-2 translate-y-2 opacity-30"></div>
+              <div className="bg-white p-6 rounded-xl relative z-10 shadow-lg transform rotate-1 h-full border border-0.5 border-blue-lbg/10">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-4 flex-shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-blue-lbg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-lbg to-blue-dbg/75">
+                      Our Vision
+                    </h2>
+                  </div>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                    Our Vision
-                  </h2>
+                  <p className="text-base text-dark-black leading-relaxed pl-0 md:pl-2">
+                    A world where building software is as natural as writing a
+                    document.
+                  </p>
                 </div>
-              </div>
-              <div>
-                <p className="text-base text-dark-black leading-relaxed">
-                  A world where building software is as natural as writing a
-                  document.
-                </p>
               </div>
             </div>
 
-            {/* Mission Card */}
-            <div className="bg-white rounded-xl shadow-md p-8 relative overflow-hidden border-t-4 border-t-purple-lbg">
-              <div className="flex items-start mb-4">
-                <div className="w-9 h-9 bg-purple-100 rounded-full flex items-center justify-center mr-5 flex-shrink-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-purple-lbg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
+
+            {/* Mission Block - Offset in opposite direction */}
+            <div className="relative transform transition-all duration-700 ease-out m-3">
+              <div className="absolute inset-0 bg-purple-lbg rounded-xl transform rotate-1 -translate-x-1 translate-y-1 opacity-50"></div>
+              <div className="absolute inset-0 bg-purple-secondry rounded-xl transform -rotate-2 -translate-x-2 translate-y-2 opacity-30"></div>
+              <div className="bg-white p-6 rounded-xl relative z-10 shadow-lg transform rotate-1 h-full border border-0.5 border-purple-lbg/10">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-4 flex-shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-purple-lbg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-lbg to-purple-secondry">
+                      Our Mission
+                    </h2>
+                  </div>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                    Our Mission
-                  </h2>
+                  <p className="text-base text-dark-black leading-relaxed pl-0 md:pl-2">
+                    We eliminate complexity in software development by integrating
+                    everything you need into one platform that just works.
+                  </p>
                 </div>
-              </div>
-              <div>
-                <p className="text-base text-dark-black leading-relaxed">
-                  We eliminate complexity in software development by integrating
-                  everything you need into one platform that just works.
-                </p>
               </div>
             </div>
           </div>
 
           {/* Slogan Card */}
-          <div className="p-6 mx-auto">
-            <p className="text-lg font-medium text-center text-gray-800">
+          <div className="mt-14 mx-auto">
+            <p className="text-xl font-bold text-center text-gray-600">
               "Write code, get software, no BS"
             </p>
           </div>
@@ -101,16 +110,16 @@ const Company: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Our Philosophy
           </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
+          <p className="md:text-lg 2xl:text-xl text-gray-700 leading-relaxed mb-6">
             Programming is too hard. We're making it less complex for everyone
             by building a platform guided by these core principles:
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 md:text-lg">
             <div className="space-y-4">
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong>Simple by default:</strong> Just one system, no
+                  <strong className="text-gray-700">Simple by default:</strong> Just one system, no
                   annoying integrations, no annoying payments, no complexity
                   that blocks creativity.
                 </div>
@@ -118,7 +127,7 @@ const Company: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-purple-lbg rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong>Local-first:</strong> Your code and data live on your
+                  <strong className="text-gray-700">Local-first:</strong> Your code and data live on your
                   machine first, with cloud sync and collaboration when you want
                   it.
                 </div>
@@ -126,7 +135,7 @@ const Company: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-mint rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong>Accessible:</strong> Works from any computer, supports
+                  <strong className="text-gray-700">Accessible:</strong> Works from any computer, supports
                   voice and assistive technologies, available in multiple
                   languages.
                 </div>
@@ -136,7 +145,7 @@ const Company: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-taupe rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong>Composable:</strong> Build with reusable pieces that
+                  <strong className="text-gray-700">Composable:</strong> Build with reusable pieces that
                   fit together naturally, sharing and remixing code across the
                   community.
                 </div>
@@ -144,7 +153,7 @@ const Company: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-rose rounded-full mt-3 mr-3 flex-shrink-0"></span>
                 <div>
-                  <strong>Malleable:</strong> Changeable, forkable, extensible.
+                  <strong className="text-gray-700">Malleable:</strong> Changeable, forkable, extensible.
                   The platform adapts to you, not the other way around.
                 </div>
               </div>
@@ -158,7 +167,7 @@ const Company: React.FC = () => {
             Small Team, Big Vision
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
-            <p>
+            <p className="md:text-lg 2xl:text-xl ">
               Darklang is built by just 2 full-time employees, but we're part of
               a larger community of contributors, users, and supporters who
               believe in making programming less complex.
@@ -278,7 +287,7 @@ const Company: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-sm text-gray-600">
+            <p className="text-sm md:text-base text-gray-600">
               Want to know how we keep this sustainable? Read about our
               <a
                 href="/company/sustainability"
@@ -295,7 +304,7 @@ const Company: React.FC = () => {
         {/* Journey Section */}
         <div className="mb-18">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Story</h2>
-          <div className="text-gray-700 leading-relaxed space-y-8">
+          <div className="text-gray-700 md:text-lg 2xl:text-xl leading-relaxed space-y-8">
             <p>
               We started Darklang in 2017 because software development was too
               complex. Instead of patching existing systems, we reimagined
@@ -343,13 +352,13 @@ const Company: React.FC = () => {
         </div>
 
         {/* Current Focus */}
-        <div className="mb-18">
+        <div className="mb-10 md:mb-18">
           <h2 className="text-xl font-bold text-gray-800 mb-8">
             What We're Building Now
           </h2>
 
-          <div className="grid grid-cols-2 gap-6">
-            <div className="flex items-start">
+          <div className="md:grid grid-cols-2 gap-6 px-6">
+            <div className="flex items-start mb-6">
               <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-purple-100 text-purple-lbg">
                 <svg
                   className="w-5 h-5"
@@ -366,16 +375,16 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium text-gray-800">
+                <div className="font-medium md:text-lgtext-gray-800">
                   Language & Runtime
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm md:text-base text-gray-600">
                   CLI-ready with gradual static typing
                 </div>
               </div>
             </div>
 
-            <div className="flex items-start">
+            <div className="flex items-start mb-6">
               <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-purple-100 text-purple-lbg">
                 <svg
                   className="w-5 h-5"
@@ -392,14 +401,14 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium text-gray-800">Editor Support</div>
-                <div className="text-sm text-gray-600">
+                <div className="font-medium md:text-lgtext-gray-800">Editor Support</div>
+                <div className="text-sm md:text-base text-gray-600">
                   VSCode extension with LSP
                 </div>
               </div>
             </div>
 
-            <div className="flex items-start">
+            <div className="flex items-start mb-6">
               <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-purple-100 text-purple-lbg">
                 <svg
                   className="w-5 h-5"
@@ -416,8 +425,8 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium text-gray-800">Package System</div>
-                <div className="text-sm text-gray-600">
+                <div className="font-medium md:text-lgtext-gray-800">Package System</div>
+                <div className="text-sm md:text-base text-gray-600">
                   Function-level package management
                 </div>
               </div>
@@ -440,8 +449,8 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium text-gray-800">Community</div>
-                <div className="text-sm text-gray-600">
+                <div className="font-medium md:text-lgtext-gray-800">Community</div>
+                <div className="text-sm md:text-base text-gray-600">
                   Open-sourcing and contributor growth
                 </div>
               </div>
@@ -454,7 +463,7 @@ const Company: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Join Our Community
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 md:text-lg leading-relaxed space-y-4">
             <p>
               Darklang is more than a programming language—it's a community of
               developers who believe software development can be better. Whether
@@ -464,7 +473,7 @@ const Company: React.FC = () => {
             <div className="flex flex-wrap gap-4 mt-6">
               <a
                 href="https://discord.gg/darklang"
-                className="bg-blue-dbg text-white px-5 py-2 rounded-md hover:bg-blue-lbg transition-colors font-medium text-sm"
+                className="bg-[#7B85FF] text-white px-5 py-2 rounded-md hover:bg-blue-lbg transition-colors font-medium text-sm"
               >
                 Join Discord
               </a>

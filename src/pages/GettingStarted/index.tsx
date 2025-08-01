@@ -58,7 +58,7 @@ const GettingStarted: React.FC = () => {
         <div className="my-18">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <div className="border-l-3 border-mint pl-4">
+              <div className="border-l-3 border-blue-lbg pl-4">
                 <h3 className="font-semibold text-gray-800 mb-2">
                   Join Our Discord
                 </h3>
@@ -68,13 +68,13 @@ const GettingStarted: React.FC = () => {
                 </p>
                 <a
                   href="https://discord.gg/darklang"
-                  className="inline-flex items-center bg-blue-lbg text-white px-4 py-2 rounded text-sm hover:bg-purple-lbg transition-colors"
+                  className="inline-flex items-center bg-[#7B85FF] text-white px-4 py-2 rounded text-sm hover:bg-blue-lbg transition-colors"
                 >
                   Join Discord
                 </a>
               </div>
 
-              <div className="border-l-3 border-blue-lbg pl-4">
+              <div className="border-l-3 border-mint pl-4">
                 <h3 className="font-semibold text-gray-800 mb-2">
                   Follow Our Progress
                 </h3>
@@ -84,7 +84,7 @@ const GettingStarted: React.FC = () => {
                 </p>
                 <a
                   href="https://blog.darklang.com"
-                  className="inline-flex items-center text-blue-lbg hover:text-blue-800 text-sm font-medium"
+                  className="inline-flex items-center text-blue-lbg hover:text-purple-lbg text-sm font-medium"
                 >
                   Read Blog →
                 </a>
@@ -101,7 +101,7 @@ const GettingStarted: React.FC = () => {
                 </p>
                 <a
                   href="https://github.com/darklang/dark"
-                  className="inline-flex items-center text-blue-lbg hover:text-blue-800 text-sm font-medium"
+                  className="inline-flex items-center text-blue-lbg hover:text-purple-lbg text-sm font-medium"
                 >
                   View GitHub Setup →
                 </a>

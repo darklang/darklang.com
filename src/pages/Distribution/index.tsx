@@ -134,18 +134,18 @@ const Distribution: React.FC = () => {
         <div className="mb-20">
           <h2 className="font-bold mb-8 flex flex-col items-center justify-center">
             <div className="flex items-center text-3xl tracking-wide">
-              <span className="text-taupe tracking-widest">Traditional</span>
+              <span className="text-taupe tracking-wide md:tracking-widest">Traditional</span>
               <span className="mx-4 text-gray-600 text-4xl font-light">vs</span>
-              <span className="text-blue-lbg tracking-widest">Darklang</span>
+              <span className="text-blue-lbg tracking-wide md:tracking-widest">Darklang</span>
             </div>
-            <span className="text-gray-500 mt-2 text-2xl tracking-widest">
+            <span className="text-gray-500 mt-2 text-2xl tracking-wide md:tracking-widest">
               Distribution
             </span>
           </h2>
           <div className="grid md:grid-cols-2 2xl:gap-24 2xl:gap-28 mx-8">
             {/* Traditional Distribution */}
             <div>
-              <div className="p-6">
+              <div className="md:p-6">
                 <h3 className="text-xl font-semibold tracking-wider text-gray-700 mb-6 flex items-center ">
                   Traditional{" "}
                   <span className="text-gray-500 ml-1">Distribution</span>
@@ -200,7 +200,7 @@ const Distribution: React.FC = () => {
 
             {/* Darklang Distribution */}
             <div>
-              <div className="px-10 py-6">
+              <div className="md:px-10 py-12 md:py-6">
                 <h3 className="text-xl font-semibold tracking-wider text-gray-800 mb-6 flex items-center">
                   Darklang{" "}
                   <span className="text-gray-500 ml-1">Distribution</span>
@@ -456,7 +456,7 @@ const Distribution: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   No DevOps Complexity
                 </h3>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2">
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
                     <span>No YAML configuration files</span>
@@ -480,7 +480,7 @@ const Distribution: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   No Infrastructure Management
                 </h3>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2">
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
                     <span>No server provisioning</span>

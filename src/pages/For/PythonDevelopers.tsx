@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
+import RelatedForPages from "../../components/RelatedForPages";
 import CodeDisplay from "../../common/ui/CodeDisplay";
 
 const PythonDevelopers: React.FC = () => {
@@ -464,6 +465,9 @@ users
             </p>
           </div>
         </div>
+
+        {/* Related For Pages Section */}
+        <RelatedForPages currentPath="python-developers" />
       </div>
     </div>
   );

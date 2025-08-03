@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
+import RelatedForPages from "../../components/RelatedForPages";
 
 const WebScrapers: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -507,6 +508,9 @@ const WebScrapers: React.FC = () => {
             </p>
           </div>
         </div>
+
+        {/* Related For Pages Section */}
+        <RelatedForPages currentPath="web-scrapers" />
       </div>
     </div>
   );

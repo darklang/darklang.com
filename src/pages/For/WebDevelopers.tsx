@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
+import RelatedForPages from "../../components/RelatedForPages";
 
 const WebDevelopers: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -384,6 +385,9 @@ const WebDevelopers: React.FC = () => {
             </p>
           </div>
         </div>
+
+        {/* Related For Pages Section */}
+        <RelatedForPages currentPath="web-developers" />
       </div>
     </div>
   );

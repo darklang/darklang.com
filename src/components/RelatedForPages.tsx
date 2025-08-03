@@ -93,7 +93,8 @@ const RelatedForPages: React.FC<RelatedForPagesProps> = ({ currentPath }) => {
           Other Use Cases
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Darklang adapts to your needs. Explore how others are using it to solve their unique challenges.
+          Darklang adapts to your needs. Explore how others are using it to
+          solve their unique challenges.
         </p>
       </div>
 

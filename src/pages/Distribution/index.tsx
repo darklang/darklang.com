@@ -54,7 +54,7 @@ const ListItem: React.FC<ListItemProps> = ({
   const sizeClass = textSize === "large" ? "text-lg" : "";
 
   return (
-    <li className={`flex items-center text-gray-600 ${sizeClass}`}>
+    <li className={`flex items-center text-gray-600 2xl:text-lg ${sizeClass}`}>
       {iconType === "cog" ? cogIcon : arrowIcon}
       {text}
     </li>
@@ -106,13 +106,13 @@ const Distribution: React.FC = () => {
                 The Deployless Revolution
               </h2>
             </div>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-gray-700 2xl:text-lg leading-relaxed mb-4">
               Just as serverless computing abstracted away server management,
               Darklang introduces "deployless" distribution that abstracts away
               deployment management. Write code, save it, and it's instantly
               running in production.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 2xl:text-lg leading-relaxed">
               Traditional deployment involves dozens of steps and tools.
               Darklang eliminates roughly this complexity, reducing deployment
               time from minutes or hours to 50 milliseconds.
@@ -287,7 +287,7 @@ const Distribution: React.FC = () => {
               <div className="font-mono text-sm text-gray-800 mb-2">
                 $ darklang @username.parseCSV myfile.csv
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm 2xl:text-base text-gray-600">
                 Run any function directly—no installation, setup, or wrapper
                 scripts required.
               </p>
@@ -352,7 +352,7 @@ const Distribution: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Dark Matter: The Central Distribution Platform
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4 pl-1">
+          <div className="text-gray-700 2xl:text-lg leading-relaxed space-y-4 pl-1">
             <p>
               All Darklang code is hosted on{" "}
               <strong>matter.darklang.com</strong>—a fine-grained package
@@ -410,7 +410,7 @@ const Distribution: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Universal Cross-Platform Distribution
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 2xl:text-lg leading-relaxed space-y-4">
             <p>
               Darklang functions run everywhere: CLI, cloud, web browsers,
               Slack, Discord, or any platform that can make HTTP calls.
@@ -421,11 +421,11 @@ const Distribution: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   CLI Distribution
                 </h3>
-                <p className="text-sm text-gray-600 mb-3">
+                <p className="text-sm 2xl:text-base text-gray-600 mb-3">
                   Run functions directly from the command line without
                   installation.
                 </p>
-                <div className="font-fira text-xs bg-dark p-2 rounded">
+                <div className="font-fira text-xs md:text-sm bg-dark p-2 rounded">
                   <span className="text-gray-300">$ dark</span>{" "}
                   <span className="text-classic-blue">run</span>{" "}
                   <span className="text-gray-light">@user.func</span>
@@ -436,10 +436,10 @@ const Distribution: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Cloud Distribution
                 </h3>
-                <p className="text-sm text-gray-600 mb-3">
+                <p className="text-sm 2xl:text-base text-gray-600 mb-3">
                   Deploy to Darklang cloud instantly with zero configuration.
                 </p>
-                <div className="font-fira text-xs bg-dark p-2 rounded">
+                <div className="font-fira text-xs md:text-sm bg-dark p-2 rounded">
                   <span className="text-gray-300">$ dark</span>{" "}
                   <span className="text-classic-blue">deploy</span>{" "}
                   <span className="text-gray-light">@user.func</span>
@@ -454,7 +454,7 @@ const Distribution: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             What Darklang Distribution Eliminates
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-6 pl-3">
+          <div className="text-gray-700 2xl:text-lg leading-relaxed space-y-6 pl-3">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-semibold text-gray-800 mb-3">
@@ -463,19 +463,19 @@ const Distribution: React.FC = () => {
                 <div className="space-y-2">
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span>No YAML configuration files</span>
+                    <span className="2xl:text-lg">No YAML configuration files</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span>No Docker containers</span>
+                    <span className="2xl:text-lg">No Docker containers</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span>No Kubernetes orchestration</span>
+                    <span className="2xl:text-lg">No Kubernetes orchestration</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span>No CI/CD pipeline setup</span>
+                    <span className="2xl:text-lg">No CI/CD pipeline setup</span>
                   </div>
                 </div>
               </div>
@@ -487,19 +487,19 @@ const Distribution: React.FC = () => {
                 <div className="space-y-2">
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span>No server provisioning</span>
+                    <span className="2xl:text-lg">No server provisioning</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span>No load balancer configuration</span>
+                    <span className="2xl:text-lg">No load balancer configuration</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span>No networking setup</span>
+                    <span className="2xl:text-lg">No networking setup</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span>No cloud service integration</span>
+                    <span className="2xl:text-lg">No cloud service integration</span>
                   </div>
                 </div>
               </div>

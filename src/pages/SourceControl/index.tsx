@@ -10,7 +10,7 @@ const SourceControl: React.FC = () => {
             Source Control Reimagined
           </h1>
           <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl 2xl:text-2xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Darklang's source control is built into the platform. No files, no
             nasty merge conflicts, no external versioning — just immutable,
             content-addressable code that never gets lost.
@@ -46,14 +46,14 @@ const SourceControl: React.FC = () => {
                 Code as Immutable Data, Not Mutable Text
               </h2>
             </div>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-gray-700 2xl:text-lg leading-relaxed mb-4">
               Traditional source control treats your codebase as a "bag of
               mutable text files." Darklang treats code as immutable data
               structures where every function, type, and module gets a
               content-based address. Changes create new versions while
               preserving all previous ones.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 2xl:text-lg leading-relaxed">
               <strong>The result:</strong> Source control that understands your
               code's meaning, eliminating merge conflicts, enabling perfect
               caching, and providing deep insight into dependencies and test
@@ -87,7 +87,7 @@ const SourceControl: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-3">
                 Semantic Storage
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm 2xl:text-base text-gray-600">
                 Code is stored as compiled ASTs, not text. Only semantic changes
                 matter—formatting and whitespace never cause conflicts.
               </p>
@@ -112,7 +112,7 @@ const SourceControl: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-3">
                 Function-Level Tracking
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm 2xl:text-base text-gray-600">
                 Changes are tracked at the function level, not file level. Know
                 exactly what changed and what depends on it.
               </p>
@@ -137,7 +137,7 @@ const SourceControl: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-3">
                 Impact Analysis
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm 2xl:text-base text-gray-600">
                 See exactly what depends on your changes and what tests need to
                 run. No surprises, no broken deployments.
               </p>
@@ -162,7 +162,7 @@ const SourceControl: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-3">
                 Gradual Migration
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm 2xl:text-base text-gray-600">
                 Use old and new versions side-by-side. Pin specific calls to old
                 versions while you migrate at your own pace.
               </p>
@@ -175,7 +175,7 @@ const SourceControl: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Deep Knowledge of Your Codebase
           </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
+          <p className="text-gray-700 leading-relaxed mb-6 2xl:text-lg">
             Because Darklang stores code as semantic data structures, it has
             intimate knowledge of dependencies, test coverage, performance
             characteristics, and usage patterns that traditional file-based
@@ -186,10 +186,10 @@ const SourceControl: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-blue-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
                 <div>
-                  <h4 className="font-semibold text-gray-800">
+                  <h4 className="font-semibold text-gray-800 2xl:text-lg">
                     Precise Dependency Tracking
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm 2xl:text-base text-gray-600">
                     Know exactly which functions depend on your changes, down to
                     specific parameters and return types.
                   </p>
@@ -198,10 +198,10 @@ const SourceControl: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-purple-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
                 <div>
-                  <h4 className="font-semibold text-gray-800">
+                  <h4 className="font-semibold text-gray-800 2xl:text-lg">
                     Comprehensive Test Coverage
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm 2xl:text-base text-gray-600">
                     See which tests exercise your code and which edge cases
                     remain untested, with perfect accuracy.
                   </p>
@@ -210,10 +210,10 @@ const SourceControl: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></span>
                 <div>
-                  <h4 className="font-semibold text-gray-800">
+                  <h4 className="font-semibold text-gray-800 2xl:text-lg">
                     Usage Analytics
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm 2xl:text-base text-gray-600">
                     Understand how your functions are actually used in
                     production, enabling data-driven optimization.
                   </p>
@@ -224,10 +224,10 @@ const SourceControl: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-taupe rounded-full mt-2 mr-3 flex-shrink-0"></span>
                 <div>
-                  <h4 className="font-semibold text-gray-800">
+                  <h4 className="font-semibold text-gray-800 2xl:text-lg">
                     Performance Profiling
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm 2xl:text-base text-gray-600">
                     Track performance metrics at the function level, with
                     historical data tied to specific versions.
                   </p>
@@ -236,10 +236,10 @@ const SourceControl: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-rose rounded-full mt-2 mr-3 flex-shrink-0"></span>
                 <div>
-                  <h4 className="font-semibold text-gray-800">
+                  <h4 className="font-semibold text-gray-800 2xl:text-lg">
                     Safe Refactoring
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm 2xl:text-base text-gray-600">
                     Rename, restructure, and optimize with confidence—the system
                     knows what will break and what won't.
                   </p>
@@ -248,10 +248,10 @@ const SourceControl: React.FC = () => {
               <div className="flex items-start">
                 <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                 <div>
-                  <h4 className="font-semibold text-gray-800">
+                  <h4 className="font-semibold text-gray-800 2xl:text-lg">
                     Perfect Caching
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm 2xl:text-base text-gray-600">
                     Compilation and test results cached by content hash—if it
                     hasn't changed semantically, don't rebuild it.
                   </p>
@@ -291,8 +291,8 @@ const SourceControl: React.FC = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-gray-800 mb-3">The Problems</h3>
-              <div className="space-y-3 text-sm text-gray-600">
+              <h3 className="font-semibold text-gray-800 mb-3 2xl:text-lg">The Problems</h3>
+              <div className="space-y-3 text-sm 2xl:text-base text-gray-600">
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-rust rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
@@ -328,7 +328,7 @@ const SourceControl: React.FC = () => {
               <h3 className="font-semibold text-gray-800 mb-3">
                 Darklang's Approach
               </h3>
-              <div className="space-y-3 text-sm text-gray-600">
+              <div className="space-y-3 text-sm 2xl:text-base text-gray-600">
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span>
@@ -367,15 +367,15 @@ const SourceControl: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Traditional Git Integration Available
           </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          <p className="text-gray-700 leading-relaxed mb-4 2xl:text-lg">
             While Darklang's content-addressable source control is our primary
             focus, we also support exporting to{" "}
-            <code className="bg-gray-200 px-2 py-1 rounded text-sm">.dark</code>{" "}
+            <code className="bg-gray-200 px-2 py-1 rounded text-sm 2xl:text-base">.dark</code>{" "}
             files that work with traditional Git workflows. This provides a
             bridge for teams transitioning from file-based version control or
             integrating with existing CI/CD pipelines.
           </p>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm 2xl:text-base text-gray-600">
             <strong>Note:</strong> File-based workflows lose many of the
             benefits of semantic source control—like perfect incremental
             compilation and conflict-free refactoring—but they're available when

@@ -49,7 +49,7 @@ const Backends: React.FC = () => {
 
             {/* Content */}
             <div className="space-y-4">
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 2xl:text-lg leading-relaxed">
                 Darklang Classic proved that backend development doesn't need to
                 be complex. Since 2019, developers used it to build APIs,
                 internal tools, Slack bots, CRUD apps, and webhooks—all without
@@ -98,7 +98,7 @@ const Backends: React.FC = () => {
                 handling requests.
               </p>
               <div className="bg-gray-50 p-4 rounded-md">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   <strong>Example:</strong> Set up <code>/api/users</code> and
                   immediately start receiving and processing HTTP requests with
                   full access to headers, body, and query parameters.
@@ -134,7 +134,7 @@ const Backends: React.FC = () => {
                 directly in your code.
               </p>
               <div className="bg-gray-50 p-4 rounded-md">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   <strong>Operations:</strong> <code>DB.set</code>,{" "}
                   <code>DB.get</code>,<code>DB.query</code>,{" "}
                   <code>DB.delete</code>—all in the same language as your
@@ -171,7 +171,7 @@ const Backends: React.FC = () => {
                 maintenance tasks.
               </p>
               <div className="bg-gray-50 p-4 rounded-md">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   <strong>Use cases:</strong> Daily reports, data backups,
                   cleanup tasks, API polling, sending scheduled emails.
                 </p>
@@ -206,7 +206,7 @@ const Backends: React.FC = () => {
                 processes.
               </p>
               <div className="bg-gray-50 p-4 rounded-md">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   <strong>Pattern:</strong> Call <code>emit</code> from HTTP
                   handlers to queue work. Workers process messages with
                   automatic retry and error handling.
@@ -230,10 +230,10 @@ const Backends: React.FC = () => {
 
             <div className="grid md:grid-cols-2 gap-8 px-8">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-3">
+                <h3 className="font-semibold text-gray-800 mb-3 2xl:text-lg 2xl:text-lg">
                   APIs & Webhooks
                 </h3>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm 2xl:text-base">
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-purple-lbg rounded-full mr-3"></span>
                     <span>REST APIs for mobile and web apps</span>
@@ -250,10 +250,10 @@ const Backends: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-semibold text-gray-800 mb-3">
+                <h3 className="font-semibold text-gray-800 mb-3 2xl:text-lg ">
                   Internal Tools & Bots
                 </h3>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm 2xl:text-base">
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-mint rounded-full mr-3"></span>
                     <span>Slack bots and Discord integrations</span>
@@ -270,10 +270,10 @@ const Backends: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-semibold text-gray-800 mb-3">
+                <h3 className="font-semibold text-gray-800 mb-3 2xl:text-lg">
                   CRUD Applications
                 </h3>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm 2xl:text-base">
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-blue-lbg rounded-full mr-3"></span>
                     <span>User management systems</span>
@@ -290,10 +290,10 @@ const Backends: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-semibold text-gray-800 mb-3">
+                <h3 className="font-semibold text-gray-800 mb-3 2xl:text-lg">
                   Data Processing
                 </h3>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm 2xl:text-base">
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-taupe rounded-full mr-3"></span>
                     <span>Data pipelines and ETL processes</span>
@@ -326,10 +326,10 @@ const Backends: React.FC = () => {
 
             <div className="grid md:grid-cols-3 gap-6 mt-6">
               <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-gray-800 mb-3">
+                <h3 className="font-semibold text-gray-800 mb-3 2xl:text-lg">
                   Local Development
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   Run your backend locally during development. Full feature
                   parity with cloud deployment, including databases and workers.
                 </p>
@@ -339,7 +339,7 @@ const Backends: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Darklang Cloud
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   Deploy to our managed cloud infrastructure. Zero
                   configuration, automatic scaling, built-in monitoring.
                 </p>
@@ -347,7 +347,7 @@ const Backends: React.FC = () => {
 
               <div className="bg-green-50 p-6 rounded-lg">
                 <h3 className="font-semibold text-gray-800 mb-3">Your Cloud</h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   Run your own instances of Darklang on bare metal servers, or
                   any host.
                 </p>
@@ -361,7 +361,7 @@ const Backends: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Third-Party API Integration
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 2xl:text-lg">
             <p>
               Darklang excels at integrating with external services. The
               built-in

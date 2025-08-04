@@ -25,7 +25,7 @@ const CLIPage: React.FC = () => {
             <div className="text-lg md:text-2xl font-medium text-purple-dbg mb-4">
               $ darklang platform |
             </div>
-            <h2 className="md:text-xl mb-12 mr-10">
+            <h2 className="md:text-xl 2xl:text-2xl mb-12 mr-10">
               Darklang's CLI is fully cross-platform, seamlessly running on
               macOS, Linux, and Windows for a consistent development experience
               everywhere
@@ -63,7 +63,7 @@ const CLIPage: React.FC = () => {
         </div>
 
         <div className="space-y-8 flex flex-row">
-          <div className="md:w-3/4 text-white md:text-lg">
+          <div className="md:w-3/4 text-white md:text-lg 2xl:text-xl">
             <p className="leading-relaxed">
               Darklang CLI is a better replacement for traditional file-based
               scripts, such as in bash, python, lua, js, etc.

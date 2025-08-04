@@ -38,7 +38,7 @@ const TraceDriven: React.FC = () => {
                 What are Traces?
               </h2>
             </div>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <div className="space-y-4 text-gray-700 2xl:text-lg leading-relaxed">
               <p>
                 Traces are a core feature of Darklang that enable developers to
                 work with live request data to build and debug applications
@@ -58,7 +58,7 @@ const TraceDriven: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Trace-Driven Development Workflow
           </h2>
-          <div className="text-gray-700 leading-relaxed">
+          <div className="text-gray-700 leading-relaxed 2xl:text-lg">
             <p>
               Traces power Trace-Driven Development, a workflow where you start
               by sending requests to non-existent endpoints. Darklang records
@@ -76,7 +76,7 @@ const TraceDriven: React.FC = () => {
           </h2>
           <div className="text-gray-700 leading-relaxed">
             <div className="space-y-4">
-              <p className="mb-4">
+              <p className="mb-4 2xl:text-lg">
                 Traces are records of HTTP requests (or other events) made to a
                 Darklang app. Whether your code runs locally or in the cloud,
                 traces automatically capture inputs and intermediate values
@@ -116,7 +116,7 @@ const TraceDriven: React.FC = () => {
               <h3 className="font-semibold text-gray-800 mb-2">
                 Request Inputs
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 2xl:text-lg">
                 The full HTTP request, including headers, query parameters, body
                 and metadata.
               </p>
@@ -126,7 +126,7 @@ const TraceDriven: React.FC = () => {
               <h3 className="font-semibold text-gray-800 mb-2">
                 Intermediate Values
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 2xl:text-lg">
                 Values computed during the execution of a handler, such as the
                 results of expressions or function calls.
               </p>
@@ -134,7 +134,7 @@ const TraceDriven: React.FC = () => {
 
             <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-6 border-l-4 border-purple-lbg">
               <h3 className="font-semibold text-gray-800 mb-2">Live Values</h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 2xl:text-lg">
                 The evaluated results of expressions for a selected trace. These
                 update in real-time as you write code.
               </p>
@@ -144,7 +144,7 @@ const TraceDriven: React.FC = () => {
               <h3 className="font-semibold text-gray-800 mb-2">
                 Return Values
               </h3>
-              <p className="text-gray-700">The final output of a handler</p>
+              <p className="text-gray-700 2xl:text-lg">The final output of a handler</p>
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@ const TraceDriven: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Storage and Benefits
           </h2>
-          <div className="text-gray-700 leading-relaxed">
+          <div className="text-gray-700 2xl:text-lg leading-relaxed">
             <p>
               All traces are securely and centrally captured in the package
               manager, and made available in your editing environment. This

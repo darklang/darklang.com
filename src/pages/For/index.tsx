@@ -77,7 +77,7 @@ const For: React.FC = () => {
             Darklang For...
           </h1>
           <div className="w-32 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl 2xl:text-2xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-6xl mx-auto">
             Discover how Darklang solves the specific challenges in your field.
             Whether you're building web apps, automating tasks, or creating AI
             applications— there's a better way.
@@ -159,7 +159,7 @@ const For: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Why Different Pages for Different People?
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed space-y-4 2xl:text-lg">
             <p>
               Every field has its own challenges, tools, and workflows. A web
               developer's pain points are different from a security

@@ -30,7 +30,7 @@ const Editing: React.FC = () => {
 
             <div className="md:pl-12">
               <h1 className="text-3xl font-bold mb-4">Multi-Editor Support</h1>
-              <p className="text-lg md:mb-6 max-w-2xl">
+              <p className="text-lg 2xl:text-xl md:mb-6 max-w-2xl">
                 Darklang's language server is designed to work across multiple
                 editing environments, providing a consistent experience
                 regardless of your preferred editor.
@@ -58,7 +58,7 @@ const Editing: React.FC = () => {
       <section className="md:py-16 px-6 max-w-7xl mx-auto">
         <div className="text-blue-dbg text-2xl mb-8">Darklang LSP Server</div>
 
-        <p className="text-white text-lg leading-relaxed max-w-6xl">
+        <p className="text-white text-lg 2xl:text-xl leading-relaxed max-w-6xl">
           Our language server is fully written in Darklang and follows the
           Language Server Protocol (LSP), providing features like
           autocompletion, real-time error checking, and hover documentation. It
@@ -134,7 +134,7 @@ helloWorld ()
           Customizing & Creating Language Servers
         </div>
 
-        <div className="text-white text-lg space-y-8 max-w-6xl">
+        <div className="text-white text-lg 2xl:text-xl space-y-8 max-w-6xl">
           <p className="leading-relaxed">
             Many of our language tools are fully accessible to users. Just like
             forking and editing your own code, you can fork the language server

@@ -114,7 +114,7 @@ const RelatedForPages: React.FC<RelatedForPagesProps> = ({ currentPath }) => {
       <div className="text-center">
         <Link
           to="/For"
-          className="inline-flex items-center px-6 py-3 bg-blue-lbg text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-200 shadow-md hover:shadow-lg"
+          className="inline-flex items-center px-6 py-3 border border-purple-lbg text-purple-lbg font-semibold rounded-lg hover:bg-purple-lbg hover:text-white shadow-md hover:shadow-lg"
         >
           <svg
             className="w-5 h-5 mr-2"

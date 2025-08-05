@@ -285,9 +285,10 @@ const TypeChecking: React.FC = () => {
               <div>
                 formatName
                 <span className="text-red-500 underline decoration-wavy decoration-red-500">
-                  {" "} userData.id
-                </span>
-                {" "} <span className="text-gray-500">{"// Error at runtime"}</span>
+                  {" "}
+                  userData.id
+                </span>{" "}
+                <span className="text-gray-500">{"// Error at runtime"}</span>
               </div>
             </div>
           </div>

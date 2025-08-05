@@ -463,7 +463,9 @@ const Distribution: React.FC = () => {
                 <div className="space-y-2">
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span className="2xl:text-lg">No YAML configuration files</span>
+                    <span className="2xl:text-lg">
+                      No YAML configuration files
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
@@ -471,7 +473,9 @@ const Distribution: React.FC = () => {
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span className="2xl:text-lg">No Kubernetes orchestration</span>
+                    <span className="2xl:text-lg">
+                      No Kubernetes orchestration
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
@@ -491,7 +495,9 @@ const Distribution: React.FC = () => {
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span className="2xl:text-lg">No load balancer configuration</span>
+                    <span className="2xl:text-lg">
+                      No load balancer configuration
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
@@ -499,7 +505,9 @@ const Distribution: React.FC = () => {
                   </div>
                   <div className="flex items-center">
                     <span className="w-2 h-2 bg-rust rounded-full mr-3"></span>
-                    <span className="2xl:text-lg">No cloud service integration</span>
+                    <span className="2xl:text-lg">
+                      No cloud service integration
+                    </span>
                   </div>
                 </div>
               </div>

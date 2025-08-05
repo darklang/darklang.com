@@ -11,7 +11,7 @@ const GettingStarted: React.FC = () => {
             Getting Started with Darklang
           </h1>
           <div className="w-52 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl 2xl:text-2xl text-gray-600 mt-6 max-w-4xl max-w-4xl mx-auto">
             Here's how you can start exploring Darklang and connect with our
             community.
           </p>
@@ -59,32 +59,32 @@ const GettingStarted: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="border-l-3 border-blue-lbg pl-4">
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
                   Join Our Discord
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">
+                <p className="text-gray-600 text-sm 2xl:text-base mb-3">
                   Connect with other developers, ask questions, share ideas, and
                   follow the latest developments.
                 </p>
                 <a
                   href="https://discord.gg/darklang"
-                  className="inline-flex items-center bg-[#7B85FF] text-white px-4 py-2 rounded text-sm hover:bg-blue-lbg transition-colors"
+                  className="inline-flex items-center bg-[#7B85FF] text-white px-4 py-2 rounded text-sm 2xl:text-base hover:bg-blue-lbg transition-colors"
                 >
                   Join Discord
                 </a>
               </div>
 
               <div className="border-l-3 border-mint pl-4">
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
                   Follow Our Progress
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">
+                <p className="text-gray-600 text-sm 2xl:text-base mb-3">
                   Read our blog for updates, technical insights, and the story
                   behind Darklang's development.
                 </p>
                 <a
                   href="https://blog.darklang.com"
-                  className="inline-flex items-center text-blue-lbg hover:text-purple-lbg text-sm font-medium"
+                  className="inline-flex items-center text-blue-lbg hover:text-purple-lbg text-sm 2xl:text-base font-medium"
                 >
                   Read Blog →
                 </a>
@@ -92,30 +92,30 @@ const GettingStarted: React.FC = () => {
             </div>
             <div className="space-y-6">
               <div className="border-l-3 border-purple-lbg pl-4">
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
                   Clone our code and contribute
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">
+                <p className="text-gray-600 text-sm 2xl:text-base mb-3">
                   Explore Darklang using our VS Code devcontainer setup. This
                   gives you access to the latest CLI and language features.
                 </p>
                 <a
                   href="https://github.com/darklang/dark"
-                  className="inline-flex items-center text-blue-lbg hover:text-purple-lbg text-sm font-medium"
+                  className="inline-flex items-center text-blue-lbg hover:text-purple-lbg text-sm 2xl:text-base font-medium"
                 >
                   View GitHub Setup →
                 </a>
               </div>
 
               <div className="border-l-3 border-taupe pl-4">
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
                   VS Code Extension
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">
+                <p className="text-gray-600 text-sm 2xl:text-base mb-3">
                   Our VS Code extension provides syntax highlighting, LSP
                   features, and integration with the Darklang package manager.
                 </p>
-                <div className="text-sm text-gray-500">
+                <div className="text-sm 2xl:text-base text-gray-500">
                   Coming soon to VS Code marketplace
                 </div>
               </div>
@@ -139,7 +139,7 @@ const GettingStarted: React.FC = () => {
                   <span className="w-3 h-3 bg-blue-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <div>
                     <div className="font-medium text-gray-800">CLI App</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm 2xl:text-base text-gray-600">
                       A stable command-line interface for running Darklang
                       programs, managing packages, and deploying applications
                     </div>
@@ -151,7 +151,7 @@ const GettingStarted: React.FC = () => {
                     <div className="font-medium text-gray-800">
                       Package Manager
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm 2xl:text-base text-gray-600">
                       Function-level package distribution
                     </div>
                   </div>
@@ -162,7 +162,7 @@ const GettingStarted: React.FC = () => {
                     <div className="font-medium text-gray-800">
                       LSP for General Use
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm 2xl:text-base text-gray-600">
                       Language Server Protocol support for any editor, enabling
                       code completion, diagnostics, and more
                     </div>
@@ -177,7 +177,7 @@ const GettingStarted: React.FC = () => {
                     <div className="font-medium text-gray-800">
                       MCP Server Support
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm 2xl:text-base text-gray-600">
                       Build Model Context Protocol servers quickly to extend AI
                       assistant capabilities
                     </div>
@@ -189,7 +189,7 @@ const GettingStarted: React.FC = () => {
                     <div className="font-medium text-gray-800">
                       VS Code Extension
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm 2xl:text-base text-gray-600">
                       Official extension with syntax highlighting, debugging,
                       and integrated package management
                     </div>
@@ -201,7 +201,7 @@ const GettingStarted: React.FC = () => {
                     <div className="font-medium text-gray-800">
                       Documentation
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm 2xl:text-base text-gray-600">
                       Comprehensive guides and API references
                     </div>
                   </div>

@@ -326,15 +326,19 @@ let sumOfEvenSquares (nums: List<Int>): Int =
               </h3>
               <div className=" text-gray-600 space-y-3">
                 <div>
-                  <span className="font-semibold 2xl:text-base">Result types:</span> Explicit
-                  error handling
+                  <span className="font-semibold 2xl:text-base">
+                    Result types:
+                  </span>{" "}
+                  Explicit error handling
                 </div>
                 <div className="text-xs md:text-sm bg-mint/20 p-2 rounded font-mono">
                   Result&lt;Success, Error&gt;
                 </div>
                 <div>
-                  <span className="font-semibold 2xl:text-base">Option types:</span> Handling
-                  missing values
+                  <span className="font-semibold 2xl:text-base">
+                    Option types:
+                  </span>{" "}
+                  Handling missing values
                 </div>
                 <div className="text-xs md:text-sm bg-mint/20 p-2 rounded font-mono">
                   Option&lt;Value&gt; // Some | None

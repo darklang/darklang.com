@@ -291,7 +291,9 @@ const SourceControl: React.FC = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-gray-800 mb-3 2xl:text-lg">The Problems</h3>
+              <h3 className="font-semibold text-gray-800 mb-3 2xl:text-lg">
+                The Problems
+              </h3>
               <div className="space-y-3 text-sm 2xl:text-base text-gray-600">
                 <div className="flex items-start">
                   <span className="w-2 h-2 bg-rust rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -370,7 +372,9 @@ const SourceControl: React.FC = () => {
           <p className="text-gray-700 leading-relaxed mb-4 2xl:text-lg">
             While Darklang's content-addressable source control is our primary
             focus, we also support exporting to{" "}
-            <code className="bg-gray-200 px-2 py-1 rounded text-sm 2xl:text-base">.dark</code>{" "}
+            <code className="bg-gray-200 px-2 py-1 rounded text-sm 2xl:text-base">
+              .dark
+            </code>{" "}
             files that work with traditional Git workflows. This provides a
             bridge for teams transitioning from file-based version control or
             integrating with existing CI/CD pipelines.

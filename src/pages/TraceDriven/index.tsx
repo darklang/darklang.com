@@ -144,7 +144,9 @@ const TraceDriven: React.FC = () => {
               <h3 className="font-semibold text-gray-800 mb-2">
                 Return Values
               </h3>
-              <p className="text-gray-700 2xl:text-lg">The final output of a handler</p>
+              <p className="text-gray-700 2xl:text-lg">
+                The final output of a handler
+              </p>
             </div>
           </div>
         </div>

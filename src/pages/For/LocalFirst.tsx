@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
+import RelatedForPages from "../../components/RelatedForPages";
 
 const LocalFirst: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -457,6 +458,9 @@ const LocalFirst: React.FC = () => {
             </p>
           </div>
         </div>
+
+        {/* Related For Pages Section */}
+        <RelatedForPages currentPath="local-first" />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
+import RelatedForPages from "../../components/RelatedForPages";
 
 const SmallBusinesses: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -456,6 +457,9 @@ const SmallBusinesses: React.FC = () => {
             </p>
           </div>
         </div>
+
+        {/* Related For Pages Section */}
+        <RelatedForPages currentPath="small-businesses" />
       </div>
     </div>
   );

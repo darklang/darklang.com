@@ -44,12 +44,12 @@ const Language: React.FC = () => {
                 Language Design
               </h2>
             </div>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-gray-700 2xl:text-lg leading-relaxed mb-4">
               Darklang is designed for clarity and correctness. We take the best
               ideas from functional programming—immutability, algebraic data
               types, pattern matching—without the academic complexity.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 2xl:text-lg leading-relaxed">
               <strong>The goal is simple:</strong> make it easy to write correct
               programs that handle errors gracefully and scale without
               surprises.
@@ -75,7 +75,7 @@ type Phone =
  | Landline
 
 // Functions with pipeline operators
-fn sumOfEvenSquares (nums: List<Int>): Int =
+let sumOfEvenSquares (nums: List<Int>): Int =
  nums
  |> List.filter (\\x -> Int.isEven x)
  |> List.map (\\x -> x * x)
@@ -93,7 +93,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Primitive Types
               </h3>
-              <div className="text-sm text-gray-600 space-y-2">
+              <div className="text-sm 2xl:text-base text-gray-600 space-y-2">
                 <div className="flex justify-between">
                   <span className="font-mono text-blue-lbg">Int</span>
                   <span>64-bit integers</span>
@@ -119,7 +119,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   <span>No value ()</span>
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-blue-50 rounded text-sm">
+              <div className="mt-4 p-3 bg-blue-50 rounded text-sm 2xl:text-base">
                 <strong>No nulls:</strong> Darklang has no null values. Use
                 Option&lt;T&gt; for optional values.
               </div>
@@ -130,7 +130,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Collection Types
               </h3>
-              <div className="text-sm text-gray-600 space-y-2">
+              <div className="text-sm 2xl:text-base text-gray-600 space-y-2">
                 <div className="flex justify-between">
                   <span className="font-mono text-purple-lbg">
                     List&lt;T&gt;
@@ -162,7 +162,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   <span>Ok(value) | Error(err)</span>
                 </div>
               </div>
-              <div className="mt-12 p-3 bg-purple-50 rounded text-sm">
+              <div className="mt-12 p-3 bg-purple-50 rounded text-sm 2xl:text-base">
                 <strong>Immutable by default:</strong> All values are immutable.
                 Create new versions instead of modifying.
               </div>
@@ -173,24 +173,24 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Custom Types
               </h3>
-              <div className="text-sm text-gray-600 space-y-3">
+              <div className="text-sm 2xl:text-base text-gray-600 space-y-3">
                 <div>
                   <div className="font-mono text-taupe mb-1">Records</div>
-                  <div className="text-xs bg-gray-50 p-2 rounded">
-                    type Person = &#123; name: String, age: Int &#125;
+                  <div className="text-xs md:text-sm 2xl:text-base bg-gray-50 p-2 rounded">
+                    type Person = &#123; name: String; age: Int &#125;
                   </div>
                 </div>
                 <div>
                   <div className="font-mono text-taupe mb-1">
                     Unions (Enums)
                   </div>
-                  <div className="text-xs bg-gray-50 p-2 rounded">
-                    type Color = Red | Green | Blue(Int)
+                  <div className="text-xs md:text-sm 2xl:text-base bg-gray-50 p-2 rounded">
+                    type Color = Red | Green | Blue | Custom of String
                   </div>
                 </div>
                 <div>
                   <div className="font-mono text-taupe mb-1">Type Aliases</div>
-                  <div className="text-xs bg-gray-50 p-2 rounded">
+                  <div className="text-xs md:text-sm 2xl:text-base bg-gray-50 p-2 rounded">
                     type UserId = String
                   </div>
                 </div>
@@ -202,7 +202,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Error Handling
               </h3>
-              <div className="text-sm text-gray-600 space-y-3">
+              <div className="text-sm 2xl:text-base text-gray-600 space-y-3">
                 <div>
                   <div className="font-semibold mb-1 text-rose">
                     Result Types
@@ -211,8 +211,8 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                     Explicit error handling with Result&lt;T,E&gt; instead of
                     exceptions
                   </div>
-                  <div className="text-xs bg-gray-50 p-2 rounded">
-                    fn parseUser(data: String): Result&lt;User, String&gt; =
+                  <div className="text-xs md:text-sm bg-gray-50 p-2 rounded">
+                    let parseUser(data: String): Result&lt;User, String&gt; =
                     <br />
                     &nbsp;&nbsp;// Returns Ok(user) or Error(message)
                   </div>
@@ -222,7 +222,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   <div className="mb-2">
                     Automatically unwrap Ok values or propagate Error
                   </div>
-                  <div className="text-xs bg-gray-50 p-2 rounded">
+                  <div className="text-xs md:text-sm bg-gray-50 p-2 rounded">
                     let user = parseUser(data)?
                     <br />
                     let profile = fetchProfile(user.id)?
@@ -237,7 +237,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   <div className="mb-2">
                     Handle success and error cases explicitly
                   </div>
-                  <div className="text-xs bg-gray-50 p-2 rounded">
+                  <div className="text-xs md:text-sm bg-gray-50 p-2 rounded">
                     match parseUser(data) with
                     <br />
                     | Ok(user) -&gt; processUser(user)
@@ -260,7 +260,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Parse-Time Errors
               </h3>
-              <div className="text-sm text-gray-600 space-y-3">
+              <div className="text-sm 2xl:text-base text-gray-600 space-y-3">
                 <div>
                   <span className="font-semibold">Syntax errors:</span> Invalid
                   syntax caught during parsing
@@ -269,13 +269,13 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   <span className="font-semibold">Name resolution:</span>{" "}
                   Undefined variables or functions
                 </div>
-                <div className="mt-4 p-3 bg-sand/20 rounded text-xs">
+                <div className="mt-4 p-3 bg-sand/20 rounded text-xs md:text-sm 2xl:text-base">
                   <span className="font-semibold text-taupe">Coming Soon:</span>
                   <div className="mt-1 space-y-1">
-                    <div>• Type errors</div>
-                    <div>• Exhaustiveness checking</div>
-                    <div>• Unused variable warnings</div>
-                    <div>• Pattern match coverage</div>
+                    <div>- Type errors</div>
+                    <div>- Exhaustiveness checking</div>
+                    <div>- Unused variable warnings</div>
+                    <div>- Pattern match coverage</div>
                   </div>
                 </div>
               </div>
@@ -286,7 +286,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Runtime Errors
               </h3>
-              <div className="text-sm text-gray-600 space-y-2">
+              <div className="text-sm 2xl:text-base text-gray-600 space-y-2">
                 <div>
                   • <span className="font-semibold">Type mismatches:</span>{" "}
                   Wrong types in operations
@@ -312,7 +312,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   or Error values
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-purple-100 rounded text-xs">
+              <div className="mt-4 p-3 bg-purple-100 rounded text-xs md:text-sm 2xl:text-base">
                 <span className="font-semibold text-purple-lbg">Note:</span>{" "}
                 Runtime errors are being eliminated through better static
                 analysis
@@ -324,22 +324,26 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
                 Expected Errors
               </h3>
-              <div className="text-sm text-gray-600 space-y-3">
+              <div className=" text-gray-600 space-y-3">
                 <div>
-                  <span className="font-semibold">Result types:</span> Explicit
-                  error handling
+                  <span className="font-semibold 2xl:text-base">
+                    Result types:
+                  </span>{" "}
+                  Explicit error handling
                 </div>
-                <div className="text-xs bg-mint/20 p-2 rounded font-mono">
+                <div className="text-xs md:text-sm bg-mint/20 p-2 rounded font-mono">
                   Result&lt;Success, Error&gt;
                 </div>
                 <div>
-                  <span className="font-semibold">Option types:</span> Handling
-                  missing values
+                  <span className="font-semibold 2xl:text-base">
+                    Option types:
+                  </span>{" "}
+                  Handling missing values
                 </div>
-                <div className="text-xs bg-mint/20 p-2 rounded font-mono">
+                <div className="text-xs md:text-sm bg-mint/20 p-2 rounded font-mono">
                   Option&lt;Value&gt; // Some | None
                 </div>
-                <div className="mt-3 text-xs text-gray-900">
+                <div className="mt-3 text-xs md:text-sm 2xl:text-base text-gray-900">
                   <span className="font-semibold">✓ Best practice:</span> Use
                   Result/Option types for expected failures instead of runtime
                   errors
@@ -375,7 +379,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         Immutable by default:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Values don't change after creation
                       </span>
                     </div>
@@ -386,7 +390,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         First-class functions:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Pass functions as arguments
                       </span>
                     </div>
@@ -397,7 +401,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         Pipeline operators:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Chain operations with |&gt;
                       </span>
                     </div>
@@ -408,7 +412,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         Pattern matching:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Destructure data with match expressions
                       </span>
                     </div>
@@ -419,7 +423,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         Algebraic data types:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Model domain with unions and records
                       </span>
                     </div>
@@ -441,7 +445,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         Gradual typing:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Start untyped, add types as needed
                       </span>
                     </div>
@@ -452,7 +456,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         Unicode strings:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Characters are what you see on screen
                       </span>
                     </div>
@@ -463,7 +467,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         Error operators:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         ? for unwrapping, ! for panicking
                       </span>
                     </div>
@@ -474,7 +478,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         Imperative style:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Use let bindings and loops when clear
                       </span>
                     </div>
@@ -485,7 +489,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                       <span className="font-semibold text-gray-900">
                         Async by default:
                       </span>{" "}
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         All I/O operations are async
                       </span>
                     </div>
@@ -498,7 +502,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
               <h4 className="font-bold text-taupe text-lg mb-3">
                 Unicode-First Strings
               </h4>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 2xl:text-lg mb-4">
                 Unlike languages from last millennium that use bytes or UTF-16
                 characters, Darklang strings are built around "extended grapheme
                 clusters"—what you actually see on screen.
@@ -517,7 +521,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                   </span>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 mt-3">
+              <p className="text-sm 2xl:text-base text-gray-600 mt-3">
                 Working with codepoints and bytes is still available when
                 needed.
               </p>
@@ -536,7 +540,7 @@ fn sumOfEvenSquares (nums: List<Int>): Int =
                 language="fsharp"
                 showLineNumbers={true}
                 code={`// Pattern matching on union types
-fn describePhone (phone: Phone): String =
+let describePhone (phone: Phone): String =
  match phone with
  | IPhone(color, size, model) ->
   "{color} {size} iPhone {model}"
@@ -552,7 +556,7 @@ fn describePhone (phone: Phone): String =
                 language="fsharp"
                 showLineNumbers={true}
                 code={`// Error handling with Result types
-fn parseAndDouble (input: String): Result<Int, String> =
+let parseAndDouble (input: String): Result<Int, String> =
  let number = Int.parse input?
  let doubled = number * 2
  Ok(doubled)
@@ -586,7 +590,7 @@ let result =
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Why a New Language?
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 2xl:text-lg leading-relaxed space-y-4">
             <blockquote className="text-lg italic border-l-4 border-gray-300 pl-4 py-2 my-6">
               Why not just build Darklang on top of JavaScript or some other
               existing language?
@@ -610,7 +614,7 @@ let result =
                     <h3 className="font-semibold text-gray-900 text-lg mb-1">
                       Expression-level debugging
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 2xl:text-lg">
                       Each expression has a unique ID. We can show you exactly
                       what value flowed through any part of your code in
                       production.
@@ -626,7 +630,7 @@ let result =
                     <h3 className="font-semibold text-gray-900 text-lg mb-1">
                       Self-hosting tools
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 2xl:text-lg">
                       Our parser is written in Darklang. Our static analysis
                       runs in Darklang. The language understands itself
                       completely.
@@ -642,7 +646,7 @@ let result =
                     <h3 className="font-semibold text-gray-900 text-lg mb-1">
                       AI code assistance
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 2xl:text-lg">
                       Since we control the AST, we can expose structured
                       information to AI models for better code generation and
                       error correction.
@@ -658,7 +662,7 @@ let result =
                     <h3 className="font-semibold text-gray-900 text-lg mb-1">
                       Live code migration
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 2xl:text-lg">
                       We can automatically refactor your code when functions
                       change, because we understand the semantic structure, not
                       just text.
@@ -674,7 +678,7 @@ let result =
                     <h3 className="font-semibold text-gray-900 text-lg mb-1">
                       Built-in performance profiling
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 2xl:text-lg">
                       Every function call is instrumented by default. We know
                       where your code spends time without external profilers.
                     </p>
@@ -692,37 +696,37 @@ let result =
                   <ul className="space-y-3">
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Limited to external tooling and plugins
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Text-based analysis and transformations
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Separate compilation and runtime phases
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Debugging through external tools
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Legacy assumptions baked into syntax
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         No integration with platform features
                       </span>
                     </li>
@@ -737,37 +741,37 @@ let result =
                   <ul className="space-y-3">
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Deep AST-level understanding
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Semantic analysis and transformations
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Language runtime IS the platform
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Expression-level tracing built-in
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Designed for modern constraints
                       </span>
                     </li>
                     <li className="flex gap-4">
                       <div className="w-2 h-2 bg-blue-lbg rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-700">
+                      <span className="text-gray-700 2xl:text-lg">
                         Platform features integrated into syntax
                       </span>
                     </li>
@@ -786,8 +790,8 @@ let result =
         {/* Learn More */}
         <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Learn More</h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
-            <p>
+          <div className="text-gray-700 2xl:text-lg leading-relaxed space-y-4">
+            <p className="2xl:text-lg">
               This page covers the basics of Darklang's language design and
               syntax. For complete language documentation, examples, and
               tutorials, visit our documentation site.
@@ -800,7 +804,7 @@ let result =
                 <h3 className="font-semibold text-blue-dbg mb-2">
                   Getting Started
                 </h3>
-                <p className="text-sm text-blue-lbg">
+                <p className="text-sm 2xl:text-base text-blue-lbg">
                   Install Darklang and write your first function
                 </p>
               </a>
@@ -811,7 +815,7 @@ let result =
                 <h3 className="font-semibold text-purple-lbg mb-2">
                   Language Reference
                 </h3>
-                <p className="text-sm text-purple-lbg">
+                <p className="text-sm 2xl:text-base text-purple-lbg">
                   Complete documentation and API reference
                 </p>
               </a>

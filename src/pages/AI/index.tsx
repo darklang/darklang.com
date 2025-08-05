@@ -10,7 +10,7 @@ const AI: React.FC = () => {
             Built for the AI Era
           </h1>
           <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-4xl mx-auto">
+          <p className="text-xl 2xl:text-2xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-6xl mx-auto">
             Darklang is designed from the ground up for AI-powered development.
             From AI-friendly syntax to built-in model integration, we're
             building the platform for the future of software development.
@@ -55,14 +55,14 @@ const AI: React.FC = () => {
 
             {/* Content */}
             <div className="space-y-4">
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 2xl:text-lg leading-relaxed">
                 The age of AI code generation is here, but most programming
                 languages weren't designed for it. Darklang is different. We've
                 built our language, tooling, and platform specifically to work
                 seamlessly with AI models, whether you're using GitHub Copilot,
                 ChatGPT, or building your own AI agents.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed 2xl:text-lg">
                 This isn't just about better autocomplete—it's about
                 fundamentally reimagining how humans and AI collaborate to build
                 software.
@@ -99,14 +99,14 @@ const AI: React.FC = () => {
                   Generous Parser
                 </h3>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-gray-700 leading-relaxed 2xl:text-lg mb-4 2xl:text-lg">
                 Our parser is designed to understand AI-generated code, even
                 when it's not perfect. Minor syntax errors that would break
                 other languages are automatically corrected, making AI
                 collaboration seamless.
               </p>
               <div className="bg-gray-50 p-4 rounded-md">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   <strong>Example:</strong> AI writes code with inconsistent
                   spacing or missing semicolons? Darklang just works with it.
                 </p>
@@ -135,14 +135,14 @@ const AI: React.FC = () => {
                   Copilot Ready
                 </h3>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-gray-700 leading-relaxed 2xl:text-lg mb-4 2xl:text-lg">
                 Built-in support for GitHub Copilot and other AI coding
                 assistants. Our language syntax and patterns are optimized for
                 AI understanding and generation, resulting in more accurate
                 suggestions.
               </p>
               <div className="bg-gray-50 p-4 rounded-md">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   <strong>Future:</strong> Cross-language translation powered by
                   AI—import functions from Python or JavaScript automatically.
                 </p>
@@ -173,10 +173,10 @@ const AI: React.FC = () => {
                   />
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
                 Bring Your Own Model
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm 2xl:text-base text-gray-600">
                 Use OpenAI, Anthropic, local models, or any API-accessible AI
                 service. No vendor lock-in, just flexible integration.
               </p>
@@ -199,10 +199,10 @@ const AI: React.FC = () => {
                   />
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
                 Local Development
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm 2xl:text-base text-gray-600">
                 Run models locally for privacy-sensitive work or offline
                 development. Seamless switching between local and cloud models.
               </p>
@@ -225,10 +225,10 @@ const AI: React.FC = () => {
                   />
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
                 Package Ecosystem
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm 2xl:text-base text-gray-600">
                 Pre-built packages for popular AI services. Connect to any model
                 with just a few lines of code.
               </p>
@@ -241,7 +241,7 @@ const AI: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Building AI-Powered Applications
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-6">
+          <div className="text-gray-700 leading-relaxed 2xl:text-lg space-y-6">
             <p>
               Darklang isn't just designed for AI-assisted development—it's
               built for creating AI-powered applications. Whether you're
@@ -254,7 +254,7 @@ const AI: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Automatic SDK Generation
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   Generate client SDKs for any service automatically. Expose
                   your AI-powered APIs to any platform without writing
                   boilerplate code.
@@ -265,7 +265,7 @@ const AI: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Prompt Engineering Tools
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   Built-in tools for prompt versioning, A/B testing, and
                   optimization. Treat prompts as first-class code with proper
                   version control.
@@ -276,7 +276,7 @@ const AI: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   AI Agent Framework
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   Build sophisticated AI agents that can interact with your
                   APIs, databases, and external services. Full traceability and
                   debugging support.
@@ -287,7 +287,7 @@ const AI: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Model Training Pipeline
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm 2xl:text-base text-gray-600">
                   Train and deploy custom models directly in Darklang. From data
                   preparation to model serving, all in one integrated platform.
                 </p>
@@ -301,7 +301,7 @@ const AI: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Native AI Integration
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed 2xl:text-lg space-y-4">
             <p>
               Unlike other platforms that require external frameworks and
               libraries, Darklang has AI integration built into its core. This
@@ -318,7 +318,7 @@ const AI: React.FC = () => {
                 No external libraries, no complex configuration—just clean,
                 readable code that does what you expect.
               </p>
-              <div className="text-sm text-gray-600 font-mono bg-white p-3 rounded">
+              <div className="text-sm 2xl:text-base text-gray-600 font-mono bg-white p-3 rounded">
                 user_input |&gt; sanitize |&gt; generate_response |&gt;
                 format_output
               </div>
@@ -362,7 +362,7 @@ const AI: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             MCP Server for Tool Integration
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed 2xl:text-lg space-y-4">
             <p>
               Darklang provides an MCP (Model Context Protocol) server that
               enables seamless integration with AI tools like Claude Code. This
@@ -375,12 +375,12 @@ const AI: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Data Access
                 </h3>
-                <p className="text-sm text-gray-700 mb-3">
+                <p className="text-sm 2xl:text-base text-gray-700 mb-3">
                   AI tools can read your Darklang code, examine function
                   signatures, browse your package dependencies, and understand
                   your application structure.
                 </p>
-                <div className="text-xs text-gray-600">
+                <div className="text-xs 2xl:text-sm text-gray-600">
                   Perfect for: Code reviews, documentation generation, debugging
                   assistance
                 </div>
@@ -390,12 +390,12 @@ const AI: React.FC = () => {
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Function Execution
                 </h3>
-                <p className="text-sm text-gray-700 mb-3">
+                <p className="text-sm 2xl:text-base text-gray-700 mb-3">
                   AI assistants can directly call your Darklang functions and
                   use your custom tools, making them powerful extensions of your
                   development environment.
                 </p>
-                <div className="text-xs text-gray-600">
+                <div className="text-xs 2xl:text-sm text-gray-600">
                   Perfect for: Testing functions, data processing, workflow
                   automation
                 </div>
@@ -406,13 +406,13 @@ const AI: React.FC = () => {
               <h3 className="font-semibold text-gray-800 mb-3">
                 Build Your Own MCP Servers
               </h3>
-              <p className="text-sm text-gray-700 mb-3">
+              <p className="text-sm 2xl:text-base text-gray-700 mb-3">
                 Create custom MCP servers entirely in Darklang to extend AI
                 capabilities with your domain-specific tools and data. Compose
                 multiple MCP servers together for powerful AI workflows tailored
                 to your exact needs.
               </p>
-              <div className="text-xs text-gray-600">
+              <div className="text-xs 2xl:text-sm text-gray-600">
                 <strong>Example:</strong> Build an MCP server that connects AI
                 tools to your customer database, inventory system, and analytics
                 platform—all using Darklang functions.
@@ -426,7 +426,7 @@ const AI: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             The Future of AI Development
           </h2>
-          <div className="text-gray-700 leading-relaxed space-y-4">
+          <div className="text-gray-700 leading-relaxed 2xl:text-lg space-y-4">
             <p>
               We're just getting started. Darklang's AI capabilities will
               continue to evolve as the AI landscape develops. Here's what we're

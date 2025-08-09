@@ -13,7 +13,7 @@ const DesignedForGenAI: React.FC = () => {
           description="The Darklang language and tooling are designed with AI integration in mind to enable an AI-powered development flow."
           subtitleStyle="button"
         >
-          Designed for Generative AI
+          Designed for AI-Powered Development
         </SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
@@ -23,7 +23,7 @@ const DesignedForGenAI: React.FC = () => {
               <span className="text-purple-lbg">Real-Time</span> Code
               Suggestions:
             </div>
-            <ul>
+            <ul className="text-gray-700 space-y-1">
               <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 Context-aware, safe to run even with partial or incomplete Dark
@@ -39,13 +39,26 @@ const DesignedForGenAI: React.FC = () => {
           {/* Second Card */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
             <div className="text-xl font-semibold mb-4">
-              Build short <span className="text-purple-lbg">CLI programs</span>{" "}
-              from <span className="text-purple-lbg">prompts</span>
+              Generate{" "}
+              <span className="text-purple-lbg">
+                code from natural language
+              </span>
             </div>
-            <div className="mt-4 p-3 bg-gray-50 rounded text-sm text-gray-600">
-              dark prompt "find all js files which don't have a CSS file of the
-              same name"
-            </div>
+            <ul className="mt-4 text-gray-700 space-y-1">
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-500">-</span>
+                Transform natural language descriptions into executable code
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-500">-</span>
+                Multi-modal understanding of screenshots, mockups, and visual
+                designs
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-500">-</span>
+                Context-aware code generation with reasoning
+              </li>
+            </ul>
           </div>
 
           {/* Third Card */}
@@ -53,10 +66,10 @@ const DesignedForGenAI: React.FC = () => {
             <div className="text-xl font-semibold mb-4">
               Use <span className="text-purple-lbg">any Language Model</span>
             </div>
-            <ul className="mt-4 space-y-2 text-gray-700">
+            <ul className="mt-4 text-gray-700 space-y-1">
               <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
-                darklang's fine-tuned models
+                Reasoning models (o1, Claude 3.5 Sonnet) and fine-tuned models
               </li>
               <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
@@ -75,7 +88,7 @@ const DesignedForGenAI: React.FC = () => {
               Build <span className="text-purple-lbg">vendor SDKs</span> from
               prompts and OpenAPI docs
             </div>
-            <ul>
+            <ul className="text-gray-700 space-y-1">
               <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 Transform technical API documentation into usable code libraries
@@ -97,12 +110,19 @@ const DesignedForGenAI: React.FC = () => {
               Build <span className="text-purple-lbg">complex programs</span>{" "}
               with darklang <span className="text-purple-lbg">AI agents</span>
             </div>
-            <div>
-              <span>
-                Let Darklang AI agents analyze requirements, design solutions,
-                generate code, and troubleshoot while following best practices.
-              </span>
-            </div>
+            <ul className="text-gray-700 space-y-1">
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-500">-</span>
+                Work seamlessly with AI agents like Claude Code and AI
+                assistants like Cursor and Copilot
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-purple-500">-</span>
+                Enable agentic workflows where AI agents analyze requirements,
+                design solutions, generate code, and troubleshoot while
+                following best practices
+              </li>
+            </ul>
           </div>
 
           {/* Sixth Card */}
@@ -114,7 +134,7 @@ const DesignedForGenAI: React.FC = () => {
               </span>
             </div>
 
-            <ul>
+            <ul className="text-gray-700 space-y-1">
               <li className="flex items-start">
                 <span className="mr-2 text-purple-500">-</span>
                 Quickly run MCP servers from the command line

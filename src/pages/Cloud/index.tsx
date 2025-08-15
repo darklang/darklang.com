@@ -78,47 +78,43 @@ const Cloud: React.FC = () => {
       </div>
 
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto flex flex-col items-center relative z-10 px-2">
-        {/* Header Section - More streamlined */}
+        {/* Header Section */}
         <div className="text-center my-8 relative">
-          <h1 className="text-5xl md:text-7xl font-semibold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl 2xl:text-7xl font-semibold text-white mb-6">
             <span className="text-purple-dbg">Darklang</span>
             <span className="text-white"> Cloud</span>
           </h1>
           <div className="w-42 h-1 bg-purple-lbg mx-auto rounded-full mb-12"></div>
-          <p className="text-md md:text-lg 2xl:text-xl text-gray-200 max-w-5xl 2xl:max-w-[92rem] mx-auto">
-            The most convenient way to run Darklang. Deploy instantly, scale
-            automatically, and let us handle the infrastructure so you can focus
-            on building.
-          </p>
+
         </div>
 
-        {/* Main value proposition - Streamlined */}
-        <div className="text-center mb-16 text-xl md:text-2xl 2xl:text-3xl max-w-6xl 2xl:max-w-[92rem]">
-          <p className="mb-8">
+        {/* Main value proposition */}
+        <div className="text-center mb-16 text-xl md:text-2xl 2xl:text-3xl max-w-7xl 2xl:max-w-[100rem]">
+          <p className="mb-8 text-2xl 2xl:text-3xl">
             <span className="text-white">
               While you can run Darklang anywhere,
             </span>
-            <span className="font-semibold text-blue-dbg">
+            <span className="text-blue-dbg">
               {" "}
               Darklang Cloud{" "}
             </span>
             <span className="text-white">
-              is the easiest way to deploy your
+              is the most convenient way to deploy your
             </span>
-            <span className="text-purple-dbg font-semibold"> backends</span>
+            <span className="text-purple-dbg "> backends</span>
             <span className="text-white">, </span>
-            <span className="text-purple-dbg font-semibold"> CLIs</span>
+            <span className="text-lavender "> CLIs</span>
             <span className="text-white">, </span>
-            <span className="text-taupe font-semibold">crons</span>
+            <span className="text-taupe ">crons</span>
             <span className="text-white">, </span>
             <span className="text-white"> and </span>
-            <span className="text-taupe font-semibold">scripts</span>
+            <span className="text-rose">scripts</span>
             <span className="text-white">
-              . No servers to manage, no containers to configure.
+              . Deploy instantly, scale automatically, and let us handle the infrastructure so you can focus on building—no servers to manage, no containers to configure.
             </span>
           </p>
 
-          <div className="backdrop-blur-sm border border-blue-lbg/30 p-6 text-base md:text-lg rounded">
+          <div className="backdrop-blur-sm border border-blue-lbg/30 p-6 md:text-lg rounded">
             <p className="text-gray-300">
               <span className="text-blue-lbg font-semibold">
                 Darklang Cloud
@@ -142,15 +138,17 @@ const Cloud: React.FC = () => {
               <h3 className="text-xl md:text-2xl font-semibold mb-4">
                 <span className="text-blue-lbg">Instant Deployment</span>
               </h3>
-              <p className="text-gray-300 text-lg md:text-xl mb-4">
-                Write your function, save it, and it's running instantly on our
-                infrastructure. No build steps, no deployment pipelines, no
-                container registries. Your code goes from editor to production
-                in seconds.
-              </p>
-              <div className="text-sm text-gray-400">
-                Perfect for: HTTP endpoints, background workers, scheduled jobs,
-                CLI tools
+              <div className="ml-2">
+                <p className="text-gray-300 text-lg md:text-xl mb-4">
+                  Write your function, save it, and it's running instantly on our
+                  infrastructure. No build steps, no deployment pipelines, no
+                  container registries. Your code goes from editor to production
+                  in seconds.
+                </p>
+                <div className="text-sm text-gray-400">
+                  Perfect for: HTTP endpoints, background workers, scheduled jobs,
+                  CLI tools
+                </div>
               </div>
             </div>
 
@@ -159,26 +157,28 @@ const Cloud: React.FC = () => {
               <h3 className="text-2xl text-xl md:text-2xl font-semibold mb-4">
                 <span className="text-taupe">Package Registry</span>
               </h3>
-              <p className="text-gray-300 text-lg md:text-xl mb-4">
-                We host{" "}
+              <div className="ml-2">
+                <p className="text-gray-300 text-lg md:text-xl mb-4">
+                  We host{" "}
+                  <a
+                    href="https://packages.darklang.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-400 hover:text-taupe underline"
+                  >
+                    packages.darklang.com
+                  </a>{" "}
+                  and the entire package ecosystem. Publish your own packages, use
+                  community packages, or contribute to the standard library.
+                  Everything is versioned, secure, and instantly available.
+                </p>
                 <a
-                  href="https://packages.darklang.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-neutral-400 hover:text-taupe underline"
+                  href="/packages"
+                  className="inline-block text-classic-brown hover:text-purple-lbg text-lg underline"
                 >
-                  packages.darklang.com
-                </a>{" "}
-                and the entire package ecosystem. Publish your own packages, use
-                community packages, or contribute to the standard library.
-                Everything is versioned, secure, and instantly available.
-              </p>
-              <a
-                href="/packages"
-                className="inline-block text-classic-brown hover:text-purple-lbg text-lg underline"
-              >
-                Browse the package registry →
-              </a>
+                  Browse the package registry →
+                </a>
+              </div>
             </div>
 
             {/* CLI Access */}
@@ -186,18 +186,20 @@ const Cloud: React.FC = () => {
               <h3 className="text-xl md:text-2xl font-semibold mb-4">
                 <span className="text-purple-dbg">Remote CLI Access</span>
               </h3>
-              <p className="text-gray-300 text-lg md:text-xl mb-4">
-                SSH directly into your Darklang environment on our cloud
-                servers. Run your CLI tools, debug issues, or work on your code
-                from anywhere. It's like having a powerful development machine
-                in the cloud.
-              </p>
-              <div className="bg-[#252525] p-4 rounded font-mono text-sm">
-                <span className="text-purple-dbg">$</span> ssh
-                myapp.darklang.cloud
-                <br />
-                <span className="text-purple-dbg">$</span> darklang run
-                my-script.dark
+              <div className="ml-2">
+                <p className="text-gray-300 text-lg md:text-xl mb-4">
+                  SSH directly into your Darklang environment on our cloud
+                  servers. Run your CLI tools, debug issues, or work on your code
+                  from anywhere. It's like having a powerful development machine
+                  in the cloud.
+                </p>
+                <div className="bg-[#252525] p-4 rounded font-mono text-sm">
+                  <span className="text-purple-dbg">$</span> ssh
+                  myapp.darklang.cloud
+                  <br />
+                  <span className="text-purple-dbg">$</span> darklang run
+                  my-script.dark
+                </div>
               </div>
             </div>
           </div>

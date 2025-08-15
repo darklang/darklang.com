@@ -10,7 +10,7 @@ const Support: React.FC = () => {
             Get Help & Support
           </h1>
           <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Need help with Darklang? Here's how to get support, find answers,
             and connect with our community.
           </p>

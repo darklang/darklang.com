@@ -371,48 +371,48 @@ const AI: React.FC = () => {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-lbg">
+              <div className="bg-blue-50 p-6 rounded-lg">
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Data Access
                 </h3>
-                <p className="text-sm 2xl:text-base text-gray-700 mb-3">
+                <p className="text-sm 2xl:text-base text-gray-800 mb-3">
                   AI tools can read your Darklang code, examine function
                   signatures, browse your package dependencies, and understand
                   your application structure.
                 </p>
-                <div className="text-xs 2xl:text-sm text-gray-600">
+                <div className="text-sm 2xl:text-base text-gray-700">
                   Perfect for: Code reviews, documentation generation, debugging
                   assistance
                 </div>
               </div>
 
-              <div className="bg-mint/8 p-6 rounded-lg border-l-4 border-mint">
+              <div className="bg-mint/8 p-6 rounded-lg ">
                 <h3 className="font-semibold text-gray-800 mb-3">
                   Function Execution
                 </h3>
-                <p className="text-sm 2xl:text-base text-gray-700 mb-3">
+                <p className="text-sm 2xl:text-base text-gray-800 mb-3">
                   AI assistants can directly call your Darklang functions and
                   use your custom tools, making them powerful extensions of your
                   development environment.
                 </p>
-                <div className="text-xs 2xl:text-sm text-gray-600">
+                <div className="text-sm 2xl:text-base text-gray-700">
                   Perfect for: Testing functions, data processing, workflow
                   automation
                 </div>
               </div>
             </div>
 
-            <div className="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-lbg mt-4">
+            <div className="bg-purple-50 p-6 rounded-lg mt-4">
               <h3 className="font-semibold text-gray-800 mb-3">
                 Build Your Own MCP Servers
               </h3>
-              <p className="text-sm 2xl:text-base text-gray-700 mb-3">
+              <p className="text-sm 2xl:text-base text-gray-800 mb-3">
                 Create custom MCP servers entirely in Darklang to extend AI
                 capabilities with your domain-specific tools and data. Compose
                 multiple MCP servers together for powerful AI workflows tailored
                 to your exact needs.
               </p>
-              <div className="text-xs 2xl:text-sm text-gray-600">
+              <div className="text-sm 2xl:text-base text-gray-700">
                 <strong>Example:</strong> Build an MCP server that connects AI
                 tools to your customer database, inventory system, and analytics
                 platform—all using Darklang functions.

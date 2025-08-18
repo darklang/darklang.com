@@ -23,7 +23,7 @@ const No: React.FC = () => {
             No Development Cruft
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-rust/3 rounded-lg p-6 border-t-3 border-rust/70">
+            <div className="bg-rust/3 rounded-lg p-6  border-rust/70">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Language Complexity
               </h3>
@@ -61,7 +61,7 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-rust/3 rounded-lg p-6 border-t-3 border-rust/70">
+            <div className="bg-rust/3 rounded-lg p-6  border-rust/70">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Build System Chaos
               </h3>
@@ -101,7 +101,7 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-rust/3 rounded-lg p-6 border-t-3 border-rust/70">
+            <div className="bg-rust/3 rounded-lg p-6  border-rust/70">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Packaging Nightmares
               </h3>
@@ -121,7 +121,7 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-rust/3 rounded-lg p-6 border-t-3 border-rust/70">
+            <div className="bg-rust/3 rounded-lg p-6  border-rust/70">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Version Control Complexity
               </h3>
@@ -151,7 +151,7 @@ const No: React.FC = () => {
             No DevOps Complexity
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-tan/5 rounded-lg p-6 border-t-3 border-tan">
+            <div className="bg-tan/5 rounded-lg p-6  border-tan">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Configuration Hell
               </h3>
@@ -181,7 +181,7 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-tan/5 rounded-lg p-6 border-t-3 border-tan">
+            <div className="bg-tan/5 rounded-lg p-6  border-tan">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Container Complexity
               </h3>
@@ -211,7 +211,7 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-tan/5 rounded-lg p-6 border-t-3 border-tan">
+            <div className="bg-tan/5 rounded-lg p-6  border-tan">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Pipeline Overhead
               </h3>
@@ -251,7 +251,7 @@ const No: React.FC = () => {
             No Infrastructure Management
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-purple-lbg/4 rounded-lg p-6 border-t-3 border-purple-lbg">
+            <div className="bg-purple-lbg/4 rounded-lg p-6  border-purple-lbg">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Database Complexity
               </h3>
@@ -291,7 +291,7 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-purple-lbg/4 rounded-lg p-6 border-t-3 border-purple-lbg">
+            <div className="bg-purple-lbg/4 rounded-lg p-6  border-purple-lbg">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Server Management
               </h3>
@@ -331,7 +331,7 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-purple-lbg/4 rounded-lg p-6 border-t-3 border-purple-lbg">
+            <div className="bg-purple-lbg/4 rounded-lg p-6  border-purple-lbg">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Cloud Service Sprawl
               </h3>
@@ -363,7 +363,7 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-purple-lbg/4 rounded-lg p-6 border-t-3 border-purple-lbg">
+            <div className="bg-purple-lbg/4 rounded-lg p-6  border-purple-lbg">
               <h3 className="font-semibold text-gray-800 mb-4">
                 System Administration
               </h3>
@@ -418,7 +418,7 @@ const No: React.FC = () => {
               everything else.
             </p>
             <div className="mt-6 p-4 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg">
-              <p className="text-sm text-blue-800">
+              <p className="text-sm text-blue-lbg">
                 <strong>Read more:</strong> Our founders wrote about
                 <a
                   href="https://blog.darklang.com/first-steps-of-darklang-inc/"

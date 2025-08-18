@@ -288,7 +288,7 @@ const Company: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-sm md:text-base text-gray-600">
+            <p className="text-sm md:text-base 2xl:text-lg text-gray-600">
               Want to know how we keep this sustainable? Read about our
               <a
                 href="/company/sustainability"
@@ -332,7 +332,7 @@ const Company: React.FC = () => {
                   href="https://blog.darklang.com/goodbye-dark-inc-welcome-darklang-inc/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-rust hover:underline"
+                  className="text-purple-lbg hover:underline"
                 >
                   {" "}
                   Company Transition
@@ -342,7 +342,7 @@ const Company: React.FC = () => {
                   href="https://blog.darklang.com/first-steps-of-darklang-inc/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-rust hover:underline ml-1"
+                  className="text-purple-lbg hover:underline ml-1"
                 >
                   First Steps
                 </a>
@@ -354,7 +354,7 @@ const Company: React.FC = () => {
 
         {/* Current Focus */}
         <div className="mb-10 md:mb-18">
-          <h2 className="text-xl font-bold text-gray-800 mb-8">
+          <h2 className="text-xl 2xl:text-2xl font-bold text-gray-800 mb-8">
             What We're Building Now
           </h2>
 
@@ -376,10 +376,10 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium md:text-lgtext-gray-800">
+                <div className="font-medium md:text-lg text-gray-800">
                   Language & Runtime
                 </div>
-                <div className="text-sm md:text-base text-gray-600">
+                <div className="text-sm md:text-base 2xl:text-lg text-gray-600">
                   CLI-ready with gradual static typing
                 </div>
               </div>
@@ -402,10 +402,10 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium md:text-lgtext-gray-800">
+                <div className="font-medium md:text-lg text-gray-800">
                   Editor Support
                 </div>
-                <div className="text-sm md:text-base text-gray-600">
+                <div className="text-sm md:text-base 2xl:text-lg text-gray-600">
                   VSCode extension with LSP
                 </div>
               </div>
@@ -428,10 +428,10 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium md:text-lgtext-gray-800">
+                <div className="font-medium md:text-lg text-gray-800">
                   Package System
                 </div>
-                <div className="text-sm md:text-base text-gray-600">
+                <div className="text-sm md:text-base 2xl:text-lg text-gray-600">
                   Function-level package management
                 </div>
               </div>
@@ -454,10 +454,10 @@ const Company: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="font-medium md:text-lgtext-gray-800">
+                <div className="font-medium md:text-lg text-gray-800">
                   Community
                 </div>
-                <div className="text-sm md:text-base text-gray-600">
+                <div className="text-sm md:text-base 2xl:text-lg text-gray-600">
                   Open-sourcing and contributor growth
                 </div>
               </div>
@@ -467,10 +467,10 @@ const Company: React.FC = () => {
 
         {/* Community Section */}
         <div className="bg-white rounded-md shadow-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <h2 className="text-xl 2xl:text-2xl font-bold text-gray-900 mb-6">
             Join Our Community
           </h2>
-          <div className="text-gray-700 md:text-lg leading-relaxed space-y-4">
+          <div className="text-gray-700 2xl:text-lg leading-relaxed space-y-4">
             <p>
               Darklang is more than a programming language—it's a community of
               developers who believe software development can be better. Whether

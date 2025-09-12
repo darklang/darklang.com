@@ -33,10 +33,10 @@ const PackageDetail: React.FC = () => {
   >({});
   const [searchLoading, setSearchLoading] = useState(false);
 
-  // State for selected items (functions, types, constants)
+  // State for selected items (functions, types, values)
   const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
   const [pendingItemSelection, setPendingItemSelection] = useState<{
-    type: "function" | "type" | "constant";
+    type: "function" | "type" | "value";
     name: string;
     packagePath: string;
   } | null>(null);
@@ -191,10 +191,10 @@ const PackageDetail: React.FC = () => {
     [fetchSidebarItemData],
   );
 
-  // Handler for clicking on functions, types, constants in sidebar
+  // Handler for clicking on functions, types, values in sidebar
   const handleItemClick = useCallback(
     (
-      itemType: "function" | "type" | "constant",
+      itemType: "function" | "type" | "value",
       itemName: string,
       packagePath: string,
       event?: React.MouseEvent,
@@ -213,7 +213,7 @@ const PackageDetail: React.FC = () => {
         const tabMap = {
           function: "Functions",
           type: "Types",
-          constant: "Constants",
+          value: "Values",
         };
         setActiveTab(tabMap[itemType]);
 
@@ -235,7 +235,7 @@ const PackageDetail: React.FC = () => {
       const tabMap = {
         function: "Functions",
         type: "Types",
-        constant: "Constants",
+        value: "Values",
       };
       setActiveTab(tabMap[itemType]);
     },
@@ -324,7 +324,7 @@ const PackageDetail: React.FC = () => {
         {
           function: "Functions",
           type: "Types",
-          constant: "Constants",
+          value: "Values",
         }[pendingItemSelection.type],
       );
 
@@ -345,8 +345,8 @@ const PackageDetail: React.FC = () => {
       const typeMatch = packageData.typeList?.find(
         type => type.name === fragment,
       );
-      const constantMatch = packageData.constantList?.find(
-        constant => constant.name === fragment,
+      const valueMatch = packageData.valueList?.find(
+        value => value.name === fragment,
       );
 
       if (functionMatch) {
@@ -363,9 +363,9 @@ const PackageDetail: React.FC = () => {
         if (selectedPackage) {
           fetchSidebarItemData(selectedPackage);
         }
-      } else if (constantMatch) {
-        setSelectedItem({ type: "constant", name: fragment });
-        setActiveTab("Constants");
+      } else if (valueMatch) {
+        setSelectedItem({ type: "value", name: fragment });
+        setActiveTab("Values");
         setExpandedSidebarItems(new Set([selectedPackage]));
         if (selectedPackage) {
           fetchSidebarItemData(selectedPackage);
@@ -499,7 +499,7 @@ const PackageDetail: React.FC = () => {
               const tabToTypeMap = {
                 Functions: "function",
                 Types: "type",
-                Constants: "constant",
+                Values: "value",
               };
 
               if (tab === "Submodules") {
@@ -538,7 +538,7 @@ const PackageDetail: React.FC = () => {
                           </h2>
                           <p className="text-gray-400">
                             Click on any submodule to explore its functions,
-                            types, and constants.
+                            types, and values.
                           </p>
                         </div>
                         {packageData.subModules.map(
@@ -569,10 +569,10 @@ const PackageDetail: React.FC = () => {
                                       {subModule.types} Types
                                     </span>
                                     <span className="text-sand">
-                                      {subModule.constants}{" "}
-                                      {subModule.constants === 1
-                                        ? "Constant"
-                                        : "Constants"}
+                                      {subModule.values}{" "}
+                                      {subModule.values === 1
+                                        ? "Value"
+                                        : "Values"}
                                     </span>
                                     {subModule.submodules &&
                                     subModule.submodules > 0 ? (
@@ -662,7 +662,7 @@ const PackageDetail: React.FC = () => {
                           </h2>
                           <p className="text-gray-400">
                             Click on any submodule to explore its functions,
-                            types, and constants.
+                            types, and values.
                           </p>
                           {searchQuery && (
                             <div className="text-sm text-gray-400 mt-2">
@@ -773,9 +773,9 @@ const PackageDetail: React.FC = () => {
               />
             )}
 
-            {activeTab === "Constants" && (
+            {activeTab === "Values" && (
               <TabContent
-                type="constants"
+                type="values"
                 selectedPackage={selectedPackage}
                 sidebarItemsData={sidebarItemsData}
                 sidebarLoadingStates={sidebarLoadingStates}

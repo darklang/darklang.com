@@ -34,8 +34,8 @@ const PackageList: React.FC<PackageListProps> = ({
         return "ƒ function";
       case "type":
         return "🇹 type";
-      case "constant":
-        return "𝐂 constant";
+      case "value":
+        return "𝐂 value";
       case "module":
         return "📦 module";
       default:

@@ -29,7 +29,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
     const tabToTypeMap = {
       Functions: "function",
       Types: "type",
-      Constants: "constant",
+      Values: "value",
     };
 
     if (
@@ -94,7 +94,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
           </button>
         )}
 
-        {["Functions", "Types", "Constants"].map(tab => (
+        {["Functions", "Types", "Values"].map(tab => (
           <button
             key={tab}
             onClick={() => handleTabClick(tab)}

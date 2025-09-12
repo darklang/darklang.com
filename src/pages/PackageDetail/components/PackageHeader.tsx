@@ -35,10 +35,10 @@ const PackageHeader: React.FC<PackageHeaderProps> = ({
     packageData?.types ||
     packageData?.totalTypes ||
     0;
-  const constantsCount =
-    currentSidebarData?.constants?.length ||
-    packageData?.constants ||
-    packageData?.totalConstants ||
+  const valuesCount =
+    currentSidebarData?.values?.length ||
+    packageData?.values ||
+    packageData?.totalValues ||
     0;
   const submodulesCount =
     currentSidebarData?.submodules?.length ||
@@ -70,8 +70,8 @@ const PackageHeader: React.FC<PackageHeaderProps> = ({
           </div>
           <div className="flex items-center">
             <span className="text-gray-400 text-xs font-medium">
-              <span className="text-sand">{constantsCount}</span> Constant
-              {constantsCount !== 1 ? "s" : ""}
+              <span className="text-sand">{valuesCount}</span> Value
+              {valuesCount !== 1 ? "s" : ""}
             </span>
           </div>
           {(submodulesCount > 0 || packageData?.isRootModule) && (

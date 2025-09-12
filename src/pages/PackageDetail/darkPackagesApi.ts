@@ -13,7 +13,7 @@ export interface ApiType {
   description?: string;
 }
 
-export interface ApiConstant {
+export interface ApiValue {
   name?: { name: string };
   description?: string;
 }
@@ -21,7 +21,7 @@ export interface ApiConstant {
 export interface ApiResponse {
   fns?: ApiFunction[];
   types?: ApiType[];
-  constants?: ApiConstant[];
+  values?: ApiValue[];
   submodules?: string[][];
 }
 
@@ -42,7 +42,7 @@ export interface ProcessedType {
   description: string;
 }
 
-export interface ProcessedConstant {
+export interface ProcessedValue {
   name: string;
   description: string;
 }
@@ -50,11 +50,11 @@ export interface ProcessedConstant {
 export interface ProcessedItemData {
   functions: string[];
   types: string[];
-  constants: string[];
+  values: string[];
   submodules: ProcessedSubmodule[];
   fullFunctionData?: ProcessedFunction[];
   fullTypeData?: ProcessedType[];
-  fullConstantData?: ProcessedConstant[];
+  fullValueData?: ProcessedValue[];
 }
 
 export interface TypeDefinition {
@@ -72,7 +72,7 @@ export interface TypeDefinition {
 export interface ModuleCounts {
   functions: number;
   types: number;
-  constants: number;
+  values: number;
 }
 
 const PRIMITIVE_TYPE_MAP = {
@@ -124,8 +124,9 @@ class DarkPackagesApi {
     moduleName: string,
     entityTypes: string,
     searchDepth = "direct",
+    exactMatch = false,
   ): string {
-    return `${this.baseUrl}?modules=${moduleName}&searchDepth=${searchDepth}&entityTypes=${entityTypes}`;
+    return `${this.baseUrl}?modules=${moduleName}&searchDepth=${searchDepth}&entityTypes=${entityTypes}&exactMatch=${exactMatch}`;
   }
 
   private isTypeId(value: string): boolean {
@@ -360,22 +361,19 @@ class DarkPackagesApi {
       throw new Error("Module name is required");
     }
 
-    const url = this.buildSearchUrl(
-      moduleName,
-      "module,function,type,constant",
-    );
+    const url = this.buildSearchUrl(moduleName, "module,function,type,value");
     return this.fetchData(url);
   }
 
   async getModuleCounts(moduleName: string): Promise<ModuleCounts> {
-    const url = this.buildSearchUrl(moduleName, "function,type,constant");
+    const url = this.buildSearchUrl(moduleName, "function,type,value");
 
     try {
       const data = await this.fetchData(url);
       return {
         functions: data.fns?.length || 0,
         types: data.types?.length || 0,
-        constants: data.constants?.length || 0,
+        values: data.values?.length || 0,
       };
     } catch (error) {
       console.error("getModuleCounts failed:", error);
@@ -448,7 +446,7 @@ class DarkPackagesApi {
             description: `${subModuleName} utilities and operations`,
             functions: counts.functions,
             types: counts.types,
-            constants: counts.constants,
+            values: counts.values,
             submodules: submodulesCount,
           };
         }),
@@ -461,7 +459,7 @@ class DarkPackagesApi {
         isRootModule: true,
         totalFunctions: apiData.fns?.length || 0,
         totalTypes: apiData.types?.length || 0,
-        totalConstants: apiData.constants?.length || 0,
+        totalValues: apiData.values?.length || 0,
         subModules: processedSubModules,
       };
     }
@@ -481,14 +479,12 @@ class DarkPackagesApi {
         `Type definition for ${type.name?.name || "Unknown"}`,
     }));
 
-    const constantList = (apiData.constants || []).map(
-      (constant: ApiConstant) => ({
-        name: constant.name?.name || "Unknown",
-        description:
-          constant.description ||
-          `Constant definition for ${constant.name?.name || "Unknown"}`,
-      }),
-    );
+    const valueList = (apiData.values || []).map((value: ApiValue) => ({
+      name: value.name?.name || "Unknown",
+      description:
+        value.description ||
+        `Value definition for ${value.name?.name || "Unknown"}`,
+    }));
 
     return {
       name: displayName,
@@ -497,10 +493,10 @@ class DarkPackagesApi {
       isRootModule: false,
       functions: apiData.fns?.length || 0,
       types: apiData.types?.length || 0,
-      constants: apiData.constants?.length || 0,
+      values: apiData.values?.length || 0,
       functionList,
       typeList,
-      constantList,
+      valueList,
     };
   }
 
@@ -534,12 +530,10 @@ class DarkPackagesApi {
       description: type.description || "No description available",
     }));
 
-    const fullConstantData = (apiData.constants || []).map(
-      (constant: ApiConstant) => ({
-        name: constant.name?.name || "Unknown",
-        description: constant.description || "No description available",
-      }),
-    );
+    const fullValueData = (apiData.values || []).map((value: ApiValue) => ({
+      name: value.name?.name || "Unknown",
+      description: value.description || "No description available",
+    }));
 
     return {
       functions: (apiData.fns || []).map(
@@ -548,13 +542,13 @@ class DarkPackagesApi {
       types: (apiData.types || []).map(
         (type: ApiType) => type.name?.name || "Unknown",
       ),
-      constants: (apiData.constants || []).map(
-        (constant: ApiConstant) => constant.name?.name || "Unknown",
+      values: (apiData.values || []).map(
+        (value: ApiValue) => value.name?.name || "Unknown",
       ),
       submodules: processedSubmodules,
       fullFunctionData,
       fullTypeData,
-      fullConstantData,
+      fullValueData,
     };
   }
 
@@ -625,7 +619,7 @@ class DarkPackagesApi {
           stats: {
             functions: sub.functions,
             types: sub.types,
-            constants: sub.constants,
+            values: sub.values,
             submodules: submodulesCount,
           },
         };
@@ -653,8 +647,8 @@ class DarkPackagesApi {
             types: data.types.filter(type =>
               type.toLowerCase().includes(query),
             ),
-            constants: data.constants.filter(constant =>
-              constant.toLowerCase().includes(query),
+            values: data.values.filter(value =>
+              value.toLowerCase().includes(query),
             ),
             submodules: data.submodules.filter(submod =>
               submod.name.toLowerCase().includes(query),
@@ -669,7 +663,7 @@ class DarkPackagesApi {
         results.set(moduleName, {
           functions: [],
           types: [],
-          constants: [],
+          values: [],
           submodules: [],
         });
       }
@@ -690,7 +684,7 @@ class DarkPackagesApi {
         results.set(moduleName, counts);
       } catch (error) {
         console.error(`Error fetching counts for ${moduleName}:`, error);
-        results.set(moduleName, { functions: 0, types: 0, constants: 0 });
+        results.set(moduleName, { functions: 0, types: 0, values: 0 });
       }
     });
 

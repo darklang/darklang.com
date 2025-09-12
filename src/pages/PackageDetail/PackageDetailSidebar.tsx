@@ -7,7 +7,7 @@ import { SelectedItem } from "./components/types";
 interface PackageStats {
   functions: number;
   types: number;
-  constants: number;
+  values: number;
   submodules: number;
 }
 
@@ -25,7 +25,7 @@ interface SubmoduleData {
 interface ProcessedModuleData {
   functions: string[];
   types: string[];
-  constants: string[];
+  values: string[];
   submodules: SubmoduleData[];
 }
 
@@ -46,7 +46,7 @@ interface SidebarActions {
   onPackageClick: (packagePath: string) => void;
   onItemToggle: (packagePath: string) => void;
   onItemClick: (
-    itemType: "function" | "type" | "constant",
+    itemType: "function" | "type" | "value",
     itemName: string,
     packagePath: string,
     event?: React.MouseEvent,
@@ -175,8 +175,8 @@ export const PackageDetailSidebar: React.FC<SidebarProps> = ({
         packageData.types?.some((type: string) =>
           type.toLowerCase().includes(queryLower),
         ) ||
-        packageData.constants?.some((constant: string) =>
-          constant.toLowerCase().includes(queryLower),
+        packageData.values?.some((value: string) =>
+          value.toLowerCase().includes(queryLower),
         ) ||
         packageData.submodules?.some((submod: SubmoduleData) =>
           submod.name.toLowerCase().includes(queryLower),
@@ -342,7 +342,7 @@ export const PackageDetailSidebar: React.FC<SidebarProps> = ({
             type="text"
             value={state.searchQuery}
             onChange={e => actions.onSearchChange(e.target.value)}
-            placeholder="Search submodules, functions, types, and constants..."
+            placeholder="Search submodules, functions, types, and values..."
             className="w-full py-5 text-sm text-white placeholder-gray-400 focus:outline-none text-ellipsis bg-transparent"
             disabled={state.searchLoading}
           />
@@ -540,9 +540,9 @@ const PackageItem: React.FC<PackageItemProps> = ({
                   isSelected,
                 )}
                 {renderStatBadge(
-                  pkg.stats.constants,
-                  "Constants",
-                  "Constant",
+                  pkg.stats.values,
+                  "Values",
+                  "Value",
                   isSelected,
                 )}
                 {renderStatBadge(
@@ -582,7 +582,7 @@ const PackageItem: React.FC<PackageItemProps> = ({
           {isLoading ? (
             <div className="text-center py-4">
               <div className="text-gray-400 text-sm">
-                Loading functions, types, and constants...
+                Loading functions, types, and values...
               </div>
             </div>
           ) : packageData ? (
@@ -660,22 +660,22 @@ const PackageDropdownContent: React.FC<PackageDropdownContentProps> = ({
     packageData.functions || [],
   );
   const filteredTypes = getFilteredItems(packagePath, packageData.types || []);
-  const filteredConstants = getFilteredItems(
+  const filteredValues = getFilteredItems(
     packagePath,
-    packageData.constants || [],
+    packageData.values || [],
   );
 
   const hasAnyItems =
     filteredSubmodules.length > 0 ||
     filteredFunctions.length > 0 ||
     filteredTypes.length > 0 ||
-    filteredConstants.length > 0;
+    filteredValues.length > 0;
 
   if (!hasAnyItems) {
     return (
       <div className="text-center py-4">
         <div className="text-gray-400 text-sm">
-          No submodules, functions, types, or constants found
+          No submodules, functions, types, or values found
         </div>
         {state.searchQuery && (
           <div className="text-gray-500 text-xs mt-1">
@@ -712,12 +712,12 @@ const PackageDropdownContent: React.FC<PackageDropdownContentProps> = ({
         actions.onItemClick("type", name, packagePath, e),
     },
     {
-      title: "Constants",
-      items: filteredConstants.map(name => ({ name })),
+      title: "Values",
+      items: filteredValues.map(name => ({ name })),
       icon: "◊",
       color: "text-yellow-400",
       onClick: (name: string, e?: React.MouseEvent) =>
-        actions.onItemClick("constant", name, packagePath, e),
+        actions.onItemClick("value", name, packagePath, e),
     },
   ];
 

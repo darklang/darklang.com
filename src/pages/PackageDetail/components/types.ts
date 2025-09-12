@@ -4,12 +4,12 @@ export interface SidebarPackage {
   stats: {
     functions: number;
     types: number;
-    constants: number;
+    values: number;
     submodules: number;
   };
 }
 
 export interface SelectedItem {
-  type: "function" | "type" | "constant" | null;
+  type: "function" | "type" | "value" | null;
   name: string;
 }

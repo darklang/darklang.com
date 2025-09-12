@@ -9,7 +9,7 @@ interface TabItem {
 }
 
 interface TabContentProps {
-  type: "functions" | "types" | "constants";
+  type: "functions" | "types" | "values";
   selectedPackage: string;
   sidebarItemsData: Record<string, any>;
   sidebarLoadingStates: Record<string, boolean>;
@@ -41,8 +41,8 @@ const TabContent: React.FC<TabContentProps> = ({
         return currentSidebarData.fullFunctionData || [];
       case "types":
         return currentSidebarData.fullTypeData || [];
-      case "constants":
-        return currentSidebarData.fullConstantData || [];
+      case "values":
+        return currentSidebarData.fullValueData || [];
       default:
         return [];
     }
@@ -83,12 +83,12 @@ const TabContent: React.FC<TabContentProps> = ({
           color: "text-purple-dbg",
           emptyMessage: "No types found for this module.",
         };
-      case "constants":
+      case "values":
         return {
-          singular: "constant",
-          plural: "constants",
+          singular: "value",
+          plural: "values",
           color: "text-sand",
-          emptyMessage: "No constants found for this module.",
+          emptyMessage: "No values found for this module.",
         };
       default:
         return {

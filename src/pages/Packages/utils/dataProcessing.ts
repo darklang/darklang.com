@@ -2,7 +2,7 @@ import { ApiItem, SearchableItem, ApiResponse } from "../types";
 
 const processApiItems = (
   items: ApiItem[] | undefined,
-  type: "function" | "type" | "constant",
+  type: "function" | "type" | "value",
   modulePathStr?: string,
 ): SearchableItem[] => {
   if (!items) return [];
@@ -18,7 +18,7 @@ const processApiItems = (
         `${type.charAt(0).toUpperCase() + type.slice(1)} ${item.name!.name}`,
       ...(type === "function" && { signature: item.signature }),
       ...(type === "type" && { definition: item.definition }),
-      ...(type === "constant" && { value: item.value }),
+      ...(type === "value" && { value: item.value }),
     }));
 };
 
@@ -40,10 +40,10 @@ export const processApiResponse = (
     );
   }
 
-  // Process functions, types, and constants
+  // Process functions, types, and values
   allData.push(...processApiItems(data.fns, "function", modulePathStr));
   allData.push(...processApiItems(data.types, "type", modulePathStr));
-  allData.push(...processApiItems(data.constants, "constant", modulePathStr));
+  allData.push(...processApiItems(data.values, "value", modulePathStr));
 
   return allData;
 };

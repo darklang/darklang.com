@@ -8,7 +8,7 @@ export interface ApiItem {
 }
 
 export interface SearchableItem {
-  type: "module" | "function" | "type" | "constant";
+  type: "module" | "function" | "type" | "value";
   name: string;
   path?: string[];
   module?: string;
@@ -22,5 +22,5 @@ export interface ApiResponse {
   submodules?: string[][];
   fns?: ApiItem[];
   types?: ApiItem[];
-  constants?: ApiItem[];
+  values?: ApiItem[];
 }

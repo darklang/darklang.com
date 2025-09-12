@@ -19,7 +19,7 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({
   searchQuery,
   onSearchChange,
-  placeholder = "Search packages, functions, types, constants, and more...",
+  placeholder = "Search packages, functions, types, values, and more...",
 }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 relative">

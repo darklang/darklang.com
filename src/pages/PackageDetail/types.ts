@@ -4,7 +4,7 @@ export interface SubModule {
   description: string;
   functions: number;
   types: number;
-  constants: number;
+  values: number;
   submodules?: number;
 }
 
@@ -15,12 +15,12 @@ export interface PackageData {
   isRootModule: boolean;
   totalFunctions?: number;
   totalTypes?: number;
-  totalConstants?: number;
+  totalValues?: number;
   subModules?: SubModule[];
   functions?: number;
   types?: number;
-  constants?: number;
+  values?: number;
   functionList?: any[];
   typeList?: any[];
-  constantList?: any[];
+  valueList?: any[];
 }

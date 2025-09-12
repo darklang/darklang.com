@@ -123,7 +123,7 @@ const DevelopmentSteps = () => {
       id: "run-code",
       title: "Run code",
       description:
-        "As soon as functions/types/constants are created they are accessible publicly (or privately) in the package manager",
+        "As soon as functions/types/values are created they are accessible publicly (or privately) in the package manager",
     },
     {
       id: "share-code",

@@ -30,7 +30,7 @@ export const useDataFetching = (): UseDataFetchingReturn => {
 
     try {
       // Get all top-level modules
-      const topLevelUrl = `${API_BASE_URL}/search?searchDepth=direct&entityTypes=module,function,type,constant&text=&modules=`;
+      const topLevelUrl = `${API_BASE_URL}/search?searchDepth=direct&entityTypes=module,function,type,value&text=&modules=&exactMatch=false`;
       const topLevelResponse = await fetch(topLevelUrl);
 
       if (!topLevelResponse.ok) {
@@ -47,7 +47,7 @@ export const useDataFetching = (): UseDataFetchingReturn => {
             const modulePathStr = Array.isArray(modulePath)
               ? modulePath.join(".")
               : modulePath;
-            const moduleUrl = `${API_BASE_URL}/search?searchDepth=direct&entityTypes=module,function,type,constant&text=&modules=${encodeURIComponent(modulePathStr)}`;
+            const moduleUrl = `${API_BASE_URL}/search?searchDepth=direct&entityTypes=module,function,type,value&text=&modules=${encodeURIComponent(modulePathStr)}&exactMatch=true`;
 
             const moduleResponse = await fetch(moduleUrl);
             if (moduleResponse.ok) {
@@ -82,7 +82,7 @@ export const useDataFetching = (): UseDataFetchingReturn => {
     setError(null);
 
     try {
-      const url = `${API_BASE_URL}/search?searchDepth=direct&entityTypes=module&modules=`;
+      const url = `${API_BASE_URL}/search?searchDepth=direct&entityTypes=module&modules=&exactMatch=false`;
       const response = await fetch(url);
 
       if (!response.ok) {

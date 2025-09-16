@@ -25,55 +25,6 @@
     </script>
 
     <!-- /highlightjs -->
-    <script>
-      let addEmailToList = index => {
-        let emailID = "email" + index;
-        let formID = "form" + index;
-        let errorID = "error" + index;
-
-        let email = document.getElementById(emailID).value;
-        let displayError = error => {
-          let elem = document.getElementById(errorID);
-          elem.classList.remove("hidden");
-          elem.textContent = error;
-        };
-        fetch("https://ops-corpsite.builtwithdark.com/signup", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-          }),
-        })
-          .then(response => {
-            if (response.status === 200) {
-              let elem = document.createElement("span");
-              elem.textContent = "Added to waitlist!";
-              elem.className =
-                "mt-11 mb-16 border border-pink rounded pl-11 pr-14 py-3 relative flex items-center justify-center";
-              let checkIcon = document.createElement("i");
-              checkIcon.classList.add(
-                "fa-sharp",
-                "fa-solid",
-                "fa-circle-check",
-                "text-lime-400",
-                "absolute",
-                "right-4",
-                "ml-2",
-              );
-              elem.appendChild(checkIcon);
-              document.getElementById(formID).replaceWith(elem);
-            } else {
-              displayError("Error adding to waitlist");
-            }
-          })
-          .catch(error => {
-            displayError(error);
-          });
-      };
-    </script>
 
     <script defer type="module">
       const defineCustomElementsFromTemplates = () => {
@@ -283,72 +234,6 @@
       </nav>
     </div>
 
-    <!-- Banner -->
-    <div class="md:container md:mx-auto lg:pt-6 mt-14 font-Quicksand">
-      <div
-        class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:justify-between md:items-center lg:mx-28 2xl:mx-44 px-6 md:px-8 py-6 bg-white text-gray-800 rounded-xl border-l-4 border-yellow-500 shadow-md inset-shadow-sm"
-      >
-        <div
-          class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:items-center text-center md:text-left"
-        >
-          <div class="flex justify-center md:justify-start md:mr-6">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="23"
-              height="23"
-              viewBox="0 0 23 23"
-              fill="none"
-            >
-              <g clip-path="url(#clip0_18_136)">
-                <path
-                  d="M0.561971 21.1302L10.5284 0.718988C10.8176 0.126603 11.6591 0.118697 11.9594 0.705556L22.4042 21.1168C22.6766 21.649 22.29 22.2811 21.692 22.2811H1.28081C0.689459 22.2811 0.302502 21.6616 0.561971 21.1302Z"
-                  fill="url(#paint0_linear_18_136)"
-                />
-                <path
-                  d="M12.7727 7.77137L12.2255 15.116C12.1845 15.6655 11.7059 16.0778 11.1563 16.0369C10.657 15.9997 10.2711 15.6008 10.2355 15.116L9.68819 7.77137C9.62471 6.91961 10.2638 6.17763 11.1155 6.11421C11.9673 6.05078 12.7093 6.68979 12.7727 7.54155C12.7783 7.61621 12.7776 7.69878 12.7727 7.77137ZM11.2304 17.6036C10.4474 17.6036 9.81253 18.2383 9.81253 19.0215C9.81253 19.8046 10.4474 20.4393 11.2304 20.4393C12.0135 20.4393 12.6484 19.8046 12.6484 19.0214C12.6484 18.2383 12.0135 17.6036 11.2304 17.6036Z"
-                  fill="#2B3B47"
-                />
-              </g>
-              <defs>
-                <linearGradient
-                  id="paint0_linear_18_136"
-                  x1="11.4864"
-                  y1="0.27002"
-                  x2="11.4864"
-                  y2="22.2811"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stop-color="#FED72C" />
-                  <stop offset="1" stop-color="#FFCB01" />
-                </linearGradient>
-                <clipPath id="clip0_18_136">
-                  <rect width="23" height="23" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-gray-800 text-base md:text-lg mb-1">
-              Winding Down Dark-Classic
-            </h3>
-            <p class="text-[#949494] text-sm md:text-base">
-              Dark-Classic is winding down to a limited-user mode, starting on
-              July 16, 2025. <br />
-              Email us to keep your canvas running.
-            </p>
-          </div>
-        </div>
-        <div class="flex justify-center md:justify-end">
-          <a
-            href="https://blog.darklang.com/winding-down-darklang-classic/"
-            class="font-bold text-blue hover:text-purple underline underline-offset-4 text-sm md:text-base whitespace-nowrap"
-          >
-            Read Full Details →
-          </a>
-        </div>
-      </div>
-    </div>
-
     <!--Hero-->
     <section class="mx-12 md:mx-32 mt-20 md:mt-28 2xl:mt-40 font-Quicksand">
       <div
@@ -362,9 +247,9 @@
       </div>
 
       <div
-        class="mt-10 2xl:mt-20 mx-auto flex flex-col items-center justify-center xl:flex-row max-w-6xl 2xl:max-w-screen-xl"
+        class="mt-10 2xl:mt-20 mx-auto flex flex-col items-center justify-center xl:flex-row xl:gap-8 max-w-6xl 2xl:max-w-screen-xl"
       >
-        <div>
+        <div class="xl:w-2/3">
           <h2 class="text-3xl 2xl:text-4xl font-bold mb-4 text-dark-gray">
             <span class="text-blue">Just</span>
             <span class="text-purple">code</span>
@@ -392,34 +277,16 @@
           </p>
         </div>
 
-        <form
-          id="form1"
-          onsubmit="addEmailToList(1); return false;"
-          class="font-bold md:flex md:flex-col justify-center m-10"
-        >
+        <div class="font-bold md:flex md:flex-col justify-center m-10">
           <div class="md:flex md:flex-col justify-center">
-            <p class="my-2 text-dark-gray/50">Send me project updates</p>
-            <div class="md:flex md:flex-row">
-              <input
-                id="email1"
-                required
-                type="email"
-                placeholder="Your email"
-                class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-white w-full md:w-96"
-              />
-              <span
-                id="error1"
-                class="hidden text-red-400 absolute -bottom-7 text-xs italic"
-              ></span>
-              <button
-                type="submit"
-                class="bg-blue hover:bg-purple text-white rounded px-5 py-3 mx-auto mt-2 w-full md:mt-0 md:w-max md:mx-2"
-              >
-                Send
-              </button>
-            </div>
+            <p class="my-2 text-dark-gray/50 font-bold text-lg">Send me project updates</p>
+            <script
+              async
+              src="https://eocampaign1.com/form/e0d8710c-9316-11f0-9bec-93c93627bb09.js"
+              data-form="e0d8710c-9316-11f0-9bec-93c93627bb09"
+            ></script>
           </div>
-        </form>
+        </div>
       </div>
     </section>
 

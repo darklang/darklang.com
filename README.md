@@ -6,7 +6,7 @@
 
 ## Notice
 
-We're winding down the publicly-hosted instance of Dark-Classic.
+The publicly-hosted instance of Darklang-Classic is no longer accepting new users.
 Read more [here](https://blog.darklang.com/winding-down-darklang-classic).
 
 ## Start the Tailwind CLI build process

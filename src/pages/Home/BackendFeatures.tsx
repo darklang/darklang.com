@@ -250,7 +250,7 @@ const BackendFeatures: React.FC = () => {
           <SectionTitle
           // subtitle="Darklang Cloud"
           >
-            Build a complete backend with Darklang
+            Build a Complete Backend with Darklang
           </SectionTitle>
 
           <p className="text-lg md:text-xl max-w-6xl text-dark">

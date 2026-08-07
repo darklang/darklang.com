@@ -373,7 +373,7 @@ const SmallBusinesses: React.FC = () => {
 
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="font-semibold text-gray-800 mb-3">
-                E-commerce with Custom Rules
+                E-Commerce with Custom Rules
               </h3>
               <p className="mb-3">
                 Sell products with complex pricing rules, bulk discounts, and

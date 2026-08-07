@@ -1,5 +1,8 @@
 import React from "react";
 
+/** Positioning & Market is kept in the file but not shown for now. */
+const SHOW_POSITIONING = false;
+
 const Sharing: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
@@ -12,69 +15,74 @@ const Sharing: React.FC = () => {
           <div className="w-24 h-1 bg-blue-lbg mx-auto rounded-full"></div>
           <p className="text-xl 2xl:text-2xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-5xl mx-auto">
             Thanks for being part of our community! Here are resources to help
-            you share your Darklang experience, including logos, naming
-            guidelines, and positioning information.
+            you share your Darklang experience, including logos and naming
+            guidelines.
           </p>
         </div>
 
-        {/* Positioning */}
-        <div className="bg-purple-50 rounded-lg p-8 mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Positioning & Market
-          </h2>
-          <div className="space-y-4 text-gray-700">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  <span className="text-green-600 mr-2 font-code text-xl">
-                    ✓
-                  </span>{" "}
-                  We Are
-                </h3>
-                <ul className="space-y-2 text-sm md:text-base">
-                  <li>
-                    • <strong>"Just Code"</strong> — for engineers writing code
-                  </li>
-                  <li>
-                    • <strong>"Serverless"</strong> — fits the serverless
-                    category
-                  </li>
-                  <li>
-                    • <strong>"Deployless"</strong> — our term for{" "}
-                    <a
-                      href="https://blog.darklang.com/how-dark-deploys-code-in-50ms/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-dbg hover:underline"
-                    >
-                      instant deployment
-                    </a>
-                  </li>
-                  <li>• A programming language and platform</li>
-                </ul>
+        {/* Positioning — hidden for now */}
+        {SHOW_POSITIONING && (
+          <div className="bg-purple-50 rounded-lg p-8 mb-20">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Positioning & Market
+            </h2>
+            <div className="space-y-4 text-gray-700">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-3">
+                    <span className="text-green-600 mr-2 font-code text-xl">
+                      ✓
+                    </span>{" "}
+                    We Are
+                  </h3>
+                  <ul className="space-y-2 text-sm md:text-base">
+                    <li>
+                      • <strong>"Just Code"</strong> — for engineers writing
+                      code
+                    </li>
+                    <li>
+                      • <strong>"Serverless"</strong> — fits the serverless
+                      category
+                    </li>
+                    <li>
+                      • <strong>"Deployless"</strong> — our term for{" "}
+                      <a
+                        href="https://blog.darklang.com/how-dark-deploys-code-in-50ms/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-dbg hover:underline"
+                      >
+                        instant deployment
+                      </a>
+                    </li>
+                    <li>• A programming language and platform</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-3">
+                    <span className="text-red-600 mr-2 font-code text-xl">
+                      ✕
+                    </span>{" "}
+                    We're Not
+                  </h3>
+                  <ul className="space-y-2 text-sm md:text-base">
+                    <li>• "Low Code" or "No Code"</li>
+                    <li>• A visual programming tool</li>
+                    <li>• Currently designed for non-programmers</li>
+                    <li>• A drag-and-drop builder</li>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  <span className="text-red-600 mr-2 font-code text-xl">✕</span>{" "}
-                  We're Not
-                </h3>
-                <ul className="space-y-2 text-sm md:text-base">
-                  <li>• "Low Code" or "No Code"</li>
-                  <li>• A visual programming tool</li>
-                  <li>• Currently designed for non-programmers</li>
-                  <li>• A drag-and-drop builder</li>
-                </ul>
+              <div className="mt-6 p-4 bg-purple-100 rounded">
+                <p className="text-sm">
+                  <strong>Key message:</strong> Darklang is designed for
+                  engineers to write code, but removes the complexity of
+                  traditional backend development infrastructure.
+                </p>
               </div>
-            </div>
-            <div className="mt-6 p-4 bg-purple-100 rounded">
-              <p className="text-sm">
-                <strong>Key message:</strong> Darklang is designed for engineers
-                to write code, but removes the complexity of traditional backend
-                development infrastructure.
-              </p>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Logos Section */}
 

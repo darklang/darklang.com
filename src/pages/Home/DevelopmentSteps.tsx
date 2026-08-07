@@ -278,13 +278,13 @@ const DevelopmentSteps = () => {
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">
-          Get started in <span className="text-purple-lbg">no time</span>
+          Get Started in <span className="text-purple-lbg">No Time</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-18">
           {/* Node.js App */}
           <div className="bg-white rounded-xl shadow-md inset-shadow-2xs p-6 md:p-10">
-            <h3 className="md:text-xl font-bold mb-4">Building a Node app</h3>
+            <h3 className="md:text-xl font-bold mb-4">Building a Node App</h3>
 
             {/* Stats */}
             <div className="flex justify-between p-4 mb-6 rounded-lg bg-neutral-100">
@@ -463,7 +463,7 @@ const DevelopmentSteps = () => {
 
           {/* Dark App */}
           <div className="bg-white rounded-xl shadow-md inset-shadow-2xs p-6 md:p-10">
-            <h3 className="text-xl font-bold mb-4">Building a Dark app</h3>
+            <h3 className="text-xl font-bold mb-4">Building a Dark App</h3>
 
             {/* Stats */}
             <div className="flex justify-between p-4 mb-6 rounded-lg bg-neutral-100">

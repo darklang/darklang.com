@@ -323,7 +323,7 @@ const Stats: React.FC = () => {
 
         {/* Comparison */}
         <div className="bg-gray-900 rounded-lg p-8 text-white">
-          <h2 className="text-2xl font-bold mb-6">vs. Traditional Stack</h2>
+          <h2 className="text-2xl font-bold mb-6">Vs. Traditional Stack</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div>
               <h3 className="text-lg font-semibold mb-4 text-blue-300">

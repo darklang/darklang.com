@@ -1,477 +1,987 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import CodeDisplay from "../../common/ui/CodeDisplay";
+import {
+  AnyAgentIcon,
+  ClaudeIcon,
+  DeepSeekIcon,
+  OllamaIcon,
+  OpenAIIcon,
+} from "../../common/ui/Icons";
+
+/* ------------------------------------------------------------------ */
+/* Reusable pieces                                                     */
+/* ------------------------------------------------------------------ */
+
+const Shell: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
+}> = ({ children, className = "", id }) => (
+  <section id={id} className={className}>
+    <div className="mx-auto max-w-7xl 2xl:max-w-[100rem] px-4 py-16 md:py-20">
+      {children}
+    </div>
+  </section>
+);
+
+/** Page accent: blue leads the coding-agent story, purple the build-AI one. */
+const Eyebrow: React.FC<{
+  children: React.ReactNode;
+  tone?: "blue" | "purple";
+}> = ({ children, tone = "blue" }) => (
+  <p
+    className={`mb-4 text-sm 2xl:text-base font-bold uppercase tracking-[0.12em] ${
+      tone === "blue" ? "text-blue-lbg" : "text-purple-dbg"
+    }`}
+  >
+    {children}
+  </p>
+);
+
+const H2: React.FC<{ children: React.ReactNode; className?: string }> = ({
+  children,
+  className = "",
+}) => (
+  <h2
+    className={`text-2xl font-bold tracking-tight text-gray-900 md:text-3xl 2xl:text-4xl ${className}`}
+  >
+    {children}
+  </h2>
+);
+
+const Body: React.FC<{ children: React.ReactNode; className?: string }> = ({
+  children,
+  className = "",
+}) => (
+  <p
+    className={`text-base md:text-lg 2xl:text-xl leading-relaxed text-gray-700 ${className}`}
+  >
+    {children}
+  </p>
+);
+
+/**
+ * The commands a step runs, as chips that flow along a row. Stacked lines cost
+ * a card a lot of height for what is usually two or three short words.
+ */
+const Cmds: React.FC<{
+  items: { text: string; kind?: "cmd" | "confirm" }[];
+}> = ({ items }) => (
+  <div className="flex flex-wrap gap-1.5">
+    {items.map(item => (
+      <span
+        key={item.text}
+        className={`inline-flex max-w-full items-center gap-1.5 overflow-x-auto rounded-md px-2 py-1 font-code text-[0.7rem] 2xl:text-xs ${
+          item.kind === "confirm" ? "bg-sand/15" : "bg-gray-50"
+        }`}
+      >
+        <span
+          className={`select-none ${
+            item.kind === "confirm" ? "text-acc-amber" : "text-blue-lbg"
+          }`}
+          aria-hidden="true"
+        >
+          {item.kind === "confirm" ? "?" : "$"}
+        </span>
+        <span className="whitespace-nowrap text-gray-700">{item.text}</span>
+      </span>
+    ))}
+  </div>
+);
+
+const Icon: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    {children}
+  </svg>
+);
+
+/* ------------------------------------------------------------------ */
+/* Agents on one program                                               */
+/* ------------------------------------------------------------------ */
+
+/** A line of the definition in flight: how wide, how deep, and if it changed. */
+type SkeletonLine = { w: string; indent?: 0 | 1 | 2; changed?: boolean };
+
+/**
+ * Three agents on one program. They reach it through the same CLI and MCP
+ * tools, and each one holds as many branches as it has tasks, so neither the
+ * agents nor their separate pieces of work run into each other.
+ */
+const AGENTS: {
+  id: string;
+  name: string;
+  /** One mark for a named agent, several for the slot standing in for the
+      rest. Each carries its own colour, worn only while it is selected. */
+  marks: { Icon: React.FC<{ className?: string }>; brand: string }[];
+  branches: {
+    name: string;
+    /** Sessions that may look at a branch but not write to it. */
+    readOnly?: boolean;
+    lines: SkeletonLine[];
+    status: string;
+  }[];
+}[] = [
+  {
+    id: "claude",
+    name: "Claude Code",
+    marks: [{ Icon: ClaudeIcon, brand: "text-[#d97757]" }],
+    branches: [
+      {
+        name: "checkout-fix",
+        lines: [
+          { w: "w-4/5" },
+          { w: "w-3/5", indent: 1, changed: true },
+          { w: "w-2/5", indent: 2, changed: true },
+          { w: "w-1/2", indent: 1 },
+          { w: "w-2/3" },
+        ],
+        status: "1 definition changed",
+      },
+      {
+        name: "refund-window",
+        lines: [
+          { w: "w-2/3" },
+          { w: "w-4/5", indent: 1, changed: true },
+          { w: "w-1/2", indent: 1 },
+          { w: "w-3/5", indent: 2, changed: true },
+          { w: "w-3/4" },
+        ],
+        status: "2 definitions changed",
+      },
+      {
+        name: "stock-alerts",
+        lines: [
+          { w: "w-3/4" },
+          { w: "w-1/2", indent: 1 },
+          { w: "w-4/5", indent: 1, changed: true },
+          { w: "w-2/5", indent: 2 },
+          { w: "w-3/5" },
+        ],
+        status: "1 definition, 1 type",
+      },
+    ],
+  },
+  {
+    id: "codex",
+    name: "Codex",
+    marks: [{ Icon: OpenAIIcon, brand: "text-gray-900" }],
+    branches: [
+      {
+        name: "cart-discounts",
+        lines: [
+          { w: "w-3/5" },
+          { w: "w-4/5", indent: 1 },
+          { w: "w-2/3", indent: 1, changed: true },
+          { w: "w-1/2", indent: 2 },
+          { w: "w-3/4" },
+        ],
+        status: "1 type, 3 callers",
+      },
+      {
+        name: "orders-paging",
+        lines: [
+          { w: "w-4/5" },
+          { w: "w-1/2", indent: 1, changed: true },
+          { w: "w-3/5", indent: 1 },
+          { w: "w-2/3", indent: 2, changed: true },
+          { w: "w-1/2" },
+        ],
+        status: "2 definitions changed",
+      },
+    ],
+  },
+  {
+    id: "any",
+    name: "Any agent",
+    marks: [
+      { Icon: DeepSeekIcon, brand: "text-[#4d6bfe]" },
+      { Icon: OllamaIcon, brand: "text-gray-900" },
+      { Icon: AnyAgentIcon, brand: "text-blue-lbg" },
+    ],
+    branches: [
+      {
+        name: "main",
+        readOnly: true,
+        lines: [
+          { w: "w-3/4" },
+          { w: "w-1/2", indent: 1 },
+          { w: "w-4/5", indent: 1 },
+          { w: "w-2/5", indent: 2 },
+          { w: "w-3/5" },
+        ],
+        status: "nothing changed",
+      },
+      {
+        name: "orders-tests",
+        lines: [
+          { w: "w-2/3" },
+          { w: "w-3/4", indent: 1, changed: true },
+          { w: "w-1/2", indent: 2 },
+          { w: "w-4/5", indent: 1, changed: true },
+          { w: "w-3/5" },
+        ],
+        status: "4 definitions added",
+      },
+    ],
+  },
+];
+
+const INDENT = ["ml-0", "ml-3", "ml-6"];
+
+/**
+ * The lines between the agents and Darklang's tools. Each one drops straight
+ * onto the bar below and picks up again beneath it, so nothing has to cross or
+ * gather: the bar itself is what they all pass through.
+ */
+const Wires: React.FC<{ activeIndex: number }> = ({ activeIndex }) => (
+  <svg
+    viewBox="0 0 300 20"
+    preserveAspectRatio="none"
+    className="h-5 w-full"
+    aria-hidden="true"
+  >
+    {[50, 150, 250].map((x, i) => {
+      const on = i === activeIndex;
+      return (
+        <path
+          key={x}
+          d={`M${x} 0 V20`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={on ? 2 : 1.25}
+          strokeDasharray={on ? "4 4" : undefined}
+          vectorEffect="non-scaling-stroke"
+          className={`animate-dash-drift ${
+            on ? "text-blue-lbg" : "text-blue-lbg/35"
+          }`}
+        />
+      );
+    })}
+  </svg>
+);
+
+/** The branch glyph shown beside a branch name. */
+const BranchIcon: React.FC<{ className?: string }> = ({ className = "" }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-hidden="true"
+  >
+    <line x1="6" y1="3" x2="6" y2="15" />
+    <circle cx="18" cy="6" r="3" />
+    <circle cx="6" cy="18" r="3" />
+    <path d="M18 9a9 9 0 0 1-9 9" />
+  </svg>
+);
+
+/**
+ * One agent's current branch, drawn as a code block. Every column is live at
+ * once, because the agents work in parallel; the selected one is only ringed,
+ * to mark which branch a click will move on from.
+ */
+const BranchStack: React.FC<{
+  agent: (typeof AGENTS)[number];
+  branchIndex: number;
+  active: boolean;
+  /** Staggers this column's pulse so the three do not breathe in step. */
+  offset: number;
+  onClick: () => void;
+}> = ({ agent, branchIndex, active, offset, onClick }) => {
+  const branch = agent.branches[branchIndex];
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={
+        active
+          ? `${agent.name}: bring forward the next of ${agent.branches.length} branches`
+          : `Show ${agent.name}`
+      }
+      className="block w-full text-left"
+    >
+      <div className="mb-2 flex items-center justify-center gap-1.5 text-blue-lbg">
+        <BranchIcon className="h-3 w-3 shrink-0" />
+        <span className="truncate font-code text-[0.7rem] 2xl:text-xs">
+          {branch.name}
+        </span>
+      </div>
+
+      {/* the current branch, as a code block: line numbers, indents, and no
+          source, because what it says matters less than that it moved */}
+      <div
+        className={`overflow-hidden rounded-lg bg-dark-black px-2 py-2.5 transition ${
+          active ? "ring-2 ring-blue-lbg/50" : ""
+        }`}
+      >
+        {branch.lines.map((line, i) => (
+          <div key={i} className="flex items-center gap-2 py-[3px]">
+            <span className="w-2 shrink-0 text-right font-code text-[0.6rem] leading-none text-gray-600">
+              {i + 1}
+            </span>
+            <span
+              style={{ animationDelay: `${offset + i * 140}ms` }}
+              className={`h-1.5 rounded-full ${line.w} ${
+                INDENT[line.indent ?? 0]
+              } ${
+                line.changed ? "animate-pulse bg-blue-lbg/70" : "bg-white/15"
+              }`}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* read-only rides along with the status rather than sitting in its own
+          chip, which had nowhere to go once the columns narrowed */}
+      <div className="mt-3 text-center text-[0.7rem] 2xl:text-xs text-gray-500">
+        {branch.readOnly && <span className="text-gray-400">read-only · </span>}
+        {branch.status}
+      </div>
+    </button>
+  );
+};
+
+/**
+ * The hero picture: bring any agent, reach the program through the same tools,
+ * and let each one keep its tasks on branches of their own.
+ */
+const AgentBridge: React.FC = () => {
+  const [active, setActive] = React.useState(0);
+  const [shown, setShown] = React.useState(AGENTS.map(() => 0));
+
+  /** Clicking another agent selects it; clicking the selected one brings the
+      next of its branches to the front of the stack. */
+  const pick = (i: number) => {
+    if (i !== active) {
+      setActive(i);
+      return;
+    }
+    setShown(prev =>
+      prev.map((v, j) => (j === i ? (v + 1) % AGENTS[i].branches.length : v)),
+    );
+  };
+
+  return (
+    <div>
+      {/* the agents you might bring */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-3">
+        {AGENTS.map((a, i) => (
+          <button
+            key={a.id}
+            type="button"
+            onClick={() => pick(i)}
+            aria-pressed={i === active}
+            className="group flex flex-col items-center gap-2 py-1"
+          >
+            <span className="flex items-center gap-1.5">
+              {a.marks.map(({ Icon, brand }, m) => (
+                <Icon
+                  key={m}
+                  className={`h-7 w-7 transition ${
+                    a.marks.length > 1 ? "h-5 w-5" : ""
+                  } ${brand} ${i === active ? "" : "opacity-70 group-hover:opacity-100"}`}
+                />
+              ))}
+            </span>
+            <span
+              className={`text-xs 2xl:text-sm font-semibold transition ${
+                i === active ? "text-gray-900" : "text-gray-500"
+              }`}
+            >
+              {a.name}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      <Wires activeIndex={active} />
+
+      {/* whichever agent it is, it arrives through the same two doors */}
+      <div className="flex items-center justify-center gap-2.5 rounded-xl border border-blue-lbg/25 bg-blue-lbg/5 px-3 py-2.5">
+        <img
+          src="/assets/darklang-logo.png"
+          alt="Darklang"
+          className="h-5 w-auto"
+        />
+        <span className="h-5 w-px bg-blue-lbg/20" />
+        {["CLI", "MCP"].map(tool => (
+          <span
+            key={tool}
+            className="rounded-md bg-white px-2 py-0.5 font-code text-[0.7rem] 2xl:text-xs font-semibold text-blue-lbg shadow-sm"
+          >
+            {tool}
+          </span>
+        ))}
+      </div>
+
+      <Wires activeIndex={active} />
+
+      {/* and holds as many branches as it has tasks */}
+      <div className="grid grid-cols-3 items-start gap-2 sm:gap-3">
+        {AGENTS.map((a, i) => (
+          <BranchStack
+            key={a.id}
+            agent={a}
+            branchIndex={shown[i]}
+            active={i === active}
+            offset={i * 320}
+            onClick={() => pick(i)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* ------------------------------------------------------------------ */
+/* The shorter loop                                                    */
+/* ------------------------------------------------------------------ */
+
+const LOOP = ["understand", "change", "run", "inspect", "verify"];
+
+const LoopStrip: React.FC = () => (
+  <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2.5">
+    {LOOP.map((step, i) => (
+      <React.Fragment key={step}>
+        {i > 0 && (
+          <span className="text-gray-light" aria-hidden="true">
+            →
+          </span>
+        )}
+        <span className="rounded-full bg-blue-lbg/10 px-3 py-1 font-code text-xs 2xl:text-sm text-blue-lbg">
+          {step}
+        </span>
+      </React.Fragment>
+    ))}
+  </div>
+);
+
+/* ------------------------------------------------------------------ */
+/* From request to evidence                                            */
+/* ------------------------------------------------------------------ */
+
+/**
+ * The walk-through doubles as the capability list: each step carries the tools
+ * it uses and its own colour, so the six read as six distinct things rather
+ * than one point made six times.
+ */
+const WORKFLOW: {
+  tone: string;
+  icon: React.ReactNode;
+  kicker: string;
+  h: string;
+  p: React.ReactNode;
+  cmds?: { text: string; kind?: "cmd" | "confirm" }[];
+}[] = [
+  {
+    tone: "bg-blue-lbg/10 text-blue-lbg",
+    icon: (
+      <Icon>
+        <path d="M4 5h6M4 12h10M4 19h7" />
+        <circle cx="18" cy="17" r="3" />
+      </Icon>
+    ),
+    kicker: "tree / search / view",
+    h: "Find the Relevant Code",
+    p: "The agent searches the package tree and reads complete definitions, signatures, documentation, and exact dependencies. It asks Darklang what exists instead of scraping a repository and inferring the answer from text.",
+    cmds: [
+      { text: "dark tree Shop" },
+      { text: "dark view Shop.checkout" },
+      { text: "dark deps Shop.checkout" },
+    ],
+  },
+  {
+    tone: "bg-rose/15 text-acc-pink",
+    icon: (
+      <Icon>
+        <line x1="6" y1="3" x2="6" y2="15" />
+        <circle cx="18" cy="6" r="3" />
+        <circle cx="6" cy="18" r="3" />
+        <path d="M18 9a9 9 0 01-9 9" />
+      </Icon>
+    ),
+    kicker: "branch / commit",
+    h: "Work in Isolation",
+    p: (
+      <>
+        Each task gets its own{" "}
+        <Link className="underline decoration-gray-300" to="/source-control">
+          branch
+        </Link>
+        . In-progress changes stay there, separate from main and from another
+        agent's work, and attributed until a person decides to merge them.
+      </>
+    ),
+    cmds: [{ text: "dark branch create checkout-fix" }],
+  },
+  {
+    tone: "bg-purple-lbg/10 text-purple-dbg",
+    icon: (
+      <Icon>
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+      </Icon>
+    ),
+    kicker: "fn / type / val",
+    h: "Make a Focused Change",
+    p: "The agent creates or replaces a function, type, or value as a named program item. The change stays focused on what the agent meant to edit instead of arriving as a broad text patch. Write access can require confirmation, while read-only tasks cannot change anything.",
+    cmds: [
+      {
+        text: "Allow: update function Shop.checkout? [y/N]",
+        kind: "confirm",
+      },
+    ],
+  },
+  {
+    tone: "bg-olive/15 text-acc-green",
+    icon: (
+      <Icon>
+        <path d="M6 4l12 8-12 8V4z" />
+      </Icon>
+    ),
+    kicker: "eval / run",
+    h: "Run the Affected Path",
+    p: "The agent evaluates the function it changed with a representative input and reads the result immediately. No project bootstrap or separate compile pipeline stands between a question and an answer.",
+    cmds: [{ text: "dark eval 'Shop.checkout(outOfStockCart)'" }],
+  },
+  {
+    tone: "bg-mint/20 text-acc-teal",
+    icon: (
+      <Icon>
+        <path d="M3 12h4l3 7 4-14 3 7h4" />
+      </Icon>
+    ),
+    kicker: "traces",
+    h: "Inspect What Actually Happened",
+    p: (
+      <>
+        <Link className="underline decoration-gray-300" to="/traceDriven">
+          Traces
+        </Link>{" "}
+        show the execution: nested calls, values, timing, and errors. An agent
+        debugging a real run works from what happened instead of guessing from
+        scattered log lines.
+      </>
+    ),
+    cmds: [
+      { text: "dark traces list --fn Shop.checkout" },
+      { text: "dark traces view <id>" },
+    ],
+  },
+  {
+    tone: "bg-sand/25 text-acc-amber",
+    icon: (
+      <Icon>
+        <circle cx="6" cy="6" r="2.5" />
+        <circle cx="18" cy="6" r="2.5" />
+        <circle cx="12" cy="18" r="2.5" />
+        <path d="M7.6 8L11 15.6M16.4 8L13 15.6" />
+      </Icon>
+    ),
+    kicker: "deps / status",
+    h: "Hand the Work Back",
+    p: "Darklang reports the changed definitions and everything that depends on them, so the agent can explain what it changed, what it verified, and what the change might influence. Commit and merge remain separate decisions.",
+    cmds: [{ text: "dark status" }, { text: "dark review" }],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* Mindful vibe coding                                                 */
+/* ------------------------------------------------------------------ */
+
+/** A line icon on the same 24x24 grid as the rest of the page's icons. */
+const LineIcon: React.FC<{ children: React.ReactNode; className?: string }> = ({
+  children,
+  className = "",
+}) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.7"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-hidden="true"
+  >
+    {children}
+  </svg>
+);
+
+/** The underline you would scribble under something worth remembering. */
+const Squiggle: React.FC<{ className?: string }> = ({ className = "" }) => (
+  <svg
+    viewBox="0 0 220 10"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    className={className}
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path d="M3 6.5c28-3.5 56-4.5 84-3.5s56 3.4 84 1.6" />
+  </svg>
+);
+
+const LEGIBILITY: {
+  h: string;
+  tone: string;
+  icon: React.ReactNode;
+  p: React.ReactNode;
+}[] = [
+  {
+    h: "See When It Reaches Outside",
+    tone: "text-acc-amber",
+    icon: (
+      <>
+        <path d="M19 13.5V19a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1h5.5" />
+        <path d="M14 4h6v6" />
+        <path d="M20 4l-8.5 8.5" />
+      </>
+    ),
+    p: "Network requests, file access, subprocesses, datastore operations, and model calls cross explicit capability boundaries. You can see when the program reaches beyond itself.",
+  },
+  {
+    h: "Notice New Capabilities",
+    tone: "text-acc-pink",
+    icon: (
+      <>
+        <circle cx="8" cy="16" r="4" />
+        <path d="M10.9 13.1L20 4" />
+        <path d="M17 7l2.5 2.5" />
+        <path d="M14.5 9.5L17 12" />
+      </>
+    ),
+    p: "If a change requires access the program did not previously need, such as calling an API, reading a secret, writing to a datastore, or invoking a model, Darklang makes that new capability explicit.",
+  },
+  {
+    h: "Set the Boundaries",
+    tone: "text-blue-lbg",
+    icon: (
+      <>
+        <path d="M4 6h16M4 12h16M4 18h16" />
+        <circle cx="9" cy="6" r="2" />
+        <circle cx="15" cy="12" r="2" />
+        <circle cx="7.5" cy="18" r="2" />
+      </>
+    ),
+    p: "Choose read-only access, confirm individual writes, or explicitly allow unattended work. Grant only the file, network, environment, datastore, subprocess, and model capabilities the task needs.",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* Build AI in Darklang                                                */
+/* ------------------------------------------------------------------ */
+
+const AGENT_CODE = `module Research
+
+val agent =
+  Agent.create ()
+  |> Agent.withSystemPrompt
+       "Research carefully. Cite sources."
+  |> Agent.withModel Models.Anthropic.sonnet46
+  |> Agent.withWebSearch
+  |> Agent.withWebFetchCitations
+  |> Agent.withMaxTurns 3
+
+let research (topic: String) =
+  Agent.run agent $"Research: {topic}"`;
+
+/* ------------------------------------------------------------------ */
+/* Examples                                                            */
+/* ------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------ */
+/* Page                                                                */
+/* ------------------------------------------------------------------ */
+
+const TINT = "bg-gray-50";
 
 const AI: React.FC = () => {
+  const btn = "inline-block rounded-full px-6 py-3 font-semibold transition";
+  const primary = `${btn} bg-blue-lbg text-white hover:bg-[#5f66a8]`;
+
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-20">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Built for the AI Era
-          </h1>
-          <div className="w-28 h-1 bg-blue-lbg mx-auto rounded-full"></div>
-          <p className="text-xl 2xl:text-2xl text-gray-600 mt-6 max-w-4xl 2xl:max-w-6xl mx-auto">
-            Darklang is designed from the ground up for AI-powered development.
-            From AI-friendly syntax to built-in model integration, we're
-            building the platform for the future of software development.
-          </p>
+    <div className="overflow-x-clip">
+      {/* ===================== HERO ===================== */}
+      <Shell>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-14">
+          <div>
+            <Eyebrow>Darklang + AI</Eyebrow>
+            <h1 className="mb-6 text-4xl font-bold leading-[1.1] tracking-tight text-gray-900 md:text-5xl 2xl:text-6xl">
+              Bring Your Agent.
+              <br />
+              <span className="text-blue-lbg">Dark Brings the Context</span>
+            </h1>
+            <Body>
+              Use your favorite coding agent with structured access to your
+              whole Darklang program: its functions, types, dependencies,
+              runtime, traces, and source control. Your agent can explore,
+              change, run, and verify its work without piecing the project
+              together from files and build scripts.
+            </Body>
+          </div>
+
+          <div className="min-w-0">
+            <AgentBridge />
+          </div>
+        </div>
+      </Shell>
+
+      {/* ===================== COMPATIBILITY ===================== */}
+      <Shell className={TINT}>
+        {/* a short bridge between the hero and the thesis: text only, on
+            purpose. Anything visual here repeats one or the other. */}
+        <div className="max-w-6xl">
+          <H2 className="mb-4">Use Your Favorite Agents Today</H2>
+          <Body className="mb-4">
+            Claude Code, Codex, and other agents that can call command-line or
+            MCP tools can work with Darklang today. We're also building a
+            specialized Darklang agent for a deeper, native experience.
+          </Body>
+          <Body>
+            Building AI products? Choose Anthropic, OpenAI, or a local model
+            through Ollama. Switching providers is a configuration change, not a
+            rewrite.
+          </Body>
+        </div>
+      </Shell>
+
+      {/* ===================== THESIS ===================== */}
+      <Shell id="build-with">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <Eyebrow>One integrated system</Eyebrow>
+            <H2 className="mb-4">
+              Give Agents a Working Environment, Not a Pile of Text
+            </H2>
+            <Body className="mb-4">
+              Most coding agents begin by reconstructing the program. They
+              search folders, open files, guess which symbols matter, assemble
+              build commands, and interpret logs made for people.
+            </Body>
+            <Body>
+              Darklang already knows the structure of the program. Its language,
+              package manager, source control, runtime, and developer tools
+              share one model of every definition and relationship. The CLI and
+              MCP tools make that model available to an agent directly.
+            </Body>
+          </div>
+
+          <div className="text-center lg:self-center">
+            <p className="mb-3 text-[0.7rem] font-bold uppercase tracking-[0.11em] text-gray-light">
+              The result is a shorter loop
+            </p>
+            <LoopStrip />
+            <p className="mt-4 text-base 2xl:text-lg text-gray-600">
+              Less context assembly. More useful work.
+            </p>
+          </div>
+        </div>
+      </Shell>
+
+      {/* ===================== WORKFLOW ===================== */}
+      <Shell id="workflow">
+        <div className="mb-10 max-w-3xl">
+          <Eyebrow>From request to evidence</Eyebrow>
+          <H2 className="mb-4">Trusting the Result Is the Hard Part</H2>
+          <Body>
+            Giving an agent access is easy. Darklang gives it a tight,
+            inspectable path from a request to an evidence-backed result.
+          </Body>
         </div>
 
-        {/* Introduction */}
-        <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50 p-8 mb-20 shadow-sm border border-purple-100">
-          {/* Decorative elements */}
-          <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-purple-100/40 blur-2xl"></div>
-          <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-indigo-100/40 blur-2xl"></div>
-
-          <div className="relative">
-            {/* Icon + Title header */}
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center justify-center rounded-full bg-purple-100 p-2 text-purple-lbg">
-                <svg
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+        <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {WORKFLOW.map(s => (
+            <li
+              key={s.h}
+              className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6"
+            >
+              <div className="mb-4 flex items-center gap-3">
+                <span
+                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${s.tone}`}
                 >
-                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                  <rect x="9" y="9" width="6" height="6"></rect>
-                  <line x1="4" y1="9" x2="0" y2="9"></line>
-                  <line x1="4" y1="15" x2="0" y2="15"></line>
-                  <line x1="20" y1="9" x2="24" y2="9"></line>
-                  <line x1="20" y1="15" x2="24" y2="15"></line>
-                  <line x1="9" y1="4" x2="9" y2="0"></line>
-                  <line x1="15" y1="4" x2="15" y2="0"></line>
-                  <line x1="9" y1="20" x2="9" y2="24"></line>
-                  <line x1="15" y1="20" x2="15" y2="24"></line>
-                </svg>
+                  {s.icon}
+                </span>
+                <span className="font-code text-xs 2xl:text-sm text-gray-light">
+                  {s.kicker}
+                </span>
               </div>
-              <h2 className="text-2xl font-bold text-purple-dbg">
-                Why AI-First Matters
-              </h2>
-            </div>
-
-            {/* Content */}
-            <div className="space-y-4">
-              <p className="text-gray-700 2xl:text-lg leading-relaxed">
-                The age of AI code generation is here, but most programming
-                languages weren't designed for it. Darklang is different. We've
-                built our language, tooling, and platform specifically to work
-                seamlessly with AI models, whether you're using GitHub Copilot,
-                ChatGPT, or building your own AI agents.
-              </p>
-              <p className="text-gray-700 leading-relaxed 2xl:text-lg">
-                This isn't just about better autocomplete—it's about
-                fundamentally reimagining how humans and AI collaborate to build
-                software.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* AI for Development */}
-        <div className="mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">
-            AI-Enhanced Development Experience
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Forgiving Parser */}
-            <div className="bg-white rounded-lg shadow-md p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-lbg rounded-lg flex items-center justify-center mr-4">
-                  <svg
-                    className="w-6 h-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  Generous Parser
-                </h3>
-              </div>
-              <p className="text-gray-700 leading-relaxed 2xl:text-lg mb-4 2xl:text-lg">
-                Our parser is designed to understand AI-generated code, even
-                when it's not perfect. Minor syntax errors that would break
-                other languages are automatically corrected, making AI
-                collaboration seamless.
-              </p>
-              <div className="bg-gray-50 p-4 rounded-md">
-                <p className="text-sm 2xl:text-base text-gray-600">
-                  <strong>Example:</strong> AI writes code with inconsistent
-                  spacing or missing semicolons? Darklang just works with it.
-                </p>
-              </div>
-            </div>
-
-            {/* Copilot Integration */}
-            <div className="bg-white rounded-lg shadow-md p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-mint rounded-lg flex items-center justify-center mr-4">
-                  <svg
-                    className="w-6 h-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  Copilot Ready
-                </h3>
-              </div>
-              <p className="text-gray-700 leading-relaxed 2xl:text-lg mb-4 2xl:text-lg">
-                Built-in support for GitHub Copilot and other AI coding
-                assistants. Our language syntax and patterns are optimized for
-                AI understanding and generation, resulting in more accurate
-                suggestions.
-              </p>
-              <div className="bg-gray-50 p-4 rounded-md">
-                <p className="text-sm 2xl:text-base text-gray-600">
-                  <strong>Future:</strong> Cross-language translation powered by
-                  AI—import functions from Python or JavaScript automatically.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Model Integration */}
-        <div className="mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Flexible Model Integration
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-lbg rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
-                Bring Your Own Model
+              <h3 className="mb-1.5 font-bold text-gray-900 2xl:text-lg">
+                {s.h}
               </h3>
-              <p className="text-sm 2xl:text-base text-gray-600">
-                Use OpenAI, Anthropic, local models, or any API-accessible AI
-                service. No vendor lock-in, just flexible integration.
+              <p className="mb-4 leading-relaxed text-gray-600 2xl:text-lg">
+                {s.p}
               </p>
-            </div>
+              {s.cmds && <Cmds items={s.cmds} />}
+            </li>
+          ))}
+        </ol>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-lbg rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
-                Local Development
-              </h3>
-              <p className="text-sm 2xl:text-base text-gray-600">
-                Run models locally for privacy-sensitive work or offline
-                development. Seamless switching between local and cloud models.
-              </p>
-            </div>
+        <p className="mt-8 border-l-2 border-blue-lbg/40 pl-4 text-base md:text-lg 2xl:text-xl leading-relaxed text-gray-600">
+          One task. One branch. One result you can understand.
+        </p>
+      </Shell>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-mint rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2 2xl:text-lg">
-                Package Ecosystem
-              </h3>
-              <p className="text-sm 2xl:text-base text-gray-600">
-                Pre-built packages for popular AI services. Connect to any model
-                with just a few lines of code.
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* ===================== MINDFUL VIBE CODING ===================== */}
+      <Shell id="safety">
+        <div className="mx-auto max-w-6xl text-center">
+          <Eyebrow>Mindful vibe coding</Eyebrow>
+          <Body className="mb-8">
+            Let the agent explore and create without losing sight of where it
+            goes or what it can access.
+          </Body>
 
-        {/* Building AI Applications */}
-        <div className="mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Building AI-Powered Applications
+          {/* the section's heading, in the hand you would write it in */}
+          <h2 className="font-caveat text-3xl 2xl:text-4xl leading-snug text-blue-lbg">
+            Boundaries live in the program, not in the prompt.
           </h2>
-          <div className="text-gray-700 leading-relaxed 2xl:text-lg space-y-6">
-            <p>
-              Darklang isn't just designed for AI-assisted development—it's
-              built for creating AI-powered applications. Whether you're
-              building chatbots, content generation tools, or sophisticated AI
-              agents, Darklang provides the infrastructure and tools you need.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  Automatic SDK Generation
-                </h3>
-                <p className="text-sm 2xl:text-base text-gray-600">
-                  Generate client SDKs for any service automatically. Expose
-                  your AI-powered APIs to any platform without writing
-                  boilerplate code.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  Prompt Engineering Tools
-                </h3>
-                <p className="text-sm 2xl:text-base text-gray-600">
-                  Built-in tools for prompt versioning, A/B testing, and
-                  optimization. Treat prompts as first-class code with proper
-                  version control.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  AI Agent Framework
-                </h3>
-                <p className="text-sm 2xl:text-base text-gray-600">
-                  Build sophisticated AI agents that can interact with your
-                  APIs, databases, and external services. Full traceability and
-                  debugging support.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  Model Training Pipeline
-                </h3>
-                <p className="text-sm 2xl:text-base text-gray-600">
-                  Train and deploy custom models directly in Darklang. From data
-                  preparation to model serving, all in one integrated platform.
-                </p>
-              </div>
-            </div>
-          </div>
+          <Squiggle className="mx-auto mt-1 h-2.5 w-80 max-w-full text-blue-lbg/40" />
         </div>
 
-        {/* Native AI Integration */}
-        <div className="mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Native AI Integration
-          </h2>
-          <div className="text-gray-700 leading-relaxed 2xl:text-lg space-y-4">
-            <p>
-              Unlike other platforms that require external frameworks and
-              libraries, Darklang has AI integration built into its core. This
-              means simpler, more reliable AI workflows without the complexity
-              of external dependencies.
-            </p>
-
-            <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-800 mb-3">
-                Native Prompt Pipelines
+        <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {LEGIBILITY.map(item => (
+            <div key={item.h}>
+              <LineIcon className={`mb-4 h-8 w-8 ${item.tone}`}>
+                {item.icon}
+              </LineIcon>
+              <h3 className="mb-1.5 font-bold text-gray-900 2xl:text-lg">
+                {item.h}
               </h3>
-              <p className="text-gray-700 mb-3">
-                Chain AI operations together using Darklang's pipeline syntax.
-                No external libraries, no complex configuration—just clean,
-                readable code that does what you expect.
+              <p className="leading-relaxed text-gray-600 2xl:text-lg">
+                {item.p}
               </p>
-              <div className="text-sm 2xl:text-base text-gray-600 font-mono bg-white p-3 rounded">
-                user_input |&gt; sanitize |&gt; generate_response |&gt;
-                format_output
-              </div>
             </div>
+          ))}
+        </div>
+      </Shell>
 
-            <div className="grid md:grid-cols-2 gap-4 mt-6">
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-3 flex-shrink-0"></span>
-                <div>
-                  <strong>Streaming by default:</strong> Real-time response
-                  streaming without complex async handling
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-purple-lbg rounded-full mt-3 mr-3 flex-shrink-0"></span>
-                <div>
-                  <strong>Error handling:</strong> Built-in retry logic and
-                  fallback strategies for model failures
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-mint rounded-full mt-3 mr-3 flex-shrink-0"></span>
-                <div>
-                  <strong>Cost optimization:</strong> Automatic model selection
-                  based on task complexity and budget
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-taupe rounded-full mt-3 mr-3 flex-shrink-0"></span>
-                <div>
-                  <strong>Observability:</strong> Full tracing of AI operations
-                  for debugging and optimization
-                </div>
-              </div>
+      {/* ============ BUILD AI: the second story starts here, marked by
+           the change of background and accent rather than a rule ============ */}
+      <Shell id="build-ai">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+          <div>
+            <Eyebrow tone="purple">Build AI in Darklang</Eyebrow>
+            <H2 className="mb-4">
+              An Agent Loop Is a Library, Not an Architecture Diagram
+            </H2>
+            <Body className="mb-4">
+              Darklang is not only an environment for coding agents. It is also
+              a place to build them. Start with a prompt, choose a model, attach
+              ordinary typed Darklang functions as tools, and run the loop in
+              the same language as the rest of your application.
+            </Body>
+            <Body className="mb-6">
+              Darklang handles messages, tool calls, results, retries, usage,
+              and multi-turn execution. Your business logic remains normal
+              application code that can be run, traced, and tested
+              independently.
+            </Body>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl bg-dark-black shadow-2xl">
+            <div className="flex items-center gap-1.5 bg-[#28282a] px-5 py-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#4a4a4e]" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#4a4a4e]" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#4a4a4e]" />
+              <span className="ml-2 font-code text-xs text-gray-500">
+                research.dark
+              </span>
+            </div>
+            <div className="hljs-dark overflow-x-auto px-5 py-4 text-sm text-gray-300">
+              <CodeDisplay
+                language="fsharp"
+                showLineNumbers={false}
+                code={AGENT_CODE}
+              />
             </div>
           </div>
         </div>
 
-        {/* MCP Server Integration */}
-        <div className="mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            MCP Server for Tool Integration
-          </h2>
-          <div className="text-gray-700 leading-relaxed 2xl:text-lg space-y-4">
-            <p>
-              Darklang provides an MCP (Model Context Protocol) server that
-              enables seamless integration with AI tools like Claude Code. This
-              allows AI assistants to both access your Darklang data and invoke
-              functions directly within your Darklang environment.
-            </p>
+        <div className="mt-12 max-w-6xl">
+          <h3 className="mb-3 text-xl 2xl:text-2xl font-bold tracking-tight text-gray-900">
+            Typed Tools In. Inspectable Results Out.
+          </h3>
+          <Body className="mb-4">
+            Connect a tool to an ordinary typed Darklang function and provide
+            its name, description, and input schema. The selected model can call
+            it, read the result, and continue within the limits you set.
+          </Body>
+          <Body>
+            The final response, tool-call history, usage, citations, and errors
+            return as values your program can inspect, store, and act on.
+          </Body>
+        </div>
+      </Shell>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  Data Access
-                </h3>
-                <p className="text-sm 2xl:text-base text-gray-800 mb-3">
-                  AI tools can read your Darklang code, examine function
-                  signatures, browse your package dependencies, and understand
-                  your application structure.
-                </p>
-                <div className="text-sm 2xl:text-base text-gray-700">
-                  Perfect for: Code reviews, documentation generation, debugging
-                  assistance
-                </div>
-              </div>
+      {/* ===================== MCP ===================== */}
+      <Shell>
+        <div className="rounded-2xl border border-gray-200 bg-white p-8 md:p-10">
+          <div className="max-w-6xl">
+            <div>
+              <Eyebrow tone="purple">Model Context Protocol</Eyebrow>
+              <H2 className="mb-4">Turn Darklang Functions into Agent Tools</H2>
+              <Body className="mb-6">
+                Expose typed Darklang functions, resources, and prompts to any
+                MCP-compatible client. They run as ordinary Darklang code, with
+                explicit capabilities, direct execution, and runtime traces.
+              </Body>
 
-              <div className="bg-mint/8 p-6 rounded-lg ">
-                <h3 className="font-semibold text-gray-800 mb-3">
-                  Function Execution
-                </h3>
-                <p className="text-sm 2xl:text-base text-gray-800 mb-3">
-                  AI assistants can directly call your Darklang functions and
-                  use your custom tools, making them powerful extensions of your
-                  development environment.
-                </p>
-                <div className="text-sm 2xl:text-base text-gray-700">
-                  Perfect for: Testing functions, data processing, workflow
-                  automation
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-purple-50 p-6 rounded-lg mt-4">
-              <h3 className="font-semibold text-gray-800 mb-3">
-                Build Your Own MCP Servers
-              </h3>
-              <p className="text-sm 2xl:text-base text-gray-800 mb-3">
-                Create custom MCP servers entirely in Darklang to extend AI
-                capabilities with your domain-specific tools and data. Compose
-                multiple MCP servers together for powerful AI workflows tailored
-                to your exact needs.
-              </p>
-              <div className="text-sm 2xl:text-base text-gray-700">
-                <strong>Example:</strong> Build an MCP server that connects AI
-                tools to your customer database, inventory system, and analytics
-                platform—all using Darklang functions.
+              {/* the protocol surface, named and left at that */}
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 font-code text-xs 2xl:text-sm text-purple-dbg">
+                {["tools", "resources", "prompts", "progress", "logging"].map(
+                  (name, i) => (
+                    <React.Fragment key={name}>
+                      {i > 0 && (
+                        <span className="text-gray-300" aria-hidden="true">
+                          ·
+                        </span>
+                      )}
+                      <span>{name}</span>
+                    </React.Fragment>
+                  ),
+                )}
               </div>
             </div>
           </div>
         </div>
+      </Shell>
 
-        {/* Future Capabilities */}
-        <div className="">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            The Future of AI Development
-          </h2>
-          <div className="text-gray-700 leading-relaxed 2xl:text-lg space-y-4">
-            <p>
-              We're just getting started. Darklang's AI capabilities will
-              continue to evolve as the AI landscape develops. Here's what we're
-              working on:
-            </p>
+      {/* ===================== CLOSING ===================== */}
+      <Shell className={TINT}>
+        <div className="max-w-6xl">
+          <H2 className="mb-4">
+            Give Your Agent a Program It Can Actually Understand
+          </H2>
+          <Body className="mb-8">
+            Bring the coding agent you already use, or build the AI product you
+            have in mind. Darklang gives both a structured program, a live
+            runtime, and clear boundaries for getting useful work done.
+          </Body>
 
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <span className="w-3 h-3 bg-mint rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                <div>
-                  <strong>Vector Database Integration:</strong> Native support
-                  for vector databases and embedding operations for AI
-                  applications
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="w-3 h-3 bg-blue-lbg rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                <div>
-                  <strong>Multi-Modal Support:</strong> Built-in handling for
-                  text, images, audio, and video in AI workflows
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="w-3 h-3 bg-purple-lbg rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                <div>
-                  <strong>AI-Generated Packages:</strong> Automatically generate
-                  Darklang packages from API documentation using AI
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="w-3 h-3 bg-taupe rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                <div>
-                  <strong>Collaborative AI Agents:</strong> AI agents that can
-                  modify and improve code collaboratively with human developers
-                </div>
-              </div>
-            </div>
-
-            <p className="mt-6 text-lg font-medium text-blue-lbg">
-              The age of AI-human collaboration in software development is here.
-              Darklang is your platform for building in this new era.
-            </p>
-          </div>
+          <Link className={primary} to="/getting-started">
+            Install Darklang
+          </Link>
         </div>
-      </div>
+      </Shell>
     </div>
   );
 };

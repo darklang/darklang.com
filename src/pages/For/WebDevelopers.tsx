@@ -321,7 +321,7 @@ const WebDevelopers: React.FC = () => {
         {/* Framework Integration */}
         <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Works With Your Favorite Frontend
+            Works with Your Favorite Frontend
           </h2>
           <div className="text-gray-700 leading-relaxed space-y-4">
             <p>

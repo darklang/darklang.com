@@ -9,12 +9,15 @@ interface CodeDisplayProps {
   code: string;
   language?: string;
   showLineNumbers?: boolean;
+  /** "base" steps up to text-base on desktop; "sm" stays small throughout. */
+  size?: "base" | "sm";
 }
 
 const CodeDisplay: React.FC<CodeDisplayProps> = ({
   code,
   language = "fsharp",
   showLineNumbers = true,
+  size = "base",
 }) => {
   const [highlightedCode, setHighlightedCode] = useState("");
 
@@ -38,7 +41,11 @@ const CodeDisplay: React.FC<CodeDisplayProps> = ({
   }, [code, language, showLineNumbers]);
 
   return (
-    <div className="hljs-pre code-with-line-numbers whitespace-pre text-sm md:text-base">
+    <div
+      className={`hljs-pre code-with-line-numbers whitespace-pre ${
+        size === "sm" ? "text-sm" : "text-sm md:text-base"
+      }`}
+    >
       <pre>
         <code
           className={`language-${language}`}

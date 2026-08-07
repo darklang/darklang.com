@@ -82,7 +82,7 @@ const TraceDrivenDevelopment: React.FC = () => {
         <div className="grid md:grid-cols-5 gap-2">
           {/* Left Side Content */}
           <div className="md:col-span-3 flex flex-col justify-center ">
-            <SectionTitle subtitle="Trace-driven development">
+            <SectionTitle subtitle="Trace-Driven Development">
               Development with Real Data
             </SectionTitle>
 
@@ -125,7 +125,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                 ></TraceCard>
 
                 <TraceCard
-                  title="Function calls"
+                  title="Function Calls"
                   icon={<FnIcon className="w-4 h-4 text-purple-lbg" />}
                   description="Inspect function inputs, outputs, and performance metrics. Debug complex operations with detailed traces."
                   traceData={fnCallTraceData}
@@ -133,7 +133,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                 ></TraceCard>
 
                 <TraceCard
-                  title="CLI application calls"
+                  title="CLI Application Calls"
                   icon={<CliIcon className="w-4 h-4 text-blue-lbg" />}
                   description="Track CLI operations with detailed input and output records. Monitor script execution, environment variables, and command results for easy debugging."
                   traceData={cliTraceData}
@@ -144,7 +144,7 @@ const TraceDrivenDevelopment: React.FC = () => {
               {/* Right column of cards */}
               <div className="space-y-5 mt-12">
                 <TraceCard
-                  title="Worker emits"
+                  title="Worker Emits"
                   icon={<WorkerIcon className="w-4 h-4 text-taupe" />}
                   description="Track and monitor background workers and their execution. Observe task processing in real-time."
                   traceData={workerTraceData}
@@ -152,7 +152,7 @@ const TraceDrivenDevelopment: React.FC = () => {
                 ></TraceCard>
 
                 <TraceCard
-                  title="CRON responses"
+                  title="CRON Responses"
                   icon={<CronIcon className="w-4 h-4 text-tan" />}
                   description="Monitor scheduled tasks and their execution results. Ensure automation runs correctly with real data."
                   traceData={cronTraceData}

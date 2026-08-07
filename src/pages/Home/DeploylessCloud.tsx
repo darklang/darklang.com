@@ -61,13 +61,13 @@ const DeploylessCloud: React.FC = () => {
             </h2>
             <FeatureCard
               icon={<LightningIcon />}
-              title="Write code and it's immediately available"
+              title="Write Code and It's Immediately Available"
               description="No build step, no wait time, no deployment pipeline—your code is live as soon as you save. The language runtime IS the infrastructure."
             />
 
             <FeatureCard
               icon={<LightningIcon />}
-              title="Feature flags for controlled rollouts"
+              title="Feature Flags for Controlled Rollouts"
               description="Control exactly when and for whom new features go live. Test in production safely with instant rollback capability"
             />
 
@@ -79,18 +79,18 @@ const DeploylessCloud: React.FC = () => {
 
             <FeatureCard
               icon={<LightningIcon />}
-              title="Integrated code review and testing"
+              title="Integrated Code Review and Testing"
               description="Review code, run tests, and collaborate seamlessly in one place"
             />
           </div>
 
           <div className="space-y-12">
             <h2 className="text-xl md:text-2xl 2xl:text-3xl font-semibold text-purple-lbg mb-8 text-center">
-              Zero setup infrastructure
+              Zero Setup Infrastructure
             </h2>
             <FeatureCard
               icon={<LightningIcon />}
-              title="Instant infrastructure creation"
+              title="Instant Infrastructure Creation"
               description="Language-native HTTP handlers, Databases, CRONs and queues, without thinking about servers, containers, or deployment"
             />
 

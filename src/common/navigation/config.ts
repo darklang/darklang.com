@@ -24,6 +24,7 @@ export const navigationConfig: NavigationSection[] = [
     type: "dropdown",
     items: [
       { text: "Language", href: "/language" },
+      { text: "Package Manager", href: "/package-manager" },
       { text: "Type-Checking", href: "/type-checking" },
       { text: "Execution", href: "/execution" },
       { text: "Distribution", href: "/distribution" },
@@ -72,7 +73,8 @@ export const navigationConfig: NavigationSection[] = [
       { text: "About", href: "/company" },
       { text: "Sustainability", href: "/company/sustainability" },
       { text: "What We Say No To", href: "/no" },
-      { text: "Stats & Usage", href: "/stats" },
+      // hidden for now; the /stats route still resolves if visited directly
+      // { text: "Stats & Usage", href: "/stats" },
       { text: "Sharing Darklang", href: "/sharing" },
       { text: "Newsletter", href: "/newsletter" },
       { text: "Blog", href: "https://blog.darklang.com/", target: "_blank" },

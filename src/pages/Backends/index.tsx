@@ -1,4 +1,5 @@
 import React from "react";
+import BackendFeatures from "../Home/BackendFeatures";
 
 const Backends: React.FC = () => {
   return (
@@ -404,6 +405,7 @@ const Backends: React.FC = () => {
           </div>
         </div>
       </div>
+      <BackendFeatures />
     </div>
   );
 };

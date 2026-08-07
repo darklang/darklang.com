@@ -21,7 +21,7 @@ const Layout = () => {
         currentPage.startsWith("packages/") ? (
           <></>
         ) : (
-          <Banner text="Features described on this site represent our direction and vision, with implementations rolling out progressively" />
+          <Banner text="Some features described on this site represent our direction and vision, with implementations rolling out progressively" />
         )}
 
         {!currentPage.startsWith("packages/") && (

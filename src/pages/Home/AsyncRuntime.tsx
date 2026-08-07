@@ -29,7 +29,7 @@ const AsyncRuntime = () => {
   return (
     <section className="py-20">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4">
-        <SectionTitle subtitle="Simplified concurrency">
+        <SectionTitle subtitle="Simplified Concurrency">
           Async Runtime
         </SectionTitle>
 
@@ -60,8 +60,8 @@ const AsyncRuntime = () => {
               title={
                 <>
                   <span className="text-purple-lbg">Concurrent</span> and{" "}
-                  <span className="text-purple-lbg">parallel</span> execution
-                  via data-dependencies
+                  <span className="text-purple-lbg">Parallel</span> Execution
+                  via Data-Dependencies
                 </>
               }
               description={
@@ -86,8 +86,8 @@ const AsyncRuntime = () => {
             <FeatureCard
               title={
                 <>
-                  Fully <span className="text-purple-lbg">asynchronous</span>{" "}
-                  runtime
+                  Fully <span className="text-purple-lbg">Asynchronous</span>{" "}
+                  Runtime
                 </>
               }
               description={
@@ -102,7 +102,7 @@ const AsyncRuntime = () => {
               title={
                 <>
                   Powerful{" "}
-                  <span className="text-purple-lbg">escape hatches</span>
+                  <span className="text-purple-lbg">Escape Hatches</span>
                 </>
               }
               description={

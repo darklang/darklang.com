@@ -3,6 +3,7 @@ import React from "react";
 import Terminal from "../../common/ui/Terminal.tsx";
 // import Button from "../../common/ui/Button.tsx";
 // import CTASection from "../../common/ui/CTASection/index.tsx";
+import CLI from "../Home/CLI";
 
 const CLIPage: React.FC = () => {
   return (
@@ -394,6 +395,7 @@ const CLIPage: React.FC = () => {
           </Button>
         </div>
       </CTASection> */}
+      <CLI />
     </div>
   );
 };

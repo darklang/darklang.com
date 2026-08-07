@@ -42,5 +42,6 @@ workflows:
               only:
                 - main
                 - wip
+                - wip2
           requires:
             - build

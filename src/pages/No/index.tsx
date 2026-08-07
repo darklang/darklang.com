@@ -23,19 +23,19 @@ const No: React.FC = () => {
             No Development Cruft
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-rust/3 rounded-lg p-6  border-rust/70">
+            <div className="bg-blue-lbg/4 rounded-lg p-6">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Language Complexity
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-semibold text-rust">No null:</span>
+                  <span className="font-semibold text-blue-lbg">No null:</span>
                   <span className="text-gray-600 ml-2">
                     Use Option types for safety
                   </span>
                 </div>
                 <div>
-                  <span className="font-semibold text-rust">
+                  <span className="font-semibold text-blue-lbg">
                     No exceptions:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -43,7 +43,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-semibold text-rust">
+                  <span className="font-semibold text-blue-lbg">
                     No OOP/inheritance:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -51,7 +51,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-semibold text-rust">
+                  <span className="font-semibold text-blue-lbg">
                     No async/await:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -61,13 +61,13 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-rust/3 rounded-lg p-6  border-rust/70">
+            <div className="bg-blue-lbg/4 rounded-lg p-6">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Build System Chaos
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-semibold text-rust">
+                  <span className="font-semibold text-blue-lbg">
                     No build systems:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -75,7 +75,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-semibold text-rust">
+                  <span className="font-semibold text-blue-lbg">
                     No compilation:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -83,7 +83,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-semibold text-rust">
+                  <span className="font-semibold text-blue-lbg">
                     No dev environments:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -91,7 +91,7 @@ const No: React.FC = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="font-semibold text-rust">
+                  <span className="font-semibold text-blue-lbg">
                     No dependency hell:
                   </span>
                   <span className="text-gray-600 ml-2">
@@ -101,19 +101,21 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-rust/3 rounded-lg p-6  border-rust/70">
+            <div className="bg-blue-lbg/4 rounded-lg p-6">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Packaging Nightmares
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-semibold text-rust">No packaging:</span>
+                  <span className="font-semibold text-blue-lbg">
+                    No packaging:
+                  </span>
                   <span className="text-gray-600 ml-2">
                     Function-level distribution
                   </span>
                 </div>
                 <div>
-                  <span className="font-semibold text-rust">No ORMs:</span>
+                  <span className="font-semibold text-blue-lbg">No ORMs:</span>
                   <span className="text-gray-600 ml-2">
                     Built-in type-safe database
                   </span>
@@ -121,19 +123,19 @@ const No: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-rust/3 rounded-lg p-6  border-rust/70">
+            <div className="bg-blue-lbg/4 rounded-lg p-6">
               <h3 className="font-semibold text-gray-800 mb-4">
                 Version Control Complexity
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-semibold text-rust">No git:</span>
+                  <span className="font-semibold text-blue-lbg">No git:</span>
                   <span className="text-gray-600 ml-2">
                     Content-addressable source control
                   </span>
                 </div>
                 <div>
-                  <span className="font-semibold text-rust">
+                  <span className="font-semibold text-blue-lbg">
                     No GitHub workflows:
                   </span>
                   <span className="text-gray-600 ml-2">

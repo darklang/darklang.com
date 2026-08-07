@@ -4,13 +4,7 @@ export interface ThemeConfig {
   isDark: boolean;
 }
 
-const darkPages = new Set([
-  "classic",
-  "cli",
-  "editing",
-  "packages",
-  "our-cloud",
-]);
+const darkPages = new Set(["classic", "cli", "editing", "packages"]);
 
 export const shouldUseDarkTheme = (pageName: string): boolean => {
   if (darkPages.has(pageName)) return true;

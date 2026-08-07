@@ -160,11 +160,11 @@ String.length "👨‍👩‍👧‍👦" // 1`,
   return (
     <section className="py-20">
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side */}
           <div>
-            <SectionTitle subtitle="Language">
-              Functional, Composable, and Fun to use
+            <SectionTitle subtitle="What the Language Feels Like">
+              Functional, Composable, and Fun to Use
             </SectionTitle>
 
             <p className="text-lg mb-8 text-dark">
@@ -183,7 +183,7 @@ String.length "👨‍👩‍👧‍👦" // 1`,
           </div>
 
           {/* Right side */}
-          <div className="pt-30">
+          <div>
             <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200">
               {/* Tabs navigation */}
               <div className="flex overflow-x-auto justify-between border-b border-gray-200">

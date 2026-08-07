@@ -1,4 +1,5 @@
 import React from "react";
+import AsyncRuntime from "../Home/AsyncRuntime";
 
 const Execution: React.FC = () => {
   return (
@@ -318,7 +319,7 @@ const Execution: React.FC = () => {
 
             <div className="px-8 py-4 border-l-3 border-sand">
               <h3 className="font-semibold text-gray-800 mb-3">
-                Current Trade-offs
+                Current Trade-Offs
               </h3>
               <div className="space-y-2 text-sm 2xl:text-base">
                 <div className="flex items-center">
@@ -374,6 +375,7 @@ const Execution: React.FC = () => {
           </div>
         </div>
       </div>
+      <AsyncRuntime />
     </div>
   );
 };

@@ -211,7 +211,7 @@ const LazyPeople: React.FC = () => {
 
             <div className="bg-white rounded-lg shadow-lg p-6">
               <h3 className="text-xl font-bold text-taupe mb-4">
-                Build Tools For Yourself
+                Build Tools for Yourself
               </h3>
               <p className="text-gray-700 mb-4">
                 Create custom utilities that solve your specific problems. No

@@ -4,6 +4,7 @@ import ScrollToTop from "./common/utils/ScrollToTop";
 import Layout from "./common/layout/Layout";
 
 import Home from "./pages/Home";
+import Home2 from "./pages/Home2";
 
 import Classic from "./pages/Classic";
 
@@ -33,6 +34,7 @@ import LazyPeople from "./pages/For/LazyPeople";
 import Cloud from "./pages/Cloud";
 import Packages from "./pages/Packages";
 import PackageDetail from "./pages/PackageDetail";
+import PackageManager from "./pages/PackageManager";
 
 import NotFound from "./pages/NotFound";
 import NewsletterPage from "./pages/Newsletter";
@@ -49,6 +51,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="home" element={<Home2 />} />
 
           <Route path="/classic" element={<Classic />} />
 
@@ -60,6 +63,7 @@ function App() {
           <Route path="traceDriven" element={<TraceDriven />} />
           <Route path="source-control" element={<SourceControl />} />
           <Route path="cli" element={<CLI />} />
+          <Route path="package-manager" element={<PackageManager />} />
           <Route path="backends" element={<Backends />} />
           <Route path="ai" element={<AI />} />
           <Route path="AI" element={<AI />} />

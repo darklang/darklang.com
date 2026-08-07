@@ -8,7 +8,7 @@ const CLI: React.FC = () => {
       <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-6">
         <SectionTitle subtitle="Darklang CLI">
           {" "}
-          A CLI Runtime to Replace your Bash<br></br>and Python Scripts
+          A CLI Runtime to Replace Your Bash<br></br>and Python Scripts
         </SectionTitle>
 
         <div className="flex flex-col lg:flex-row items-start justify-start">
@@ -64,7 +64,7 @@ const CLI: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-blue-lbg mb-1">
-                      Type-safe by design
+                      Type-Safe by Design
                     </h3>
                     <p className="text-sm 2xl:text-base text-gray-700">
                       Using static types to help ensure correctness
@@ -116,7 +116,7 @@ const CLI: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-blue-lbg mb-1">
-                      Cross-platform
+                      Cross-Platform
                     </h3>
                     <p className="text-sm 2xl:text-base text-gray-700">
                       Running on macOS, Linux, and Windows

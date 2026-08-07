@@ -1,5 +1,53 @@
 import React from "react";
 
+const MARKER = {
+  blue: "bg-[linear-gradient(transparent_45%,rgba(116,122,185,0.26)_45%)]",
+  amber: "bg-[linear-gradient(transparent_45%,rgba(179,112,31,0.26)_45%)]",
+  purple: "bg-[linear-gradient(transparent_45%,rgba(149,88,159,0.24)_45%)]",
+  green: "bg-[linear-gradient(transparent_45%,rgba(111,154,61,0.28)_45%)]",
+};
+
+/** A highlighter swipe across a phrase, drawn behind the lower half of the text. */
+const Mark: React.FC<{
+  tone: keyof typeof MARKER;
+  children: React.ReactNode;
+}> = ({ tone, children }) => (
+  <span className={`box-decoration-clone px-1 text-gray-900 ${MARKER[tone]}`}>
+    {children}
+  </span>
+);
+
+const PRINCIPLES = [
+  {
+    name: "Coherent by default",
+    body: "The language, editor, runtime, package system, and tools work from the same model of the program. Start with one coherent system and add external integrations when they serve a purpose.",
+  },
+  {
+    name: "Local-first and user-owned",
+    body: "Your code and data live on your machine first. Cloud sync, collaboration, and AI access happen when you choose them.",
+  },
+  {
+    name: "Accessible",
+    body: "Work through code, natural language, voice, or assistive technology, in the language that works for you. Different interfaces act on the same underlying program.",
+  },
+  {
+    name: "Composable",
+    body: "Build from typed, reusable pieces that people and agents can understand, share, and remix across the community.",
+  },
+  {
+    name: "Malleable",
+    body: "Inspect, change, fork, and extend every part of the system. The platform adapts to how you work, and no AI-generated choice becomes permanent by default.",
+  },
+  {
+    name: "Verifiable",
+    body: "Types, tests, security checks, and runtime traces verify what software actually does. AI can propose code; the platform provides evidence that it works.",
+  },
+  {
+    name: "User-directed",
+    body: "You decide what changes, what runs, what reaches the network, and what reaches production. AI assistance remains visible, reviewable, and under your control.",
+  },
+];
+
 const Company: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
@@ -13,7 +61,7 @@ const Company: React.FC = () => {
         </div>
 
         {/* Vision & Mission - Offset Blocks Design */}
-        <div className="mb-18 relative py-6">
+        <div className="mb-24 relative py-6">
           <div className="grid md:grid-cols-2 gap-8 2xl:gap-12 relative overflow-visible items-stretch">
             {/* Vision Block - Offset and angled */}
             <div className="relative transform transition-all duration-700 ease-out m-3">
@@ -106,64 +154,99 @@ const Company: React.FC = () => {
         </div>
 
         {/* Our Philosophy */}
-        <div className="mb-18">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Our Philosophy
-          </h2>
-          <p className="md:text-lg 2xl:text-xl text-gray-700 leading-relaxed mb-6">
-            Programming is too hard. We're making it less complex for everyone
-            by building a platform guided by these core principles:
-          </p>
-          <div className="grid md:grid-cols-2 gap-6 md:text-lg">
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-lbg rounded-full mt-3 mr-3 flex-shrink-0"></span>
-                <div>
-                  <strong className="text-gray-700">Simple by default:</strong>{" "}
-                  Just one system, no annoying integrations, no annoying
-                  payments, no complexity that blocks creativity.
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-purple-lbg rounded-full mt-3 mr-3 flex-shrink-0"></span>
-                <div>
-                  <strong className="text-gray-700">Local-first:</strong> Your
-                  code and data live on your machine first, with cloud sync and
-                  collaboration when you want it.
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-mint rounded-full mt-3 mr-3 flex-shrink-0"></span>
-                <div>
-                  <strong className="text-gray-700">Accessible:</strong> Works
-                  from any computer, supports voice and assistive technologies,
-                  available in multiple languages.
-                </div>
-              </div>
+        <div className="mb-24">
+          <div className="grid gap-10 lg:grid-cols-[24rem_1fr] lg:gap-16 2xl:grid-cols-[28rem_1fr]">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Our Philosophy
+              </h2>
+              <p className="text-gray-700 leading-relaxed 2xl:text-lg">
+                AI makes software faster to create, but not automatically easier
+                to understand, trust, or maintain. Darklang reduces the total
+                complexity of building and operating software, whether the work
+                is done by a person, an agent, or both.
+              </p>
+
+              <img
+                src="/assets/branding/logo-dark-transparent.svg"
+                alt=""
+                aria-hidden="true"
+                className="mx-auto mt-12 hidden w-full max-w-[30rem] opacity-[0.035] lg:block 2xl:max-w-[34rem]"
+              />
             </div>
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-taupe rounded-full mt-3 mr-3 flex-shrink-0"></span>
-                <div>
-                  <strong className="text-gray-700">Composable:</strong> Build
-                  with reusable pieces that fit together naturally, sharing and
-                  remixing code across the community.
+
+            <div className="divide-y divide-gray-200">
+              {PRINCIPLES.map(principle => (
+                <div key={principle.name} className="py-4 first:pt-0 last:pb-0">
+                  <h3 className="flex items-center gap-2.5 font-bold text-gray-900 md:text-lg 2xl:text-xl">
+                    <span className="h-2 w-2 flex-shrink-0 rounded-full bg-purple-dbg"></span>
+                    {principle.name}
+                  </h3>
+                  <p className="mt-1 text-gray-600 leading-relaxed md:text-lg">
+                    {principle.body}
+                  </p>
                 </div>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-rose rounded-full mt-3 mr-3 flex-shrink-0"></span>
-                <div>
-                  <strong className="text-gray-700">Malleable:</strong>{" "}
-                  Changeable, forkable, extensible. The platform adapts to you,
-                  not the other way around.
-                </div>
-              </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Journey Section */}
+        <div className="mb-24">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Story</h2>
+          <div className="text-gray-700 md:text-lg 2xl:text-xl leading-relaxed space-y-8">
+            <p>
+              We started Darklang in 2017 because software development was too
+              complex. Instead of patching existing systems, we reimagined
+              everything, from the language to deployment to version control, as{" "}
+              <Mark tone="amber">one integrated platform</Mark>.
+            </p>
+            <p>
+              Our first version featured a revolutionary structured editor with
+              live values. While powerful, it required abandoning familiar text
+              editors. We learned that{" "}
+              <Mark tone="blue">
+                innovation needs to meet people where they are
+              </Mark>
+              .
+            </p>
+            <p>
+              In early 2025, we transitioned from{" "}
+              <Mark tone="purple">Dark Inc. to Darklang Inc.</Mark> to continue
+              building the platform with renewed focus. Original founder Paul
+              Biggar remains active as an advisor and investor. We're now{" "}
+              <Mark tone="green">fully open source</Mark> and building for the
+              AI era, where the platform should amplify human creativity.
+            </p>
+            <div className="pt-2">
+              <p>
+                Read more in our blog posts:
+                <a
+                  href="https://blog.darklang.com/goodbye-dark-inc-welcome-darklang-inc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-lbg hover:underline"
+                >
+                  {" "}
+                  Company Transition
+                </a>{" "}
+                and
+                <a
+                  href="https://blog.darklang.com/first-steps-of-darklang-inc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-lbg hover:underline ml-1"
+                >
+                  First Steps
+                </a>
+                .
+              </p>
             </div>
           </div>
         </div>
 
         {/* Team & Contributions */}
-        <div className="mb-18">
+        <div className="mb-24">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Small Team, Big Vision
           </h2>
@@ -174,7 +257,7 @@ const Company: React.FC = () => {
               believe in making programming less complex.
             </p>
 
-            <div className="bg-purple-50 rounded-lg p-6">
+            <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-bold text-purple-lbg mb-3">
                 We'd Love Your Help
               </h3>
@@ -302,65 +385,15 @@ const Company: React.FC = () => {
           </div>
         </div>
 
-        {/* Journey Section */}
-        <div className="mb-18">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Story</h2>
-          <div className="text-gray-700 md:text-lg 2xl:text-xl leading-relaxed space-y-8">
-            <p>
-              We started Darklang in 2017 because software development was too
-              complex. Instead of patching existing systems, we reimagined
-              everything—language, deployment, version control—as one integrated
-              platform.
-            </p>
-            <p>
-              Our first version featured a revolutionary structured editor with
-              live values. While powerful, it required abandoning familiar text
-              editors. We learned that innovation needs to meet people where
-              they are.
-            </p>
-            <p>
-              In early 2025, we transitioned from Dark Inc. to Darklang Inc. to
-              continue building the platform with renewed focus. Original
-              founder Paul Biggar remains active as an advisor and investor.
-              We're now fully open source and building for the AI era, where the
-              platform should amplify human creativity.
-            </p>
-            <div className="pt-6 border-t border-gray-200">
-              <p>
-                Read more in our blog posts:
-                <a
-                  href="https://blog.darklang.com/goodbye-dark-inc-welcome-darklang-inc/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-purple-lbg hover:underline"
-                >
-                  {" "}
-                  Company Transition
-                </a>{" "}
-                and
-                <a
-                  href="https://blog.darklang.com/first-steps-of-darklang-inc/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-purple-lbg hover:underline ml-1"
-                >
-                  First Steps
-                </a>
-                .
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Current Focus */}
-        <div className="mb-10 md:mb-18">
+        <div className="mb-14 md:mb-24">
           <h2 className="text-xl 2xl:text-2xl font-bold text-gray-800 mb-8">
             What We're Building Now
           </h2>
 
           <div className="md:grid grid-cols-2 gap-6 px-6">
             <div className="flex items-start mb-6">
-              <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-purple-100 text-purple-lbg">
+              <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-500">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -386,7 +419,7 @@ const Company: React.FC = () => {
             </div>
 
             <div className="flex items-start mb-6">
-              <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-purple-100 text-purple-lbg">
+              <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-500">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -412,7 +445,7 @@ const Company: React.FC = () => {
             </div>
 
             <div className="flex items-start mb-6">
-              <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-purple-100 text-purple-lbg">
+              <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-500">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -438,7 +471,7 @@ const Company: React.FC = () => {
             </div>
 
             <div className="flex items-start">
-              <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-purple-100 text-purple-lbg">
+              <div className="flex-shrink-0 mr-3 w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-500">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -466,13 +499,13 @@ const Company: React.FC = () => {
         </div>
 
         {/* Community Section */}
-        <div className="bg-white rounded-md shadow-lg p-8">
+        <div className="bg-white rounded-lg shadow-md border border-gray-100 p-8">
           <h2 className="text-xl 2xl:text-2xl font-bold text-gray-900 mb-6">
             Join Our Community
           </h2>
           <div className="text-gray-700 2xl:text-lg leading-relaxed space-y-4">
             <p>
-              Darklang is more than a programming language—it's a community of
+              Darklang is more than a programming language. It's a community of
               developers who believe software development can be better. Whether
               you're interested in contributing code, sharing feedback, or just
               following our progress, there are many ways to get involved.

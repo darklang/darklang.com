@@ -25,7 +25,7 @@ const Editing: React.FC = () => {
           <div className="md:w-1/2 space-y-6">
             <div className="mb-2">
               <SectionTitle subtitle="Editing">
-                Powerful, Familiar, and Extensible editing
+                Powerful, Familiar, and Extensible Editing
               </SectionTitle>
               <p className="text-lg lg:text-xl text-gray-700 max-w-3xl mb-8">
                 Edit code in your preferred environment—whether it's your local

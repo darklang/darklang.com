@@ -13,6 +13,7 @@ interface SectionTitleProps {
   className?: string;
   maxWidth?: string;
   textColor?: string;
+  subtitleColor?: string;
   subtitleStyle?: "text" | "button";
 }
 
@@ -24,6 +25,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   className = "",
   maxWidth = "max-w-6xl",
   textColor,
+  subtitleColor = "text-purple-lbg",
   subtitleStyle = "text",
 }) => {
   const textAlignment = {
@@ -42,12 +44,12 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
             </button>
           </div>
         ) : (
-          <div className="mb-4 text-purple-lbg text-lg font-medium">
+          <div className={`mb-4 ${subtitleColor} text-lg font-medium`}>
             {subtitle}
           </div>
         ))}
       <h2
-        className={`text-3xl md:text-5xl 2xl:text-6xl font-bold ${subtitleStyle === "button" ? "mt-6" : ""} mb-8 ${textColor ? textColor : "text-black-custom"}`}
+        className={`text-2xl md:text-4xl 2xl:text-5xl font-bold ${subtitleStyle === "button" ? "mt-6" : ""} mb-8 ${textColor ? textColor : "text-black-custom"}`}
       >
         {children}
       </h2>

@@ -3,6 +3,7 @@ import React from "react";
 // import Button from "../../common/ui/Button";
 import CodeEditor from "../../common/ui/CodeEditor";
 // import CTASection from "../../common/ui/CTASection";
+import EditingSection from "../Home/Editing";
 
 const Editing: React.FC = () => {
   return (
@@ -76,7 +77,7 @@ const Editing: React.FC = () => {
           {/* Code Completion */}
           <div className="flex flex-col">
             <h3 className="text-white text-xl font-medium mb-4 text-center">
-              Code completion
+              Code Completion
             </h3>
             <CodeEditor code={`Stdlib.List.`} showCompletion={true} />
           </div>
@@ -84,7 +85,7 @@ const Editing: React.FC = () => {
           {/* Syntax Highlighting */}
           <div className="flex flex-col">
             <h3 className="text-white text-xl font-medium mb-4 text-center">
-              Syntax highlighting
+              Syntax Highlighting
             </h3>
             <CodeEditor
               code={`let helloWorld () : Int64 =
@@ -121,7 +122,7 @@ helloWorld ()
           {/* Go to Definition */}
           <div className="flex flex-col">
             <h3 className="text-white text-xl font-medium mb-4 text-center">
-              Go to definition
+              Go to Definition
             </h3>
             <CodeEditor code={`Stdlib.List.head`} showGoToDef={true} />
           </div>
@@ -205,6 +206,7 @@ helloWorld ()
           </div>
         </div>
       </CTASection> */}
+      <EditingSection />
     </div>
   );
 };

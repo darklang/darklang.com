@@ -101,7 +101,7 @@ const About = () => {
             <div className="bg-dark-black rounded-lg p-8">
               <h3 className="text-xl font-semibold mb-4">
                 <span className="text-purple-dbg">CRUD</span>
-                <span className="text-white ml-2">apps</span>
+                <span className="text-white ml-2">Apps</span>
               </h3>
               <p className="text-gray-300 text-lg">
                 Get a working CRUD application in less than ten minutes by

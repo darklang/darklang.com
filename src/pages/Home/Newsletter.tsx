@@ -57,7 +57,7 @@ const Newsletter: React.FC<NewsletterProps> = () => {
         <div className="bg-white rounded-lg shadow-md inset-shadow-sm p-8 md:p-12 max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black-custom tracking-tight">
-              Send me project updates
+              Send Me Project Updates
             </h2>
             <p className="text-lg text-gray-700">
               Get notified about new features, updates, Bug Fixes, project

@@ -6,9 +6,12 @@ jobs:
       - image: cimg/node:20.8.1
     steps:
       - checkout
-      - run: npx prettier . --check
-      # Install dependencies
+      # Install dependencies first, so the formatting check below runs the
+      # prettier version pinned in package.json. If the check runs before
+      # `npm ci`, npx fetches whatever prettier npm published most recently,
+      # and the build breaks whenever their formatting defaults change.
       - run: npm ci
+      - run: npx prettier . --check
       # TODO : do we need caching for dependencies?
       # Build the application
       - run: npm run build

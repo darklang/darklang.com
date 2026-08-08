@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 import RelatedForPages from "../../components/RelatedForPages";
+import { Contrast, FeatureCard } from "./components";
 
 const WebScrapers: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    // Trigger animation after component mounts
-    setIsVisible(true);
-  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
@@ -25,145 +21,36 @@ const WebScrapers: React.FC = () => {
         </div>
 
         {/* Web Scraping Pain Points and Darklang Scraping Advantages */}
-        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
-          {/* Web Scraping Pain Points */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ width: isVisible ? "44px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
-                Traditional Scraping Headaches
-              </h2>
-            </div>
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Managing proxies, user agents, and anti-bot detection systems
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Setting up Selenium, ChromeDriver, and browser automation
-                  infrastructure
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Handling dynamic content, JavaScript rendering, and AJAX
-                  requests
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Cron jobs, server maintenance, and monitoring failed scraping
-                  runs
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Rate limiting, retries, and graceful handling of website
-                  changes
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Darklang Scraping Advantages */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
-                Darklang: Scraping Made Simple
-              </h2>
-            </div>
-
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Built-in browser automation:</strong> No ChromeDriver
-                  setup or maintenance
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Automatic scheduling:</strong> Cron jobs that actually
-                  work
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Built-in data storage:</strong> No database setup for
-                  scraped data
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Instant APIs:</strong> Turn scraped data into APIs
-                  immediately
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="mb-16">
+          <Contrast
+            beforeTitle="Traditional Scraping Headaches"
+            afterTitle="Darklang: Scraping Made Simple"
+            before={[
+              "Managing proxies, user agents, and anti-bot detection systems",
+              "Setting up Selenium, ChromeDriver, and browser automation infrastructure",
+              "Handling dynamic content, JavaScript rendering, and AJAX requests",
+              "Cron jobs, server maintenance, and monitoring failed scraping runs",
+              "Rate limiting, retries, and graceful handling of website changes",
+            ]}
+            after={[
+              <>
+                <strong>Built-in browser automation:</strong> No ChromeDriver
+                setup or maintenance
+              </>,
+              <>
+                <strong>Automatic scheduling:</strong> Cron jobs that actually
+                work
+              </>,
+              <>
+                <strong>Built-in data storage:</strong> No database setup for
+                scraped data
+              </>,
+              <>
+                <strong>Instant APIs:</strong> Turn scraped data into APIs
+                immediately
+              </>,
+            ]}
+          />
         </div>
 
         {/* Perfect For Web Scrapers */}
@@ -237,55 +124,55 @@ const WebScrapers: React.FC = () => {
             Built-in Scraping Features
           </h2>
 
-          <div className="space-y-8">
-            <div className="border-l-4 border-blue-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Browser Automation
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Full browser automation without managing ChromeDriver or
-                Selenium. Handle JavaScript-heavy sites, form submissions, and
-                dynamic content.
-              </p>
-              <div className="bg-gray-50 p-4 rounded font-mono text-sm">
-                <div>Browser.navigate "https://example.com"</div>
-                <div>Browser.click ".load-more-button"</div>
-                <div>Browser.waitFor ".content-loaded"</div>
-                <div>Browser.extractText ".article-content"</div>
-              </div>
-            </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <FeatureCard
+              h="Browser Automation"
+              tone="blue"
+              detail={
+                <span className="block font-code text-xs 2xl:text-sm">
+                  Browser.navigate "https://example.com"
+                  <br />
+                  Browser.click ".load-more-button"
+                  <br />
+                  Browser.waitFor ".content-loaded"
+                  <br />
+                  Browser.extractText ".article-content"
+                </span>
+              }
+            >
+              Full browser automation without managing ChromeDriver or Selenium.
+              Handle JavaScript-heavy sites, form submissions, and dynamic
+              content.
+            </FeatureCard>
 
-            <div className="border-l-4 border-purple-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Smart Data Extraction
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Extract structured data from messy HTML. Built-in parsers for
-                common patterns like prices, dates, and contact information.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600">
-                  <strong>Auto-detects:</strong> Product prices, publication
-                  dates, email addresses, phone numbers, social media links
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Smart Data Extraction"
+              tone="purple"
+              detail={
+                <>
+                  <strong className="text-gray-900">Auto-detects:</strong>{" "}
+                  product prices, publication dates, email addresses, phone
+                  numbers, social media links
+                </>
+              }
+            >
+              Extract structured data from messy HTML. Built-in parsers for
+              common patterns like prices, dates, and contact information.
+            </FeatureCard>
 
-            <div className="border-l-4 border-mint pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Anti-Bot Evasion
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Built-in strategies for avoiding detection: rotating user
-                agents, realistic timing delays, and proxy management.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600">
-                  <strong>Handles:</strong> Cloudflare protection, rate
-                  limiting, CAPTCHAs, and basic bot detection
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Anti-Bot Evasion"
+              tone="teal"
+              detail={
+                <>
+                  <strong className="text-gray-900">Handles:</strong> Cloudflare
+                  protection, rate limiting, CAPTCHAs, and basic bot detection
+                </>
+              }
+            >
+              Built-in strategies for avoiding detection: rotating user agents,
+              realistic timing delays, and proxy management.
+            </FeatureCard>
           </div>
         </div>
 

@@ -3,7 +3,6 @@ import React from "react";
 // import Button from "../../common/ui/Button";
 import CodeEditor from "../../common/ui/CodeEditor";
 // import CTASection from "../../common/ui/CTASection";
-import EditingSection from "../Home/Editing";
 
 const Editing: React.FC = () => {
   return (
@@ -206,7 +205,6 @@ helloWorld ()
           </div>
         </div>
       </CTASection> */}
-      <EditingSection />
     </div>
   );
 };

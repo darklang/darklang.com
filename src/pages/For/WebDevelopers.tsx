@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 import RelatedForPages from "../../components/RelatedForPages";
+import { Code, Contrast, FeatureCard } from "./components";
 
 const WebDevelopers: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    // Trigger animation after component mounts
-    setIsVisible(true);
-  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
@@ -26,147 +21,34 @@ const WebDevelopers: React.FC = () => {
         </div>
 
         {/* Problem and Solution Sections */}
-        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
-          {/* Problem Statement */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ width: isVisible ? "44px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
-                Tired of This?
-              </h2>
-            </div>
-
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Setting up Express.js, configuring middleware, handling CORS
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Installing and configuring a database (PostgreSQL, MongoDB
-                  setup)
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>Writing Prisma schemas, Mongoose models, or raw SQL</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>Configuring Docker, setting up deployment pipelines</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Debugging authentication middleware and session management
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Solution */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
-                With Darklang:
-              </h2>
-            </div>
-
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Define API endpoint:</strong>{" "}
-                  <code className="bg-gray-200 px-1 rounded mx-1">
-                    /api/users
-                  </code>{" "}
-                  - instantly live
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Store data:</strong>{" "}
-                  <code className="bg-gray-200 px-1 rounded mx-1">
-                    DB.set users id userData
-                  </code>{" "}
-                  - database included
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Call external APIs:</strong>{" "}
-                  <code className="bg-gray-200 px-1 rounded mx-1">
-                    Http.get "https://api.github.com/users"
-                  </code>
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Deploy:</strong> Already running. No Docker, no config
-                  files.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="mb-16">
+          <Contrast
+            before={[
+              "Setting up Express.js, configuring middleware, handling CORS",
+              "Installing and configuring a database (PostgreSQL, MongoDB setup)",
+              "Writing Prisma schemas, Mongoose models, or raw SQL",
+              "Configuring Docker, setting up deployment pipelines",
+              "Debugging authentication middleware and session management",
+            ]}
+            after={[
+              <>
+                <strong className="text-gray-900">Define API endpoint:</strong>{" "}
+                <Code>/api/users</Code>, instantly live
+              </>,
+              <>
+                <strong className="text-gray-900">Store data:</strong>{" "}
+                <Code>DB.set users id userData</Code>, database included
+              </>,
+              <>
+                <strong className="text-gray-900">Call external APIs:</strong>{" "}
+                <Code>Http.get "https://api.github.com/users"</Code>
+              </>,
+              <>
+                <strong className="text-gray-900">Deploy:</strong> already
+                running. No Docker, no config files.
+              </>,
+            ]}
+          />
         </div>
 
         {/* Perfect For */}
@@ -244,77 +126,59 @@ const WebDevelopers: React.FC = () => {
             Common Web Development Patterns
           </h2>
 
-          <div className="space-y-8 ml-4">
-            <div className="border-l-3 border-blue-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                User Authentication API
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Build login/signup endpoints that your frontend can call. Store
-                user data, handle password hashing, manage sessions—all
-                built-in.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>
-                    <code>POST /api/auth/signup</code> - Create new user
-                  </div>
-                  <div>
-                    <code>POST /api/auth/login</code> - Authenticate user
-                  </div>
-                  <div>
-                    <code>GET /api/user/profile</code> - Get user data
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <FeatureCard
+              h="User Authentication API"
+              tone="blue"
+              detail={
+                <span className="block">
+                  <Code>POST /api/auth/signup</Code> create new user
+                  <br />
+                  <Code>POST /api/auth/login</Code> authenticate user
+                  <br />
+                  <Code>GET /api/user/profile</Code> get user data
+                </span>
+              }
+            >
+              Build login and signup endpoints that your frontend can call.
+              Store user data, hash passwords, and manage sessions, all
+              built-in.
+            </FeatureCard>
 
-            <div className="border-l-3 border-purple-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Content Management
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Create, read, update, delete content for your blog, portfolio,
-                or CMS. No database schema migrations—just start storing data.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>
-                    <code>GET /api/posts</code> - List all posts
-                  </div>
-                  <div>
-                    <code>POST /api/posts</code> - Create new post
-                  </div>
-                  <div>
-                    <code>PUT /api/posts/:id</code> - Update existing post
-                  </div>
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Content Management"
+              tone="purple"
+              detail={
+                <span className="block">
+                  <Code>GET /api/posts</Code> list all posts
+                  <br />
+                  <Code>POST /api/posts</Code> create new post
+                  <br />
+                  <Code>PUT /api/posts/:id</Code> update existing post
+                </span>
+              }
+            >
+              Create, read, update, and delete content for your blog, portfolio,
+              or CMS. No schema migrations, just start storing data.
+            </FeatureCard>
 
-            <div className="border-l-3 border-mint pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Third-Party Integrations
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Connect to external APIs (payment processors, social media,
-                weather data) and serve the results to your frontend with proper
-                error handling.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>
-                    <code>GET /api/weather/:city</code> - Fetch weather data
-                  </div>
-                  <div>
-                    <code>POST /api/payments</code> - Process Stripe payments
-                  </div>
-                  <div>
-                    <code>GET /api/social/posts</code> - Aggregate social feeds
-                  </div>
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Third-Party Integrations"
+              tone="teal"
+              detail={
+                <span className="block">
+                  <Code>GET /api/weather/:city</Code> fetch weather data
+                  <br />
+                  <Code>POST /api/payments</Code> process Stripe payments
+                  <br />
+                  <Code>GET /api/social/posts</Code> aggregate social feeds
+                </span>
+              }
+            >
+              Connect to external APIs (payment processors, social media,
+              weather data) and serve the results to your frontend with proper
+              error handling.
+            </FeatureCard>
           </div>
         </div>
 

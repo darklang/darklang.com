@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 import RelatedForPages from "../../components/RelatedForPages";
+import { Contrast, FeatureCard } from "./components";
 
 const SmallBusinesses: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    // Trigger animation after component mounts
-    setIsVisible(true);
-  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
@@ -25,144 +21,35 @@ const SmallBusinesses: React.FC = () => {
         </div>
 
         {/* Small Business Pain Points and Darklang Solution */}
-        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
-          {/* Small Business Pain Points */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ width: isVisible ? "44px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
-                Software That Doesn't Fit
-              </h2>
-            </div>
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Generic SaaS tools that almost fit your workflow (but not
-                  quite)
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  WordPress sites that break when you need custom functionality
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Custom development quotes that cost more than your annual
-                  revenue
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Manual processes that eat hours every week but seem too small
-                  to automate
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Data scattered across spreadsheets, email, and various tools
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Darklang Solution */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
-                Custom Software, Small Business Budget
-              </h2>
-            </div>
-
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>No upfront costs:</strong> Build incrementally, pay
-                  only for what you use
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Non-technical friendly:</strong> Business logic in
-                  plain language
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Instant deployment:</strong> Changes go live
-                  immediately
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Grows with you:</strong> Start simple, add features as
-                  you need them
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="mb-16">
+          <Contrast
+            beforeTitle="Software That Doesn't Fit"
+            afterTitle="Custom Software, Small Business Budget"
+            before={[
+              "Generic SaaS tools that almost fit your workflow (but not quite)",
+              "WordPress sites that break when you need custom functionality",
+              "Custom development quotes that cost more than your annual revenue",
+              "Manual processes that eat hours every week but seem too small to automate",
+              "Data scattered across spreadsheets, email, and various tools",
+            ]}
+            after={[
+              <>
+                <strong>No upfront costs:</strong> Build incrementally, pay only
+                for what you use
+              </>,
+              <>
+                <strong>Non-technical friendly:</strong> Business logic in plain
+                language
+              </>,
+              <>
+                <strong>Instant deployment:</strong> Changes go live immediately
+              </>,
+              <>
+                <strong>Grows with you:</strong> Start simple, add features as
+                you need them
+              </>,
+            ]}
+          />
         </div>
 
         {/* Perfect For Small Businesses */}
@@ -237,70 +124,62 @@ const SmallBusinesses: React.FC = () => {
             Common Small Business Applications
           </h2>
 
-          <div className="space-y-8 pl-1">
-            <div className="border-l-4 border-blue-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Customer Management
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Build a CRM that matches your business exactly. Track customers,
-                manage leads, automate follow-ups—all customized to your
-                process.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>• Custom fields for your specific customer data</div>
-                  <div>
-                    • Automated email sequences based on your sales process
-                  </div>
-                  <div>
-                    • Integration with your existing tools and spreadsheets
-                  </div>
-                  <div>
-                    • Reports that show the metrics you actually care about
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <FeatureCard
+              h="Customer Management"
+              tone="blue"
+              detail={
+                <span className="block">
+                  • Custom fields for your specific customer data
+                  <br />
+                  • Automated email sequences based on your sales process
+                  <br />
+                  • Integration with your existing tools and spreadsheets
+                  <br />• Reports that show the metrics you actually care about
+                </span>
+              }
+            >
+              Build a CRM that matches your business exactly. Track customers,
+              manage leads, and automate follow-ups, all customized to your
+              process.
+            </FeatureCard>
 
-            <div className="border-l-4 border-purple-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Service Booking & Scheduling
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Let customers book appointments online with your custom
-                availability rules, pricing, and service options. No more phone
-                tag.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>• Online booking with your specific service rules</div>
-                  <div>• Automated confirmations and reminders</div>
-                  <div>• Payment processing integrated with booking</div>
-                  <div>• Staff scheduling and resource management</div>
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Service Booking and Scheduling"
+              tone="purple"
+              detail={
+                <span className="block">
+                  • Online booking with your specific service rules
+                  <br />
+                  • Automated confirmations and reminders
+                  <br />
+                  • Payment processing integrated with booking
+                  <br />• Staff scheduling and resource management
+                </span>
+              }
+            >
+              Let customers book appointments online with your custom
+              availability rules, pricing, and service options. No more phone
+              tag.
+            </FeatureCard>
 
-            <div className="border-l-4 border-mint pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Inventory & Order Management
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Track inventory, process orders, and manage suppliers with
-                business rules that match your workflow, not a generic template.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>• Custom product categorization and attributes</div>
-                  <div>
-                    • Automated reorder points and supplier notifications
-                  </div>
-                  <div>• Integration with your sales channels</div>
-                  <div>• Custom reporting for your business metrics</div>
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Inventory and Order Management"
+              tone="teal"
+              detail={
+                <span className="block">
+                  • Custom product categorization and attributes
+                  <br />
+                  • Automated reorder points and supplier notifications
+                  <br />
+                  • Integration with your sales channels
+                  <br />• Custom reporting for your business metrics
+                </span>
+              }
+            >
+              Track inventory, process orders, and manage suppliers with
+              business rules that match your workflow, not a generic template.
+            </FeatureCard>
           </div>
         </div>
 

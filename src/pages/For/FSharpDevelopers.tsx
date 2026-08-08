@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 import RelatedForPages from "../../components/RelatedForPages";
+import { Contrast, FeatureCard } from "./components";
 
 const FSharpDevelopers: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    // Trigger animation after component mounts
-    setIsVisible(true);
-  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
@@ -25,137 +21,35 @@ const FSharpDevelopers: React.FC = () => {
         </div>
 
         {/* F# Pain Points and Darklang Advantage */}
-        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-18 mb-10">
-          {/* F# Pain Points */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ width: isVisible ? "44px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
-                .NET Deployment Complexity
-              </h2>
-            </div>
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Project files, NuGet packages, framework targeting, runtime
-                  dependencies
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Docker containerization, ASP.NET Core setup, middleware
-                  configuration
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Azure App Service deployment, connection strings, environment
-                  configuration
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  "It works on my machine" but breaks in production with runtime
-                  errors
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Darklang Advantage */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
-                Darklang: F# Philosophy, Zero Infrastructure
-              </h2>
-            </div>
-
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Pure functional programming:</strong> Immutable by
-                  default, no side effects
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Type safety without ceremony:</strong> Strong types,
-                  no verbose syntax
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Pattern matching:</strong> Discriminated unions,
-                  exhaustive matching
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Instant deployment:</strong> Save your function, it's
-                  running
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="mb-16">
+          <Contrast
+            beforeTitle=".NET Deployment Complexity"
+            afterTitle="Darklang: F# Philosophy, Zero Infrastructure"
+            before={[
+              "Project files, NuGet packages, framework targeting, runtime dependencies",
+              "Docker containerization, ASP.NET Core setup, middleware configuration",
+              "Azure App Service deployment, connection strings, environment configuration",
+              '"It works on my machine" but breaks in production with runtime errors',
+            ]}
+            after={[
+              <>
+                <strong>Pure functional programming:</strong> Immutable by
+                default, no side effects
+              </>,
+              <>
+                <strong>Type safety without ceremony:</strong> Strong types, no
+                verbose syntax
+              </>,
+              <>
+                <strong>Pattern matching:</strong> Discriminated unions,
+                exhaustive matching
+              </>,
+              <>
+                <strong>Instant deployment:</strong> Save your function, it's
+                running
+              </>,
+            ]}
+          />
         </div>
 
         {/* Perfect For F# Developers */}
@@ -228,54 +122,60 @@ const FSharpDevelopers: React.FC = () => {
             Familiar F# Concepts
           </h2>
 
-          <div className="space-y-8">
-            <div className="border-l-4 border-blue-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Option and Result Types
-              </h3>
-              <p className="text-gray-700 mb-4">
-                No null reference exceptions. Handle missing values and errors
-                explicitly with Option and Result types, just like F#.
-              </p>
-              <div className="bg-gray-50 p-4 rounded font-mono text-sm">
-                <div>match maybeUser with</div>
-                <div>| Some user -&gt; processUser user</div>
-                <div>| None -&gt; handleMissingUser()</div>
-              </div>
-            </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <FeatureCard
+              h="Option and Result Types"
+              tone="blue"
+              detail={
+                <span className="block font-code text-xs 2xl:text-sm">
+                  match maybeUser with
+                  <br />
+                  | Some user -&gt; processUser user
+                  <br />| None -&gt; handleMissingUser()
+                </span>
+              }
+            >
+              No null reference exceptions. Handle missing values and errors
+              explicitly with Option and Result types, just like F#.
+            </FeatureCard>
 
-            <div className="border-l-4 border-purple-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Discriminated Unions
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Model complex domains with union types. Express business states
-                and transformations clearly and safely.
-              </p>
-              <div className="bg-gray-50 p-4 rounded font-mono text-sm">
-                <div>type PaymentStatus =</div>
-                <div>| Pending</div>
-                <div>| Processing of amount: Float</div>
-                <div>| Completed of transactionId: String</div>
-                <div>| Failed of error: String</div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Discriminated Unions"
+              tone="purple"
+              detail={
+                <span className="block font-code text-xs 2xl:text-sm">
+                  type PaymentStatus =
+                  <br />
+                  | Pending
+                  <br />
+                  | Processing of amount: Float
+                  <br />
+                  | Completed of transactionId: String
+                  <br />| Failed of error: String
+                </span>
+              }
+            >
+              Model complex domains with union types. Express business states
+              and transformations clearly and safely.
+            </FeatureCard>
 
-            <div className="border-l-4 border-mint pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Function Composition
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Compose complex operations from simple functions. Pipeline
-                operators and function composition work exactly like F#.
-              </p>
-              <div className="bg-gray-50 p-4 rounded font-mono text-sm">
-                <div>data</div>
-                <div>|&gt; List.filter isValid</div>
-                <div>|&gt; List.map transform</div>
-                <div>|&gt; List.fold combine initialValue</div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Function Composition"
+              tone="teal"
+              detail={
+                <span className="block font-code text-xs 2xl:text-sm">
+                  data
+                  <br />
+                  |&gt; List.filter isValid
+                  <br />
+                  |&gt; List.map transform
+                  <br />| List.fold combine initialValue
+                </span>
+              }
+            >
+              Compose complex operations from simple functions. Pipeline
+              operators and function composition work exactly like F#.
+            </FeatureCard>
           </div>
         </div>
 

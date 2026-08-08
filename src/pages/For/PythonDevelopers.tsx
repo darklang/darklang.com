@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 import RelatedForPages from "../../components/RelatedForPages";
+import { Contrast, FeatureCard } from "./components";
 import CodeDisplay from "../../common/ui/CodeDisplay";
 
 const PythonDevelopers: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    // Trigger animation after component mounts
-    setIsVisible(true);
-  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
@@ -26,138 +22,36 @@ const PythonDevelopers: React.FC = () => {
         </div>
 
         {/* Python Pain Points and Darklang Advantage */}
-        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-10 mb-10">
-          {/* Python Pain Points */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ width: isVisible ? "44px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
-                Python Deployment Reality
-              </h2>
-            </div>
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Virtual environments, requirements.txt, pip install conflicts
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Setting up Flask/Django, configuring WSGI, handling production
-                  deployment
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Database setup (SQLAlchemy, Django ORM), migration headaches
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>Cron jobs, task queues (Celery), background workers setup</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>"It works on my machine" → deployment debugging nightmare</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Darklang Advantage */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
-                Darklang: Python's Simplicity, Better Deployment
-              </h2>
-            </div>
-
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>No virtual environments:</strong> Functions are
-                  isolated by design
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>No Flask setup: </strong> HTTP endpoints are
-                  first-class language features
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>No ORM complexity:</strong> Built-in key-value
-                  database, query directly
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>No deployment setup:</strong> Save your function, it's
-                  running
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="mb-16">
+          <Contrast
+            beforeTitle="Python Deployment Reality"
+            afterTitle="Darklang: Python's Simplicity, Better Deployment"
+            before={[
+              "Virtual environments, requirements.txt, pip install conflicts",
+              "Setting up Flask/Django, configuring WSGI, handling production deployment",
+              "Database setup (SQLAlchemy, Django ORM), migration headaches",
+              "Cron jobs, task queues (Celery), background workers setup",
+              '"It works on my machine" → deployment debugging nightmare',
+            ]}
+            after={[
+              <>
+                <strong>No virtual environments:</strong> Functions are isolated
+                by design
+              </>,
+              <>
+                <strong>No Flask setup: </strong> HTTP endpoints are first-class
+                language features
+              </>,
+              <>
+                <strong>No ORM complexity:</strong> Built-in key-value database,
+                query directly
+              </>,
+              <>
+                <strong>No deployment setup:</strong> Save your function, it's
+                running
+              </>,
+            ]}
+          />
         </div>
 
         {/* Perfect For Python Devs */}
@@ -275,41 +169,31 @@ users
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-lbg pl-6 mt-15">
-              <h3 className="text-lg font-bold text-gray-800 mb-3">
-                What You'll Love
-              </h3>
-              <div className="space-y-2 text-gray-700">
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <p>
-                    <strong>Functional programming:</strong> Immutable values,
-                    pattern matching, pipeline operators
-                  </p>
-                </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <p>
-                    <strong>Type safety:</strong> Gradual typing that doesn't
-                    get in your way
-                  </p>
-                </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <p>
-                    <strong>Error handling:</strong> No exceptions—Result and
-                    Option types like Rust
-                  </p>
-                </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-lbg rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <p>
-                    <strong>Readable syntax:</strong> Clean, expressive code
-                    without ceremony
-                  </p>
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="What You'll Love"
+              tone="blue"
+              detail={
+                <span className="block">
+                  <strong className="text-gray-900">
+                    Functional programming:
+                  </strong>{" "}
+                  immutable values, pattern matching, pipeline operators
+                  <br />
+                  <strong className="text-gray-900">Type safety:</strong>{" "}
+                  gradual typing that doesn&rsquo;t get in your way
+                  <br />
+                  <strong className="text-gray-900">Error handling:</strong> no
+                  exceptions, Result and Option types like Rust
+                  <br />
+                  <strong className="text-gray-900">
+                    Readable syntax:
+                  </strong>{" "}
+                  clean, expressive code without ceremony
+                </span>
+              }
+            >
+              What Python developers tend to notice first when they move over.
+            </FeatureCard>
           </div>
         </div>
 

@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 import RelatedForPages from "../../components/RelatedForPages";
+import { Contrast, FeatureCard } from "./components";
 
 const LocalFirst: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    // Trigger animation after component mounts
-    setIsVisible(true);
-  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
@@ -25,140 +21,36 @@ const LocalFirst: React.FC = () => {
         </div>
 
         {/* Cloud-First Problems and Local-First with Darklang */}
-        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
-          {/* Cloud-First Problems */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ width: isVisible ? "44px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
-                The Cloud-First Problem
-              </h2>
-            </div>
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>Applications that break without internet connectivity</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Your data hostage to SaaS platforms and their business
-                  decisions
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Sync conflicts, data loss, and "sorry, that feature requires
-                  Pro"
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>Complex CRDT implementation and conflict resolution logic</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Performance degradation as app becomes increasingly
-                  network-dependent
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Local-First with Darklang */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
-                Darklang: Local-First, Cloud-Enhanced
-              </h2>
-            </div>
-
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Local-first architecture:</strong> Apps work offline,
-                  sync when connected
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Built-in sync:</strong> Conflict resolution and data
-                  merging handled automatically
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Data ownership:</strong> Your data lives locally,
-                  cloud is just for sync
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Instant responsiveness:</strong> No network latency
-                  for local operations
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="mb-16">
+          <Contrast
+            beforeTitle="The Cloud-First Problem"
+            afterTitle="Darklang: Local-First, Cloud-Enhanced"
+            before={[
+              "Applications that break without internet connectivity",
+              "Your data hostage to SaaS platforms and their business decisions",
+              'Sync conflicts, data loss, and "sorry, that feature requires Pro"',
+              "Complex CRDT implementation and conflict resolution logic",
+              "Performance degradation as app becomes increasingly network-dependent",
+            ]}
+            after={[
+              <>
+                <strong>Local-first architecture:</strong> Apps work offline,
+                sync when connected
+              </>,
+              <>
+                <strong>Built-in sync:</strong> Conflict resolution and data
+                merging handled automatically
+              </>,
+              <>
+                <strong>Data ownership:</strong> Your data lives locally, cloud
+                is just for sync
+              </>,
+              <>
+                <strong>Instant responsiveness:</strong> No network latency for
+                local operations
+              </>,
+            ]}
+          />
         </div>
 
         {/* Perfect For Local-First Developers */}
@@ -232,55 +124,53 @@ const LocalFirst: React.FC = () => {
             Local-First Architecture Made Simple
           </h2>
 
-          <div className="space-y-8">
-            <div className="border-l-3 border-blue-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Local Data Store
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Each user's data lives locally in a fast, queryable database.
-                All operations are instant because they happen on-device.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600">
-                  <strong>Benefits:</strong> Instant response times, works
-                  offline, user controls their data, no cloud vendor lock-in
-                </div>
-              </div>
-            </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <FeatureCard
+              h="Local Data Store"
+              tone="blue"
+              detail={
+                <>
+                  <strong className="text-gray-900">Benefits:</strong> instant
+                  response times, works offline, the user controls their data,
+                  no cloud vendor lock-in
+                </>
+              }
+            >
+              Each user&rsquo;s data lives locally in a fast, queryable
+              database. Every operation is instant because it happens on-device.
+            </FeatureCard>
 
-            <div className="border-l-3 border-purple-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Automatic Sync
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Changes sync automatically when devices are online. Darklang
-                handles conflict resolution, versioning, and ensuring data
-                consistency.
-              </p>
-              <div className="bg-gray-50 p-4 rounded font-mono text-sm">
-                <div>// Automatically synced between devices</div>
-                <div>LocalDB.update userNotes noteId newContent</div>
-                <div>// Conflicts resolved using timestamps + user intent</div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Automatic Sync"
+              tone="purple"
+              detail={
+                <span className="block font-code text-xs 2xl:text-sm">
+                  // automatically synced between devices
+                  <br />
+                  LocalDB.update userNotes noteId newContent
+                  <br />
+                  // conflicts resolved using timestamps + user intent
+                </span>
+              }
+            >
+              Changes sync automatically when devices are online. Darklang
+              handles conflict resolution, versioning, and data consistency.
+            </FeatureCard>
 
-            <div className="border-l-3 border-mint pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Conflict Resolution
-              </h3>
-              <p className="text-gray-700 mb-4">
-                When multiple devices modify the same data, Darklang uses
-                intelligent merge strategies based on data type and user intent.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600">
-                  <strong>Strategies:</strong> Last-writer-wins for simple
-                  values, operational transforms for text, custom merge
-                  functions for complex data
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Conflict Resolution"
+              tone="teal"
+              detail={
+                <>
+                  <strong className="text-gray-900">Strategies:</strong>{" "}
+                  last-writer-wins for simple values, operational transforms for
+                  text, custom merge functions for complex data
+                </>
+              }
+            >
+              When several devices modify the same data, Darklang uses merge
+              strategies based on the data type and the user&rsquo;s intent.
+            </FeatureCard>
           </div>
         </div>
 

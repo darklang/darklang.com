@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 import RelatedForPages from "../../components/RelatedForPages";
+import { Contrast, FeatureCard } from "./components";
 
 const AIDevelopers: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    // Trigger animation after component mounts
-    setIsVisible(true);
-  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
@@ -25,145 +21,36 @@ const AIDevelopers: React.FC = () => {
         </div>
 
         {/* AI Development and Darklang Advantages Sections */}
-        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
-          {/* AI Development Pain Points */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ width: isVisible ? "44px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
-                Current AI Development Reality
-              </h2>
-            </div>
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Managing API keys, rate limits, and model endpoints across
-                  different providers
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Building complex LangChain workflows with unclear error
-                  handling
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Vector database setup, embedding management, context window
-                  juggling
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Deploying AI agents with proper observability and debugging
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Scaling from prototype to production with reliable
-                  infrastructure
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Darklang AI Advantages */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
-                Darklang: Built for AI from Day One
-              </h2>
-            </div>
-
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Built-in model access:</strong> OpenAI, Anthropic,
-                  local models—all integrated
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Generous parser:</strong> AI-generated code that
-                  actually runs
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Trace-driven debugging:</strong> See exactly what your
-                  AI agents did
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Instant deployment:</strong> AI applications live in
-                  seconds
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="mb-16">
+          <Contrast
+            beforeTitle="Current AI Development Reality"
+            afterTitle="Darklang: Built for AI from Day One"
+            before={[
+              "Managing API keys, rate limits, and model endpoints across different providers",
+              "Building complex LangChain workflows with unclear error handling",
+              "Vector database setup, embedding management, context window juggling",
+              "Deploying AI agents with proper observability and debugging",
+              "Scaling from prototype to production with reliable infrastructure",
+            ]}
+            after={[
+              <>
+                <strong>Built-in model access:</strong> OpenAI, Anthropic, local
+                models—all integrated
+              </>,
+              <>
+                <strong>Generous parser:</strong> AI-generated code that
+                actually runs
+              </>,
+              <>
+                <strong>Trace-driven debugging:</strong> See exactly what your
+                AI agents did
+              </>,
+              <>
+                <strong>Instant deployment:</strong> AI applications live in
+                seconds
+              </>,
+            ]}
+          />
         </div>
 
         {/* Perfect For AI Developers */}
@@ -237,58 +124,55 @@ const AIDevelopers: React.FC = () => {
             AI-First Language Design
           </h2>
 
-          <div className="space-y-8">
-            <div className="border-l-3 border-blue-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Generous Parser
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Darklang's parser is designed to understand AI-generated code.
-                Other languages break when AI writes slightly incorrect
-                syntax—Darklang fixes it automatically.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600">
-                  <strong>Result:</strong> GitHub Copilot, ChatGPT, and Claude
-                  generate code that actually works. No more syntax error
-                  debugging.
-                </div>
-              </div>
-            </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <FeatureCard
+              h="Generous Parser"
+              tone="blue"
+              detail={
+                <>
+                  <strong className="text-gray-900">Result:</strong> GitHub
+                  Copilot, ChatGPT, and Claude generate code that actually
+                  works. No more syntax-error debugging.
+                </>
+              }
+            >
+              Darklang&rsquo;s parser is designed to understand AI-generated
+              code. Other languages break when a model writes slightly incorrect
+              syntax. Darklang fixes it automatically.
+            </FeatureCard>
 
-            <div className="border-l-3 border-purple-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Built-in Model Access
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Call language models directly from your code. No API key
-                management, no HTTP client setup—models are first-class language
-                features.
-              </p>
-              <div className="bg-gray-50 p-4 rounded font-mono text-sm">
-                <div>let response = AI.chat model prompt</div>
-                <div>let summary = AI.summarize document</div>
-                <div>let analysis = AI.analyze image</div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Built-in Model Access"
+              tone="purple"
+              detail={
+                <span className="block font-code text-xs 2xl:text-sm">
+                  let response = AI.chat model prompt
+                  <br />
+                  let summary = AI.summarize document
+                  <br />
+                  let analysis = AI.analyze image
+                </span>
+              }
+            >
+              Call language models directly from your code. No API key
+              management and no HTTP client setup: models are first-class
+              language features.
+            </FeatureCard>
 
-            <div className="border-l-3 border-mint pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Trace-Driven AI Debugging
-              </h3>
-              <p className="text-gray-700 mb-4">
-                See exactly what your AI agents did: which models they called,
-                what prompts they used, how they reasoned through problems.
-                Perfect for debugging complex workflows.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600">
-                  <strong>Visibility:</strong> Model calls, token usage,
-                  reasoning steps, function calls, decision trees—all traced
-                  automatically.
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Trace-Driven AI Debugging"
+              tone="teal"
+              detail={
+                <>
+                  <strong className="text-gray-900">Visibility:</strong> model
+                  calls, token usage, reasoning steps, function calls, and
+                  decision trees, all traced automatically.
+                </>
+              }
+            >
+              See exactly what your AI agents did: which models they called,
+              what prompts they used, and how they reasoned through problems.
+            </FeatureCard>
           </div>
         </div>
 

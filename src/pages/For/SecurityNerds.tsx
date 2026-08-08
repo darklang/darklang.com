@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EarlyContentDisclaimer from "../../components/EarlyContentDisclaimer";
 import RelatedForPages from "../../components/RelatedForPages";
+import { Contrast, FeatureCard, Glyph } from "./components";
 
 const SecurityNerds: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    // Trigger animation after component mounts
-    setIsVisible(true);
-  }, []);
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl 2xl:max-w-7xl mx-auto">
@@ -25,143 +21,36 @@ const SecurityNerds: React.FC = () => {
         </div>
 
         {/* Security Context and Security by Design */}
-        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-8 2xl:gap-20 mb-10">
-          {/* Security Context */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-rust transition-all duration-700 ease-out"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ width: isVisible ? "44px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-rust transition-all duration-700 ease-out delay-300"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-rust px-4 py-2">
-                Traditional Security Challenges
-              </h2>
-            </div>
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Container vulnerabilities, supply chain attacks, dependency
-                  hell
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Configuration drift, infrastructure misconfigurations, YAML
-                  hell
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>SQL injection, XSS, CSRF, and injection vulnerabilities</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Secrets management, credential rotation, access control
-                  complexity
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-rust font-bold text-lg mr-3 flex-shrink-0">
-                  ✕
-                </span>
-                <p>
-                  Monitoring and incident response across fragmented
-                  infrastructure
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Security by Design */}
-          <div className="py-8">
-            <div className="relative inline-block mb-6 px-3 py-2">
-              {/* L-shaped corner borders with animation */}
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute top-0 left-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-500"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 h-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ width: isVisible ? "55px" : "0px" }}
-              ></div>
-              <div
-                className="absolute bottom-0 right-0 w-0.5 bg-mint transition-all duration-700 ease-out delay-800"
-                style={{ height: isVisible ? "35px" : "0px" }}
-              ></div>
-
-              <h2 className="text-lg md:text-2xl font-semibold text-mint px-4 py-2">
-                Darklang: Security by Design
-              </h2>
-            </div>
-
-            <div className="text-gray-800 space-y-3 pl-5">
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>No containers:</strong> Eliminate container
-                  vulnerabilities and supply chain attacks
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>No SQL injection:</strong> Type-safe database
-                  operations, no raw queries
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>No secrets in code:</strong> Built-in secrets
-                  management and rotation
-                </p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-sm md:text-base text-mint font-bold text-lg mr-3 flex-shrink-0 ">
-                  ✔
-                </span>
-                <p>
-                  <strong>Immutable deployments:</strong> Function-level
-                  deployment, no configuration drift
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="mb-16">
+          <Contrast
+            beforeTitle="Traditional Security Challenges"
+            afterTitle="Darklang: Security by Design"
+            before={[
+              "Container vulnerabilities, supply chain attacks, dependency hell",
+              "Configuration drift, infrastructure misconfigurations, YAML hell",
+              "SQL injection, XSS, CSRF, and injection vulnerabilities",
+              "Secrets management, credential rotation, access control complexity",
+              "Monitoring and incident response across fragmented infrastructure",
+            ]}
+            after={[
+              <>
+                <strong>No containers:</strong> Eliminate container
+                vulnerabilities and supply chain attacks
+              </>,
+              <>
+                <strong>No SQL injection:</strong> Type-safe database
+                operations, no raw queries
+              </>,
+              <>
+                <strong>No secrets in code:</strong> Built-in secrets management
+                and rotation
+              </>,
+              <>
+                <strong>Immutable deployments:</strong> Function-level
+                deployment, no configuration drift
+              </>,
+            ]}
+          />
         </div>
 
         {/* Perfect For Security Professionals */}
@@ -236,80 +125,100 @@ const SecurityNerds: React.FC = () => {
             Built-in Security Features
           </h2>
 
-          <div className="space-y-8">
-            <div className="border-l-4 border-blue-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Memory Safety
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Garbage collected runtime eliminates buffer overflows,
-                use-after-free, and memory corruption vulnerabilities. No manual
-                memory management means no memory-related security bugs.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600">
-                  <strong>Eliminated:</strong> Buffer overflows, double-free
-                  errors, memory leaks, dangling pointers
-                </div>
-              </div>
-            </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <FeatureCard
+              h="Memory Safety"
+              tone="blue"
+              icon={
+                <Glyph>
+                  <path d="M12 3l8 3.5v5c0 4.6-3.3 8.4-8 9.5-4.7-1.1-8-4.9-8-9.5v-5z" />
+                </Glyph>
+              }
+              detail={
+                <>
+                  <strong className="text-gray-900">Eliminated:</strong> buffer
+                  overflows, double-free errors, memory leaks, dangling pointers
+                </>
+              }
+            >
+              A garbage-collected runtime eliminates buffer overflows,
+              use-after-free, and memory corruption vulnerabilities. No manual
+              memory management means no memory-related security bugs.
+            </FeatureCard>
 
-            <div className="border-l-4 border-purple-lbg pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Type Safety
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Strong static typing prevents entire classes of vulnerabilities.
-                No null pointer exceptions, no type confusion attacks, no
-                undefined behavior.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600">
-                  <strong>Features:</strong> Option types (no null), Result
-                  types (no exceptions), exhaustive pattern matching
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Type Safety"
+              tone="purple"
+              icon={
+                <Glyph>
+                  <path d="M20.6 13.4L12 22l-9-9V4h9z" />
+                  <circle cx="7.5" cy="7.5" r="1.2" />
+                </Glyph>
+              }
+              detail={
+                <>
+                  <strong className="text-gray-900">Features:</strong> Option
+                  types (no null), Result types (no exceptions), exhaustive
+                  pattern matching
+                </>
+              }
+            >
+              Strong static typing prevents entire classes of vulnerabilities.
+              No null pointer exceptions, no type confusion attacks, no
+              undefined behavior.
+            </FeatureCard>
 
-            <div className="border-l-4 border-mint pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Injection Prevention
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Type-safe database operations and structured data handling
-                eliminate SQL injection and other injection attacks. No raw
-                string concatenation for queries or commands.
-              </p>
-              <div className="bg-gray-50 p-4 rounded font-mono text-sm">
-                <div className="text-gray-600">
-                  // This is impossible in Darklang:
-                </div>
-                <div className="line-through">
-                  "SELECT * FROM users WHERE id = " + userInput
-                </div>
-                <div className="text-gray-600 mt-2">
-                  // Only this is possible:
-                </div>
-                <div>DB.get Users userId</div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Injection Prevention"
+              tone="teal"
+              icon={
+                <Glyph>
+                  <rect x="5" y="11" width="14" height="9" rx="2" />
+                  <path d="M8 11V8a4 4 0 018 0v3" />
+                </Glyph>
+              }
+              detail={
+                <span className="block font-code text-xs 2xl:text-sm">
+                  <span className="text-gray-400">
+                    // impossible in Darklang:
+                  </span>
+                  <br />
+                  <span className="line-through">
+                    "SELECT * FROM users WHERE id = " + userInput
+                  </span>
+                  <br />
+                  <span className="text-gray-400">// only this:</span>
+                  <br />
+                  <span className="text-purple-dbg">DB.get Users userId</span>
+                </span>
+              }
+            >
+              Type-safe database operations and structured data handling
+              eliminate SQL injection and other injection attacks. No raw string
+              concatenation for queries or commands.
+            </FeatureCard>
 
-            <div className="border-l-4 border-taupe pl-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                Secrets Management
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Built-in secrets management with automatic rotation and secure
-                access patterns. No hardcoded credentials, no environment
-                variable leaks.
-              </p>
-              <div className="bg-gray-50 p-4 rounded">
-                <div className="text-sm text-gray-600">
-                  <strong>Features:</strong> Encrypted at rest, automatic
-                  rotation, audit logging, fine-grained access control
-                </div>
-              </div>
-            </div>
+            <FeatureCard
+              h="Secrets Management"
+              tone="amber"
+              icon={
+                <Glyph>
+                  <circle cx="8" cy="12" r="3" />
+                  <path d="M11 12h9l-2 2M17 12v3" />
+                </Glyph>
+              }
+              detail={
+                <>
+                  <strong className="text-gray-900">Features:</strong> encrypted
+                  at rest, automatic rotation, audit logging, fine-grained
+                  access control
+                </>
+              }
+            >
+              Built-in secrets management with automatic rotation and secure
+              access patterns. No hardcoded credentials, no environment variable
+              leaks.
+            </FeatureCard>
           </div>
         </div>
 

@@ -1,22 +1,118 @@
-import React from "react";
+import React, { useState } from "react";
 
 import SectionTitle from "../../common/ui/SectionTitle";
 import DetailLinks from "./DetailLinks";
 
-const Glyph: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+/** The branch mark on every chip: a commit that split off and carried on. */
+const BranchIcon: React.FC = () => (
   <svg
-    width="17"
-    height="17"
+    width="12"
+    height="12"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.8"
+    strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
+    className="shrink-0"
     aria-hidden="true"
+  >
+    <circle cx="6" cy="5" r="2.5" />
+    <circle cx="6" cy="19" r="2.5" />
+    <circle cx="18" cy="9" r="2.5" />
+    <path d="M6 7.5v9M18 11.5c0 4-4 3.5-9.6 5.2" />
+  </svg>
+);
+
+/** A hand-drawn arrow, curving from a note toward what it points at. */
+const CurvedArrow: React.FC<{ className?: string }> = ({ className = "" }) => (
+  <svg
+    width="36"
+    height="20"
+    viewBox="0 0 36 20"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.7"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={`shrink-0 ${className}`}
+    aria-hidden="true"
+  >
+    <path d="M2 4C11 1 24 4 31 15" />
+    <path d="M29.4 8.2 31 15 24.6 12" />
+  </svg>
+);
+
+/**
+ * Source-control marks in the margins.
+ *
+ * Drawn at 36px in a 36px box, so a stroke of 1.25 stays crisp without
+ * thickening into the blobs that scaled-up glyphs produced. Straight lines and
+ * one shallow curve each: long hand-tuned beziers were what looked broken.
+ */
+const Mark: React.FC<{
+  className?: string;
+  w?: number;
+  h?: number;
+  children: React.ReactNode;
+}> = ({ className = "", w = 36, h = 36, children }) => (
+  <svg
+    width={w}
+    height={h}
+    viewBox={`0 0 ${w} ${h}`}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.25"
+    strokeLinecap="round"
+    aria-hidden="true"
+    className={`pointer-events-none absolute hidden text-taupe/35 xl:block ${className}`}
   >
     {children}
   </svg>
+);
+
+/** A branch leaving the trunk and carrying on. */
+const BranchMark: React.FC<{ className?: string }> = ({ className }) => (
+  <Mark className={className}>
+    <path d="M11 4v28" />
+    <path d="M11 14c0 0 14 1 14 9" />
+    <circle cx="11" cy="4" r="2.6" />
+    <circle cx="11" cy="32" r="2.6" />
+    <circle cx="25" cy="26" r="2.6" fill="currentColor" />
+  </Mark>
+);
+
+/** A branch merging back into the trunk. */
+const MergeMark: React.FC<{ className?: string }> = ({ className }) => (
+  <Mark className={className}>
+    <path d="M25 4v28" />
+    <path d="M25 22c0 0-14-1-14-9" />
+    <circle cx="25" cy="4" r="2.6" />
+    <circle cx="25" cy="32" r="2.6" />
+    <circle cx="11" cy="10" r="2.6" fill="currentColor" />
+  </Mark>
+);
+
+const Marks: React.FC = () => (
+  <>
+    <MergeMark className="-left-20 top-6" />
+    <BranchMark className="-right-20 -bottom-6" />
+  </>
+);
+
+/**
+ * A handwritten note in the margin, pointing at the part of the card it is
+ * about. Hidden until there is room outside the card to hang it.
+ */
+const Note: React.FC<{ children: React.ReactNode; className?: string }> = ({
+  children,
+  className = "",
+}) => (
+  <span
+    className={`absolute hidden items-end gap-1 whitespace-nowrap font-caveat text-lg text-taupe xl:flex ${className}`}
+  >
+    {children}
+  </span>
 );
 
 const CheckIcon: React.FC = () => (
@@ -36,140 +132,140 @@ const CheckIcon: React.FC = () => (
   </svg>
 );
 
-const TagIcon: React.FC = () => (
-  <Glyph>
-    <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
-    <circle cx="7.5" cy="7.5" r=".6" fill="currentColor" />
-  </Glyph>
-);
-
-const SwitchIcon: React.FC = () => (
-  <Glyph>
-    <path d="M8 4 4 8l4 4" />
-    <path d="M4 8h16" />
-    <path d="M16 20l4-4-4-4" />
-    <path d="M20 16H4" />
-  </Glyph>
-);
-
-const Rule: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="my-3 flex items-center gap-3">
-    <span className="text-[11px] font-semibold uppercase tracking-[0.13em] text-gray-light">
-      {children}
-    </span>
-    <span className="h-px flex-1 bg-gray-100" />
-  </div>
-);
-
-const Def: React.FC<{ kind: string; name: string; tag?: string }> = ({
-  kind,
-  name,
-  tag,
-}) => (
-  <div className="flex items-baseline justify-between gap-3 font-code text-xs">
-    <span className="min-w-0 truncate text-dark">
-      <span className="text-gray-light">{kind}</span> {name}
-    </span>
-    <span
-      className={`shrink-0 text-[10px] uppercase tracking-wider ${
-        tag === "new"
-          ? "text-acc-green"
-          : tag === "edited"
-            ? "text-rust"
-            : "text-gray-light"
-      }`}
-    >
-      {tag ?? "moved with it"}
-    </span>
-  </div>
-);
+const BRANCHES: {
+  name: string;
+  changes: {
+    kind: string;
+    name: string;
+    tag?: "edited" | "new" | "renamed" | "followed";
+  }[];
+}[] = [
+  { name: "main", changes: [] },
+  {
+    name: "agent/rename",
+    changes: [
+      { kind: "type", name: "User", tag: "renamed" },
+      { kind: "fn", name: "Account.updateEmail", tag: "followed" },
+      { kind: "fn", name: "Auth.requireUser", tag: "followed" },
+    ],
+  },
+  {
+    name: "add-retry",
+    changes: [
+      { kind: "fn", name: "Webhook.onPush", tag: "edited" },
+      { kind: "value", name: "maxRetries", tag: "new" },
+    ],
+  },
+  {
+    name: "fix-digest",
+    changes: [{ kind: "fn", name: "Digest.summarize", tag: "edited" }],
+  },
+];
 
 /**
- * The claim first, the evidence underneath: the homepage sells in sentences,
- * the source control page shows the same thing as an interface.
+ * The claim is that switching branches is instant and loses nothing, so the
+ * visitor gets to do it. Each branch keeps its own work in progress; clicking
+ * between them swaps instantly and leaves every one untouched, which is the
+ * whole point and is more convincing than a sentence saying so.
  */
-const Card: React.FC<{
-  icon: React.ReactNode;
-  iconClass: string;
-  claim: React.ReactNode;
-  outcome: string;
-  className?: string;
-  children: React.ReactNode;
-}> = ({ icon, iconClass, claim, outcome, className = "", children }) => (
-  <div
-    className={`w-full max-w-[26rem] overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md transition duration-200 hover:rotate-0 hover:shadow-lg motion-reduce:transition-none ${className}`}
-  >
-    <div className="flex items-start gap-3 px-5 pb-4 pt-4">
-      <span
-        className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${iconClass}`}
-      >
-        {icon}
-      </span>
-      <p className="text-base font-semibold leading-snug text-dark md:text-lg">
-        {claim}
-      </p>
-    </div>
+const BranchSwitcher: React.FC = () => {
+  const [active, setActive] = useState(1);
+  const branch = BRANCHES[active];
 
-    <div className="border-t border-gray-100 bg-[#F9F9FB] px-5 py-4">
-      {children}
-      <p className="mt-4 flex items-center gap-1.5 text-xs text-acc-green">
-        <CheckIcon />
-        {outcome}
-      </p>
-    </div>
-  </div>
-);
+  return (
+    <div className="relative mx-auto w-full max-w-[30rem]">
+      <Marks />
 
-const ChangeCards: React.FC = () => (
-  <div className="mx-auto flex w-full max-w-[30rem] flex-col gap-5 py-4">
-    <Card
-      className="self-start rotate-[-1.8deg]"
-      icon={<TagIcon />}
-      iconClass="bg-rust/10 text-rust"
-      claim={
-        <>
-          You changed three things.{" "}
-          <span className="text-rust">Two more followed.</span>
-        </>
-      }
-      outcome="none touched by hand"
-    >
-      <div className="grid gap-2.5">
-        <Def kind="fn" name="Notify.notify" tag="edited" />
-        <Def kind="type" name="Digest" tag="edited" />
-        <Def kind="value" name="digestHour" tag="new" />
-      </div>
+      {/* the rename note only belongs beside the branch that shows a rename */}
+      {branch.name === "agent/rename" && (
+        <Note className="-right-3 top-1/3 translate-x-full">
+          <CurvedArrow className="-mb-1 -scale-x-100" />
+          <span className="leading-tight">
+            one rename,
+            <br />
+            every caller followed
+          </span>
+        </Note>
+      )}
 
-      <Rule>and so</Rule>
-
-      <div className="grid gap-2.5">
-        <Def kind="fn" name="Webhook.onPush" />
-        <Def kind="fn" name="Digest.summarize" />
-      </div>
-    </Card>
-
-    <Card
-      className="self-end rotate-[1.4deg] lg:mr-2"
-      icon={<SwitchIcon />}
-      iconClass="bg-taupe/15 text-taupe"
-      claim={
-        <>
-          Switching branches is <span className="text-taupe">instant</span>.
-        </>
-      }
-      outcome="nothing to stash"
-    >
-      <div className="flex items-center gap-2 font-code text-xs">
-        <span className="text-taupe">main</span>
-        <span className="text-gray-light">&rarr;</span>
-        <span className="text-rust">add-retry</span>
-        <span className="ml-auto text-[10px] uppercase tracking-wider text-gray-light">
-          3 in progress
+      <Note className="-bottom-2 left-8 translate-y-full">
+        <span className="leading-tight">
+          no stash, no worktrees, no second checkout
         </span>
+        <CurvedArrow className="mb-1 -scale-y-100" />
+      </Note>
+
+      <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md">
+        <div className="border-b border-gray-100 px-4 py-3">
+          {/* one line: it should read as a row of branches, not a paragraph */}
+          <div className="flex gap-1.5 overflow-x-auto">
+            {BRANCHES.map((b, i) => (
+              <button
+                key={b.name}
+                onClick={() => setActive(i)}
+                aria-pressed={i === active}
+                className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-1 font-code text-xs transition ${
+                  i === active
+                    ? "bg-rust/10 text-rust"
+                    : "text-gray-dark hover:bg-gray-50"
+                }`}
+              >
+                <BranchIcon />
+                {b.name}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* keyed on the branch so each switch re-runs the entrance: the snap is
+          the message */}
+        <div key={branch.name} className="animate-rise-in px-5 py-4">
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.13em] text-gray-light">
+            {branch.changes.length === 0
+              ? "no uncommitted changes"
+              : `${branch.changes.length} in progress`}
+          </p>
+
+          <div className="grid min-h-[5.25rem] content-start gap-2.5">
+            {branch.changes.map(change => (
+              <div
+                key={change.name}
+                className="flex items-baseline justify-between gap-3 font-code text-xs"
+              >
+                <span className="min-w-0 truncate text-dark">
+                  <span className="text-gray-light">{change.kind}</span>{" "}
+                  {change.name}
+                </span>
+                <span
+                  className={`shrink-0 text-[10px] uppercase tracking-wider ${
+                    change.tag === "new"
+                      ? "text-acc-green"
+                      : change.tag === "followed"
+                        ? "text-gray-light"
+                        : "text-rust"
+                  }`}
+                >
+                  {change.tag}
+                </span>
+              </div>
+            ))}
+
+            {branch.changes.length === 0 && (
+              <p className="font-code text-xs text-gray-light">
+                everything here is committed
+              </p>
+            )}
+          </div>
+        </div>
+
+        <p className="flex items-center gap-1.5 border-t border-gray-100 bg-[#F9F9FB] px-5 py-3.5 text-xs text-blue-lbg">
+          <CheckIcon />
+          every branch keeps its own work
+        </p>
       </div>
-    </Card>
-  </div>
-);
+    </div>
+  );
+};
 
 const VersionIt: React.FC<{ reverse?: boolean }> = ({ reverse = false }) => {
   return (
@@ -212,7 +308,7 @@ const VersionIt: React.FC<{ reverse?: boolean }> = ({ reverse = false }) => {
 
           {/* Right: three ideas, each stated outright */}
           <div className="min-w-0">
-            <ChangeCards />
+            <BranchSwitcher />
           </div>
         </div>
       </div>

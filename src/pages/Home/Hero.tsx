@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
           <span className="text-blue-lbg">Software</span>
         </h1>
 
-        <p className="text-lg md:text-xl lg:text-2xl mb-6 max-w-4xl lg:max-w-6xl text-dark">
+        <p className="text-lg md:text-xl lg:text-2xl mb-6 max-w-4xl lg:max-w-7xl text-dark">
           Darklang is a functional programming language and integrated runtime
           for building CLI tools and backends.{" "}
           <span className="font-semibold text-purple-lbg">Packages</span>,{" "}
@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
           without stitching together a stack.
         </p>
 
-        <p className="text-lg md:text-xl lg:text-2xl mb-12 max-w-4xl text-dark">
+        <p className="text-lg md:text-xl lg:text-2xl mb-12 max-w-6xl text-dark">
           Work <span className="font-medium text-dark">locally</span>,{" "}
           <span className="font-medium text-dark">self-host</span>, or use{" "}
           <span className="font-medium text-blue-lbg">Darklang Cloud</span>.

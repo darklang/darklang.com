@@ -5,6 +5,7 @@ import Layout from "./common/layout/Layout";
 
 import Home from "./pages/Home";
 import Home2 from "./pages/Home2";
+import HomeControl from "./pages/HomeControl";
 
 import Classic from "./pages/Classic";
 
@@ -52,6 +53,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="home" element={<Home2 />} />
+          <Route path="home2" element={<HomeControl />} />
 
           <Route path="/classic" element={<Classic />} />
 

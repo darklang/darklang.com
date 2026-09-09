@@ -16,7 +16,7 @@ import Installing from "./Installing";
 import WhatYouBuild from "./WhatYouBuild";
 import Closer from "./Closer";
 import Newsletter from "../Home/Newsletter";
-import { TableOfContents } from "../../components";
+import { DraftNav, TableOfContents } from "../../components";
 
 const HomeControl = () => {
   const tocItems = [
@@ -39,6 +39,7 @@ const HomeControl = () => {
 
   return (
     <>
+      <DraftNav />
       <TableOfContents items={tocItems} />
       <div id="hero">
         <Hero />

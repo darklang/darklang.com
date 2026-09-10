@@ -22,7 +22,7 @@ import TryDarklang from "./TryDarklang";
 // import DesignedForGenAI from "./DesignedForGenAI";
 import Newsletter from "./Newsletter";
 // import BlogPostsExample from "./BlogPostsExample";
-import { TableOfContents } from "../../components";
+import { DraftNav, TableOfContents } from "../../components";
 
 const Home = () => {
   // Table of contents items
@@ -61,6 +61,7 @@ const Home = () => {
 
   return (
     <>
+      <DraftNav />
       <TableOfContents items={tocItems} />
       <div id="hero">
         <Hero />

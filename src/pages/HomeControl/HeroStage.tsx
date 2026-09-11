@@ -152,7 +152,7 @@ const PEERS = [
 const SCENES = [
   { label: "prompt", title: "dark agent · ask" },
   { label: "build", title: "dark agent · agent/digest" },
-  { label: "access", title: "dark grant · CustomerDigest" },
+  { label: "access", title: "dark permissions · CustomerDigest" },
   { label: "run", title: "dark run · trace #8812" },
   { label: "sync", title: "dark sync · 4 instances" },
   { label: "app", title: "dark canvas · vps-1" },
@@ -208,7 +208,7 @@ const SYNC = [
   sub("different definitions, nothing to resolve"),
   bullet("Synced ops #1839..#1844 over plain HTTP"),
   sub("home-server, vps-1, agent-box now at #1844"),
-  sub("grants and secrets stay on each machine"),
+  sub("permissions and secrets stay on each machine"),
   bullet("Installed on vps-1"),
 ];
 
@@ -302,7 +302,7 @@ const HeroStage: React.FC = () => {
       ).join("");
       setView(
         "hs-grant",
-        '<div class="hs-view-title">GRANT <b>CustomerDigest</b>' +
+        '<div class="hs-view-title">PERMISSIONS <b>CustomerDigest</b>' +
           '<span class="right">default: nothing</span></div>' +
           allow +
           '<div class="hs-gr-split">CANNOT</div>' +
@@ -361,7 +361,7 @@ const HeroStage: React.FC = () => {
         '<div class="hs-view-title">OP LOG <b>#1844</b><span class="right">ops 1839..1844</span></div>' +
           map +
           rows +
-          '<div class="hs-note">plain HTTP, one cursor per log<br>grants and secrets stay on each machine</div>',
+          '<div class="hs-note">plain HTTP, one cursor per log<br>permissions and secrets stay on each machine</div>',
       );
     };
 

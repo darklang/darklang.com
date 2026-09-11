@@ -26,7 +26,9 @@ const Foundation: React.FC = () => (
   >
     <p>
       You wrote a function. Around it you also have a file, an import, a build,
-      a container and a deploy. Only the first one was your idea.
+      a container and a deploy. Only the first one was your idea. An agent can
+      write the function in seconds. The rest still takes as long as it always
+      did.
     </p>
     <p>
       Darklang keeps that one and drops the rest. Every function, type and value
@@ -40,7 +42,7 @@ const Foundation: React.FC = () => (
       and a function can say what it&apos;s allowed to touch (the runtime owns
       the effects too).
     </p>
-    <p className="text-2xl font-bold text-black-custom md:text-3xl">
+    <p className="text-lg font-bold text-black-custom md:text-xl">
       No files. No build. No deploy.
     </p>
     <p>That&apos;s the entire loop.</p>

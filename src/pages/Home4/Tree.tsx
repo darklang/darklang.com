@@ -10,7 +10,9 @@ const SEARCH = [
   out("       String -> Result<'a, ParseError>"),
   out("fn   Stdlib.Json.parseWith          ..."),
   gap,
-  cmd("dark view Stdlib.List.map"),
+  cmd("dark deps Stdlib.Json.parse"),
+  out("used by  Shop.importOrders"),
+  out("         Blog.loadPosts"),
 ];
 
 const DEPRECATE = [
@@ -54,6 +56,12 @@ const Tree: React.FC = () => (
       change under you and a package can never break you by publishing. When a
       function should stop being used, its author says so and the runtime
       enforces it.
+    </p>
+    <p>
+      One tree also means an agent can look before it writes. It finds the JSON
+      parser you already have instead of adding a fourth, and &quot;what uses
+      it?&quot; gets an exact answer, not a grep full of functions that happen
+      to share its name.
     </p>
 
     <DetailLinks

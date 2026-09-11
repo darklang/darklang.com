@@ -1,7 +1,7 @@
 import React from "react";
 
 import DetailLinks from "../Home/DetailLinks";
-import { Section, Shot, Term } from "./parts";
+import { Section, Term } from "./parts";
 import { cmd, gap, out } from "./lines";
 
 const LINES = [
@@ -26,14 +26,7 @@ const Traces: React.FC = () => (
         Every run is <span className="text-acc-amber">recorded</span>
       </>
     }
-    panel={
-      <>
-        <Term lines={LINES} />
-        <Shot>
-          The trace above, in the workbench, with the failing row highlighted.
-        </Shot>
-      </>
-    }
+    panel={<Term lines={LINES} />}
   >
     <p>
       It&apos;s 2am. A customer says checkout charged them twice. You have a log
@@ -45,6 +38,11 @@ const Traces: React.FC = () => (
       Every run records every call, every argument and every return value. Not a
       log you remembered to write. The actual values, from the actual run. The
       bug is on line four, and you didn&apos;t reproduce anything.
+    </p>
+    <p>
+      That matters more when you didn&apos;t write the code. An agent&apos;s
+      code is often almost right, and almost right reads fine. The run shows you
+      where it isn&apos;t.
     </p>
 
     <DetailLinks

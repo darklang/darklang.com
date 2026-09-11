@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 /**
  * TEMPORARY. A switcher between the homepage drafts, so they can be compared
- * without typing URLs. Delete this file and the four imports of it once a
+ * without typing URLs. Delete this file and the six imports of it once a
  * direction is chosen.
  */
 
@@ -11,7 +11,9 @@ const DRAFTS = [
   { to: "/", label: "Live" },
   { to: "/home2", label: "Control" },
   { to: "/home3", label: "Walkthrough" },
-  { to: "/home4", label: "Long-form" },
+  { to: "/home4", label: "Story-based" },
+  { to: "/home5", label: "For AI" },
+  { to: "/home6", label: "All in one" },
 ];
 
 const DraftNav: React.FC = () => {

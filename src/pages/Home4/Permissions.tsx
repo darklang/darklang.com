@@ -2,7 +2,7 @@ import React from "react";
 
 import CodeDisplay from "../../common/ui/CodeDisplay";
 import DetailLinks from "../Home/DetailLinks";
-import { Section, Shot, Term } from "./parts";
+import { Section, Term } from "./parts";
 import { cmd, err } from "./lines";
 
 const DENIAL = [
@@ -39,10 +39,6 @@ const Permissions: React.FC = () => (
             nothing, ever.
           </p>
         </div>
-        <Shot>
-          The workbench detail pane for one function, showing what it requires
-          and the effective allowed set below it.
-        </Shot>
       </>
     }
   >
@@ -56,10 +52,22 @@ const Permissions: React.FC = () => (
       Nothing moves until you say so.
     </p>
     <p>
+      It doesn&apos;t matter why it tried. Maybe a README it read told it to.
+      Maybe it drifted off the task. Your rules aren&apos;t instructions the
+      model can forget or be talked out of: the runtime checks every request
+      against them, every time.
+    </p>
+    <p>
       A rule is one exact request: not &quot;the network&quot; but this URL, not
-      &quot;files&quot; but this path. Deny is the default, so you never grant
-      wider than you meant to. And you can ask any function what it needs before
+      &quot;files&quot; but this path. Deny is the default, so you never allow
+      more than you meant to. And you can ask any function what it needs before
       you run it, so &quot;which one?&quot; is a command, not an afternoon.
+    </p>
+    <p>
+      Ask about everything an agent just wrote and the answer is short: most of
+      it touches nothing, and the few functions that reach out are named. The
+      list can miss a call made through a function passed in as an argument, but
+      the runtime still refuses anything you didn&apos;t allow.
     </p>
     <p>
       A function can also cap itself. The ceiling is part of its code, so it

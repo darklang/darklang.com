@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import InstallCommand from "../../common/ui/InstallCommand";
-import { Shot } from "./parts";
 
 const Hero: React.FC = () => (
   <section className="w-full pt-16 pb-12 md:pt-24 md:pb-16">
@@ -40,14 +39,6 @@ const Hero: React.FC = () => (
         <div className="mt-6 flex justify-center">
           <InstallCommand />
         </div>
-      </div>
-
-      <div className="mx-auto mt-14 max-w-5xl">
-        <Shot>
-          The workbench, full screen, on a real project. Left: the package tree.
-          Right: one function open, with its permissions line visible. Tree,
-          code, and what it may touch, in one frame.
-        </Shot>
       </div>
     </div>
   </section>

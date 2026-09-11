@@ -28,7 +28,7 @@ const CHANGES = [
   {
     branch: "b3",
     c: "#b3701f",
-    def: "CustomerDigest grant",
+    def: "CustomerDigest permissions",
     change: "+ POST discord.com",
     who: "you · now",
   },

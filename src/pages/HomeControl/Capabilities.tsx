@@ -28,7 +28,7 @@ const Scope: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 const Capabilities: React.FC = () => (
   <Section
-    eyebrow="Capabilities"
+    eyebrow="Permissions"
     color="text-rust"
     heading={
       <>
@@ -38,7 +38,7 @@ const Capabilities: React.FC = () => (
     panel={
       <div className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
         <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100 text-sm font-semibold">
-          <span className="text-rust">Grant</span>
+          <span className="text-rust">Permissions</span>
           <span className="text-dark">CustomerDigest</span>
           <span className="ml-auto font-code text-xs font-normal text-gray-light">
             instance: vps-1
@@ -55,20 +55,20 @@ const Capabilities: React.FC = () => (
           </Row>
           <Row>
             Write its own state
-            <Scope>db.write CustomerDigestState</Scope>
+            <Scope>db write CustomerDigestState</Scope>
           </Row>
           <Row allow={false}>No file access</Row>
           <Row allow={false}>No subprocess access</Row>
           <Row allow={false}>No other network access</Row>
           <p className="mt-1 text-sm text-gray-dark">
-            You edit this file. Every run records which lines it used.
+            You edit this policy. Every run records which rules it used.
           </p>
         </div>
       </div>
     }
   >
     <p>
-      Each instance has one grant you edit: file, environment and database
+      Each instance has one policy you edit: file, environment and database
       access with scopes, plus network and subprocess rules. The default is
       nothing, so a program can only do what you wrote down.
     </p>

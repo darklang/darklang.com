@@ -76,7 +76,7 @@ const Usage: React.FC = () => (
     </p>
     <p>
       An update names the authority it adds, and confirms nothing else changed.
-      You never grant new access by accident while reading a version number.
+      You never allow new access by accident while reading a version number.
     </p>
   </Section>
 );

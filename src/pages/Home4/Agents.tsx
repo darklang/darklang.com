@@ -1,20 +1,20 @@
 import React from "react";
 
 import DetailLinks from "../Home/DetailLinks";
-import { Section, Shot, Term } from "./parts";
+import { Section, Term } from "./parts";
 import { cmd, gap, out } from "./lines";
 
 const LINES = [
-  cmd("dark branch create agent-1"),
-  cmd("dark agent code --branch agent-1 \\"),
-  cmd('  "add a refund endpoint"'),
-  cmd("dark review agent-1"),
-  cmd("dark merge agent-1"),
+  cmd("dark branch agent-1"),
+  cmd("dark --branch agent-1 agent code \\"),
+  cmd('  "fix the rounding in Shop.total"'),
   gap,
-  cmd("dark status --json"),
-  out('{ "changed": ['),
-  out('    { "name": "Shop.refund", "followed": false }'),
-  out("  ], ... }"),
+  cmd("dark diff agent-1"),
+  out("  ~ fn  Shop.total      updated"),
+  out("  ~ fn  Auth.check      updated"),
+  out("  + fn  Util.roundHalf  new"),
+  gap,
+  cmd("dark branch archive agent-1"),
 ];
 
 const Agents: React.FC = () => (
@@ -29,28 +29,23 @@ const Agents: React.FC = () => (
     }
     flip
     tinted
-    panel={
-      <>
-        <Term lines={LINES} />
-        <Shot>
-          The workbench with two branches in the sidebar, one named after an
-          agent, and a diff open.
-        </Shot>
-      </>
-    }
+    panel={<Term lines={LINES} />}
   >
     <p>
-      You come back from lunch. An agent has written eleven functions, run them,
-      and is waiting for you.
+      You asked an agent for one small fix. It also rewrote the auth check and
+      added a helper nobody asked for, because it seemed like a good idea at the
+      time.
     </p>
     <p>
-      It was working on its own branch, live, the same way you do. It
-      couldn&apos;t touch what you didn&apos;t allow. Every run it made was
-      recorded. You read what changed, and merge what&apos;s good.
+      You didn&apos;t have to watch every step to find out. It was working on
+      its own branch, live, the same way you do. It couldn&apos;t touch what you
+      didn&apos;t allow, and every run it made was recorded. The diff lists
+      every function it changed. Merge the branch if it&apos;s right, archive it
+      if it isn&apos;t, and ask again.
     </p>
     <p>
-      Every command answers in JSON and Darklang runs as an MCP server, so the
-      agent host you already use can drive it.
+      Every command that answers a question can answer in JSON, so the agent
+      host you already use can drive it.
     </p>
 
     <DetailLinks

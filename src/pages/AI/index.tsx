@@ -657,10 +657,10 @@ const LEGIBILITY: {
         <path d="M20 4l-8.5 8.5" />
       </>
     ),
-    p: "Network requests, file access, subprocesses, datastore operations, and model calls cross explicit capability boundaries. You can see when the program reaches beyond itself.",
+    p: "Network requests, file access, subprocesses, datastore operations, and model calls are effects, checked against the permissions you set. You can see when the program reaches beyond itself.",
   },
   {
-    h: "Notice New Capabilities",
+    h: "Notice New Access",
     tone: "text-acc-pink",
     icon: (
       <>
@@ -670,7 +670,7 @@ const LEGIBILITY: {
         <path d="M14.5 9.5L17 12" />
       </>
     ),
-    p: "If a change requires access the program did not previously need, such as calling an API, reading a secret, writing to a datastore, or invoking a model, Darklang makes that new capability explicit.",
+    p: "If a change requires access the program did not previously need, such as calling an API, reading a secret, writing to a datastore, or invoking a model, Darklang makes that new permission requirement explicit.",
   },
   {
     h: "Set the Boundaries",
@@ -683,7 +683,7 @@ const LEGIBILITY: {
         <circle cx="7.5" cy="18" r="2" />
       </>
     ),
-    p: "Choose read-only access, confirm individual writes, or explicitly allow unattended work. Grant only the file, network, environment, datastore, subprocess, and model capabilities the task needs.",
+    p: "Choose read-only access, confirm individual writes, or explicitly allow unattended work. Allow only the file, network, environment, datastore, and subprocess access the task needs.",
   },
 ];
 
@@ -942,7 +942,7 @@ const AI: React.FC = () => {
               <Body className="mb-6">
                 Expose typed Darklang functions, resources, and prompts to any
                 MCP-compatible client. They run as ordinary Darklang code, with
-                explicit capabilities, direct execution, and runtime traces.
+                explicit permissions, direct execution, and runtime traces.
               </Body>
 
               {/* the protocol surface, named and left at that */}

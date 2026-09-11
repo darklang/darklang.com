@@ -1,4 +1,4 @@
-// Experimental homepage at /home4, built from the long-form draft.
+// Experimental story-based homepage at /home4, built from the long-form draft.
 // Order is deliberate: the two things nobody else has (what code may touch,
 // and what it did) come before liveness and the language, which are the
 // reasons those two are possible. The real homepage at "/" is untouched.

@@ -77,8 +77,9 @@ const SyncSection: React.FC = () => (
       rather than a migration.
     </p>
     <p>
-      Code travels. Secrets, data and grants stay on the machine they belong to,
-      so the same app can be allowed more on your server than on your laptop.
+      Code travels. Secrets, data and permissions stay on the machine they
+      belong to, so the same app can be allowed more on your server than on your
+      laptop.
     </p>
     <p>
       One binary and one SQLite file, so moving an instance somewhere else is

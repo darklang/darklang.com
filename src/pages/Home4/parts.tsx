@@ -4,10 +4,8 @@ import SectionTitle from "../../common/ui/SectionTitle";
 import { Line } from "./lines";
 
 /**
- * Shared furniture for /home4: a section wrapper, a terminal block for
- * command-and-output captures, and a placeholder for the screenshots the
- * draft calls for. The placeholders are deliberately obvious: the draft asks
- * for captures of the real tool, and a drawn mock would be a lie.
+ * Shared furniture for /home4: a section wrapper and a terminal block for
+ * command-and-output captures.
  */
 
 export const Section: React.FC<{
@@ -97,25 +95,4 @@ export const Term: React.FC<{ title?: string; lines: Line[] }> = ({
       })}
     </div>
   </div>
-);
-
-/** Where a capture of the real tool goes. */
-export const Shot: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <figure className="rounded-2xl border border-dashed border-gray-300 bg-white px-5 py-10 text-center">
-    <div className="mb-2 font-code text-[11px] tracking-[0.14em] text-gray-light uppercase">
-      screenshot of the real tool
-    </div>
-    <figcaption className="mx-auto max-w-xl text-base text-gray-dark">
-      {children}
-    </figcaption>
-  </figure>
-);
-
-/** A short callout for the honest caveats the draft asks for. */
-export const Caveat: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
-  <p className="rounded-lg border-l-2 border-classic-yellow bg-classic-yellow/10 px-4 py-3 text-base text-gray-custom">
-    {children}
-  </p>
 );

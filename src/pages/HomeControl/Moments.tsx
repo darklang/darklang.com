@@ -17,7 +17,7 @@ const MOMENTS = [
   {
     when: "before it runs",
     verb: "Say what it may reach",
-    body: "Files, network, programs, secrets. Each instance has a grant you edit, and anything you leave out stays out of reach.",
+    body: "Files, network, programs, secrets. Each instance has a permissions policy you edit, and anything you leave out stays out of reach.",
     color: "text-rust",
     dot: "border-rust",
   },

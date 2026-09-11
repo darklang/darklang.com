@@ -1,7 +1,7 @@
 import React from "react";
 
 import DetailLinks from "../Home/DetailLinks";
-import { Section, Shot, Term } from "./parts";
+import { Section, Term } from "./parts";
 import { cmd, gap, note, out } from "./lines";
 
 const FLOW = [
@@ -26,15 +26,7 @@ const Sync: React.FC = () => (
         Sync, <span className="text-acc-cyan">not git</span>
       </>
     }
-    panel={
-      <>
-        <Term lines={FLOW} />
-        <Shot>
-          Two laptops and the server between them, arrows both ways. It can
-          withhold. It can&apos;t change what you wrote.
-        </Shot>
-      </>
-    }
+    panel={<Term lines={FLOW} />}
   >
     <p>
       A git conflict is a file problem. Two people append a function to the same

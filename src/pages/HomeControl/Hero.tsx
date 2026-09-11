@@ -5,7 +5,7 @@ import InstallCommand from "../../common/ui/InstallCommand";
 import HeroStage from "./HeroStage";
 
 const CHIPS = [
-  "access you granted",
+  "access you allowed",
   "runs you can replay",
   "changes you can undo",
   "one SQLite file you can copy",

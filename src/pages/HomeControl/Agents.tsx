@@ -48,17 +48,17 @@ const Agents: React.FC = () => (
         <Warn>Waiting for you</Warn>
         {"\n"}
         <Sp n={2} />
-        <Ty>agent/chunking</Ty> asks for <Str>ai.complete</Str>
+        <Ty>agent/chunking</Ty> asks for <Str>http POST api.anthropic.com</Str>
         {"\n"}
         <Sp n={2} />
-        everything else is inside the grant you approved
+        everything else is inside the permissions you approved
       </Console>
     }
   >
     <p>
       Nobody sane runs generated Python unsandboxed, and Docker is the duct tape
       everyone reaches for. Here the answer is in the language: an agent works
-      on a branch, under a grant, and you have the last word.
+      on a branch, under your permissions, and you have the last word.
     </p>
     <Facts
       color="bg-purple-lbg"

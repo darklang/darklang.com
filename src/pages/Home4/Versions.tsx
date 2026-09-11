@@ -1,7 +1,7 @@
 import React from "react";
 
 import DetailLinks from "../Home/DetailLinks";
-import { Section, Shot, Term } from "./parts";
+import { Section, Term } from "./parts";
 import { cmd, cont, gap, note, out } from "./lines";
 
 const LINES = [
@@ -34,15 +34,7 @@ const Versions: React.FC = () => (
         Every version is <span className="text-purple-lbg">kept</span>
       </>
     }
-    panel={
-      <>
-        <Term lines={LINES} />
-        <Shot>
-          The status output above, with the &quot;followed&quot; rows dimmed to
-          show the difference between what you did and what followed.
-        </Shot>
-      </>
-    }
+    panel={<Term lines={LINES} />}
   >
     <p>
       You gave an agent the run of the package tree. No approvals, no branch,

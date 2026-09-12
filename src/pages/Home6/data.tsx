@@ -1,334 +1,437 @@
 import React from "react";
 
-import CodeDisplay from "../../common/ui/CodeDisplay";
 import { Term } from "../Home4/parts";
-import { cmd, cont, err, gap, note, out } from "../Home4/lines";
+import { cmd, err, gap, note, out } from "../Home4/lines";
+
+import {
+  Branch,
+  Card,
+  Change,
+  Command,
+  Fact,
+  Line,
+  Tile,
+  Version,
+} from "./parts";
 
 /*
- * The ten things a developer needs, in the order they need them, and where
- * each one lives in Darklang. Every command and output line is either the
- * real CLI wording from the dark repo or a transcript the site already
- * captured (Backends, CLI and /home4 pages).
+ * One section per thing a project needs, in the order a project needs it.
+ *
+ * Commands and output wording follow the real CLI (see cli/registry.dark in
+ * the dark repo), but the names are invented: there is no Blog.slugify or
+ * Weather.report to capture.
+ *
+ * Some of it is ahead of the build on purpose, since the site ships after the
+ * features do. To re-check before launch: the effect line in `dark diff`
+ * (cli/scm has no requirements handling yet), hosting in the ship section,
+ * the per-session status column in `dark branches`, and `dark versions`
+ * (nothing lists a function's versions today; `history` is an alias for
+ * `commits`, so don't use that name). Re-capture the rest against a real
+ * instance.
  */
 
-export type Step = {
+export type Story = {
   id: string;
-  n: string;
-  /** Short label for the hero index and the eyebrow. */
-  name: string;
+  /** Short label for the eyebrow and the table of contents. */
+  eyebrow: string;
   color: string;
   heading: React.ReactNode;
-  /** What you'd normally install or wire up for this step. */
-  usually: string[];
-  body: React.ReactNode[];
+  body: string[];
+  /** The line the section lands on. */
+  takeaway: string;
   panel: React.ReactNode;
 };
 
-export const STEPS: Step[] = [
+export const STORIES: Story[] = [
   {
-    id: "write",
-    n: "01",
-    name: "Write",
+    id: "start",
+    eyebrow: "Start",
     color: "text-purple-lbg",
     heading: (
       <>
-        A language, <span className="text-purple-lbg">and its editor</span>
+        Start with the thing{" "}
+        <span className="text-purple-lbg">you want to make</span>
       </>
     ),
-    usually: ["a language", "a formatter", "a linter", "an editor plugin"],
     body: [
-      "A small, typed, functional language: records, enums, pattern matching, pipes, and Option and Result instead of null and exceptions.",
-      "Your code lives in a database, not in files, so the editor, the type checker and the package tree all read the same thing. Write in the terminal workbench or in VS Code. A draft runs even with type errors; committing waits until they're fixed.",
+      "There's nothing to set up first. Write a function, give it a type, and run it. The place you try it is the place the rest of the program will live.",
+      "It's already part of your program: named, typed, and callable from anything you write next. There's no project layout to decide on and no configuration to fill in before you start. Write it yourself, or let whichever agent you use write it.",
     ],
+    takeaway:
+      "Your first decision is what the software should do, not what to build it with.",
     panel: (
       <Term
         lines={[
-          cmd("dark fn Hello.greet \\"),
-          cmd(`  'let greet (name: String) : String = $"Hi, {name}"'`),
+          cmd("dark fn Blog.slugify \\"),
+          cmd("  'let slugify (title: String) : String ="),
+          cmd("     title"),
+          cmd("     |> Stdlib.String.toLowercase"),
+          cmd(`     |> Stdlib.Regex.replace "[^a-z0-9]+" "-"'`),
           gap,
-          cmd("dark workbench"),
-          note("# the package tree, in your terminal"),
+          cmd(`dark eval 'Blog.slugify "Hello, World! Darklang 101"'`),
+          out('"hello-world-darklang-101"'),
         ]}
       />
     ),
   },
   {
-    id: "run",
-    n: "02",
-    name: "Run",
+    id: "rest",
+    eyebrow: "Data and endpoints",
     color: "text-acc-teal",
     heading: (
       <>
-        It runs the moment <span className="text-acc-teal">you write it</span>
+        Give it a database <span className="text-acc-teal">and a URL</span>
       </>
     ),
-    usually: ["a build step", "a bundler", "a container"],
     body: [
-      "There's nothing to compile or package. Evaluate an expression, run a script file, or open the workbench, and the code you just wrote is the code that runs.",
-      "Scripts use the same types and functions as the rest of your program, so an importer or a one-off fix isn't a second codebase.",
+      "A useful function often needs somewhere to store data and a way for people to reach it. Both are part of Darklang. The datastore is typed, so there's no schema to migrate and no SQL to write.",
+      "Build a signup form's backend: receive an email address, validate it, save it in the database, and send a confirmation. One flow, written in one language, with the server and storage ready to use.",
     ],
+    takeaway: "Add what your idea needs as it needs it.",
     panel: (
       <Term
         lines={[
-          cmd(`dark eval 'Hello.greet "world"'`),
-          out('"Hi, world"'),
+          cmd("dark db Signups App.Signup"),
+          out("Created database: Signups (type: App.Signup)"),
           gap,
-          cmd("dark run scripts/import-tickets.dark"),
-          out("Imported 247 tickets"),
-          out("Updated 18 existing records"),
-          out("0 failures"),
-        ]}
-      />
-    ),
-  },
-  {
-    id: "store",
-    n: "03",
-    name: "Store data",
-    color: "text-blue-lbg",
-    heading: (
-      <>
-        A typed database, <span className="text-blue-lbg">built in</span>
-      </>
-    ),
-    usually: ["a database server", "an ORM", "a connection string"],
-    body: [
-      "Create a datastore with a type, and every row is checked against it. Read, write and query it from the same functions as the rest of your program, with no driver to install.",
-      "A query is an ordinary function over your own type, so the type checker knows what comes back.",
-    ],
-    panel: (
-      <>
-        <Term
-          lines={[
-            cmd("dark db Tickets Support.Api.Ticket"),
-            out("Created database: Tickets (type: Support.Api.Ticket)"),
-            gap,
-            cmd("dark db set Tickets t-1042 \\"),
-            cont(
-              `'{ subject = "Login loop on iOS"; assignee = "alice"; isOpen = true }'`,
-            ),
-            out("Set t-1042 in Tickets"),
-          ]}
-        />
-        <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white p-4 shadow-sm md:p-5">
-          <CodeDisplay
-            code="Stdlib.DB.query Tickets (fun ticket -> ticket.isOpen)"
-            showLineNumbers={false}
-            size="sm"
-          />
-        </div>
-      </>
-    ),
-  },
-  {
-    id: "http",
-    n: "04",
-    name: "Serve and call APIs",
-    color: "text-acc-amber",
-    heading: (
-      <>
-        HTTP both ways, <span className="text-acc-amber">no framework</span>
-      </>
-    ),
-    usually: ["a web framework", "a router", "an HTTP client library"],
-    body: [
-      "A handler is a plain function. dark serve turns your router into a running server, with routes and path parameters from the standard library.",
-      "Calling other APIs is the standard library too, and every request returns a Result, so a network failure is a value you handle, not an exception that unwinds the handler.",
-    ],
-    panel: (
-      <Term
-        lines={[
-          cmd("dark serve Support.Api.router"),
+          cmd("dark serve App.Api.router"),
           out("Listening on http://localhost:8080"),
           gap,
           note("# from another terminal"),
-          cmd("curl http://localhost:8080/tickets"),
-          out('[{"subject":"Login loop on iOS","assignee":"alice", ...}]'),
+          cmd(`curl -X POST localhost:8080/signup -d '{"email":"ada@..."}'`),
+          out('{"ok":true}'),
         ]}
       />
     ),
   },
   {
     id: "reuse",
-    n: "05",
-    name: "Reuse code",
+    eyebrow: "Packages",
     color: "text-acc-pink",
     heading: (
       <>
-        One package tree, <span className="text-acc-pink">no registry</span>
+        Build on <span className="text-acc-pink">what already exists</span>
       </>
     ),
-    usually: ["a package manager", "a registry", "lockfiles", "version ranges"],
     body: [
-      "Your code, the standard library and everyone else's packages live at names in one tree. A reference points at content, not at a name, so a dependency can't change under you.",
-      "Search it, and ask what uses anything: dependents are a lookup with an exact answer, not a grep.",
+      "Need to read a CSV file? Find a parser, read its code, ask what it requires, and call it. Your importer can build on work someone has already done.",
+      "Your functions, shared libraries, and the standard library live in the same searchable tree. Each reference points to a specific version, so you know exactly what you're running and can choose when to update.",
+      "Pulling a stranger's package and picking up a teammate's work are the same act, both landing at a fixed hash. There's no second mechanism to learn for code that came from outside.",
     ],
+    takeaway: "Everything you write can become something you build on, too.",
     panel: (
       <Term
         lines={[
-          cmd('dark search "parse json"'),
-          out("fn   Stdlib.Json.parse<'a>"),
-          out("       String -> Result<'a, ParseError>"),
+          cmd(`dark search "parse csv"`),
+          out("fn   Acme.Csv.parse"),
+          out("       String -> List<List<String>>"),
           gap,
-          cmd("dark deps usedby Darklang.Stdlib.HttpClient.get"),
-          out("Found 13 dependents of Darklang.Stdlib.HttpClient.get:"),
-          out("  [fn] Darklang.GitHub.fetchString"),
-          out("  ..."),
+          cmd("dark view Acme.Csv.parse"),
+          note("# read it before you call it"),
+          gap,
+          cmd("dark deps Acme.Csv.parse"),
+          note("# and see what else already uses it"),
         ]}
       />
     ),
   },
   {
-    id: "track",
-    n: "06",
-    name: "Track changes",
-    color: "text-acc-cyan",
+    id: "ship",
+    eyebrow: "Ship it",
+    color: "text-acc-amber",
     heading: (
       <>
-        Source control that{" "}
-        <span className="text-acc-cyan">knows your code</span>
+        Put it in <span className="text-acc-amber">people&apos;s hands</span>
       </>
     ),
-    usually: ["git", "a branching workflow", "a merge tool"],
     body: [
-      "Every version of every function is kept. Status shows what you changed and what followed it, and undo moves a name back to an earlier version.",
-      "Work on a branch, merge it back, and when two changes meet, nothing stops: both versions are kept, and you settle it by reading them as code.",
+      "You've written a bot that answers questions about your team's projects. Make its endpoint live and point your chat app at it. There's no build to configure and nothing to package.",
+      "What you ran while writing it is what runs now: the same functions, the same data, the same versions. Traces and permissions work the same way in production as they did on your laptop, so going live doesn't mean learning a second set of tools. Run it on our cloud or your own machine; it's the same instance either way, and you can work offline and sync when you feel like it.",
     ],
+    takeaway: "Going live is a step, not a project.",
     panel: (
-      <Term
-        lines={[
-          cmd("dark status"),
-          out("CHANGED (3)"),
-          out("  ~ fn  Shop.total      updated"),
-          out("  > fn  Shop.checkout   updated, followed"),
-          out("  > fn  Shop.invoice    updated, followed"),
-          gap,
-          cmd('dark commit "price in cents" -y'),
-          cmd("dark undo Shop.total"),
-          note("# or step it back"),
-        ]}
-      />
+      <div className="space-y-4">
+        <Command
+          parts={[
+            ["dark"],
+            ["apps enable", "text-purple-lbg"],
+            ["projects-bot", "text-blue-lbg"],
+          ]}
+        />
+
+        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-7">
+          <div className="mb-4 flex items-baseline justify-between">
+            <span className="flex items-center gap-2 font-semibold text-dark">
+              <span className="h-2 w-2 rounded-full bg-olive"></span>
+              projects-bot is live
+            </span>
+            <span className="font-code text-xs text-gray-light">
+              version 9c02af31
+            </span>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Tile
+              kind="endpoint"
+              color="text-blue-lbg"
+              name="POST /ask"
+              stat="212 asks · 24h"
+            />
+            <Tile
+              kind="daemon"
+              color="text-purple-lbg"
+              name="projects-bot"
+              stat="up since Monday"
+            />
+            <Tile
+              kind="datastore"
+              color="text-acc-green"
+              name="Answers"
+              stat="1,904 entries"
+            />
+            <Tile
+              kind="instances"
+              color="text-acc-teal"
+              name="laptop, home-server"
+              stat="both at #1844"
+            />
+          </div>
+
+          <p className="mt-5 border-t border-gray-100 pt-4 text-sm text-gray-dark">
+            The same code on every instance, synced as ops. Nothing was built,
+            packaged or deployed.
+          </p>
+        </div>
+      </div>
     ),
   },
   {
-    id: "observe",
-    n: "07",
-    name: "See what happened",
+    id: "traces",
+    eyebrow: "Traces",
     color: "text-rust",
     heading: (
       <>
-        Every run <span className="text-rust">leaves a trace</span>
+        See what <span className="text-rust">actually happened</span>
       </>
     ),
-    usually: ["logging", "an APM service", "a profiler"],
     body: [
-      "Each run records its input, every call, and what came back. Not a log line you remembered to write, the actual values from the actual run.",
-      "Replay a trace against changed code to check a fix, or ask where the time went across recent runs.",
+      "Once people use your software, they give it inputs you didn't expect. Someone's reminder arrived an hour late, and it works fine on your machine.",
+      "Open the run. Every call is there, with the values that went in and came back: the request carried a time zone, and the scheduling function never used it. Nothing had to be logged in advance, because the runtime recorded the run itself.",
     ],
+    takeaway: "You don't have to reproduce it to see what happened.",
     panel: (
       <Term
         lines={[
-          cmd("dark traces view a3f9c1"),
-          out('Shop.checkout("cart_8812")        → Ok "charged"'),
-          out('  Shop.charge(4200)               → Ok "ch_91x"'),
-          out('  Shop.markPaid("cart_8812")      → Error "cart already paid"'),
+          cmd("dark traces view 7c21b9"),
+          out('Remind.send({ at = 09:00; tz = "Europe/Paris" })'),
+          out("  Schedule.next(09:00)        → 09:00 UTC"),
+          err("  # tz never reached this call"),
+          out('  Notify.push("in 1 hour")    → sent 10:00 local'),
           gap,
-          cmd("dark traces replay a3f9c1"),
-          cmd("dark traces hotspots"),
-          note("# per-function timing across recent runs"),
+          cmd("dark traces replay 7c21b9 --branch fix/tz"),
+          note("  # the recorded request, against your fix"),
+          out("  Remind.send    09:00 Europe/Paris   → sent 09:00 local"),
         ]}
       />
     ),
   },
   {
-    id: "control",
-    n: "08",
-    name: "Control access",
-    color: "text-acc-green",
+    id: "change",
+    eyebrow: "Change",
+    color: "text-acc-cyan",
     heading: (
       <>
-        Permissions <span className="text-acc-green">in the language</span>
+        Change one thing.{" "}
+        <span className="text-acc-cyan">Understand what follows</span>
       </>
     ),
-    usually: ["containers", "sandbox flags", "auditing dependencies by hand"],
     body: [
-      "Every builtin is labelled with its effects, so you can ask what a function requires before it runs.",
-      "Files, the network, processes and the environment stay denied until you allow them, one exact rule at a time. A refusal names the rule that would have allowed it.",
+      "Change one thing and you get the exact list of what used it. No grep to sift through, no wondering whether you caught them all.",
+      "Editing doesn't overwrite anything: your change is a new version, and callers move to it on their own. Pin the ones that shouldn't have, like an endpoint an old app still calls, and they drop back to the version they were on.",
+      "A caller left on an older version isn't broken. It points at something that still exists, and putting anything back is just pointing at it again.",
     ],
+    takeaway: "You can move forward with a way back.",
     panel: (
-      <Term
-        lines={[
-          cmd("dark permissions requirements Report.send"),
-          out("permission requirements: http"),
-          gap,
-          cmd("dark eval Report.send"),
-          err("Permission denied: POST https://hooks.example.com/notify"),
-          err("is not allowed."),
-          err("To allow: `permissions allow http POST"),
-          err("           https://hooks.example.com/notify`"),
-        ]}
-      />
+      <div className="space-y-4">
+        <Card title="Format.date">
+          <Version
+            hash="a17c40b9"
+            label="round to the cent"
+            when="now"
+            current
+          />
+          <div className="mt-2">
+            <Version hash="4c91a7f2" label="percent off" when="2 weeks ago" />
+          </div>
+        </Card>
+
+        <Card title="What used it">
+          <Line name="Calendar.render" note="followed" tone="ok" />
+          <Line name="Notify.digest" note="followed" tone="ok" />
+          <Line name="Api.v1.order" note="pinned at 4c91a7f2" tone="warn" />
+          <p className="mt-4 border-t border-gray-100 pt-3 text-sm text-gray-dark">
+            Last year&apos;s app still calls the pinned one, so it keeps the
+            format it was built against.
+          </p>
+        </Card>
+      </div>
     ),
   },
   {
-    id: "machines",
-    n: "09",
-    name: "Run it everywhere",
+    id: "together",
+    eyebrow: "Teamwork",
     color: "text-blue-lbg",
     heading: (
       <>
-        Keep it running, <span className="text-blue-lbg">on every machine</span>
+        Make room for <span className="text-blue-lbg">more hands</span>
       </>
     ),
-    usually: [
-      "a deploy pipeline",
-      "a process manager",
-      "copying code between machines",
-    ],
     body: [
-      "Turn a program into a daemon and the operating system keeps it running: enabling it registers it with launchd or systemd, so it starts at login and restarts after a crash.",
-      "Sync pushes and pulls your work through a relay, so a laptop, a home server and a VPS share the same code, while each machine keeps its own permissions, data and traces.",
+      "A teammate builds search on one branch. Two agents work on others at the same time, one adding pagination and one adding rate limits. Each runs and tests their work before any of it comes back to you.",
+      "There's no git underneath any of this. A branch costs nothing: no directory, no clone, no stash, and merging happens by definition rather than by line. They all work against the same store, with the same types to read, functions to reuse, and traces to open when something fails.",
     ],
+    takeaway:
+      "The context you've built up stays available to everyone helping you.",
     panel: (
-      <Term
-        lines={[
-          cmd("dark apps enable digest"),
-          note("# starts at login, restarts on failure"),
-          gap,
-          cmd("dark sync setup"),
-          note("# a relay url and a secret, once"),
-          cmd("dark sync"),
-          note("# push, then pull"),
-        ]}
-      />
+      <div className="space-y-4">
+        <Command parts={[["dark"], ["branches", "text-purple-lbg"]]} />
+
+        <Card title="Three at once, one store">
+          <Branch name="search" who="ren" ops="12 ops" />
+          <Branch name="pagination" who="agent-1" ops="31 ops" waiting />
+          <Branch name="rate-limit" who="agent-2" ops="18 ops" />
+          <p className="mt-4 border-t border-gray-100 pt-3 text-sm text-gray-dark">
+            No directories, no clones, nobody blocked. Each one runs and tests
+            its own work before it comes back to you.
+          </p>
+        </Card>
+      </div>
     ),
   },
   {
-    id: "agents",
-    n: "10",
-    name: "Work with agents",
-    color: "text-purple-lbg",
+    id: "review",
+    eyebrow: "Review",
+    color: "text-purple-dbg",
     heading: (
       <>
-        An agent can <span className="text-purple-lbg">drive all of it</span>
+        Read the change, <span className="text-purple-dbg">not the diff</span>
       </>
     ),
-    usually: ["context files", "per-tool agent setup", "a separate sandbox"],
     body: [
-      "Every step above is a CLI command, and every command that answers a question can answer in JSON. dark docs for-ai gives an agent the whole model in one read.",
-      "An agent works on its own branch, with the model you choose, including a local one. It can't touch what you didn't allow, and every run it makes is recorded.",
+      "Before any of it lands you see what each branch changes: a function added, a type that gained a field, the callers that followed, anything that now reaches outside. Definitions and effects, not a wall of red and green.",
+      "A text diff can't tell you that. It shows the lines someone touched, leaves the consequences to you, and fills with things that aren't changes at all: reformatting, reordered imports, a moved function, a renamed file. You spend the review confirming that nothing happened.",
+      "None of it exists here: no files for it to happen in, and a rename doesn't touch callers, which point at the code rather than the name.",
+      "A conflict doesn't stop the merge either: both versions are kept, and you settle it by reading code instead of conflict markers.",
     ],
+    takeaway: "Reviewing is reading meaning, not text.",
     panel: (
-      <Term
-        lines={[
-          cmd("dark docs for-ai"),
-          gap,
-          cmd("dark --branch fix-refunds agent code \\"),
-          cmd('  "refuse orders that were already refunded"'),
-          cmd("dark diff fix-refunds"),
-          cmd("dark merge fix-refunds -y"),
-        ]}
-      />
+      <div className="space-y-4">
+        <Command
+          parts={[
+            ["dark"],
+            ["diff", "text-purple-lbg"],
+            ["pagination", "text-blue-lbg"],
+          ]}
+        />
+
+        <Card title="What this branch changes">
+          <Change mark="+" kind="fn" name="Shop.pageOf" note="new" />
+          <Change mark="~" kind="type" name="Shop.Page" note="gained cursor" />
+          <Change mark="~" kind="fn" name="Shop.list" note="followed" />
+          <Change
+            mark="+"
+            kind="fn"
+            name="Shop.fetchPage"
+            note="new"
+            effect="now requires http"
+          />
+          <p className="mt-4 border-t border-gray-100 pt-3 text-sm text-gray-dark">
+            Four definitions and one new reach outside the program. Nothing
+            moved, nothing reformatted.
+          </p>
+        </Card>
+
+        <div className="rounded-xl border border-gray-200 bg-[#F9F9FB] px-4 py-3">
+          <div className="flex flex-wrap items-baseline gap-x-3 text-sm">
+            <span className="font-code text-dark">Shop.list</span>
+            <span className="text-gray-dark">
+              changed on both sides, both kept
+            </span>
+            <span className="ml-auto font-code text-xs text-gray-light">
+              yours · 7f21a9
+            </span>
+          </div>
+          <p className="mt-1.5 text-sm text-gray-dark">
+            A conflict doesn&apos;t block the merge. You pick by reading them.
+          </p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "permissions",
+    eyebrow: "Permissions",
+    color: "text-acc-green",
+    heading: (
+      <>
+        Decide what <span className="text-acc-green">your code can touch</span>
+      </>
+    ),
+    body: [
+      "As more code enters your project, you stay in control of what it can do.",
+      "Give a weather widget permission to fetch a forecast from one API. A request to send data to another address is denied. Allow a file reader to open one directory and keep the rest outside its reach.",
+      "Darklang checks permissions when code runs, including the libraries it calls, whether you wrote it, a teammate shared it, or an agent generated it. And because every builtin declares what it does, you can ask any function what it needs before you run it.",
+      "You choose the scope: the whole instance, one package you approved, or a single run. A function's author can narrow it further, never widen it, and code gets only what all of them allow.",
+    ],
+    takeaway:
+      "Reusing code doesn't have to mean giving it access to everything.",
+    panel: (
+      <div className="space-y-4">
+        <Command
+          parts={[
+            ["dark"],
+            ["permissions", "text-purple-lbg"],
+            ["requirements", "text-purple-lbg"],
+            ["Weather.report", "text-blue-lbg"],
+          ]}
+        />
+
+        <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+          <div className="flex items-center gap-2 border-b border-gray-100 px-4 py-3 text-sm font-semibold">
+            <span className="text-acc-green">What it may reach</span>
+            <span className="font-code text-dark">Weather.report</span>
+          </div>
+          <Fact label="requires">
+            <span className="font-code text-sm text-dark">Http</span>
+            <span className="text-gray-dark"> worked out from the code</span>
+          </Fact>
+          <Fact label="allowed">
+            <span className="block font-code text-xs break-all text-gray-dark">
+              GET https://api.weather.example/forecast
+            </span>
+          </Fact>
+          <Fact label="everything else">
+            <span className="text-gray-dark">denied</span>
+          </Fact>
+        </div>
+
+        <div className="rounded-xl border border-rust/30 bg-rust/5 px-4 py-3 font-code text-[13px]">
+          <div className="mb-1 font-bold text-rust">
+            denied by instance policy
+          </div>
+          <div className="break-all text-gray-custom">
+            http POST https://metrics.example.com/collect
+          </div>
+          <div className="mt-2 break-all text-dark">
+            <span className="text-gray-dark">$ </span>
+            permissions allow http POST
+            <br />
+            <span className="inline-block pl-4">
+              https://metrics.example.com/collect
+            </span>
+          </div>
+        </div>
+      </div>
     ),
   },
 ];

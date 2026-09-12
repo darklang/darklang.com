@@ -17,6 +17,105 @@ const Lines: React.FC<{ lines: string[] }> = ({ lines }) => (
   </span>
 );
 
+/** The four policy layers, and who owns each one. */
+const LAYERS = [
+  {
+    layer: "instance",
+    owner: "you, on this machine",
+    note: "the hard maximum",
+  },
+  { layer: "run", owner: "whoever invokes it", note: "this invocation only" },
+  { layer: "package", owner: "you, per release", note: "keyed to a hash" },
+  { layer: "function", owner: "the author", note: "can only take away" },
+];
+
+/** One labelled line of the access report. */
+const Row: React.FC<{ label: string; children: React.ReactNode }> = ({
+  label,
+  children,
+}) => (
+  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 border-b border-gray-100 px-4 py-2.5 text-[15px] last:border-b-0">
+    <span className="w-24 shrink-0 font-code text-xs text-gray-dark">
+      {label}
+    </span>
+    <span className="min-w-0 flex-1">{children}</span>
+  </div>
+);
+
+/** What one function is allowed, layer by layer, and what a refusal says. */
+const AccessReport: React.FC = () => (
+  <div className="grid gap-4 md:grid-cols-2">
+    <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+      <div className="flex items-center gap-2 border-b border-gray-100 px-4 py-3 text-sm font-semibold">
+        <span className="text-rust">Access report</span>
+        <span className="font-code text-dark">Weather.report</span>
+      </div>
+      <Row label="requires">
+        <span className="font-code text-sm text-dark">Http</span>
+        <span className="text-gray-dark"> analyzed from the code</span>
+        <span className="mt-0.5 block font-code text-xs break-all text-gray-dark">
+          GET https://api.weather.example/forecast
+        </span>
+      </Row>
+      <Row label="ceiling">
+        <span className="font-code text-sm text-dark">:{"{Http}"}</span>
+        <span className="text-gray-dark">
+          {" "}
+          declared by the author, part of the hash
+        </span>
+      </Row>
+      <Row label="package">
+        <span className="text-dark">approved at</span>
+        <span className="font-code text-sm text-dark"> b7d21f04</span>
+      </Row>
+      <Row label="instance">
+        <span className="text-dark">that one URL</span>
+        <span className="text-gray-dark">, nothing else</span>
+      </Row>
+      <Row label="effective">
+        <span className="text-dark">the intersection of all four</span>
+      </Row>
+    </div>
+
+    <div className="grid content-start gap-4">
+      <div className="rounded-xl border border-rust/30 bg-rust/5 px-4 py-3 font-code text-[13px]">
+        <div className="mb-1 font-bold text-rust">
+          denied by instance policy
+        </div>
+        <div className="break-all text-gray-custom">
+          http POST https://metrics.example.com/collect
+        </div>
+        <div className="mt-2 break-all text-dark">
+          <span className="text-gray-dark">$ </span>
+          permissions allow http POST
+          <br />
+          <span className="inline-block pl-4">
+            https://metrics.example.com/collect
+          </span>
+        </div>
+      </div>
+
+      <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
+        <div className="border-b border-gray-100 px-4 py-2.5 text-sm font-semibold text-rust">
+          The four layers, narrowest wins
+        </div>
+        {LAYERS.map(l => (
+          <div
+            key={l.layer}
+            className="flex flex-wrap items-baseline gap-x-3 border-b border-gray-100 px-4 py-2 text-sm last:border-b-0"
+          >
+            <span className="w-20 shrink-0 font-code text-xs text-rust">
+              {l.layer}
+            </span>
+            <span className="text-dark">{l.owner}</span>
+            <span className="ml-auto text-gray-dark">{l.note}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
 const AIAndSecurity: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
@@ -224,10 +323,11 @@ const AIAndSecurity: React.FC = () => {
                 </>
               }
             >
-              It follows every call it can resolve. When a function runs code
-              it&apos;s handed, like the callback in <Code>List.map</Code>, it
-              says so: <Code>http, plus its callbacks</Code>. It never reports a
-              gap as safe.
+              It follows every call it can resolve, including code inside
+              closures a function might hand back later. When a function runs
+              code it&apos;s handed, like the callback in <Code>List.map</Code>,
+              it says so: <Code>http, plus its callbacks</Code>. It never
+              reports a gap as safe.
             </FeatureCard>
 
             <FeatureCard
@@ -245,9 +345,24 @@ const AIAndSecurity: React.FC = () => {
               A fresh install lets code compute, print, keep its own local data,
               and read the clock and random numbers. Files, the network,
               processes and the environment are denied until you allow them, one
-              exact rule at a time.
+              exact rule at a time. A refusal names the layer that refused, the
+              exact request, and the rule that would allow it.
             </FeatureCard>
           </div>
+        </div>
+
+        {/* The four layers, as the CLI reports them */}
+        <div className="mb-20">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            What One Function Is Actually Allowed
+          </h2>
+          <p className="mb-6 max-w-3xl leading-relaxed text-gray-700 2xl:text-lg">
+            Ask about any function and you get its requirements, the ceiling its
+            author wrote, what you approved, and what this machine permits. What
+            it can do is the intersection of all four, decided when the
+            operation happens.
+          </p>
+          <AccessReport />
         </div>
 
         {/* What It Is and Isn't */}

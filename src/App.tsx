@@ -6,7 +6,6 @@ import Layout from "./common/layout/Layout";
 import Home from "./pages/Home";
 import Home2 from "./pages/Home2";
 import HomeControl from "./pages/HomeControl";
-import Home3 from "./pages/Home3";
 import Home4 from "./pages/Home4";
 import Home5 from "./pages/Home5";
 import Home6 from "./pages/Home6";
@@ -59,7 +58,6 @@ function App() {
           <Route index element={<Home />} />
           <Route path="home" element={<Home2 />} />
           <Route path="home2" element={<HomeControl />} />
-          <Route path="home3" element={<Home3 />} />
           <Route path="home4" element={<Home4 />} />
           <Route path="home5" element={<Home5 />} />
           <Route path="home6" element={<Home6 />} />

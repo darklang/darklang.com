@@ -3,17 +3,22 @@ import { Link, useLocation } from "react-router-dom";
 
 /**
  * TEMPORARY. A switcher between the homepage drafts, so they can be compared
- * without typing URLs. Delete this file and the six imports of it once a
+ * without typing URLs. Delete this file and the imports of it once a
  * direction is chosen.
+ *
+ * /home3 is hidden rather than deleted: its route and import are gone from
+ * App.tsx but src/pages/Home3 is still there. Everything worth keeping from
+ * it has moved to /home6 and /for/ai-and-security, except the on-save type
+ * error panel, which needs a wrong definition shown before it can move.
  */
 
+/** Best first, so the strongest draft is the one you land on. */
 const DRAFTS = [
-  { to: "/", label: "Live" },
-  { to: "/home2", label: "Control" },
-  { to: "/home3", label: "Walkthrough" },
-  { to: "/home4", label: "Story-based" },
-  { to: "/home5", label: "For AI" },
   { to: "/home6", label: "All in one" },
+  { to: "/home5", label: "For AI" },
+  { to: "/home4", label: "Story-based" },
+  { to: "/home2", label: "Control" },
+  { to: "/", label: "Live" },
 ];
 
 const DraftNav: React.FC = () => {

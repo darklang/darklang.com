@@ -9,8 +9,11 @@ interface CodeDisplayProps {
   code: string;
   language?: string;
   showLineNumbers?: boolean;
-  /** "base" steps up to text-base on desktop; "sm" stays small throughout. */
-  size?: "base" | "sm";
+  /**
+   * "base" steps up to text-base on desktop, "sm" stays small throughout, and
+   * "xs" is for code in a narrow column such as a three-up card.
+   */
+  size?: "base" | "sm" | "xs";
 }
 
 const CodeDisplay: React.FC<CodeDisplayProps> = ({
@@ -43,7 +46,11 @@ const CodeDisplay: React.FC<CodeDisplayProps> = ({
   return (
     <div
       className={`hljs-pre code-with-line-numbers whitespace-pre ${
-        size === "sm" ? "text-sm" : "text-sm md:text-base"
+        size === "xs"
+          ? "text-[12px] md:text-[12.5px]"
+          : size === "sm"
+            ? "text-sm"
+            : "text-sm md:text-base"
       }`}
     >
       <pre>

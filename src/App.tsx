@@ -5,6 +5,10 @@ import Layout from "./common/layout/Layout";
 
 import Home from "./pages/Home";
 import Home2 from "./pages/Home2";
+import HomeControl from "./pages/HomeControl";
+import Home4 from "./pages/Home4";
+import Home5 from "./pages/Home5";
+import Home6 from "./pages/Home6";
 
 import Classic from "./pages/Classic";
 
@@ -26,6 +30,7 @@ import WebDevelopers from "./pages/For/WebDevelopers";
 import PythonDevelopers from "./pages/For/PythonDevelopers";
 import AIDevelopers from "./pages/For/AIDevelopers";
 import SecurityNerds from "./pages/For/SecurityNerds";
+import AIAndSecurity from "./pages/For/AIAndSecurity";
 import FSharpDevelopers from "./pages/For/FSharpDevelopers";
 import SmallBusinesses from "./pages/For/SmallBusinesses";
 import LocalFirst from "./pages/For/LocalFirst";
@@ -52,6 +57,10 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="home" element={<Home2 />} />
+          <Route path="home2" element={<HomeControl />} />
+          <Route path="home4" element={<Home4 />} />
+          <Route path="home5" element={<Home5 />} />
+          <Route path="home6" element={<Home6 />} />
 
           <Route path="/classic" element={<Classic />} />
 
@@ -77,6 +86,7 @@ function App() {
           <Route path="for/python-developers" element={<PythonDevelopers />} />
           <Route path="for/ai-developers" element={<AIDevelopers />} />
           <Route path="for/security-nerds" element={<SecurityNerds />} />
+          <Route path="for/ai-and-security" element={<AIAndSecurity />} />
           <Route path="for/fsharp-developers" element={<FSharpDevelopers />} />
           <Route path="for/small-businesses" element={<SmallBusinesses />} />
           <Route path="for/local-first" element={<LocalFirst />} />

@@ -700,8 +700,8 @@ const ExternalCall: React.FC<{ className?: string }> = ({ className }) => (
   </div>
 );
 
-/** A floating card representing a new capability the change requires. */
-const Capability: React.FC<{ className?: string }> = ({ className }) => (
+/** A floating card representing a new permission the change requires. */
+const NewPermission: React.FC<{ className?: string }> = ({ className }) => (
   <div
     className={`w-44 rounded-xl border border-gray-200 bg-white p-3 shadow-[0_18px_40px_-14px_rgba(0,0,0,0.28)] ${
       className ?? ""
@@ -725,7 +725,7 @@ const Capability: React.FC<{ className?: string }> = ({ className }) => (
           <path d="M14 15l2-2M17 18l2-2" />
         </svg>
       </span>
-      new capability
+      new permission
     </div>
     <div className="animate-pulse space-y-2">
       <div className="flex items-center gap-2">
@@ -802,9 +802,9 @@ const ImpactSummary: React.FC = () => {
       {/* floating hero badge — pops off the top-right corner */}
       <AnalyzedBadge run={inView} className="absolute -top-6 right-6 z-10" />
 
-      {/* floating evidence — a trace, the external call, the new capability (fanned deck) */}
+      {/* floating evidence — a trace, the external call, the new permission (fanned deck) */}
       <div className="pointer-events-none absolute -bottom-[14px] right-10 z-10 -rotate-3">
-        <Capability />
+        <NewPermission />
       </div>
       <div className="pointer-events-none absolute -bottom-[54px] right-2 z-20 rotate-2">
         <ExternalCall />
@@ -892,7 +892,7 @@ const Review: React.FC<{ reverse?: boolean }> = ({ reverse = false }) => {
                 Before you accept a change, Darklang shows its impact across the
                 program: every affected caller, anything that no longer
                 type-checks, recorded inputs that now produce different results,
-                and any new capabilities it requires, including access to data,
+                and any new permissions it requires, including access to data,
                 secrets, files, or external services.
               </p>
               <p>

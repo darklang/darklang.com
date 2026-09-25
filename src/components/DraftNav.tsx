@@ -14,8 +14,13 @@ import { Link, useLocation } from "react-router-dom";
 
 /** Best first, so the strongest draft is the one you land on. */
 const DRAFTS = [
+  { to: "/home11", label: "Under control" },
+  { to: "/home10", label: "You can" },
+  { to: "/home9", label: "Agent-first" },
   { to: "/home6", label: "All in one" },
   { to: "/home5", label: "For AI" },
+  { to: "/home8", label: "Problem / solution" },
+  { to: "/home7", label: "Problem-first" },
   { to: "/home4", label: "Story-based" },
   { to: "/home2", label: "Control" },
   { to: "/", label: "Live" },

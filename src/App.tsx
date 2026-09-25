@@ -9,6 +9,13 @@ import HomeControl from "./pages/HomeControl";
 import Home4 from "./pages/Home4";
 import Home5 from "./pages/Home5";
 import Home6 from "./pages/Home6";
+import Home7 from "./pages/Home7";
+import Home8 from "./pages/Home8";
+import BuiltForAgents from "./pages/BuiltForAgents";
+import AgentIssues from "./pages/AgentIssues";
+import Home9 from "./pages/Home9";
+import Home10 from "./pages/Home10";
+import Home11 from "./pages/Home11";
 
 import Classic from "./pages/Classic";
 
@@ -61,6 +68,13 @@ function App() {
           <Route path="home4" element={<Home4 />} />
           <Route path="home5" element={<Home5 />} />
           <Route path="home6" element={<Home6 />} />
+          <Route path="home7" element={<Home7 />} />
+          <Route path="home8" element={<Home8 />} />
+          <Route path="home9" element={<Home9 />} />
+          <Route path="home10" element={<Home10 />} />
+          <Route path="home11" element={<Home11 />} />
+          <Route path="built-for-agents" element={<BuiltForAgents />} />
+          <Route path="agent-issues" element={<AgentIssues />} />
 
           <Route path="/classic" element={<Classic />} />
 

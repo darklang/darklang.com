@@ -23,6 +23,7 @@ const Home11 = () => {
     { id: "answers", title: "Better Context, Fewer Tokens" },
     { id: "impact", title: "Know the Blast Radius" },
     { id: "versions", title: "Change Shared Code Safely" },
+    { id: "packages", title: "Packages That Can't Change" },
     { id: "branches", title: "Agents in Parallel" },
     { id: "tracing", title: "See What Happened When the Code Ran" },
     { id: "access", title: "Only the Access It Needs" },

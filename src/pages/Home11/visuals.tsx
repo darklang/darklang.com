@@ -427,7 +427,7 @@ const SESSION: Entry[] = [
   },
   {
     kind: "say",
-    text: "Found a bug in Billing.total. It's outside this task, so I'm recording it instead of fixing it here.",
+    text: "Found a bug in Billing.total. It's outside this task, so I'll file it as an issue and keep going.",
   },
   {
     kind: "tool",
@@ -840,7 +840,7 @@ const impactStatus = (n: ImpactNode, changed: boolean) => {
   if (n.depth === 0)
     return changed
       ? {
-          text: "Float → Money",
+          text: "Float → Amount",
           tone: "border-blue-lbg bg-blue-lbg text-white",
         }
       : {
@@ -853,7 +853,7 @@ const impactStatus = (n: ImpactNode, changed: boolean) => {
       tone: "border-dashed border-gray-300 bg-white text-gray-500",
     };
   if (!changed)
-    return { text: "calls it", tone: "border-gray-200 bg-white text-gray-600" };
+    return { text: "", tone: "border-gray-200 bg-white text-gray-600" };
   return n.depth === 1
     ? {
         text: "followed",
@@ -870,14 +870,32 @@ export const Impact: React.FC = () => {
   const byName = Object.fromEntries(IMPACT.map(n => [n.name, n]));
   return (
     <Wrap>
-      <div className="flex items-center justify-between font-code text-xs">
-        <span className="text-gray-dark">$ dark deps usedby Billing.total</span>
-        <span className="text-gray-400">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-blue-lbg/8 px-3 py-2 font-code text-xs">
+        <span className="text-gray-700">
+          <span className="text-blue-lbg">$</span> dark deps usedby
+          Billing.total
+        </span>
+        <span className="text-blue-lbg/80">
           {IMPACT.length - 1} dependents, 2 levels
         </span>
       </div>
 
       <div className="-mx-1 mt-4 overflow-x-auto px-1">
+        <div className="relative mb-1 h-4 min-w-[34rem] text-[9px] font-semibold tracking-wider text-gray-400 uppercase">
+          {[
+            { x: 13, text: "you change" },
+            { x: 48, text: "used by" },
+            { x: 84, text: "then used by" },
+          ].map(h => (
+            <span
+              key={h.text}
+              className="absolute -translate-x-1/2 whitespace-nowrap"
+              style={{ left: `${h.x}%` }}
+            >
+              {h.text}
+            </span>
+          ))}
+        </div>
         <div className="relative h-64 min-w-[34rem]">
           <svg
             viewBox="0 0 100 100"
@@ -981,9 +999,11 @@ export const Impact: React.FC = () => {
                   >
                     {n.name}
                   </p>
-                  <p className="truncate text-[9px] font-semibold tracking-wider uppercase">
-                    {st.text}
-                  </p>
+                  {st.text && (
+                    <p className="truncate text-[9px] font-semibold tracking-wider uppercase">
+                      {st.text}
+                    </p>
+                  )}
                 </div>
               </div>
             );
@@ -999,7 +1019,7 @@ export const Impact: React.FC = () => {
         >
           {changed
             ? "↩ before the edit"
-            : "change Billing.total's return type"}
+            : "change Billing.total to return Amount"}
         </Choice>
         <span className="flex flex-wrap gap-1.5 font-code text-[10px]">
           {changed ? (
@@ -1018,7 +1038,9 @@ export const Impact: React.FC = () => {
               </span>
             </>
           ) : (
-            <span className="text-gray-500">known before you touch it</span>
+            <span className="text-gray-500">
+              every caller, before you change a line
+            </span>
           )}
         </span>
       </div>
@@ -1026,7 +1048,7 @@ export const Impact: React.FC = () => {
         <Arrow dir="up-right" />
         {changed
           ? "that is the change report, written for you"
-          : "the same map an agent asks for before it edits"}
+          : "your agent gets this same map before it edits anything"}
       </Note>
     </Wrap>
   );
@@ -1037,10 +1059,10 @@ export const Impact: React.FC = () => {
 /* ------------------------------------------------------------------ */
 
 const OLD_V = { hash: "a64ce1", sig: "List<Line> -> Float" };
-const NEW_V = { hash: "c91b40", sig: "List<Line> -> Money" };
+const NEW_V = { hash: "c91b40", sig: "List<Line> -> Amount" };
 
 const CALLERS = [
-  { name: "Invoice.build", why: "wants Money for the new invoices" },
+  { name: "Invoice.build", why: "needs the new Amount type" },
   { name: "Api.balance", why: "shows the same amounts" },
   { name: "Legacy.statement", why: "must match last year's numbers" },
 ];
@@ -1063,7 +1085,7 @@ export const Versions: React.FC = () => {
         <span className="text-blue-lbg">total</span> (lines:{" "}
         <span className="text-gray-800">List&lt;Line&gt;</span>) :{" "}
         <span className="text-gray-400 line-through">Float</span>{" "}
-        <span className="font-semibold text-rust">Money</span>
+        <span className="font-semibold text-rust">Amount</span>
         <p className="mt-1 text-[10px] text-gray-400">
           Billing.total · old version {OLD_V.hash} · new version{" "}
           <span className="text-rust">{NEW_V.hash}</span>
@@ -1134,6 +1156,177 @@ export const Versions: React.FC = () => {
 };
 
 /* ------------------------------------------------------------------ */
+/* packages: a package's page, friendly first, with what it needs       */
+/* ------------------------------------------------------------------ */
+
+const NeedChip: React.FC<{ kind: string; what: string; tone?: "new" }> = ({
+  kind,
+  what,
+  tone,
+}) => (
+  <span
+    className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-code text-[11px] ${
+      tone === "new"
+        ? "bg-acc-amber/10 text-acc-amber"
+        : "bg-acc-teal/10 text-acc-teal"
+    }`}
+  >
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      {REACH_ICON[kind]}
+    </svg>
+    {what}
+  </span>
+);
+
+export const Packages: React.FC = () => {
+  const [review, setReview] = useState(false);
+  const [choice, setChoice] = useState<"stay" | "move" | null>(null);
+  return (
+    <Wrap>
+      <Card>
+        <div className="flex items-start gap-3.5 px-5 pt-4">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-acc-teal to-blue-lbg font-code text-[11px] font-bold text-white shadow-sm">
+            MAIL
+          </span>
+          <div className="min-w-0">
+            <p className="font-code text-sm font-semibold text-gray-900">
+              Mail.send
+            </p>
+            <p className="text-[12px] text-gray-600">
+              Sends email through the Mailkit API.
+            </p>
+            <p className="mt-1 flex flex-wrap gap-x-3 font-code text-[10px] text-gray-400">
+              <span>by mailkit</span>
+              <span>used by 3,410</span>
+              <span>public · browse online</span>
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-y border-gray-100 bg-[#F9F9FB] px-5 py-2.5">
+          <code className="font-code text-[12px] text-gray-700">
+            <span className="text-acc-teal">Mail.send</span> customer.email body
+          </code>
+          <span className="font-code text-[10px] text-gray-400">
+            just call it · nothing to install
+          </span>
+        </div>
+
+        <div className="px-5 pt-3">
+          <p className="text-[10px] font-semibold tracking-wider text-gray-400 uppercase">
+            needs, read from its code
+          </p>
+          <div className="mt-1.5 flex flex-wrap gap-1.5">
+            <NeedChip kind="Http" what="POST api.mailkit.io/v3/send" />
+            <NeedChip kind="EnvRead" what="MAILKIT_KEY" />
+            <NeedChip kind="FileRead" what="/app/templates" />
+          </div>
+        </div>
+
+        <div className="px-5 pt-4 pb-4">
+          <p className="text-[10px] font-semibold tracking-wider text-gray-400 uppercase">
+            versions
+          </p>
+          <ul className="mt-1.5 divide-y divide-gray-100 rounded-xl border border-gray-200">
+            <li className="px-3 py-2.5">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="font-code text-xs text-gray-900">8b41dd</span>
+                <span className="text-[10px] text-gray-400">
+                  newer · 2 days ago
+                </span>
+                {choice === null ? (
+                  <button
+                    type="button"
+                    onClick={() => setReview(r => !r)}
+                    className="ml-auto rounded-full border border-gray-200 px-2.5 py-0.5 text-[11px] text-gray-700 transition hover:border-gray-400"
+                  >
+                    {review ? "hide" : "review"}
+                  </button>
+                ) : (
+                  <span className="ml-auto text-[11px] text-gray-500">
+                    {choice === "move" ? "✓ moved to 8b41dd" : "skipped"}
+                  </span>
+                )}
+              </div>
+              <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                <span className="text-[11px] text-gray-500">also needs</span>
+                <NeedChip
+                  kind="DbRead"
+                  what="your Customers table"
+                  tone="new"
+                />
+                <NeedChip
+                  kind="Http"
+                  what="POST collect.mailkit.io"
+                  tone="new"
+                />
+              </div>
+              {review && choice === null && (
+                <div className="mt-2 animate-rise-in">
+                  <pre className="overflow-x-auto rounded-lg bg-[#F9F9FB] px-3 py-2 font-code text-[11px] leading-relaxed text-gray-600">
+                    {"  Http.post mailkitUrl message\n"}
+                    <span className="-mx-3 block bg-acc-amber/10 px-3 text-acc-amber">
+                      {"+ Db.readAll Customers |> Mailkit.syncContacts"}
+                    </span>
+                  </pre>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setChoice("stay")}
+                      className="rounded-full bg-acc-teal px-3 py-1 text-[11px] font-medium text-white"
+                    >
+                      stay on 2f7a90
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setChoice("move")}
+                      className="rounded-full border border-gray-200 px-3 py-1 text-[11px] text-gray-600 hover:border-gray-400"
+                    >
+                      approve and move
+                    </button>
+                  </div>
+                </div>
+              )}
+            </li>
+            <li className="flex flex-wrap items-center gap-2 px-3 py-2.5">
+              <span className="font-code text-xs text-gray-900">2f7a90</span>
+              <span className="text-[10px] text-gray-400">approved</span>
+              <span
+                className={`ml-auto rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+                  choice === "move"
+                    ? "bg-gray-100 text-gray-400"
+                    : "bg-acc-teal/10 text-acc-teal"
+                }`}
+              >
+                {choice === "move" ? "previous" : "you're on this one"}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </Card>
+      <Note className="mt-3">
+        <Arrow dir="up-right" />
+        {choice === "stay"
+          ? "nothing changed. your code still points at 2f7a90."
+          : choice === "move"
+            ? "your call, made with the new need in plain sight"
+            : "a new version is a new hash, and it shows what it now needs"}
+      </Note>
+    </Wrap>
+  );
+};
+
+/* ------------------------------------------------------------------ */
 /* 7. branches: two agents on one store, and a merge that keeps going   */
 /* ------------------------------------------------------------------ */
 
@@ -1153,19 +1346,40 @@ const AGENTS = [
 ];
 
 /** A few rows of the one database both branches write to, per merge step. */
-type StoreRow = { name: string; hash: string; where: string; faded?: boolean };
+type StoreRow = {
+  name: string;
+  hash: string;
+  where: string;
+  faded?: boolean;
+  /** Changed by the merge that led to this step: highlighted. */
+  changed?: boolean;
+  /** Won a conflict in that merge: highlighted red. */
+  conflict?: boolean;
+};
 
 const STORE_STEPS: StoreRow[][] = [
   [
     { name: "Billing.total", hash: "c91b40", where: "main · current" },
     { name: "Billing.total", hash: "d4f7a2", where: "add-invoices" },
     { name: "Billing.total", hash: "9e02d7", where: "fix-refunds" },
+    { name: "Billing.refunds", hash: "b2c418", where: "fix-refunds" },
     { name: "Invoice.render", hash: "51ab3c", where: "add-invoices" },
   ],
   [
-    { name: "Billing.total", hash: "d4f7a2", where: "main · current" },
+    {
+      name: "Billing.total",
+      hash: "d4f7a2",
+      where: "main · current",
+      changed: true,
+    },
     { name: "Billing.total", hash: "9e02d7", where: "fix-refunds" },
-    { name: "Invoice.render", hash: "51ab3c", where: "main · current" },
+    { name: "Billing.refunds", hash: "b2c418", where: "fix-refunds" },
+    {
+      name: "Invoice.render",
+      hash: "51ab3c",
+      where: "main · current",
+      changed: true,
+    },
     {
       name: "Billing.total",
       hash: "c91b40",
@@ -1174,12 +1388,23 @@ const STORE_STEPS: StoreRow[][] = [
     },
   ],
   [
-    { name: "Billing.total", hash: "9e02d7", where: "main · current" },
+    {
+      name: "Billing.total",
+      hash: "9e02d7",
+      where: "main · current",
+      conflict: true,
+    },
     { name: "Invoice.render", hash: "51ab3c", where: "main · current" },
+    {
+      name: "Billing.refunds",
+      hash: "b2c418",
+      where: "main · current",
+      changed: true,
+    },
     {
       name: "Billing.total",
       hash: "d4f7a2",
-      where: "kept from the conflict",
+      where: "saved from the conflict",
       faded: true,
     },
     {
@@ -1191,26 +1416,22 @@ const STORE_STEPS: StoreRow[][] = [
   ],
 ];
 
+/**
+ * The merges, one line each: the table above already shows what moved, so
+ * the result only says what the merge decided.
+ */
 const MERGES = [
   {
     branch: "add-invoices",
-    box: "border-acc-green/30 bg-acc-green/5",
-    head: "text-acc-green",
-    lines: [
-      "✓ add-invoices → main · no conflicts",
-      "+ Invoice.render · ~ Billing.total",
-    ],
+    title: "Merged add-invoices, no conflicts",
+    tone: "text-acc-green",
+    body: "",
   },
   {
     branch: "fix-refunds",
-    box: "border-purple-lbg/30 bg-purple-lbg/5",
-    head: "text-purple-lbg",
-    lines: [
-      "✓ fix-refunds → main · 1 conflict, resolved",
-      "Billing.total changed on both branches",
-      "kept: fix-refunds (newer) · recorded: add-invoices",
-      "$ dark conflicts to compare, or pick the other",
-    ],
+    title: "1 conflict: Billing.total",
+    tone: "text-purple-lbg",
+    body: "Both branches changed it. The newer version, from fix-refunds, is now current. The other is saved, so you can switch with dark conflicts.",
   },
 ];
 
@@ -1219,6 +1440,31 @@ const MERGE_NOTES = [
   "the first merge had nothing to decide.",
   "the second found the overlap, kept one version, recorded the other, and finished.",
 ];
+
+/** Each agent's branch gets its own color, carried into the database rows. */
+const BRANCH_TONE: Record<
+  string,
+  { text: string; dot: string; border: string }
+> = {
+  "add-invoices": {
+    text: "text-blue-lbg",
+    dot: "bg-blue-lbg",
+    border: "border-blue-lbg/40",
+  },
+  "fix-refunds": {
+    text: "text-acc-amber",
+    dot: "bg-acc-amber",
+    border: "border-acc-amber/40",
+  },
+};
+
+/** Which branch wrote each version. */
+const HASH_FROM: Record<string, string> = {
+  d4f7a2: "add-invoices",
+  "9e02d7": "fix-refunds",
+  "51ab3c": "add-invoices",
+  b2c418: "fix-refunds",
+};
 
 export const Branches: React.FC = () => {
   const [step, setStep] = useState(0);
@@ -1229,25 +1475,31 @@ export const Branches: React.FC = () => {
         {AGENTS.map(a => (
           <div
             key={a.name}
-            className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm"
+            className={`rounded-xl border bg-white p-3 shadow-sm ${BRANCH_TONE[a.branch].border}`}
           >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-gray-900">
+              <span
+                className={`text-xs font-semibold ${BRANCH_TONE[a.branch].text}`}
+              >
                 {a.name}
               </span>
               <span className="flex items-center gap-1 text-[10px] text-gray-dark">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-olive" />
+                <span
+                  className={`h-1.5 w-1.5 animate-pulse rounded-full ${BRANCH_TONE[a.branch].dot}`}
+                />
                 on {a.branch}
               </span>
             </div>
             <p className="mt-2 truncate font-code text-[10px] text-gray-400">
               $ {a.cmd}
             </p>
-            <div className="mt-2 space-y-0.5 font-code text-[11px] text-gray-700">
+            <div
+              className={`mt-2 space-y-0.5 font-code text-[11px] ${BRANCH_TONE[a.branch].text}`}
+            >
               {a.work.map(w => (
                 <p
                   key={w}
-                  className={w.includes("total") ? "text-purple-lbg" : ""}
+                  className={w.includes("total") ? "font-semibold" : ""}
                 >
                   {w}
                 </p>
@@ -1260,111 +1512,151 @@ export const Branches: React.FC = () => {
         {drop.map(d => (
           <path key={d} d={d} stroke="#e5e7eb" strokeWidth="1.5" />
         ))}
-        <g className="text-purple-lbg">
+        <g className="text-blue-lbg">
           <Traveller path={drop[0]} dur="1.6s" r={2.5} />
+        </g>
+        <g className="text-acc-amber">
           <Traveller path={drop[1]} dur="1.6s" begin="0.8s" r={2.5} />
         </g>
       </svg>
-      <div className="overflow-hidden rounded-xl border border-purple-lbg/30 bg-white">
-        <div className="flex items-center gap-2.5 border-b border-purple-lbg/20 bg-purple-lbg/5 px-3 py-2">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            className="shrink-0 text-purple-lbg"
-            aria-hidden
-          >
-            <ellipse cx="12" cy="6" rx="7" ry="3" />
-            <path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3" />
-          </svg>
-          <span className="font-code text-xs font-semibold text-purple-lbg">
-            data.db
-          </span>
-          <span className="ml-auto text-[10px] text-gray-500">
-            one database · no files, no checkouts
-          </span>
-        </div>
-        <table className="w-full font-code text-[10px]">
-          <thead className="text-left text-gray-400">
-            <tr>
-              <th className="px-3 pt-1.5 font-normal">definition</th>
-              <th className="px-3 pt-1.5 font-normal">version</th>
-              <th className="px-3 pt-1.5 font-normal">where</th>
-            </tr>
-          </thead>
-          <tbody className="text-gray-600">
-            {STORE_STEPS[step].map(r => (
-              <tr
-                key={`${step}-${r.hash}`}
-                className={`animate-rise-in ${
-                  r.faded
-                    ? "text-gray-300"
-                    : r.where.startsWith("main")
-                      ? "text-gray-700"
-                      : "text-purple-lbg"
-                }`}
-              >
-                <td className="px-3 py-0.5">{r.name}</td>
-                <td className="px-3 py-0.5">{r.hash}</td>
-                <td className="px-3 py-0.5">{r.where}</td>
+      <div className="relative">
+        <div className="overflow-hidden rounded-xl border border-purple-lbg/30 bg-white">
+          <div className="flex items-center gap-2.5 border-b border-purple-lbg/20 bg-purple-lbg/5 px-3 py-2">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              className="shrink-0 text-purple-lbg"
+              aria-hidden
+            >
+              <ellipse cx="12" cy="6" rx="7" ry="3" />
+              <path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3" />
+            </svg>
+            <span className="font-code text-xs font-semibold text-purple-lbg">
+              data.db
+            </span>
+            <span className="ml-auto text-[10px] text-gray-500">
+              one database · no files, no checkouts
+            </span>
+          </div>
+          <table className="w-full font-code text-[10px]">
+            <thead className="text-left text-gray-400">
+              <tr>
+                <th className="px-3 pt-1.5 font-normal">definition</th>
+                <th className="px-3 pt-1.5 font-normal">version</th>
+                <th className="px-3 pt-1.5 font-normal">where</th>
               </tr>
-            ))}
-            <tr>
-              <td colSpan={3} className="px-3 pt-0.5 pb-1.5 text-gray-300">
-                … 1,812 more rows
-              </td>
-            </tr>
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="text-gray-600">
+              {STORE_STEPS[step].map(r => (
+                <tr
+                  key={`${step}-${r.hash}`}
+                  className={`animate-rise-in transition-colors ${
+                    r.conflict
+                      ? "bg-rust/10 font-semibold"
+                      : r.changed
+                        ? "bg-purple-lbg/10"
+                        : ""
+                  } ${
+                    r.faded
+                      ? "text-gray-300"
+                      : r.where.startsWith("main")
+                        ? "text-gray-700"
+                        : (BRANCH_TONE[r.where]?.text ?? "text-gray-700")
+                  }`}
+                >
+                  <td
+                    className={`px-3 py-0.5 ${
+                      r.conflict
+                        ? "shadow-[inset_3px_0_0_#bf6360]"
+                        : r.changed
+                          ? "shadow-[inset_3px_0_0_#95589f]"
+                          : ""
+                    }`}
+                  >
+                    {r.name}
+                  </td>
+                  <td className="px-3 py-0.5">
+                    <span className="inline-flex items-center gap-1.5">
+                      <span
+                        className={`h-1.5 w-1.5 rounded-full ${
+                          HASH_FROM[r.hash]
+                            ? BRANCH_TONE[HASH_FROM[r.hash]].dot
+                            : "bg-gray-300"
+                        } ${r.faded ? "opacity-40" : ""}`}
+                      />
+                      {r.hash}
+                    </span>
+                  </td>
+                  <td className="px-3 py-0.5">{r.where}</td>
+                </tr>
+              ))}
+              <tr>
+                <td colSpan={3} className="p-0">
+                  {step === 0 ? (
+                    <p className="px-3 pt-0.5 pb-1.5 text-gray-300">
+                      … 1,812 more rows
+                    </p>
+                  ) : (
+                    <div
+                      key={step}
+                      role="status"
+                      className="mt-1 animate-rise-in border-t border-gray-200 bg-gray-50 px-3 py-2 font-sans text-[11px] leading-snug"
+                    >
+                      <p
+                        className={`font-semibold ${step === 2 ? "text-rust" : "text-gray-700"}`}
+                      >
+                        {MERGES[step - 1].title}
+                      </p>
+                      {MERGES[step - 1].body && (
+                        <p className="mt-0.5 text-gray-600">
+                          {MERGES[step - 1].body}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <ol className="mt-3 space-y-2 font-code text-[11px]">
+      <div className="mt-3 flex flex-wrap items-center gap-2 font-code text-xs">
         {MERGES.map((m, i) => {
           const done = step > i;
           const next = step === i;
           return (
-            <li key={m.branch}>
-              <button
-                type="button"
-                disabled={!next}
-                onClick={() => setStep(i + 1)}
-                className={`rounded-md px-2.5 py-1 font-code text-xs transition ${
-                  next
-                    ? "bg-purple-lbg/15 text-purple-lbg hover:bg-purple-lbg/25"
-                    : done
-                      ? "text-gray-500"
-                      : "text-gray-300"
-                }`}
-              >
-                {i + 1}. $ dark merge {m.branch}
-              </button>
-              {done && (
-                <div
-                  className={`mt-1 animate-rise-in rounded-lg border px-3 py-2 ${m.box}`}
-                >
-                  {m.lines.map((l, j) => (
-                    <p key={l} className={j === 0 ? m.head : "text-gray-500"}>
-                      {l}
-                    </p>
-                  ))}
-                </div>
-              )}
-            </li>
+            <button
+              key={m.branch}
+              type="button"
+              disabled={!next}
+              onClick={() => setStep(i + 1)}
+              className={`rounded-md px-2.5 py-1 transition ${
+                next
+                  ? "bg-purple-lbg/15 text-purple-lbg hover:bg-purple-lbg/25"
+                  : done
+                    ? "text-gray-500"
+                    : "text-gray-300"
+              }`}
+            >
+              {done ? "✓" : `${i + 1}.`} $ dark merge {m.branch}
+            </button>
           );
         })}
-      </ol>
-      {step === MERGES.length && (
-        <button
-          type="button"
-          onClick={() => setStep(0)}
-          className="mt-2 font-code text-[11px] text-gray-400 hover:text-gray-600"
-        >
-          ↩ start over
-        </button>
-      )}
+        {step === MERGES.length && (
+          <button
+            type="button"
+            onClick={() => setStep(0)}
+            className="ml-auto text-[11px] text-gray-400 hover:text-gray-600"
+          >
+            ↩ start over
+          </button>
+        )}
+      </div>
       <Note className="mt-2">
         <Arrow dir="up-right" />
         {MERGE_NOTES[step]}
@@ -1508,46 +1800,13 @@ export const Tracing: React.FC = () => {
 /* 9. access: a permissions sheet for one function, deny by default     */
 /* ------------------------------------------------------------------ */
 
-const PERMS: { kind: string; what: string; on: boolean; rule: string }[] = [
-  {
-    kind: "Http",
-    what: "POST api.stripe.com/v1/charges",
-    on: true,
-    rule: "http POST https://api.stripe.com/v1/charges",
-  },
-  {
-    kind: "Http",
-    what: "POST api.stripe.com/v1/refunds",
-    on: false,
-    rule: "http POST https://api.stripe.com/v1/refunds",
-  },
-  {
-    kind: "Http",
-    what: "POST api.email.example/v1/send",
-    on: true,
-    rule: "http POST https://api.email.example/v1/send",
-  },
-  {
-    kind: "FileRead",
-    what: "/app/templates",
-    on: true,
-    rule: "file read /app/templates",
-  },
-  {
-    kind: "FileWrite",
-    what: "/app/invoices",
-    on: true,
-    rule: "file write /app/invoices",
-  },
-  {
-    kind: "EnvRead",
-    what: "STRIPE_KEY",
-    on: true,
-    rule: "env read STRIPE_KEY",
-  },
-];
-
 const REACH_ICON: Record<string, React.ReactNode> = {
+  DbRead: (
+    <>
+      <ellipse cx="12" cy="6" rx="7" ry="3" />
+      <path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3" />
+    </>
+  ),
   Http: (
     <>
       <circle cx="12" cy="12" r="9" />
@@ -1574,140 +1833,227 @@ const REACH_ICON: Record<string, React.ReactNode> = {
   ),
 };
 
-const ROW_H = 44;
-const FAN_W = 72;
+/** One of the four places a rule can live; access is where all four agree. */
+type Layer = "instance" | "run" | "package" | "function";
+
+const LAYER_OWNER: Record<Layer, string> = {
+  instance: "this machine",
+  run: "whoever started it",
+  package: "your approval",
+  function: "its author",
+};
+
+/** How one layer answered: allowed, denied, not a package, or never asked. */
+type Check = { rule: string; result: "ok" | "deny" | "skip" | "unreached" };
+
+/** A request the code makes, and each layer's answer to it. */
+type Req = {
+  kind: "Http" | "FileWrite";
+  what: string;
+  via: string;
+  checks: Record<Layer, Check>;
+  why?: string;
+  fix?: string;
+};
+
+const INSTANCE_HTTP = "http * https://*.stripe.com";
+
+const REQUESTS: Req[] = [
+  {
+    kind: "Http",
+    what: "POST api.stripe.com/v1/charges",
+    via: "Stripe.charge @3d8e52",
+    checks: {
+      instance: { rule: INSTANCE_HTTP, result: "ok" },
+      run: { rule: "http POST *", result: "ok" },
+      package: {
+        rule: "Stripe.charge approved, for POST …/v1/charges",
+        result: "ok",
+      },
+      function: { rule: "Stripe.charge :{Http}", result: "ok" },
+    },
+  },
+  {
+    kind: "Http",
+    what: "POST api.stripe.com/v1/refunds",
+    via: "Stripe.refund @3d8e52",
+    checks: {
+      instance: { rule: INSTANCE_HTTP, result: "ok" },
+      run: { rule: "http POST *", result: "ok" },
+      package: { rule: "Stripe.refund is not approved", result: "deny" },
+      function: { rule: "Stripe.refund :{Http}", result: "unreached" },
+    },
+    why: "you approved Stripe.charge, not Stripe.refund",
+    fix: "dark permissions approve Stripe.refund http POST https://api.stripe.com/v1/refunds",
+  },
+  {
+    kind: "Http",
+    what: "GET files.stripe.com/receipts/1042",
+    via: "Stripe.receipt @3d8e52",
+    checks: {
+      instance: { rule: `${INSTANCE_HTTP} (subdomain)`, result: "ok" },
+      run: { rule: "http POST * (POST only)", result: "deny" },
+      package: { rule: "", result: "unreached" },
+      function: { rule: "", result: "unreached" },
+    },
+    why: "the machine allows it, but this run was only given POST",
+  },
+  {
+    kind: "Http",
+    what: "POST telemetry.pdfkit.io/v1/events",
+    via: "Pdf.render @9c1e04 · newer",
+    checks: {
+      instance: { rule: "no rule for pdfkit.io", result: "deny" },
+      run: { rule: "", result: "unreached" },
+      package: { rule: "", result: "unreached" },
+      function: { rule: "", result: "unreached" },
+    },
+    why: "nothing on this machine allows that host",
+    fix: "dark permissions allow http POST https://telemetry.pdfkit.io",
+  },
+  {
+    kind: "FileWrite",
+    what: "/app/invoices/1042.pdf",
+    via: "Invoice.send · your code",
+    checks: {
+      instance: { rule: "file write /app/invoices", result: "ok" },
+      run: { rule: "file write /app", result: "ok" },
+      package: { rule: "your own code, not a package", result: "skip" },
+      function: { rule: "Invoice.send :{Http, FileWrite}", result: "ok" },
+    },
+  },
+];
+
+const allowed = (r: Req) =>
+  Object.values(r.checks).every(c => c.result === "ok" || c.result === "skip");
+const stoppedAt = (r: Req) =>
+  (Object.keys(r.checks) as Layer[]).find(l => r.checks[l].result === "deny");
+
+const LAYERS: Layer[] = ["instance", "run", "package", "function"];
 
 export const Access: React.FC = () => {
-  const [perms, setPerms] = useState(PERMS.map(p => p.on));
   const [picked, setPicked] = useState(1);
-  const flip = (i: number) => {
-    setPerms(p => p.map((v, j) => (j === i ? !v : v)));
-    setPicked(i);
-  };
-  const h = PERMS.length * ROW_H;
-  const mid = h / 2;
-  const y = (i: number) => ROW_H / 2 + i * ROW_H;
-  const fan = (i: number) =>
-    `M0 ${mid} C${FAN_W / 2} ${mid}, ${FAN_W / 2} ${y(i)}, ${FAN_W} ${y(i)}`;
-  const sel = PERMS[picked];
-  const selOn = perms[picked];
+  const [lit, setLit] = useState(false);
+  const [run, setRun] = useState(0);
+  const sel = REQUESTS[picked];
+  const ok = allowed(sel);
+  const stop = stoppedAt(sel);
+  const stopIdx = stop ? LAYERS.indexOf(stop) : LAYERS.length;
+
+  // on each pick the gates go dark, then light up one after another
+  useEffect(() => {
+    setLit(false);
+    const id = requestAnimationFrame(() =>
+      requestAnimationFrame(() => setLit(true)),
+    );
+    return () => cancelAnimationFrame(id);
+  }, [run]);
+
   return (
     <Wrap>
-      <div className="-mx-1 overflow-x-auto px-1 pt-5">
-        <div className="flex min-w-[28rem] items-stretch">
-          <div className="flex shrink-0 items-center">
-            <div className="rounded-xl border border-gray-200 bg-white px-3 py-2.5 shadow-md">
-              <p className="font-code text-xs font-semibold text-gray-900">
-                Invoice.send
-              </p>
-              <p className="mt-0.5 text-[9px] font-semibold tracking-wider text-gray-400 uppercase">
-                6 requests
-              </p>
-            </div>
-          </div>
-
-          <svg
-            width={FAN_W}
-            height={h}
-            viewBox={`0 0 ${FAN_W} ${h}`}
-            className="shrink-0 overflow-visible"
-            aria-hidden
-          >
-            {PERMS.map((p, i) => (
-              <g key={p.rule}>
-                <path
-                  d={fan(i)}
+      <p className="mb-2 text-[10px] font-semibold tracking-wider text-gray-light uppercase">
+        pick a request
+      </p>
+      <ul className="space-y-1">
+        {REQUESTS.map((r, i) => {
+          const on = allowed(r);
+          const active = picked === i;
+          return (
+            <li key={r.what}>
+              <button
+                type="button"
+                onClick={() => {
+                  // go dark in the same render as the new pick, so the old
+                  // colors never flash and nothing fades back first
+                  setLit(false);
+                  setPicked(i);
+                  setRun(r => r + 1);
+                }}
+                aria-pressed={active}
+                className={`flex w-full items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-left transition ${
+                  active ? "bg-gray-100" : "hover:bg-gray-50"
+                }`}
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#e5e7eb"
-                  strokeWidth="1.5"
-                />
-                <g className="text-acc-pink">
-                  <Traveller
-                    path={fan(i)}
-                    dur="1.8s"
-                    begin={`${i * 0.35}s`}
-                    r={2.5}
-                  />
-                </g>
-              </g>
-            ))}
-          </svg>
-
-          <div className="relative min-w-0 flex-1">
-            <div className="absolute top-0 bottom-0 left-0 w-8 rounded-full border border-acc-pink/30 bg-acc-pink/5" />
-            <p className="absolute -top-5 left-0 w-8 text-center text-[9px] font-semibold tracking-wider text-acc-pink uppercase">
-              rules
-            </p>
-            {PERMS.map((p, i) => {
-              const on = perms[i];
-              return (
-                <button
-                  key={p.rule}
-                  type="button"
-                  onClick={() => flip(i)}
-                  aria-pressed={on}
-                  className="group relative flex w-full items-center text-left"
-                  style={{ height: ROW_H }}
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="shrink-0 text-gray-400"
+                  aria-hidden
                 >
-                  <span className="flex w-8 shrink-0 justify-center">
-                    <span
-                      className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-white shadow-sm transition ${
-                        on ? "bg-acc-green" : "bg-rust"
-                      } ${picked === i ? "ring-2 ring-offset-1 " + (on ? "ring-acc-green/40" : "ring-rust/40") : ""}`}
-                    >
-                      {on ? "✓" : "✕"}
+                  {REACH_ICON[r.kind]}
+                </svg>
+                <span className="min-w-0 flex-1 truncate font-code text-[11px] text-gray-800">
+                  {r.what}
+                </span>
+                <span className="hidden shrink-0 font-code text-[10px] text-gray-400 sm:inline">
+                  {r.via}
+                </span>
+                <span
+                  className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[9px] font-bold text-white ${
+                    on ? "bg-acc-green" : "bg-rust"
+                  }`}
+                >
+                  {on ? "✓" : "✕"}
+                </span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className="-mx-1 mt-5 overflow-x-auto px-1">
+        <div className="min-w-[30rem]">
+          <div className="grid grid-cols-4 gap-2">
+            {LAYERS.map((l, i) => {
+              const c = sel.checks[l];
+              const denied = c.result === "deny";
+              const reached = i <= stopIdx;
+              const tone = !lit
+                ? "border-gray-200 bg-white"
+                : denied
+                  ? "border-rust bg-rust/10 shadow-[0_0_14px_rgba(191,99,96,0.35)]"
+                  : !reached
+                    ? "border-dashed border-gray-200 bg-white opacity-40"
+                    : c.result === "skip"
+                      ? "border-gray-300 bg-gray-50"
+                      : "border-acc-green bg-acc-green/10 shadow-[0_0_14px_rgba(111,154,61,0.3)]";
+              return (
+                <div
+                  key={l}
+                  className={`rounded-xl border px-2.5 py-2 ${
+                    lit ? "transition-all duration-300" : "transition-none"
+                  } ${tone}`}
+                  style={{ transitionDelay: lit ? `${i * 0.18}s` : "0s" }}
+                >
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="text-[11px] font-semibold text-gray-800">
+                      {l}
                     </span>
-                  </span>
-                  <span className="relative mx-1 h-3 w-6 shrink-0 sm:w-10">
-                    <span
-                      className={`absolute top-1/2 right-0 left-0 ${
-                        on
-                          ? "h-px bg-gray-200"
-                          : "border-t border-dashed border-gray-200"
-                      }`}
-                    />
-                    {on && (
+                    {reached && (
                       <span
-                        className="absolute top-1/2 h-1.5 w-1.5 -translate-y-1/2 animate-flow-right rounded-full bg-acc-green"
-                        style={{ animationDelay: `${i * 0.35 + 1.2}s` }}
-                      />
-                    )}
-                  </span>
-                  <span
-                    className={`flex min-w-0 flex-1 items-center gap-2 rounded-lg border px-2.5 py-1.5 transition ${
-                      on
-                        ? "border-gray-200 bg-white shadow-sm group-hover:border-gray-300"
-                        : "border-dashed border-gray-200 bg-transparent"
-                    }`}
-                  >
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={`shrink-0 ${on ? "text-gray-500" : "text-gray-300"}`}
-                      aria-hidden
-                    >
-                      {REACH_ICON[p.kind]}
-                    </svg>
-                    <span className="min-w-0">
-                      <span
-                        className={`block truncate font-code text-[11px] ${
-                          on ? "text-gray-800" : "text-gray-400 line-through"
+                        className={`text-[11px] font-bold ${
+                          denied
+                            ? "text-rust"
+                            : c.result === "skip"
+                              ? "text-gray-300"
+                              : "text-acc-green"
                         }`}
                       >
-                        {p.what}
+                        {denied ? "✕" : c.result === "skip" ? "–" : "✓"}
                       </span>
-                      <span className="block text-[8px] font-semibold tracking-wider text-gray-400 uppercase">
-                        {p.kind}
-                      </span>
-                    </span>
-                  </span>
-                </button>
+                    )}
+                  </div>
+                  <p className="text-[9px] text-gray-400">{LAYER_OWNER[l]}</p>
+                  <p className="mt-1 line-clamp-2 font-code text-[9px] leading-snug text-gray-600">
+                    {reached ? c.rule : "not checked"}
+                  </p>
+                </div>
               );
             })}
           </div>
@@ -1715,43 +2061,27 @@ export const Access: React.FC = () => {
       </div>
 
       <div
-        key={`${picked}-${selOn}`}
-        className={`mt-4 animate-rise-in rounded-xl border px-3.5 py-2.5 font-code text-[10px] leading-relaxed ${
-          selOn
-            ? "border-acc-green/30 bg-acc-green/5"
-            : "border-rust/30 bg-rust/5"
-        }`}
+        key={picked}
+        className="mt-3 animate-rise-in font-code text-[11px] leading-relaxed"
       >
-        <p className={selOn ? "text-acc-green" : "text-rust"}>
-          {selOn ? "✓ allowed" : "✕ denied"} · {sel.what}
-        </p>
-        <p className="text-gray-500">
-          {selOn ? (
-            <>by rule {sel.rule}</>
-          ) : (
-            <>
-              instance policy · to allow:{" "}
-              <span className="text-gray-700">
-                dark permissions allow {sel.rule}
-              </span>
-            </>
-          )}
-        </p>
+        {ok ? (
+          <p className="text-acc-green">
+            ✓ all four said yes, so it goes through
+          </p>
+        ) : (
+          <>
+            <p className="text-rust">✕ {sel.why}</p>
+            {sel.fix && (
+              <p className="truncate text-gray-400">
+                to allow: <span className="text-gray-600">{sel.fix}</span>
+              </p>
+            )}
+          </>
+        )}
       </div>
-
-      <div className="mt-3 flex flex-wrap items-center gap-2 font-code text-[10px]">
-        <span className="text-gray-400">package Pdf.render</span>
-        <span className="rounded-full bg-acc-green/10 px-2 py-0.5 text-acc-green">
-          @3d8e52 approved · FileRead
-        </span>
-        <span className="rounded-full border border-dashed border-gray-300 px-2 py-0.5 text-gray-400">
-          @9c1e04 newer · adds Http fonts.example · not approved
-        </span>
-      </div>
-      <Note className="mt-3">
+      <Note className="mt-2">
         <Arrow dir="up-right" />
-        every request stops at a rule. click one to flip it. Billing.total is
-        declared :{"{}"}, so it never asks at all.
+        machine, run, package, function: every request needs a yes from all four
       </Note>
     </Wrap>
   );
@@ -1761,89 +2091,193 @@ export const Access: React.FC = () => {
 /* 10. cleanup: what the change left behind                             */
 /* ------------------------------------------------------------------ */
 
+/** What the change left behind, each with the one action that clears it. */
 const LEFTOVERS = [
-  { name: "Invoice.build", tag: "changed", tone: "text-rust", junk: false },
-  {
-    name: "Invoice.show",
-    tag: "followed",
-    tone: "text-gray-light",
-    junk: false,
-  },
   {
     name: "Invoice.formatLegacy",
-    tag: "0 callers",
-    tone: "text-acc-amber",
-    junk: true,
+    kind: "unused",
+    why: "0 callers since this change",
+    action: "delete",
+    done: "deleted",
+  },
+  {
+    name: "Invoice.roundCents",
+    kind: "copied",
+    why: "same code as Amount.round",
+    action: "use Amount.round",
+    done: "replaced",
+  },
+  {
+    name: "Admin.export",
+    kind: "left behind",
+    why: "still on Billing.total a64ce1, not pinned",
+    action: "move to c91b40",
+    done: "moved",
   },
   {
     name: "Invoice.buildTests",
-    tag: "tests the old shape",
-    tone: "text-acc-amber",
-    junk: true,
-  },
-  {
-    name: "Money.round",
-    tag: "1 caller on an old version",
-    tone: "text-acc-amber",
-    junk: true,
+    kind: "stale test",
+    why: "still checks the old Float total",
+    action: "update",
+    done: "updated",
   },
 ];
 
+/** A small glyph per kind of leftover. */
+const LEFTOVER_ICON: Record<string, React.ReactNode> = {
+  unused: (
+    <>
+      <circle cx="12" cy="12" r="8" />
+      <path d="m6.5 17.5 11-11" />
+    </>
+  ),
+  copied: (
+    <>
+      <rect x="8" y="8" width="11" height="11" rx="2" />
+      <path d="M5 15V6a1 1 0 0 1 1-1h9" />
+    </>
+  ),
+  "left behind": (
+    <>
+      <path d="M4 12a8 8 0 1 0 2.3-5.6L4 8.7" />
+      <path d="M4 4v4.7h4.7M12 8v4l2.5 2" />
+    </>
+  ),
+  "stale test": (
+    <>
+      <path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3" />
+      <path d="M7.5 15h9" />
+    </>
+  ),
+};
+
 export const Cleanup: React.FC = () => {
   const [gone, setGone] = useState<string[]>([]);
-  const left = LEFTOVERS.filter(l => l.junk && !gone.includes(l.name)).length;
+  const left = LEFTOVERS.length - gone.length;
+  const clean = left === 0;
   return (
     <Wrap>
-      <div className="flex items-center justify-between font-code text-xs">
-        <span className="text-gray-dark">
-          $ dark commit · <span className="text-rust">add-invoices</span>
-        </span>
-        <span className={left === 0 ? "text-acc-green" : "text-acc-amber"}>
-          {left === 0 ? "nothing left behind" : `${left} left behind`}
-        </span>
-      </div>
-      <div className="mt-3 space-y-1.5">
-        {LEFTOVERS.map(l => {
-          const done = gone.includes(l.name);
-          return (
-            <div
-              key={l.name}
-              className={`flex items-center justify-between gap-3 rounded-lg border px-3 py-2 font-code text-xs transition ${
-                l.junk && !done
-                  ? "border-acc-amber/30 bg-acc-amber/5"
-                  : "border-gray-100 bg-white"
-              }`}
-            >
-              <span
-                className={
-                  done ? "text-gray-300 line-through" : "text-gray-700"
-                }
-              >
-                {l.name}
-              </span>
-              <span className="flex items-center gap-2">
+      <Card>
+        <div className="flex items-center justify-between gap-3 border-b border-gray-100 px-5 py-3">
+          <span className="font-code text-xs text-gray-700">
+            $ dark commit · <span className="text-rust">add-invoices</span>
+          </span>
+          <span
+            key={left}
+            className={`animate-rise-in rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase ${
+              clean
+                ? "bg-acc-green/10 text-acc-green"
+                : "bg-acc-amber/10 text-acc-amber"
+            }`}
+          >
+            {clean ? "clean" : `${left} left behind`}
+          </span>
+        </div>
+
+        <ul className="divide-y divide-gray-100">
+          {LEFTOVERS.map(l => {
+            const done = gone.includes(l.name);
+            return (
+              <li key={l.name} className="flex items-center gap-3 px-5 py-2.5">
                 <span
-                  className={`text-[10px] font-semibold tracking-wider uppercase ${done ? "text-acc-green" : l.tone}`}
+                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition ${
+                    done
+                      ? "bg-acc-green/10 text-acc-green"
+                      : "bg-acc-amber/10 text-acc-amber"
+                  }`}
                 >
-                  {done ? "cleaned" : l.tag}
-                </span>
-                {l.junk && !done && (
-                  <Choice
-                    on={false}
-                    onClick={() => setGone(g => [...g, l.name])}
-                    tone=""
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
                   >
-                    fix
-                  </Choice>
+                    {done ? <path d="m5 12 5 5 9-10" /> : LEFTOVER_ICON[l.kind]}
+                  </svg>
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span
+                    className={`block truncate font-code text-xs ${
+                      done ? "text-gray-400 line-through" : "text-gray-800"
+                    }`}
+                  >
+                    {l.name}
+                  </span>
+                  <span className="block truncate text-[11px] text-gray-500">
+                    <span className={done ? "" : "text-acc-amber"}>
+                      {l.kind}
+                    </span>{" "}
+                    · {l.why}
+                  </span>
+                </span>
+                {done ? (
+                  <span className="shrink-0 animate-rise-in font-code text-[11px] text-acc-green">
+                    {l.done}
+                  </span>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setGone(g => [...g, l.name])}
+                    className="shrink-0 rounded-full border border-gray-200 px-3 py-1 font-code text-[11px] text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
+                  >
+                    {l.action}
+                  </button>
                 )}
+              </li>
+            );
+          })}
+          <li className="flex items-center gap-3 px-5 py-2.5 text-gray-400">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gray-100">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M12 17v5M9 3h6l-1 7 4 3v2H6v-2l4-3z" />
+              </svg>
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block truncate font-code text-xs">
+                Legacy.statement
               </span>
-            </div>
-          );
-        })}
-      </div>
+              <span className="block truncate text-[11px]">
+                pinned to a64ce1 on purpose · not a leftover
+              </span>
+            </span>
+          </li>
+        </ul>
+
+        <div className="flex items-center gap-3 border-t border-gray-100 bg-[#F9F9FB] px-5 py-3">
+          <span className="flex-1 font-code text-[11px] text-gray-500">
+            {clean
+              ? "ready to commit"
+              : `${gone.length} of ${LEFTOVERS.length} cleaned`}
+          </span>
+          <span
+            className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium transition ${
+              clean ? "bg-acc-green text-white" : "bg-gray-200 text-gray-400"
+            }`}
+          >
+            commit
+          </span>
+        </div>
+      </Card>
       <Note className="mt-3">
         <Arrow dir="up-right" />
-        the report knows who calls what, so "unused" is a fact, not a guess
+        {clean
+          ? "clean commit. each fix was the right kind, not a guess."
+          : "darklang knows who calls what, so it knows what's left over"}
       </Note>
     </Wrap>
   );
@@ -1853,39 +2287,40 @@ export const Cleanup: React.FC = () => {
 /* 11. review: two decisions for you, the rest already checked          */
 /* ------------------------------------------------------------------ */
 
-const DECIDE = [
+/** The change, grouped by what each part is for, not by file. */
+const REVIEW_GROUPS = [
   {
-    name: "type Invoice",
-    what: "new type · { customer: Customer; lines: List<Line>; total: Money }",
-    why: "shapes every invoice stored and emailed from now on",
+    title: "Invoices, built and sent",
+    items: [
+      { kind: "type", name: "Invoice", note: "new" },
+      { kind: "fn", name: "Invoice.build", note: "updated" },
+      { kind: "fn", name: "Invoice.render", note: "new" },
+      { kind: "fn", name: "Invoice.send", note: "new" },
+    ],
+    access: "+ Http POST api.stripe.com/v1/charges · + FileWrite /app/invoices",
   },
   {
-    name: "Billing.total",
-    what: "signature · Float → Money",
-    why: "every amount on an invoice now goes through Money",
+    title: "Totals become Amount, not Float",
+    items: [
+      { kind: "fn", name: "Billing.total", note: "Float → Amount" },
+      { kind: "type", name: "Amount", note: "new" },
+    ],
+    access: "",
   },
 ];
 
-const CHECKED = [
-  {
-    text: "Invoice.build, Api.balance, Invoice.show followed the new signature",
-    by: "type-checked, 0 errors",
-  },
-  { text: "Invoice.make → Invoice.build renamed", by: "0 callers edited" },
-  { text: "Legacy.statement stays on a64ce1", by: "pinned on purpose" },
-  { text: "12 tests passed · trace 2b91e0", by: "evidence attached" },
+/** Changes nobody wrote on purpose: they followed what they depend on. */
+const FOLLOWED = [
+  { name: "Invoice.show", why: "calls Billing.total" },
+  { name: "Api.balance", why: "calls Billing.total" },
+  { name: "Invoice.chargeAll", why: "calls Invoice.build" },
 ];
 
-const Tick: React.FC<{ on: boolean; auto?: boolean }> = ({
-  on,
-  auto = false,
-}) => (
+const Tick: React.FC<{ on: boolean }> = ({ on }) => (
   <span
-    className={`flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-md border text-[11px] transition ${
+    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border text-[11px] transition ${
       on
-        ? auto
-          ? "border-acc-green/40 bg-acc-green/10 text-acc-green"
-          : "border-acc-pink bg-acc-pink text-white"
+        ? "border-acc-pink bg-acc-pink text-white"
         : "border-gray-300 bg-white text-transparent"
     }`}
     aria-hidden
@@ -1895,88 +2330,199 @@ const Tick: React.FC<{ on: boolean; auto?: boolean }> = ({
 );
 
 export const Review: React.FC = () => {
-  const [done, setDone] = useState<boolean[]>(DECIDE.map(() => false));
-  const left = done.filter(d => !d).length;
+  const [ok, setOk] = useState<boolean[]>(REVIEW_GROUPS.map(() => false));
+  const [open, setOpen] = useState(false);
+  const [fix, setFix] = useState<"ready" | "taken" | "dropped">("ready");
+  const [undo, setUndo] = useState(false);
+  const left = ok.filter(v => !v).length;
   return (
     <Wrap>
       <Card>
-        <div className="flex items-center justify-between border-b border-gray-100 px-5 py-3">
-          <span className="font-code text-xs text-gray-700">
-            review · <span className="text-acc-pink">add-invoices</span>
-          </span>
-          <span className="font-code text-[10px] text-gray-light">
-            6 definitions · 212 lines if it were a diff
-          </span>
+        <div className="border-b border-gray-100 px-5 py-3">
+          <div className="flex items-center justify-between gap-3 font-code text-[11px]">
+            <span className="text-gray-500">
+              review · <span className="text-acc-pink">add-invoices</span>
+            </span>
+            <span className="text-gray-400">by agent-1</span>
+          </div>
+          <p className="mt-1 text-sm font-semibold text-gray-900">
+            Charge each customer monthly and email their invoice
+          </p>
         </div>
 
-        <div className="px-5 pt-4 pb-2">
-          <p className="text-[10px] font-bold tracking-[0.08em] text-acc-pink uppercase">
-            your decisions · {DECIDE.length}
+        <div className="space-y-2 px-5 pt-3 pb-2">
+          <p className="text-[10px] font-bold tracking-[0.08em] text-gray-400 uppercase">
+            what it does · you decide
           </p>
-          <ul className="mt-2 space-y-2">
-            {DECIDE.map((d, i) => (
-              <li key={d.name}>
+          {REVIEW_GROUPS.map((g, i) => (
+            <button
+              key={g.title}
+              type="button"
+              onClick={() => setOk(x => x.map((v, j) => (j === i ? !v : v)))}
+              aria-pressed={ok[i]}
+              className={`flex w-full items-start gap-3 rounded-xl border px-3 py-2.5 text-left transition ${
+                ok[i]
+                  ? "border-acc-pink/40 bg-acc-pink/5"
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
+            >
+              <span className="mt-0.5">
+                <Tick on={ok[i]} />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[13px] font-semibold text-gray-900">
+                  {g.title}
+                </span>
+                <span className="mt-1 flex flex-wrap gap-1.5">
+                  {g.items.map(it => (
+                    <span
+                      key={it.name}
+                      className="inline-flex items-center gap-1 rounded-md bg-gray-100 px-1.5 py-0.5 font-code text-[10px] text-gray-700"
+                    >
+                      <span className="text-[8px] tracking-wider text-gray-400 uppercase">
+                        {it.kind}
+                      </span>
+                      {it.name}
+                      <span className="text-gray-400">· {it.note}</span>
+                    </span>
+                  ))}
+                </span>
+                {g.access && (
+                  <span className="mt-1.5 block font-code text-[10px] text-acc-amber">
+                    permissions {g.access}
+                  </span>
+                )}
+              </span>
+            </button>
+          ))}
+          <button
+            type="button"
+            onClick={() => setUndo(v => !v)}
+            aria-expanded={undo}
+            className="font-code text-[10px] text-gray-400 hover:text-gray-600"
+          >
+            ↶ undo "Totals become Amount"
+          </button>
+          {undo && (
+            <p className="animate-rise-in rounded-lg bg-gray-50 px-3 py-2 text-[11px] text-gray-600">
+              Reverts Billing.total, Amount, and the 2 changes that followed
+              them (Invoice.show, Api.balance). The invoices stay.
+            </p>
+          )}
+        </div>
+
+        <div className="px-5 pb-3">
+          <button
+            type="button"
+            onClick={() => setOpen(v => !v)}
+            aria-expanded={open}
+            className="flex w-full items-center gap-3 rounded-xl bg-[#F9F9FB] px-3 py-2 text-left"
+          >
+            <Tick on />
+            <span className="min-w-0 flex-1 text-[12px] text-gray-600">
+              <span className="font-semibold text-gray-800">
+                {FOLLOWED.length} followed on their own
+              </span>{" "}
+              · approved together, type-checked
+            </span>
+            <span className="font-code text-[10px] text-gray-400">
+              {open ? "hide" : "show"}
+            </span>
+          </button>
+          {open && (
+            <ul className="mt-1 animate-rise-in space-y-0.5 pl-11 font-code text-[10px] text-gray-500">
+              {FOLLOWED.map(f => (
+                <li key={f.name}>
+                  <span className="text-gray-700">{f.name}</span> · {f.why}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <div className="border-t border-gray-100 px-5 py-3">
+          <p className="text-[12px] text-gray-700">
+            <span className="font-semibold">You:</span> what if the charge fails
+            in Invoice.send?
+          </p>
+          <div
+            className={`mt-2 rounded-xl border px-3 py-2 transition ${
+              fix === "taken"
+                ? "border-acc-green/40 bg-acc-green/5"
+                : fix === "dropped"
+                  ? "border-gray-200 opacity-50"
+                  : "border-acc-pink/30 bg-acc-pink/5"
+            }`}
+          >
+            <p className="flex flex-wrap items-baseline justify-between gap-2 font-code text-[10px]">
+              <span className="text-gray-500">
+                agent-1 · fix on agent/charge-retry
+              </span>
+              <span
+                className={
+                  fix === "taken"
+                    ? "text-acc-green"
+                    : fix === "dropped"
+                      ? "text-gray-400"
+                      : "text-acc-pink"
+                }
+              >
+                {fix === "taken"
+                  ? "taken into add-invoices"
+                  : fix === "dropped"
+                    ? "dropped"
+                    : "fix ready"}
+              </span>
+            </p>
+            <p className="mt-1 font-code text-[11px] text-gray-700">
+              + | Error e -&gt; Invoice.retryLater invoice e
+            </p>
+            {fix === "ready" && (
+              <div className="mt-1.5 flex gap-1.5">
                 <button
                   type="button"
-                  onClick={() =>
-                    setDone(x => x.map((v, j) => (j === i ? !v : v)))
-                  }
-                  aria-pressed={done[i]}
-                  className="flex w-full items-start gap-3 rounded-lg border border-gray-200 px-3 py-2 text-left transition hover:bg-gray-50"
+                  onClick={() => setFix("taken")}
+                  className="rounded-md bg-acc-pink px-2.5 py-0.5 text-[11px] font-medium text-white"
                 >
-                  <span className="mt-0.5">
-                    <Tick on={done[i]} />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block font-code text-xs text-gray-900">
-                      {d.name}
-                    </span>
-                    <span className="block font-code text-[11px] text-gray-500">
-                      {d.what}
-                    </span>
-                    <span className="block text-[11px] text-gray-500">
-                      {d.why}
-                    </span>
-                  </span>
+                  take fix
                 </button>
-              </li>
-            ))}
-          </ul>
+                <button
+                  type="button"
+                  onClick={() => setFix("dropped")}
+                  className="rounded-md px-2.5 py-0.5 text-[11px] text-gray-500 hover:bg-gray-100"
+                >
+                  drop
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="px-5 pt-3 pb-4">
-          <p className="text-[10px] font-bold tracking-[0.08em] text-acc-green uppercase">
-            checked for you · {CHECKED.length}
-          </p>
-          <ul className="mt-2 space-y-1.5">
-            {CHECKED.map(c => (
-              <li key={c.text} className="flex items-start gap-3">
-                <span className="mt-0.5">
-                  <Tick on auto />
-                </span>
-                <span className="min-w-0">
-                  <span className="block font-code text-[11px] text-gray-700">
-                    {c.text}
-                  </span>
-                  <span className="block text-[10px] text-gray-400">
-                    {c.by}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ul>
+        <div className="flex flex-wrap gap-1.5 border-t border-gray-100 px-5 py-2.5 font-code text-[10px]">
+          <span className="rounded-full bg-acc-green/10 px-2 py-0.5 text-acc-green">
+            0 type errors
+          </span>
+          <span className="rounded-full bg-acc-green/10 px-2 py-0.5 text-acc-green">
+            12 tests passed
+          </span>
+          <span className="rounded-full bg-gray-100 px-2 py-0.5 text-gray-600">
+            trace 2b91e0
+          </span>
+          <span className="rounded-full bg-gray-100 px-2 py-0.5 text-gray-600">
+            Legacy.statement stays on a64ce1
+          </span>
         </div>
 
         <div className="flex items-center justify-between border-t border-gray-100 bg-[#F9F9FB] px-5 py-3">
           <span className="font-code text-[11px] text-gray-500">
             {left === 0
-              ? "2 decisions made · 210 lines you never had to read"
+              ? "2 decisions made, the rest was checked for you"
               : `${left} decision${left > 1 ? "s" : ""} left`}
           </span>
           <span
             className={`rounded-full px-3 py-1 text-xs font-medium transition ${
               left === 0
-                ? "bg-acc-green text-white"
+                ? "bg-acc-pink text-white"
                 : "bg-gray-200 text-gray-400"
             }`}
           >
@@ -1985,8 +2531,8 @@ export const Review: React.FC = () => {
         </div>
       </Card>
       <Note className="mt-3">
-        <Arrow dir="up-right" />a review is the decisions. the rest is shown,
-        and already checked.
+        <Arrow dir="up-right" />
+        grouped by what it's for. you decide two things, not 212 lines.
       </Note>
     </Wrap>
   );
@@ -2188,133 +2734,135 @@ export const Sync: React.FC = () => {
 /* 13. deployment: the live app, and which version is live is a choice  */
 /* ------------------------------------------------------------------ */
 
-const LIVE_VERSIONS = ["e12b07", "4ac9d3", "b70f18"];
-const RESOURCES = [
-  {
-    type: "handler",
-    name: "GET /invoices/:id",
-    stat: "1.2k requests · 24h",
-    tone: "text-blue-lbg",
-  },
-  {
-    type: "datastore",
-    name: "Invoices",
-    stat: "1,204 rows",
-    tone: "text-acc-green",
-  },
-  {
-    type: "cron",
-    name: "monthly · 1st",
-    stat: "next in 6d",
-    tone: "text-acc-amber",
-  },
-  {
-    type: "worker",
-    name: "Invoice.send",
-    stat: "212 queued",
-    tone: "text-purple-lbg",
-  },
-];
+const DEV_V = "b70f18";
+const PROD_V = "4ac9d3";
+
+/** 0 before · 1 going live · 2 live and healthy · 3 rolled back */
+type DeployStage = 0 | 1 | 2 | 3;
+
+/** One place the app runs: which version it serves, and how it's doing. */
+const Env: React.FC<{
+  name: string;
+  where: string;
+  version: string;
+  status: React.ReactNode;
+  tone: "dev" | "live";
+  flash: boolean;
+}> = ({ name, where, version, status, tone, flash }) => (
+  <div
+    className={`min-w-0 rounded-2xl border bg-white px-4 py-3 shadow-sm transition ${
+      tone === "live" ? "border-blue-lbg/40" : "border-gray-200"
+    }`}
+  >
+    <div className="flex items-center justify-between gap-2">
+      <span className="flex items-center gap-2 text-sm font-semibold text-dark">
+        <span className="h-2 w-2 animate-pulse rounded-full bg-olive" />
+        {name}
+      </span>
+      <span className="text-[10px] text-gray-400">{where}</span>
+    </div>
+    <p
+      key={version}
+      className={`mt-3 font-code text-lg ${flash ? "animate-rise-in" : ""} ${
+        tone === "dev" ? "text-gray-700" : "text-blue-lbg"
+      }`}
+    >
+      {version}
+    </p>
+    <div className="mt-1 min-h-[2.5rem] font-code text-[11px] leading-snug">
+      {status}
+    </div>
+  </div>
+);
 
 export const Deployment: React.FC = () => {
-  const [live, setLive] = useState(2);
-  const rolledBack = live !== LIVE_VERSIONS.length - 1;
+  const [stage, setStage] = useState<DeployStage>(0);
+
+  // a moment after switching, the first real requests come back fine
+  useEffect(() => {
+    if (stage !== 1) return;
+    const t = window.setTimeout(() => setStage(2), 1400);
+    return () => window.clearTimeout(t);
+  }, [stage]);
+
+  const prodVersion = stage === 1 || stage === 2 ? DEV_V : PROD_V;
+  const prodStatus =
+    stage === 0 ? (
+      <span className="text-gray-500">1.2k requests today · 0 errors</span>
+    ) : stage === 1 ? (
+      <span className="text-gray-500">live · watching real requests…</span>
+    ) : stage === 2 ? (
+      <span className="text-gray-500">
+        <span className="text-acc-green">214 requests · 0 errors</span>
+        <br />
+        traces look normal
+      </span>
+    ) : (
+      <span className="text-gray-500">back on {PROD_V} · nothing rebuilt</span>
+    );
+
+  const action =
+    stage === 0
+      ? { label: `make ${DEV_V} live →`, go: () => setStage(1) }
+      : stage === 2
+        ? { label: `← roll back to ${PROD_V}`, go: () => setStage(3) }
+        : stage === 3
+          ? { label: "↻ start over", go: () => setStage(0) }
+          : null;
+
   return (
     <Wrap>
-      <Card>
-        <div className="flex items-center justify-between px-5 pt-4">
-          <span className="flex items-center gap-2 text-sm font-semibold text-dark">
-            <span className="h-2 w-2 rounded-full bg-olive" />
-            Invoices is live
-          </span>
-          <span
-            key={live}
-            className="animate-rise-in font-code text-xs text-gray-400"
-          >
-            version {LIVE_VERSIONS[live]}
-          </span>
-        </div>
-        <div className="grid grid-cols-2 gap-2.5 px-5 pt-4">
-          {RESOURCES.map(r => (
-            <div
-              key={r.name}
-              className="rounded-xl border border-gray-200 bg-[#F9F9FB] px-3 py-2.5"
-            >
-              <div className="flex items-center gap-2">
-                <span
-                  className={`text-[10px] font-semibold tracking-wide uppercase ${r.tone}`}
-                >
-                  {r.type}
-                </span>
-                <span className="ml-auto h-1.5 w-1.5 rounded-full bg-olive" />
-              </div>
-              <div className="mt-1 flex items-baseline justify-between gap-2">
-                <span className="truncate font-code text-xs text-dark">
-                  {r.name}
-                </span>
-                <span className="shrink-0 text-[10px] text-gray-dark">
-                  {r.stat}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-4 border-t border-gray-100 px-5 py-4">
-          <div className="flex items-center justify-between">
-            <span className="text-[10px] font-semibold tracking-wider text-gray-light uppercase">
-              which version is live
+      <div className="grid grid-cols-1 items-stretch gap-3 sm:grid-cols-2">
+        <Env
+          name="your machine"
+          where="development"
+          version={DEV_V}
+          tone="dev"
+          flash={false}
+          status={
+            <span className="text-gray-500">
+              live the moment you save
+              <br />
+              12 tests passed
             </span>
-            <span className="text-[10px] text-gray-400">
-              every one still here
+          }
+        />
+        <Env
+          name="live"
+          where="Darklang Cloud · what users see"
+          version={prodVersion}
+          tone="live"
+          flash
+          status={prodStatus}
+        />
+      </div>
+
+      <div className="mt-3 flex min-h-8 flex-wrap items-center justify-between gap-3">
+        {action ? (
+          <Choice on={false} onClick={action.go} tone="">
+            <span className={stage === 0 ? "text-blue-lbg" : "text-gray-500"}>
+              {action.label}
             </span>
-          </div>
-          <div className="relative mt-9">
-            <div className="absolute top-[7px] right-[16.6%] left-[16.6%] h-px bg-gray-200" />
-            <div className="grid grid-cols-3">
-              {LIVE_VERSIONS.map((v, i) => (
-                <button
-                  key={v}
-                  type="button"
-                  onClick={() => setLive(i)}
-                  className="group flex flex-col items-center gap-1.5"
-                >
-                  <span
-                    className={`h-3.5 w-3.5 rounded-full border-2 transition ${
-                      i === live
-                        ? "border-blue-lbg bg-blue-lbg"
-                        : "border-gray-300 bg-white group-hover:border-blue-lbg/60"
-                    }`}
-                  />
-                  <span
-                    className={`font-code text-[10px] ${i === live ? "text-blue-lbg" : "text-gray-500"}`}
-                  >
-                    {v}
-                  </span>
-                </button>
-              ))}
-            </div>
-            <div
-              className="absolute -top-6 -translate-x-1/2 rounded bg-blue-lbg px-1.5 py-0.5 text-[9px] font-semibold text-white transition-[left] duration-500"
-              style={{ left: `${16.6 + live * 33.4}%` }}
-            >
-              live
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-gray-100 bg-[#F9F9FB] px-5 py-3">
-          <span className="text-xs text-gray-dark">
-            same version on your machine · your infra · Darklang Cloud
+          </Choice>
+        ) : (
+          <span className="px-2.5 font-code text-xs text-gray-400">
+            going live…
           </span>
-          <span className="text-[10px] text-gray-light">
-            nothing to build, nothing to ship
-          </span>
-        </div>
-      </Card>
-      <Note className="mt-3">
+        )}
+        <span className="font-code text-[10px] text-gray-400">
+          no build · no deploy step · every version kept
+        </span>
+      </div>
+
+      <Note className="mt-2">
         <Arrow dir="up-right" />
-        {rolledBack
-          ? "rolled back. nothing rebuilt, nothing redeployed."
-          : "click an earlier version. that is the whole rollback."}
+        {stage === 0
+          ? "users stay on 4ac9d3 until you pick another version"
+          : stage === 1
+            ? "same code that ran on your machine, now serving users"
+            : stage === 2
+              ? "live. the previous version is one click away, just in case."
+              : "rolled back in one click. the old version never left."}
       </Note>
     </Wrap>
   );

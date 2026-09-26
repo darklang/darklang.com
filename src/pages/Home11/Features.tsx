@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import SectionTitle from "../../common/ui/SectionTitle";
 import { Shell } from "../Home10/parts";
@@ -19,6 +20,8 @@ interface Outline {
   /** One line before the bullets, where the list needs a claim made once. */
   intro?: string;
   points: string[];
+  /** Where to read more, shown under the points. */
+  links?: { label: string; to: string }[];
 }
 
 type Accent =
@@ -210,6 +213,34 @@ const SECTIONS: Outline[] = [
     ],
   },
   {
+    id: "packages",
+    eyebrow: "Packages",
+    accent: "acc-teal",
+    title: (
+      <>
+        Packages that{" "}
+        <span className="text-acc-teal">can't change under you</span>
+      </>
+    ),
+    problem:
+      "Agents add dependencies faster than anyone checks them. They guess at package names, pull in a new version that behaves differently, or write a helper that already exists. A lockfile pins a version string, not the code, and an install script runs before anyone has read it.",
+    intro:
+      "In Darklang, every function, type, and value is identified by its content, and packages live in the same store as your code:",
+    points: [
+      "Content-addressed: each definition is known by a hash of its code, so a reference always means exactly that code, and a new version is a new hash next to the old one",
+      "Nothing to install: use a function by naming it, with no manifest, no lockfile, and no install script",
+      "Names are just labels: renaming a package function changes its name, not its hash, so nothing that uses it breaks",
+      "Read before you use: an agent can open a function's code and signature before calling it",
+      "See what it needs: every package function lists what it reaches outside itself, such as files, HTTP, databases, or environment variables, worked out from its code, and a new version that needs more stands out",
+      "Find what already exists: search by name, or find every value of a given type, so the agent reuses code instead of writing it again",
+      "Publish by pushing: push your commits and they show up on a public page anyone can browse, pull from, or review first",
+    ],
+    links: [
+      { label: "Browse packages", to: "/packages" },
+      { label: "How the package manager works", to: "/package-manager" },
+    ],
+  },
+  {
     id: "branches",
     eyebrow: "Branches",
     accent: "purple-lbg",
@@ -322,6 +353,11 @@ const SECTIONS: Outline[] = [
       "The evidence is attached: the tests and traces used to check the result",
       "Unrelated work stays out: commit selected definitions together with just the dependencies they need",
       "Review at the level that matters: the report separates the changes that set direction, such as new types, changed signatures, and edits high in the dependency graph, from the mechanical ones that followed, so a reviewer can go deep on a few and trust the rest",
+      "Intent comes first: the review opens with what the change is for, grouped by purpose, before any code",
+      "Permissions are part of the review: each change shows any new access it asks for",
+      "Undo one idea: revert a change and everything that followed from it, and keep the rest of the branch",
+      "Hand comments to an agent: it prepares clear fixes on their own branch for you to take or drop, and asks you when it needs a decision",
+      "Merge what's ready: parts of a change that don't depend on the rest can go out now while the main change waits",
     ],
   },
   {
@@ -383,6 +419,7 @@ const VISUALS: Record<string, React.ReactNode> = {
   answers: <V.Answers />,
   impact: <V.Impact />,
   versions: <V.Versions />,
+  packages: <V.Packages />,
   branches: <V.Branches />,
   tracing: <V.Tracing />,
   access: <V.Access />,
@@ -423,6 +460,19 @@ const Features: React.FC = () => (
                   <Point key={point} text={point} />
                 ))}
               </ul>
+              {section.links && (
+                <p className="flex flex-wrap gap-x-6 gap-y-2 text-base">
+                  {section.links.map(l => (
+                    <Link
+                      key={l.to}
+                      to={l.to}
+                      className={`font-semibold underline-offset-4 hover:underline ${ACCENT[section.accent].text}`}
+                    >
+                      {l.label} →
+                    </Link>
+                  ))}
+                </p>
+              )}
             </div>
           </div>
 

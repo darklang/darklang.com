@@ -237,7 +237,7 @@ const BUILT_INS: { label: string; tone: Tone; icon: React.ReactNode }[] = [
     ),
   },
   {
-    label: "Capabilities",
+    label: "Permissions",
     tone: "teal",
     icon: (
       <Icon>
@@ -549,7 +549,7 @@ const DashedRule: React.FC = () => (
 );
 
 /* ------------------------------------------------------------------ */
-/* Capabilities, without the terminal                                  */
+/* Permissions, without the terminal                                   */
 /* ------------------------------------------------------------------ */
 
 /** A command, set on the page rather than inside a fake terminal. */
@@ -562,11 +562,11 @@ const Cmd: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   </p>
 );
 
-/** What a function needs, and then what got granted. */
-const CapsFlow: React.FC = () => (
+/** What a function requires, and then what you allow. */
+const PermissionsFlow: React.FC = () => (
   <div className="grid gap-9">
     <div>
-      <Cmd>dark caps needed-for Support.Sync.refreshTickets</Cmd>
+      <Cmd>dark permissions requirements Support.Sync.refreshTickets</Cmd>
 
       <ul className="mt-4 grid gap-2.5">
         {NEEDS.map(need => (
@@ -588,7 +588,7 @@ const CapsFlow: React.FC = () => (
     </div>
 
     <div>
-      <Cmd>dark caps grant-for-fn Support.Sync.refreshTickets</Cmd>
+      <Cmd>dark permissions approve Support.Sync.refreshTickets</Cmd>
 
       <ul className="mt-4 grid gap-2">
         {NEEDS.map(need => (
@@ -605,9 +605,9 @@ const CapsFlow: React.FC = () => (
       </ul>
 
       <p className="mt-4 text-sm 2xl:text-base leading-relaxed text-gray-600">
-        Or one at a time, with{" "}
+        Or one rule at a time, with{" "}
         <span className="font-code text-purple-dbg">
-          dark caps grant db read Tickets
+          dark permissions allow db read Tickets
         </span>
         .
       </p>
@@ -616,8 +616,7 @@ const CapsFlow: React.FC = () => (
     <div>
       <Cmd>dark run untrusted.dark --sandbox</Cmd>
       <p className="mt-3 text-sm 2xl:text-base leading-relaxed text-gray-600">
-        Runs with no capabilities at all, whatever this instance otherwise
-        grants.
+        Runs under a deny-all policy, whatever this instance otherwise allows.
       </p>
     </div>
   </div>
@@ -844,17 +843,17 @@ const HTTP_CLIENT_CODE = `let fetchIssue (url: String) : Stdlib.Result.Result<St
     |> Stdlib.Result.Result.Error`;
 
 /**
- * What `dark caps needed-for` reports, as data. NOT captured:
- * `Support.Sync.refreshTickets` doesn't exist to run against. The domains and
- * details follow the real renderer (`PrettyPrinter.Capabilities.detail`), so
- * they should match once there's a function to point it at.
+ * What `dark permissions requirements` reports, as data. NOT captured:
+ * `Support.Sync.refreshTickets` doesn't exist to run against. The rules follow
+ * the real grammar (`LanguageTools.Permissions.renderRule`), so they should
+ * match once there's a function to point it at.
  */
 const NEEDS: { domain: string; detail: string; tone: Tone; spec: string }[] = [
   {
-    domain: "http-client",
+    domain: "http",
     detail: "GET → https://api.example.com/*",
     tone: "purple",
-    spec: "http-client GET https://api.example.com/*",
+    spec: "http GET https://api.example.com/*",
   },
   {
     domain: "db",
@@ -876,17 +875,17 @@ const NEEDS: { domain: string; detail: string; tone: Tone; spec: string }[] = [
   },
 ];
 
-const CAPABILITIES = [
-  "http-client",
+/** The effects, by the names `permissions allow` and denials use. */
+const EFFECTS = [
+  "http",
   "http-server",
-  "db read / write",
-  "file read / write",
-  "env read / write",
-  "exec",
+  "db-read / db-write",
+  "file-read / file-write",
+  "env-read / env-write",
+  "process",
   "clock",
   "random",
-  "stdout / stdin",
-  "llm",
+  "stdin / stdout",
 ];
 
 /**
@@ -1103,7 +1102,7 @@ const Backends: React.FC = () => {
           </Body>
           <Body>
             In Darklang, HTTP, data, external calls, scripts, traces,
-            capabilities, packages, and source control are parts of the same
+            permissions, packages, and source control are parts of the same
             programming environment. The same typed functions can handle a
             request, run directly, support a script, appear in a trace, or be
             used by a coding agent.
@@ -1261,8 +1260,8 @@ const Backends: React.FC = () => {
                   </Icon>
                 }
               >
-                Datastore reads and writes are separate runtime capabilities,
-                and each can be granted for a specific datastore.
+                Datastore reads and writes are separate effects, and each can be
+                allowed for a specific datastore.
               </Point>
             </div>
           </div>
@@ -1298,7 +1297,7 @@ const Backends: React.FC = () => {
             </Body>
             <Body className="mb-5">
               They call ordinary Darklang functions, using the same types,
-              datastores, packages, and capabilities as the rest of the backend.
+              datastores, packages, and permissions as the rest of the backend.
               Every run produces the same structured execution traces.
             </Body>
             <Body>
@@ -1328,7 +1327,7 @@ const Backends: React.FC = () => {
             <Body className="mb-5">
               Use <C>Stdlib.HttpClient</C> to make outbound requests or consume
               a response as it arrives. Network access can be restricted by
-              method and destination through runtime capabilities.
+              method and destination through permission rules.
             </Body>
             <Body className="mb-5">
               Every request returns an explicit <C>Result</C>, so network
@@ -1348,38 +1347,37 @@ const Backends: React.FC = () => {
         </div>
       </Shell>
 
-      {/* ===================== CAPABILITIES ===================== */}
+      {/* ================= EFFECTS AND PERMISSIONS ================= */}
       <Shell>
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
-            <Eyebrow>Capabilities</Eyebrow>
+            <Eyebrow>Effects and permissions</Eyebrow>
             <H2 className="mb-4">Nothing Reaches Out Without Permission</H2>
             <Body className="mb-5">
-              Pure functions need no runtime access. Operations that use the
-              network, datastores, files, environment, subprocesses, time,
-              randomness, terminal, or models declare the capabilities they
-              require.
+              Pure functions have no effects. Anything that touches the network,
+              datastores, files, environment, subprocesses, time, randomness, or
+              the terminal is an effect, and a function requires every effect of
+              the code it calls.
             </Body>
             <Body className="mb-8">
-              Ask what a function needs, including everything it calls, and
-              grant only that. Code you do not trust can run in a deny-all
-              sandbox.
+              Ask what a function requires and allow only that. Code you do not
+              trust can run under a deny-all policy.
             </Body>
 
             <div className="flex flex-wrap gap-2">
-              {CAPABILITIES.map(capability => (
+              {EFFECTS.map(effect => (
                 <span
-                  key={capability}
+                  key={effect}
                   className="rounded-lg border border-gray-200 bg-white px-2.5 py-1 font-code text-xs 2xl:text-sm text-gray-700"
                 >
-                  {capability}
+                  {effect}
                 </span>
               ))}
             </div>
           </div>
 
           <div className="min-w-0">
-            <CapsFlow />
+            <PermissionsFlow />
           </div>
         </div>
       </Shell>
@@ -1421,7 +1419,7 @@ const Backends: React.FC = () => {
               application. No second codebase or duplicated domain model.
             </Body>
             <Body className="mb-8">
-              Run each tool with only the capabilities it needs, or with none in
+              Run each tool with only the permissions it needs, or with none in
               a deny-all sandbox. Its execution produces the same structured
               traces as the rest of the backend.
             </Body>
@@ -1486,7 +1484,7 @@ const Backends: React.FC = () => {
             Classic is the original hosted product. Modern Darklang is a new
             open-source implementation, not a rename, and it keeps the strongest
             idea, backend primitives that work together, while adding local
-            development, self-hosting, structured source control, capabilities,
+            development, self-hosting, structured source control, permissions,
             modern tooling, and first-class support for coding agents.
           </Body>
         </div>
@@ -1542,7 +1540,7 @@ const Backends: React.FC = () => {
           <H2 className="mb-4">A Backend Your Coding Agent Can Understand</H2>
           <Body className="mb-5">
             Darklang exposes its package tree, definitions, dependencies,
-            runtime, traces, capabilities, branches, and datastores through
+            runtime, traces, permissions, branches, and datastores through
             structured tools, so an agent that can call command-line tools works
             with the whole environment.
           </Body>
@@ -1565,7 +1563,7 @@ const Backends: React.FC = () => {
           <H2 className="mb-4">Build Your First Backend</H2>
           <Body className="mb-8">
             Install Darklang, write a handler, and serve it. The datastore, the
-            traces, and the capability checks are already there.
+            traces, and the permission checks are already there.
           </Body>
 
           <div className="flex flex-wrap items-center justify-center gap-3">

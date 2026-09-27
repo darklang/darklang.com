@@ -1,0 +1,3 @@
+dist
+# Fetched from darklang/dark at build time by scripts/fetch-install-script.sh
+public/install

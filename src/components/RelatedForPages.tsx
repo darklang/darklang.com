@@ -30,6 +30,13 @@ const RelatedForPages: React.FC<RelatedForPagesProps> = ({ currentPath }) => {
       icon: "🐍",
     },
     {
+      path: "ai-and-security",
+      title: "AI and Security",
+      description:
+        "You can't read everything an agent writes. Darklang tells you what it's able to do before you run it.",
+      icon: "🛡️",
+    },
+    {
       path: "ai-developers",
       title: "AI Developers",
       description:

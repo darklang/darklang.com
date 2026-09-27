@@ -1,4 +1,7 @@
 scripts/dark-cli-linux
+
+# Fetched from darklang/dark at build time by scripts/fetch-install-script.sh
+public/install
 # Logs
 logs
 *.log

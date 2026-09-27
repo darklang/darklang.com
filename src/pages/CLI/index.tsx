@@ -240,7 +240,7 @@ const VIEW_TERM: Line[] = [
   out("let get (uri: String) (headers: List<(String * String)>):"),
   out("  Result<HttpClient.Response, HttpClient.RequestError> ="),
   out('  Stdlib.HttpClient.request "GET" uri headers Stdlib.Blob.empty'),
-  dim("capabilities: http-client"),
+  dim("permission requirements: http"),
 ];
 
 const DEPS_TERM: Line[] = [
@@ -377,7 +377,7 @@ const Workbench: React.FC = () => (
             {'  request "GET" uri headers Stdlib.Blob.empty'}
           </div>
           <div className="mt-3 whitespace-pre text-gray-500">
-            capabilities: http-client
+            permission requirements: http
           </div>
         </div>
       </div>
@@ -503,9 +503,9 @@ const TUI_VIEWS: { h: string; cmd: string; p: string }[] = [
     p: "Open a recorded call tree with its values, errors, and timing.",
   },
   {
-    h: "Capability Editor",
-    cmd: "dark caps edit",
-    p: "Inspect and adjust the network, data, file, environment, process, and model access available to the instance.",
+    h: "Permissions",
+    cmd: "dark permissions",
+    p: "See the instance policy, then allow or deny network, data, file, environment, and process access one exact rule at a time.",
   },
 ];
 
@@ -545,7 +545,7 @@ const MAP: { group: string; commands: string[] }[] = [
   },
   { group: "Create", commands: ["fn", "type", "val", "undo", "deprecate"] },
   { group: "Execute", commands: ["eval", "run", "scripts", "serve"] },
-  { group: "Inspect", commands: ["traces", "db", "caps", "apps"] },
+  { group: "Inspect", commands: ["traces", "db", "permissions", "apps"] },
   {
     group: "Version",
     commands: ["status", "review", "commit", "branch", "rebase", "merge"],
@@ -874,7 +874,7 @@ const CLIPage: React.FC = () => {
           </Body>
           <Body className="mb-8">
             <C>dark docs for-ai</C> provides an agent-focused guide to the
-            program model, syntax, command surface, capabilities, and
+            program model, syntax, command surface, permissions, and
             source-control workflow.
           </Body>
 

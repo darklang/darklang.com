@@ -34,6 +34,16 @@ jobs:
       # Deploy using the script
       - run: ./scripts/deploy.sh
 
+  # wip is served from Fly (see fly.toml). Fly builds the image itself from
+  # the Dockerfile, so this job doesn't need the build workspace.
+  deploy-fly:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+      - run: curl -fsSL https://fly.io/install.sh | sh
+      - run: ~/.fly/bin/flyctl deploy --remote-only
+
 workflows:
   version: 2
   build-and-deploy:
@@ -44,7 +54,12 @@ workflows:
             branches:
               only:
                 - main
+          requires:
+            - build
+      - deploy-fly:
+          filters:
+            branches:
+              only:
                 - wip
-                - wip2
           requires:
             - build

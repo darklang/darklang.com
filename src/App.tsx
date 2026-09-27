@@ -54,6 +54,7 @@ import Support from "./pages/Support";
 import SourceControl from "./pages/SourceControl";
 import Sharing from "./pages/Sharing";
 import No from "./pages/No";
+import History from "./pages/History";
 import Stats from "./pages/Stats";
 
 function App() {
@@ -110,6 +111,7 @@ function App() {
           <Route path="support" element={<Support />} />
           <Route path="sharing" element={<Sharing />} />
           <Route path="no" element={<No />} />
+          <Route path="history" element={<History />} />
           <Route path="stats" element={<Stats />} />
           <Route path="packages" element={<Packages />} />
           <Route path="packages/:packageName" element={<PackageDetail />} />

@@ -41,7 +41,7 @@ jobs:
       - image: cimg/base:current
     steps:
       - checkout
-      - run: curl -fsSL https://fly.io/install.sh | sh
+      - run: curl -fsSL https://fly.io/install.sh | sh -s -- --non-interactive
       - run: ~/.fly/bin/flyctl deploy --remote-only
 
 workflows:

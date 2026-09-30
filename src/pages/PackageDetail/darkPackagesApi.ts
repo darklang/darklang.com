@@ -2,20 +2,41 @@ import { SubModule, PackageData } from "./types";
 
 // API Response Types
 export interface ApiFunction {
-  name?: { name: string };
-  parameters?: Array<{ name: string; typ: any }>;
-  returnType?: any;
-  description?: string;
+  location?: {
+    owner: string;
+    modules: string[];
+    name: string;
+  };
+  entity?: {
+    parameters?: Array<{ name: string; typ: any }>;
+    returnType?: any;
+    description?: string;
+    deprecated?: any;
+  };
 }
 
 export interface ApiType {
-  name?: { name: string };
-  description?: string;
+  location?: {
+    owner: string;
+    modules: string[];
+    name: string;
+  };
+  entity?: {
+    description?: string;
+    deprecated?: any;
+  };
 }
 
 export interface ApiValue {
-  name?: { name: string };
-  description?: string;
+  location?: {
+    owner: string;
+    modules: string[];
+    name: string;
+  };
+  entity?: {
+    description?: string;
+    deprecated?: any;
+  };
 }
 
 export interface ApiResponse {
@@ -58,14 +79,16 @@ export interface ProcessedItemData {
 }
 
 export interface TypeDefinition {
-  declaration: any;
-  deprecated: any;
-  description: string;
-  id: string;
-  name: {
+  location?: {
+    owner: string;
     modules: string[];
     name: string;
-    owner: string;
+  };
+  entity?: {
+    id?: string;
+    declaration?: any;
+    deprecated?: any;
+    description?: string;
   };
 }
 
@@ -101,8 +124,13 @@ const UUID_REGEX =
 class DarkPackagesApi {
   private readonly baseUrl = "http://dark-packages.dlio.localhost:11001/search";
   private readonly typeUrl =
-    "http://dark-packages.dlio.localhost:11001/type/get";
+    "http://dark-packages.dlio.localhost:11001/type/get/with-location";
   private readonly typeCache = new Map<string, string>();
+
+  // Extract name from location
+  private extractName(item: ApiFunction | ApiType | ApiValue): string {
+    return item.location?.name ?? "Unknown";
+  }
 
   private async fetchData(url: string): Promise<ApiResponse> {
     try {
@@ -113,7 +141,8 @@ class DarkPackagesApi {
           `HTTP error! status: ${response.status} - ${errorText}`,
         );
       }
-      return await response.json();
+      const data = await response.json();
+      return data;
     } catch (error) {
       console.error("API Fetch Error:", error);
       throw error;
@@ -146,7 +175,7 @@ class DarkPackagesApi {
   }
 
   private getTypeNameFromDefinition(typeDef: TypeDefinition): string {
-    return typeDef.name.name;
+    return typeDef.location?.name ?? "Unknown";
   }
 
   private async resolveCachedOrFetchType(typeId: string): Promise<string> {
@@ -217,7 +246,9 @@ class DarkPackagesApi {
   }
 
   private async getTypeString(typeObj: any): Promise<string> {
-    if (!typeObj) return "Unknown";
+    if (!typeObj) {
+      return "Unknown";
+    }
 
     // Handle primitive types
     const primitiveType = await this.processPrimitiveType(typeObj);
@@ -344,16 +375,21 @@ class DarkPackagesApi {
   }
 
   private async createFunctionSignature(fn: ApiFunction): Promise<string> {
-    const name = fn.name?.name || "Unknown";
-    const params = await this.processParameters(fn.parameters);
+    const name = this.extractName(fn);
+
+    // Extract parameters and returnType from entity
+    const parameters = fn.entity?.parameters;
+    const returnType = fn.entity?.returnType;
+
+    const params = await this.processParameters(parameters);
 
     // Filter out unit parameters for display, but keep all function types
     const displayParams = params.filter(p => !UNIT_TYPES.has(p.type));
 
     const paramStr = displayParams.map(p => `${p.name}: ${p.type}`).join(", ");
-    const returnType = await this.getTypeString(fn.returnType);
+    const returnTypeStr = await this.getTypeString(returnType);
 
-    return `${name}(${paramStr}) : ${returnType}`;
+    return `${name}(${paramStr}) : ${returnTypeStr}`;
   }
 
   async searchModuleData(moduleName: string): Promise<ApiResponse> {
@@ -466,25 +502,29 @@ class DarkPackagesApi {
 
     const functionList = await Promise.all(
       (apiData.fns || []).map(async (fn: ApiFunction) => ({
-        name: fn.name?.name || "Unknown",
+        name: this.extractName(fn),
         signature: await this.createFunctionSignature(fn),
-        description: fn.description || "No description available",
+        description: fn.entity?.description || "No description available",
       })),
     );
 
-    const typeList = (apiData.types || []).map((type: ApiType) => ({
-      name: type.name?.name || "Unknown",
-      description:
-        type.description ||
-        `Type definition for ${type.name?.name || "Unknown"}`,
-    }));
+    const typeList = (apiData.types || []).map((type: ApiType) => {
+      const name = this.extractName(type);
+      const description = type.entity?.description;
+      return {
+        name,
+        description: description || `Type definition for ${name}`,
+      };
+    });
 
-    const valueList = (apiData.values || []).map((value: ApiValue) => ({
-      name: value.name?.name || "Unknown",
-      description:
-        value.description ||
-        `Value definition for ${value.name?.name || "Unknown"}`,
-    }));
+    const valueList = (apiData.values || []).map((value: ApiValue) => {
+      const name = this.extractName(value);
+      const description = value.entity?.description;
+      return {
+        name,
+        description: description || `Value definition for ${name}`,
+      };
+    });
 
     return {
       name: displayName,
@@ -519,31 +559,31 @@ class DarkPackagesApi {
 
     const fullFunctionData = await Promise.all(
       (apiData.fns || []).map(async (fn: ApiFunction) => ({
-        name: fn.name?.name || "Unknown",
+        name: this.extractName(fn),
         signature: await this.createFunctionSignature(fn),
-        description: fn.description || "No description available",
+        description: fn.entity?.description || "No description available",
       })),
     );
 
     const fullTypeData = (apiData.types || []).map((type: ApiType) => ({
-      name: type.name?.name || "Unknown",
-      description: type.description || "No description available",
+      name: this.extractName(type),
+      description: type.entity?.description || "No description available",
     }));
 
     const fullValueData = (apiData.values || []).map((value: ApiValue) => ({
-      name: value.name?.name || "Unknown",
-      description: value.description || "No description available",
+      name: this.extractName(value),
+      description: value.entity?.description || "No description available",
     }));
 
     return {
-      functions: (apiData.fns || []).map(
-        (fn: ApiFunction) => fn.name?.name || "Unknown",
+      functions: (apiData.fns || []).map((fn: ApiFunction) =>
+        this.extractName(fn),
       ),
-      types: (apiData.types || []).map(
-        (type: ApiType) => type.name?.name || "Unknown",
+      types: (apiData.types || []).map((type: ApiType) =>
+        this.extractName(type),
       ),
-      values: (apiData.values || []).map(
-        (value: ApiValue) => value.name?.name || "Unknown",
+      values: (apiData.values || []).map((value: ApiValue) =>
+        this.extractName(value),
       ),
       submodules: processedSubmodules,
       fullFunctionData,
